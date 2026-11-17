@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "updated": "2026-05-31",
+  "notes": [
+    "These templates are approximate local preview boxes over saved Printify catalog reference images.",
+    "They are for fast product prototyping only; always verify final placement in the Printify editor/mockup before publishing."
+  ],
+  "templates": {
+    "tops.tshirt_front": {
+      "family": "tops",
+      "reference_image": "shared/assets/references/printify-products/6-unisex-heavy-cotton-tee-main.png",
+      "art_box": [0.31, 0.27, 0.38, 0.34],
+      "description": "Centered chest preview for standard T-shirts."
+    },
+    "tops.hoodie_front": {
+      "family": "tops",
+      "reference_image": "shared/assets/references/printify-products/77-unisex-heavy-blend-hooded-sweatshirt-main.png",
+      "art_box": [0.32, 0.34, 0.36, 0.28],
+      "description": "Centered front preview for hoodies/polerones."
+    },
+    "tops.sweatshirt_front": {
+      "family": "tops",
+      "reference_image": "shared/assets/references/printify-products/49-unisex-heavy-blend-crewneck-sweatshirt-main.png",
+      "art_box": [0.31, 0.29, 0.38, 0.32],
+      "description": "Centered chest preview for crewneck sweatshirts."
+    },
+    "mugs.front": {
+      "family": "mugs",
+      "reference_image": "shared/assets/references/printify-products/68-mug-11oz-main.png",
+      "art_box": [0.25, 0.30, 0.36, 0.40],
+      "description": "Approximate flat overlay on the visible front of an 11oz mug."
+    },
+    "mugs.travel_front": {
+      "family": "mugs",
+      "reference_image": "shared/assets/references/printify-products/70-stainless-steel-travel-mug-main.png",
+      "art_box": [0.28, 0.26, 0.40, 0.46],
+      "description": "Approximate front overlay for travel mugs/tumblers."
+    },
+    "posters.vertical": {
+      "family": "wall_art",
+      "reference_image": "shared/assets/references/printify-products/282-matte-vertical-posters-main.png",
+      "art_box": [0.20, 0.08, 0.60, 0.84],
+      "description": "Vertical poster preview."
+    },
+    "accessories.mouse_pad": {
+      "family": "accessories",
+      "reference_image": "shared/assets/references/printify-products/608-mouse-pad-rectangle-main.png",
+      "art_box": [0.12, 0.24, 0.76, 0.52],
+      "description": "Rectangle mouse pad preview."
+    },
+    "accessories.sticker": {
+      "family": "accessories",
+      "reference_image": "shared/assets/references/printify-products/400-kiss-cut-stickers-main.png",
+      "art_box": [0.24, 0.18, 0.52, 0.58],
+      "description": "Sticker sheet/object preview."
+    },
+    "accessories.phone_case": {
+      "family": "accessories",
+      "reference_image": "shared/assets/references/printify-products/269-tough-phone-cases-main.png",
+      "art_box": [0.36, 0.11, 0.28, 0.76],
+      "description": "Approximate phone case back preview."
+    },
+    "accessories.tote_bag": {
+      "family": "bags",
+      "reference_image": "shared/assets/references/printify-products/609-organic-canvas-tote-bag-main.png",
+      "art_box": [0.28, 0.35, 0.44, 0.40],
+      "description": "Front-center tote bag preview."
+    },
+    "accessories.hat_front": {
+      "family": "hats",
+      "reference_image": "shared/assets/references/printify-products/1729-distressed-dad-hat-embroidery-main.png",
+      "art_box": [0.36, 0.32, 0.28, 0.18],
+      "description": "Approximate embroidery front area preview for caps."
+    },
+    "home.blanket": {
+      "family": "home_textiles",
+      "reference_image": "shared/assets/references/printify-products/522-velveteen-plush-blanket-main.png",
+      "art_box": [0.12, 0.13, 0.76, 0.72],
+      "description": "Large blanket front preview."
+    },
+    "home.pillow": {
+      "family": "home_textiles",
+      "reference_image": "shared/assets/references/printify-products/220-spun-polyester-square-pillow-main.png",
+      "art_box": [0.22, 0.18, 0.56, 0.58],
+      "description": "Square pillow front preview."
+    },
+    "accessories.journal": {
+      "family": "stationery",
+      "reference_image": "shared/assets/references/printify-products/485-hardcover-journal-matte-main.png",
+      "art_box": [0.30, 0.10, 0.40, 0.78],
+      "description": "Hardcover journal cover preview."
+    },
+    "accessories.socks": {
+      "family": "accessories",
+      "reference_image": "shared/assets/references/printify-products/376-sublimation-socks-main.png",
+      "art_box": [0.26, 0.12, 0.48, 0.72],
+      "description": "Approximate socks preview."
+    },
+    "bags.sling_embroidery": {
+      "family": "bags",
+      "reference_image": "shared/assets/references/printify-products/5659-explorer-sling-bag-embroidery-main.png",
+      "art_box": [0.37, 0.34, 0.28, 0.22],
+      "description": "Explorer sling bag embroidery preview."
+    }
+  }
+}

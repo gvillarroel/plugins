@@ -1,0 +1,7 @@
+# Required by the bundled source adapters; no knowledge-cli package is installed.
+PyYAML>=6.0
+requests>=2.32.0
+pypdf>=6.0.0
+playwright>=1.58.0
+youtube-transcript-api>=1.2.4
+# Optional browser capture engine: install crawl4ai>=0.6.0 only when selected.

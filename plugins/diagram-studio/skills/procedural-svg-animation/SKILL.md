@@ -1,0 +1,140 @@
+---
+name: procedural-svg-animation
+description: "Generates, combines, animates, and validates deterministic standalone SVG systems from programmatic geometry, oscillators, paths, particles, fields, simulations, topology, transport, recursive growth, tilings, masks, gradients, and filter graphs. Use for procedural motion studies, generative SVG art, mathematical animation, multi-strata numerical solvers, seeded visual systems, technique exploration, seamless loops, or self-contained animated SVG/HTML where a chart, Mermaid diagram, or manually authored timeline is not the primary abstraction."
+---
+
+# Procedural SVG Animation
+
+Build SVG as a reproducible system where visual state is a function of time, seed, and explicit parameters. Prefer a small composable mechanism over an isolated hand-authored animation.
+
+## Core Workflow
+
+For an ordered explanation with caller-supplied stage labels, reveal-then-follow
+motion and optional final-to-first return, first run
+`uv run --script <skill-root>/scripts/build_connected_scene.py --help` and read
+`references/connected-scenes.md`. Use this content-sized scene helper and its
+`validate` subcommand; it accepts custom labels without pretending to be a
+catalog pattern. Keep the catalog validator for catalog outputs. Other
+relationships require custom geometry and an explicit geometry/browser audit.
+Finish supported ordered scenes with that route's validator and browser
+capture. Follow the workflow below for catalog patterns and other mechanisms.
+
+1. Lock the output contract. Preserve every requested path, dimension, duration, ID, seed, palette, loop rule, and accessibility requirement exactly.
+2. Choose the smallest sufficient pattern:
+   - From the task workspace root, run `uv run --script skills/procedural-svg-animation/scripts/build_procedural_svg.py --list` to inspect the shipped catalog.
+   - Run `uv run --script skills/procedural-svg-animation/scripts/build_procedural_svg.py --describe <procedural-svg-id>` before using an unfamiliar pattern.
+   - Read `references/pattern-families.md` when selecting among technique families or designing a new variant.
+   - Read `references/multi-strata-mastery.md` before changing a topology, transport, front-propagation, agent-field, or fluid solver.
+   - Read `references/composition-recipes.md` when two or more mechanisms must share one clock or state model.
+3. Make the system deterministic. Fix the seed, order all generated marks, avoid wall-clock randomness, and derive every delay or frame from stable indices, normalized time, or audited solver events.
+4. Generate the exact artifact. For example:
+
+```powershell
+uv run --script skills/procedural-svg-animation/scripts/build_procedural_svg.py --pattern procedural-svg-curl-streamlines --output outputs/flow.svg --seed 104729 --width 960 --height 600 --duration-ms 8000 --palette colorset2
+```
+
+Run from the workspace root; do not change into the skill directory. Interpret every requested relative output path against the task workspace, create its parent directory when needed, and never redirect task artifacts into `skills/`.
+
+For a catalog pattern with typed parameters, put the pattern, common options, and a `parameters` object in JSON and pass `--config request.json`. Query `--describe` for exact types, defaults, and bounds; do not guess parameter names.
+
+5. Validate the artifact before styling around it:
+
+```powershell
+uv run --script skills/procedural-svg-animation/scripts/validate_procedural_svg.py outputs/flow.svg --require-motion --require-standalone --expected-pattern-id procedural-svg-curl-streamlines --expected-seed 104729
+```
+
+6. Open the SVG directly in a browser. Inspect the first state, an intermediate state, the loop boundary, the reduced-motion state, and the final readable composition. Read `references/runtime-and-validation.md` for embedding modes, replay, performance, and browser checks.
+
+Use the bundled browser capture instead of probing rendering packages:
+`uv run --script <skill-root>/scripts/render_procedural_svg.py <output.svg> --screenshot <preview.png> --report <browser.json>`.
+It provisions Playwright, reuses installed Edge/Chrome when managed Chromium is
+absent, and captures ordinary plus reduced-motion evidence. Inspect the PNG
+after the command succeeds; its hashes and nonblank structure are not a visual
+quality verdict. Keep capture outputs in the task workspace.
+
+For a complete browsable pattern catalog, read the catalog command in
+`references/runtime-and-validation.md` and use `build_procedural_gallery.py`
+with an explicit task output directory. Validate that directory with the same
+builder arguments plus `--check`; it checks every managed file. SVG namespace
+URLs are format identifiers, not remote dependencies.
+Generated text is UTF-8, including Unicode labels in the manifest. For any
+necessary Python inspection, use `read_text(encoding="utf-8")`; the Windows
+default encoding cannot decode all catalog labels. After the managed-file
+check passes, avoid duplicate ad hoc file-count or URL-regex assertions.
+
+## Composition Model
+
+Treat each result as a pipeline:
+
+`geometry generator × population/layout × time signal × animated channel × compositor × input × driver`
+
+- Keep geometry independent from time when possible; sample `t ∈ [0,1]` through one shared clock.
+- Compose by passing stable outputs between stages: a field produces paths, paths carry particles, particles feed a mask, or a state machine gates all three.
+- Repeat the first computed state at the loop endpoint. Do not hide a discontinuity with a fade unless crossfade is the intended recipe.
+- Keep text and semantic labels outside moving, clipped, blurred, or displaced groups.
+- Encode a complete readable base state in SVG attributes. Animation must enhance that state rather than create the only visible content.
+- For semantic scenes that explain connected concepts, minimize unused canvas and route length while retaining measured label bounds, visible arrowheads, distinct routes and the complete motion envelope. Read the compact-scene procedure in `references/composition-recipes.md`. Preserve quantitative solver geometry, fields and deliberate artistic negative space.
+
+## Output Rules
+
+- Use `colorset1` by default and `--palette colorset2` for an explicit multicolor request or necessary semantic categories. Read exact tokens from `assets/palettes/colorsets.json`. Apply one active contract to SVG paint, stops, animated paint values, labels, filters and catalog chrome; use opacity separately. The validator checks authored paint as well as `data-palette`. Antialiasing, gradients and filter compositing may produce intermediate rendered pixels; their authored inputs must remain canonical tokens.
+
+- Emit a stable `viewBox`, direct `<title>` and `<desc>`, semantic groups, finite coordinates, unique IDs, and self-contained paint/filter definitions.
+- Preserve root audit metadata from the builder: pattern ID and revision, family, techniques, seed, duration, loop flag, motion engine, resolved parameters, and parameter hash.
+- For multi-strata patterns, preserve ordered `data-stratum` groups, canonical solver-render correspondence, canonical diagnostics and hashes, the viewport-independent solver-state digest, and the all-invariants status. Preserve solver-native evidence such as Sinkhorn scaling checkpoints and constant plan masses, live heap trial state, a serialized visible network root, and pre/post projection residuals; never infer or cosmetically rewrite numerical state. Use event-derived animated states and the solver-selected semantic static state rather than an arbitrary frame.
+- Prefer SVG-native CSS or SMIL for portable files. Do not add remote scripts, fonts, styles, images, or runtime imports.
+- Use seeded precomputation for simulations. SVG is the playback surface, not a reason to run an unbounded physics loop in the browser.
+- Honor `prefers-reduced-motion`; keep every mark visible and meaningful when motion is reduced.
+- Provide pause/replay controls when continuous motion appears beside other content for more than five seconds.
+- Avoid rapid flashing, large full-frame scale/pan loops, excessive filter regions, and thousands of independently animated DOM nodes.
+
+## Routing
+
+- Use `d3` when data binding, scales, projections, chart marks, or interactive quantitative exploration are the primary problem.
+- Use `mermaid` when Mermaid source notation and diagram geometry must be preserved.
+- Use `echarts-animated-svg` when animating existing ECharts SVG output.
+- Use `compose-synchronized-svg` when many semantic modules must share canonical business or system state.
+- Use this skill when the mechanism itself is procedural and can be expressed as `state = f(time, seed, parameters)`.
+
+## Progressive Disclosure
+
+- `references/pattern-families.md`: family selection, technique signatures, and extension rules.
+- `references/multi-strata-mastery.md`: solver pipelines, typed parameters, numerical invariants, snapshot loops, and pitfalls for the six mastery patterns.
+- `references/technique-matrix.md`: comprehensive programmable geometry, timing, channel, compositor, input, and driver capability matrix.
+- `references/composition-recipes.md`: tested combinations, shared-clock contracts, and failure modes.
+- `references/runtime-and-validation.md`: portability, embedding, replay, accessibility, performance, deterministic QA, and browser checks.
+- `references/research-sources.md`: authoritative specifications, API documentation, and primary algorithm sources behind the catalog.
+- `assets/pattern-specs.json`: machine-readable catalog used by the builder; query it through `--list` or `--describe` instead of loading the whole file when one pattern is enough.
+
+## Maintenance
+
+Keep gallery fixtures under `assets/examples/procedural-svg-animation/`; normal runtime work must not read them. When adding a reusable mechanism, update the catalog, generator, compact family guidance, gallery, tests, and canonical ID inventory together. Validate exact paths, deterministic hashes, alternate seeds, standalone SVG behavior, reduced motion, desktop/mobile layout, isolated skill use, and the canonical multi-strata adversarial test before marking the skill done.
+
+## Solid fill priority
+
+Use opaque, single-token filled marks without decorative borders first. Read
+`solidSequence` and `textOnFill` from `assets/palettes/colorsets.json`.
+For colorset1 categories, follow primary red, the dark/middle gray interleave
+including black, white, then remaining colors. Preserve numeric ramps and
+named semantic ink. The generator keeps concentration/value bands separate
+from its category accents. Reuse a
+fill for the same semantic role; when roles must be distinct, exhaust every
+usable distinct token in the preferred sequence, excluding the actual canvas,
+before creating outline or tint combinations. Soft tokens occur late. For text
+on a fill, use exactly black or white with the larger WCAG contrast computed
+from the actual background; composite opacity before evaluating translucent
+backgrounds. Do not infer text color from a hue name.
+
+Keep connectors, axes, signal traces, open line art, physical geometry and
+explicit source-fidelity modes. A stroke that depicts a relationship or is the
+geometry itself is meaningful. Reserve decorative outlines for a documented
+palette overflow or an explicit requested style; mark SVG overflow treatments
+with `data-outline-tier="overflow"`. A transient keyboard focus ring remains an
+interaction affordance. Use position, whitespace and direct labels for ordinary
+selection and grouping.
+
+Use `scripts/solid_style.py::category_style` for ordered categories. After all
+usable solids, cycle allowed border colors with fill contrast at least 3:1,
+then solid/dashed/dotted styles, then widths of 1–3 px. After that finite set,
+use labels, symbols or split views instead of wider rims or indistinguishable
+color combinations.

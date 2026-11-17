@@ -1,0 +1,14 @@
+{
+  "name": "semantic-graphs",
+  "version": "1.0.0",
+  "description": "Build and query graph-based Semantic OKF snapshots, including entity graphs, Graphify and procedural graphs.",
+  "author": {
+    "name": "Gerardo Villarroel"
+  },
+  "interface": {
+    "displayName": "Semantic Graphs",
+    "shortDescription": "Build and query graph-based Semantic OKF snapshots, including entity graphs, Graphify and procedural graphs.",
+    "category": "Data"
+  },
+  "skills": "./skills/"
+}

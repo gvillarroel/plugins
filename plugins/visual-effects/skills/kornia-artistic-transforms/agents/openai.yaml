@@ -1,0 +1,4 @@
+interface:
+  display_name: "Kornia Artistic Transforms"
+  short_description: "Turn images into engravings, mosaics and ink studies"
+  default_prompt: "Use $kornia-artistic-transforms to explore artistic treatments of this image and create a comparison gallery."

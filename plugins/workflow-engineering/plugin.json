@@ -1,0 +1,18 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "workflow-engineering",
+  "version": "1.0.0",
+  "description": "Author ZX and Pi workflows, durable agent applications, repository reviewers and batch decisions.",
+  "author": {
+    "name": "Gerardo Villarroel"
+  },
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Workflow Engineering",
+        "shortDescription": "Author ZX and Pi workflows, durable agent applications, repository reviewers and batch decisions.",
+        "category": "Developer tools"
+      }
+    }
+  }
+}

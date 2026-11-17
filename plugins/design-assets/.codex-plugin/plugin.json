@@ -1,0 +1,14 @@
+{
+  "name": "design-assets",
+  "version": "1.0.0",
+  "description": "Find licensed visual assets, stock footage, textures, icons and technical logos for creative projects.",
+  "author": {
+    "name": "Gerardo Villarroel"
+  },
+  "interface": {
+    "displayName": "Design Assets",
+    "shortDescription": "Find licensed visual assets, stock footage, textures, icons and technical logos for creative projects.",
+    "category": "Creativity"
+  },
+  "skills": "./skills/"
+}

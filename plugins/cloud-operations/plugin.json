@@ -1,0 +1,18 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "cloud-operations",
+  "version": "1.0.0",
+  "description": "Work with GCS user access, Google Cloud SKU pricing and evaluation datasets for GCP Radar.",
+  "author": {
+    "name": "Gerardo Villarroel"
+  },
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Google Cloud Operations",
+        "shortDescription": "Work with GCS user access, Google Cloud SKU pricing and evaluation datasets for GCP Radar.",
+        "category": "Developer tools"
+      }
+    }
+  }
+}

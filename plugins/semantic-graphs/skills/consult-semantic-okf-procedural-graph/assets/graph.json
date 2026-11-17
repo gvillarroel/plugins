@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "enabled": true,
+  "nodes": [
+    {"id": "Start", "type": "status", "description": "The query has arrived; no source has been inspected."},
+    {"id": "knowledge_search", "type": "tool", "description": "Discover potentially relevant source-scoped records."},
+    {"id": "knowledge_read", "type": "tool", "description": "Inspect original source text and exact evidence metadata."},
+    {"id": "check_answer", "type": "tool", "description": "Validate the draft envelope and exact source provenance."},
+    {"id": "End", "type": "status", "description": "Return the source-supported final answer."}
+  ],
+  "edges": [
+    {"source": "Start", "target": "knowledge_search", "relation": "LEADS_TO", "condition": "A knowledge question needs source evidence.", "guidance": "Search distinctive query terms before drafting.", "pitfalls": "Do not substitute model memory for mounted sources."},
+    {"source": "knowledge_search", "target": "knowledge_read", "relation": "PROVIDES_INPUT_FOR", "condition": "Search returned candidate record identities.", "guidance": "Read relevant original records and preserve their evidence objects.", "pitfalls": "A preview is not a complete source quotation."},
+    {"source": "knowledge_read", "target": "check_answer", "relation": "PROVIDES_INPUT_FOR", "condition": "Enough independently grounded evidence supports a draft.", "guidance": "Construct claim-level citations and check the final envelope.", "pitfalls": "A valid hash does not imply that a claim is entailed."},
+    {"source": "check_answer", "target": "End", "relation": "LEADS_TO", "condition": "The draft is valid and its claims are source-supported.", "guidance": "Return only the requested final JSON.", "pitfalls": "Repair invalid evidence rather than fabricating identifiers."}
+  ]
+}

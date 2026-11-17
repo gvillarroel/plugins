@@ -1,0 +1,423 @@
+{
+  "schema_version": 1,
+  "updated": "2026-06-11",
+  "notes": [
+    "Specs are practical automation defaults for store prototypes. Verify catalog IDs and variants against Printify before publishing.",
+    "Dimensions are pixels. Product API IDs can change by print provider and product choice.",
+    "For broad product-family composition and art contracts, read references/product-family-best-practices.md."
+  ],
+  "catalog_references": {
+    "captured_at": "2026-05-31",
+    "current_blueprints": "shared/references/printify-catalog-2026-06-06/blueprints.json",
+    "current_blueprints_summary": "shared/references/printify-catalog-2026-06-06/blueprints-summary.json",
+    "composition_reference": "shared/references/printify-composition-reference-2026-06-06/index.json",
+    "catalog_summary": "shared/references/printify-catalog-2026-05-31/catalog-summary.json",
+    "product_details": "shared/references/printify-catalog-2026-05-31/product-details/",
+    "reference_image_manifest": "shared/assets/references/printify-products/manifest.json",
+    "preview_templates": ".agents/skills/create-printify-product/references/preview-templates.json",
+    "family_best_practices": ".agents/skills/create-printify-product/references/product-family-best-practices.md"
+  },
+  "prototype_families": {
+    "tops": {
+      "observed_categories": ["T-shirts", "Hoodies", "Sweatshirts", "Long Sleeves", "Tank Tops", "Sportswear", "Outerwear"],
+      "default_transparent": true,
+      "preferred_art_type": "transparent PNG",
+      "preview_templates": ["tops.tshirt_front", "tops.hoodie_front", "tops.sweatshirt_front"]
+    },
+    "mugs_and_drinkware": {
+      "observed_categories": ["Mugs", "Glassware", "Bottles & Tumblers"],
+      "default_transparent": false,
+      "preferred_art_type": "opaque wrap PNG",
+      "preview_templates": ["mugs.front", "mugs.travel_front"]
+    },
+    "wall_art": {
+      "observed_categories": ["Posters", "Canvas", "Postcards"],
+      "default_transparent": false,
+      "preferred_art_type": "opaque full-bleed PNG",
+      "preview_templates": ["posters.vertical"]
+    },
+    "stickers_and_magnets": {
+      "observed_categories": ["Magnets & Stickers"],
+      "default_transparent": true,
+      "preferred_art_type": "transparent PNG with strong silhouette or full-bleed sticker art",
+      "preview_templates": ["accessories.sticker"]
+    },
+    "flat_accessories": {
+      "observed_categories": ["Mouse Pads", "Phone Cases", "Stationery Accessories", "Sports & Games"],
+      "default_transparent": false,
+      "preferred_art_type": "full-bleed PNG",
+      "preview_templates": ["accessories.mouse_pad", "accessories.phone_case", "accessories.journal"]
+    },
+    "bags": {
+      "observed_categories": ["Bags", "Travel Accessories"],
+      "default_transparent": true,
+      "preferred_art_type": "transparent PNG for DTG/embroidery or full-bleed PNG for AOP",
+      "preview_templates": ["accessories.tote_bag", "bags.sling_embroidery"]
+    },
+    "home_textiles": {
+      "observed_categories": ["Blankets", "Pillows & Covers", "Towels", "Bedding", "Rugs & Mats"],
+      "default_transparent": false,
+      "preferred_art_type": "large full-bleed PNG",
+      "preview_templates": ["home.blanket", "home.pillow"]
+    },
+    "aop_apparel": {
+      "observed_categories": ["AOP Clothing", "Cut & Sew Tees", "Leggings", "Dresses", "Skirts", "Swimwear", "Shoes", "Socks", "Sportswear"],
+      "default_transparent": false,
+      "preferred_art_type": "full-bleed panel/template PNG",
+      "preview_templates": ["accessories.socks"]
+    },
+    "paper_and_stationery": {
+      "observed_categories": ["Posters", "Postcards", "Greeting Cards", "Journals & Notebooks", "Calendars", "Bookmarks", "Books"],
+      "default_transparent": false,
+      "preferred_art_type": "opaque full-bleed PNG with trim-safe margins",
+      "preview_templates": ["posters.vertical", "accessories.journal"]
+    },
+    "home_decor_and_kitchen": {
+      "observed_categories": ["Candles", "Ornaments", "Seasonal Decorations", "Home Decor", "Kitchen Accessories", "Coasters", "Cutting Boards", "Wall Clocks"],
+      "default_transparent": false,
+      "preferred_art_type": "shape-specific opaque or transparent PNG",
+      "preview_templates": []
+    },
+    "pets_and_baby_accessories": {
+      "observed_categories": ["Pets", "Baby Accessories", "Bibs", "Pet Bowls", "Pet Bandanas"],
+      "default_transparent": true,
+      "preferred_art_type": "simple high-contrast PNG",
+      "preview_templates": []
+    },
+    "jewelry_and_engraving": {
+      "observed_categories": ["Jewelry", "Engraving", "Pendants", "Bracelets", "Keychains", "Pens", "Faux Leather Patches"],
+      "default_transparent": false,
+      "preferred_art_type": "one-color vector-style line art",
+      "preview_templates": []
+    },
+    "seasonal_and_gifts": {
+      "observed_categories": ["Ornaments", "Stockings", "Tree Skirts", "Candles", "Calendars", "Gift Sets", "Personalization Picks"],
+      "default_transparent": false,
+      "preferred_art_type": "product-specific PNG or personalization template",
+      "preview_templates": []
+    },
+    "embroidery": {
+      "observed_categories": ["Embroidery", "Hats", "Bags"],
+      "default_transparent": false,
+      "preferred_art_type": "simple solid-shape PNG/vector-style art; avoid gradients, tiny text, and photos",
+      "preview_templates": ["accessories.hat_front", "bags.sling_embroidery"]
+    }
+  },
+  "products": {
+    "tops.bella_canvas_3001": {
+      "family": "tops",
+      "status": "verified_api_catalog",
+      "name": "Unisex Jersey Short Sleeve Tee",
+      "brand": "Bella+Canvas",
+      "model": "3001",
+      "method": "dtg",
+      "source": {
+        "type": "authenticated_printify_catalog_and_store_drafts",
+        "date_checked": "2026-06-08",
+        "catalog_detail": "shared/references/printify-composition-reference-2026-06-06/products/00012-bella-canvas-unisex-jersey-short-sleeve-tee.json",
+        "preview_template": "tops.tshirt_front",
+        "store_default_evidence": "stores/ia-referencias/products/index.md"
+      },
+      "api": {
+        "blueprint_id": 12,
+        "print_provider_id": 99,
+        "print_provider_name": "Printify Choice",
+        "decoration_method": "dtg",
+        "variant_ids": [],
+        "requires_catalog_variant_ids": true,
+        "variant_lookup_command": "node .agents/skills/create-printify-product/scripts/fetch_printify_catalog_node.js variants --blueprint-id 12 --print-provider-id 99 --show-out-of-stock"
+      },
+      "placements": {
+        "front": {
+          "label": "Front side",
+          "position": "front",
+          "print_area": { "width": 3951, "height": 4800 },
+          "recommended_canvas": { "width": 4500, "height": 5400 },
+          "default_transparent": true,
+          "preview_background": "#111111",
+          "notes": "Printify Choice dimensions vary by size/color; provider 99 Bella 3001 variants observed at 3232x3927, 3591x4364, and 3951x4800 front dimensions. Use selected variant dimensions and real mockups before acceptance."
+        },
+        "back": {
+          "label": "Back side",
+          "position": "back",
+          "print_area": { "width": 3951, "height": 4800 },
+          "recommended_canvas": { "width": 4500, "height": 5400 },
+          "default_transparent": true,
+          "preview_background": "#111111",
+          "notes": "Printify Choice dimensions vary by size/color; confirm selected variant dimensions before publishing."
+        },
+        "sleeve_right": {
+          "label": "Sleeve right",
+          "position": "sleeve_right",
+          "print_area": { "width": 960, "height": 960 },
+          "recommended_canvas": { "width": 1200, "height": 1200 },
+          "default_transparent": true,
+          "preview_background": "#111111"
+        },
+        "sleeve_left": {
+          "label": "Sleeve left",
+          "position": "sleeve_left",
+          "print_area": { "width": 960, "height": 960 },
+          "recommended_canvas": { "width": 1200, "height": 1200 },
+          "default_transparent": true,
+          "preview_background": "#111111"
+        },
+        "neck_label_inner": {
+          "label": "Neck label inner",
+          "position": "neck_label_inner",
+          "print_area": { "width": 750, "height": 750 },
+          "recommended_canvas": { "width": 1000, "height": 1000 },
+          "default_transparent": true,
+          "preview_background": "#ffffff"
+        }
+      },
+      "variant_strategy": {
+        "recommended_listing_variant_count": { "min": 24, "max": 36 },
+        "default_store_colors": [
+          "Black",
+          "Vintage Black",
+          "Asphalt",
+          "Navy",
+          "Deep Teal",
+          "Maroon"
+        ],
+        "default_store_sizes": [
+          "S",
+          "M",
+          "L",
+          "XL",
+          "2XL",
+          "3XL"
+        ],
+        "pricing_start_cents": 3299,
+        "pricing_requires_etsy_margin_check": true
+      }
+    },
+    "tops.gildan_5000": {
+      "family": "tops",
+      "status": "verified_editor",
+      "name": "Unisex Heavy Cotton Tee",
+      "brand": "Gildan",
+      "model": "5000",
+      "method": "dtg",
+      "source": {
+        "type": "authenticated_printify_editor",
+        "date": "2026-05-31",
+        "editor_url": "https://printify.com/app/editor/6/99/dtg?pathToProductCreated=%7B%22source%22:%22category%22,%22value%22:%22T-shirts%22%7D",
+        "local_reference": "shared/references/printify-unisex-heavy-cotton-tee-gildan-5000.md",
+        "catalog_detail": "shared/references/printify-catalog-2026-05-31/product-details/6-unisex-heavy-cotton-tee.json",
+        "reference_image": "shared/assets/references/printify-products/6-unisex-heavy-cotton-tee-main.png",
+        "preview_template": "tops.tshirt_front"
+      },
+      "api": {
+        "blueprint_id": 6,
+        "print_provider_id": 99,
+        "print_provider_name": "Printify Choice",
+        "decoration_method": "dtg",
+        "variant_ids": [],
+        "requires_catalog_variant_ids": true,
+        "variant_lookup_command": "python .agents/skills/create-printify-product/scripts/fetch_printify_catalog.py variants --blueprint-id 6 --print-provider-id 99 --show-out-of-stock"
+      },
+      "placements": {
+        "front": {
+          "label": "Front side",
+          "position": "front",
+          "print_area": { "width": 3951, "height": 4919 },
+          "recommended_canvas": { "width": 4500, "height": 5400 },
+          "default_transparent": true,
+          "preview_background": "#a682db"
+        },
+        "back": {
+          "label": "Back side",
+          "position": "back",
+          "print_area": { "width": 3951, "height": 4919 },
+          "recommended_canvas": { "width": 4500, "height": 5400 },
+          "default_transparent": true,
+          "preview_background": "#a682db"
+        },
+        "sleeve_right": {
+          "label": "Sleeve right",
+          "position": "sleeve_right",
+          "print_area": { "width": 960, "height": 960 },
+          "recommended_canvas": { "width": 1200, "height": 1200 },
+          "default_transparent": true,
+          "preview_background": "#a682db"
+        },
+        "sleeve_left": {
+          "label": "Sleeve left",
+          "position": "sleeve_left",
+          "print_area": { "width": 960, "height": 960 },
+          "recommended_canvas": { "width": 1200, "height": 1200 },
+          "default_transparent": true,
+          "preview_background": "#a682db"
+        },
+        "neck_label_inner": {
+          "label": "Neck label inner",
+          "position": "neck_label_inner",
+          "print_area": { "width": 750, "height": 750 },
+          "recommended_canvas": { "width": 1000, "height": 1000 },
+          "default_transparent": true,
+          "preview_background": "#ffffff"
+        }
+      },
+      "variant_strategy": {
+        "recommended_listing_variant_count": { "min": 5, "max": 15 },
+        "candidate_colors": [
+          "Violet",
+          "Purple",
+          "Blackberry",
+          "Lilac",
+          "Navy",
+          "Black",
+          "Dark Heather"
+        ]
+      }
+    },
+    "tops.generic_hoodie": {
+      "family": "tops",
+      "status": "template_unverified",
+      "name": "Generic hoodie / poleron template",
+      "method": "dtg",
+      "source": {
+        "type": "local_template",
+        "note": "Use only for prototyping until a specific Printify hoodie blueprint/provider is selected and measured.",
+        "catalog_detail": "shared/references/printify-catalog-2026-05-31/product-details/77-unisex-heavy-blend-hooded-sweatshirt.json",
+        "reference_image": "shared/assets/references/printify-products/77-unisex-heavy-blend-hooded-sweatshirt-main.png",
+        "preview_template": "tops.hoodie_front"
+      },
+      "api": {
+        "blueprint_id": null,
+        "print_provider_id": null,
+        "variant_ids": [],
+        "requires_catalog_variant_ids": true
+      },
+      "placements": {
+        "front": {
+          "label": "Front side",
+          "position": "front",
+          "print_area": { "width": 4200, "height": 4800 },
+          "recommended_canvas": { "width": 4500, "height": 5400 },
+          "default_transparent": true,
+          "preview_background": "#8f79c9"
+        },
+        "back": {
+          "label": "Back side",
+          "position": "back",
+          "print_area": { "width": 4200, "height": 4800 },
+          "recommended_canvas": { "width": 4500, "height": 5400 },
+          "default_transparent": true,
+          "preview_background": "#8f79c9"
+        }
+      }
+    },
+    "mugs.mug_11oz": {
+      "family": "mugs",
+      "status": "verified_api_catalog",
+      "name": "Mug 11oz",
+      "method": "sublimation",
+      "source": {
+        "type": "authenticated_printify_catalog",
+        "date_checked": "2026-06-06",
+        "url": "https://api.printify.com/v1/catalog/blueprints/68/print_providers/1/variants.json",
+        "catalog_detail": "shared/references/printify-catalog-2026-05-31/product-details/68-mug-11oz.json",
+        "reference_image": "shared/assets/references/printify-products/68-mug-11oz-main.png",
+        "preview_template": "mugs.front"
+      },
+      "api": {
+        "blueprint_id": 68,
+        "print_provider_id": 1,
+        "print_provider_name": "SPOKE Custom Products",
+        "variant_ids": [33719],
+        "decoration_method": "dye-sublimation",
+        "requires_catalog_variant_ids": false
+      },
+      "placements": {
+        "front": {
+          "label": "Front side",
+          "position": "front",
+          "print_area": { "width": 2700, "height": 1120 },
+          "recommended_canvas": { "width": 2700, "height": 1120 },
+          "default_transparent": false,
+          "preview_background": "#ffffff"
+        }
+      }
+    },
+    "mugs.ceramic_11_15oz_choice": {
+      "family": "mugs",
+      "status": "verified_api_catalog",
+      "name": "Ceramic Mug, (11oz, 15oz)",
+      "brand": "Generic brand",
+      "method": "dye-sublimation",
+      "source": {
+        "type": "authenticated_printify_catalog_and_public_product_page",
+        "date_checked": "2026-06-11",
+        "url": "https://api.printify.com/v1/catalog/blueprints/478/print_providers/99/variants.json",
+        "public_product_page": "https://printify.com/app/products/478/generic-brand/ceramic-mug-11oz-15oz",
+        "catalog_detail": "shared/references/printify-composition-reference-2026-06-06/products/00478-generic-brand-ceramic-mug-11oz-15oz.json",
+        "reference_image": "shared/assets/references/printify-products/478-ceramic-mug-11oz-15oz-main.png",
+        "preview_template": "mugs.front",
+        "note": "Preferred future default for white ceramic IA-Referencias mugs after the 2026-06-11 mug/journal quality audit. Legacy mugs.mug_11oz remains valid for existing SPOKE 11oz products."
+      },
+      "api": {
+        "blueprint_id": 478,
+        "print_provider_id": 99,
+        "print_provider_name": "Printify Choice",
+        "variant_ids": [65216, 104692],
+        "decoration_method": "dye-sublimation",
+        "requires_catalog_variant_ids": false
+      },
+      "placements": {
+        "front_11oz": {
+          "label": "Front side 11oz",
+          "position": "front",
+          "print_area": { "width": 2475, "height": 1155 },
+          "recommended_canvas": { "width": 2475, "height": 1155 },
+          "default_transparent": false,
+          "preview_background": "#ffffff"
+        },
+        "front_15oz": {
+          "label": "Front side 15oz",
+          "position": "front",
+          "print_area": { "width": 2475, "height": 1275 },
+          "recommended_canvas": { "width": 2475, "height": 1275 },
+          "default_transparent": false,
+          "preview_background": "#ffffff"
+        }
+      },
+      "variant_strategy": {
+        "recommended_listing_variant_count": { "min": 2, "max": 2 },
+        "default_sizes": ["11oz", "15oz"],
+        "pricing_requires_etsy_margin_check": true,
+        "notes": "Use exact 11oz and 15oz artwork dimensions or generate separate exports. Do not reuse the legacy 2700x1120 SPOKE mug file without adapting and checking real Printify mockups."
+      }
+    },
+    "mugs.generic_wrap": {
+      "family": "mugs",
+      "status": "template_unverified",
+      "name": "Generic mug wrap template",
+      "method": "sublimation",
+      "source": {
+        "type": "local_template",
+        "note": "Use for design iteration before selecting a Printify mug/provider.",
+        "reference_image": "shared/assets/references/printify-products/68-mug-11oz-main.png",
+        "preview_template": "mugs.front"
+      },
+      "api": {
+        "blueprint_id": null,
+        "print_provider_id": null,
+        "variant_ids": [],
+        "requires_catalog_variant_ids": true
+      },
+      "placements": {
+        "wrap": {
+          "label": "Wrap",
+          "position": "front",
+          "print_area": { "width": 4350, "height": 5850 },
+          "recommended_canvas": { "width": 4350, "height": 5850 },
+          "default_transparent": false,
+          "preview_background": "#ffffff"
+        }
+      }
+    }
+  }
+}

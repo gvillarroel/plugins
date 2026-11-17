@@ -1,0 +1,3060 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Lineage · Knowledge Catalog Curator</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #f7f7f7;
+        --panel: #ffffff;
+        --fg: #333e48;
+        --muted: #4f4f4f;
+        --line: #828282;
+        --soft: #e7e7e7;
+        --primary: #9e1b32;
+        --on-primary: #ffffff;
+        --selected: #ffccd5;
+        --warn-bg: #e7e7e7;
+        --warn: #4f4f4f;
+        --bad-bg: #ffccd5;
+        --bad: #6d1222;
+        --focus: #9e1b32;
+        accent-color: var(--primary);
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+          --bg: #1c1c1c;
+          --panel: #363636;
+          --fg: #f7f7f7;
+          --muted: #cfcfcf;
+          --line: #9c9c9c;
+          --soft: #4f4f4f;
+          --primary: #ffccd5;
+          --on-primary: #1c1c1c;
+          --selected: #6d1222;
+          --warn-bg: #363636;
+          --warn: #e7e7e7;
+          --bad-bg: #6d1222;
+          --bad: #ffccd5;
+          --focus: #ffccd5;
+        }
+      }
+      :root[data-theme="dark"] {
+        --bg: #1c1c1c;
+        --panel: #363636;
+        --fg: #f7f7f7;
+        --muted: #cfcfcf;
+        --line: #9c9c9c;
+        --soft: #4f4f4f;
+        --primary: #ffccd5;
+        --on-primary: #1c1c1c;
+        --selected: #6d1222;
+        --warn-bg: #363636;
+        --warn: #e7e7e7;
+        --bad-bg: #6d1222;
+        --bad: #ffccd5;
+        --focus: #ffccd5;
+      }
+      .flow-intro {
+        margin: 0 0 20px;
+        align-items: center;
+      }
+      .flow-intro h1 {
+        font-size: 28px;
+        margin-bottom: 0;
+      }
+      .flow-intro small {
+        display: block;
+        margin-top: 8px;
+      }
+      .lineage-stepper ol {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        padding: 0;
+        margin: 0 0 20px;
+        list-style: none;
+        gap: 8px;
+      }
+      .lineage-stepper button {
+        width: 100%;
+        justify-content: flex-start;
+        text-align: left;
+        font-size: 14px;
+        font-weight: 500;
+        min-height: 52px;
+      }
+      .lineage-stepper button[aria-current="step"] {
+        color: var(--on-primary);
+        background: var(--primary);
+        border-color: var(--primary);
+      }
+      .step-number {
+        border-radius: 50%;
+        min-width: 24px;
+        font-variant-numeric: tabular-nums;
+        text-align: center;
+      }
+      .lineage-context {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 14px;
+        padding-bottom: 18px;
+        border-bottom: 1px solid var(--soft);
+      }
+      .lineage-context .section-head {
+        align-items: center;
+        flex: 1;
+      }
+      .lineage-context p {
+        margin: 0;
+        font-size: 14px;
+      }
+      .context-actions {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .context-actions button {
+        font-size: 14px;
+        background: transparent;
+      }
+      .stage-heading {
+        margin: 24px 0 18px;
+        max-width: 850px;
+      }
+      .stage-heading h2 {
+        font-size: 27px;
+        margin: 6px 0 8px;
+      }
+      .stage-heading p {
+        margin-bottom: 0;
+      }
+      .choose-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+        gap: 20px;
+        align-items: start;
+        max-width: 1050px;
+      }
+      .choose-grid h3 {
+        margin-top: 0;
+        font-size: 20px;
+      }
+      .choose-grid > details {
+        margin-top: 0;
+        border-top: 1px solid var(--soft);
+      }
+      #existing-graph-choice button {
+        margin-top: 8px;
+      }
+      #create-graph-choice > button {
+        margin-top: 12px;
+      }
+      #empty {
+        max-width: 1050px;
+        padding: 22px;
+        text-align: left;
+      }
+      #empty h2 {
+        font-size: 18px;
+      }
+      .lineage-flow-actions {
+        position: static;
+        bottom: 10px;
+        z-index: 3;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 14px 18px;
+        border: 1px solid var(--line);
+        background: var(--panel);
+        border-radius: 10px;
+        margin: 18px 0;
+      }
+      .lineage-flow-actions p {
+        flex: 1;
+        margin: 0;
+        font-size: 14px;
+      }
+      .lineage-flow-actions > button:last-child {
+        margin-left: auto;
+      }
+      .contextual-details {
+        margin-top: 14px;
+        padding-top: 8px;
+      }
+      #lineage-guidance:not(:empty) {
+        padding: 12px 16px;
+        background: var(--warn-bg);
+        color: var(--warn);
+        border-left: 3px solid var(--warn);
+        border-radius: 6px;
+        margin-bottom: 18px;
+      }
+      #lineage-page-decide > section,
+      #lineage-page-decide > details,
+      #share-download,
+      #share-catalog {
+        max-width: 900px;
+      }
+      #lineage-page-share #export-format {
+        max-width: 520px;
+        margin-bottom: 10px;
+      }
+      #lineage-page-share .status.warning {
+        font-size: 14px;
+      }
+      #lineage-page-explore #dataset-description {
+        margin-top: 20px;
+      }
+      #lineage-page-explore .stats {
+        padding-top: 12px;
+      }
+      #lineage-page-check .work {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+        align-items: start;
+      }
+      #lineage-page-check td .actions {
+        gap: 6px;
+        margin: 0;
+      }
+      #lineage-page-check .table-wrap {
+        margin: 10px 0;
+      }
+      #lineage-page-check .finding small {
+        display: none;
+      }
+      #description-editor {
+        margin-top: 0;
+      }
+      #edit-dataset {
+        margin-bottom: 16px;
+      }
+      #download-export {
+        margin: 8px 0 16px;
+      }
+      [data-lineage-page] {
+        scroll-margin-top: 20px;
+      }
+      @media (max-width: 1000px) {
+        #lineage-page-check .work {
+          grid-template-columns: 1fr;
+        }
+        .lineage-context {
+          flex-wrap: wrap;
+        }
+      }
+      @media (max-width: 600px) {
+        .lineage-stepper ol {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 6px;
+        }
+        .lineage-stepper button {
+          font-size: 12px;
+          padding: 8px;
+          min-height: 52px;
+          gap: 4px;
+        }
+        .choose-grid {
+          grid-template-columns: 1fr;
+          gap: 0;
+        }
+        .stage-heading {
+          margin-top: 18px;
+        }
+        .stage-heading h2 {
+          font-size: 24px;
+        }
+        .lineage-flow-actions {
+          flex-wrap: wrap;
+          gap: 8px;
+          padding: 12px;
+          bottom: 4px;
+        }
+        .lineage-flow-actions p {
+          flex-basis: 100%;
+          order: -1;
+        }
+        .lineage-context .context-actions {
+          width: 100%;
+        }
+        .flow-intro small {
+          font-size: 12px;
+        }
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--fg);
+        font:
+          16px/1.55 system-ui,
+          -apple-system,
+          Segoe UI,
+          sans-serif;
+      }
+      button,
+      input,
+      select,
+      textarea {
+        font: inherit;
+        color: inherit;
+      }
+      button,
+      a,
+      input,
+      select,
+      textarea,
+      summary {
+        touch-action: manipulation;
+      }
+      button,
+      .button {
+        min-height: 44px;
+        padding: 9px 15px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        text-decoration: none;
+        color: var(--fg);
+        font-weight: 600;
+      }
+      button:hover,
+      .button:hover {
+        background: var(--soft);
+      }
+      button.primary {
+        background: var(--primary);
+        color: var(--on-primary);
+        border-color: var(--primary);
+      }
+      button:disabled {
+        cursor: not-allowed;
+        background: var(--soft);
+        border-color: var(--line);
+        color: var(--muted);
+      }
+      a {
+        color: var(--primary);
+        text-underline-offset: 3px;
+      }
+      input,
+      select,
+      textarea {
+        min-height: 44px;
+        border: 1px solid var(--line);
+        background: var(--panel);
+        border-radius: 6px;
+        padding: 9px;
+        width: 100%;
+      }
+      textarea {
+        min-height: 100px;
+        resize: vertical;
+      }
+      label {
+        font-weight: 600;
+        display: block;
+        margin-bottom: 5px;
+      }
+      :focus-visible {
+        outline: 3px solid var(--focus);
+        outline-offset: 3px;
+      }
+      .skip {
+        position: absolute;
+        left: 14px;
+        top: -70px;
+        background: var(--panel);
+        padding: 10px;
+        z-index: 10;
+      }
+      .skip:focus {
+        top: 8px;
+      }
+      header {
+        background: var(--panel);
+        border-bottom: 1px solid var(--soft);
+      }
+      .header-inner,
+      main {
+        max-width: 1440px;
+        margin: auto;
+        padding: 24px 32px;
+      }
+      .header-inner {
+        display: flex;
+        gap: 24px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .brand {
+        font-weight: 750;
+        letter-spacing: -0.025em;
+        font-size: 20px;
+      }
+      nav {
+        display: flex;
+        gap: 8px;
+        margin-left: auto;
+      }
+      nav a[aria-current] {
+        background: var(--selected);
+        border-color: var(--primary);
+      }
+      h1 {
+        font-size: 30px;
+        line-height: 1.2;
+        letter-spacing: -0.035em;
+        margin: 5px 0 12px;
+      }
+      h2 {
+        font-size: 21px;
+        line-height: 1.3;
+        margin: 0 0 14px;
+      }
+      h3 {
+        font-size: 17px;
+        margin: 18px 0 9px;
+      }
+      p {
+        margin: 8px 0 14px;
+      }
+      .muted,
+      small {
+        color: var(--muted);
+      }
+      small {
+        font-size: 14px;
+      }
+      .eyebrow {
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+        color: var(--primary);
+      }
+      .intro {
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+        flex-wrap: wrap;
+        margin: 10px 0 20px;
+      }
+      .intro p {
+        max-width: 760px;
+      }
+      .tag {
+        display: inline-block;
+        border: 1px solid var(--line);
+        border-radius: 5px;
+        padding: 3px 9px;
+        font-size: 13px;
+        font-weight: 650;
+      }
+      .tag.warn {
+        background: var(--warn-bg);
+        color: var(--warn);
+      }
+      .tag.good {
+        background: var(--selected);
+        color: var(--primary);
+      }
+      .toolbar {
+        display: flex;
+        gap: 12px;
+        align-items: end;
+        flex-wrap: wrap;
+      }
+      .toolbar .field {
+        flex: 1;
+        min-width: 180px;
+      }
+      .panel {
+        background: var(--panel);
+        border: 1px solid var(--soft);
+        border-radius: 12px;
+        padding: 22px;
+        margin-bottom: 18px;
+      }
+      .status {
+        padding: 12px 16px;
+        background: var(--selected);
+        border-radius: 8px;
+        border-left: 4px solid var(--primary);
+        margin: 16px 0;
+        overflow-wrap: anywhere;
+      }
+      .status:empty {
+        display: none;
+      }
+      .error {
+        background: var(--bad-bg);
+        color: var(--bad);
+        border-color: var(--bad);
+      }
+      .warning {
+        background: var(--warn-bg);
+        color: var(--warn);
+        border-color: var(--warn);
+      }
+      .steps {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        padding: 0;
+        margin: 20px 0;
+        list-style: none;
+        color: var(--muted);
+        font-size: 14px;
+      }
+      .steps li {
+        padding-right: 14px;
+        border-right: 1px solid var(--line);
+      }
+      .steps li:last-child {
+        border: 0;
+      }
+      .stats {
+        display: flex;
+        gap: 28px;
+        flex-wrap: wrap;
+      }
+      .stat strong {
+        font-size: 25px;
+        display: block;
+        font-variant-numeric: tabular-nums;
+      }
+      .stat span {
+        font-size: 14px;
+        color: var(--muted);
+      }
+      .summary-panel {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .summary-panel h2 {
+        font-size: 17px;
+        margin: 0;
+      }
+      .summary-panel p {
+        font-size: 13px;
+        margin-bottom: 0;
+      }
+      .summary-panel .stat strong {
+        font-size: 22px;
+      }
+      .summary-panel .stats {
+        gap: 22px;
+      }
+      .header-inner {
+        padding-top: 16px;
+        padding-bottom: 16px;
+      }
+      .intro p {
+        margin-bottom: 0;
+      }
+      .work {
+        display: grid;
+        grid-template-columns: minmax(0, 1.7fr) minmax(320px, 1fr);
+        gap: 20px;
+      }
+      .work > * {
+        min-width: 0;
+      }
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .tabs {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin: 12px 0 18px;
+      }
+      button[aria-pressed="true"] {
+        background: var(--selected);
+        border-color: var(--primary);
+        color: var(--primary);
+      }
+      .graph {
+        position: relative;
+        padding: 8px 0;
+        isolation: isolate;
+        min-height: 200px;
+      }
+      .graph-lines {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        overflow: visible;
+      }
+      .graph-lines path {
+        fill: none;
+        stroke: var(--line);
+        stroke-width: 1.5;
+        opacity: 1;
+      }
+      .graph-lines path.active {
+        stroke: var(--primary);
+        stroke-width: 2.5;
+        opacity: 1;
+      }
+      .graph-lines path.asserted {
+        stroke-dasharray: 5 4;
+      }
+      .layers {
+        display: flex;
+        gap: 24px;
+        align-items: start;
+      }
+      .layer {
+        flex: 1;
+        min-width: 0;
+      }
+      .layer-title {
+        background: var(--panel);
+        position: relative;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        font-weight: 750;
+        color: var(--muted);
+        margin: 0 0 12px;
+      }
+      .node {
+        display: block;
+        text-align: left;
+        min-height: 92px;
+        width: 100%;
+        padding: 12px;
+        margin: 0 0 22px;
+        background: var(--panel);
+        position: relative;
+        overflow-wrap: anywhere;
+      }
+      .node strong {
+        display: block;
+        font-size: 14px;
+        line-height: 1.4;
+      }
+      .node small {
+        display: block;
+        font-size: 12px;
+        margin-top: 5px;
+      }
+      .node[data-impact="true"] {
+        background: var(--selected);
+      }
+      .node[aria-pressed="true"] {
+        box-shadow: 0 0 0 2px var(--primary);
+        color: var(--fg);
+      }
+      .graph-key {
+        display: flex;
+        gap: 18px;
+        flex-wrap: wrap;
+        font-size: 13px;
+        color: var(--muted);
+        margin-top: 4px;
+      }
+      .graph-key span:before {
+        content: "";
+        display: inline-block;
+        width: 22px;
+        border-top: 2px solid var(--line);
+        margin-right: 6px;
+        vertical-align: middle;
+      }
+      .graph-key .asserted:before {
+        border-top-style: dashed;
+      }
+      .graph-mobile {
+        display: none;
+      }
+      .detail-title {
+        overflow-wrap: anywhere;
+      }
+      dl {
+        margin: 0;
+        display: grid;
+        grid-template-columns: 110px minmax(0, 1fr);
+        gap: 7px 12px;
+        font-size: 14px;
+      }
+      dt {
+        color: var(--muted);
+      }
+      dd {
+        margin: 0;
+        overflow-wrap: anywhere;
+      }
+      .table-wrap {
+        overflow-x: auto;
+        border: 1px solid var(--soft);
+        border-radius: 8px;
+        margin: 12px 0;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+        text-align: left;
+      }
+      th {
+        background: var(--bg);
+        font-weight: 650;
+      }
+      th,
+      td {
+        padding: 10px 12px;
+        border-bottom: 1px solid var(--soft);
+        vertical-align: top;
+        overflow-wrap: anywhere;
+      }
+      caption {
+        padding: 10px;
+        text-align: left;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      td button {
+        font-size: 13px;
+        padding: 7px 10px;
+      }
+      details {
+        border-top: 1px solid var(--soft);
+        padding-top: 12px;
+        margin-top: 16px;
+      }
+      summary {
+        cursor: pointer;
+        font-weight: 650;
+        min-height: 44px;
+        padding: 8px 0;
+      }
+      pre {
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+        font-size: 13px;
+        background: var(--bg);
+        padding: 14px;
+        border-radius: 6px;
+        max-height: 450px;
+        overflow: auto;
+      }
+      code {
+        overflow-wrap: anywhere;
+        font-size: 0.9em;
+      }
+      .actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin: 15px 0;
+      }
+      .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      .form-grid .full {
+        grid-column: 1/-1;
+      }
+      .finding {
+        border-left: 3px solid var(--warn);
+        padding: 8px 12px;
+        margin: 10px 0;
+        background: var(--warn-bg);
+        color: var(--warn);
+      }
+      .finding.block {
+        border-color: var(--bad);
+        background: var(--bad-bg);
+        color: var(--bad);
+      }
+      .finding strong {
+        display: block;
+      }
+      .empty {
+        padding: 44px 20px;
+        text-align: center;
+      }
+      .hidden,
+      [hidden] {
+        display: none !important;
+      }
+      .review-summary {
+        background: var(--bg);
+        padding: 14px;
+        border-radius: 8px;
+        margin: 12px 0;
+      }
+      .check {
+        display: flex;
+        gap: 10px;
+        align-items: start;
+        font-weight: 400;
+        margin: 14px 0;
+      }
+      .check input {
+        width: 20px;
+        min-height: 20px;
+        margin-top: 3px;
+        flex-shrink: 0;
+      }
+      .offline-note {
+        background: var(--warn-bg);
+        color: var(--warn);
+        padding: 12px;
+        border-radius: 8px;
+      }
+      .busy-note {
+        font-weight: 650;
+      }
+      footer {
+        color: var(--muted);
+        font-size: 13px;
+        margin: 24px 0;
+      }
+      .help-list {
+        padding-left: 22px;
+      }
+      .help-list li {
+        margin: 8px 0;
+      }
+      .nowrap {
+        white-space: nowrap;
+      }
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+      @media (max-width: 1000px) {
+        .work {
+          grid-template-columns: 1fr;
+        }
+        .header-inner,
+        main {
+          padding: 20px;
+        }
+        .node {
+          min-height: 90px;
+        }
+      }
+      @media (max-width: 600px) {
+        .graph-mobile {
+          display: block;
+        }
+        .header-inner,
+        main {
+          padding: 16px;
+        }
+        nav {
+          margin-left: 0;
+          width: 100%;
+        }
+        nav a {
+          flex: 1;
+        }
+        .layers {
+          flex-direction: column;
+          gap: 4px;
+        }
+        .layer {
+          width: 100%;
+          display: flex;
+          gap: 12px;
+          flex-wrap: wrap;
+        }
+        .layer-title {
+          background: var(--panel);
+          position: relative;
+          width: 100%;
+          margin-bottom: 2px;
+        }
+        .node {
+          flex: 1 1 130px;
+          max-width: 100%;
+          margin-bottom: 20px;
+        }
+        .graph-lines {
+          display: none;
+        }
+        .graph-key {
+          display: none;
+        }
+        .form-grid {
+          grid-template-columns: 1fr;
+        }
+        .form-grid .full {
+          grid-column: auto;
+        }
+        .panel {
+          padding: 16px;
+        }
+        .toolbar > .field,
+        .toolbar > button {
+          width: 100%;
+        }
+        .stats {
+          gap: 18px;
+        }
+        .stat strong {
+          font-size: 22px;
+        }
+        .intro {
+          gap: 4px;
+        }
+        h1 {
+          font-size: 26px;
+        }
+        input,
+        select,
+        textarea {
+          font-size: 16px;
+        }
+        dl {
+          grid-template-columns: 86px minmax(0, 1fr);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          scroll-behavior: auto !important;
+          animation: none !important;
+          transition: none !important;
+        }
+      }
+      @media (forced-colors: active) {
+        button[aria-pressed="true"] {
+          outline: 3px solid Highlight;
+        }
+        .finding,
+        .status {
+          border: 2px solid CanvasText;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to explorer</a>
+    <header>
+      <div class="header-inner">
+        <span class="brand"
+          >Knowledge Catalog <span class="muted">/ Curator</span></span
+        >
+        <nav aria-label="Sections">
+          <a class="button" id="catalog-link" href="/">Metadata</a
+          ><a class="button" href="/lineage" aria-current="page">Lineage</a
+          ><a class="button" href="#help">Help</a>
+        </nav>
+      </div>
+    </header>
+    <main id="main" tabindex="-1">
+      <div class="intro flow-intro">
+        <div>
+          <span class="eyebrow">Data lineage · guided review</span>
+          <h1>Review one decision at a time</h1>
+        </div>
+        <div>
+          <span class="tag warn" id="mode-badge">Synthetic simulation</span
+          ><small id="connection">Connecting…</small>
+        </div>
+      </div>
+      <nav class="lineage-stepper" aria-label="Lineage review steps">
+        <ol>
+          <li>
+            <button
+              type="button"
+              id="lineage-step-choose"
+              data-lineage-step="choose"
+              aria-controls="lineage-page-choose"
+              aria-current="step"
+            >
+              <span class="step-number">1</span><span>Choose</span>
+            </button>
+          </li>
+          <li>
+            <button
+              type="button"
+              id="lineage-step-explore"
+              data-lineage-step="explore"
+              aria-controls="lineage-page-explore"
+            >
+              <span class="step-number">2</span><span>Explore</span>
+            </button>
+          </li>
+          <li>
+            <button
+              type="button"
+              id="lineage-step-check"
+              data-lineage-step="check"
+              aria-controls="lineage-page-check"
+            >
+              <span class="step-number">3</span><span>Check and correct</span>
+            </button>
+          </li>
+          <li>
+            <button
+              type="button"
+              id="lineage-step-decide"
+              data-lineage-step="decide"
+              aria-controls="lineage-page-decide"
+            >
+              <span class="step-number">4</span><span>Decide</span>
+            </button>
+          </li>
+          <li>
+            <button
+              type="button"
+              id="lineage-step-share"
+              data-lineage-step="share"
+              aria-controls="lineage-page-share"
+            >
+              <span class="step-number">5</span><span>Share</span>
+            </button>
+          </li>
+        </ol>
+      </nav>
+      <div
+        id="feedback"
+        class="status"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+      ></div>
+      <div id="error" class="status error" role="alert" hidden></div>
+      <div id="offline" class="offline-note" hidden>
+        Offline snapshot. Explore the graph or download JSON; this copy cannot
+        save edits or approvals.
+      </div>
+      <div id="workspace">
+        <section
+          class="lineage-context"
+          id="lineage-context"
+          aria-labelledby="summary-title"
+        >
+          <div class="section-head">
+            <div>
+              <h2 id="summary-title" class="sr-only">Current graph</h2>
+              <p id="revision-label" class="muted"></p>
+            </div>
+            <span class="tag" id="review-state"></span>
+          </div>
+          <div class="context-actions">
+            <button id="lineage-change">Change graph</button
+            ><button id="reload">Refresh</button
+            ><button id="lineage-history-open">History</button>
+          </div>
+        </section>
+        <div class="stage-heading">
+          <span id="lineage-position" class="eyebrow">Step 1 of 5</span>
+          <h2 id="lineage-stage-title" tabindex="-1">Choose a graph</h2>
+          <p id="lineage-stage-description" class="muted">
+            Open an existing graph or create a synthetic example to practice.
+          </p>
+        </div>
+        <div id="lineage-guidance" role="status" aria-live="polite"></div>
+        <section
+          id="lineage-page-choose"
+          data-lineage-page="choose"
+          aria-labelledby="lineage-step-choose"
+        >
+          <div class="choose-grid">
+            <section class="panel" id="existing-graph-choice">
+              <h3>Continue a review</h3>
+              <label for="graph-select">Working graph</label
+              ><select id="graph-select">
+                <option value="">Select a graph</option>
+              </select>
+              <p class="muted">
+                Your saved descriptions, corrections and decisions stay with the
+                graph.
+              </p>
+              <button id="lineage-open" class="primary">Open graph</button>
+            </section>
+            <details class="panel" id="create-graph-choice">
+              <summary>Create a synthetic example</summary>
+              <p>
+                Generate eight related datasets and four transformations. The
+                example includes two relationships to correct.
+              </p>
+              <details>
+                <summary>Demo options</summary>
+                <label for="seed">Reproducible seed</label
+                ><input
+                  id="seed"
+                  type="number"
+                  min="0"
+                  max="2147483647"
+                  value="42"
+                />
+              </details>
+              <button id="demo" class="primary">Create synthetic demo</button>
+            </details>
+          </div>
+          <p id="empty" class="muted">
+            No saved graphs yet. Create a synthetic example to begin.
+          </p>
+        </section>
+        <section
+          id="lineage-page-explore"
+          data-lineage-page="explore"
+          aria-labelledby="lineage-step-explore"
+          hidden
+        >
+          <div class="work">
+            <section
+              id="lineage-map-panel"
+              class="panel"
+              aria-labelledby="graph-title"
+            >
+              <div class="section-head">
+                <div>
+                  <h2 id="graph-title">Dependency map</h2>
+                  <small
+                    >Select a dataset. Arrows follow the flow of data.</small
+                  >
+                </div>
+              </div>
+              <div class="tabs" role="group" aria-label="Impact scope">
+                <button data-scope="all" aria-pressed="true">
+                  Entire domain</button
+                ><button data-scope="upstream" aria-pressed="false">
+                  Upstream sources</button
+                ><button data-scope="downstream" aria-pressed="false">
+                  Downstream impact
+                </button>
+              </div>
+              <p id="impact" class="muted" aria-live="polite"></p>
+              <div
+                id="graph"
+                class="graph"
+                role="group"
+                aria-label="Graph datasets; the same relationships appear in the table"
+              >
+                <svg class="graph-lines" aria-hidden="true"></svg>
+                <div class="layers" id="layers"></div>
+              </div>
+              <div class="graph-key">
+                <span>Executed dependency</span
+                ><span class="asserted">Declared hypothesis</span>
+              </div>
+              <p class="graph-mobile muted">
+                In Check and correct, use the relationship table to inspect
+                dependencies. Map buttons let you explore each dataset.
+              </p>
+            </section>
+            <section class="panel" aria-labelledby="detail-heading">
+              <h2 id="detail-heading" class="detail-title">Dataset details</h2>
+              <div id="node-detail"></div>
+              <p id="dataset-description" class="muted"></p>
+              <details>
+                <summary>Column schema and semantics</summary>
+                <div id="column-table" class="table-wrap"></div>
+              </details>
+              <details>
+                <summary>Column lineage</summary>
+                <div id="column-lineage" class="table-wrap"></div>
+              </details>
+              <details>
+                <summary>Transformations and runs</summary>
+                <div id="process-detail"></div>
+              </details>
+            </section>
+          </div>
+          <details class="panel">
+            <summary>Graph overview</summary>
+            <div class="stats" id="stats"></div>
+          </details>
+        </section>
+        <section
+          id="lineage-page-check"
+          data-lineage-page="check"
+          aria-labelledby="lineage-step-check"
+          hidden
+        >
+          <div class="work">
+            <div>
+              <section
+                id="lineage-quality-panel"
+                class="panel"
+                aria-labelledby="quality-title"
+              >
+                <div class="section-head">
+                  <div>
+                    <h2 id="quality-title">Quality and evidence</h2>
+                    <p class="muted">
+                      The result evaluates this graph and its local evidence; it
+                      does not establish that a resource exists in GCP.
+                    </p>
+                  </div>
+                  <span id="quality-label" class="tag"></span>
+                </div>
+                <div id="findings"></div>
+                <details id="repair-guide">
+                  <summary>Repair guidance</summary>
+                  <p>
+                    Check relationships against each transformation's inputs and
+                    outputs. A missing relationship can be recovered from an
+                    executed dependency; an unsupported hypothesis can be
+                    removed or justified, but will remain identified as a
+                    declaration.
+                  </p>
+                  <div id="hints"></div>
+                </details>
+                <details>
+                  <summary>Synthetic provenance and full evidence</summary>
+                  <pre
+                    role="region"
+                    id="evidence"
+                    tabindex="0"
+                    aria-label="Full evidence from the synthetic generator"
+                  ></pre>
+                </details>
+              </section>
+              <details class="panel" id="description-editor">
+                <summary>Improve a dataset description</summary>
+                <label for="edit-dataset">Dataset to describe</label
+                ><select id="edit-dataset"></select>
+                <form id="description-form">
+                  <label for="description">Dataset description</label
+                  ><textarea
+                    id="description"
+                    maxlength="4000"
+                    required
+                  ></textarea>
+                  <div class="actions">
+                    <button id="save-description" class="primary" type="button">
+                      Save description</button
+                    ><button id="discard-description" type="button">
+                      Discard draft
+                    </button>
+                  </div>
+                  <small id="draft-note"
+                    >Edits create a revision and invalidate its previous
+                    approval.</small
+                  >
+                </form>
+              </details>
+            </div>
+            <section
+              class="panel"
+              id="edge-details"
+              aria-labelledby="edge-review-title"
+            >
+              <h2 id="edge-review-title">
+                View and correct relationships <span id="edge-count"></span>
+              </h2>
+              <p class="muted">
+                Editing a proposed relationship does not turn it into observed
+                evidence.
+              </p>
+              <div id="edge-table" class="table-wrap"></div>
+              <button id="add-edge">Add proposed relationship</button>
+              <form id="edge-form" hidden>
+                <h3 id="edge-form-title">Edit relationship</h3>
+                <div class="form-grid">
+                  <div>
+                    <label for="edge-source">Source</label
+                    ><select id="edge-source" required></select>
+                  </div>
+                  <div>
+                    <label for="edge-target">Target</label
+                    ><select id="edge-target" required></select>
+                  </div>
+                  <div>
+                    <label for="edge-process">Transformation</label
+                    ><select id="edge-process" required></select>
+                  </div>
+                  <div>
+                    <label for="edge-confidence"
+                      >Declared confidence (0 to 1)</label
+                    ><input
+                      id="edge-confidence"
+                      type="number"
+                      min="0"
+                      max="1"
+                      step=".01"
+                      value="0.8"
+                      required
+                    />
+                  </div>
+                  <div class="full">
+                    <label for="edge-description">Relationship rationale</label
+                    ><textarea
+                      id="edge-description"
+                      required
+                      maxlength="4000"
+                    ></textarea>
+                  </div>
+                </div>
+                <p class="muted" id="edge-evidence"></p>
+                <div class="actions">
+                  <button id="save-edge" class="primary" type="button">
+                    Save new revision</button
+                  ><button id="edge-cancel" type="button">
+                    Cancel editing
+                  </button>
+                </div>
+              </form>
+            </section>
+          </div>
+        </section>
+        <section
+          id="lineage-page-decide"
+          data-lineage-page="decide"
+          aria-labelledby="lineage-step-decide"
+          hidden
+        >
+          <section class="panel" aria-labelledby="decision-title">
+            <h2 id="decision-title">Human decision</h2>
+            <div id="decision-summary" class="review-summary"></div>
+            <p id="host-review" hidden>
+              Approvals are recorded in the local human review panel, where you
+              can inspect the full graph.
+            </p>
+            <button id="open-review" hidden>Open review panel</button>
+            <div id="decision-blockers" class="status warning" hidden></div>
+            <form id="approval-form">
+              <label for="reviewer">Reviewer name</label
+              ><input
+                id="reviewer"
+                autocomplete="name"
+                maxlength="200"
+                placeholder="Your name"
+              /><label class="check"
+                ><input type="checkbox" id="checked" /><span
+                  >I reviewed the relationships, their limitations, and the
+                  revision shown above.</span
+                ></label
+              >
+              <div class="actions">
+                <button class="primary" id="approve" type="submit">
+                  Approve local revision</button
+                ><button id="reject" type="button">Return with feedback</button>
+              </div>
+              <small id="approval-help"
+                >Approval here does not publish to GCP. Any edit requires a new
+                review.</small
+              >
+            </form>
+          </section>
+          <details class="panel">
+            <summary>Exact revision fingerprint</summary>
+            <code id="decision-fingerprint"></code>
+          </details>
+        </section>
+        <section
+          id="lineage-page-share"
+          data-lineage-page="share"
+          aria-labelledby="lineage-step-share"
+          hidden
+        >
+          <div class="tabs" role="group" aria-label="Sharing destination">
+            <button data-share-route="download" aria-pressed="true">
+              Download a file</button
+            ><button data-share-route="catalog" aria-pressed="false">
+              Add to catalog metadata
+            </button>
+          </div>
+          <p id="share-status" class="muted"></p>
+          <div id="share-download">
+            <section class="panel" aria-labelledby="export-title">
+              <h2 id="export-title">Download a review file</h2>
+              <label for="export-format">File format</label
+              ><select id="export-format">
+                <option value="json">JSON — complete review record</option>
+                <option value="openlineage">
+                  OpenLineage — runs and column lineage
+                </option>
+                <option value="gcp-plan">
+                  GCP import plan — requests only
+                </option>
+              </select>
+              <p id="export-guidance" class="muted"></p>
+              <button id="download-export" class="primary">
+                Download JSON
+              </button>
+              <p class="muted">
+                JSON preserves the full revision. OpenLineage exchanges runs;
+                the GCP plan shows requests another process can review and
+                execute.
+              </p>
+              <div id="export-project-field" hidden>
+                <label for="export-project"
+                  >Project for OpenLineage and GCP plan</label
+                ><input
+                  id="export-project"
+                  placeholder="my-gcp-project"
+                  pattern="[a-z][a-z0-9-]{4,28}[a-z0-9]"
+                /><small
+                  >Enter a valid project ID and resolve graph blockers to enable
+                  these exports. This only builds the file's target; it does not
+                  contact GCP.</small
+                >
+              </div>
+              <div class="actions" hidden>
+                <button id="export-json">Download JSON</button
+                ><button id="export-ol">Download OpenLineage</button
+                ><button id="export-plan">Download GCP plan</button>
+              </div>
+              <div class="status warning" id="format-caveat">
+                Importing custom events into GCP shows relationships between
+                datasets. Column details are retained in this tool and the
+                exported file; they may not appear in the console.
+              </div>
+              <div id="export-warnings" hidden></div>
+            </section>
+          </div>
+          <section id="share-catalog" class="panel" hidden>
+            <h2>Attach an independent simulation</h2>
+            <p id="attach-guidance" class="muted"></p>
+            <button id="share-go-decide">Review approval</button>
+            <div id="attachment">
+              <h3>Continue with catalog metadata</h3>
+              <label for="proposal">Metadata proposal</label
+              ><select id="proposal">
+                <option value="">Select a proposal</option>
+              </select>
+              <div class="actions">
+                <button id="attach">Attach approved simulation</button>
+              </div>
+              <small
+                >Attaches an independent simulation and invalidates approval of
+                those metadata. Publishing still uses the usual review and GCP
+                plan workflow.</small
+              >
+            </div>
+          </section>
+        </section>
+        <div id="lineage-waiting" class="panel" hidden>
+          Waiting for a graph from the conversation…
+        </div>
+        <div class="lineage-flow-actions">
+          <button id="lineage-back">Back</button>
+          <p id="lineage-next-hint" class="muted"></p>
+          <button id="lineage-next" class="primary">Open graph</button>
+        </div>
+        <details id="lineage-history" class="panel contextual-details" hidden>
+          <summary>History and recovery</summary>
+          <div>
+            <p class="muted">
+              Inspect earlier revisions or restore them as a new draft. The
+              original history is preserved.
+            </p>
+            <button id="history">View history</button>
+            <div id="history-table" class="table-wrap" hidden></div>
+            <div id="history-preview" hidden>
+              <h3 id="history-heading"></h3>
+              <pre
+                role="region"
+                id="history-json"
+                tabindex="0"
+                aria-label="Earlier snapshot or differences between revisions"
+              ></pre>
+            </div>
+          </div>
+        </details>
+        <details id="lineage-help" class="panel contextual-details">
+          <summary>Help for this step</summary>
+          <p id="lineage-step-help"></p>
+          <details id="help">
+            <summary>Full decision guide</summary>
+
+            <ol class="help-list">
+              <li>
+                <strong>Source</strong> is the dataset providing data;
+                <strong>target</strong>is the dataset receiving it. The
+                transformation explains how it is produced.
+              </li>
+              <li>
+                <strong>Upstream sources</strong> shows preceding dependencies.
+                <strong>Downstream impact</strong> helps you assess which
+                outputs could change.
+              </li>
+              <li>
+                <strong>Executed evidence</strong> comes from the reproducible
+                generator. <strong>Declared hypothesis</strong> records an
+                interpretation that needs verification.
+              </li>
+              <li>
+                Correct relationships in their table. Save or discard changes
+                before selecting another dataset. You can recover versions from
+                history.
+              </li>
+              <li>
+                Resolve blocking findings, review the evidence, and approve that
+                revision. Downloading a file does not publish resources.
+              </li>
+            </ol>
+            <p>
+              <small id="interface-help"
+                >View prepared for Claude and ChatGPT in hosts supporting MCP
+                Apps. In Python:
+                <code
+                  >from knowledge_catalog.lineage_interface import
+                  render_lineage</code
+                >. The exported HTML copy works offline and does not save
+                decisions.</small
+              >
+            </p>
+          </details>
+        </details>
+      </div>
+      <footer>
+        Knowledge Catalog Curator · Local review, explicit evidence, human
+        decisions.
+      </footer>
+    </main>
+    <!--INITIAL_RECORD-->
+    <!--HOST_BRIDGE-->
+    <script>
+      (() => {
+        "use strict";
+        const $ = (id) => document.getElementById(id),
+          host = window.kcHost;
+        const initial = $("initial-record");
+        const offline = !!initial;
+        let token = "";
+        try {
+          const capability = /^[A-Za-z0-9_-]{32,128}$/.test(
+            location.hash.slice(1),
+          )
+            ? location.hash.slice(1)
+            : "";
+          token =
+            capability ||
+            sessionStorage.getItem("kc-token") ||
+            sessionStorage.getItem("kc_token") ||
+            "";
+          if (token) {
+            sessionStorage.setItem("kc-token", token);
+            sessionStorage.setItem("kc_token", token);
+          }
+          if (capability) history.replaceState(null, "", location.pathname);
+        } catch {}
+        let record = null,
+          items = [],
+          proposals = [],
+          selected = "",
+          scope = "all",
+          busy = false,
+          dirty = false,
+          edgeId = null,
+          editing = false;
+        let flowStep = host || offline ? "explore" : "choose";
+        let shareRoute = "download",
+          flowFocusPending = false,
+          autoCreateOpened = false;
+        const flowCopy = {
+          choose: [
+            "Choose a graph",
+            "Open an existing review or create a synthetic example. Nothing is published.",
+            "Open a saved graph to continue. Creating a demo keeps your existing graphs and decisions.",
+          ],
+          explore: [
+            "Understand the data flow",
+            "Select a dataset and follow its sources or downstream impact. Continue when you understand what needs review.",
+            "The map is read-only here. Open schema, column lineage or transformation details only when they help answer your question.",
+          ],
+          check: [
+            "Check and correct relationships",
+            "Review the findings and fix the relevant relationship or description. Every save creates a new revision.",
+            "Executed dependencies come from the generator. New hypotheses stay explicitly declared. Use a targeted repair or edit the relationship table; you can return to the map at any time.",
+          ],
+          decide: [
+            "Review this exact revision",
+            "Check what is ready, what is still uncertain, and record the appropriate human decision.",
+            "Local approval applies only to the revision shown. It does not publish to GCP. Any later edit invalidates that approval.",
+          ],
+          share: [
+            "Choose how to share the review",
+            "Download a file or attach an approved simulation to catalog metadata. These actions do not create Data Lineage resources.",
+            "JSON preserves the complete review. Other formats require a coherent graph and an explicit target project. Attaching a simulation requires local approval and a separate catalog review.",
+          ],
+        };
+
+        function flowSteps() {
+          return offline
+            ? ["explore", "share"]
+            : ["choose", "explore", "check", "decide", "share"];
+        }
+        function goFlow(step, focus = true) {
+          if (
+            busy ||
+            !flowSteps().includes(step) ||
+            (!record && step !== "choose")
+          )
+            return false;
+          if (step !== flowStep && (dirty || editing)) {
+            if (step === "choose") {
+              if (!mayDiscard()) return false;
+              clean();
+              renderDetail();
+            } else if (step === "decide" || step === "share") {
+              flowStep = "check";
+              feedback(
+                "Save or discard the pending edits before reviewing a decision or exporting the stored revision.",
+              );
+              applyFlow();
+              $("lineage-stage-title").focus();
+              return false;
+            }
+          }
+          flowStep = step;
+          feedback("");
+          applyFlow();
+          if (focus) $("lineage-stage-title").focus({ preventScroll: true });
+          requestAnimationFrame(drawLines);
+          return true;
+        }
+        function applyFlow() {
+          const steps = flowSteps();
+          if (!steps.includes(flowStep)) flowStep = steps[0];
+          const waiting = !record && !!host;
+          document.querySelectorAll("[data-lineage-step]").forEach((button) => {
+            const key = button.dataset.lineageStep;
+            button.parentElement.hidden = !steps.includes(key);
+            button.disabled = busy || (!record && key !== "choose");
+            if (key === flowStep) button.setAttribute("aria-current", "step");
+            else button.removeAttribute("aria-current");
+            button.querySelector(".step-number").textContent =
+              steps.indexOf(key) + 1;
+          });
+          document.querySelectorAll("[data-lineage-page]").forEach((page) => {
+            page.hidden = waiting || page.dataset.lineagePage !== flowStep;
+          });
+          $("lineage-waiting").hidden = !waiting;
+          $("lineage-context").hidden = !record || flowStep === "choose";
+          $("lineage-stage-title").textContent = waiting
+            ? "Loading the selected graph"
+            : flowCopy[flowStep][0];
+          $("lineage-stage-description").textContent = offline
+            ? flowStep === "explore"
+              ? "Explore this saved snapshot. It cannot save edits or decisions."
+              : "Download the complete JSON snapshot. No connection or approval is required."
+            : flowCopy[flowStep][1];
+          $("lineage-position").textContent =
+            `Step ${steps.indexOf(flowStep) + 1} of ${steps.length}`;
+          $("lineage-step-help").textContent = flowCopy[flowStep][2];
+          $("lineage-guidance").textContent = "";
+          $("existing-graph-choice").hidden = !items.length;
+          if (!items.length && flowStep === "choose") {
+            $("create-graph-choice").open = true;
+            autoCreateOpened = true;
+          } else if (items.length && autoCreateOpened) {
+            $("create-graph-choice").open = false;
+            autoCreateOpened = false;
+          }
+          $("lineage-open").disabled =
+            busy || !record || !$("graph-select").value;
+          $("lineage-history-open").hidden = offline;
+          $("lineage-history").hidden =
+            !record || offline || flowStep === "choose";
+          $("lineage-change").hidden = offline;
+          $("reload").hidden = offline;
+          document.querySelector(".lineage-flow-actions").hidden =
+            waiting || flowStep === "choose";
+          $("lineage-back").disabled = busy || steps.indexOf(flowStep) <= 0;
+          $("lineage-next").disabled = busy || !record;
+          $("lineage-next").classList.toggle("primary", flowStep !== "share");
+          $("lineage-next").textContent =
+            {
+              explore: offline ? "Choose download" : "Check relationships",
+              check: "Review decision",
+              decide: "Continue to sharing",
+              share: offline ? "Return to graph" : "Choose another graph",
+            }[flowStep] || "Open graph";
+          $("lineage-next-hint").textContent = "";
+          if (!record) return;
+          $("decision-fingerprint").textContent = record.digest;
+          if (dirty || editing)
+            $("lineage-guidance").textContent =
+              "You have unsaved edits in Check and correct. Save or discard them before making a decision or sharing.";
+          if (flowStep === "check") {
+            const errors = record.quality.findings.filter((f) =>
+              ["error", "blocking", "critical"].includes(f.severity),
+            ).length;
+            $("lineage-next-hint").textContent = errors
+              ? `${errors} blocking ${errors === 1 ? "issue remains" : "issues remain"}. You can inspect the decision, but approval requires resolving them.`
+              : "Checks have no blockers. Review the evidence before making a decision.";
+          }
+          const blocked = !record.quality.conforms;
+          $("approval-form").hidden =
+            !!host || offline || blocked || record.status === "approved";
+          $("decision-blockers").hidden = !blocked;
+          $("decision-blockers").replaceChildren();
+          if (blocked) {
+            $("decision-blockers").append(
+              text(
+                "p",
+                "This revision cannot be approved yet. Return to the findings and correct the blocking relationships.",
+              ),
+              Object.assign(button("Return to corrections", () => goFlow("check")), {
+                disabled: busy,
+              }),
+            );
+          }
+          $("host-review").hidden = !host;
+          $("open-review").hidden = !host;
+          $("open-review").textContent = "Continue in human review";
+          $("share-download").hidden = shareRoute !== "download";
+          $("share-catalog").hidden = offline || shareRoute !== "catalog";
+          document.querySelectorAll("[data-share-route]").forEach((button) => {
+            button.hidden = offline && button.dataset.shareRoute === "catalog";
+            button.setAttribute(
+              "aria-pressed",
+              String(button.dataset.shareRoute === shareRoute),
+            );
+          });
+          $("share-status").textContent =
+            record.status === "approved"
+              ? `Locally approved revision ${record.revision}. Sharing does not publish cloud resources.`
+              : `Draft revision ${record.revision}. A download is a review copy, not an approved publication.`;
+          const format = $("export-format").value;
+          [...$("export-format").options].forEach((option) => {
+            option.hidden = offline && option.value !== "json";
+            option.disabled = offline && option.value !== "json";
+          });
+          $("export-project-field").hidden = format === "json";
+          if ($("format-caveat")) $("format-caveat").hidden = format === "json";
+          const projectValid = /^[a-z][a-z0-9-]{4,28}[a-z0-9]$/.test(
+            $("export-project").value.trim(),
+          );
+          $("download-export").disabled =
+            busy ||
+            dirty ||
+            editing ||
+            (format !== "json" && (offline || blocked || !projectValid));
+          $("download-export").textContent = {
+            json: "Download JSON",
+            openlineage: "Download OpenLineage",
+            "gcp-plan": "Download GCP plan",
+          }[format];
+          $("export-guidance").textContent =
+            format === "json"
+              ? "Includes this exact stored revision and its review status."
+              : blocked
+                ? "Resolve the graph's blocking findings before exporting this format."
+                : !projectValid
+                  ? "Enter the target project ID below to prepare the file. This does not contact GCP."
+                  : "The target is used only in the exported file. No requests are executed.";
+          $("attach-guidance").textContent =
+            record.status === "approved"
+              ? "Choose a catalog proposal. Attaching the graph creates a new metadata draft and invalidates that proposal's approval."
+              : "Approve this lineage revision in the human review panel before attaching it. You can still download a draft JSON copy.";
+          $("attachment").hidden = offline || record.status !== "approved";
+          $("share-go-decide").hidden = record.status === "approved";
+          $("save-description").disabled = busy || offline || !dirty || editing;
+          $("discard-description").disabled = busy || offline || !dirty;
+        }
+        const stateName = {
+          draft: "Draft",
+          approved: "Locally approved",
+          rejected: "Returned for corrections",
+        };
+        const text = (tag, value, className) => {
+          const el = document.createElement(tag);
+          el.textContent = value ?? "";
+          if (className) el.className = className;
+          return el;
+        };
+        function feedback(message) {
+          $("feedback").textContent = message;
+        }
+        function failure(error) {
+          $("error").textContent =
+            (error.message || String(error)) +
+            " Review the information and try again. If the revision changed, use Refresh; your pending text remains available.";
+          $("error").hidden = false;
+        }
+        function table(headers, rows, caption) {
+          const t = document.createElement("table");
+          t.append(text("caption", caption));
+          const head = document.createElement("thead"),
+            tr = document.createElement("tr");
+          headers.forEach((h) => {
+            const th = text("th", h);
+            th.scope = "col";
+            tr.append(th);
+          });
+          head.append(tr);
+          t.append(head);
+          const body = document.createElement("tbody");
+          rows.forEach((row) => {
+            const r = document.createElement("tr");
+            row.forEach((cell) => {
+              const td = document.createElement("td");
+              if (cell instanceof Node) td.append(cell);
+              else td.textContent = cell ?? "—";
+              r.append(td);
+            });
+            body.append(r);
+          });
+          if (!rows.length) {
+            const td = text(
+              "td",
+              "No information is available for this selection.",
+            );
+            td.colSpan = headers.length;
+            const tr = document.createElement("tr");
+            tr.append(td);
+            body.append(tr);
+          }
+          t.append(body);
+          return t;
+        }
+        function button(label, fn) {
+          const b = text("button", label);
+          b.type = "button";
+          b.addEventListener("click", fn);
+          return b;
+        }
+        function name(id) {
+          return record?.graph.datasets.find((d) => d.id === id)?.name || id;
+        }
+        function available() {
+          document
+            .querySelectorAll("button,input,textarea,select")
+            .forEach((el) => {
+              el.disabled = busy;
+            });
+          if (record) {
+            const exportReady =
+              /^[a-z][a-z0-9-]{4,28}[a-z0-9]$/.test(
+                $("export-project").value.trim(),
+              ) && record.quality.conforms;
+            $("export-ol").disabled = busy || !exportReady;
+            $("export-plan").disabled = busy || !exportReady;
+            $("approve").disabled =
+              busy ||
+              dirty ||
+              editing ||
+              !$("checked").checked ||
+              !$("reviewer").value.trim() ||
+              !record.quality.conforms ||
+              record.status === "approved";
+            $("attach").disabled =
+              busy ||
+              dirty ||
+              editing ||
+              record.status !== "approved" ||
+              !$("proposal").value;
+          }
+          if (offline) {
+            [
+              "demo",
+              "seed",
+              "reload",
+              "graph-select",
+              "description",
+              "save-description",
+              "discard-description",
+              "add-edge",
+              "approve",
+              "reject",
+              "attach",
+              "history",
+              "export-ol",
+              "export-plan",
+              "export-project",
+            ].forEach((id) => ($(id).disabled = true));
+          }
+          document.querySelectorAll("[data-write]").forEach((el) => {
+            el.disabled = busy || offline;
+          });
+          if (offline) {
+            $("approval-form").hidden = true;
+            $("attachment").hidden = true;
+          }
+          if (host) {
+            document.querySelector("nav a[aria-current]").href = "#main";
+            $("approval-form").hidden = true;
+            $("host-review").hidden = false;
+            $("open-review").hidden = false;
+          }
+          applyFlow();
+        }
+        document
+          .querySelectorAll("[data-lineage-step]")
+          .forEach((button) =>
+            button.addEventListener("click", () =>
+              goFlow(button.dataset.lineageStep),
+            ),
+          );
+        $("lineage-open").addEventListener("click", () => goFlow("explore"));
+        $("lineage-change").addEventListener("click", () => goFlow("choose"));
+        $("lineage-back").addEventListener("click", () => {
+          const steps = flowSteps();
+          goFlow(steps[Math.max(0, steps.indexOf(flowStep) - 1)]);
+        });
+        $("lineage-next").addEventListener("click", () => {
+          const steps = flowSteps(),
+            index = steps.indexOf(flowStep);
+          goFlow(index === steps.length - 1 ? steps[0] : steps[index + 1]);
+        });
+        $("share-go-decide").addEventListener("click", () => goFlow("decide"));
+        $("export-format").addEventListener("change", available);
+        $("download-export").addEventListener("click", () => {
+          const control = {
+            json: "export-json",
+            openlineage: "export-ol",
+            "gcp-plan": "export-plan",
+          }[$("export-format").value];
+          if (!$("download-export").disabled) $(control).click();
+        });
+        document.querySelectorAll("[data-share-route]").forEach((button) =>
+          button.addEventListener("click", () => {
+            if (busy) return;
+            shareRoute = button.dataset.shareRoute;
+            applyFlow();
+            if (shareRoute === "catalog" && !offline)
+              task("Loading catalog destinations", async () => {
+                await refreshList();
+                feedback(
+                  proposals.length
+                    ? record.status === "approved"
+                      ? "Choose a catalog proposal for this approved simulation."
+                      : "Catalog destinations loaded. Approve the lineage revision before attaching it."
+                    : "No catalog proposals are available. Create a metadata draft in the local panel, then reopen this destination.",
+                );
+              });
+          }),
+        );
+        $("edit-dataset").addEventListener("change", () => {
+          const next = $("edit-dataset").value;
+          if (!mayDiscard()) {
+            $("edit-dataset").value = selected;
+            return;
+          }
+          clean();
+          selected = next;
+          renderGraph();
+          renderDetail();
+          available();
+        });
+        $("description-editor").addEventListener("toggle", () => {
+          if ($("description-editor").open && editing) {
+            if (!mayDiscard()) {
+              $("description-editor").open = false;
+              return;
+            }
+            clean();
+          }
+          available();
+        });
+        $("lineage-history-open").addEventListener("click", () => {
+          $("lineage-history").open = true;
+          $("history").focus();
+          $("history").click();
+          $("lineage-history").scrollIntoView({ block: "start" });
+        });
+        document
+          .querySelector('header a[href="#help"]')
+          .addEventListener("click", (event) => {
+            event.preventDefault();
+            $("lineage-help").open = true;
+            $("lineage-help").querySelector("summary").focus();
+            $("lineage-help").scrollIntoView({ block: "start" });
+          });
+        async function api(action, args = {}) {
+          if (offline) {
+            if (action === "export") return record;
+            throw new Error(
+              "This copy does not save changes. Open kc ui to continue.",
+            );
+          }
+          if (host) return host.call(action, args);
+          const response = await fetch(
+            "/api/" + (action === "list" ? "lineage" : "action"),
+            {
+              method: action === "list" ? "GET" : "POST",
+              headers: {
+                Authorization: "Bearer " + token,
+                "Content-Type": "application/json",
+              },
+              ...(action === "list"
+                ? {}
+                : {
+                    body: JSON.stringify({
+                      action: "lineage_" + action,
+                      ...args,
+                    }),
+                  }),
+            },
+          );
+          const value = await response.json();
+          if (!response.ok)
+            throw new Error(
+              value.error || "The operation could not be completed.",
+            );
+          return value;
+        }
+        async function task(label, fn) {
+          if (busy) return;
+          const focused = document.activeElement;
+          const nodeId = focused?.dataset?.node;
+          busy = true;
+          $("main").setAttribute("aria-busy", "true");
+          $("error").hidden = true;
+          feedback(label + "…");
+          available();
+          try {
+            await fn();
+          } catch (error) {
+            failure(error);
+          } finally {
+            busy = false;
+            $("main").setAttribute("aria-busy", "false");
+            available();
+            if (flowFocusPending) {
+              flowFocusPending = false;
+              $("lineage-stage-title").focus({ preventScroll: true });
+            } else if (nodeId) {
+              [...$("layers").querySelectorAll("[data-node]")]
+                .find((node) => node.dataset.node === nodeId)
+                ?.focus({ preventScroll: true });
+            } else if (
+              focused?.isConnected &&
+              !focused.disabled &&
+              !focused.closest("[hidden]")
+            ) {
+              focused.focus({ preventScroll: true });
+            } else {
+              $("feedback").tabIndex = -1;
+              $("feedback").focus({ preventScroll: true });
+            }
+          }
+        }
+        function mayDiscard() {
+          return (
+            !(dirty || editing) ||
+            confirm("There are unsaved changes. Discard them and continue?")
+          );
+        }
+        function clean() {
+          if (dirty && record) {
+            $("description").value =
+              record.graph.datasets.find((d) => d.id === selected)
+                ?.description || "";
+          }
+          dirty = false;
+          editing = false;
+          $("draft-note").textContent =
+            "Edits create a revision and invalidate its previous approval.";
+          $("edge-form").hidden = true;
+        }
+        function selectors() {
+          const previous = record?.id || $("graph-select").value;
+          $("graph-select").replaceChildren(
+            text("option", "Select or create a demo"),
+          );
+          $("graph-select").firstChild.value = "";
+          items.forEach((item) => {
+            const o = text(
+              "option",
+              (item.title || item.graph?.title || item.id) +
+                " · Seed " +
+                (item.seed ?? item.graph?.seed ?? item.id) +
+                " · " +
+                (stateName[item.status] || item.status),
+            );
+            o.value = item.id;
+            $("graph-select").append(o);
+          });
+          $("graph-select").value = previous || "";
+          $("proposal").replaceChildren(text("option", "Select a proposal"));
+          $("proposal").firstChild.value = "";
+          proposals.forEach((p) => {
+            const o = text("option", p.title || p.id);
+            o.value = p.id;
+            $("proposal").append(o);
+          });
+        }
+        async function refreshList() {
+          const value = await api("list");
+          items = Array.isArray(value) ? value : value.items || [];
+          proposals = value.proposals || [];
+          if (value.config?.project && !$("export-project").value)
+            $("export-project").value = value.config.project;
+          selectors();
+          return items;
+        }
+        function setRecord(value) {
+          if (record && value?.id !== record.id) {
+            flowStep = host || offline ? "explore" : "choose";
+            shareRoute = "download";
+            $("lineage-history").open = false;
+          }
+          record = value;
+          if (record?.graph?.seed !== undefined)
+            $("seed").value = record.graph.seed;
+          clean();
+          if (!record?.graph) return;
+          selected = record.graph.datasets.some((d) => d.id === selected)
+            ? selected
+            : record.graph.datasets[0]?.id || "";
+          $("checked").checked = false;
+          if (!items.some((i) => i.id === record.id))
+            items.push({
+              id: record.id,
+              title: record.graph.title,
+              status: record.status,
+            });
+          else
+            items = items.map((i) =>
+              i.id === record.id
+                ? { ...i, title: record.graph.title, status: record.status }
+                : i,
+            );
+          selectors();
+          render();
+        }
+        function impactSet() {
+          const visited = new Set([selected]);
+          if (scope === "all")
+            return new Set(record.graph.datasets.map((d) => d.id));
+          let added = true;
+          while (added) {
+            added = false;
+            record.graph.edges.forEach((e) => {
+              const from = scope === "upstream" ? e.target : e.source,
+                to = scope === "upstream" ? e.source : e.target;
+              if (visited.has(from) && !visited.has(to)) {
+                visited.add(to);
+                added = true;
+              }
+            });
+          }
+          return visited;
+        }
+        function drawLines() {
+          if (!record) return;
+          const svg = $("graph").querySelector("svg");
+          svg.replaceChildren();
+          const rect = $("graph").getBoundingClientRect();
+          if (rect.width < 1 || rect.height < 1) return;
+          svg.setAttribute("viewBox", `0 0 ${rect.width} ${rect.height}`);
+          const defs = document.createElementNS(
+              "http://www.w3.org/2000/svg",
+              "defs",
+            ),
+            marker = document.createElementNS(
+              "http://www.w3.org/2000/svg",
+              "marker",
+            );
+          marker.id = "arrow";
+          marker.setAttribute("viewBox", "0 0 10 10");
+          marker.setAttribute("refX", "9");
+          marker.setAttribute("refY", "5");
+          marker.setAttribute("markerWidth", "6");
+          marker.setAttribute("markerHeight", "6");
+          marker.setAttribute("orient", "auto-start-reverse");
+          const triangle = document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "path",
+          );
+          triangle.setAttribute("d", "M 0 0 L 10 5 L 0 10 z");
+          triangle.style.fill = "var(--line)";
+          marker.append(triangle);
+          defs.append(marker);
+          svg.append(defs);
+          const impact = impactSet(),
+            nodes = [...$("layers").querySelectorAll("[data-node]")];
+          record.graph.edges.forEach((edge) => {
+            const source = nodes.find((n) => n.dataset.node === edge.source),
+              target = nodes.find((n) => n.dataset.node === edge.target);
+            if (!source || !target) return;
+            const a = source.getBoundingClientRect(),
+              b = target.getBoundingClientRect();
+            const x1 = a.right - rect.left,
+              y1 = a.top + a.height / 2 - rect.top,
+              x2 = b.left - rect.left,
+              y2 = b.top + b.height / 2 - rect.top;
+            const p = document.createElementNS(
+              "http://www.w3.org/2000/svg",
+              "path",
+            );
+            const intervening = nodes
+              .filter((n) => n !== source && n !== target)
+              .map((n) => n.getBoundingClientRect())
+              .filter((r) => r.left > a.right && r.right < b.left);
+            if (intervening.length) {
+              // Route around intermediate cards. Drawing behind one would imply
+              // an incorrect incoming/outgoing dependency at that dataset.
+              const lane = Math.max(
+                y1,
+                y2,
+                ...intervening.map((r) => r.bottom - rect.top + 12),
+              );
+              p.setAttribute(
+                "d",
+                `M${x1},${y1} L${x1 + 10},${y1} L${x1 + 10},${lane} L${x2 - 10},${lane} L${x2 - 10},${y2} L${x2},${y2}`,
+              );
+            } else {
+              p.setAttribute(
+                "d",
+                `M${x1},${y1} C${x1 + 12},${y1} ${x2 - 12},${y2} ${x2},${y2}`,
+              );
+            }
+            p.setAttribute("marker-end", "url(#arrow)");
+            p.classList.toggle("asserted", edge.evidence?.kind !== "observed");
+            p.classList.toggle(
+              "active",
+              scope === "all"
+                ? edge.source === selected || edge.target === selected
+                : impact.has(edge.source) && impact.has(edge.target),
+            );
+            svg.append(p);
+          });
+        }
+        function renderGraph() {
+          const graph = record.graph,
+            impact = impactSet();
+          $("layers").replaceChildren();
+          // Layout follows immutable executed processes, so a missing draft edge
+          // cannot collapse successive transformations into the same column.
+          const depths = Object.fromEntries(
+            graph.datasets.map((d) => [d.id, 0]),
+          );
+          for (let pass = 0; pass < graph.datasets.length; pass++) {
+            graph.processes.forEach((p) => {
+              const depth =
+                Math.max(...p.inputs.map((id) => depths[id] || 0)) + 1;
+              p.outputs.forEach((id) => {
+                depths[id] = Math.min(
+                  graph.datasets.length,
+                  Math.max(depths[id] || 0, depth),
+                );
+              });
+            });
+          }
+          const layers = [...new Set(Object.values(depths))].sort(
+            (a, b) => a - b,
+          );
+          const layerNames = [
+            "Sources",
+            "Preparation",
+            "Integration",
+            "Outputs",
+          ];
+          layers.forEach((layer) => {
+            const container = text("div", "", "layer");
+            container.append(
+              text(
+                "p",
+                layerNames[layer] || "Stage " + (layer + 1),
+                "layer-title",
+              ),
+            );
+            graph.datasets
+              .filter((d) => depths[d.id] === layer)
+              .forEach((dataset) => {
+                const node = button("", () => {
+                  if (!mayDiscard()) return;
+                  clean();
+                  selected = dataset.id;
+                  renderGraph();
+                  renderDetail();
+                  available();
+                  [...$("layers").querySelectorAll("[data-node]")]
+                    .find((node) => node.dataset.node === selected)
+                    ?.focus({ preventScroll: true });
+                });
+                node.className = "node";
+                node.dataset.node = dataset.id;
+                node.dataset.impact = scope !== "all" && impact.has(dataset.id);
+                node.setAttribute(
+                  "aria-pressed",
+                  String(selected === dataset.id),
+                );
+                node.append(
+                  text("strong", dataset.name),
+                  text(
+                    "small",
+                    `${dataset.columns?.length || 0} columns · ${dataset.row_count ?? dataset.rows ?? "—"} rows`,
+                  ),
+                );
+                container.append(node);
+              });
+            $("layers").append(container);
+          });
+          $("impact").textContent =
+            scope === "all"
+              ? `${graph.datasets.length} datasets. Review the full relationship table in Check and correct.`
+              : `${scope === "upstream" ? "Upstream sources of" : "Downstream impact of"} ${name(selected)}: ${
+                  [...impact]
+                    .filter((id) => id !== selected)
+                    .map(name)
+                    .join(", ") || "no dependencies in this direction"
+                }.`;
+          requestAnimationFrame(drawLines);
+        }
+        function renderDetail() {
+          const d = record.graph.datasets.find((x) => x.id === selected);
+          if (!d) return;
+          $("dataset-description").textContent =
+            d.description || "No description has been provided.";
+          $("edit-dataset").replaceChildren();
+          record.graph.datasets.forEach((dataset) => {
+            const option = text("option", dataset.name);
+            option.value = dataset.id;
+            $("edit-dataset").append(option);
+          });
+          $("edit-dataset").value = selected;
+          $("detail-heading").textContent = d.name;
+          $("node-detail").replaceChildren();
+          const dl = document.createElement("dl");
+          [
+            ["Layer", d.layer],
+            ["Identifier", d.id],
+            ["Rows", d.row_count ?? d.rows ?? "See evidence"],
+            ["Provenance", "Local synthetic generator"],
+          ].forEach(([k, v]) => {
+            dl.append(text("dt", k), text("dd", v));
+          });
+          $("node-detail").append(dl);
+          const incoming = record.graph.edges
+            .filter((e) => e.target === selected)
+            .map((e) => name(e.source));
+          const outgoing = record.graph.edges
+            .filter((e) => e.source === selected)
+            .map((e) => name(e.target));
+          $("node-detail").append(
+            text(
+              "p",
+              "Receives from: " +
+                (incoming.join(", ") || "initial source") +
+                ". Provides to: " +
+                (outgoing.join(", ") || "final output") +
+                ".",
+              "muted",
+            ),
+          );
+          $("description").value = d.description || "";
+          $("column-table").replaceChildren(
+            table(
+              ["Column", "Type", "Description"],
+              (d.columns || []).map((c) => [
+                c.name,
+                c.data_type || c.type,
+                c.description,
+              ]),
+              "Schema of " + d.name,
+            ),
+          );
+          const links = (record.graph.column_lineage || []).filter(
+            (c) =>
+              c.source_dataset === selected || c.target_dataset === selected,
+          );
+          $("column-lineage").replaceChildren(
+            table(
+              ["Source", "Target", "Transformation"],
+              links.map((c) => [
+                name(c.source_dataset) + "." + c.source_column,
+                name(c.target_dataset) + "." + c.target_column,
+                c.transformation || c.process_id,
+              ]),
+              "Column dependencies for this selection",
+            ),
+          );
+          $("process-detail").replaceChildren();
+          record.graph.processes
+            .filter(
+              (p) =>
+                p.inputs.includes(selected) || p.outputs.includes(selected),
+            )
+            .forEach((p) => {
+              const section = text("div");
+              section.append(
+                text("h3", p.name),
+                text("p", p.description),
+                text(
+                  "small",
+                  "Inputs: " +
+                    p.inputs.map(name).join(", ") +
+                    " → Outputs: " +
+                    p.outputs.map(name).join(", "),
+                ),
+              );
+              if (p.sql || p.transformation)
+                section.append(text("pre", p.sql || p.transformation));
+              const runs = record.graph.runs.filter(
+                (r) => r.process_id === p.id,
+              );
+              section.append(text("pre", JSON.stringify(runs, null, 2)));
+              $("process-detail").append(section);
+            });
+        }
+        function renderEdges() {
+          $("edge-count").textContent = "(" + record.graph.edges.length + ")";
+          $("edge-table").replaceChildren(
+            table(
+              ["Source → target", "Evidence", "Actions"],
+              record.graph.edges.map((edge) => {
+                const actions = text("div", "", "actions");
+                const edit = button("Edit", () => openEdge(edge));
+                edit.dataset.write = "true";
+                const remove = button("Remove", () => {
+                  if (!mayDiscard()) return;
+                  if (
+                    !confirm(
+                      `Remove relationship ${name(edge.source)} → ${name(edge.target)}? It is preserved in history.`,
+                    )
+                  )
+                    return;
+                  mutate(
+                    {
+                      edges: record.graph.edges.filter((e) => e.id !== edge.id),
+                    },
+                    "Relationship removed; a new revision was created.",
+                  );
+                });
+                remove.dataset.write = "true";
+                actions.append(edit, remove);
+                return [
+                  name(edge.source) + " → " + name(edge.target),
+                  edge.evidence?.kind === "observed"
+                    ? "Executed"
+                    : "Declared hypothesis",
+                  actions,
+                ];
+              }),
+              "Explicit graph relationships. The map and this table show the same set.",
+            ),
+          );
+        }
+        function render() {
+          const graph = record.graph;
+          $("empty").hidden = true;
+          $("workspace").hidden = false;
+          $("revision-label").textContent =
+            `${graph.title} · Revision ${record.revision}`;
+          $("review-state").textContent =
+            stateName[record.status] || record.status;
+          $("review-state").className =
+            "tag " + (record.status === "approved" ? "good" : "warn");
+          $("stats").replaceChildren();
+          [
+            [graph.datasets.length, "datasets"],
+            [graph.processes.length, "transformations"],
+            [graph.edges.length, "relationships"],
+            [record.quality.score + "/100", "quality of this graph"],
+          ].forEach(([n, label]) => {
+            const div = text("div", "", "stat");
+            div.append(text("strong", n), text("span", label));
+            $("stats").append(div);
+          });
+          renderGraph();
+          renderDetail();
+          renderEdges();
+          $("findings").replaceChildren();
+          const findings = record.quality.findings || [];
+          if (!findings.length)
+            $("findings").append(
+              text(
+                "p",
+                "Graph checks found no issues. Also review the meaning of its metadata.",
+              ),
+            );
+          findings.forEach((f) => {
+            const block = text(
+              "div",
+              "",
+              "finding " +
+                (["error", "blocking", "critical"].includes(f.severity)
+                  ? "block"
+                  : ""),
+            );
+            block.append(
+              text("strong", f.message || f.code),
+              text("small", (f.severity || "notice") + " · " + f.code),
+            );
+            $("findings").append(block);
+          });
+          $("quality-label").textContent = record.quality.conforms
+            ? "Ready for human review"
+            : "There are blockers to resolve";
+          $("quality-label").className =
+            "tag " + (record.quality.conforms ? "good" : "warn");
+          $("hints").replaceChildren();
+          (graph.observed_dependencies || []).forEach((edge) => {
+            if (
+              graph.edges.some(
+                (e) =>
+                  e.source === edge.source &&
+                  e.target === edge.target &&
+                  e.process_id === edge.process_id,
+              )
+            )
+              return;
+            const div = text("div");
+            div.append(
+              text(
+                "p",
+                "Executed dependency without a relationship: " +
+                  name(edge.source) +
+                  " → " +
+                  name(edge.target),
+              ),
+            );
+            div.append(
+              button(
+                "Recover relationship from evidence",
+                () =>
+                  mayDiscard() &&
+                  mutate(
+                    {
+                      edges: [
+                        ...record.graph.edges,
+                        {
+                          ...edge,
+                          id:
+                            edge.id ||
+                            "restored-" + edge.source + "-" + edge.target,
+                        },
+                      ],
+                    },
+                    "Relationship recovered from the synthetic execution.",
+                  ),
+              ),
+            );
+            $("hints").append(div);
+          });
+          if (!$("hints").children.length)
+            $("hints").append(
+              text(
+                "p",
+                "All executed dependencies have a relationship. Review the declared hypotheses in the table.",
+              ),
+            );
+          $("evidence").textContent = JSON.stringify(
+            {
+              synthetic: graph.synthetic,
+              seed: graph.seed,
+              provenance: graph.provenance,
+              evidence: graph.evidence,
+              observed_dependencies: graph.observed_dependencies,
+              correction_hints: graph.correction_hints,
+            },
+            null,
+            2,
+          );
+          $("decision-summary").textContent =
+            `Revision ${record.revision} · ${graph.datasets.length} datasets · ${graph.edges.length} relationships · ${record.quality.conforms ? "Validation has no blockers" : "Resolve blockers before approval"}. ${record.approval ? "Approved by " + record.approval.reviewer + "." : "No human approval yet."}`;
+          $("history-table").hidden = true;
+          $("history-preview").hidden = true;
+          if (!record.quality.conforms && $("repair-guide"))
+            $("repair-guide").open = true;
+          available();
+        }
+        async function mutate(updates, message) {
+          await task("Saving new revision", async () => {
+            const next = await api("revise", {
+              id: record.id,
+              updates,
+              expected_digest: record.digest,
+            });
+            setRecord(next);
+            feedback(message + " Previous approval has been invalidated.");
+          });
+        }
+        function openEdge(edge) {
+          if (!mayDiscard()) return;
+          clean();
+          $("description-editor").open = false;
+          edgeId = edge?.id || null;
+          editing = true;
+          $("edge-form").hidden = false;
+          $("edge-form-title").textContent = edge
+            ? "Edit relationship"
+            : "Add declared hypothesis";
+          ["source", "target"].forEach((k) => {
+            const select = $("edge-" + k);
+            select.replaceChildren();
+            record.graph.datasets.forEach((d) => {
+              const o = text("option", d.name);
+              o.value = d.id;
+              select.append(o);
+            });
+            if (edge) select.value = edge[k];
+          });
+          $("edge-process").replaceChildren();
+          record.graph.processes.forEach((p) => {
+            const o = text("option", p.name);
+            o.value = p.id;
+            $("edge-process").append(o);
+          });
+          if (edge) $("edge-process").value = edge.process_id;
+          $("edge-confidence").value = edge?.confidence ?? 0.8;
+          $("edge-description").value = edge?.description || "";
+          $("edge-evidence").textContent =
+            edge?.evidence?.kind === "observed"
+              ? "Executed evidence is immutable. Changing its interpretation does not create a new execution."
+              : "This relationship will be saved as a declared hypothesis.";
+          $("edge-source").focus();
+          available();
+        }
+        $("demo").addEventListener("click", () => {
+          if (!mayDiscard()) return;
+          task("Generating data and transformations", async () => {
+            const seed = Number($("seed").value);
+            if (!Number.isInteger(seed) || seed < 0 || seed > 2147483647)
+              throw new Error("Use an integer seed between 0 and 2147483647.");
+            const value = await api("demo", { seed });
+            await refreshList();
+            setRecord(value);
+            flowStep = "explore";
+            flowFocusPending = true;
+            feedback(
+              "Demo created. Open Quality and evidence to review incomplete relationships.",
+            );
+          });
+        });
+        $("reload").addEventListener("click", () => {
+          if (
+            editing &&
+            !confirm(
+              "A relationship is being edited. Discard it to load the current revision?",
+            )
+          )
+            return;
+          const draft = $("description").value,
+            hadDraft = dirty;
+          task("Refreshing revision", async () => {
+            await refreshList();
+            if (record) {
+              const value = await api("get", { id: record.id });
+              setRecord(value);
+              if (hadDraft) {
+                $("description").value = draft;
+                dirty = true;
+                $("draft-note").textContent =
+                  "Pending text restored after refresh. Check the new revision before saving.";
+              }
+            }
+            feedback(
+              hadDraft
+                ? "Revision refreshed; your pending text remains in the editor."
+                : "Information refreshed.",
+            );
+          });
+        });
+        $("graph-select").addEventListener("change", () => {
+          const id = $("graph-select").value;
+          if (!id) {
+            available();
+            return;
+          }
+          if (!mayDiscard()) {
+            $("graph-select").value = record?.id || "";
+            return;
+          }
+          task("Opening graph", async () => {
+            setRecord(await api("get", { id }));
+            feedback("Graph selected. Open it to explore its datasets.");
+          });
+        });
+        document.querySelectorAll("[data-scope]").forEach((b) =>
+          b.addEventListener("click", () => {
+            scope = b.dataset.scope;
+            document
+              .querySelectorAll("[data-scope]")
+              .forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+            renderGraph();
+          }),
+        );
+        $("description").addEventListener("input", () => {
+          dirty = true;
+          $("draft-note").textContent =
+            "There are unsaved changes. Saving creates a new revision; discarding restores this revision's text.";
+          available();
+        });
+        function bindEditor(formId, buttonId, save) {
+          const form = $(formId);
+          const submit = (event) => {
+            event.preventDefault();
+            if (!busy && form.reportValidity()) save(event);
+          };
+          // MCP hosts may omit allow-forms from their sandbox. Native form
+          // submission can be blocked before a submit handler runs, so buttons
+          // initiate tool calls directly while retaining native validation.
+          $(buttonId).addEventListener("click", submit);
+          form.addEventListener("submit", submit);
+          form.addEventListener("keydown", (event) => {
+            if (event.key === "Enter" && event.target.tagName === "INPUT")
+              submit(event);
+          });
+        }
+        bindEditor("description-form", "save-description", (event) => {
+          event.preventDefault();
+          if (!$("description").value.trim()) return;
+          mutate(
+            { dataset_descriptions: { [selected]: $("description").value } },
+            "Description saved.",
+          );
+        });
+        $("discard-description").addEventListener("click", () => {
+          clean();
+          renderDetail();
+          available();
+          feedback(
+            "Draft discarded. The current revision's description has been restored.",
+          );
+        });
+        $("add-edge").addEventListener("click", () => openEdge(null));
+        $("edge-cancel").addEventListener("click", () => {
+          editing = false;
+          $("edge-form").hidden = true;
+          feedback("Relationship editing canceled. No changes were saved.");
+          available();
+        });
+        bindEditor("edge-form", "save-edge", (event) => {
+          event.preventDefault();
+          const old = record.graph.edges.find((e) => e.id === edgeId);
+          const source = $("edge-source").value,
+            target = $("edge-target").value,
+            process = $("edge-process").value;
+          const same =
+            old &&
+            source === old.source &&
+            target === old.target &&
+            process === old.process_id;
+          const edge = {
+            ...(old || {}),
+            id: edgeId || "asserted-" + Date.now().toString(36),
+            source,
+            target,
+            process_id: process,
+            confidence: Number($("edge-confidence").value),
+            description: $("edge-description").value,
+            evidence: same
+              ? old.evidence
+              : {
+                  kind: "asserted",
+                  note: "Hypothesis introduced during human review; this is not an observed execution.",
+                },
+          };
+          mutate(
+            {
+              edges: old
+                ? record.graph.edges.map((e) => (e.id === old.id ? edge : e))
+                : [...record.graph.edges, edge],
+            },
+            "Relationship saved. Review the updated findings.",
+          );
+        });
+        ["checked", "reviewer", "proposal", "export-project"].forEach((id) =>
+          $(id).addEventListener("input", available),
+        );
+        $("approval-form").addEventListener("submit", (event) => {
+          event.preventDefault();
+          if (
+            $("approve").disabled ||
+            !confirm(
+              `Approve local revision ${record.revision} (${record.digest.slice(0, 12)}) of ${record.graph.title}. Does not publish to GCP.`,
+            )
+          )
+            return;
+          task("Recording human decision", async () => {
+            setRecord(
+              await api("approve", {
+                id: record.id,
+                expected_digest: record.digest,
+                reviewer: $("reviewer").value.trim(),
+              }),
+            );
+            feedback(
+              "Revision approved locally. You can now attach it to a proposal or export it.",
+            );
+          });
+        });
+        $("reject").addEventListener("click", () => {
+          if (!mayDiscard()) return;
+          const reason = prompt(
+            "What must be corrected before this revision can be approved?",
+          );
+          if (!reason?.trim()) return;
+          task("Recording feedback", async () => {
+            setRecord(
+              await api("reject", {
+                id: record.id,
+                expected_digest: record.digest,
+                reason: reason.trim(),
+              }),
+            );
+            feedback(
+              "Revision returned with feedback. Correct it and request another review.",
+            );
+          });
+        });
+        $("attach").addEventListener("click", () => {
+          const proposal = proposals.find((p) => p.id === $("proposal").value);
+          if (
+            !proposal ||
+            !confirm(
+              "Attaching this independent simulation will create a new revision of the selected metadata and invalidate its approval. Continue?",
+            )
+          )
+            return;
+          task("Attaching simulation to metadata", async () => {
+            await api("attach", {
+              id: record.id,
+              proposal_id: proposal.id,
+              expected_digest: record.digest,
+              proposal_digest: proposal.digest,
+            });
+            await refreshList();
+            feedback(
+              "Simulation attached as independent evidence. Review the new proposal in Metadata before publishing it.",
+            );
+          });
+        });
+        function download(value, format) {
+          const blob = new Blob([JSON.stringify(value, null, 2) + "\n"], {
+            type: "application/json",
+          });
+          const url = URL.createObjectURL(blob),
+            a = document.createElement("a");
+          a.href = url;
+          a.download = `lineage-${record.id}-r${record.revision}-${format}.json`;
+          a.click();
+          setTimeout(() => URL.revokeObjectURL(url), 1000);
+        }
+        [
+          ["export-json", "json"],
+          ["export-ol", "openlineage"],
+          ["export-plan", "gcp-plan"],
+        ].forEach(([id, format]) =>
+          $(id).addEventListener("click", () => {
+            if (dirty || editing) {
+              failure(
+                new Error(
+                  "Save or discard the draft before exporting the stored revision.",
+                ),
+              );
+              return;
+            }
+            if (offline && format !== "json") {
+              failure(
+                new Error(
+                  "The offline copy exports JSON. Use kc lineage-export for OpenLineage or GCP.",
+                ),
+              );
+              return;
+            }
+            task("Preparing file " + format, async () => {
+              const value = await api("export", {
+                id: record.id,
+                expected_digest: record.digest,
+                format,
+                project: $("export-project").value.trim(),
+              });
+              download(value, format);
+              const warnings = value.warnings || [];
+              $("export-warnings").hidden = !warnings.length;
+              $("export-warnings").replaceChildren(
+                text("h3", "Export limitations"),
+                text("pre", JSON.stringify(warnings, null, 2)),
+              );
+              feedback("File prepared for download. No data was sent to GCP.");
+            });
+          }),
+        );
+        $("history").addEventListener("click", () =>
+          task("Loading versions", async () => {
+            const value = await api("history", { id: record.id });
+            const revisions = Array.isArray(value) ? value : value.items || [];
+            $("history-table").hidden = false;
+            $("history-table").replaceChildren(
+              table(
+                ["Revision", "Status", "Decision"],
+                revisions.map((r) => {
+                  const actions = text("div", "", "actions");
+                  actions.append(
+                    button("View revision " + r.revision, () =>
+                      task("Loading version", async () => {
+                        const version = await api("revision", {
+                          id: record.id,
+                          revision: r.revision,
+                        });
+                        $("history-preview").hidden = false;
+                        $("history-heading").textContent =
+                          "Immutable revision snapshot " + r.revision;
+                        $("history-json").textContent = JSON.stringify(
+                          { version, decision_events: r.events || [] },
+                          null,
+                          2,
+                        );
+                        feedback(
+                          "Earlier version loaded; the current graph was not changed.",
+                        );
+                      }),
+                    ),
+                    button("Compare " + r.revision + " with current", () =>
+                      task("Comparing revisions", async () => {
+                        const comparison = await api("diff", {
+                          id: record.id,
+                          from_revision: r.revision,
+                        });
+                        $("history-preview").hidden = false;
+                        $("history-heading").textContent =
+                          "Changes from revision " +
+                          r.revision +
+                          " to " +
+                          record.revision;
+                        $("history-json").textContent = JSON.stringify(
+                          comparison,
+                          null,
+                          2,
+                        );
+                        feedback(
+                          comparison.truncated
+                            ? "Showing the first changes; the comparison is truncated."
+                            : "Full comparison loaded.",
+                        );
+                      }),
+                    ),
+                  );
+                  if (!host)
+                    actions.append(
+                      button("Restore " + r.revision, () => {
+                        if (
+                          !mayDiscard() ||
+                          !confirm(
+                            "Restore this version as a new draft without approval?",
+                          )
+                        )
+                          return;
+                        task("Restoring revision", async () => {
+                          setRecord(
+                            await api("restore", {
+                              id: record.id,
+                              revision: r.revision,
+                              expected_digest: record.digest,
+                            }),
+                          );
+                          feedback(
+                            "Version restored as a new draft; history is preserved.",
+                          );
+                        });
+                      }),
+                    );
+                  const decisions = (r.events || []).filter((e) =>
+                    ["approved", "rejected"].includes(e.action),
+                  );
+                  return [
+                    r.revision,
+                    decisions
+                      .map(
+                        (e) =>
+                          (e.action === "approved"
+                            ? "Approval: "
+                            : "Returned: ") + e.detail,
+                      )
+                      .join(" · ") ||
+                      stateName[r.status] ||
+                      r.status,
+                    actions,
+                  ];
+                }),
+                "Immutable revision history",
+              ),
+            );
+            feedback("History loaded. Restoring creates a new draft.");
+          }),
+        );
+        $("open-review").addEventListener("click", () =>
+          task("Opening human review panel", async () => {
+            await host.openReview();
+            feedback(
+              "Requested opening the local panel on the computer running the server.",
+            );
+          }),
+        );
+        window.addEventListener("beforeunload", (event) => {
+          if (dirty || editing) {
+            event.preventDefault();
+            event.returnValue = "";
+          }
+        });
+        new ResizeObserver(() => requestAnimationFrame(drawLines)).observe(
+          $("graph"),
+        );
+        window.addEventListener("kc-host-error", (event) =>
+          failure(
+            new Error(
+              "The MCP host did not complete the connection: " + event.detail,
+            ),
+          ),
+        );
+        if (offline) {
+          $("offline").hidden = false;
+          $("connection").textContent = "Offline local copy";
+          $("mode-badge").textContent = "Synthetic snapshot";
+          $("catalog-link").hidden = true;
+          $("graph-select").disabled = true;
+          setRecord(JSON.parse(initial.textContent));
+          feedback(
+            "Copy loaded. Exploring does not modify the original revision.",
+          );
+        } else if (host) {
+          $("connection").textContent =
+            "Embedded view · waiting for MCP result";
+          $("catalog-link").hidden = true;
+          host.onResult((value) => {
+            if (value.graph) {
+              if (dirty || editing) {
+                failure(
+                  new Error(
+                    "Another revision arrived from the host; save or discard your draft before refreshing.",
+                  ),
+                );
+                return;
+              }
+              setRecord(value);
+              $("connection").textContent = "Embedded view · MCP Apps";
+              feedback(
+                "Graph loaded from the server. Edits are saved as revisions.",
+              );
+            }
+          });
+          available();
+        } else {
+          task("Loading workspace", async () => {
+            await refreshList();
+            $("connection").textContent = "Local workspace";
+            if (items.length) setRecord(await api("get", { id: items[0].id }));
+            feedback(items.length ? "" : "Create a demo to get started.");
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>

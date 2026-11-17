@@ -1,0 +1,4 @@
+interface:
+  display_name: "zx Workflow Author"
+  short_description: "Prepare context and coordinate validated agent runs"
+  default_prompt: "Use $zx-workflow-author to prepare concise runtime context and relevant tools, reusing the current agent or coordinating autonomous execution with justified repair loops and validation before delivery."

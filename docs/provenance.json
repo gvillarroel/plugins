@@ -1,0 +1,1381 @@
+{
+  "formatVersion": 1,
+  "repositories": {
+    "gvillarroel/Layers": {
+      "revision": "d827feb18edccdfce6ff797f887102584e2e1039",
+      "branch": "main"
+    },
+    "gvillarroel/blog": {
+      "revision": "616f07b6079438c1117eb29e1c78040f6e3b57ff",
+      "branch": "main"
+    },
+    "gvillarroel/gcp-radar": {
+      "revision": "c2d4c992b1da9802d878a24d13e990e54cdb5f01",
+      "branch": "main"
+    },
+    "gvillarroel/knowledge": {
+      "revision": "f752b4262d7b7e72b8c468b0080a899166523dda",
+      "branch": "main"
+    },
+    "gvillarroel/marketplace": {
+      "revision": "4738112f5b60e842370dfa5b4537415ffcd906ce",
+      "branch": "main"
+    },
+    "gvillarroel/pi-menton": {
+      "revision": "1d402384e995104c90ab98517c24097218c22fb1",
+      "branch": "main"
+    },
+    "gvillarroel/rata": {
+      "revision": "8cf9d3f4ba77826c4d2b181c08afc409c07c4c47",
+      "branch": "main"
+    },
+    "gvillarroel/sdlc": {
+      "revision": "999a317f4077c64d5e5963a6a826d45fbf4f3738",
+      "branch": "ci/harbor-actions-smoke"
+    },
+    "gvillarroel/skills": {
+      "revision": "482f600aea2e4e68bb10e0450b263c891de8818b",
+      "branch": "main"
+    },
+    "gvillarroel/stores": {
+      "revision": "da927ee6a253ba52f0f9a00be42122c7b14d1c68",
+      "branch": "main"
+    },
+    "gvillarroel/zx-harness": {
+      "revision": "75c27f4b255eaaea1ac487814c827fce559fac28",
+      "branch": "main"
+    }
+  },
+  "releaseInputs": {
+    "line-world-video": {
+      "repository": "gvillarroel/skills",
+      "manifest": "projects/line-world-video/artifacts/packages/line-world-video-0.27.0/plugin/bundle-manifest.json",
+      "sha256": "db849fc997177e2bfe917c284c34437528b734a6fb4302585e64b714be86b6b0",
+      "version": "0.27.0"
+    },
+    "reflex-xy": {
+      "repository": "gvillarroel/skills",
+      "manifest": "projects/reflex-xy-plugins/artifacts/desktop-demo-0.3.1/chatgpt-plugin/bundle.json",
+      "sha256": "ec3615eb19326600b8ae29d48486f9d33dc930f9f954c2633d147aefe095f924",
+      "version": "0.3.1"
+    }
+  },
+  "skills": [
+    {
+      "plugin": "agent-foundry",
+      "skill": "contract",
+      "repository": "gvillarroel/marketplace",
+      "path": "plugins/agent-foundry/skills/contract",
+      "state": "committed",
+      "importSha256": "58a574963334b46ed3a84993b7e97404e6ee966e35987b6f97df3efe7116b804"
+    },
+    {
+      "plugin": "cloud-operations",
+      "skill": "gcs-user-access",
+      "repository": "gvillarroel/skills",
+      "path": "skills/gcs-user-access",
+      "state": "untracked",
+      "importSha256": "2a1201120f62a7a8fe6956db224be5fe16e769bc6cb793e8a7527a2caa5a8020"
+    },
+    {
+      "plugin": "cloud-operations",
+      "skill": "google-cloud-sku-pricing",
+      "repository": "gvillarroel/skills",
+      "path": "skills/google-cloud-sku-pricing",
+      "state": "committed",
+      "importSha256": "b89e4f35d7306a5480147ddb77786b44bc09d0f2f66d120a8a82e9689ce77c11"
+    },
+    {
+      "plugin": "cloud-operations",
+      "skill": "harbor-author-evaluation-datasets",
+      "repository": "gvillarroel/gcp-radar",
+      "path": "skills/harbor-author-evaluation-datasets",
+      "state": "untracked",
+      "importSha256": "bb6b4c38fff06279a8657415f185e4daa0af69e5a388ba1583bf4bdb6837aaca"
+    },
+    {
+      "plugin": "confluence-publishing",
+      "skill": "md2conf",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/md2conf",
+      "state": "working-tree",
+      "importSha256": "8f98e27bf22cac729f4a1e62ff86073f1b0b33627c25145c7dade546c7b0d209"
+    },
+    {
+      "plugin": "confluence-publishing",
+      "skill": "roundtrip-confluence-pages",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/roundtrip-confluence-pages",
+      "state": "working-tree",
+      "importSha256": "7534d128574e4e63f0787dafc3b03fbb274cf0b738bbdc9b6ec36e6aad54328a"
+    },
+    {
+      "plugin": "data-simulation",
+      "skill": "evaluate-synthetic-data",
+      "repository": "gvillarroel/rata",
+      "path": "skills/evaluate-synthetic-data",
+      "state": "committed",
+      "importSha256": "4c0db20f7deba929d92c9d60155cc3d480fa87e10be67fc71b33df0d1ffe3920"
+    },
+    {
+      "plugin": "data-simulation",
+      "skill": "generate-synthetic-data",
+      "repository": "gvillarroel/rata",
+      "path": "skills/generate-synthetic-data",
+      "state": "committed",
+      "importSha256": "2b1d14f38d5e973b86cd91040d5ef7d0004aa1d682a25a530e9cc471f9447052"
+    },
+    {
+      "plugin": "data-simulation",
+      "skill": "harbor-author-evaluation-datasets",
+      "repository": "gvillarroel/rata",
+      "path": "skills/harbor-author-evaluation-datasets",
+      "state": "committed",
+      "importSha256": "91e5fd3a1fcad9195474d0ae038542f4c28c084b7d6a42f464da36b8604a4a60"
+    },
+    {
+      "plugin": "data-simulation",
+      "skill": "plan-synthetic-data",
+      "repository": "gvillarroel/rata",
+      "path": "skills/plan-synthetic-data",
+      "state": "committed",
+      "importSha256": "5f7038532c032659da5ef172339a8579d711b48c492e2272cbe98b3f6f13acb3"
+    },
+    {
+      "plugin": "data-simulation",
+      "skill": "run-synthetic-data-workflow",
+      "repository": "gvillarroel/rata",
+      "path": "skills/run-synthetic-data-workflow",
+      "state": "committed",
+      "importSha256": "03eba100941e9894796437c5cef23c4e1108c5c732c21bfbae9912daf5d0e61b"
+    },
+    {
+      "plugin": "data-simulation",
+      "skill": "simulation-data-lab",
+      "repository": "gvillarroel/skills",
+      "path": "skills/simulation-data-lab",
+      "state": "committed",
+      "importSha256": "f8b045fb6f5ba6cc481c045f2985952f4d8281c3c4b75498e967bd91ad759d07"
+    },
+    {
+      "plugin": "delivery-planning",
+      "skill": "build-delivery-plan",
+      "repository": "gvillarroel/sdlc",
+      "path": "examples/copilot-sdk-dynamic-agents/skills/build-delivery-plan",
+      "state": "committed",
+      "importSha256": "220afa40434e803b52614f2367e1c9f0e074c3d9e91c3d581748abf39f52e702"
+    },
+    {
+      "plugin": "delivery-planning",
+      "skill": "challenge-assumptions",
+      "repository": "gvillarroel/sdlc",
+      "path": "examples/copilot-sdk-dynamic-agents/skills/challenge-assumptions",
+      "state": "committed",
+      "importSha256": "ae74e214764f450421807bb48da326c33c4d95f47c00a8108c86a3dc979a754b"
+    },
+    {
+      "plugin": "delivery-planning",
+      "skill": "extract-requirements",
+      "repository": "gvillarroel/sdlc",
+      "path": "examples/copilot-sdk-dynamic-agents/skills/extract-requirements",
+      "state": "committed",
+      "importSha256": "7bb862b119d0ec7c90e4e02a6065a73c030288ee90f0ab36c28c91946b5da40f"
+    },
+    {
+      "plugin": "delivery-planning",
+      "skill": "harbor-author-evaluation-datasets",
+      "repository": "gvillarroel/sdlc",
+      "path": "skills/harbor-author-evaluation-datasets",
+      "state": "committed",
+      "importSha256": "bb6b4c38fff06279a8657415f185e4daa0af69e5a388ba1583bf4bdb6837aaca"
+    },
+    {
+      "plugin": "design-assets",
+      "skill": "ambientcg-material-search",
+      "repository": "gvillarroel/skills",
+      "path": "skills/ambientcg-material-search",
+      "state": "committed",
+      "importSha256": "633da6c570a231a114129e79744fe19dc954232dda80d21b92817fd715299fa7"
+    },
+    {
+      "plugin": "design-assets",
+      "skill": "destockd-video-search",
+      "repository": "gvillarroel/skills",
+      "path": "skills/destockd-video-search",
+      "state": "committed",
+      "importSha256": "dbe00064425fb87b3508e2f3a85afcdb807a45390b2e2705d69ca31eb6f008a9"
+    },
+    {
+      "plugin": "design-assets",
+      "skill": "iconify-icon-search",
+      "repository": "gvillarroel/skills",
+      "path": "skills/iconify-icon-search",
+      "state": "committed",
+      "importSha256": "37f73a04a58e3a731cff6ce072c8cca9fc5841d7f71c83b66a9df9bc45986c9b"
+    },
+    {
+      "plugin": "design-assets",
+      "skill": "kenney-asset-search",
+      "repository": "gvillarroel/skills",
+      "path": "skills/kenney-asset-search",
+      "state": "committed",
+      "importSha256": "dc9e8975abf5708fd50c79a68e230137379de87c20d72808afba5e8485b3fef7"
+    },
+    {
+      "plugin": "design-assets",
+      "skill": "pexels-media-search",
+      "repository": "gvillarroel/skills",
+      "path": "skills/pexels-media-search",
+      "state": "committed",
+      "importSha256": "961a619fb5d4a78a7d75d4427e4b4f660f3474a9896a5f010adf7266123591a5"
+    },
+    {
+      "plugin": "design-assets",
+      "skill": "polyhaven-asset-search",
+      "repository": "gvillarroel/skills",
+      "path": "skills/polyhaven-asset-search",
+      "state": "committed",
+      "importSha256": "b53593e221035dfe198371c4eea1b8bc11b1c92a9f8c221d34eddb232cd4ecb1"
+    },
+    {
+      "plugin": "design-assets",
+      "skill": "technical-logo-assets",
+      "repository": "gvillarroel/skills",
+      "path": "skills/technical-logo-assets",
+      "state": "committed",
+      "importSha256": "ca88b1e08f04bad1d23f3edd7f22cbb515b3411c63590067a480b164111fda0c"
+    },
+    {
+      "plugin": "diagram-studio",
+      "skill": "compose-synchronized-svg",
+      "repository": "gvillarroel/skills",
+      "path": "skills/compose-synchronized-svg",
+      "state": "committed",
+      "importSha256": "22c5ae6e9f3447ca69ff041e5d2d855d4a2d57b5cbde08aa80b1ffea821387e5"
+    },
+    {
+      "plugin": "diagram-studio",
+      "skill": "d3",
+      "repository": "gvillarroel/skills",
+      "path": "skills/d3",
+      "state": "committed",
+      "importSha256": "1c0cdebf88b4ff3b13cf1cc6a4c5132b86e95e851a5d18ac07bb409d48ce1260"
+    },
+    {
+      "plugin": "diagram-studio",
+      "skill": "diagram-composition",
+      "repository": "gvillarroel/skills",
+      "path": "skills/diagram-composition",
+      "state": "committed",
+      "importSha256": "83e320f3647c4d0804182166262ae8da6b9ecb691f2379b1fac7bf05231017e9"
+    },
+    {
+      "plugin": "diagram-studio",
+      "skill": "echarts-animated-svg",
+      "repository": "gvillarroel/skills",
+      "path": "skills/echarts-animated-svg",
+      "state": "committed",
+      "importSha256": "1326b39eb96bdc42563124d8ec3c947d542d99ac0f9351079efe4c9b380f9302"
+    },
+    {
+      "plugin": "diagram-studio",
+      "skill": "hierarchy-lens",
+      "repository": "gvillarroel/skills",
+      "path": "skills/hierarchy-lens",
+      "state": "committed",
+      "importSha256": "f5ec3f9e44306017dfd8685fb8993610fd44dfe4233a816562c7eb40f796d06e"
+    },
+    {
+      "plugin": "diagram-studio",
+      "skill": "lucidchart-svg",
+      "repository": "gvillarroel/skills",
+      "path": "skills/lucidchart-svg",
+      "state": "working-tree",
+      "importSha256": "095a2b0627e408d743c2bb7ae44c46c782a1c66895cb4727142cfa1a5c55ced6"
+    },
+    {
+      "plugin": "diagram-studio",
+      "skill": "mermaid",
+      "repository": "gvillarroel/skills",
+      "path": "skills/mermaid",
+      "state": "committed",
+      "importSha256": "d198175306e5056e81033d3d21347f8585be4c8fd04bcfc551aaa9c0fcf9c425"
+    },
+    {
+      "plugin": "diagram-studio",
+      "skill": "plantuml-colorset-renderer",
+      "repository": "gvillarroel/skills",
+      "path": "skills/plantuml-colorset-renderer",
+      "state": "committed",
+      "importSha256": "efea1686cd9ee1c70b904f3c8c4f963026957b76ae0a0c491e748c97d7c92be3"
+    },
+    {
+      "plugin": "diagram-studio",
+      "skill": "procedural-svg-animation",
+      "repository": "gvillarroel/skills",
+      "path": "skills/procedural-svg-animation",
+      "state": "committed",
+      "importSha256": "59abea0dff1ab8a60672defc981492039f694ebe6532b81263aecfd41e3f14ad"
+    },
+    {
+      "plugin": "diagram-studio",
+      "skill": "svg-brief-design",
+      "repository": "gvillarroel/skills",
+      "path": "skills/svg-brief-design",
+      "state": "committed",
+      "importSha256": "e07c77f306ed6690d34d5d4027b91b122b4a8f76a351e04c44e7613b4aee65fe"
+    },
+    {
+      "plugin": "diagram-studio",
+      "skill": "usefulcharts-style",
+      "repository": "gvillarroel/skills",
+      "path": "skills/usefulcharts-style",
+      "state": "committed",
+      "importSha256": "c77f99c3f4573e4d63fcd649c53bcd9aac3a801c90f72120a62d9b089c97196e"
+    },
+    {
+      "plugin": "editorial-research",
+      "skill": "choose-contextual-gif",
+      "repository": "gvillarroel/blog",
+      "path": ".agents/skills/choose-contextual-gif",
+      "state": "committed",
+      "importSha256": "6c346be24544e7ae96d8b2bd645273e8b9f5e7a73a8644ced4d6c99a5f229015"
+    },
+    {
+      "plugin": "editorial-research",
+      "skill": "consult-expert-knowledge",
+      "repository": "gvillarroel/blog",
+      "path": ".agents/skills/consult-expert-knowledge",
+      "state": "committed",
+      "importSha256": "542bbad67a9a926bf528750786a73f3af9f699008391441791b23b7476148604"
+    },
+    {
+      "plugin": "harbor",
+      "skill": "harbor-author-evaluation-datasets",
+      "repository": "gvillarroel/skills",
+      "path": "skills/harbor-author-evaluation-datasets",
+      "state": "committed",
+      "importSha256": "fd44023906a00f93795bddb28a58f7ea525640ee70613c987a3e3f37cff8907c"
+    },
+    {
+      "plugin": "harbor",
+      "skill": "harbor-evolve-skill",
+      "repository": "gvillarroel/skills",
+      "path": "skills/harbor-evolve-skill",
+      "state": "untracked",
+      "importSha256": "118c09a3f94e7d63d199c049e46d6f22f39d55f5fc0b3fb21ab3996b5a0dbfc7"
+    },
+    {
+      "plugin": "harbor",
+      "skill": "harbor-maximize-knowledge-expertise",
+      "repository": "gvillarroel/skills",
+      "path": "skills/harbor-maximize-knowledge-expertise",
+      "state": "untracked",
+      "importSha256": "1026d750c26de581a8b804a4be3e0647f0af09d7e192f03d7a1d2ecfe3ac0e98"
+    },
+    {
+      "plugin": "harbor",
+      "skill": "harbor-metaskill-evolution",
+      "repository": "gvillarroel/skills",
+      "path": "skills/harbor-metaskill-evolution",
+      "state": "untracked",
+      "importSha256": "cd079f8b21250c9c1b867eec94fefb6e01ea3048b378c0da4f698f69580065da"
+    },
+    {
+      "plugin": "harbor",
+      "skill": "harbor-operator-coevolution",
+      "repository": "gvillarroel/skills",
+      "path": "skills/harbor-operator-coevolution",
+      "state": "untracked",
+      "importSha256": "4fbbea86469f2bbc34dccb25806b92c0252a35e196a77b2476c150756e72de00"
+    },
+    {
+      "plugin": "harbor",
+      "skill": "harbor-organize-evaluations",
+      "repository": "gvillarroel/skills",
+      "path": "skills/harbor-organize-evaluations",
+      "state": "untracked",
+      "importSha256": "1b08a553ccacdbd4b03e3c20917354c5f3b3023c747b16a952f63d004805e963"
+    },
+    {
+      "plugin": "harbor",
+      "skill": "harbor-population-search",
+      "repository": "gvillarroel/skills",
+      "path": "skills/harbor-population-search",
+      "state": "untracked",
+      "importSha256": "54b876c05ea316192146147fc2625b6e9c199272e315cb5e8c67d7003d213df7"
+    },
+    {
+      "plugin": "harbor",
+      "skill": "harbor-realize-skill-candidate",
+      "repository": "gvillarroel/skills",
+      "path": "skills/harbor-realize-skill-candidate",
+      "state": "untracked",
+      "importSha256": "3ed39896455a194cf61e5ca2563faff18e1fc17e8a61dc861ab7a34b4be6f327"
+    },
+    {
+      "plugin": "harbor",
+      "skill": "harbor-reflective-pareto-search",
+      "repository": "gvillarroel/skills",
+      "path": "skills/harbor-reflective-pareto-search",
+      "state": "untracked",
+      "importSha256": "5b0f30a661de01af0b6eef0d00598dab01032a5eb74a90436cb14743c0665ec1"
+    },
+    {
+      "plugin": "harbor",
+      "skill": "harbor-resume-external-failures",
+      "repository": "gvillarroel/skills",
+      "path": "skills/harbor-resume-external-failures",
+      "state": "untracked",
+      "importSha256": "31e65dd7bf8f43901575a8569a3ef27b074bdf4318ba637db821396e999bc542"
+    },
+    {
+      "plugin": "harbor",
+      "skill": "harbor-run-results",
+      "repository": "gvillarroel/skills",
+      "path": "skills/harbor-run-results",
+      "state": "untracked",
+      "importSha256": "4665734ce3b936d860a22d6c0f1d7a6323b7988fa93e789cea8a8f7d9de63c68"
+    },
+    {
+      "plugin": "harbor",
+      "skill": "harbor-trace-distillation",
+      "repository": "gvillarroel/skills",
+      "path": "skills/harbor-trace-distillation",
+      "state": "untracked",
+      "importSha256": "6b750f8fe7cbba07863c8e3a0089608a2af2e780feb9dd4ef3b67403474e98e0"
+    },
+    {
+      "plugin": "hyperframes",
+      "skill": "colorsets",
+      "repository": "gvillarroel/skills",
+      "path": "projects/hyperframes-colorsets/plugin/skills/colorsets",
+      "state": "committed",
+      "importSha256": "54f3a38730d03ae6342565b1441d5138181f3e68b732de6c864a2186ae636c02"
+    },
+    {
+      "plugin": "hyperframes",
+      "skill": "hyperframes",
+      "repository": "gvillarroel/skills",
+      "path": "projects/hyperframes-colorsets/plugin/skills/hyperframes",
+      "state": "committed",
+      "importSha256": "0210e7ebafc1a770c2a8f8326a8ea6dc3d08446629ab68cd6b8cbc2836b3aa17"
+    },
+    {
+      "plugin": "hyperframes",
+      "skill": "hyperframes-cli",
+      "repository": "gvillarroel/skills",
+      "path": "projects/hyperframes-colorsets/plugin/skills/hyperframes-cli",
+      "state": "committed",
+      "importSha256": "46ed24ec835dfa083db3941a8a9e97bebaa1e7f35de6e3823155cb991283928d"
+    },
+    {
+      "plugin": "hyperframes",
+      "skill": "hyperframes-registry",
+      "repository": "gvillarroel/skills",
+      "path": "projects/hyperframes-colorsets/plugin/skills/hyperframes-registry",
+      "state": "committed",
+      "importSha256": "24cf3e6357911bbeb13b8e213eaa85866f2329805792e6f502a752c0781b3e79"
+    },
+    {
+      "plugin": "hyperframes",
+      "skill": "media-use",
+      "repository": "gvillarroel/skills",
+      "path": "projects/hyperframes-colorsets/plugin/skills/media-use",
+      "state": "committed",
+      "importSha256": "89042fd03b3d9951a96e7599c5414d7ecc7d02b92d388c989d6c0cf267dc49ef"
+    },
+    {
+      "plugin": "knowledge-authoring",
+      "skill": "build-classical-chunked-knowledge-skill",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/build-classical-chunked-knowledge-skill",
+      "state": "working-tree",
+      "importSha256": "6d11e6a3d61cc1f0ab4e77bb0d869c75a5ccc995fb480614ba575ed219e5d4c5"
+    },
+    {
+      "plugin": "knowledge-authoring",
+      "skill": "build-classical-knowledge-skill",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/build-classical-knowledge-skill",
+      "state": "working-tree",
+      "importSha256": "55594e411649c1dab691b1af822f7aacb7e9854ec746ac3761008ce18d2ada64"
+    },
+    {
+      "plugin": "knowledge-authoring",
+      "skill": "build-semantic-okf-knowledge-skill",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/build-semantic-okf-knowledge-skill",
+      "state": "working-tree",
+      "importSha256": "381f7aa6cc5534047a22c3b67364384c462dae6bf90bbca2c5fd5e14691f6825"
+    },
+    {
+      "plugin": "knowledge-authoring",
+      "skill": "build-specialized-skill",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/build-specialized-skill",
+      "state": "working-tree",
+      "importSha256": "f954c0c0fad489cd53c3a05d92e4b34d16a4c479f8d4ae3588633909c996e011"
+    },
+    {
+      "plugin": "knowledge-authoring",
+      "skill": "extract-ontologies",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/extract-ontologies",
+      "state": "working-tree",
+      "importSha256": "227d403f81e281f33425963347169255d883ce628bfba986f361798bc13690d2"
+    },
+    {
+      "plugin": "knowledge-authoring",
+      "skill": "harbor-author-evaluation-datasets",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/harbor-author-evaluation-datasets",
+      "state": "working-tree",
+      "importSha256": "74e3ea11dbf27f18979b6177bdc6520dc4133dc11bcbc4d88bd8f77b882dd7c0"
+    },
+    {
+      "plugin": "knowledge-authoring",
+      "skill": "open-knowledge-format",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/open-knowledge-format",
+      "state": "working-tree",
+      "importSha256": "2040d3356667b3c1191e28ad29d08502afdc3a78a986ecc78b23e92934a8a253"
+    },
+    {
+      "plugin": "knowledge-authoring",
+      "skill": "review-knowledge-methodology",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/review-knowledge-methodology",
+      "state": "working-tree",
+      "importSha256": "45e4eff584adcbe64b01edb682643bb850b4f507d9069fb8ce139f49a1d11bce"
+    },
+    {
+      "plugin": "knowledge-tools",
+      "skill": "know",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/know",
+      "state": "working-tree",
+      "importSha256": "02dc9bf1a3506c9ee70d3cbe4909fe170deb49f1f5ad27d23801d905a435ce3c"
+    },
+    {
+      "plugin": "knowledge-tools",
+      "skill": "open-ontologies",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/open-ontologies",
+      "state": "untracked",
+      "importSha256": "43b0e686bf4b75073433373742eb953e93378728f74ccd9ba87a5de54ed2f872"
+    },
+    {
+      "plugin": "knowledge-tools",
+      "skill": "openwiki-knowledge",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/openwiki-knowledge",
+      "state": "untracked",
+      "importSha256": "e282fa6fcdb34e074763a2f32a7c2e540e9c54677f84f0296cf5a39a81f731e0"
+    },
+    {
+      "plugin": "knowledge-tools",
+      "skill": "television",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/television",
+      "state": "working-tree",
+      "importSha256": "1983f18b535c833fbce93d02126a9a36a353a15a00096b43364b2fe66bb3c061"
+    },
+    {
+      "plugin": "knowledge-tools",
+      "skill": "xerj",
+      "repository": "gvillarroel/skills",
+      "path": "skills/xerj",
+      "state": "untracked",
+      "importSha256": "674344ddab87313cc8079d2cf16020fab03f04d6632c49fb2b72225c18c62ced"
+    },
+    {
+      "plugin": "layers-evaluation",
+      "skill": "harbor-author-evaluation-datasets",
+      "repository": "gvillarroel/Layers",
+      "path": "skills/harbor-author-evaluation-datasets",
+      "state": "committed",
+      "importSha256": "bb6b4c38fff06279a8657415f185e4daa0af69e5a388ba1583bf4bdb6837aaca"
+    },
+    {
+      "plugin": "line-world-video",
+      "skill": "line-world-d3",
+      "repository": "gvillarroel/skills",
+      "path": "projects/line-world-video/artifacts/packages/line-world-video-0.27.0/plugin/skills/line-world-d3",
+      "state": "verified-release",
+      "importSha256": "a83c6b213ba870e44910427d9a281bb99402334987e74ee8afc69f3506f4c360"
+    },
+    {
+      "plugin": "line-world-video",
+      "skill": "line-world-google-vids",
+      "repository": "gvillarroel/skills",
+      "path": "projects/line-world-video/artifacts/packages/line-world-video-0.27.0/plugin/skills/line-world-google-vids",
+      "state": "verified-release",
+      "importSha256": "06ac490dd6bb07b0f3a174370ceecaadb290ccbf1e8fece4f63f63e6044c9b9c"
+    },
+    {
+      "plugin": "line-world-video",
+      "skill": "line-world-hyperframes",
+      "repository": "gvillarroel/skills",
+      "path": "projects/line-world-video/artifacts/packages/line-world-video-0.27.0/plugin/skills/line-world-hyperframes",
+      "state": "verified-release",
+      "importSha256": "f1e792096eff67f8534e5679e9d6b151556797808fad3fba23c4aee8d565c5c4"
+    },
+    {
+      "plugin": "line-world-video",
+      "skill": "line-world-icons",
+      "repository": "gvillarroel/skills",
+      "path": "projects/line-world-video/artifacts/packages/line-world-video-0.27.0/plugin/skills/line-world-icons",
+      "state": "verified-release",
+      "importSha256": "a9e98fed94ab623fdbf29b1e6cb93c08d5f707e40b8d842c27f9cae2fd0e8e82"
+    },
+    {
+      "plugin": "line-world-video",
+      "skill": "line-world-mermaid",
+      "repository": "gvillarroel/skills",
+      "path": "projects/line-world-video/artifacts/packages/line-world-video-0.27.0/plugin/skills/line-world-mermaid",
+      "state": "verified-release",
+      "importSha256": "52271f4b1d933a0582be7cb56303b47cd27bd7d0d26f5cb4cdc4214adabb92d9"
+    },
+    {
+      "plugin": "line-world-video",
+      "skill": "line-world-video",
+      "repository": "gvillarroel/skills",
+      "path": "projects/line-world-video/artifacts/packages/line-world-video-0.27.0/plugin/skills/line-world-video",
+      "state": "verified-release",
+      "importSha256": "1387adca4d1f6cb852a7d98cab341de7a91991b072d5ce08ca7ff729482d1d72"
+    },
+    {
+      "plugin": "marketplace-check",
+      "skill": "shared-example-1",
+      "repository": "gvillarroel/marketplace",
+      "path": "plugins/shared-skills-example/library/shared-example-1",
+      "state": "committed",
+      "importSha256": "6138d49ccbd1a18644495619e9f6bceda1f9d2c83e6ee23d10cac19a44b6e215"
+    },
+    {
+      "plugin": "marketplace-check",
+      "skill": "shared-example-2",
+      "repository": "gvillarroel/marketplace",
+      "path": "plugins/shared-skills-example/library/shared-example-2",
+      "state": "committed",
+      "importSha256": "499f80671cb20a15c2ba0cc352b99aeee06283b329fad3131c5e1daf4a6dbafe"
+    },
+    {
+      "plugin": "marketplace-check",
+      "skill": "shared-example-3",
+      "repository": "gvillarroel/marketplace",
+      "path": "plugins/shared-skills-example/library/shared-example-3",
+      "state": "committed",
+      "importSha256": "e6241d4b8d734c4bd6537d9b31c6fdf8f51ffaffdc0d370d18eec3da2ad33f45"
+    },
+    {
+      "plugin": "plugin-authoring",
+      "skill": "chatgpt-desktop-plugin-ui",
+      "repository": "gvillarroel/skills",
+      "path": "skills/chatgpt-desktop-plugin-ui",
+      "state": "committed",
+      "importSha256": "218b35542769b6eeed86ce56e64b2cd9bb465ccee799d5b4865746743e4e5fc4"
+    },
+    {
+      "plugin": "plugin-authoring",
+      "skill": "code-native-plugin-ui",
+      "repository": "gvillarroel/skills",
+      "path": "skills/code-native-plugin-ui",
+      "state": "committed",
+      "importSha256": "398d2b0fd0e2767b6a5e81ecd7e9a61a6db8e1282e435a6b01f47d30f1337627"
+    },
+    {
+      "plugin": "plugin-authoring",
+      "skill": "codex-plugin-ui",
+      "repository": "gvillarroel/skills",
+      "path": "skills/codex-plugin-ui",
+      "state": "committed",
+      "importSha256": "e0cdaf2b9127d6b6c26df4f306619b8364e67c31a0e1de3d1ad9bdb5f111aebd"
+    },
+    {
+      "plugin": "plugin-authoring",
+      "skill": "desktop-chat-plugin-ui",
+      "repository": "gvillarroel/skills",
+      "path": "skills/desktop-chat-plugin-ui",
+      "state": "committed",
+      "importSha256": "8923f4d559fe1056c3a038ee3eddbff39729a660b149946676333280bd0fdfe0"
+    },
+    {
+      "plugin": "plugin-authoring",
+      "skill": "desktop-plugin-ui",
+      "repository": "gvillarroel/skills",
+      "path": "skills/desktop-plugin-ui",
+      "state": "committed",
+      "importSha256": "facfdbbe235fac4c67d00cd5385fcb7edb83bf1ff8a528925e5808ff63e44fef"
+    },
+    {
+      "plugin": "plugin-authoring",
+      "skill": "gemini-enterprise-ui",
+      "repository": "gvillarroel/skills",
+      "path": "skills/gemini-enterprise-ui",
+      "state": "committed",
+      "importSha256": "cb1821e973c2ac18eaf583b5ed325cfbac966be92c0ac9df552cbb2b649f73b3"
+    },
+    {
+      "plugin": "plugin-authoring",
+      "skill": "harbor-author-evaluation-datasets",
+      "repository": "gvillarroel/marketplace",
+      "path": "skills/harbor-author-evaluation-datasets",
+      "state": "committed",
+      "importSha256": "bb6b4c38fff06279a8657415f185e4daa0af69e5a388ba1583bf4bdb6837aaca"
+    },
+    {
+      "plugin": "plugin-authoring",
+      "skill": "pi-extension-ui",
+      "repository": "gvillarroel/skills",
+      "path": "skills/pi-extension-ui",
+      "state": "committed",
+      "importSha256": "ff238beb75e99896983fc266bf970396cd8348bdd5c926e8d8527bd60a68dede"
+    },
+    {
+      "plugin": "presentation-studio",
+      "skill": "d3-google-slides",
+      "repository": "gvillarroel/skills",
+      "path": "skills/d3-google-slides",
+      "state": "untracked",
+      "importSha256": "18706222497a21a8174bfc1b9e64970b4f4ff9fc7e0b5f1432ea4851e4422a63"
+    },
+    {
+      "plugin": "presentation-studio",
+      "skill": "slidev-animejs",
+      "repository": "gvillarroel/skills",
+      "path": "skills/slidev-animejs",
+      "state": "committed",
+      "importSha256": "8bd674311764d1795aa49e72706d118e007ddb4f80184bc1ec1e5b0cee63d1c8"
+    },
+    {
+      "plugin": "presentation-studio",
+      "skill": "slidev-echarts",
+      "repository": "gvillarroel/skills",
+      "path": "skills/slidev-echarts",
+      "state": "committed",
+      "importSha256": "b667476da0a866fc07de59a8f76f506760de8e556204228c88bb69c020a7a2ec"
+    },
+    {
+      "plugin": "presentation-studio",
+      "skill": "slidev-quality-audit",
+      "repository": "gvillarroel/skills",
+      "path": "skills/slidev-quality-audit",
+      "state": "committed",
+      "importSha256": "02091154c7f64e76c92049d5b6f6e912217882f7b5fcb7f70520e944e4b9e25c"
+    },
+    {
+      "plugin": "reflex-xy",
+      "skill": "reflex-xy",
+      "repository": "gvillarroel/skills",
+      "path": "skills/reflex-xy",
+      "state": "committed",
+      "importSha256": "aacf18d99c6ca970d367fc167173723fdb214c5a556669e3df9cfa07a1a31156"
+    },
+    {
+      "plugin": "semantic-curation",
+      "skill": "book-semantic-analysis",
+      "repository": "gvillarroel/skills",
+      "path": "skills/book-semantic-analysis",
+      "state": "untracked",
+      "importSha256": "506a59e09524efc5425c06e6c7a19661f14ee069aa940efbe3f448a952c0d78e"
+    },
+    {
+      "plugin": "semantic-curation",
+      "skill": "curate-semantic-model",
+      "repository": "gvillarroel/skills",
+      "path": "skills/curate-semantic-model",
+      "state": "working-tree",
+      "importSha256": "5f48f99df8f294dd313691d13d2eafe7e7af1dc015ec52d50fc6e150630091f6"
+    },
+    {
+      "plugin": "semantic-curation",
+      "skill": "extract-ontologies",
+      "repository": "gvillarroel/skills",
+      "path": "skills/extract-ontologies",
+      "state": "working-tree",
+      "importSha256": "43eff9c8117ca934c7df1f4b73ab9a5316440742601c2ce33c6465e4744fe209"
+    },
+    {
+      "plugin": "semantic-curation",
+      "skill": "extract-with-ontology",
+      "repository": "gvillarroel/skills",
+      "path": "skills/extract-with-ontology",
+      "state": "working-tree",
+      "importSha256": "59537122ec0f70368675a5603c0e43ba8efe0e6359c4b8b14ef045857b21273c"
+    },
+    {
+      "plugin": "semantic-curation",
+      "skill": "index-knowledge-questions",
+      "repository": "gvillarroel/skills",
+      "path": "skills/index-knowledge-questions",
+      "state": "untracked",
+      "importSha256": "3bc6836334acde145d637dccbbbea00e3a7ad42f4801d37ecb533ec0b9d50c98"
+    },
+    {
+      "plugin": "semantic-curation",
+      "skill": "knowledge-catalog-curator",
+      "repository": "gvillarroel/skills",
+      "path": "skills/knowledge-catalog-curator",
+      "state": "untracked",
+      "importSha256": "1ed00ba9f2939f2edbcebe4792961a5777716b7e77f745072f2bbab25544a763"
+    },
+    {
+      "plugin": "semantic-graphs",
+      "skill": "build-semantic-okf-entity-graph",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/build-semantic-okf-entity-graph",
+      "state": "working-tree",
+      "importSha256": "7cbabf56123003871f65cc6e670fb25ddda9cc1e6c843c9fc6c3e887875427d2"
+    },
+    {
+      "plugin": "semantic-graphs",
+      "skill": "build-semantic-okf-graphify",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/build-semantic-okf-graphify",
+      "state": "working-tree",
+      "importSha256": "b8f2635adde90ef0a331a588fc86c044c0afcf752013ef05001a304882317a07"
+    },
+    {
+      "plugin": "semantic-graphs",
+      "skill": "build-semantic-okf-graphify-next",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/build-semantic-okf-graphify-next",
+      "state": "working-tree",
+      "importSha256": "a96a4fe196eebb8d1ffb7422822c4f7ba9a8974cc0e6d3090f9e82ede24fa3b3"
+    },
+    {
+      "plugin": "semantic-graphs",
+      "skill": "build-semantic-okf-harbor-graphify",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/build-semantic-okf-harbor-graphify",
+      "state": "working-tree",
+      "importSha256": "c2dd4afd4cca9a184ca4f9da6518954ec1a8571210876309e102479c9a69dcb7"
+    },
+    {
+      "plugin": "semantic-graphs",
+      "skill": "consult-semantic-okf-entity-graph",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/consult-semantic-okf-entity-graph",
+      "state": "working-tree",
+      "importSha256": "acd2d8da26941b390f2275d3628e3d52cd3c54388c134e5bd8c0c299c8724a62"
+    },
+    {
+      "plugin": "semantic-graphs",
+      "skill": "consult-semantic-okf-graphify",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/consult-semantic-okf-graphify",
+      "state": "working-tree",
+      "importSha256": "bbc3e19361a52981d77e1006cd4032257ba07cac6da9ab9bf2144aae2ae31ebe"
+    },
+    {
+      "plugin": "semantic-graphs",
+      "skill": "consult-semantic-okf-harbor-entity-graph",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/consult-semantic-okf-harbor-entity-graph",
+      "state": "working-tree",
+      "importSha256": "6a703de3b8a3361f2b321a4965993e179bb3535182dc9ce1bebe6f2bb8792840"
+    },
+    {
+      "plugin": "semantic-graphs",
+      "skill": "consult-semantic-okf-harbor-graphify",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/consult-semantic-okf-harbor-graphify",
+      "state": "working-tree",
+      "importSha256": "4f80aeb0687a635147934235ec0cd84acddd7ede1c3da0abe106ff606662f1ee"
+    },
+    {
+      "plugin": "semantic-graphs",
+      "skill": "consult-semantic-okf-procedural-graph",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/consult-semantic-okf-procedural-graph",
+      "state": "untracked",
+      "importSha256": "d2146cb1fa62e8c6a2e44d673c5ae281685f5a64c2e8426b48d06a7df84337ef"
+    },
+    {
+      "plugin": "semantic-okf",
+      "skill": "build-semantic-okf",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/build-semantic-okf",
+      "state": "working-tree",
+      "importSha256": "fc1fbf33c4dfed776bef2857942f44be954a06f26e189b3c653d2c43b8a73d02"
+    },
+    {
+      "plugin": "semantic-okf",
+      "skill": "build-semantic-okf-adaptive",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/build-semantic-okf-adaptive",
+      "state": "working-tree",
+      "importSha256": "92948a53d1746a5e17abc874ec2724ea1c9705738315cf1e7a13b71466874f48"
+    },
+    {
+      "plugin": "semantic-okf",
+      "skill": "build-semantic-okf-classical",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/build-semantic-okf-classical",
+      "state": "working-tree",
+      "importSha256": "7800f23ce9f8ac652a842f4d3282d59933fe92029e935821ff45adab129832fa"
+    },
+    {
+      "plugin": "semantic-okf",
+      "skill": "build-semantic-okf-embeddings",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/build-semantic-okf-embeddings",
+      "state": "working-tree",
+      "importSha256": "92980cdb2cd9a05ccca53945a640f92e1ef52818bbf5964e0d7e76b3f7521c3b"
+    },
+    {
+      "plugin": "semantic-okf",
+      "skill": "build-semantic-okf-ensemble",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/build-semantic-okf-ensemble",
+      "state": "working-tree",
+      "importSha256": "e5ae9a99272c6b662be45ef133e083830abb4c99a99987e760f980a551f019dd"
+    },
+    {
+      "plugin": "semantic-okf",
+      "skill": "consult-semantic-okf",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/consult-semantic-okf",
+      "state": "working-tree",
+      "importSha256": "2d350d3ca5be0aa21750945c9fc9839989260b420596316589ff37e1474aa1b5"
+    },
+    {
+      "plugin": "semantic-okf",
+      "skill": "consult-semantic-okf-adaptive",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/consult-semantic-okf-adaptive",
+      "state": "working-tree",
+      "importSha256": "a4ce61fafac41b71f7e044426957ae8092ebb05ba64d6c4c1a299aa2109fd24e"
+    },
+    {
+      "plugin": "semantic-okf",
+      "skill": "consult-semantic-okf-classical",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/consult-semantic-okf-classical",
+      "state": "working-tree",
+      "importSha256": "405999535a3cc34d6327c1d39937070e7a9d9ddb30d5bc82088a1298e154e581"
+    },
+    {
+      "plugin": "semantic-okf",
+      "skill": "consult-semantic-okf-embeddings",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/consult-semantic-okf-embeddings",
+      "state": "working-tree",
+      "importSha256": "5592b895f45ed01034aa9b8bafb5a95a2a7e3eaf77e7da6415fb32e86ce45bf0"
+    },
+    {
+      "plugin": "semantic-okf",
+      "skill": "consult-semantic-okf-ensemble",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/consult-semantic-okf-ensemble",
+      "state": "working-tree",
+      "importSha256": "6a169b54bd3129ac4fb48292c15e9ff62b946f460938730e86d99531423c5652"
+    },
+    {
+      "plugin": "semantic-okf",
+      "skill": "consult-semantic-okf-harbor-adaptive",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/consult-semantic-okf-harbor-adaptive",
+      "state": "working-tree",
+      "importSha256": "012f64cb131b4b8d6d4cb6234742af05f6f3679d99e6431880d1cc294dac61c9"
+    },
+    {
+      "plugin": "semantic-okf",
+      "skill": "consult-semantic-okf-harbor-classical",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/consult-semantic-okf-harbor-classical",
+      "state": "working-tree",
+      "importSha256": "61eccc348775fa4d708e41e00658529711cd6d67a29a551f1f1d013e808b5cbd"
+    },
+    {
+      "plugin": "semantic-okf",
+      "skill": "consult-semantic-okf-harbor-embeddings",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/consult-semantic-okf-harbor-embeddings",
+      "state": "working-tree",
+      "importSha256": "be2131c6290d2394cc8adaee5b62aad379aafc55acf11091f77217aa8e9f6f38"
+    },
+    {
+      "plugin": "semantic-okf",
+      "skill": "consult-semantic-okf-harbor-ensemble",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/consult-semantic-okf-harbor-ensemble",
+      "state": "working-tree",
+      "importSha256": "9ea4054cc35361f3ee37c73bb36b3c3c4e51573829c2e3bda07ef159a66e207e"
+    },
+    {
+      "plugin": "semantic-okf",
+      "skill": "consult-semantic-okf-harbor-legacy",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/consult-semantic-okf-harbor-legacy",
+      "state": "working-tree",
+      "importSha256": "34dc8ed04cf77abcd6ec579d3af35e06b3182ee797ce8bf065e9fa73ed6a2f1d"
+    },
+    {
+      "plugin": "semantic-okf",
+      "skill": "visualize-semantic-okf-classical",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/visualize-semantic-okf-classical",
+      "state": "working-tree",
+      "importSha256": "f2f039353e89b3a6480d2f2b04506e82f94eee6f0cae571ae70d365bfc491c70"
+    },
+    {
+      "plugin": "semantic-search",
+      "skill": "build-semantic-okf-rust-mallet",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/build-semantic-okf-rust-mallet",
+      "state": "working-tree",
+      "importSha256": "49ce383a463bfe28686a607b2a0e32d351269ee6dfdbe1229157a8a211cf533d"
+    },
+    {
+      "plugin": "semantic-search",
+      "skill": "build-semantic-okf-rust-mallet-evolved",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/build-semantic-okf-rust-mallet-evolved",
+      "state": "working-tree",
+      "importSha256": "82468ea9bddded2ad868c397d5dff82d8ccdbcf4a7a3fb92e668ada3eb957f9f"
+    },
+    {
+      "plugin": "semantic-search",
+      "skill": "build-semantic-okf-tantivy",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/build-semantic-okf-tantivy",
+      "state": "working-tree",
+      "importSha256": "f3d4e3ec3c69bc50a4d6afbfdec325d2a0dba03d9f3490db88b6da5eb0e90508"
+    },
+    {
+      "plugin": "semantic-search",
+      "skill": "build-semantic-okf-tika-mallet",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/build-semantic-okf-tika-mallet",
+      "state": "working-tree",
+      "importSha256": "90be55079f8a6da2d4b3cd31a29ecbf8c826b1af51f695a1c5416d1455c51158"
+    },
+    {
+      "plugin": "semantic-search",
+      "skill": "build-semantic-okf-turso",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/build-semantic-okf-turso",
+      "state": "working-tree",
+      "importSha256": "a60df72d93fc27cb3c891415b43f8f3abd74cb674b47117bc3a0489c3ef59d02"
+    },
+    {
+      "plugin": "semantic-search",
+      "skill": "consult-semantic-okf-rust-mallet",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/consult-semantic-okf-rust-mallet",
+      "state": "working-tree",
+      "importSha256": "25e495ae020e207ce98308dbbb631df12f0701fbb851884c653b17d27fbf8399"
+    },
+    {
+      "plugin": "semantic-search",
+      "skill": "consult-semantic-okf-rust-mallet-evolved",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/consult-semantic-okf-rust-mallet-evolved",
+      "state": "working-tree",
+      "importSha256": "727c512ece39c00b40c7180804516f640c8b060b0b2fb083a35b47b46324b587"
+    },
+    {
+      "plugin": "semantic-search",
+      "skill": "consult-semantic-okf-tantivy",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/consult-semantic-okf-tantivy",
+      "state": "working-tree",
+      "importSha256": "93caa6abbd100f8c3f5a251642f43c461142f3f88761574501a683ad034ef4f9"
+    },
+    {
+      "plugin": "semantic-search",
+      "skill": "consult-semantic-okf-tika-mallet",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/consult-semantic-okf-tika-mallet",
+      "state": "working-tree",
+      "importSha256": "53306c3cb7ad1c7803b83b7b71a78c563527ce0518210144bf28c9292c376703"
+    },
+    {
+      "plugin": "semantic-search",
+      "skill": "consult-semantic-okf-tika-mallet-bounded",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/consult-semantic-okf-tika-mallet-bounded",
+      "state": "working-tree",
+      "importSha256": "6e43648fb86b69cac68338e1193c3c91df8dbded7d0869d16ce22ad891ce61c7"
+    },
+    {
+      "plugin": "semantic-search",
+      "skill": "consult-semantic-okf-tika-mallet-tantivy",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/consult-semantic-okf-tika-mallet-tantivy",
+      "state": "working-tree",
+      "importSha256": "f170171acfdd3675bab84a99b6b63bc0173f992f16c956ad03c15aee2a9a10d9"
+    },
+    {
+      "plugin": "semantic-search",
+      "skill": "consult-semantic-okf-turso",
+      "repository": "gvillarroel/knowledge",
+      "path": "skills/consult-semantic-okf-turso",
+      "state": "working-tree",
+      "importSha256": "d4babca66eb13e9909514c6f97c1366b6ed5e71d544e70341ec34f4c5df53ba2"
+    },
+    {
+      "plugin": "store-studio",
+      "skill": "create-printify-product",
+      "repository": "gvillarroel/stores",
+      "path": ".agents/skills/create-printify-product",
+      "state": "working-tree",
+      "importSha256": "d947ce0c3143685141ef3513fd26b746f95921ac949b66ad1d267262bd97ed9d"
+    },
+    {
+      "plugin": "store-studio",
+      "skill": "create-shirt-product",
+      "repository": "gvillarroel/stores",
+      "path": ".agents/skills/create-shirt-product",
+      "state": "working-tree",
+      "importSha256": "328a3b36e5fe39883e3282fc0b939b16373d31cc5bb07d04a510716be9c41282"
+    },
+    {
+      "plugin": "store-studio",
+      "skill": "design-store-graphics",
+      "repository": "gvillarroel/stores",
+      "path": ".agents/skills/design-store-graphics",
+      "state": "committed",
+      "importSha256": "10c51570f0dfe567df570e547925d914c0352ec466570e20239d409477d5c592"
+    },
+    {
+      "plugin": "store-studio",
+      "skill": "higgsfield-generate",
+      "repository": "gvillarroel/stores",
+      "path": ".agents/skills/higgsfield-generate",
+      "state": "untracked",
+      "importSha256": "366f49f899a94d48e60bf08c281fddc6c1057deaf90e5a5a4a762d546997584e"
+    },
+    {
+      "plugin": "store-studio",
+      "skill": "higgsfield-product-photoshoot",
+      "repository": "gvillarroel/stores",
+      "path": ".agents/skills/higgsfield-product-photoshoot",
+      "state": "untracked",
+      "importSha256": "186a1f0bdf3ec2d12c1dd8fc49573c4cf5e64afb5275a02050dc9dd35bb2c253"
+    },
+    {
+      "plugin": "store-studio",
+      "skill": "marketing",
+      "repository": "gvillarroel/stores",
+      "path": ".agents/skills/marketing",
+      "state": "working-tree",
+      "importSha256": "c6cba3e1bcef0a2924e864ea0c826c2efa34048bb91d3f65d53a606a56c05bd7"
+    },
+    {
+      "plugin": "store-studio",
+      "skill": "optimize-printify-product",
+      "repository": "gvillarroel/stores",
+      "path": ".agents/skills/optimize-printify-product",
+      "state": "untracked",
+      "importSha256": "c28171d64254cebe162373c696d3ca4f6addbf73facd8bb07b495fd47002beb5"
+    },
+    {
+      "plugin": "store-studio",
+      "skill": "product-design-critic",
+      "repository": "gvillarroel/stores",
+      "path": ".agents/skills/product-design-critic",
+      "state": "committed",
+      "importSha256": "f57cc5b8fca8310c4caa60e3cbc0f88d6546e0ff7ca34222c7bd3d83b89e5583"
+    },
+    {
+      "plugin": "store-studio",
+      "skill": "rapid-image-prototype",
+      "repository": "gvillarroel/stores",
+      "path": ".agents/skills/rapid-image-prototype",
+      "state": "untracked",
+      "importSha256": "98ba9cd067f32bd6f2dfc3be659eff6ab09fab43bfdc69fffb125c0b010f66e7"
+    },
+    {
+      "plugin": "video-production",
+      "skill": "animated-svg-to-gif",
+      "repository": "gvillarroel/skills",
+      "path": "skills/animated-svg-to-gif",
+      "state": "committed",
+      "importSha256": "03305de94a315395e2ee00ef6a2775842636d759cb601ed1e77324d7424d1759"
+    },
+    {
+      "plugin": "video-production",
+      "skill": "asciinema-real-command-video",
+      "repository": "gvillarroel/skills",
+      "path": "skills/asciinema-real-command-video",
+      "state": "committed",
+      "importSha256": "86c19804282383b954c155b864ea502e485e40bd072e95a6384c2d3c8199b728"
+    },
+    {
+      "plugin": "video-production",
+      "skill": "hyperframes-explainer",
+      "repository": "gvillarroel/skills",
+      "path": "skills/hyperframes-explainer",
+      "state": "committed",
+      "importSha256": "dfd3c712aec943c92144361f7bb525037c8a4ea584f9857e24c849591ed455cd"
+    },
+    {
+      "plugin": "video-production",
+      "skill": "line-world-google-vids",
+      "repository": "gvillarroel/skills",
+      "path": "skills/line-world-google-vids",
+      "state": "untracked",
+      "importSha256": "06ac490dd6bb07b0f3a174370ceecaadb290ccbf1e8fece4f63f63e6044c9b9c"
+    },
+    {
+      "plugin": "video-production",
+      "skill": "line-world-video",
+      "repository": "gvillarroel/skills",
+      "path": "skills/line-world-video",
+      "state": "untracked",
+      "importSha256": "5a8384a9ed054f70a4f1bd8525c45863f582090c6bf27ca23fbde7a374d68ef1"
+    },
+    {
+      "plugin": "video-production",
+      "skill": "manim-svg-video",
+      "repository": "gvillarroel/skills",
+      "path": "skills/manim-svg-video",
+      "state": "committed",
+      "importSha256": "b6dd8b1c5112f8a4fe5a31c609ae5bdbf0e6773d2d269bc9aa80aef4ac1975e6"
+    },
+    {
+      "plugin": "video-production",
+      "skill": "pydub-audio",
+      "repository": "gvillarroel/skills",
+      "path": "skills/pydub-audio",
+      "state": "untracked",
+      "importSha256": "0c3e0b5724b10396a237b7c644c045b137a70409ac80b96c1648687cba51f2c8"
+    },
+    {
+      "plugin": "video-production",
+      "skill": "pydub-projects",
+      "repository": "gvillarroel/skills",
+      "path": "skills/pydub-projects",
+      "state": "untracked",
+      "importSha256": "b39768d07fc5577ff282a99c9fcc155d08a37e4c7c56b00bae3ba4b2865a59e5"
+    },
+    {
+      "plugin": "video-production",
+      "skill": "video",
+      "repository": "gvillarroel/skills",
+      "path": "skills/video",
+      "state": "committed",
+      "importSha256": "62cab6b7c20689934771ac9502e10ae66b3c22fdd8ffe63ec4e40f81474659d5"
+    },
+    {
+      "plugin": "video-production",
+      "skill": "video-style-reverse-engineering",
+      "repository": "gvillarroel/skills",
+      "path": "skills/video-style-reverse-engineering",
+      "state": "untracked",
+      "importSha256": "afb51950d1ec3cc0ce1675492084c51f7783a41053ce64c36300c290f23ce500"
+    },
+    {
+      "plugin": "visual-effects",
+      "skill": "kornia-artistic-transforms",
+      "repository": "gvillarroel/skills",
+      "path": "skills/kornia-artistic-transforms",
+      "state": "untracked",
+      "importSha256": "439a40a676db8295ea66fc903417cad4ff52700dc01ed8074242cbf3512fad2b"
+    },
+    {
+      "plugin": "visual-effects",
+      "skill": "one-bit-dither-svg",
+      "repository": "gvillarroel/skills",
+      "path": "skills/one-bit-dither-svg",
+      "state": "committed",
+      "importSha256": "9551756666e5ad9116e423e7da227d8be25a38d7b0eb7fc807973d526f88d5ca"
+    },
+    {
+      "plugin": "visual-effects",
+      "skill": "pixel-art-image-video",
+      "repository": "gvillarroel/skills",
+      "path": "skills/pixel-art-image-video",
+      "state": "committed",
+      "importSha256": "47af9d3dad2b3cef2567f2cc1de316d657fb2d11000338167c6c34365ff848ef"
+    },
+    {
+      "plugin": "visual-effects",
+      "skill": "threejs-animated-3d",
+      "repository": "gvillarroel/skills",
+      "path": "skills/threejs-animated-3d",
+      "state": "committed",
+      "importSha256": "b3a6ec1f2841d94db2f396ba35c111e92a86fec0f3f79461007e9dbfd0c20b63"
+    },
+    {
+      "plugin": "visual-effects",
+      "skill": "vectorize-art-patterns",
+      "repository": "gvillarroel/skills",
+      "path": "skills/vectorize-art-patterns",
+      "state": "committed",
+      "importSha256": "601fd66d1068a4902d133d4fedf2b93c030403d27bf1daa578ad881702a88f9e"
+    },
+    {
+      "plugin": "workflow-engineering",
+      "skill": "jev-batch-decisions",
+      "repository": "gvillarroel/skills",
+      "path": "skills/jev-batch-decisions",
+      "state": "committed",
+      "importSha256": "1b03a816795c625f62fd0b3eb93997a063df82877705f357f9888455c50ea7a0"
+    },
+    {
+      "plugin": "workflow-engineering",
+      "skill": "pi-durable",
+      "repository": "gvillarroel/skills",
+      "path": "skills/pi-durable",
+      "state": "working-tree",
+      "importSha256": "9a81e2ca854ebcea74c5d123c1d8ec2cfd5ddef806b73638e77d55e26ec578b9"
+    },
+    {
+      "plugin": "workflow-engineering",
+      "skill": "pi-mentor",
+      "repository": "gvillarroel/pi-menton",
+      "path": "skills/pi-mentor",
+      "state": "committed",
+      "importSha256": "635466411e0f1731c873deb46ce0e6716328efbc6603ddd433e6eed840708f19"
+    },
+    {
+      "plugin": "workflow-engineering",
+      "skill": "repository-reviewer-creator",
+      "repository": "gvillarroel/skills",
+      "path": "skills/repository-reviewer-creator",
+      "state": "committed",
+      "importSha256": "190fb115f3467d67142e4d5f13795494129d37074f4e74051cc990d7c2b80888"
+    },
+    {
+      "plugin": "workflow-engineering",
+      "skill": "zx-workflow-author",
+      "repository": "gvillarroel/zx-harness",
+      "path": "skills/zx-workflow-author",
+      "state": "working-tree",
+      "importSha256": "4db460ab3bbb92f66097eec29380d9165bfc2a771af8889c5c7a8fd7d75c524c"
+    }
+  ],
+  "supportingResources": [
+    {
+      "plugin": "agent-foundry",
+      "repository": "gvillarroel/marketplace",
+      "path": "plugins/agent-foundry",
+      "purpose": "Copilot extension, native agents, runtime and license"
+    },
+    {
+      "plugin": "hyperframes",
+      "repository": "gvillarroel/skills",
+      "path": "projects/hyperframes-colorsets/plugin",
+      "purpose": "Upstream distribution, attribution, palettes and artwork"
+    },
+    {
+      "plugin": "harbor",
+      "repository": "gvillarroel/skills",
+      "path": "projects/harbor-plugin/plugin.json",
+      "purpose": "Package identity and presentation"
+    },
+    {
+      "plugin": "knowledge-authoring",
+      "repository": "gvillarroel/knowledge",
+      "path": "evaluations/evaluation-only-registry.json",
+      "destination": "skills/build-specialized-skill/references/evaluation-only-registry.json",
+      "sha256": "d3e9b1e5dc8b1e3c25795044f0b0efcf49d46b2e84096450c72b208cfcb3ae1e",
+      "purpose": "Fingerprints checked by the skill before fitting a retrieval profile"
+    }
+  ]
+}

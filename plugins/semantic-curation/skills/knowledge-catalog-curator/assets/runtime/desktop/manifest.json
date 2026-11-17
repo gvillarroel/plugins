@@ -1,0 +1,29 @@
+{
+  "manifest_version": "0.3",
+  "name": "knowledge-catalog-curator",
+  "display_name": "Knowledge Catalog Curator",
+  "version": "0.3.0",
+  "description": "Local semantic profiling, ontology validation and human-reviewed GCP metadata publishing.",
+  "long_description": "Machine-local extension: install the knowledge-catalog-curator skill runtime and run register-claude first. Uses the installed Python environment and separate persistent review state. No cloud writes until an exact live plan is approved in the human review UI.",
+  "author": {
+    "name": "Knowledge Catalog Curator contributors"
+  },
+  "license": "Apache-2.0",
+  "server": {
+    "type": "node",
+    "entry_point": "run-server.cjs",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/run-server.cjs"
+      ]
+    }
+  },
+  "compatibility": {
+    "platforms": [
+      "win32",
+      "darwin",
+      "linux"
+    ]
+  }
+}

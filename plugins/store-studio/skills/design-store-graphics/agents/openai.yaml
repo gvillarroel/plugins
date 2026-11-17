@@ -1,0 +1,4 @@
+interface:
+  display_name: "Diseño gráfico para la tienda"
+  short_description: "Composición y tipografía con referencias de DGH"
+  default_prompt: "Usa $design-store-graphics para crear tres diseños de IA Referencias con jerarquía clara, una metáfora visual y revisión sobre el producto."

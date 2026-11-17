@@ -1,0 +1,4 @@
+interface:
+  display_name: "XERJ"
+  short_description: "Index local files and retrieve code with XERJ"
+  default_prompt: "Use $xerj to index this project and retrieve relevant code passages."

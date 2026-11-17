@@ -1,0 +1,47 @@
+@prefix kc: <https://example.org/knowledge-catalog/> .
+@prefix retail: <https://example.org/knowledge-catalog/retail/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+kc: a owl:Ontology ;
+    rdfs:label "Demonstration retail metadata vocabulary" ;
+    rdfs:comment "A local illustrative domain model, not an authoritative retail standard or Google managed ontology." .
+
+retail:Scheme a skos:ConceptScheme ; skos:prefLabel "Retail demonstration domain"@en .
+retail:Customer a skos:Concept ; skos:inScheme retail:Scheme ;
+    skos:prefLabel "Customer"@en ; skos:altLabel "Buyer"@en ;
+    skos:definition "A person or organization that purchases products; identifiers may be personal data."@en .
+retail:Order a skos:Concept ; skos:inScheme retail:Scheme ;
+    skos:prefLabel "Order"@en ; skos:altLabel "Purchase order"@en ;
+    skos:definition "A request to purchase one or more products, normally associated with a customer."@en .
+retail:Product a skos:Concept ; skos:inScheme retail:Scheme ;
+    skos:prefLabel "Product"@en ; skos:altLabel "Item"@en ;
+    skos:definition "An item offered for sale, normally identified by a SKU or product identifier."@en .
+retail:Payment a skos:Concept ; skos:inScheme retail:Scheme ;
+    skos:prefLabel "Payment"@en ; skos:altLabel "Settlement"@en ;
+    skos:definition "A transfer or settlement of value associated with an order."@en .
+retail:Return a skos:Concept ; skos:inScheme retail:Scheme ;
+    skos:prefLabel "Return"@en ; skos:altLabel "Product return"@en ;
+    skos:definition "A product return associated with an order; eligibility and time windows require an explicit business policy."@en .
+retail:Quantity a skos:Concept ; skos:inScheme retail:Scheme ;
+    skos:prefLabel "Quantity"@en ; skos:altLabel "Unit count"@en ;
+    skos:definition "A measured count of units; the unit requires human confirmation."@en .
+retail:Revenue a skos:Concept ; skos:inScheme retail:Scheme ;
+    skos:prefLabel "Revenue"@en ; skos:altLabel "Monetary measure"@en ;
+    skos:definition "A suggested monetary measure; price, cost, and recognized revenue require separate business definitions."@en .
+retail:Currency a skos:Concept ; skos:inScheme retail:Scheme ;
+    skos:prefLabel "Currency"@en ; skos:altLabel "Monetary denomination"@en ;
+    skos:definition "A monetary denomination; no default currency may be assumed."@en .
+retail:Date a skos:Concept ; skos:inScheme retail:Scheme ;
+    skos:prefLabel "Date"@en ; skos:altLabel "Calendar date"@en ;
+    skos:definition "A date or event timestamp; timezone and business meaning require confirmation."@en .
+retail:Identifier a skos:Concept ; skos:inScheme retail:Scheme ;
+    skos:prefLabel "Identifier"@en ; skos:altLabel "Entity identifier"@en ;
+    skos:definition "A value identifying an entity; uniqueness in a sample does not establish a primary key."@en .
+retail:Category a skos:Concept ; skos:inScheme retail:Scheme ;
+    skos:prefLabel "Category"@en ; skos:altLabel "Classification"@en ;
+    skos:definition "A classification label whose controlled vocabulary should be documented."@en .
+
+# Vocabulary associations describe concepts, not proven joins between datasets.
+retail:Order skos:related retail:Customer, retail:Product, retail:Payment, retail:Return .

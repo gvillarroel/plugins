@@ -1,0 +1,4 @@
+interface:
+  display_name: "Ontology Extraction"
+  short_description: "Author reviewed ontologies and glossaries"
+  default_prompt: "Use $extract-ontologies to derive a reviewed ontology or a source-backed glossary from these materials."

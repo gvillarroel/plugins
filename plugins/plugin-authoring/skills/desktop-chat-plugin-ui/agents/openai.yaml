@@ -1,0 +1,4 @@
+interface:
+  display_name: "Claude Desktop Plugin UI"
+  short_description: "Build Claude Desktop Chat MCP App interfaces"
+  default_prompt: "Use $desktop-chat-plugin-ui for one focused human decision, relevant evidence and a result returned to the agent; validate the actual host and use semantic native styling."

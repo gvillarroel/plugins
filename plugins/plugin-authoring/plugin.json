@@ -1,0 +1,18 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "plugin-authoring",
+  "version": "1.0.0",
+  "description": "Design agent plugin interfaces and MCP Apps, and author evaluation datasets in the marketplace development context.",
+  "author": {
+    "name": "Gerardo Villarroel"
+  },
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Plugin Authoring",
+        "shortDescription": "Design agent plugin interfaces and MCP Apps, and author evaluation datasets in the marketplace development context.",
+        "category": "Developer tools"
+      }
+    }
+  }
+}

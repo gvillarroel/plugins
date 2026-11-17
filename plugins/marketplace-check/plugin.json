@@ -1,0 +1,18 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "marketplace-check",
+  "version": "1.0.0",
+  "description": "Verify that installed skills can read the proof files shipped in their own package.",
+  "author": {
+    "name": "Gerardo Villarroel"
+  },
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Marketplace Check",
+        "shortDescription": "Verify that installed skills can read the proof files shipped in their own package.",
+        "category": "Developer tools"
+      }
+    }
+  }
+}

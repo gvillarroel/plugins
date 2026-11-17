@@ -1,0 +1,18 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "knowledge-tools",
+  "version": "1.0.0",
+  "description": "Register, index and search knowledge with know, XERJ, OpenWiki, Open Ontologies and Television.",
+  "author": {
+    "name": "Gerardo Villarroel"
+  },
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Knowledge Tools",
+        "shortDescription": "Register, index and search knowledge with know, XERJ, OpenWiki, Open Ontologies and Television.",
+        "category": "Productivity"
+      }
+    }
+  }
+}

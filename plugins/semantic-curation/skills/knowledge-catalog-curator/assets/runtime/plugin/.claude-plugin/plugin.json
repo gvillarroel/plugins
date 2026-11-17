@@ -1,0 +1,24 @@
+{
+  "name": "kc-curator",
+  "version": "0.3.0",
+  "description": "Analyze documents locally, inspect Knowledge Catalog and review ontology quality before human-approved metadata publication.",
+  "author": {
+    "name": "Knowledge Catalog Curator contributors"
+  },
+  "license": "Apache-2.0",
+  "keywords": [
+    "gcp",
+    "knowledge-catalog",
+    "ontology",
+    "metadata",
+    "human-review"
+  ],
+  "mcpServers": {
+    "kc-curator": {
+      "command": "node",
+      "args": [
+        "${CLAUDE_PLUGIN_ROOT}/run-server.cjs"
+      ]
+    }
+  }
+}

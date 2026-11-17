@@ -1,0 +1,14 @@
+{
+  "name": "semantic-search",
+  "version": "1.0.0",
+  "description": "Build and query knowledge snapshots with Tantivy, Turso, Tika and RustMallet search backends.",
+  "author": {
+    "name": "Gerardo Villarroel"
+  },
+  "interface": {
+    "displayName": "Semantic Search Engines",
+    "shortDescription": "Build and query knowledge snapshots with Tantivy, Turso, Tika and RustMallet search backends.",
+    "category": "Data"
+  },
+  "skills": "./skills/"
+}

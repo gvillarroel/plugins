@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cloud Storage User Access"
+  short_description: "Browse Cloud Storage with the user's Google identity"
+  default_prompt: "Use $gcs-user-access to list Cloud Storage with my Google account and prepare a minimal local Claude Code command."

@@ -1,0 +1,86 @@
+# Three.js Scene Patterns
+
+Use these patterns when implementing Three.js scenes or galleries for this repository.
+
+## Scene Selection
+
+- Use primitive meshes for fast explanatory scenes: boxes, spheres, torus knots, planes, tubes, cylinders, and instanced meshes.
+- Use `BufferGeometry` for particle fields, wave surfaces, point clouds, and generated scientific or data-driven shapes.
+- Use `InstancedMesh` when repeating many similar objects with different transforms or token colors.
+- Use local generated data unless the request requires a specific model or dataset. Avoid large remote assets in acceptance fixtures.
+- For the bundled orbit, `--token-count` accepts 1–24 objects within the same motion envelope. Reuse fills for the same semantic role. For unique roles use the complete
+  bundled `solidSequence` before any optional outline variant; exclude the actual
+  canvas and any color already reserved for another distinct role. Increase the scene size or simplify trajectories when overlap obscures identity.
+
+## Renderer Structure
+
+Create one scene module per example. Return a small API:
+
+```js
+{
+  update(seconds) {},
+  reset() {},
+  dispose() {}
+}
+```
+
+Use a shared renderer harness for canvas setup, resizing, camera aspect updates, replay state, pointer drag, and the animation loop. Keep the scene factory responsible only for geometry, materials, lights, and per-frame transforms.
+
+## Camera And Layout
+
+- Use `PerspectiveCamera` for depth-forward examples and keep the field of view moderate, usually 34 to 50 degrees.
+- Place the camera high enough to reveal depth without hiding labels or page UI.
+- Call `camera.updateProjectionMatrix()` after every resize.
+- Keep fixed-format scene frames stable with `aspect-ratio`; default to a 200 px minimum stage height and compact spacing from `visual-tokens.md`. An explicit requested size takes precedence.
+- Fit camera distance to the complete animation envelope and the current horizontal/vertical field of view. Refit after aspect changes or orbit input. `overflow: hidden` is not evidence that moving objects fit; inspect their projected bounds through the cycle. The bundled orbit template samples a cylindrical motion envelope with a 12% projection margin, leaving decorative floor rings free to extend beyond the frame.
+
+## Compact Connected Diagrams
+
+When the scene explains concepts connected by lines, minimize its readable
+projected footprint. Size nodes to labels, place linked concepts close together
+and route through clear local corridors with few bends. Protect visible shafts,
+complete cone/head silhouettes, source/target contact and distinct parallel lanes.
+Do not allow unrelated links to share a segment or an occluded crossing to look
+like a junction. Check projected pixel bounds; separation in world coordinates
+does not guarantee separation on screen.
+
+After a readable draft, try up to two focused spacing/routing reductions and retain
+the tightest passing result. Inspect desktop/mobile, camera extrema, pointer
+rotation and representative animation phases. Revert any reduction that causes
+label overlap, foreshortened/hidden heads, detached endpoints or ambiguous depth.
+Fit the complete motion envelope while preserving intended depth cues and readable
+fonts; camera zoom, clipping or smaller arrows cannot substitute for a good layout.
+If free orbit cannot keep a diagram readable, constrain the supported camera range
+or provide a clear settled view. Keep quantitative chart encodings and physical
+geometry faithful; this rule targets conceptual diagram spacing.
+
+## Materials And Color
+
+- Follow `visual-tokens.md`: colorset1 uses red `#9e1b32`, the bundled dark/middle gray interleave including black, then white and the remaining colors. Preserve numeric ramps and semantic materials. Pink is a last resort; colorset2's extended hues require an explicit request.
+- Use `MeshStandardMaterial` with ambient and directional lights for most scenes.
+- Keep filled meshes free of decorative edge geometry and default wireframes.
+  Relationship lines, trajectories and scientific line geometry remain visible.
+- Keep lights neutral white, enable normal sRGB input/output conversion, and inspect final shading so red does not become a broad pink wash. Validate material colors separately from naturally shaded pixels.
+- Use `PointsMaterial` with vertex colors for particles.
+- Keep clear colors white or light neutral unless the scene requires a dark inspection environment.
+
+## Interaction
+
+- Add pointer drag for galleries so every canvas is demonstrably interactive.
+- Keep replay controls outside the canvas and expose `aria-label` text.
+- Reset animation time and scene transforms on replay. Do not create duplicate render loops, listeners, or meshes on repeated replay.
+
+## Performance
+
+- Cap renderer pixel ratio with `Math.min(window.devicePixelRatio, 2)`.
+- Prefer shared geometries/materials where many meshes repeat.
+- Dispose geometries, materials, and renderers if a component can unmount.
+- Avoid postprocessing in baseline fixtures unless the effect is the point of the example.
+
+## Directed vector field
+
+For directional flow over a plane, use the offline builder with `--scene vector-field --token-count 20`; this promotes the published `threejs-vector-field` pattern without reading its gallery. A five-column grid contains up to 24 independent cone/cylinder groups. Each cylinder has radius .045 and length .58; each cone has radius .12, length .28 and center x=.42, pointing along local +x. The cone base overlaps the shaft tip slightly, with no outline mesh. Animate group heading and lift from deterministic seconds; reduced motion keeps the settled time-zero scene.
+
+Use opaque, untone-mapped `MeshBasicMaterial` for directional glyphs and allowed solid tokens that reach 3:1 against the white stage, nominal pale plane and its actual darker shading. The runtime includes a conservative #9c9c9c shade bound and verifies actual head/shaft pixels at delivery views. This isolates communicative paint from lighting; keep physically lit surrounding geometry. The default elevated camera and .46 minimum drag pitch prevent a ground-level view collapsing the tip into the shaft. Replay resets heading and camera. The scene inspection API returns projected head positions and material colors.
+
+Verify head and shaft interior pixels at multiple delivery times, responsive sizes and camera positions against the same scene rendered without arrows. Retain antialiased edge samples separately: a low blended edge pixel is not evidence that the glyph interior lacks contrast. Inspect the actual cone silhouette for occlusion or foreshortening, including reduced motion and keyboard focus.

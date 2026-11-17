@@ -1,0 +1,1872 @@
+{
+  "schemaVersion": 3,
+  "pageId": "vectorize-art-patterns",
+  "title": "Open Masterpieces, Two Color Systems",
+  "description": "Thirty distinct open-source or public-domain artworks, each traced once and painted as geometry-locked Colorset 1 and Colorset 2 SVGs.",
+  "generator": "vectorize_with_vtracer.py",
+  "backend": "vtracer-0.6.15",
+  "artworkCount": 30,
+  "variantCount": 60,
+  "uniqueSourceCount": 30,
+  "geometryLockedPairCount": 30,
+  "sourceManifest": "assets/base-images/manifest.json",
+  "sourceManifestSha256": "24fe9d362d6089975a67861e72590b3aa840e240c969e7055e2741876bc7c3cc",
+  "paletteContractSha256": "f33804ae2e5fb81652343fee00ac6a48c6581eaf823ddead535a98035dd8b366",
+  "inventorySha256": "818dbe8a4646dfb94aee0c54eb7f414ce24a0ea307746a0773726c5b57384f91",
+  "genres": [
+    "abstraction",
+    "city",
+    "figure",
+    "interior",
+    "landscape",
+    "maritime",
+    "nightlife",
+    "portrait",
+    "print",
+    "sacred",
+    "still-life",
+    "symbolist"
+  ],
+  "artworks": [
+    {
+      "id": "bailly-beauties-fancy",
+      "genre": "abstraction",
+      "mode": "collage",
+      "title": "Le caprice des belles",
+      "creator": "Alice Bailly",
+      "date": "1918",
+      "sourceId": "bailly-beauties-fancy",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Le_caprice_des_belles_by_Alice_Bailly.jpg",
+      "provider": "wikimedia-commons",
+      "license": "Public-Domain",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "sourceSha256": "b02f5fd07a02c51eca284f75fe25848bf4fe00618b486d8b2059651760d3943e",
+      "geometrySha256": "2ee7db435d7827c6a3114d36bcabb5f1260173487e092f453fb58becd2daa5cb",
+      "compositionSha256": "d73266abc4b9f04234b2c9dd9389aec7be542758351140ef2cb46bacc7efc284",
+      "parameters": {
+        "colors": 9,
+        "smoothing": 0.34,
+        "paletteMethod": "median-cut",
+        "filterSpeckle": 18,
+        "maxDimension": 560
+      },
+      "variants": {
+        "colorset1": {
+          "patternId": "vectorize-bailly-beauties-fancy-cs1",
+          "file": "svgs/vectorize-bailly-beauties-fancy-cs1.svg",
+          "report": "reports/vectorize-bailly-beauties-fancy-cs1.json",
+          "sha256": "763ac3c563cdd30be877c56430b9ca89f766e0da44c435e7eea293eef8ea4073",
+          "bytes": 343075,
+          "pathCount": 235,
+          "palette": [
+            "#1c1c1c",
+            "#333e48",
+            "#363636",
+            "#4f4f4f",
+            "#828282",
+            "#9c9c9c",
+            "#9e1b32",
+            "#cfcfcf",
+            "#e7e7e7"
+          ]
+        },
+        "colorset2": {
+          "patternId": "vectorize-bailly-beauties-fancy-cs2",
+          "file": "svgs/vectorize-bailly-beauties-fancy-cs2.svg",
+          "report": "reports/vectorize-bailly-beauties-fancy-cs2.json",
+          "sha256": "e9e2b3e80ae7516daf95093078ff9c13bc2e693ac19af5ebc600bfd696a54e6c",
+          "bytes": 343075,
+          "pathCount": 235,
+          "palette": [
+            "#007298",
+            "#1c1c1c",
+            "#333e48",
+            "#363636",
+            "#4f4f4f",
+            "#828282",
+            "#9c9c9c",
+            "#cfcfcf",
+            "#e7e7e7"
+          ]
+        }
+      }
+    },
+    {
+      "id": "breton-song-lark",
+      "genre": "figure",
+      "mode": "collage",
+      "title": "The Song of the Lark",
+      "creator": "Jules Breton (French, 1827–1906)",
+      "date": "1884",
+      "sourceId": "breton-song-lark",
+      "sourcePage": "https://www.artic.edu/artworks/94841",
+      "provider": "art-institute-chicago",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceSha256": "04cd98272b805ae0a16d05bb9cd52da513e19d2dc66271f6635d36e4b005ab46",
+      "geometrySha256": "6cbb51e3bb51491365b4c9287653cbada4cf507efc0fbe4f3da719fbb2c464c6",
+      "compositionSha256": "1493664ecf2f49395e141bd99e0fc56ccb64ad632d651d7d809a74f37cf50ee9",
+      "parameters": {
+        "colors": 9,
+        "smoothing": 0.4,
+        "paletteMethod": "median-cut",
+        "filterSpeckle": 22,
+        "maxDimension": 560
+      },
+      "variants": {
+        "colorset1": {
+          "patternId": "vectorize-breton-song-lark-cs1",
+          "file": "svgs/vectorize-breton-song-lark-cs1.svg",
+          "report": "reports/vectorize-breton-song-lark-cs1.json",
+          "sha256": "7e06ecd8d9c83d0d9516a53969620fad999ebf4343553dd5e6b2fbaf58b9d14f",
+          "bytes": 219480,
+          "pathCount": 93,
+          "palette": [
+            "#1c1c1c",
+            "#333e48",
+            "#363636",
+            "#4f4f4f",
+            "#696969",
+            "#828282",
+            "#9c9c9c",
+            "#9e1b32",
+            "#f7f7f7"
+          ]
+        },
+        "colorset2": {
+          "patternId": "vectorize-breton-song-lark-cs2",
+          "file": "svgs/vectorize-breton-song-lark-cs2.svg",
+          "report": "reports/vectorize-breton-song-lark-cs2.json",
+          "sha256": "e6dc69ad4824acbab40a778701dd3f80e022a2e6b4b0654892ca5d8c87da00ee",
+          "bytes": 219480,
+          "pathCount": 93,
+          "palette": [
+            "#007298",
+            "#1c1c1c",
+            "#294d19",
+            "#333e48",
+            "#363636",
+            "#4f4f4f",
+            "#696969",
+            "#828282",
+            "#f7f7f7"
+          ]
+        }
+      }
+    },
+    {
+      "id": "caillebotte-paris-street",
+      "genre": "city",
+      "mode": "collage",
+      "title": "Paris Street; Rainy Day",
+      "creator": "Gustave Caillebotte (French, 1848–1894)",
+      "date": "1877",
+      "sourceId": "caillebotte-paris-street",
+      "sourcePage": "https://www.artic.edu/artworks/20684",
+      "provider": "art-institute-chicago",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceSha256": "8c0a02f942e0bb5bbb09f2751ece75ed6cdb2437732c8bf567653d094eaebe0a",
+      "geometrySha256": "0d425f7f449331ca9ecc2a86e1630df560f0d330733457911850db92eddada9a",
+      "compositionSha256": "768d5ddf8945a7443bedb2149934af3ba22047c6444a59679834e7f4916eeab4",
+      "parameters": {
+        "colors": 9,
+        "smoothing": 0.38,
+        "paletteMethod": "median-cut",
+        "filterSpeckle": 20,
+        "maxDimension": 560
+      },
+      "variants": {
+        "colorset1": {
+          "patternId": "vectorize-caillebotte-paris-street-cs1",
+          "file": "svgs/vectorize-caillebotte-paris-street-cs1.svg",
+          "report": "reports/vectorize-caillebotte-paris-street-cs1.json",
+          "sha256": "d9189294806ce6efd202cf68d3cebeb4d6a61504404f6288413f4a59b51c511e",
+          "bytes": 221583,
+          "pathCount": 123,
+          "palette": [
+            "#1c1c1c",
+            "#333e48",
+            "#4f4f4f",
+            "#696969",
+            "#828282",
+            "#9e1b32",
+            "#b5b5b5",
+            "#cfcfcf",
+            "#f7f7f7"
+          ]
+        },
+        "colorset2": {
+          "patternId": "vectorize-caillebotte-paris-street-cs2",
+          "file": "svgs/vectorize-caillebotte-paris-street-cs2.svg",
+          "report": "reports/vectorize-caillebotte-paris-street-cs2.json",
+          "sha256": "fbf531cfba27a5984a498058a07a658b1973484c4e0a6a74773ae32a59f3e591",
+          "bytes": 221583,
+          "pathCount": 123,
+          "palette": [
+            "#007298",
+            "#1c1c1c",
+            "#333e48",
+            "#4f4f4f",
+            "#828282",
+            "#b5b5b5",
+            "#cfcfcf",
+            "#e7e7e7",
+            "#f7f7f7"
+          ]
+        }
+      }
+    },
+    {
+      "id": "cassatt-childs-bath",
+      "genre": "figure",
+      "mode": "organic",
+      "title": "The Child's Bath",
+      "creator": "Mary Cassatt (American, 1844–1926)",
+      "date": "1893",
+      "sourceId": "cassatt-childs-bath",
+      "sourcePage": "https://www.artic.edu/artworks/111442",
+      "provider": "art-institute-chicago",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceSha256": "152e6c36ef19cf8e03a98a61d232d0dea04d37e4687c9823348accfc9538a91c",
+      "geometrySha256": "6272945fe0f892cafde0547a983f2eb096c45b2fd734e1da543f2514b372e0b3",
+      "compositionSha256": "05731d12d9f4d981aed30f4aad4cb49dfda54bb68927b7ce6e0271bfd23ed8ef",
+      "parameters": {
+        "colors": 9,
+        "smoothing": 0.48,
+        "paletteMethod": "median-cut",
+        "filterSpeckle": 22,
+        "maxDimension": 560
+      },
+      "variants": {
+        "colorset1": {
+          "patternId": "vectorize-cassatt-childs-bath-cs1",
+          "file": "svgs/vectorize-cassatt-childs-bath-cs1.svg",
+          "report": "reports/vectorize-cassatt-childs-bath-cs1.json",
+          "sha256": "cef16f4cef16df9a5c6ae8d65334e52ca186c9a7d52ac9796a572ea2500b32a9",
+          "bytes": 143350,
+          "pathCount": 82,
+          "palette": [
+            "#333e48",
+            "#363636",
+            "#4f4f4f",
+            "#696969",
+            "#828282",
+            "#9c9c9c",
+            "#9e1b32",
+            "#b5b5b5",
+            "#cfcfcf"
+          ]
+        },
+        "colorset2": {
+          "patternId": "vectorize-cassatt-childs-bath-cs2",
+          "file": "svgs/vectorize-cassatt-childs-bath-cs2.svg",
+          "report": "reports/vectorize-cassatt-childs-bath-cs2.json",
+          "sha256": "53efeb920357a3331316380c1f59855d03650326f707536c820edc5d121749c3",
+          "bytes": 143350,
+          "pathCount": 82,
+          "palette": [
+            "#007298",
+            "#333e48",
+            "#363636",
+            "#4f4f4f",
+            "#696969",
+            "#828282",
+            "#9c9c9c",
+            "#b5b5b5",
+            "#cfcfcf"
+          ]
+        }
+      }
+    },
+    {
+      "id": "cezanne-basket-apples",
+      "genre": "still-life",
+      "mode": "collage",
+      "title": "The Basket of Apples",
+      "creator": "Paul Cezanne (French, 1839–1906)",
+      "date": "c. 1893",
+      "sourceId": "cezanne-basket-apples",
+      "sourcePage": "https://www.artic.edu/artworks/111436",
+      "provider": "art-institute-chicago",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceSha256": "cec937b803d6288fe88859167676291af8549fe0070337cd22a6e0743d3694c4",
+      "geometrySha256": "502eccbf2097115a3a3efe15fa65810f0df7217ffa7409c961b57fa5f0fa0287",
+      "compositionSha256": "5744765221001b2e142cdff03d53f70bc73faf59cf2cfa198357e8583abd2b77",
+      "parameters": {
+        "colors": 9,
+        "smoothing": 0.38,
+        "paletteMethod": "median-cut",
+        "filterSpeckle": 18,
+        "maxDimension": 560
+      },
+      "variants": {
+        "colorset1": {
+          "patternId": "vectorize-cezanne-basket-apples-cs1",
+          "file": "svgs/vectorize-cezanne-basket-apples-cs1.svg",
+          "report": "reports/vectorize-cezanne-basket-apples-cs1.json",
+          "sha256": "e17c8f8f354b1708c2f11b5dd4dd3eaa360666507dce5bdda86069b2df8eae9b",
+          "bytes": 251472,
+          "pathCount": 161,
+          "palette": [
+            "#333e48",
+            "#363636",
+            "#4f4f4f",
+            "#696969",
+            "#828282",
+            "#9c9c9c",
+            "#9e1b32",
+            "#b5b5b5",
+            "#cfcfcf"
+          ]
+        },
+        "colorset2": {
+          "patternId": "vectorize-cezanne-basket-apples-cs2",
+          "file": "svgs/vectorize-cezanne-basket-apples-cs2.svg",
+          "report": "reports/vectorize-cezanne-basket-apples-cs2.json",
+          "sha256": "0b701d458c4c2c700363958261cb7e35e57db93da5374efe7fbdb12e7be9895c",
+          "bytes": 251472,
+          "pathCount": 161,
+          "palette": [
+            "#007298",
+            "#333e48",
+            "#363636",
+            "#4f4f4f",
+            "#696969",
+            "#828282",
+            "#9c9c9c",
+            "#b5b5b5",
+            "#cfcfcf"
+          ]
+        }
+      }
+    },
+    {
+      "id": "courbet-rock-hautepierre",
+      "genre": "landscape",
+      "mode": "stain",
+      "title": "The Rock of Hautepierre",
+      "creator": "Gustave Courbet (French, 1819–1877)",
+      "date": "c. 1869",
+      "sourceId": "courbet-rock-hautepierre",
+      "sourcePage": "https://www.artic.edu/artworks/27027",
+      "provider": "art-institute-chicago",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceSha256": "047199df08b28ab30c2cdb0ef4d48e1104373ec038524f4cd260e4833d78c7cd",
+      "geometrySha256": "dcb4a4838a5f8c6277bbd7ef828f59d78593e456e2cbb511c593979efb91d362",
+      "compositionSha256": "e6c30420ed8421ec5a531128075369fc6f1846e97775d79706cdf4a04fb36a6e",
+      "parameters": {
+        "colors": 8,
+        "smoothing": 0.64,
+        "paletteMethod": "max-coverage",
+        "filterSpeckle": 26,
+        "maxDimension": 560
+      },
+      "variants": {
+        "colorset1": {
+          "patternId": "vectorize-courbet-rock-hautepierre-cs1",
+          "file": "svgs/vectorize-courbet-rock-hautepierre-cs1.svg",
+          "report": "reports/vectorize-courbet-rock-hautepierre-cs1.json",
+          "sha256": "ad9cbd440739d59e5ad67d0dba2ac069057897a551814f5a48ea052b9499b1ad",
+          "bytes": 69019,
+          "pathCount": 22,
+          "palette": [
+            "#1c1c1c",
+            "#333e48",
+            "#363636",
+            "#4f4f4f",
+            "#696969",
+            "#828282",
+            "#9c9c9c",
+            "#9e1b32"
+          ]
+        },
+        "colorset2": {
+          "patternId": "vectorize-courbet-rock-hautepierre-cs2",
+          "file": "svgs/vectorize-courbet-rock-hautepierre-cs2.svg",
+          "report": "reports/vectorize-courbet-rock-hautepierre-cs2.json",
+          "sha256": "88b4e5c25eb893be3add4c10cced8fe2c1267154e94cf57388992ce31a5f162b",
+          "bytes": 69019,
+          "pathCount": 22,
+          "palette": [
+            "#007298",
+            "#294d19",
+            "#333e48",
+            "#4f4f4f",
+            "#696969",
+            "#828282",
+            "#994a00",
+            "#9c9c9c"
+          ]
+        }
+      }
+    },
+    {
+      "id": "degas-ballet-opera",
+      "genre": "figure",
+      "mode": "collage",
+      "title": "Ballet at the Paris Opéra",
+      "creator": "Edgar Degas French, 1834-1917",
+      "date": "1877",
+      "sourceId": "degas-ballet-opera",
+      "sourcePage": "https://www.artic.edu/artworks/61603",
+      "provider": "art-institute-chicago",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceSha256": "c2d302129b902fefa71f784a3ada8701c9204d6eabcdcf8f108b993f8f5df767",
+      "geometrySha256": "03477ecd4cdbd21b85491cc858780b80f8516e4fb5de015b5b9893448b52ed9c",
+      "compositionSha256": "95a0083aacba6a4d72f433850eae9c55bd39c7c69b80e5837ec20ee255ef5907",
+      "parameters": {
+        "colors": 8,
+        "smoothing": 0.4,
+        "paletteMethod": "median-cut",
+        "filterSpeckle": 20,
+        "maxDimension": 560
+      },
+      "variants": {
+        "colorset1": {
+          "patternId": "vectorize-degas-ballet-opera-cs1",
+          "file": "svgs/vectorize-degas-ballet-opera-cs1.svg",
+          "report": "reports/vectorize-degas-ballet-opera-cs1.json",
+          "sha256": "20d366da3933c5307c96a5d638147c9411b6ec578d653ed1a49fc400e08206e6",
+          "bytes": 196308,
+          "pathCount": 120,
+          "palette": [
+            "#1c1c1c",
+            "#333e48",
+            "#363636",
+            "#4f4f4f",
+            "#696969",
+            "#6d1222",
+            "#828282",
+            "#9e1b32"
+          ]
+        },
+        "colorset2": {
+          "patternId": "vectorize-degas-ballet-opera-cs2",
+          "file": "svgs/vectorize-degas-ballet-opera-cs2.svg",
+          "report": "reports/vectorize-degas-ballet-opera-cs2.json",
+          "sha256": "98c18d7c992a979df2ec4117b1e250d0fd5b69a55ef348d13780f676a22c166b",
+          "bytes": 196308,
+          "pathCount": 120,
+          "palette": [
+            "#004d66",
+            "#007298",
+            "#333e48",
+            "#363636",
+            "#4f4f4f",
+            "#696969",
+            "#828282",
+            "#b5b5b5"
+          ]
+        }
+      }
+    },
+    {
+      "id": "el-greco-assumption",
+      "genre": "sacred",
+      "mode": "organic",
+      "title": "The Assumption of the Virgin",
+      "creator": "El Greco (Doménikos Theotokópoulos; Greek, active in Spain, 1541–1614)",
+      "date": "1577–79",
+      "sourceId": "el-greco-assumption",
+      "sourcePage": "https://www.artic.edu/artworks/87479",
+      "provider": "art-institute-chicago",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceSha256": "0bf0ec0b8a39a7c2bb2a8f3321971c6088485e5fb978fd478a9a538da0c5622d",
+      "geometrySha256": "00d20c15ed1aaa259d85dde93e89fbf5526780c39c352c8726ada17377782bd2",
+      "compositionSha256": "a054b8f84fa6b172014ff7ed617ca9c69e569d286faff0363c09e23ecd3b0429",
+      "parameters": {
+        "colors": 9,
+        "smoothing": 0.48,
+        "paletteMethod": "max-coverage",
+        "filterSpeckle": 22,
+        "maxDimension": 620
+      },
+      "variants": {
+        "colorset1": {
+          "patternId": "vectorize-el-greco-assumption-cs1",
+          "file": "svgs/vectorize-el-greco-assumption-cs1.svg",
+          "report": "reports/vectorize-el-greco-assumption-cs1.json",
+          "sha256": "10311361bb3e61e4dff625e6df9f267147cd9d2e9b30d9fcecc5d0fe5db219dd",
+          "bytes": 179831,
+          "pathCount": 97,
+          "palette": [
+            "#1c1c1c",
+            "#333e48",
+            "#363636",
+            "#4f4f4f",
+            "#696969",
+            "#828282",
+            "#9c9c9c",
+            "#9e1b32",
+            "#cfcfcf"
+          ]
+        },
+        "colorset2": {
+          "patternId": "vectorize-el-greco-assumption-cs2",
+          "file": "svgs/vectorize-el-greco-assumption-cs2.svg",
+          "report": "reports/vectorize-el-greco-assumption-cs2.json",
+          "sha256": "042f7936963fb7babb1ad9cd2415893fe27901ffeda72379e429f0f834588e1a",
+          "bytes": 179831,
+          "pathCount": 97,
+          "palette": [
+            "#004d66",
+            "#007298",
+            "#1c1c1c",
+            "#333e48",
+            "#696969",
+            "#828282",
+            "#994a00",
+            "#9c9c9c",
+            "#cfcfcf"
+          ]
+        }
+      }
+    },
+    {
+      "id": "gauguin-day-god",
+      "genre": "symbolist",
+      "mode": "collage",
+      "title": "Mahana no atua (Day of the God)",
+      "creator": "Paul Gauguin (French, 1848–1903)",
+      "date": "1894",
+      "sourceId": "gauguin-day-god",
+      "sourcePage": "https://www.artic.edu/artworks/27943",
+      "provider": "art-institute-chicago",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceSha256": "d0ec07d3ec2be4065a3321ae55f690f212f4a0db92d6346a258d214760f4b09f",
+      "geometrySha256": "31692e7ff4cb20874b8d3563c831340bd2f6517dfce6b11c41cf6435466476bd",
+      "compositionSha256": "af72512edf902504d6ae693ac883dce88bc16145e4d251571b69b5aedd4e4b82",
+      "parameters": {
+        "colors": 9,
+        "smoothing": 0.36,
+        "paletteMethod": "median-cut",
+        "filterSpeckle": 18,
+        "maxDimension": 560
+      },
+      "variants": {
+        "colorset1": {
+          "patternId": "vectorize-gauguin-day-god-cs1",
+          "file": "svgs/vectorize-gauguin-day-god-cs1.svg",
+          "report": "reports/vectorize-gauguin-day-god-cs1.json",
+          "sha256": "8ebc328b6b430ad1bdaed10dd20a204455b8be24af654d84ef9d05bd09a4c5ed",
+          "bytes": 229349,
+          "pathCount": 171,
+          "palette": [
+            "#1c1c1c",
+            "#333e48",
+            "#363636",
+            "#4f4f4f",
+            "#696969",
+            "#828282",
+            "#9c9c9c",
+            "#9e1b32",
+            "#b5b5b5"
+          ]
+        },
+        "colorset2": {
+          "patternId": "vectorize-gauguin-day-god-cs2",
+          "file": "svgs/vectorize-gauguin-day-god-cs2.svg",
+          "report": "reports/vectorize-gauguin-day-god-cs2.json",
+          "sha256": "756512da74e6187812fd70469a7417bd9640661718d46e15b3018537c0da83f3",
+          "bytes": 229349,
+          "pathCount": 171,
+          "palette": [
+            "#004d66",
+            "#007298",
+            "#333e48",
+            "#363636",
+            "#4f4f4f",
+            "#696969",
+            "#828282",
+            "#9c9c9c",
+            "#b5b5b5"
+          ]
+        }
+      }
+    },
+    {
+      "id": "hilma-primordial-chaos-16",
+      "genre": "abstraction",
+      "mode": "organic",
+      "title": "Primordial Chaos, No. 16",
+      "creator": "Hilma af Klint",
+      "date": "between 1906 and 1907",
+      "sourceId": "hilma-primordial-chaos-16",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Hilma_af_Klint,_1906-07,_Primordial_Chaos_-_No_16.jpg",
+      "provider": "wikimedia-commons",
+      "license": "Public-Domain",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "sourceSha256": "2e4e637dc0c70e99f8b6b81c84d17dc022d9a1f650939176aa07ea426d547817",
+      "geometrySha256": "93e4a5147efca41a0368c01593564cbb277282bce572160092d083139ad897e1",
+      "compositionSha256": "124eb7c65d602528d01e4f67e3abe9b896e267ddc6270fd09d25e17efbf67ab1",
+      "parameters": {
+        "colors": 8,
+        "smoothing": 0.5,
+        "paletteMethod": "max-coverage",
+        "filterSpeckle": 18,
+        "maxDimension": 560
+      },
+      "variants": {
+        "colorset1": {
+          "patternId": "vectorize-hilma-primordial-chaos-16-cs1",
+          "file": "svgs/vectorize-hilma-primordial-chaos-16-cs1.svg",
+          "report": "reports/vectorize-hilma-primordial-chaos-16-cs1.json",
+          "sha256": "d734878bf3537f4681a1755f78211454128ebe83020b26bc819cca11f5bfcb31",
+          "bytes": 201159,
+          "pathCount": 145,
+          "palette": [
+            "#333e48",
+            "#696969",
+            "#828282",
+            "#9c9c9c",
+            "#9e1b32",
+            "#b5b5b5",
+            "#cfcfcf",
+            "#ffffff"
+          ]
+        },
+        "colorset2": {
+          "patternId": "vectorize-hilma-primordial-chaos-16-cs2",
+          "file": "svgs/vectorize-hilma-primordial-chaos-16-cs2.svg",
+          "report": "reports/vectorize-hilma-primordial-chaos-16-cs2.json",
+          "sha256": "dee60a06aa508fdfcb02b3163b5791ef420351ef2790949ebdd61bbb13eb147c",
+          "bytes": 201159,
+          "pathCount": 145,
+          "palette": [
+            "#007298",
+            "#333e48",
+            "#696969",
+            "#828282",
+            "#b5b5b5",
+            "#cfcfcf",
+            "#ff9633",
+            "#ffffff"
+          ]
+        }
+      }
+    },
+    {
+      "id": "hiroshige-sudden-shower",
+      "genre": "print",
+      "mode": "collage",
+      "title": "Sudden Shower over Shin-Ōhashi Bridge and Atake",
+      "creator": "Utagawa Hiroshige 歌川 広重 Japanese, 1797-1858",
+      "date": "1857",
+      "sourceId": "hiroshige-sudden-shower",
+      "sourcePage": "https://www.artic.edu/artworks/64447",
+      "provider": "art-institute-chicago",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceSha256": "155beee4cb5698ee542361c69e67db82a7f0d4899d4dde77186c0106533fb31d",
+      "geometrySha256": "ac15edb4c528e3f604ee6ae3c1d98a60a3ec865464c01d35f1d0ce0687909399",
+      "compositionSha256": "a9035ca6af317f81102a474d8c38f3347b1ff5ef75378d6e9b50139ae6573762",
+      "parameters": {
+        "colors": 8,
+        "smoothing": 0.34,
+        "paletteMethod": "median-cut",
+        "filterSpeckle": 16,
+        "maxDimension": 620
+      },
+      "variants": {
+        "colorset1": {
+          "patternId": "vectorize-hiroshige-sudden-shower-cs1",
+          "file": "svgs/vectorize-hiroshige-sudden-shower-cs1.svg",
+          "report": "reports/vectorize-hiroshige-sudden-shower-cs1.json",
+          "sha256": "a3a2e5f5565592bb170768b0251bf9c4706c0209966c79df8e1ff6e3ba28cc4d",
+          "bytes": 213485,
+          "pathCount": 98,
+          "palette": [
+            "#333e48",
+            "#363636",
+            "#4f4f4f",
+            "#696969",
+            "#828282",
+            "#9c9c9c",
+            "#9e1b32",
+            "#cfcfcf"
+          ]
+        },
+        "colorset2": {
+          "patternId": "vectorize-hiroshige-sudden-shower-cs2",
+          "file": "svgs/vectorize-hiroshige-sudden-shower-cs2.svg",
+          "report": "reports/vectorize-hiroshige-sudden-shower-cs2.json",
+          "sha256": "4fda57f062eee3fd7fda568320433f45fc5074458ab966644bf64f5ea11f5b48",
+          "bytes": 213485,
+          "pathCount": 98,
+          "palette": [
+            "#007298",
+            "#333e48",
+            "#363636",
+            "#4f4f4f",
+            "#696969",
+            "#828282",
+            "#9c9c9c",
+            "#cfcfcf"
+          ]
+        }
+      }
+    },
+    {
+      "id": "hokusai-great-wave",
+      "genre": "print",
+      "mode": "collage",
+      "title": "Under the Wave off Kanagawa (The Great Wave)",
+      "creator": "Katsushika Hokusai 葛飾 北斎 Japanese, 1760-1849",
+      "date": "1830/33",
+      "sourceId": "hokusai-great-wave",
+      "sourcePage": "https://www.artic.edu/artworks/24645",
+      "provider": "art-institute-chicago",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceSha256": "14d2887f90578eb14a3e9894d05a0d5558717fe520c14dc662ae98fb5b85171c",
+      "geometrySha256": "0057be44da03a083055610b045fac4b3811a0b89c8e12bfb3fd927427b46f1d4",
+      "compositionSha256": "ca359b3f26aea20b91b65107392b975da6fdf006a5417a9d07d6c73047144b12",
+      "parameters": {
+        "colors": 8,
+        "smoothing": 0.36,
+        "paletteMethod": "median-cut",
+        "filterSpeckle": 18,
+        "maxDimension": 620
+      },
+      "variants": {
+        "colorset1": {
+          "patternId": "vectorize-hokusai-great-wave-cs1",
+          "file": "svgs/vectorize-hokusai-great-wave-cs1.svg",
+          "report": "reports/vectorize-hokusai-great-wave-cs1.json",
+          "sha256": "08eb2f28620dc289e3afa830228c5ffd0dda134400930b24cb013f808256d24b",
+          "bytes": 280633,
+          "pathCount": 127,
+          "palette": [
+            "#333e48",
+            "#696969",
+            "#9c9c9c",
+            "#9e1b32",
+            "#b5b5b5",
+            "#cfcfcf",
+            "#e7e7e7",
+            "#f7f7f7"
+          ]
+        },
+        "colorset2": {
+          "patternId": "vectorize-hokusai-great-wave-cs2",
+          "file": "svgs/vectorize-hokusai-great-wave-cs2.svg",
+          "report": "reports/vectorize-hokusai-great-wave-cs2.json",
+          "sha256": "5b1c1db1de56556ca94ca287d033b8cd99e3cfada09fbbd83c1221249a5e1751",
+          "bytes": 280633,
+          "pathCount": 127,
+          "palette": [
+            "#007298",
+            "#333e48",
+            "#696969",
+            "#9c9c9c",
+            "#b5b5b5",
+            "#cfcfcf",
+            "#e7e7e7",
+            "#f7f7f7"
+          ]
+        }
+      }
+    },
+    {
+      "id": "homer-herring-net",
+      "genre": "maritime",
+      "mode": "organic",
+      "title": "The Herring Net",
+      "creator": "Winslow Homer (American, 1836–1910)",
+      "date": "1885",
+      "sourceId": "homer-herring-net",
+      "sourcePage": "https://www.artic.edu/artworks/25865",
+      "provider": "art-institute-chicago",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceSha256": "6689d158714e04bb50b430978f32e644999a54dfd6d3a1e75e4bad39b5a7f256",
+      "geometrySha256": "ffcf5d602384e8a6465fb6878e28445ed39f4f9f2f864600f85d95646b8fdc23",
+      "compositionSha256": "ccd08b385c872a36ee4ac00db3ee39bcf4e0aaac4ef4a19a4db92fb97502a849",
+      "parameters": {
+        "colors": 8,
+        "smoothing": 0.5,
+        "paletteMethod": "max-coverage",
+        "filterSpeckle": 22,
+        "maxDimension": 560
+      },
+      "variants": {
+        "colorset1": {
+          "patternId": "vectorize-homer-herring-net-cs1",
+          "file": "svgs/vectorize-homer-herring-net-cs1.svg",
+          "report": "reports/vectorize-homer-herring-net-cs1.json",
+          "sha256": "ef78aaf63d33623b4a370846f8d41273e119cea0aa49e9850996165527153180",
+          "bytes": 83797,
+          "pathCount": 37,
+          "palette": [
+            "#1c1c1c",
+            "#333e48",
+            "#363636",
+            "#4f4f4f",
+            "#828282",
+            "#9e1b32"
+          ]
+        },
+        "colorset2": {
+          "patternId": "vectorize-homer-herring-net-cs2",
+          "file": "svgs/vectorize-homer-herring-net-cs2.svg",
+          "report": "reports/vectorize-homer-herring-net-cs2.json",
+          "sha256": "b12b692ec4ebec35f4513a1bdf346c4d37a7df2849c7c2536ad2f54e15568efc",
+          "bytes": 83797,
+          "pathCount": 37,
+          "palette": [
+            "#007298",
+            "#1c1c1c",
+            "#294d19",
+            "#333e48",
+            "#6d1222",
+            "#828282"
+          ]
+        }
+      }
+    },
+    {
+      "id": "juan-gris-still-life-1919",
+      "genre": "still-life",
+      "mode": "collage",
+      "title": "Still Life",
+      "creator": "Juan Gris",
+      "date": "1919",
+      "sourceId": "juan-gris-still-life-1919",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Juan_Gris_003.jpg",
+      "provider": "wikimedia-commons",
+      "license": "Public-Domain",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "sourceSha256": "2f2d277467ede0c568ce79d4ac22b74868e0e5ad2faca2987e3f2a1a1c586f97",
+      "geometrySha256": "bae8abec2dc6b420129b7e86711e8950237fdd976956574a68bcceb4e2096122",
+      "compositionSha256": "d229e24eb7e08c3e3f8075964ccc79fb907147bf2c6ca30312bd790791314769",
+      "parameters": {
+        "colors": 9,
+        "smoothing": 0.32,
+        "paletteMethod": "median-cut",
+        "filterSpeckle": 16,
+        "maxDimension": 560
+      },
+      "variants": {
+        "colorset1": {
+          "patternId": "vectorize-juan-gris-still-life-1919-cs1",
+          "file": "svgs/vectorize-juan-gris-still-life-1919-cs1.svg",
+          "report": "reports/vectorize-juan-gris-still-life-1919-cs1.json",
+          "sha256": "87a5304523005e13e89deddd356b3fca05885b6de6a43e0d2f967c60941fa734",
+          "bytes": 135539,
+          "pathCount": 86,
+          "palette": [
+            "#1c1c1c",
+            "#363636",
+            "#4f4f4f",
+            "#696969",
+            "#828282",
+            "#9e1b32",
+            "#e7e7e7",
+            "#f7f7f7",
+            "#ffffff"
+          ]
+        },
+        "colorset2": {
+          "patternId": "vectorize-juan-gris-still-life-1919-cs2",
+          "file": "svgs/vectorize-juan-gris-still-life-1919-cs2.svg",
+          "report": "reports/vectorize-juan-gris-still-life-1919-cs2.json",
+          "sha256": "e9598bd1834cd354143dcab8a92c65bb2fd918bbce71ad5851ce3472a011dec1",
+          "bytes": 135539,
+          "pathCount": 86,
+          "palette": [
+            "#004d66",
+            "#007298",
+            "#1c1c1c",
+            "#363636",
+            "#696969",
+            "#e7e7e7",
+            "#f1c319",
+            "#f7f7f7",
+            "#ffffff"
+          ]
+        }
+      }
+    },
+    {
+      "id": "kandinsky-improvisation-27",
+      "genre": "abstraction",
+      "mode": "organic",
+      "title": "Improvisation No. 27 (Garden of Love II)",
+      "creator": "Wassily Kandinsky",
+      "date": "1913",
+      "sourceId": "kandinsky-improvisation-27",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Vassily_Kandinsky,_1912_-_Improvisation_27,_Garden_of_Love_II.jpg",
+      "provider": "wikimedia-commons",
+      "license": "Public-Domain",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "sourceSha256": "fd40933f2efaae993e9d7103a45cb9cc5dfa807548e4770dc18a43cabe80ad28",
+      "geometrySha256": "5182ff3efe12f6e4fedd8e4c9eb8883d25a90e5041f554093fe5ff742dfc3aeb",
+      "compositionSha256": "de1617485ed4c60793af44f8742aa9048eb11ef9591b6bc868f72bb353ef6eff",
+      "parameters": {
+        "colors": 9,
+        "smoothing": 0.48,
+        "paletteMethod": "max-coverage",
+        "filterSpeckle": 18,
+        "maxDimension": 560
+      },
+      "variants": {
+        "colorset1": {
+          "patternId": "vectorize-kandinsky-improvisation-27-cs1",
+          "file": "svgs/vectorize-kandinsky-improvisation-27-cs1.svg",
+          "report": "reports/vectorize-kandinsky-improvisation-27-cs1.json",
+          "sha256": "00d9abd8b17e36cfbefe870afa44b883ec9f00b9057e31b7596e7fa8a3c8518e",
+          "bytes": 243379,
+          "pathCount": 131,
+          "palette": [
+            "#000000",
+            "#333e48",
+            "#4f4f4f",
+            "#828282",
+            "#9c9c9c",
+            "#9e1b32",
+            "#e7e7e7",
+            "#e8002a",
+            "#f7f7f7"
+          ]
+        },
+        "colorset2": {
+          "patternId": "vectorize-kandinsky-improvisation-27-cs2",
+          "file": "svgs/vectorize-kandinsky-improvisation-27-cs2.svg",
+          "report": "reports/vectorize-kandinsky-improvisation-27-cs2.json",
+          "sha256": "e27bced0bbd1d27b87f4e7bcbae3dc011e6883cfc02f528de7d24e4176604085",
+          "bytes": 243379,
+          "pathCount": 131,
+          "palette": [
+            "#000000",
+            "#004d66",
+            "#007298",
+            "#4f4f4f",
+            "#828282",
+            "#9c9c9c",
+            "#e8002a",
+            "#f1c319",
+            "#f7f7f7"
+          ]
+        }
+      }
+    },
+    {
+      "id": "manet-jesus-mocked",
+      "genre": "sacred",
+      "mode": "collage",
+      "title": "Jesus Mocked by the Soldiers",
+      "creator": "Édouard Manet (French, 1832–1883)",
+      "date": "1865",
+      "sourceId": "manet-jesus-mocked",
+      "sourcePage": "https://www.artic.edu/artworks/16499",
+      "provider": "art-institute-chicago",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceSha256": "fef2c46fc60991d1225abca91aad12bd39b870a941b821280df8a84ac6e54a83",
+      "geometrySha256": "d8c86af6e0c7f72cc3d14c4ca085c8781fc58fca0549ceca93da200679e61150",
+      "compositionSha256": "f8e425c6908574151c6cd6e4f022c2437f4faa70b5f2fe2e5851d9bced1d4796",
+      "parameters": {
+        "colors": 9,
+        "smoothing": 0.4,
+        "paletteMethod": "median-cut",
+        "filterSpeckle": 22,
+        "maxDimension": 560
+      },
+      "variants": {
+        "colorset1": {
+          "patternId": "vectorize-manet-jesus-mocked-cs1",
+          "file": "svgs/vectorize-manet-jesus-mocked-cs1.svg",
+          "report": "reports/vectorize-manet-jesus-mocked-cs1.json",
+          "sha256": "a2b7ea449e3d7b2e203a8bced087968b05a3666b749e5b60cb278b20b5cf9736",
+          "bytes": 223399,
+          "pathCount": 128,
+          "palette": [
+            "#1c1c1c",
+            "#333e48",
+            "#363636",
+            "#4f4f4f",
+            "#696969",
+            "#6d1222",
+            "#9e1b32",
+            "#b5b5b5"
+          ]
+        },
+        "colorset2": {
+          "patternId": "vectorize-manet-jesus-mocked-cs2",
+          "file": "svgs/vectorize-manet-jesus-mocked-cs2.svg",
+          "report": "reports/vectorize-manet-jesus-mocked-cs2.json",
+          "sha256": "a8f6d90b8738d00b051a01c6c2abe4bc77184d03d5b516b67d9e808e22f9aa64",
+          "bytes": 223399,
+          "pathCount": 128,
+          "palette": [
+            "#000000",
+            "#007298",
+            "#1c1c1c",
+            "#333e48",
+            "#363636",
+            "#431f47",
+            "#4f4f4f",
+            "#828282",
+            "#b5b5b5"
+          ]
+        }
+      }
+    },
+    {
+      "id": "monet-normandy-train",
+      "genre": "city",
+      "mode": "stain",
+      "title": "Arrival of the Normandy Train, Gare Saint-Lazare",
+      "creator": "Claude Monet (French, 1840–1926)",
+      "date": "1877",
+      "sourceId": "monet-normandy-train",
+      "sourcePage": "https://www.artic.edu/artworks/16571",
+      "provider": "art-institute-chicago",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceSha256": "8fe269a7a572659063c4fb842ad485e9b88c69c9554efee94c3b218df09a3f43",
+      "geometrySha256": "4ff68e0462681adac5b740b1d3fbf0618a984f2f177cb5072d4736eb98475287",
+      "compositionSha256": "c9c6444d8ec6eee0f15c69da166069224c2a20a680626dbeede5ca0eeeee4a58",
+      "parameters": {
+        "colors": 8,
+        "smoothing": 0.66,
+        "paletteMethod": "max-coverage",
+        "filterSpeckle": 26,
+        "maxDimension": 560
+      },
+      "variants": {
+        "colorset1": {
+          "patternId": "vectorize-monet-normandy-train-cs1",
+          "file": "svgs/vectorize-monet-normandy-train-cs1.svg",
+          "report": "reports/vectorize-monet-normandy-train-cs1.json",
+          "sha256": "39adf165f13b14b003052a280dfedd6729716e8e668290d235b2553bac060b50",
+          "bytes": 101202,
+          "pathCount": 37,
+          "palette": [
+            "#333e48",
+            "#363636",
+            "#4f4f4f",
+            "#696969",
+            "#828282",
+            "#9c9c9c",
+            "#9e1b32",
+            "#cfcfcf"
+          ]
+        },
+        "colorset2": {
+          "patternId": "vectorize-monet-normandy-train-cs2",
+          "file": "svgs/vectorize-monet-normandy-train-cs2.svg",
+          "report": "reports/vectorize-monet-normandy-train-cs2.json",
+          "sha256": "140026278f8c767a7e005419ed617ac696fb8adf53d7fbb7504b716c3331c6c4",
+          "bytes": 101202,
+          "pathCount": 37,
+          "palette": [
+            "#004d66",
+            "#007298",
+            "#333e48",
+            "#363636",
+            "#4f4f4f",
+            "#828282",
+            "#9c9c9c",
+            "#cfcfcf"
+          ]
+        }
+      }
+    },
+    {
+      "id": "monet-water-lilies",
+      "genre": "landscape",
+      "mode": "stain",
+      "title": "Water Lilies",
+      "creator": "Claude Monet (French, 1840–1926)",
+      "date": "1906",
+      "sourceId": "monet-water-lilies",
+      "sourcePage": "https://www.artic.edu/artworks/16568",
+      "provider": "art-institute-chicago",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceSha256": "ff684c1a344422bb2ac4c51585524dc1afdb416715cfe3127c88ccd5c40e2c7f",
+      "geometrySha256": "88c772f17daf55b698db1d3109b0db1c882c1199bdfbcf663a26c502fef51200",
+      "compositionSha256": "7a949867623d00462831eebeeba129f2eedc7bc0d711e3ace65408c164693c51",
+      "parameters": {
+        "colors": 8,
+        "smoothing": 0.72,
+        "paletteMethod": "max-coverage",
+        "filterSpeckle": 28,
+        "maxDimension": 560
+      },
+      "variants": {
+        "colorset1": {
+          "patternId": "vectorize-monet-water-lilies-cs1",
+          "file": "svgs/vectorize-monet-water-lilies-cs1.svg",
+          "report": "reports/vectorize-monet-water-lilies-cs1.json",
+          "sha256": "bdf7a3bfe44ab034dee5b4383c59907c3fc04b714c78abdc5b85b236cfec95c5",
+          "bytes": 111958,
+          "pathCount": 38,
+          "palette": [
+            "#333e48",
+            "#363636",
+            "#4f4f4f",
+            "#696969",
+            "#828282",
+            "#9e1b32"
+          ]
+        },
+        "colorset2": {
+          "patternId": "vectorize-monet-water-lilies-cs2",
+          "file": "svgs/vectorize-monet-water-lilies-cs2.svg",
+          "report": "reports/vectorize-monet-water-lilies-cs2.json",
+          "sha256": "3242e109e5ace69535582e378f5655659d98003b8fee9a9d8ec15279def5b521",
+          "bytes": 111958,
+          "pathCount": 38,
+          "palette": [
+            "#004d66",
+            "#007298",
+            "#333e48",
+            "#45842a",
+            "#696969",
+            "#828282"
+          ]
+        }
+      }
+    },
+    {
+      "id": "morisot-woman-toilette",
+      "genre": "figure",
+      "mode": "stain",
+      "title": "Woman at Her Toilette",
+      "creator": "Berthe Morisot (French, 1841–1895)",
+      "date": "1875–80",
+      "sourceId": "morisot-woman-toilette",
+      "sourcePage": "https://www.artic.edu/artworks/11723",
+      "provider": "art-institute-chicago",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceSha256": "2889eb24afc56bd4753d09806cc1bcc9a33039e9e2d0d3544dbcfe93f511ba5c",
+      "geometrySha256": "06f692ba158498837b3076fcc848889e7f994dde2d8438dfce1ce63848c8a959",
+      "compositionSha256": "e37b8e9a9f89593e206f9d1bb3cba3ff7294337549d43fec32c10a3e3af70858",
+      "parameters": {
+        "colors": 8,
+        "smoothing": 0.62,
+        "paletteMethod": "max-coverage",
+        "filterSpeckle": 24,
+        "maxDimension": 560
+      },
+      "variants": {
+        "colorset1": {
+          "patternId": "vectorize-morisot-woman-toilette-cs1",
+          "file": "svgs/vectorize-morisot-woman-toilette-cs1.svg",
+          "report": "reports/vectorize-morisot-woman-toilette-cs1.json",
+          "sha256": "c1a6dccb5f9740773be083fd91f83ffd7ab0c6af0ed38a56ef79b10ba1901470",
+          "bytes": 67805,
+          "pathCount": 34,
+          "palette": [
+            "#1c1c1c",
+            "#696969",
+            "#828282",
+            "#9c9c9c",
+            "#9e1b32",
+            "#b5b5b5",
+            "#f7f7f7"
+          ]
+        },
+        "colorset2": {
+          "patternId": "vectorize-morisot-woman-toilette-cs2",
+          "file": "svgs/vectorize-morisot-woman-toilette-cs2.svg",
+          "report": "reports/vectorize-morisot-woman-toilette-cs2.json",
+          "sha256": "414f19814ab8ee857c525f980ad1ae2395fcc9a3b91731f017688fa6c2bb47ba",
+          "bytes": 67805,
+          "pathCount": 34,
+          "palette": [
+            "#007298",
+            "#1c1c1c",
+            "#4f4f4f",
+            "#696969",
+            "#828282",
+            "#b5b5b5",
+            "#f7f7f7"
+          ]
+        }
+      }
+    },
+    {
+      "id": "pissarro-place-du-havre",
+      "genre": "city",
+      "mode": "organic",
+      "title": "The Place du Havre, Paris",
+      "creator": "Camille Pissarro (French, 1830–1903)",
+      "date": "1893",
+      "sourceId": "pissarro-place-du-havre",
+      "sourcePage": "https://www.artic.edu/artworks/81551",
+      "provider": "art-institute-chicago",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceSha256": "c62f31ef16dc3b8ac3a89aa928d530ba3a5d3f284abb6dd28f449fa76a626731",
+      "geometrySha256": "d2d49ae5a11feb9cd520194ac69788681fdfef4390104c9efc85d11e1e173e28",
+      "compositionSha256": "2b2f04683b088e0d53abd46c766c2ca68dd9e84280ea41c3c7d2e36f3a9e5e3c",
+      "parameters": {
+        "colors": 9,
+        "smoothing": 0.5,
+        "paletteMethod": "max-coverage",
+        "filterSpeckle": 22,
+        "maxDimension": 560
+      },
+      "variants": {
+        "colorset1": {
+          "patternId": "vectorize-pissarro-place-du-havre-cs1",
+          "file": "svgs/vectorize-pissarro-place-du-havre-cs1.svg",
+          "report": "reports/vectorize-pissarro-place-du-havre-cs1.json",
+          "sha256": "1e2bad1366987503353364b18b1640aba32f9b383616ed9207921e5d1c07b3b4",
+          "bytes": 241842,
+          "pathCount": 94,
+          "palette": [
+            "#333e48",
+            "#363636",
+            "#4f4f4f",
+            "#696969",
+            "#828282",
+            "#9e1b32",
+            "#b5b5b5",
+            "#cfcfcf"
+          ]
+        },
+        "colorset2": {
+          "patternId": "vectorize-pissarro-place-du-havre-cs2",
+          "file": "svgs/vectorize-pissarro-place-du-havre-cs2.svg",
+          "report": "reports/vectorize-pissarro-place-du-havre-cs2.json",
+          "sha256": "7a39587536cab9d7ea98ae9fdd41abd1500def8ffb67506e92e7c7db3d218fd0",
+          "bytes": 241842,
+          "pathCount": 94,
+          "palette": [
+            "#004d66",
+            "#007298",
+            "#333e48",
+            "#363636",
+            "#4f4f4f",
+            "#696969",
+            "#828282",
+            "#cfcfcf"
+          ]
+        }
+      }
+    },
+    {
+      "id": "redon-flower-clouds",
+      "genre": "symbolist",
+      "mode": "stain",
+      "title": "Flower Clouds",
+      "creator": "Odilon Redon French, 1840-1916",
+      "date": "c. 1903",
+      "sourceId": "redon-flower-clouds",
+      "sourcePage": "https://www.artic.edu/artworks/76395",
+      "provider": "art-institute-chicago",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceSha256": "96e1d097485e49b260d1c738de783e6a6602a9df8e5198f4b474fdccbe0e96ba",
+      "geometrySha256": "f94d4689290e3639e756db0151bf6de32c8a9225d7045ec61b206da7cc65f909",
+      "compositionSha256": "eab0c7a997469711cd5e91d91a4edfd5463e8e30deb70797b00c8bfc562c9b92",
+      "parameters": {
+        "colors": 8,
+        "smoothing": 0.74,
+        "paletteMethod": "max-coverage",
+        "filterSpeckle": 28,
+        "maxDimension": 560
+      },
+      "variants": {
+        "colorset1": {
+          "patternId": "vectorize-redon-flower-clouds-cs1",
+          "file": "svgs/vectorize-redon-flower-clouds-cs1.svg",
+          "report": "reports/vectorize-redon-flower-clouds-cs1.json",
+          "sha256": "eeb1d907392db0d98df8d151ea2825b8714f2f5e6aae33d0f49ee06d497ebfbd",
+          "bytes": 71395,
+          "pathCount": 35,
+          "palette": [
+            "#1c1c1c",
+            "#333e48",
+            "#363636",
+            "#4f4f4f",
+            "#696969",
+            "#828282",
+            "#9c9c9c",
+            "#9e1b32"
+          ]
+        },
+        "colorset2": {
+          "patternId": "vectorize-redon-flower-clouds-cs2",
+          "file": "svgs/vectorize-redon-flower-clouds-cs2.svg",
+          "report": "reports/vectorize-redon-flower-clouds-cs2.json",
+          "sha256": "050aceaa9ba9cea7b71c3f0426a6cd4e30c9260bc638025ed42173342ffbb198",
+          "bytes": 71395,
+          "pathCount": 35,
+          "palette": [
+            "#004d66",
+            "#007298",
+            "#333e48",
+            "#363636",
+            "#4f4f4f",
+            "#652f6c",
+            "#994a00",
+            "#9c9c9c"
+          ]
+        }
+      }
+    },
+    {
+      "id": "rembrandt-old-man-gold-chain",
+      "genre": "portrait",
+      "mode": "organic",
+      "title": "Old Man with a Gold Chain",
+      "creator": "Rembrandt van Rijn (Dutch, 1606–1669)",
+      "date": "1631",
+      "sourceId": "rembrandt-old-man-gold-chain",
+      "sourcePage": "https://www.artic.edu/artworks/95998",
+      "provider": "art-institute-chicago",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceSha256": "b1971f3ed733f26980900b8671ca56afa2b999391b176cb31bb06726f58e5698",
+      "geometrySha256": "4d63026b0e051710fbf0db2b012e4445ab282fda14f166d21889a6ad416b99f0",
+      "compositionSha256": "92fbece86b188ffc0551746e323807bcfe55014a79d6a2f1899291deacc583e2",
+      "parameters": {
+        "colors": 8,
+        "smoothing": 0.5,
+        "paletteMethod": "max-coverage",
+        "filterSpeckle": 22,
+        "maxDimension": 560
+      },
+      "variants": {
+        "colorset1": {
+          "patternId": "vectorize-rembrandt-old-man-gold-chain-cs1",
+          "file": "svgs/vectorize-rembrandt-old-man-gold-chain-cs1.svg",
+          "report": "reports/vectorize-rembrandt-old-man-gold-chain-cs1.json",
+          "sha256": "689b59a08da582e4520a4a6b717bd570923f50fe26bddd10500b10441770b977",
+          "bytes": 38871,
+          "pathCount": 13,
+          "palette": [
+            "#000000",
+            "#333e48",
+            "#4f4f4f",
+            "#696969",
+            "#9e1b32"
+          ]
+        },
+        "colorset2": {
+          "patternId": "vectorize-rembrandt-old-man-gold-chain-cs2",
+          "file": "svgs/vectorize-rembrandt-old-man-gold-chain-cs2.svg",
+          "report": "reports/vectorize-rembrandt-old-man-gold-chain-cs2.json",
+          "sha256": "066f0e9872c5d94d035360971e38062335b886bb7ef68c4a973f7c25ff174f37",
+          "bytes": 38871,
+          "pathCount": 13,
+          "palette": [
+            "#007298",
+            "#333e48",
+            "#4f4f4f",
+            "#98700c",
+            "#994a00"
+          ]
+        }
+      }
+    },
+    {
+      "id": "renoir-two-sisters",
+      "genre": "figure",
+      "mode": "organic",
+      "title": "Two Sisters (On the Terrace)",
+      "creator": "Pierre-Auguste Renoir (French, 1841–1919)",
+      "date": "1881",
+      "sourceId": "renoir-two-sisters",
+      "sourcePage": "https://www.artic.edu/artworks/14655",
+      "provider": "art-institute-chicago",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceSha256": "385098ad88f6be0095e025f7484073bc24ef8de9b863d46a56807097eb127e35",
+      "geometrySha256": "3048f611376a1f4d8c9bac26d942f036006e2311e17cd6b4af3572680c7a3ee2",
+      "compositionSha256": "0f060850941bfc4318e2384c93b82b4f2c0be3a86c48460045828620e032e6a9",
+      "parameters": {
+        "colors": 9,
+        "smoothing": 0.5,
+        "paletteMethod": "max-coverage",
+        "filterSpeckle": 22,
+        "maxDimension": 560
+      },
+      "variants": {
+        "colorset1": {
+          "patternId": "vectorize-renoir-two-sisters-cs1",
+          "file": "svgs/vectorize-renoir-two-sisters-cs1.svg",
+          "report": "reports/vectorize-renoir-two-sisters-cs1.json",
+          "sha256": "54a73aa9aa144614376d6fa8f5f8492a82c0b16b4d22ebd1d315c53e94557415",
+          "bytes": 222429,
+          "pathCount": 81,
+          "palette": [
+            "#333e48",
+            "#363636",
+            "#4f4f4f",
+            "#696969",
+            "#6d1222",
+            "#828282",
+            "#9c9c9c",
+            "#9e1b32",
+            "#cfcfcf"
+          ]
+        },
+        "colorset2": {
+          "patternId": "vectorize-renoir-two-sisters-cs2",
+          "file": "svgs/vectorize-renoir-two-sisters-cs2.svg",
+          "report": "reports/vectorize-renoir-two-sisters-cs2.json",
+          "sha256": "74e916e8598e05af58c24d3e8ad2722cbd159338e531aba0d693aa00bb6299e4",
+          "bytes": 222429,
+          "pathCount": 81,
+          "palette": [
+            "#004d66",
+            "#007298",
+            "#333e48",
+            "#363636",
+            "#45842a",
+            "#828282",
+            "#98700c",
+            "#9e1b32",
+            "#cfcfcf"
+          ]
+        }
+      }
+    },
+    {
+      "id": "seurat-grande-jatte",
+      "genre": "figure",
+      "mode": "organic",
+      "title": "A Sunday on La Grande Jatte — 1884",
+      "creator": "Georges Seurat (French, 1859–1891)",
+      "date": "1884–86, border added 1888–89",
+      "sourceId": "seurat-grande-jatte",
+      "sourcePage": "https://www.artic.edu/artworks/27992",
+      "provider": "art-institute-chicago",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceSha256": "659a2ff0a990f0d2a038a231d2d2dadf924afa9f078221af53241fd310fc2175",
+      "geometrySha256": "b6029c21196ef8a430c57e29de9b89dd42f0e9ff8487178188d8be385dfb1b54",
+      "compositionSha256": "0641ca85c916636a083053e542a0cbb3c4a504cb840afc0dab83eb60723bea8c",
+      "parameters": {
+        "colors": 9,
+        "smoothing": 0.52,
+        "paletteMethod": "median-cut",
+        "filterSpeckle": 24,
+        "maxDimension": 560
+      },
+      "variants": {
+        "colorset1": {
+          "patternId": "vectorize-seurat-grande-jatte-cs1",
+          "file": "svgs/vectorize-seurat-grande-jatte-cs1.svg",
+          "report": "reports/vectorize-seurat-grande-jatte-cs1.json",
+          "sha256": "7fe16a396f6743b31119f5123c9b9b1964adf734547097ceb7dfeecbed2e0976",
+          "bytes": 187071,
+          "pathCount": 82,
+          "palette": [
+            "#333e48",
+            "#363636",
+            "#4f4f4f",
+            "#696969",
+            "#6d1222",
+            "#828282",
+            "#9c9c9c",
+            "#9e1b32",
+            "#b5b5b5"
+          ]
+        },
+        "colorset2": {
+          "patternId": "vectorize-seurat-grande-jatte-cs2",
+          "file": "svgs/vectorize-seurat-grande-jatte-cs2.svg",
+          "report": "reports/vectorize-seurat-grande-jatte-cs2.json",
+          "sha256": "c7c8c7e437246420c515e236c89a7c30f417d70a94ad6444e5b545512271dc97",
+          "bytes": 187071,
+          "pathCount": 82,
+          "palette": [
+            "#004d66",
+            "#007298",
+            "#294d19",
+            "#333e48",
+            "#363636",
+            "#4f4f4f",
+            "#696969",
+            "#828282",
+            "#9c9c9c"
+          ]
+        }
+      }
+    },
+    {
+      "id": "tanner-two-disciples",
+      "genre": "sacred",
+      "mode": "organic",
+      "title": "The Two Disciples at the Tomb",
+      "creator": "Henry Ossawa Tanner (American, 1859–1937)",
+      "date": "c. 1906",
+      "sourceId": "tanner-two-disciples",
+      "sourcePage": "https://www.artic.edu/artworks/87643",
+      "provider": "art-institute-chicago",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceSha256": "71e0c2dd7811295e362be0cdf004e32ae7090f823b063aab0f3543f2591bf050",
+      "geometrySha256": "abdd55fa1681dc49658b1c78ff768c961124882dfd8292731b11a804acf31fe4",
+      "compositionSha256": "1c7283ec5fc182d9a2363a2f2cccf62bd24b84def3332946ad251140ecb798be",
+      "parameters": {
+        "colors": 8,
+        "smoothing": 0.54,
+        "paletteMethod": "max-coverage",
+        "filterSpeckle": 24,
+        "maxDimension": 560
+      },
+      "variants": {
+        "colorset1": {
+          "patternId": "vectorize-tanner-two-disciples-cs1",
+          "file": "svgs/vectorize-tanner-two-disciples-cs1.svg",
+          "report": "reports/vectorize-tanner-two-disciples-cs1.json",
+          "sha256": "74741af488ed5fbcb9178de7d6df54435e22dce331257df8a081e141c688988e",
+          "bytes": 46665,
+          "pathCount": 17,
+          "palette": [
+            "#1c1c1c",
+            "#4f4f4f",
+            "#696969",
+            "#6d1222",
+            "#828282",
+            "#9e1b32",
+            "#b5b5b5",
+            "#e8002a"
+          ]
+        },
+        "colorset2": {
+          "patternId": "vectorize-tanner-two-disciples-cs2",
+          "file": "svgs/vectorize-tanner-two-disciples-cs2.svg",
+          "report": "reports/vectorize-tanner-two-disciples-cs2.json",
+          "sha256": "42c17214689f44ebac6066ac3cb8702fdc21ec485b90fefb8f8b22150f905969",
+          "bytes": 46665,
+          "pathCount": 17,
+          "palette": [
+            "#007298",
+            "#1c1c1c",
+            "#4f4f4f",
+            "#828282",
+            "#98700c",
+            "#994a00",
+            "#f1c319",
+            "#ff9633"
+          ]
+        }
+      }
+    },
+    {
+      "id": "toulouse-lautrec-moulin-rouge",
+      "genre": "nightlife",
+      "mode": "collage",
+      "title": "At the Moulin Rouge",
+      "creator": "Henri de Toulouse-Lautrec (French, 1864–1901)",
+      "date": "1892–95",
+      "sourceId": "toulouse-lautrec-moulin-rouge",
+      "sourcePage": "https://www.artic.edu/artworks/61128",
+      "provider": "art-institute-chicago",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceSha256": "264790b10a56a533736afc2b102f7903a4352fc550383ca3c0d1ee058b248f14",
+      "geometrySha256": "fb187cf13513439fc81e384f1a3105347927c3b7db63c7c91b97021534ef79f7",
+      "compositionSha256": "be07c683ae2628602f0847571cc773180e73367a9c40d1bfcab10f2d5025420a",
+      "parameters": {
+        "colors": 9,
+        "smoothing": 0.36,
+        "paletteMethod": "median-cut",
+        "filterSpeckle": 18,
+        "maxDimension": 560
+      },
+      "variants": {
+        "colorset1": {
+          "patternId": "vectorize-toulouse-lautrec-moulin-rouge-cs1",
+          "file": "svgs/vectorize-toulouse-lautrec-moulin-rouge-cs1.svg",
+          "report": "reports/vectorize-toulouse-lautrec-moulin-rouge-cs1.json",
+          "sha256": "7317baada0d35e445416e62a784ff405c8223c9533dffaedeadae8307d1f5829",
+          "bytes": 207238,
+          "pathCount": 103,
+          "palette": [
+            "#000000",
+            "#1c1c1c",
+            "#333e48",
+            "#363636",
+            "#4f4f4f",
+            "#696969",
+            "#6d1222",
+            "#828282",
+            "#9e1b32"
+          ]
+        },
+        "colorset2": {
+          "patternId": "vectorize-toulouse-lautrec-moulin-rouge-cs2",
+          "file": "svgs/vectorize-toulouse-lautrec-moulin-rouge-cs2.svg",
+          "report": "reports/vectorize-toulouse-lautrec-moulin-rouge-cs2.json",
+          "sha256": "3a54f3583a9ebbc5f08cf2fdc74df72f51b53b98fdc507cf251c8c42c458bf4f",
+          "bytes": 207238,
+          "pathCount": 103,
+          "palette": [
+            "#000000",
+            "#007298",
+            "#1c1c1c",
+            "#333e48",
+            "#363636",
+            "#4f4f4f",
+            "#696969",
+            "#6d1222",
+            "#994a00"
+          ]
+        }
+      }
+    },
+    {
+      "id": "turner-aosta-snowstorm",
+      "genre": "landscape",
+      "mode": "stain",
+      "title": "Valley of Aosta: Snowstorm, Avalanche, and Thunderstorm",
+      "creator": "Joseph Mallord William Turner (English, 1775–1851)",
+      "date": "1836–37",
+      "sourceId": "turner-aosta-snowstorm",
+      "sourcePage": "https://www.artic.edu/artworks/109938",
+      "provider": "art-institute-chicago",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceSha256": "b0b07257992499378e05d60d1aa49e326e97e9889b110533a699407c1c2e051c",
+      "geometrySha256": "da641c2cd4f67f1a81fc71deca1e1f9c25378b81ddf4256637565694bb9c67f6",
+      "compositionSha256": "3d50652e35edcea87c6f5b06daa3cc7bdf10b1f1d2281dd400d239b64c77f97c",
+      "parameters": {
+        "colors": 8,
+        "smoothing": 0.72,
+        "paletteMethod": "max-coverage",
+        "filterSpeckle": 28,
+        "maxDimension": 560
+      },
+      "variants": {
+        "colorset1": {
+          "patternId": "vectorize-turner-aosta-snowstorm-cs1",
+          "file": "svgs/vectorize-turner-aosta-snowstorm-cs1.svg",
+          "report": "reports/vectorize-turner-aosta-snowstorm-cs1.json",
+          "sha256": "84fd82d870d734efce3f33b0d2d6ca3b55e709e9374b3623d81b3b9d49a350bc",
+          "bytes": 50343,
+          "pathCount": 20,
+          "palette": [
+            "#333e48",
+            "#363636",
+            "#696969",
+            "#828282",
+            "#9c9c9c",
+            "#9e1b32",
+            "#b5b5b5",
+            "#cfcfcf"
+          ]
+        },
+        "colorset2": {
+          "patternId": "vectorize-turner-aosta-snowstorm-cs2",
+          "file": "svgs/vectorize-turner-aosta-snowstorm-cs2.svg",
+          "report": "reports/vectorize-turner-aosta-snowstorm-cs2.json",
+          "sha256": "8a18d21dd0e5b1194b709698cb126c5ca3edb04d80a2e460a7b0800f81fee857",
+          "bytes": 50343,
+          "pathCount": 20,
+          "palette": [
+            "#007298",
+            "#333e48",
+            "#363636",
+            "#828282",
+            "#98700c",
+            "#994a00",
+            "#9c9c9c",
+            "#cfcfcf"
+          ]
+        }
+      }
+    },
+    {
+      "id": "van-gogh-bedroom",
+      "genre": "interior",
+      "mode": "collage",
+      "title": "The Bedroom",
+      "creator": "Vincent van Gogh (Dutch, 1853–1890)",
+      "date": "1889",
+      "sourceId": "van-gogh-bedroom",
+      "sourcePage": "https://www.artic.edu/artworks/28560",
+      "provider": "art-institute-chicago",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceSha256": "87b5a913aa11a4eab725f5b7fb5ea8ceb28a7837b7389569a20c675502387842",
+      "geometrySha256": "a111d886a44b6414ccc3fc59095af7cf0abd9517dba078be13f513db112a14c3",
+      "compositionSha256": "403b4aa7475eaf76cd375059e98c48077f2ba174f9bfc7213f432b83c8e99c21",
+      "parameters": {
+        "colors": 9,
+        "smoothing": 0.34,
+        "paletteMethod": "median-cut",
+        "filterSpeckle": 18,
+        "maxDimension": 560
+      },
+      "variants": {
+        "colorset1": {
+          "patternId": "vectorize-van-gogh-bedroom-cs1",
+          "file": "svgs/vectorize-van-gogh-bedroom-cs1.svg",
+          "report": "reports/vectorize-van-gogh-bedroom-cs1.json",
+          "sha256": "4621e2fd170768973ce645435fbe660f31ad223fa1e5a0cad8fc8b30e2dba971",
+          "bytes": 263045,
+          "pathCount": 171,
+          "palette": [
+            "#333e48",
+            "#363636",
+            "#4f4f4f",
+            "#696969",
+            "#828282",
+            "#9c9c9c",
+            "#9e1b32",
+            "#b5b5b5",
+            "#e8002a"
+          ]
+        },
+        "colorset2": {
+          "patternId": "vectorize-van-gogh-bedroom-cs2",
+          "file": "svgs/vectorize-van-gogh-bedroom-cs2.svg",
+          "report": "reports/vectorize-van-gogh-bedroom-cs2.json",
+          "sha256": "7e30b8e210375a04e31245274dfd66cdba8d17bab6d60349ef7d4c42a71b96e9",
+          "bytes": 263045,
+          "pathCount": 171,
+          "palette": [
+            "#007298",
+            "#333e48",
+            "#4f4f4f",
+            "#696969",
+            "#828282",
+            "#98700c",
+            "#994a00",
+            "#9c9c9c",
+            "#b5b5b5"
+          ]
+        }
+      }
+    },
+    {
+      "id": "van-gogh-self-portrait",
+      "genre": "portrait",
+      "mode": "organic",
+      "title": "Self-Portrait",
+      "creator": "Vincent van Gogh (Dutch, 1853–1890)",
+      "date": "1887",
+      "sourceId": "van-gogh-self-portrait",
+      "sourcePage": "https://www.artic.edu/artworks/80607",
+      "provider": "art-institute-chicago",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceSha256": "2c452724d2a65af0aa9d88ace86003b8aa863b666d683cfaa11af6af5e880061",
+      "geometrySha256": "60c24ae3cec7acc7844b5dc33e94f09d5748b9c79af8012b5fe078f7cfe9d2db",
+      "compositionSha256": "3d2c855ce6697a0883c96e1e6a3f37ebe383a412ab35d6e085ce75a4005dcfa6",
+      "parameters": {
+        "colors": 9,
+        "smoothing": 0.46,
+        "paletteMethod": "max-coverage",
+        "filterSpeckle": 20,
+        "maxDimension": 560
+      },
+      "variants": {
+        "colorset1": {
+          "patternId": "vectorize-van-gogh-self-portrait-cs1",
+          "file": "svgs/vectorize-van-gogh-self-portrait-cs1.svg",
+          "report": "reports/vectorize-van-gogh-self-portrait-cs1.json",
+          "sha256": "1fa2d82ad230f5241a93e23032f5e5a46c63021fefcb110a52ef34e06f5fd59e",
+          "bytes": 199716,
+          "pathCount": 51,
+          "palette": [
+            "#1c1c1c",
+            "#333e48",
+            "#4f4f4f",
+            "#696969",
+            "#6d1222",
+            "#828282",
+            "#9c9c9c",
+            "#9e1b32",
+            "#b5b5b5"
+          ]
+        },
+        "colorset2": {
+          "patternId": "vectorize-van-gogh-self-portrait-cs2",
+          "file": "svgs/vectorize-van-gogh-self-portrait-cs2.svg",
+          "report": "reports/vectorize-van-gogh-self-portrait-cs2.json",
+          "sha256": "5002b7e55f1d82b37d501ae1d79e4787fa504ac0b71c11a24e99810fd0d6bba9",
+          "bytes": 199716,
+          "pathCount": 51,
+          "palette": [
+            "#007298",
+            "#1c1c1c",
+            "#4f4f4f",
+            "#696969",
+            "#6d1222",
+            "#828282",
+            "#994a00",
+            "#9c9c9c",
+            "#b5b5b5"
+          ]
+        }
+      }
+    },
+    {
+      "id": "whistler-nocturne-blue-gold",
+      "genre": "landscape",
+      "mode": "stain",
+      "title": "Nocturne: Blue and Gold—Southampton Water",
+      "creator": "James McNeill Whistler (American, 1834–1903)",
+      "date": "1872",
+      "sourceId": "whistler-nocturne-blue-gold",
+      "sourcePage": "https://www.artic.edu/artworks/56905",
+      "provider": "art-institute-chicago",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceSha256": "bee14ae88b745943494ad3ad62124681755813549919045c9071c30a9c00f9cc",
+      "geometrySha256": "e9e0517578c44bb640d039f5a91e6ee713ccc11c04ebd13d7d53f63cf007fa70",
+      "compositionSha256": "930dc80870672b2a5d22fe337c8ccea37144d2c665fc45931dc3c5e41b7c219c",
+      "parameters": {
+        "colors": 7,
+        "smoothing": 0.76,
+        "paletteMethod": "max-coverage",
+        "filterSpeckle": 30,
+        "maxDimension": 560
+      },
+      "variants": {
+        "colorset1": {
+          "patternId": "vectorize-whistler-nocturne-blue-gold-cs1",
+          "file": "svgs/vectorize-whistler-nocturne-blue-gold-cs1.svg",
+          "report": "reports/vectorize-whistler-nocturne-blue-gold-cs1.json",
+          "sha256": "918196a2a2b97b8db9c6cd03cb83ad740014d690611dd7cc23c1b02022ae8b2d",
+          "bytes": 24102,
+          "pathCount": 13,
+          "palette": [
+            "#333e48",
+            "#363636",
+            "#4f4f4f",
+            "#696969",
+            "#828282",
+            "#9c9c9c",
+            "#9e1b32"
+          ]
+        },
+        "colorset2": {
+          "patternId": "vectorize-whistler-nocturne-blue-gold-cs2",
+          "file": "svgs/vectorize-whistler-nocturne-blue-gold-cs2.svg",
+          "report": "reports/vectorize-whistler-nocturne-blue-gold-cs2.json",
+          "sha256": "a881fc203260798b36ad2d0533ab8736af0e6cb8bb78bd14e3d2869bdfecbe50",
+          "bytes": 24102,
+          "pathCount": 13,
+          "palette": [
+            "#007298",
+            "#333e48",
+            "#4f4f4f",
+            "#696969",
+            "#828282",
+            "#9c9c9c"
+          ]
+        }
+      }
+    }
+  ]
+}

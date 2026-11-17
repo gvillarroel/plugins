@@ -1,0 +1,563 @@
+' plantuml-colorset-renderer: cs1 custom theme
+' CS1 category priority: primary red, interleaved grayscale including black, white, then remaining hues; preserve named semantic paints.
+skinparam backgroundColor #ffffff
+skinparam shadowing false
+skinparam DefaultFontName Arial
+skinparam DefaultFontColor #000000
+skinparam ArrowColor #696969
+skinparam RoundCorner 6
+skinparam TitleFontColor #000000
+skinparam NoteBackgroundColor #9e1b32
+skinparam NoteBorderColor #9e1b32
+skinparam NoteBorderThickness 0
+skinparam NoteFontColor #ffffff
+skinparam SequenceParticipantBackgroundColor #9e1b32
+skinparam SequenceParticipantBorderColor #9e1b32
+skinparam SequenceParticipantBorderThickness 0
+skinparam SequenceParticipantFontColor #ffffff
+skinparam UsecaseBackgroundColor #9e1b32
+skinparam UsecaseBorderColor #9e1b32
+skinparam UsecaseBorderThickness 0
+skinparam UsecaseFontColor #ffffff
+skinparam ClassBackgroundColor #9e1b32
+skinparam ClassBorderColor #9e1b32
+skinparam ClassBorderThickness 0
+skinparam ClassFontColor #ffffff
+skinparam ObjectBackgroundColor #9e1b32
+skinparam ObjectBorderColor #9e1b32
+skinparam ObjectBorderThickness 0
+skinparam ObjectFontColor #ffffff
+skinparam ActivityBackgroundColor #9e1b32
+skinparam ActivityBorderColor #9e1b32
+skinparam ActivityBorderThickness 0
+skinparam ActivityFontColor #ffffff
+skinparam ActivityDiamondBackgroundColor #333e48
+skinparam ActivityDiamondBorderColor #333e48
+skinparam ActivityDiamondBorderThickness 0
+skinparam ActivityDiamondFontColor #ffffff
+skinparam ComponentBackgroundColor #9e1b32
+skinparam ComponentBorderColor #9e1b32
+skinparam ComponentBorderThickness 0
+skinparam ComponentFontColor #ffffff
+skinparam InterfaceBackgroundColor #333e48
+skinparam InterfaceBorderColor #333e48
+skinparam InterfaceBorderThickness 0
+skinparam InterfaceFontColor #ffffff
+skinparam NodeBackgroundColor #9e1b32
+skinparam NodeBorderColor #9e1b32
+skinparam NodeBorderThickness 0
+skinparam NodeFontColor #ffffff
+skinparam DatabaseBackgroundColor #333e48
+skinparam DatabaseBorderColor #333e48
+skinparam DatabaseBorderThickness 0
+skinparam DatabaseFontColor #ffffff
+skinparam CloudBackgroundColor #4f4f4f
+skinparam CloudBorderColor #4f4f4f
+skinparam CloudBorderThickness 0
+skinparam CloudFontColor #ffffff
+skinparam QueueBackgroundColor #696969
+skinparam QueueBorderColor #696969
+skinparam QueueBorderThickness 0
+skinparam QueueFontColor #ffffff
+skinparam StateBackgroundColor #9e1b32
+skinparam StateBorderColor #9e1b32
+skinparam StateBorderThickness 0
+skinparam StateFontColor #ffffff
+skinparam ClassHeaderBackgroundColor #9e1b32
+skinparam SequenceActorBackgroundColor #ffffff
+skinparam SequenceActorBorderColor #333e48
+skinparam SequenceActorFontColor #000000
+skinparam SequenceLifeLineBorderColor #696969
+skinparam SequenceArrowColor #696969
+skinparam ActorBackgroundColor #ffffff
+skinparam ActorBorderColor #333e48
+skinparam ActorFontColor #000000
+skinparam ActivityStartColor #333e48
+skinparam ActivityEndColor #9e1b32
+skinparam StateStartColor #333e48
+skinparam StateEndColor #9e1b32
+skinparam TimingBackgroundColor #ffffff
+skinparam TimingFontColor #000000
+skinparam TimingLineColor #696969
+skinparam LegendBackgroundColor #ffffff
+skinparam LegendBorderColor #ffffff
+skinparam LegendBorderThickness 0
+' Native family scopes prevent generic styles from overriding unrelated roles.
+<style>
+root {
+  BackGroundColor #ffffff
+  FontColor #000000
+  LineColor #696969
+  Padding 6
+}
+document {
+  BackGroundColor #ffffff
+  FontColor #000000
+  LineColor #ffffff
+  title {
+    BackGroundColor transparent
+    LineColor transparent
+    FontColor #000000
+    LineThickness 0
+  }
+  header, footer, caption {
+    FontColor #000000
+    BackGroundColor transparent
+  }
+  legend {
+    BackGroundColor #ffffff
+    FontColor #000000
+    LineColor transparent
+    LineThickness 0
+  }
+}
+arrow {
+  BackGroundColor #696969
+  FontColor #000000
+  LineColor #696969
+  LineThickness 1.5
+}
+actor, boundary, control {
+  BackGroundColor #ffffff
+  FontColor #000000
+  LineColor #333e48
+  LineThickness 1.5
+}
+node, artifact, folder, frame, rectangle, card {
+  BackGroundColor #9e1b32
+  FontColor #ffffff
+  LineColor #9e1b32
+  LineThickness 0
+}
+component {
+  BackGroundColor #9e1b32
+  FontColor #ffffff
+  LineColor #9e1b32
+  LineThickness 0
+}
+interface {
+  BackGroundColor #333e48
+  FontColor #ffffff
+  LineColor #333e48
+  LineThickness 0
+}
+database, storage, collections {
+  BackGroundColor #333e48
+  FontColor #ffffff
+  LineColor #333e48
+  LineThickness 0
+}
+cloud {
+  BackGroundColor #4f4f4f
+  FontColor #ffffff
+  LineColor #4f4f4f
+  LineThickness 0
+}
+queue {
+  BackGroundColor #696969
+  FontColor #ffffff
+  LineColor #696969
+  LineThickness 0
+}
+agent, participant {
+  BackGroundColor #9e1b32
+  FontColor #ffffff
+  LineColor #9e1b32
+  LineThickness 0
+}
+class {
+  BackGroundColor #9e1b32
+  FontColor #ffffff
+  LineColor #9e1b32
+  LineThickness 0
+}
+object {
+  BackGroundColor #9e1b32
+  FontColor #ffffff
+  LineColor #9e1b32
+  LineThickness 0
+}
+usecase {
+  BackGroundColor #9e1b32
+  FontColor #ffffff
+  LineColor #9e1b32
+  LineThickness 0
+}
+note {
+  BackGroundColor #9e1b32
+  FontColor #ffffff
+  LineColor #9e1b32
+  LineThickness 0
+}
+activity {
+  BackGroundColor #9e1b32
+  FontColor #ffffff
+  LineColor #9e1b32
+  LineThickness 0
+}
+state {
+  BackGroundColor #9e1b32
+  FontColor #ffffff
+  LineColor #9e1b32
+  LineThickness 0
+}
+classDiagram, componentDiagram, objectDiagram {
+  group, composite {
+    BackGroundColor #e7e7e7
+    FontColor #000000
+    LineColor #e7e7e7
+    LineThickness 0
+    title { FontColor #000000 }
+  }
+}
+objectDiagram {
+  object {
+    BackGroundColor #9e1b32
+    FontColor #ffffff
+    LineColor #9e1b32
+    LineThickness 0
+  }
+}
+componentDiagram {
+  usecase {
+    BackGroundColor #9e1b32
+    FontColor #ffffff
+    LineColor #9e1b32
+    LineThickness 0
+  }
+}
+sequenceDiagram {
+  participant {
+    BackGroundColor #9e1b32
+    FontColor #ffffff
+    LineColor #9e1b32
+    LineThickness 0
+  }
+  actor, boundary, control, entity {
+    BackGroundColor #ffffff
+    FontColor #000000
+    LineColor #333e48
+    LineThickness 1.5
+  }
+  database {
+    FontColor #000000
+  }
+  queue {
+    BackGroundColor #696969
+    FontColor #ffffff
+    LineColor #696969
+    LineThickness 0
+  }
+  collections {
+    BackGroundColor #333e48
+    FontColor #ffffff
+    LineColor #333e48
+    LineThickness 0
+  }
+  lifeLine {
+    LineColor #696969
+    LineThickness 1
+  }
+  activationBox {
+    BackGroundColor #e7e7e7
+    FontColor #000000
+    LineColor #696969
+    LineThickness 1
+  }
+  group, groupHeader, reference, referenceHeader, box, separator {
+    BackGroundColor #e7e7e7
+    FontColor #000000
+    LineColor #696969
+    LineThickness 1
+  }
+}
+activityDiagram {
+  activity {
+    BackGroundColor #9e1b32
+    FontColor #ffffff
+    LineColor #9e1b32
+    LineThickness 0
+  }
+  diamond {
+    BackGroundColor #333e48
+    FontColor #ffffff
+    LineColor #333e48
+    LineThickness 0
+  }
+  composite, partition, swimlane {
+    BackGroundColor #e7e7e7
+    FontColor #000000
+    LineColor #696969
+    LineThickness 1
+  }
+  circle {
+    start {
+      BackGroundColor #333e48
+      FontColor #ffffff
+      LineColor #333e48
+      LineThickness 1
+    }
+    stop, end {
+      BackGroundColor #9e1b32
+      FontColor #ffffff
+      LineColor #9e1b32
+      LineThickness 1.5
+    }
+  }
+  activityBar {
+    BackGroundColor #333e48
+    FontColor #ffffff
+    LineColor #333e48
+    LineThickness 1.5
+  }
+  arrow {
+    FontColor #000000
+    LineColor #696969
+    LineThickness 1.5
+  }
+}
+stateDiagram {
+  state {
+    BackGroundColor #9e1b32
+    FontColor #ffffff
+    LineColor #9e1b32
+    LineThickness 0
+  }
+  group {
+    BackGroundColor #e7e7e7
+    FontColor #000000
+    LineColor #696969
+    LineThickness 1
+  }
+  circle {
+    start {
+      BackGroundColor #333e48
+      FontColor #ffffff
+      LineColor #333e48
+      LineThickness 1
+    }
+    stop, end {
+      BackGroundColor #9e1b32
+      FontColor #ffffff
+      LineColor #9e1b32
+      LineThickness 1.5
+    }
+  }
+}
+mindmapDiagram, wbsDiagram {
+  node {
+    BackGroundColor #9e1b32
+    FontColor #ffffff
+    LineColor #9e1b32
+    LineThickness 0
+  }
+  arrow {
+    FontColor #000000
+    LineColor #696969
+    LineThickness 1.5
+  }
+}
+jsonDiagram, yamlDiagram {
+  node {
+    BackGroundColor #9e1b32
+    FontColor #ffffff
+    LineColor #9e1b32
+    LineThickness 0
+    separator {
+      LineColor #ffffff
+      LineThickness 1
+    }
+    highlight {
+      BackGroundColor #e7e7e7
+      FontColor #000000
+      LineColor #e7e7e7
+      LineThickness 0
+    }
+  }
+  arrow {
+    FontColor #000000
+    LineColor #696969
+    LineThickness 1.5
+  }
+}
+packetdiagDiagram {
+  rectangle {
+    BackGroundColor #9e1b32
+    FontColor #ffffff
+    LineColor #ffffff
+    LineThickness 1
+  }
+}
+chenEerDiagram {
+  chenEntity {
+    BackGroundColor #9e1b32
+    FontColor #ffffff
+    LineColor #9e1b32
+    LineThickness 0
+    .weak {
+      LineColor #ffffff
+      LineThickness 1.5
+    }
+  }
+  chenAttribute {
+    BackGroundColor #333e48
+    FontColor #ffffff
+    LineColor #333e48
+    LineThickness 0
+    .multi, .derived {
+      LineColor #ffffff
+      LineThickness 1.5
+    }
+  }
+  chenRelationship {
+    BackGroundColor #4f4f4f
+    FontColor #ffffff
+    LineColor #4f4f4f
+    LineThickness 0
+    .identifying {
+      LineColor #ffffff
+      LineThickness 1.5
+    }
+  }
+}
+nwdiagDiagram {
+  server {
+    BackGroundColor #9e1b32
+    FontColor #ffffff
+    LineColor #9e1b32
+    LineThickness 0
+  }
+  network {
+    BackGroundColor #cfcfcf
+    FontColor #000000
+    LineColor #696969
+    LineThickness 1
+  }
+  group {
+    BackGroundColor #e7e7e7
+    FontColor #000000
+    LineColor #e7e7e7
+    LineThickness 0
+  }
+  arrow {
+    FontColor #000000
+    LineColor #696969
+    LineThickness 1.5
+  }
+}
+' Railroad strokes encode grammar: native token outline widths are hard-coded.
+ebnf {
+  BackGroundColor #9e1b32
+  FontColor #ffffff
+  LineColor #696969
+  LineThickness 1.5
+}
+ganttDiagram {
+  task {
+    BackGroundColor #9e1b32
+    FontColor #ffffff
+    LineColor #9e1b32
+    LineThickness 0
+    unstarted {
+      BackGroundColor #9e1b32
+      FontColor #ffffff
+      LineColor #9e1b32
+      LineThickness 0
+    }
+  }
+  undone {
+    BackGroundColor #e7e7e7
+    FontColor #000000
+    LineColor #e7e7e7
+    LineThickness 0
+  }
+  timeline {
+    BackGroundColor #ffffff
+    FontColor #000000
+    LineColor #696969
+    LineThickness 1
+  }
+  closed {
+    BackGroundColor #e7e7e7
+    FontColor #000000
+    LineColor #e7e7e7
+    LineThickness 0
+  }
+  milestone {
+    BackGroundColor #333e48
+    FontColor #000000
+    LineColor #333e48
+    LineThickness 1
+  }
+  separator {
+    BackGroundColor transparent
+    FontColor #000000
+    LineColor #696969
+    LineThickness 1
+  }
+}
+timingDiagram {
+  FontColor #000000
+  LineColor #696969
+  LineThickness 1
+  robust {
+    BackGroundColor #9e1b32
+    FontColor #000000
+    LineColor #9e1b32
+    LineThickness 2
+  }
+  concise {
+    BackGroundColor #9e1b32
+    FontColor #ffffff
+    LineColor #9e1b32
+    LineThickness 1.5
+  }
+  binary, clock {
+    FontColor #000000
+    LineColor #9e1b32
+    LineThickness 1.5
+  }
+  arrow, constraintArrow {
+    FontColor #000000
+    LineColor #696969
+    LineThickness 1.5
+  }
+  timeline {
+    FontColor #000000
+    LineColor #696969
+    LineThickness 1.5
+  }
+}
+chartDiagram {
+  BackGroundColor #ffffff
+  FontColor #000000
+  LineColor #ffffff
+  axis {
+    FontColor #000000
+    LineColor #696969
+    LineThickness 1
+  }
+  grid {
+    LineColor #e7e7e7
+    LineThickness 1
+  }
+  bar {
+    BackGroundColor #9e1b32
+    FontColor #ffffff
+    LineColor #9e1b32
+    LineThickness 0
+  }
+  line {
+    LineColor #333e48
+    LineThickness 1.5
+  }
+  scatter {
+    MarkerColor #4f4f4f
+  }
+}
+filesDiagram, saltDiagram {
+  FontColor #000000
+  LineColor #696969
+  LineThickness 1
+}
+</style>

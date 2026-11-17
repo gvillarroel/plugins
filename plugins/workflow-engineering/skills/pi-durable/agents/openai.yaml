@@ -1,0 +1,4 @@
+interface:
+  display_name: "Pi Durable"
+  short_description: "Durable agents with current model selection and evolution"
+  default_prompt: "Use $pi-durable to generate independent services and bounded subagents, discover current compatible models and reasoning levels for each task, preserve exact requested pins, and lock choices before evidence-based requested evolution."

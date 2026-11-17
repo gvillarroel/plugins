@@ -1,0 +1,4 @@
+interface:
+  display_name: "Book Semantic Analysis"
+  short_description: "Explore semantic book graphs with exact passage evidence"
+  default_prompt: "Use $book-semantic-analysis to read the supplied book or excerpt, test semantic claims against exact passages and alternatives, and show an interactive semantic graph linked to passage evidence with honest scope."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Slidev Anime.js"
+  short_description: "Anime.js and HyperFrames scenes for Slidev decks"
+  default_prompt: "Use $slidev-animejs to build and validate animated Slidev content with Anime.js or an embedded HyperFrames scene."

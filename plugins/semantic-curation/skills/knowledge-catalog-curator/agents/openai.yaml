@@ -1,0 +1,4 @@
+interface:
+  display_name: "Knowledge Catalog Curator"
+  short_description: "Review catalog metadata, taxonomy and lineage"
+  default_prompt: "Use $knowledge-catalog-curator to inspect my datasets, compare ontology concepts, and prepare metadata for human review."

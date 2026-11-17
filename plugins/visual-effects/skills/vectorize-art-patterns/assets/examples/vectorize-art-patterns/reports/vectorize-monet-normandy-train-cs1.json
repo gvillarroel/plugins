@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "ok": true,
+  "input": "assets/base-images/monet-normandy-train.jpg",
+  "input_sha256": "8fe269a7a572659063c4fb842ad485e9b88c69c9554efee94c3b218df09a3f43",
+  "output": "svgs/vectorize-monet-normandy-train-cs1.svg",
+  "output_sha256": "39adf165f13b14b003052a280dfedd6729716e8e668290d235b2553bac060b50",
+  "pattern_id": "vectorize-monet-normandy-train-cs1",
+  "mode": "stain",
+  "tile": "none",
+  "colorset": "colorset1",
+  "palette_contract_sha256": "f33804ae2e5fb81652343fee00ac6a48c6581eaf823ddead535a98035dd8b366",
+  "variation_seed": 0,
+  "composition_sha256": "c9c6444d8ec6eee0f15c69da166069224c2a20a680626dbeede5ca0eeeee4a58",
+  "parameters": {
+    "colors": 8,
+    "smoothing": 0.66,
+    "palette_method": "max-coverage",
+    "max_dimension": 560,
+    "filter_speckle": 26,
+    "curve_mode": "spline",
+    "hierarchical": "cutout",
+    "color_mapping": {
+      "background": "#333e48",
+      "layers": [
+        {
+          "source": "#647b94",
+          "target": "#828282"
+        },
+        {
+          "source": "#a3a39b",
+          "target": "#9c9c9c"
+        },
+        {
+          "source": "#615a4b",
+          "target": "#4f4f4f"
+        },
+        {
+          "source": "#405d77",
+          "target": "#9e1b32"
+        },
+        {
+          "source": "#878367",
+          "target": "#696969"
+        },
+        {
+          "source": "#262b31",
+          "target": "#363636"
+        },
+        {
+          "source": "#c9cdcc",
+          "target": "#cfcfcf"
+        }
+      ],
+      "source_colors": [
+        "#37494f",
+        "#647b94",
+        "#a3a39b",
+        "#615a4b",
+        "#405d77",
+        "#878367",
+        "#262b31",
+        "#c9cdcc"
+      ],
+      "target_colors": [
+        "#333e48",
+        "#828282",
+        "#9c9c9c",
+        "#4f4f4f",
+        "#9e1b32",
+        "#696969",
+        "#363636",
+        "#cfcfcf"
+      ]
+    }
+  },
+  "source_width": 900,
+  "source_height": 676,
+  "vector_width": 560,
+  "vector_height": 421,
+  "render_width": 560,
+  "render_height": 421,
+  "palette": [
+    "#333e48",
+    "#363636",
+    "#4f4f4f",
+    "#696969",
+    "#828282",
+    "#9c9c9c",
+    "#9e1b32",
+    "#cfcfcf"
+  ],
+  "path_count": 37,
+  "output_bytes": 101202,
+  "rights": {
+    "basis": "source-manifest",
+    "source_id": "monet-normandy-train",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "source_url": "https://www.artic.edu/artworks/16571",
+    "attribution": "Claude Monet (French, 1840–1926); Mr. and Mrs. Martin A. Ryerson Collection",
+    "attribution_required": false,
+    "share_alike": false,
+    "input_sha256": "8fe269a7a572659063c4fb842ad485e9b88c69c9554efee94c3b218df09a3f43"
+  },
+  "backend": "vtracer-0.6.15"
+}

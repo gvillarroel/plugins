@@ -1,0 +1,18 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "confluence-publishing",
+  "version": "1.0.0",
+  "description": "Prepare Markdown for Confluence and round-trip pages with their attachments and formatting.",
+  "author": {
+    "name": "Gerardo Villarroel"
+  },
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Confluence Publishing",
+        "shortDescription": "Prepare Markdown for Confluence and round-trip pages with their attachments and formatting.",
+        "category": "Productivity"
+      }
+    }
+  }
+}

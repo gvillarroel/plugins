@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "ok": true,
+  "input": "assets/base-images/cassatt-childs-bath.jpg",
+  "input_sha256": "152e6c36ef19cf8e03a98a61d232d0dea04d37e4687c9823348accfc9538a91c",
+  "output": "svgs/vectorize-cassatt-childs-bath-cs1.svg",
+  "output_sha256": "cef16f4cef16df9a5c6ae8d65334e52ca186c9a7d52ac9796a572ea2500b32a9",
+  "pattern_id": "vectorize-cassatt-childs-bath-cs1",
+  "mode": "organic",
+  "tile": "none",
+  "colorset": "colorset1",
+  "palette_contract_sha256": "f33804ae2e5fb81652343fee00ac6a48c6581eaf823ddead535a98035dd8b366",
+  "variation_seed": 0,
+  "composition_sha256": "05731d12d9f4d981aed30f4aad4cb49dfda54bb68927b7ce6e0271bfd23ed8ef",
+  "parameters": {
+    "colors": 9,
+    "smoothing": 0.48,
+    "palette_method": "median-cut",
+    "max_dimension": 560,
+    "filter_speckle": 22,
+    "curve_mode": "spline",
+    "hierarchical": "cutout",
+    "color_mapping": {
+      "background": "#333e48",
+      "layers": [
+        {
+          "source": "#6a7070",
+          "target": "#696969"
+        },
+        {
+          "source": "#68625b",
+          "target": "#4f4f4f"
+        },
+        {
+          "source": "#5d433c",
+          "target": "#9e1b32"
+        },
+        {
+          "source": "#8b777a",
+          "target": "#828282"
+        },
+        {
+          "source": "#948c92",
+          "target": "#9c9c9c"
+        },
+        {
+          "source": "#3d3a3f",
+          "target": "#363636"
+        },
+        {
+          "source": "#9da1a8",
+          "target": "#b5b5b5"
+        },
+        {
+          "source": "#a9b2bb",
+          "target": "#cfcfcf"
+        }
+      ],
+      "source_colors": [
+        "#535c5e",
+        "#6a7070",
+        "#68625b",
+        "#5d433c",
+        "#8b777a",
+        "#948c92",
+        "#3d3a3f",
+        "#9da1a8",
+        "#a9b2bb"
+      ],
+      "target_colors": [
+        "#333e48",
+        "#696969",
+        "#4f4f4f",
+        "#9e1b32",
+        "#828282",
+        "#9c9c9c",
+        "#363636",
+        "#b5b5b5",
+        "#cfcfcf"
+      ]
+    }
+  },
+  "source_width": 900,
+  "source_height": 1365,
+  "vector_width": 369,
+  "vector_height": 560,
+  "render_width": 369,
+  "render_height": 560,
+  "palette": [
+    "#333e48",
+    "#363636",
+    "#4f4f4f",
+    "#696969",
+    "#828282",
+    "#9c9c9c",
+    "#9e1b32",
+    "#b5b5b5",
+    "#cfcfcf"
+  ],
+  "path_count": 82,
+  "output_bytes": 143350,
+  "rights": {
+    "basis": "source-manifest",
+    "source_id": "cassatt-childs-bath",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "source_url": "https://www.artic.edu/artworks/111442",
+    "attribution": "Mary Cassatt (American, 1844–1926); Robert A. Waller Fund",
+    "attribution_required": false,
+    "share_alike": false,
+    "input_sha256": "152e6c36ef19cf8e03a98a61d232d0dea04d37e4687c9823348accfc9538a91c"
+  },
+  "backend": "vtracer-0.6.15"
+}

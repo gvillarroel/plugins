@@ -1,0 +1,18 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "semantic-search",
+  "version": "1.0.0",
+  "description": "Build and query knowledge snapshots with Tantivy, Turso, Tika and RustMallet search backends.",
+  "author": {
+    "name": "Gerardo Villarroel"
+  },
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Semantic Search Engines",
+        "shortDescription": "Build and query knowledge snapshots with Tantivy, Turso, Tika and RustMallet search backends.",
+        "category": "Data"
+      }
+    }
+  }
+}

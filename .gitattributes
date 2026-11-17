@@ -1,0 +1,2 @@
+# A fresh checkout must preserve embedded resource hashes on every host.
+* -text

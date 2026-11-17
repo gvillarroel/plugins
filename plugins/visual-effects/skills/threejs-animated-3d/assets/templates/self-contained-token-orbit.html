@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="data:," />
+    <title>__TITLE__</title>
+    <style>
+      :root {
+        --brand: #9e1b32;
+        --neutral: #333e48;
+        --gray-100: #e7e7e7;
+        --page: #f7f7f7;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        justify-items: center;
+        align-content: start;
+        padding: 12px;
+        background: var(--page);
+        color: #000000;
+        font-family: "Open Sans", Arial, sans-serif;
+      }
+
+      main {
+        width: min(960px, 100%);
+        min-width: 0;
+      }
+
+      .toolbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        margin-bottom: 8px;
+        flex-wrap: wrap;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 20px;
+        line-height: 1.2;
+      }
+
+      button {
+        border: 0;
+        background: #9e1b32;
+        color: #ffffff;
+        border-radius: 6px;
+        padding: 4px 10px;
+        min-height: 32px;
+        font: inherit;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background: #6d1222;
+      }
+
+      button:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+      @media (pointer: coarse) { button { min-height: 44px; } }
+      body[data-density="comfortable"] { padding: 16px; }
+      [data-density="comfortable"] .toolbar { gap: 16px; margin-bottom: 10px; }
+      [data-density="comfortable"] button { padding: 8px 12px; }
+      [data-density="comfortable"] .stage { min-height: 320px; }
+
+      .stage {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        min-height: 200px;
+        overflow: hidden;
+        border: 0;
+        background: #ffffff;
+      }
+
+      canvas {
+        display: block;
+        width: 100%;
+        height: 100%;
+        touch-action: none;
+      }
+
+      .status {
+        position: absolute;
+        left: 8px;
+        right: 8px;
+        bottom: 8px;
+        width: fit-content;
+        max-width: calc(100% - 16px);
+        padding: 4px 8px;
+        border-radius: 6px;
+        background: rgba(255, 255, 255, 0.86);
+        color: #000000;
+        font-size: 13px;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body data-colorset="__COLORSET__" data-density="__DENSITY__" data-scene="__SCENE__">
+    <main>
+      <div class="toolbar">
+        <h1>__TITLE__</h1>
+        <button id="replay" type="button" aria-label="Replay animation">Replay</button>
+      </div>
+      <section class="stage" aria-label="Animated token orbit scene">
+        <canvas id="scene-canvas"></canvas>
+        <div class="status" id="status">Drag to orbit. Replay resets the scene.</div>
+      </section>
+    </main>
+
+    <script type="module">
+      // __INLINE_THREE_RUNTIME__
+
+      const canvas = document.getElementById("scene-canvas");
+      const replay = document.getElementById("replay");
+      const status = document.getElementById("status");
+      const colorset = document.body.dataset.colorset;
+      const tokenCount = __TOKEN_COUNT__;
+      const isField = document.body.dataset.scene === 'vector-field';
+      const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const palette = {
+        brand: 0x9e1b32,
+        blue: 0x007298,
+        green: 0x45842a,
+        orange: 0xe77204,
+        yellow: 0xf1c319,
+        purple: 0x652f6c,
+        neutral: 0x333e48,
+        gray: 0xe7e7e7,
+        white: 0xffffff,
+        dark: 0x1c1c1c,
+        gray700: 0x4f4f4f,
+        gray500: 0x828282,
+        gray200: 0xcfcfcf,
+      };
+
+      const renderer = new THREE.WebGLRenderer({
+        canvas,
+        antialias: true,
+        preserveDrawingBuffer: true,
+      });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+      renderer.setClearColor(palette.white, 1);
+      renderer.outputColorSpace = THREE.SRGBColorSpace;
+      renderer.toneMapping = THREE.NoToneMapping;
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(42, 16 / 9, 0.1, 100);
+
+      scene.add(new THREE.AmbientLight(0xffffff, 0.62));
+      const keyLight = new THREE.DirectionalLight(0xffffff, 1.3);
+      keyLight.position.set(5, 8, 7);
+      scene.add(keyLight);
+      const rimLight = new THREE.PointLight(palette.white, 1.0, 18);
+      rimLight.position.set(-4, 3, -5);
+      scene.add(rimLight);
+
+      const floor = new THREE.Mesh(
+        new THREE.RingGeometry(2.4, 5.8, 96),
+        new THREE.MeshStandardMaterial({
+          color: palette.gray,
+          roughness: 0.82,
+          metalness: 0.02,
+          transparent: true,
+          opacity: 0.34,
+          side: THREE.DoubleSide,
+        }),
+      );
+      floor.rotation.x = -Math.PI / 2;
+      floor.position.y = -1.45;
+      scene.add(floor);
+
+      const hub = new THREE.Mesh(
+        new THREE.TorusKnotGeometry(0.86, 0.22, 128, 16),
+        new THREE.MeshStandardMaterial({
+          color: palette.brand,
+          roughness: 0.42,
+          metalness: 0.18,
+        }),
+      );
+      scene.add(hub);
+      hub.visible = !isField;
+      floor.visible = !isField;
+      const fieldBase = new THREE.Mesh(new THREE.BoxGeometry(5.4, .06, 4.2),
+        new THREE.MeshStandardMaterial({color: palette.gray, roughness: .88, metalness: 0}));
+      fieldBase.position.y = -.25;
+      fieldBase.visible = isField;
+      scene.add(fieldBase);
+
+      const bundledPalettes = __PALETTES__;
+      const tokenColors = bundledPalettes[colorset].solidSequence
+        .filter(value => value !== '#ffffff' && value !== '#9e1b32')
+        .map(value => Number.parseInt(value.slice(1), 16));
+      const tokenGeometry = new THREE.IcosahedronGeometry(0.32, 1);
+      const luminance = paint => [1,3,5].map(i => parseInt(paint.slice(i,i+2),16)/255)
+        .map(v => v <= .04045 ? v/12.92 : ((v+.055)/1.055)**2.4)
+        .reduce((sum,v,i)=>sum+v*[.2126,.7152,.0722][i],0);
+      const contrast = (a,b) => (Math.max(luminance(a),luminance(b))+.05)/(Math.min(luminance(a),luminance(b))+.05);
+      const arrowColors = bundledPalettes[colorset].solidSequence.filter(paint =>
+        // The physically lit plane renders darker than its nominal gray token.
+        // Include a conservative measured shade bound, then verify real pixels.
+        ['#ffffff','#e7e7e7','#9c9c9c'].every(backing => contrast(paint,backing)>=3));
+      const tokens = Array.from({ length: tokenCount }, (_, index) => {
+        if (isField) {
+          const arrow = new THREE.Group();
+          const material = new THREE.MeshBasicMaterial({color: arrowColors[index % arrowColors.length], toneMapped: false});
+          const shaft = new THREE.Mesh(new THREE.CylinderGeometry(.045,.045,.58,12),material);
+          shaft.rotation.z = Math.PI/2;
+          const head = new THREE.Mesh(new THREE.ConeGeometry(.12,.28,16),material);
+          head.rotation.z = -Math.PI/2; head.position.x = .42;
+          head.userData.directionRole = 'head'; shaft.userData.directionRole = 'shaft';
+          arrow.add(shaft,head);
+          arrow.position.set((index % 5 - 2)*1.02,.2,(Math.floor(index/5)-1.5)*.82);
+          arrow.userData.phase = index % 5 * .65 + Math.floor(index/5) * .92;
+          scene.add(arrow); return arrow;
+        }
+        const color = tokenColors[index % tokenColors.length];
+        const token = new THREE.Mesh(
+          tokenGeometry,
+          new THREE.MeshStandardMaterial({
+            color,
+            roughness: 0.35,
+            metalness: 0.12,
+          }),
+        );
+        token.userData = {
+          radius: 2.0 + (index % 5) * 0.34,
+          speed: 0.55 + (index % 5) * 0.09,
+          phase: index * Math.PI * 2 / tokenCount,
+          lift: -0.35 + (index % 5) * 0.18,
+        };
+        scene.add(token);
+        return token;
+      });
+
+      const spokes = new THREE.Group();
+      const spokeMaterial = new THREE.LineBasicMaterial({ color: palette.neutral, transparent: true, opacity: 0.22 });
+      for (let i = 0; i < 24; i += 1) {
+        const angle = (i / 24) * Math.PI * 2;
+        const points = [
+          new THREE.Vector3(Math.cos(angle) * 1.1, -1.42, Math.sin(angle) * 1.1),
+          new THREE.Vector3(Math.cos(angle) * 5.6, -1.42, Math.sin(angle) * 5.6),
+        ];
+        spokes.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(points), spokeMaterial));
+      }
+      scene.add(spokes);
+      spokes.visible = !isField;
+
+      let startedAt = performance.now();
+      let yaw = 0.72;
+      let pitch = isField ? .6 : 0.34;
+      let dragging = false;
+      let lastX = 0;
+      let lastY = 0;
+      let animationId;
+      let disposed = false;
+
+      function resize() {
+        const width = Math.max(1, canvas.parentElement.clientWidth);
+        const height = Math.max(1, canvas.parentElement.clientHeight);
+        renderer.setSize(width, height, false);
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+      }
+
+      function updateCamera() {
+        // Fit the full motion envelope; resizing the panel must not clip tokens.
+        const back = new THREE.Vector3(Math.sin(yaw) * Math.cos(pitch), Math.sin(pitch), Math.cos(yaw) * Math.cos(pitch));
+        const right = new THREE.Vector3(Math.cos(yaw), 0, -Math.sin(yaw));
+        const up = new THREE.Vector3().crossVectors(back, right);
+        const tanY = Math.tan(THREE.MathUtils.degToRad(camera.fov / 2));
+        const tanX = tanY * camera.aspect;
+        let radius = 0;
+        for (let i = 0; i < 64; i += 1) {
+          const angle = i * Math.PI / 32;
+          for (const lift of (isField ? [-.65,.65] : [-1.05,1.05])) {
+            const reach = isField ? 2.95 : 3.72;
+            const point = new THREE.Vector3(Math.cos(angle) * reach, lift, Math.sin(angle) * reach);
+            radius = Math.max(radius, point.dot(back) + Math.max(Math.abs(point.dot(right)) / tanX, Math.abs(point.dot(up)) / tanY) * 1.12);
+          }
+        }
+        const y = Math.sin(pitch) * radius;
+        const planar = Math.cos(pitch) * radius;
+        camera.position.set(Math.sin(yaw) * planar, y, Math.cos(yaw) * planar);
+        camera.lookAt(0, 0, 0);
+      }
+
+      function renderAt(seconds) {
+        hub.rotation.x = seconds * 0.45;
+        hub.rotation.y = seconds * 0.72;
+        tokens.forEach((token, index) => {
+          const data = token.userData;
+          if (isField) {
+            const phase = data.phase;
+            token.rotation.y = Math.sin(seconds*1.25+phase)*.9;
+            token.rotation.z = Math.cos(seconds*1.1+phase)*.18;
+            token.position.y = .2+Math.sin(seconds*1.6+phase)*.12;
+            return;
+          }
+          const angle = seconds * data.speed + data.phase;
+          token.position.set(
+            Math.cos(angle) * data.radius,
+            data.lift + Math.sin(seconds * 1.4 + index) * 0.35,
+            Math.sin(angle) * data.radius,
+          );
+          token.rotation.x = seconds * (0.7 + index * 0.08);
+          token.rotation.y = seconds * (0.55 + index * 0.07);
+        });
+        floor.rotation.z = seconds * 0.08;
+        spokes.rotation.y = seconds * 0.05;
+        updateCamera();
+        renderer.render(scene, camera);
+      }
+
+      function animate() {
+        if (disposed) return;
+        animationId = requestAnimationFrame(animate);
+        renderAt(reducedMotion ? 0 : (performance.now() - startedAt) / 1000);
+      }
+
+      replay.addEventListener("click", () => {
+        startedAt = performance.now();
+        yaw = 0.72;
+        pitch = isField ? .6 : 0.34;
+        status.textContent = "Replay started.";
+      });
+
+      canvas.addEventListener("pointerdown", (event) => {
+        dragging = true;
+        lastX = event.clientX;
+        lastY = event.clientY;
+        canvas.setPointerCapture(event.pointerId);
+        status.textContent = "Dragging camera.";
+      });
+
+      canvas.addEventListener("pointermove", (event) => {
+        if (!dragging) return;
+        const dx = event.clientX - lastX;
+        const dy = event.clientY - lastY;
+        lastX = event.clientX;
+        lastY = event.clientY;
+        yaw += dx * 0.008;
+        pitch = Math.max(isField ? .46 : -.25, Math.min(.92, pitch + dy * .006));
+      });
+
+      canvas.addEventListener("pointerup", (event) => {
+        dragging = false;
+        canvas.releasePointerCapture(event.pointerId);
+        status.textContent = "Drag to orbit. Replay resets the scene.";
+      });
+
+      window.addEventListener("resize", resize);
+      resize();
+      animate();
+      window.__threeRuntimeSceneReady = true;
+      window.__threeRuntimeScene = {
+        replay: () => replay.click(),
+        renderAt,
+        arrowPixelSamples: (seconds) => {
+          if (!isField) return [];
+          renderAt(seconds); scene.updateMatrixWorld(true);
+          const gl=renderer.getContext(), width=canvas.width, height=canvas.height;
+          const read=(x,y)=>{const pixel=new Uint8Array(4);gl.readPixels(x,height-y-1,1,1,gl.RGBA,gl.UNSIGNED_BYTE,pixel);return Array.from(pixel).slice(0,3);};
+          const samples=tokens.flatMap(group=>group.children.map(mesh=>{
+            const role=mesh.userData.directionRole, local=new THREE.Vector3(0,role==='head'?.055:0,0);
+            const p=mesh.localToWorld(local).project(camera), x=Math.round((p.x+1)*width/2), y=Math.round((1-p.y)*height/2);
+            return {role,x,y,color:'#'+mesh.material.color.getHexString(),interiorPatch:[-1,0,1].flatMap(dx=>[-1,0,1].map(dy=>read(x+dx,y+dy)))};
+          }));
+          tokens.forEach(group=>group.visible=false);renderer.render(scene,camera);
+          samples.forEach(sample=>sample.backing=read(sample.x,sample.y));
+          tokens.forEach(group=>group.visible=true);renderer.render(scene,camera);
+          return samples;
+        },
+        inspect: () => ({
+          colorset,
+          scene: document.body.dataset.scene,
+          tokenCount,
+          density: document.body.dataset.density,
+          fillStyle: 'solid-first',
+          decorativeOutlineCount: 0,
+          materialColors: (isField ? tokens.flatMap(group=>group.children) : [hub,...tokens]).map(mesh => `#${mesh.material.color.getHexString()}`),
+          arrowHeads: isField ? tokens.map(group=>{const head=group.children[1], p=head.localToWorld(new THREE.Vector3(0,.055,0)).project(camera);return {x:p.x,y:p.y,color:'#'+head.material.color.getHexString()};}) : [],
+          lightColors: scene.children.filter(object => object.isLight).map(light => `#${light.color.getHexString()}`),
+          outputColorSpace: renderer.outputColorSpace,
+          cameraAspect: camera.aspect,
+          tokenCenters: tokens.map(token => { const p = token.position.clone().project(camera); return [p.x, p.y, p.z]; }),
+          tokenBounds: tokens.flatMap(token => [-0.32, 0.32].flatMap(x => [-0.32, 0.32].flatMap(y => [-0.32, 0.32].map(z => {
+            const p = token.position.clone().add(new THREE.Vector3(x, y, z)).project(camera);
+            return [p.x, p.y, p.z];
+          })))),
+        }),
+        dispose: () => {
+          disposed = true;
+          cancelAnimationFrame(animationId);
+          window.removeEventListener("resize", resize);
+          const materials = new Set();
+          const geometries = new Set();
+          scene.traverse(object => {
+            if (object.geometry) geometries.add(object.geometry);
+            if (object.material) materials.add(object.material);
+          });
+          geometries.forEach(geometry => geometry.dispose());
+          materials.forEach(material => material.dispose());
+          renderer.dispose();
+          URL.revokeObjectURL(__threeModuleUrl);
+          URL.revokeObjectURL(__threeCoreUrl);
+        },
+      };
+    </script>
+  </body>
+</html>

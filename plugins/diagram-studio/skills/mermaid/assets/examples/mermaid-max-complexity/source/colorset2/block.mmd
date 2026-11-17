@@ -1,0 +1,63 @@
+---
+# mermaid: config begin
+config:
+  theme: "base"
+  themeVariables:
+    background: "#ffffff"
+    primaryColor: "#9e1b32"
+    primaryTextColor: "#ffffff"
+    primaryBorderColor: "#9e1b32"
+    secondaryColor: "#007298"
+    secondaryTextColor: "#ffffff"
+    secondaryBorderColor: "#007298"
+    tertiaryColor: "#e77204"
+    tertiaryTextColor: "#000000"
+    tertiaryBorderColor: "#e77204"
+    lineColor: "#696969"
+    textColor: "#333e48"
+    mainBkg: "#9e1b32"
+    nodeBkg: "#9e1b32"
+    nodeBorder: "#9e1b32"
+    clusterBkg: "#e7e7e7"
+    clusterBorder: "#9c9c9c"
+    defaultLinkColor: "#696969"
+    edgeLabelBackground: "#ffffff"
+    labelColor: "#ffffff"
+    titleColor: "#333e48"
+  themeCSS: ".node > rect, .node > circle, .node > ellipse, .node > polygon, .node > path, rect.actor, .note, .task, .task0, .task1, .task2, .task3 { stroke-width: 0 !important; }"
+  block:
+    padding: 6
+# mermaid: config end
+# mermaid: metadata begin
+mermaid:
+  colorset: "colorset2"
+  mode: "extended"
+  palette: "full-color-style"
+# mermaid: metadata end
+---
+block
+  columns 3
+  R01["Block role 01"] R02["Block role 02"] R03["Block role 03"]
+  R04["Block role 04"] R05["Block role 05"] R06["Block role 06"]
+  R07["Block role 07"] R08["Block role 08"] R09["Block role 09"]
+  R01 --> R02 --> R03
+  R04 --> R05 --> R06
+  R07 --> R08 --> R09
+  class R01 csPrimary
+  class R02 csAccent
+  class R03 csMuted
+  class R04 csCritical
+  class R05 csWarning
+  class R06 csSuccess
+  class R07 csInfo
+  class R08 csSpecial
+  class R09 csNeutral
+  classDef csPrimary fill:#9e1b32,stroke:none,color:#ffffff,stroke-width:0px;
+  classDef csAccent fill:#007298,stroke:none,color:#ffffff,stroke-width:0px;
+  classDef csMuted fill:#e77204,stroke:none,color:#000000,stroke-width:0px;
+  classDef csCritical fill:#45842a,stroke:none,color:#000000,stroke-width:0px;
+  classDef csWarning fill:#652f6c,stroke:none,color:#ffffff,stroke-width:0px;
+  classDef csSuccess fill:#f1c319,stroke:none,color:#000000,stroke-width:0px;
+  classDef csInfo fill:#6d1222,stroke:none,color:#ffffff,stroke-width:0px;
+  classDef csSpecial fill:#004d66,stroke:none,color:#ffffff,stroke-width:0px;
+  classDef csNeutral fill:#994a00,stroke:none,color:#ffffff,stroke-width:0px;

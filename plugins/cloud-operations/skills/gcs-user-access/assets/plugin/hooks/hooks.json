@@ -1,0 +1,5 @@
+{
+  "description": "Register the local, deterministic /gcs command.",
+  "modules": ["./register.js"]
+}
+

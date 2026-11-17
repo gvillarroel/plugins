@@ -1,0 +1,6 @@
+{
+  "name": "gcs-user",
+  "version": "0.1.0",
+  "description": "List Cloud Storage in Claude Code with the Google user's existing permissions.",
+  "author": { "name": "Local skills" }
+}

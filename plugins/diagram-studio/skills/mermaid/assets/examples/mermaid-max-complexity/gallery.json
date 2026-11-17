@@ -1,0 +1,1599 @@
+{
+  "schemaVersion": 1,
+  "namespace": "mermaid",
+  "exampleSetId": "mermaid-max-complexity",
+  "title": "Mermaid Maximum Complexity Gallery",
+  "mermaidVersion": "11.16.0",
+  "familyCount": 31,
+  "patternCount": 62,
+  "outputCount": 124,
+  "finiteCapacityCaseCount": 25,
+  "finiteCapacitySlots": 200,
+  "colorsets": [
+    "colorset1",
+    "colorset2"
+  ],
+  "families": [
+    {
+      "familyId": "flowchart",
+      "slug": "flowchart",
+      "label": "Flowchart",
+      "declaration": "flowchart",
+      "category": "process",
+      "relationship": "Branching processes, decisions, boundaries, and feedback.",
+      "complexityNote": "Exercises all nine semantic classes across a dependency chain.",
+      "accessibleDescription": "Nine styled process roles form an ordered validation path from the primary entry through the neutral terminal role.",
+      "legacyIds": [
+        "mermaid-flowchart",
+        "mermaid-pattern-flowchart",
+        "mermaid-directive-flowchart-branch-review"
+      ],
+      "capacityKind": "semantic-classes",
+      "maxSlots": 9,
+      "fixtureElementCount": 9,
+      "currentDeclarations": [
+        "flowchart",
+        "graph"
+      ],
+      "acceptedDeclarations": [
+        "flowchart",
+        "graph",
+        "flowchart-elk"
+      ],
+      "accessibleTitle": "Flowchart maximum complexity showcase",
+      "accessibilityMode": "source-directives"
+    },
+    {
+      "familyId": "swimlane",
+      "slug": "swimlane",
+      "label": "Swimlane",
+      "declaration": "swimlane-beta",
+      "category": "process",
+      "relationship": "Responsibility-separated work and cross-lane handoffs.",
+      "complexityNote": "Exercises three lanes and all nine semantic classes.",
+      "accessibleDescription": "Nine styled process roles move in order across three responsibility lanes and expose two cross-lane handoffs.",
+      "legacyIds": [
+        "mermaid-swimlane",
+        "mermaid-directive-swimlane-review-handoff"
+      ],
+      "capacityKind": "semantic-classes",
+      "maxSlots": 9,
+      "fixtureElementCount": 9,
+      "currentDeclarations": [
+        "swimlane-beta"
+      ],
+      "acceptedDeclarations": [
+        "swimlane-beta"
+      ],
+      "accessibleTitle": "Swimlane maximum complexity showcase",
+      "accessibilityMode": "source-directives"
+    },
+    {
+      "familyId": "sequenceDiagram",
+      "slug": "sequence",
+      "label": "Sequence",
+      "declaration": "sequenceDiagram",
+      "category": "interaction",
+      "relationship": "Messages, activation, alternatives, and concurrency over time.",
+      "complexityNote": "Unbounded family; the advanced fixture combines actor boxes, activation, critical, option, alt, opt, par, and autonumber.",
+      "accessibleDescription": "A user import request crosses a front door and platform, then branches through critical capacity handling, warning and rejection alternatives, parallel worker persistence, and auditing.",
+      "sourceOverride": "source-overrides/sequence.mmd",
+      "legacyIds": [
+        "mermaid-sequence",
+        "mermaid-pattern-sequence-diagram",
+        "mermaid-directive-sequence-message-token"
+      ],
+      "capacityKind": "unbounded-uniform",
+      "maxSlots": null,
+      "fixtureElementCount": 4,
+      "currentDeclarations": [
+        "sequenceDiagram"
+      ],
+      "acceptedDeclarations": [
+        "sequenceDiagram"
+      ],
+      "accessibleTitle": "Sequence maximum complexity showcase",
+      "accessibilityMode": "source-directives"
+    },
+    {
+      "familyId": "classDiagram",
+      "slug": "class",
+      "label": "Class",
+      "declaration": "classDiagram",
+      "category": "structure",
+      "relationship": "Types and their structural relationships.",
+      "complexityNote": "Exercises all nine semantic classes in one relationship chain.",
+      "accessibleDescription": "Nine class roles form an ordered dependency chain and expose every semantic class available to the Mermaid styler.",
+      "legacyIds": [
+        "mermaid-class",
+        "mermaid-pattern-class-diagram",
+        "mermaid-directive-class-relation-token"
+      ],
+      "capacityKind": "semantic-classes",
+      "maxSlots": 9,
+      "fixtureElementCount": 9,
+      "currentDeclarations": [
+        "classDiagram"
+      ],
+      "acceptedDeclarations": [
+        "classDiagram",
+        "classDiagram-v2"
+      ],
+      "accessibleTitle": "Class maximum complexity showcase",
+      "accessibilityMode": "source-directives"
+    },
+    {
+      "familyId": "stateDiagram",
+      "slug": "state",
+      "label": "State",
+      "declaration": "stateDiagram-v2",
+      "category": "state",
+      "relationship": "Valid states, transitions, entry, and exit.",
+      "complexityNote": "Exercises all nine semantic classes plus initial and terminal states.",
+      "accessibleDescription": "A lifecycle advances through nine explicitly styled states from the initial marker to the terminal marker.",
+      "legacyIds": [
+        "mermaid-state",
+        "mermaid-pattern-state-diagram",
+        "mermaid-directive-state-dwell-token"
+      ],
+      "capacityKind": "semantic-classes",
+      "maxSlots": 9,
+      "fixtureElementCount": 9,
+      "currentDeclarations": [
+        "stateDiagram",
+        "stateDiagram-v2"
+      ],
+      "acceptedDeclarations": [
+        "stateDiagram",
+        "stateDiagram-v2"
+      ],
+      "accessibleTitle": "State maximum complexity showcase",
+      "accessibilityMode": "source-directives"
+    },
+    {
+      "familyId": "erDiagram",
+      "slug": "er",
+      "label": "Entity Relationship",
+      "declaration": "erDiagram",
+      "category": "data",
+      "relationship": "Entities and cardinality-bearing relationships.",
+      "complexityNote": "Exercises all nine semantic classes and eight one-to-many relations.",
+      "accessibleDescription": "Nine entities form eight ordered one-to-many relationships and expose every semantic class available to the styler.",
+      "legacyIds": [
+        "mermaid-er",
+        "mermaid-pattern-entity-relationship-diagram",
+        "mermaid-directive-er-relationship-trace"
+      ],
+      "capacityKind": "semantic-classes",
+      "maxSlots": 9,
+      "fixtureElementCount": 9,
+      "currentDeclarations": [
+        "erDiagram"
+      ],
+      "acceptedDeclarations": [
+        "erDiagram"
+      ],
+      "accessibleTitle": "Entity Relationship maximum complexity showcase",
+      "accessibilityMode": "source-directives"
+    },
+    {
+      "familyId": "journey",
+      "slug": "user-journey",
+      "label": "User Journey",
+      "declaration": "journey",
+      "category": "experience",
+      "relationship": "Stages, tasks, actors, and satisfaction.",
+      "complexityNote": "Shows seven distinct section classes plus the eighth cycling boundary.",
+      "accessibleDescription": "Eight ordered journey sections show satisfaction changing from five to one and back to four; the eighth section demonstrates the documented color cycle.",
+      "legacyIds": [
+        "mermaid-user-journey",
+        "mermaid-pattern-user-journey",
+        "mermaid-directive-journey-stage-progress"
+      ],
+      "capacityKind": "reachable-cycle",
+      "maxSlots": 7,
+      "fixtureElementCount": 8,
+      "currentDeclarations": [
+        "journey"
+      ],
+      "acceptedDeclarations": [
+        "journey"
+      ],
+      "accessibleTitle": "User Journey maximum complexity showcase",
+      "accessibilityMode": "source-directives"
+    },
+    {
+      "familyId": "gantt",
+      "slug": "gantt",
+      "label": "Gantt",
+      "declaration": "gantt",
+      "category": "time",
+      "relationship": "Tasks, dates, durations, dependencies, and status.",
+      "complexityNote": "Exercises normal, active, done, critical, active-critical, and done-critical task roles.",
+      "accessibleDescription": "Six dated tasks expose every Gantt status combination from normal through done-critical.",
+      "legacyIds": [
+        "mermaid-gantt",
+        "mermaid-pattern-gantt",
+        "mermaid-directive-gantt-progress-lane"
+      ],
+      "capacityKind": "semantic-roles",
+      "maxSlots": 6,
+      "fixtureElementCount": 6,
+      "currentDeclarations": [
+        "gantt"
+      ],
+      "acceptedDeclarations": [
+        "gantt"
+      ],
+      "accessibleTitle": "Gantt maximum complexity showcase",
+      "accessibilityMode": "source-directives"
+    },
+    {
+      "familyId": "pie",
+      "slug": "pie",
+      "label": "Pie",
+      "declaration": "pie",
+      "category": "quantity",
+      "relationship": "Non-negative parts of a whole.",
+      "complexityNote": "Uses all twelve slice colors before the scheme repeats.",
+      "accessibleDescription": "Twelve slices descend from value twelve to one and occupy every available pie color slot before reuse.",
+      "legacyIds": [
+        "mermaid-pie",
+        "mermaid-pattern-pie-chart",
+        "mermaid-directive-pie-segment-callout"
+      ],
+      "capacityKind": "fixed-cycle",
+      "maxSlots": 12,
+      "fixtureElementCount": 12,
+      "currentDeclarations": [
+        "pie"
+      ],
+      "acceptedDeclarations": [
+        "pie"
+      ],
+      "accessibleTitle": "Pie maximum complexity showcase",
+      "accessibilityMode": "source-directives"
+    },
+    {
+      "familyId": "quadrantChart",
+      "slug": "quadrant",
+      "label": "Quadrant",
+      "declaration": "quadrantChart",
+      "category": "position",
+      "relationship": "Items positioned against two named axes.",
+      "complexityNote": "Exercises all four semantic quadrant domains.",
+      "accessibleDescription": "Four labeled points occupy the invest, explore, defer, and maintain domains of an effort versus impact matrix.",
+      "legacyIds": [
+        "mermaid-quadrant",
+        "mermaid-pattern-quadrant-chart",
+        "mermaid-directive-quadrant-point-routing"
+      ],
+      "capacityKind": "semantic-roles",
+      "maxSlots": 4,
+      "fixtureElementCount": 4,
+      "currentDeclarations": [
+        "quadrantChart"
+      ],
+      "acceptedDeclarations": [
+        "quadrantChart"
+      ],
+      "accessibleTitle": "Quadrant maximum complexity showcase",
+      "accessibilityMode": "source-directives"
+    },
+    {
+      "familyId": "requirementDiagram",
+      "slug": "requirement",
+      "label": "Requirement",
+      "declaration": "requirementDiagram",
+      "category": "traceability",
+      "relationship": "Requirements, risk, verification, and trace relations.",
+      "complexityNote": "Exercises all nine semantic classes across nine traced requirements.",
+      "accessibleDescription": "Nine requirements with low, medium, and high risk form an eight-link containment trace and expose every semantic class.",
+      "legacyIds": [
+        "mermaid-requirement",
+        "mermaid-pattern-requirement-diagram",
+        "mermaid-directive-requirement-traceability-thread"
+      ],
+      "capacityKind": "semantic-classes",
+      "maxSlots": 9,
+      "fixtureElementCount": 9,
+      "currentDeclarations": [
+        "requirementDiagram"
+      ],
+      "acceptedDeclarations": [
+        "requirementDiagram"
+      ],
+      "accessibleTitle": "Requirement maximum complexity showcase",
+      "accessibilityMode": "source-directives"
+    },
+    {
+      "familyId": "gitGraph",
+      "slug": "gitgraph",
+      "label": "GitGraph",
+      "declaration": "gitGraph",
+      "category": "history",
+      "relationship": "Branches and commits through repository history.",
+      "complexityNote": "Uses all eight branch colors including the main branch.",
+      "accessibleDescription": "The main branch creates seven feature branches, each with a labeled commit, and consumes all eight GitGraph branch color slots.",
+      "legacyIds": [
+        "mermaid-gitgraph",
+        "mermaid-pattern-gitgraph-diagram",
+        "mermaid-directive-gitgraph-release-flow"
+      ],
+      "capacityKind": "fixed-cycle",
+      "maxSlots": 8,
+      "fixtureElementCount": 8,
+      "currentDeclarations": [
+        "gitGraph"
+      ],
+      "acceptedDeclarations": [
+        "gitGraph"
+      ],
+      "accessibleTitle": "GitGraph maximum complexity showcase",
+      "accessibilityMode": "source-directives"
+    },
+    {
+      "familyId": "c4",
+      "slug": "c4",
+      "label": "C4",
+      "declaration": "C4Context",
+      "category": "architecture",
+      "relationship": "People and software at C4 abstraction levels.",
+      "complexityNote": "Unbounded family; the advanced fixture includes people, internal and external systems, styled elements, styled relations, and layout configuration.",
+      "accessibleDescription": "A skill author updates a repository that supplies Mermaid source to an external renderer and browser, with four directed review and publication relationships.",
+      "sourceOverride": "source-overrides/c4.mmd",
+      "legacyIds": [
+        "mermaid-c4",
+        "mermaid-pattern-c4-diagram",
+        "mermaid-directive-c4-context-message-flow"
+      ],
+      "capacityKind": "unbounded-uniform",
+      "maxSlots": null,
+      "fixtureElementCount": 4,
+      "currentDeclarations": [
+        "C4Context",
+        "C4Container",
+        "C4Component",
+        "C4Dynamic",
+        "C4Deployment"
+      ],
+      "acceptedDeclarations": [
+        "C4Context",
+        "C4Container",
+        "C4Component",
+        "C4Dynamic",
+        "C4Deployment"
+      ],
+      "accessibleTitle": "C4 maximum complexity showcase",
+      "accessibilityMode": "source-directives"
+    },
+    {
+      "familyId": "mindmap",
+      "slug": "mindmap",
+      "label": "Mindmap",
+      "declaration": "mindmap",
+      "category": "hierarchy",
+      "relationship": "A concept and its hierarchical associations.",
+      "complexityNote": "Uses the root plus eleven level-one branches for all twelve scale colors.",
+      "accessibilityMode": "rendered-svg-fallback",
+      "accessibleDescription": "One central concept has eleven first-level branches and consumes the complete twelve-color mindmap scale including the root.",
+      "legacyIds": [
+        "mermaid-mindmap",
+        "mermaid-pattern-mindmap",
+        "mermaid-directive-mindmap-branch-focus"
+      ],
+      "capacityKind": "fixed-cycle",
+      "maxSlots": 12,
+      "fixtureElementCount": 12,
+      "currentDeclarations": [
+        "mindmap"
+      ],
+      "acceptedDeclarations": [
+        "mindmap"
+      ],
+      "accessibleTitle": "Mindmap maximum complexity showcase"
+    },
+    {
+      "familyId": "timeline",
+      "slug": "timeline",
+      "label": "Timeline",
+      "declaration": "timeline",
+      "category": "time",
+      "relationship": "Events grouped in chronological sections.",
+      "complexityNote": "Uses all twelve timeline section colors before cycling.",
+      "accessibleDescription": "Twelve dated sections span the first twelve days of January 2026 and consume every timeline scale color before reuse.",
+      "legacyIds": [
+        "mermaid-timeline",
+        "mermaid-pattern-timeline",
+        "mermaid-directive-timeline-milestone-scan"
+      ],
+      "capacityKind": "fixed-cycle",
+      "maxSlots": 12,
+      "fixtureElementCount": 12,
+      "currentDeclarations": [
+        "timeline"
+      ],
+      "acceptedDeclarations": [
+        "timeline"
+      ],
+      "accessibleTitle": "Timeline maximum complexity showcase",
+      "accessibilityMode": "source-directives"
+    },
+    {
+      "familyId": "zenuml",
+      "slug": "zenuml",
+      "label": "ZenUML",
+      "declaration": "zenuml",
+      "category": "interaction",
+      "relationship": "Code-like interactions and conditional behavior.",
+      "complexityNote": "Unbounded family; the advanced fixture combines actor, boundary, database, request-response, and conditional blocks.",
+      "accessibleDescription": "An author asks a documentation boundary to load Mermaid source from a repository, then receives either a colored render or a parser error according to frontmatter validity.",
+      "sourceOverride": "source-overrides/zenuml.mmd",
+      "legacyIds": [
+        "mermaid-zenuml",
+        "mermaid-pattern-zenuml",
+        "mermaid-directive-zenuml-frontmatter-render"
+      ],
+      "capacityKind": "unbounded-uniform",
+      "maxSlots": null,
+      "fixtureElementCount": 3,
+      "currentDeclarations": [
+        "zenuml"
+      ],
+      "acceptedDeclarations": [
+        "zenuml"
+      ],
+      "accessibleTitle": "ZenUML maximum complexity showcase",
+      "accessibilityMode": "source-directives"
+    },
+    {
+      "familyId": "sankey",
+      "slug": "sankey",
+      "label": "Sankey",
+      "declaration": "sankey",
+      "category": "flow",
+      "relationship": "Weighted movement between sources and destinations.",
+      "complexityNote": "Uses eight distinct node colors before the configured map cycles.",
+      "accessibilityMode": "rendered-svg-fallback",
+      "accessibleDescription": "Eight nodes form a descending weighted flow from value eight to value two and consume every configured Sankey node color.",
+      "legacyIds": [
+        "mermaid-sankey",
+        "mermaid-pattern-sankey",
+        "mermaid-directive-sankey-flow-handoff"
+      ],
+      "capacityKind": "configured-cycle",
+      "maxSlots": 8,
+      "fixtureElementCount": 8,
+      "currentDeclarations": [
+        "sankey"
+      ],
+      "acceptedDeclarations": [
+        "sankey",
+        "sankey-beta"
+      ],
+      "accessibleTitle": "Sankey maximum complexity showcase"
+    },
+    {
+      "familyId": "xyChart",
+      "slug": "xy-chart",
+      "label": "XY Chart",
+      "declaration": "xychart",
+      "category": "quantity",
+      "relationship": "Series compared along shared numeric axes.",
+      "complexityNote": "Uses six plot series; Colorset 2 reaches its sixth color while Colorset 1 demonstrates the documented five-color cycle.",
+      "accessibleDescription": "Six alternating bar and line series increase across four categories and expose the extended palette tail and standard palette cycle.",
+      "legacyIds": [
+        "mermaid-xy-chart",
+        "mermaid-pattern-xy-chart",
+        "mermaid-directive-xy-chart-series-reveal"
+      ],
+      "capacityKind": "configured-cycle",
+      "maxSlots": 6,
+      "fixtureElementCount": 6,
+      "currentDeclarations": [
+        "xychart"
+      ],
+      "acceptedDeclarations": [
+        "xychart",
+        "xychart-beta"
+      ],
+      "accessibleTitle": "XY Chart maximum complexity showcase",
+      "accessibilityMode": "source-directives"
+    },
+    {
+      "familyId": "block",
+      "slug": "block",
+      "label": "Block",
+      "declaration": "block",
+      "category": "structure",
+      "relationship": "Blocks arranged in an explicit spatial grid.",
+      "complexityNote": "Exercises all nine semantic classes in a three-by-three layout.",
+      "accessibilityMode": "rendered-svg-fallback",
+      "accessibleDescription": "Nine styled blocks occupy a three-column grid and form three ordered relationship rows.",
+      "legacyIds": [
+        "mermaid-block",
+        "mermaid-pattern-block-diagram",
+        "mermaid-directive-block-diagram-directive-selectors"
+      ],
+      "capacityKind": "semantic-classes",
+      "maxSlots": 9,
+      "fixtureElementCount": 9,
+      "currentDeclarations": [
+        "block"
+      ],
+      "acceptedDeclarations": [
+        "block",
+        "block-beta"
+      ],
+      "accessibleTitle": "Block maximum complexity showcase"
+    },
+    {
+      "familyId": "packet",
+      "slug": "packet",
+      "label": "Packet",
+      "declaration": "packet",
+      "category": "network",
+      "relationship": "Bit fields, offsets, and widths in a packet.",
+      "complexityNote": "Unbounded family; the advanced fixture lays out a complete 32-bit transport header with twelve fields.",
+      "accessibleDescription": "A 32-bit transport header is divided into source and destination ports, sequence and acknowledgment values, control flags, window, checksum, pointer, options, and payload fields.",
+      "sourceOverride": "source-overrides/packet.mmd",
+      "legacyIds": [
+        "mermaid-packet",
+        "mermaid-pattern-packet-diagram",
+        "mermaid-directive-packet-field-scan"
+      ],
+      "capacityKind": "unbounded-uniform",
+      "maxSlots": null,
+      "fixtureElementCount": 8,
+      "currentDeclarations": [
+        "packet"
+      ],
+      "acceptedDeclarations": [
+        "packet",
+        "packet-beta"
+      ],
+      "accessibleTitle": "Packet maximum complexity showcase",
+      "accessibilityMode": "source-directives"
+    },
+    {
+      "familyId": "kanban",
+      "slug": "kanban",
+      "label": "Kanban",
+      "declaration": "kanban",
+      "category": "work",
+      "relationship": "Cards grouped by workflow state.",
+      "complexityNote": "Uses all ten reachable colored columns in Mermaid 11.16.0.",
+      "accessibleDescription": "Ten workflow columns each contain one card and consume every reachable Kanban column color from section one through section ten.",
+      "legacyIds": [
+        "mermaid-kanban",
+        "mermaid-pattern-kanban",
+        "mermaid-directive-kanban-card-flow"
+      ],
+      "capacityKind": "reachable-cycle",
+      "maxSlots": 10,
+      "fixtureElementCount": 10,
+      "currentDeclarations": [
+        "kanban"
+      ],
+      "acceptedDeclarations": [
+        "kanban"
+      ],
+      "accessibleTitle": "Kanban maximum complexity showcase",
+      "accessibilityMode": "source-directives"
+    },
+    {
+      "familyId": "architecture",
+      "slug": "architecture",
+      "label": "Architecture",
+      "declaration": "architecture-beta",
+      "category": "architecture",
+      "relationship": "Services, groups, ports, and routed connections.",
+      "complexityNote": "Exercises grouped and ungrouped services plus horizontal and vertical port routing.",
+      "accessibleDescription": "Ingress reaches an API and worker across edge and core groups; the worker routes to database, queue, and archive services.",
+      "legacyIds": [
+        "mermaid-architecture",
+        "mermaid-pattern-architecture",
+        "mermaid-directive-architecture-service-pipeline"
+      ],
+      "capacityKind": "semantic-roles",
+      "maxSlots": 2,
+      "fixtureElementCount": 6,
+      "currentDeclarations": [
+        "architecture-beta"
+      ],
+      "acceptedDeclarations": [
+        "architecture-beta"
+      ],
+      "accessibleTitle": "Architecture maximum complexity showcase",
+      "accessibilityMode": "source-directives"
+    },
+    {
+      "familyId": "radar",
+      "slug": "radar",
+      "label": "Radar",
+      "declaration": "radar-beta",
+      "category": "quantity",
+      "relationship": "Multivariable profiles on a shared radial scale.",
+      "complexityNote": "Uses all twelve curve colors before additional curves lose a new slot.",
+      "accessibleDescription": "Twelve four-axis curves rotate values from one through twelve and consume every generated radar curve color.",
+      "legacyIds": [
+        "mermaid-radar",
+        "mermaid-pattern-radar",
+        "mermaid-directive-radar-series-layering"
+      ],
+      "capacityKind": "fixed-cycle",
+      "maxSlots": 12,
+      "fixtureElementCount": 12,
+      "currentDeclarations": [
+        "radar-beta"
+      ],
+      "acceptedDeclarations": [
+        "radar-beta"
+      ],
+      "accessibleTitle": "Radar maximum complexity showcase",
+      "accessibilityMode": "source-directives"
+    },
+    {
+      "familyId": "eventmodeling",
+      "slug": "event-modeling",
+      "label": "Event Modeling",
+      "declaration": "eventmodeling",
+      "category": "domain",
+      "relationship": "UI, commands, events, read models, and processors.",
+      "complexityNote": "Exercises all five semantic Event Modeling roles.",
+      "accessibilityMode": "rendered-svg-fallback",
+      "accessibleDescription": "One timeline frame each represents a user interface, processor, read model, command, and event role.",
+      "legacyIds": [
+        "mermaid-event-modeling",
+        "mermaid-pattern-event-modeling",
+        "mermaid-directive-event-modeling-causality"
+      ],
+      "capacityKind": "semantic-roles",
+      "maxSlots": 5,
+      "fixtureElementCount": 5,
+      "currentDeclarations": [
+        "eventmodeling"
+      ],
+      "acceptedDeclarations": [
+        "eventmodeling"
+      ],
+      "accessibleTitle": "Event Modeling maximum complexity showcase"
+    },
+    {
+      "familyId": "treemap",
+      "slug": "treemap",
+      "label": "Treemap",
+      "declaration": "treemap-beta",
+      "category": "hierarchy",
+      "relationship": "Quantitative hierarchy encoded by area.",
+      "complexityNote": "Uses a named root plus eleven child groups for all twelve scale colors.",
+      "accessibleDescription": "A named capacity root contains eleven descending-value groups and consumes all twelve named hierarchy colors including the root.",
+      "legacyIds": [
+        "mermaid-treemap",
+        "mermaid-pattern-treemap",
+        "mermaid-directive-treemap-hierarchy-focus"
+      ],
+      "capacityKind": "fixed-cycle",
+      "maxSlots": 12,
+      "fixtureElementCount": 12,
+      "currentDeclarations": [
+        "treemap-beta"
+      ],
+      "acceptedDeclarations": [
+        "treemap-beta",
+        "treemap"
+      ],
+      "accessibleTitle": "Treemap maximum complexity showcase",
+      "accessibilityMode": "source-directives"
+    },
+    {
+      "familyId": "venn",
+      "slug": "venn",
+      "label": "Venn",
+      "declaration": "venn-beta",
+      "category": "sets",
+      "relationship": "Set membership and overlap.",
+      "complexityNote": "Uses all eight set colors before the scheme repeats.",
+      "accessibilityMode": "rendered-svg-fallback",
+      "accessibleDescription": "Eight named sets descend from value twelve to value five and consume every available Venn set color.",
+      "legacyIds": [
+        "mermaid-venn",
+        "mermaid-pattern-venn",
+        "mermaid-directive-venn-coverage-focus"
+      ],
+      "capacityKind": "fixed-cycle",
+      "maxSlots": 8,
+      "fixtureElementCount": 8,
+      "currentDeclarations": [
+        "venn-beta"
+      ],
+      "acceptedDeclarations": [
+        "venn-beta"
+      ],
+      "accessibleTitle": "Venn maximum complexity showcase"
+    },
+    {
+      "familyId": "ishikawa",
+      "slug": "ishikawa",
+      "label": "Ishikawa",
+      "declaration": "ishikawa-beta",
+      "category": "causality",
+      "relationship": "Nested causes converging on one effect.",
+      "complexityNote": "Unbounded family; the advanced fixture uses six main branches and eighteen nested causes.",
+      "accessibleDescription": "Delivery delay is traced to process, people, platform, policy, data, and environment branches, each with three nested causes.",
+      "sourceOverride": "source-overrides/ishikawa.mmd",
+      "legacyIds": [
+        "mermaid-ishikawa",
+        "mermaid-pattern-ishikawa",
+        "mermaid-directive-ishikawa-root-cause"
+      ],
+      "capacityKind": "unbounded-uniform",
+      "maxSlots": null,
+      "fixtureElementCount": 8,
+      "currentDeclarations": [
+        "ishikawa-beta"
+      ],
+      "acceptedDeclarations": [
+        "ishikawa-beta",
+        "ishikawa"
+      ],
+      "accessibleTitle": "Ishikawa maximum complexity showcase",
+      "accessibilityMode": "source-directives"
+    },
+    {
+      "familyId": "wardley",
+      "slug": "wardley",
+      "label": "Wardley",
+      "declaration": "wardley-beta",
+      "category": "strategy",
+      "relationship": "A value chain positioned against evolution.",
+      "complexityNote": "Exercises anchor, build, buy, and outsource semantic roles across six linked components.",
+      "accessibleDescription": "A user value chain descends through interface, API, worker, database, and archive components while moving from genesis toward commodity evolution.",
+      "legacyIds": [
+        "mermaid-wardley",
+        "mermaid-pattern-wardley",
+        "mermaid-directive-wardley-value-chain"
+      ],
+      "capacityKind": "semantic-roles",
+      "maxSlots": 4,
+      "fixtureElementCount": 6,
+      "currentDeclarations": [
+        "wardley-beta"
+      ],
+      "acceptedDeclarations": [
+        "wardley-beta"
+      ],
+      "accessibleTitle": "Wardley maximum complexity showcase",
+      "accessibilityMode": "source-directives"
+    },
+    {
+      "familyId": "cynefin",
+      "slug": "cynefin",
+      "label": "Cynefin",
+      "declaration": "cynefin-beta",
+      "category": "decision",
+      "relationship": "Situations classified into decision domains.",
+      "complexityNote": "Exercises all five fixed domains and a cross-domain relation.",
+      "accessibleDescription": "One item occupies each of the complex, complicated, clear, chaotic, and confusion domains, with an analysis transition from complex to complicated.",
+      "legacyIds": [
+        "mermaid-cynefin",
+        "mermaid-directive-cynefin-domain-response"
+      ],
+      "capacityKind": "semantic-roles",
+      "maxSlots": 5,
+      "fixtureElementCount": 5,
+      "currentDeclarations": [
+        "cynefin-beta"
+      ],
+      "acceptedDeclarations": [
+        "cynefin-beta"
+      ],
+      "accessibleTitle": "Cynefin maximum complexity showcase",
+      "accessibilityMode": "source-directives"
+    },
+    {
+      "familyId": "treeView",
+      "slug": "treeview",
+      "label": "TreeView",
+      "declaration": "treeView-beta",
+      "category": "hierarchy",
+      "relationship": "Directories and files in a rooted hierarchy.",
+      "complexityNote": "Unbounded family; the advanced fixture spans five levels, six directories, and twelve files.",
+      "accessibleDescription": "A project tree expands source, tests, documentation, scripts, reports, and assets through as many as five hierarchy levels.",
+      "sourceOverride": "source-overrides/treeview.mmd",
+      "legacyIds": [
+        "mermaid-treeview",
+        "mermaid-pattern-treeview",
+        "mermaid-directive-treeview-directory-scan"
+      ],
+      "capacityKind": "unbounded-uniform",
+      "maxSlots": null,
+      "fixtureElementCount": 8,
+      "currentDeclarations": [
+        "treeView-beta"
+      ],
+      "acceptedDeclarations": [
+        "treeView-beta"
+      ],
+      "accessibleTitle": "TreeView maximum complexity showcase",
+      "accessibilityMode": "source-directives"
+    },
+    {
+      "familyId": "railroad",
+      "slug": "railroad",
+      "label": "Railroad",
+      "declaration": "railroad-ebnf-beta",
+      "category": "grammar",
+      "relationship": "Grammar productions and parser routes.",
+      "complexityNote": "Exercises terminal, nonterminal, sequence, and optional grammar roles; the family also exposes EBNF, ABNF, and PEG declarations.",
+      "accessibleDescription": "The root grammar requires an identifier and expression, may include an operator, and resolves the expression to a number.",
+      "legacyIds": [
+        "mermaid-railroad",
+        "mermaid-directive-railroad-artifact-rule"
+      ],
+      "capacityKind": "semantic-roles",
+      "maxSlots": 4,
+      "fixtureElementCount": 6,
+      "currentDeclarations": [
+        "railroad-beta",
+        "railroad-ebnf-beta",
+        "railroad-abnf-beta",
+        "railroad-peg-beta"
+      ],
+      "acceptedDeclarations": [
+        "railroad-beta",
+        "railroad-ebnf-beta",
+        "railroad-abnf-beta",
+        "railroad-peg-beta"
+      ],
+      "accessibleTitle": "Railroad maximum complexity showcase",
+      "accessibilityMode": "source-directives"
+    }
+  ],
+  "patterns": [
+    {
+      "id": "mermaid-flowchart-cs1",
+      "familyId": "flowchart",
+      "colorset": "colorset1",
+      "variant": "cs1",
+      "source": "source/colorset1/flowchart.mmd",
+      "staticSvg": "svg/colorset1/flowchart.static.svg",
+      "animatedSvg": "svg/colorset1/flowchart.animated.svg",
+      "sourceSha256": "312dcd064417e7eb3c36fe4768fd21d6622dd22def94ddd42a0c45999a0f7384",
+      "staticSha256": "200d4a2f3c040e13236c2a5b72c668e3af50f3c2237fd573ba60450ec3435a35",
+      "animatedSha256": "fa6ccd59a74b8e05761cc8731b9dbd674d8df33897c9273bd4ce728ed0e54c2a"
+    },
+    {
+      "id": "mermaid-flowchart-cs2",
+      "familyId": "flowchart",
+      "colorset": "colorset2",
+      "variant": "cs2",
+      "source": "source/colorset2/flowchart.mmd",
+      "staticSvg": "svg/colorset2/flowchart.static.svg",
+      "animatedSvg": "svg/colorset2/flowchart.animated.svg",
+      "sourceSha256": "10a8b8be24c1ffc9d2a556aa0118a8ca3cd21f54585a0dc89b1fbecbd4eeeb4f",
+      "staticSha256": "a4128a515e38f60bd6100388f7962bc194cb292675db91ac71fafe9f270b4420",
+      "animatedSha256": "2808fba63e7555776b0847826dfb484177861048705f87cf86ec922c2f542dbf"
+    },
+    {
+      "id": "mermaid-swimlane-cs1",
+      "familyId": "swimlane",
+      "colorset": "colorset1",
+      "variant": "cs1",
+      "source": "source/colorset1/swimlane.mmd",
+      "staticSvg": "svg/colorset1/swimlane.static.svg",
+      "animatedSvg": "svg/colorset1/swimlane.animated.svg",
+      "sourceSha256": "b5204405f54685006d5e9af17752d87508eebfb86d52f782a62a0d29de5b6039",
+      "staticSha256": "db7b159ea8b159b1a962446418e5e1c2a8928a8f8b1be447d7b878bb3e668cec",
+      "animatedSha256": "c8facc04bda41fba0df50eb354e5387501a7fc868e95a1035112c4e040970d54"
+    },
+    {
+      "id": "mermaid-swimlane-cs2",
+      "familyId": "swimlane",
+      "colorset": "colorset2",
+      "variant": "cs2",
+      "source": "source/colorset2/swimlane.mmd",
+      "staticSvg": "svg/colorset2/swimlane.static.svg",
+      "animatedSvg": "svg/colorset2/swimlane.animated.svg",
+      "sourceSha256": "07a590b8d57c976b17bac1993800c20cc928b6f207c92b4aefb2db88f903de38",
+      "staticSha256": "e2ec8e4128751d49281c069091b0ea64dc6a9902d17cdc5e86fa5b9164a54ba4",
+      "animatedSha256": "5e490bf840561dd297c9e98a4b8bc574c06a89218156b5909707bf4cb4cf1368"
+    },
+    {
+      "id": "mermaid-sequence-cs1",
+      "familyId": "sequenceDiagram",
+      "colorset": "colorset1",
+      "variant": "cs1",
+      "source": "source/colorset1/sequence.mmd",
+      "staticSvg": "svg/colorset1/sequence.static.svg",
+      "animatedSvg": "svg/colorset1/sequence.animated.svg",
+      "sourceSha256": "71d508b5b14c8d76eba7ee2efc5e82c8660dabe2a6ebd31dd931fb8e1cdd72b5",
+      "staticSha256": "0cbfb98909cc949263fd705037e219b0e388322825697783f70acda40d362a9b",
+      "animatedSha256": "479f4e16515285cba47373902bc74f1bdf43b138c3fe7d0cb95fdb7870f0dc6f"
+    },
+    {
+      "id": "mermaid-sequence-cs2",
+      "familyId": "sequenceDiagram",
+      "colorset": "colorset2",
+      "variant": "cs2",
+      "source": "source/colorset2/sequence.mmd",
+      "staticSvg": "svg/colorset2/sequence.static.svg",
+      "animatedSvg": "svg/colorset2/sequence.animated.svg",
+      "sourceSha256": "1a3aded1b6c2868fb94c8427cce4489b9450f27d944f3fa560a70dfdbfbbc410",
+      "staticSha256": "bbb8b6ea150c9eed56884ad28860a1e99387200de2367149d688474a119f1d71",
+      "animatedSha256": "8ff4b83d873deed49bd2b5b9f8237000e58bfdf7c462e269d7efe4057379eced"
+    },
+    {
+      "id": "mermaid-class-cs1",
+      "familyId": "classDiagram",
+      "colorset": "colorset1",
+      "variant": "cs1",
+      "source": "source/colorset1/class.mmd",
+      "staticSvg": "svg/colorset1/class.static.svg",
+      "animatedSvg": "svg/colorset1/class.animated.svg",
+      "sourceSha256": "76f216765e26e30e61c4d14fc25b08f07612cba6857e0c7ebe38f47841a5e663",
+      "staticSha256": "1194ee827de27f164f07b706afc55d3f7220c6b4dd8c3569d2a3a0b032d96d0c",
+      "animatedSha256": "f0a75c757cc9df145de432546b86a4302ed97f979080ead7ecc876f147408513"
+    },
+    {
+      "id": "mermaid-class-cs2",
+      "familyId": "classDiagram",
+      "colorset": "colorset2",
+      "variant": "cs2",
+      "source": "source/colorset2/class.mmd",
+      "staticSvg": "svg/colorset2/class.static.svg",
+      "animatedSvg": "svg/colorset2/class.animated.svg",
+      "sourceSha256": "2b508fd90951585c5daae166bb2ff96c301f7f75046a0df60ffa1b718b79adbc",
+      "staticSha256": "88a60991b8e1749714ad6896c6893feeb1ec12175af869ac3c0899fdd3b0a654",
+      "animatedSha256": "da8ab770f82593e9728e15f7af9397e512aecb6c5704db2ca999ba1c7b9c74cc"
+    },
+    {
+      "id": "mermaid-state-cs1",
+      "familyId": "stateDiagram",
+      "colorset": "colorset1",
+      "variant": "cs1",
+      "source": "source/colorset1/state.mmd",
+      "staticSvg": "svg/colorset1/state.static.svg",
+      "animatedSvg": "svg/colorset1/state.animated.svg",
+      "sourceSha256": "28c8a947259f76d0175c5443f7fb6fce4bd61fb01d04789bdcef7264d57e5d5e",
+      "staticSha256": "ce2ec12bb86310c389acd8b3b9777440cf6318c2943f94dceb7cf0a89dd63778",
+      "animatedSha256": "6c28b3b1d89f837c08cef5860860f4856a8e3624ec6aeee5fc2a1119644f0adb"
+    },
+    {
+      "id": "mermaid-state-cs2",
+      "familyId": "stateDiagram",
+      "colorset": "colorset2",
+      "variant": "cs2",
+      "source": "source/colorset2/state.mmd",
+      "staticSvg": "svg/colorset2/state.static.svg",
+      "animatedSvg": "svg/colorset2/state.animated.svg",
+      "sourceSha256": "d88cf23e85b20671bdd1ac18eb54866607d0150697a8afa33ea7a2f8b2193c9c",
+      "staticSha256": "d230266d6ef2a3c3445a4c5d6866b143f6fedc4ed6528be109e8996f1579f987",
+      "animatedSha256": "61144747453df0979784208f6cf0cfa63ab7f84aed4d1fede1bb74251019243b"
+    },
+    {
+      "id": "mermaid-er-cs1",
+      "familyId": "erDiagram",
+      "colorset": "colorset1",
+      "variant": "cs1",
+      "source": "source/colorset1/er.mmd",
+      "staticSvg": "svg/colorset1/er.static.svg",
+      "animatedSvg": "svg/colorset1/er.animated.svg",
+      "sourceSha256": "d5da646152573048c2e862d238f412789dd524459b11b841c3eeaa1ecf1dbd9b",
+      "staticSha256": "1fab0f8e257929b26bcf964ce29afd17096dfbe7561c90e40c35a49533cc7eaa",
+      "animatedSha256": "706356cb7bb52258dfbc1b2e62a0724e6d4f6f277e1f2b79263551e11b438924"
+    },
+    {
+      "id": "mermaid-er-cs2",
+      "familyId": "erDiagram",
+      "colorset": "colorset2",
+      "variant": "cs2",
+      "source": "source/colorset2/er.mmd",
+      "staticSvg": "svg/colorset2/er.static.svg",
+      "animatedSvg": "svg/colorset2/er.animated.svg",
+      "sourceSha256": "02943912dca263bde46a6e8e4903fbaecd2710b22283e306b327c686621479e6",
+      "staticSha256": "ef3eee821581845ab74de0c1871495e1ba996ff3863e273a75b6e844cc60e0cf",
+      "animatedSha256": "e60b53c89f32b249ab70d23cc9742ebc8cb8ab380a333f339887af17ed7f815b"
+    },
+    {
+      "id": "mermaid-user-journey-cs1",
+      "familyId": "journey",
+      "colorset": "colorset1",
+      "variant": "cs1",
+      "source": "source/colorset1/user-journey.mmd",
+      "staticSvg": "svg/colorset1/user-journey.static.svg",
+      "animatedSvg": "svg/colorset1/user-journey.animated.svg",
+      "sourceSha256": "ecb947bf779933ae95527491195bbc2a143febb31863b96ea70f84a6ade3fabb",
+      "staticSha256": "51e7f2b2a09acd642edec519211ef43da00bddab4e39d373a6357cfb3e72601b",
+      "animatedSha256": "f44ebdd90e2d5dbc7b64829abada49c9413efc5172084fb2eea3ad02653f5355"
+    },
+    {
+      "id": "mermaid-user-journey-cs2",
+      "familyId": "journey",
+      "colorset": "colorset2",
+      "variant": "cs2",
+      "source": "source/colorset2/user-journey.mmd",
+      "staticSvg": "svg/colorset2/user-journey.static.svg",
+      "animatedSvg": "svg/colorset2/user-journey.animated.svg",
+      "sourceSha256": "ea572644d99e649f561ea11005c4db841db279131cbe1be867fa436ef4369d41",
+      "staticSha256": "c5cd91fddc5286b6fe004e8fafcee142073c27020918ea5ee136e6172b73722f",
+      "animatedSha256": "15fa2d41256e00d9301dbb1fbe6a9416e7ab3f284cbe2e5e2f65648848979460"
+    },
+    {
+      "id": "mermaid-gantt-cs1",
+      "familyId": "gantt",
+      "colorset": "colorset1",
+      "variant": "cs1",
+      "source": "source/colorset1/gantt.mmd",
+      "staticSvg": "svg/colorset1/gantt.static.svg",
+      "animatedSvg": "svg/colorset1/gantt.animated.svg",
+      "sourceSha256": "dc92b7c03735ad5a0666a18fea10f56e524b9ca70a18920f0ca80ba0556a0009",
+      "staticSha256": "0c934c92e26a02e934eb37bf51040b15d1ab5aa2f351d5a61d6e7730fe4c6732",
+      "animatedSha256": "1a5439355e5a6dd3150bd4e7143b5c55b7bb733805275fec5e3616b2ddc19b39"
+    },
+    {
+      "id": "mermaid-gantt-cs2",
+      "familyId": "gantt",
+      "colorset": "colorset2",
+      "variant": "cs2",
+      "source": "source/colorset2/gantt.mmd",
+      "staticSvg": "svg/colorset2/gantt.static.svg",
+      "animatedSvg": "svg/colorset2/gantt.animated.svg",
+      "sourceSha256": "03926ed32c527c8d509b702ec07c202e158fef78546cdcd1b3b697f1166a0ac4",
+      "staticSha256": "a0471be18c4151cf0d467c9594ebed2538caf968754264762285007fc9e78d22",
+      "animatedSha256": "f64b65f1239a588ba791f3d81891de571685264a38994f59eb9e2354c97c7739"
+    },
+    {
+      "id": "mermaid-pie-cs1",
+      "familyId": "pie",
+      "colorset": "colorset1",
+      "variant": "cs1",
+      "source": "source/colorset1/pie.mmd",
+      "staticSvg": "svg/colorset1/pie.static.svg",
+      "animatedSvg": "svg/colorset1/pie.animated.svg",
+      "sourceSha256": "ef77c89b1dedf8014ee2e105436eb27153d66e33776671da56c9ce53d5a1feab",
+      "staticSha256": "72757cc8431d14ba2c08d031dba6d09106d97117a8c0a7e434313f91fc863105",
+      "animatedSha256": "1dd2803d7015ad8a753f67d8ae5f4c2c3461b189711638121a14b124db152848"
+    },
+    {
+      "id": "mermaid-pie-cs2",
+      "familyId": "pie",
+      "colorset": "colorset2",
+      "variant": "cs2",
+      "source": "source/colorset2/pie.mmd",
+      "staticSvg": "svg/colorset2/pie.static.svg",
+      "animatedSvg": "svg/colorset2/pie.animated.svg",
+      "sourceSha256": "3ac7cff99e2f393b7668c7a8b11a725275cae00f909e36040fce8b6dc300cb6c",
+      "staticSha256": "419077cce3622099fa8edd2ac49bfd3ce0030958fe0edd0323c900cd72b3895d",
+      "animatedSha256": "fdeeefa225e9772c067e54665e5fc2d468e535cc70ecc3f60bd4b2ade3504a72"
+    },
+    {
+      "id": "mermaid-quadrant-cs1",
+      "familyId": "quadrantChart",
+      "colorset": "colorset1",
+      "variant": "cs1",
+      "source": "source/colorset1/quadrant.mmd",
+      "staticSvg": "svg/colorset1/quadrant.static.svg",
+      "animatedSvg": "svg/colorset1/quadrant.animated.svg",
+      "sourceSha256": "2f432512be6b3c7e109c6c424c8d87610be7e88bd8d5555bb4a66dfd5c9add87",
+      "staticSha256": "ca7100b696dc41b3f43de9eb1633551e1f5f11255884ab07cb7fb0f9fef88e93",
+      "animatedSha256": "801d67a4d90c9ff0cf4e01a21b4eb32ccf5cc6a2b2ae6c0ffedde7528dc941ef"
+    },
+    {
+      "id": "mermaid-quadrant-cs2",
+      "familyId": "quadrantChart",
+      "colorset": "colorset2",
+      "variant": "cs2",
+      "source": "source/colorset2/quadrant.mmd",
+      "staticSvg": "svg/colorset2/quadrant.static.svg",
+      "animatedSvg": "svg/colorset2/quadrant.animated.svg",
+      "sourceSha256": "cb687bbbfbd7fcda8fa4660e7e024318ae6aa16d270c889d0ff64538f3a06a93",
+      "staticSha256": "8f4c5d94f0bf7af07427974b734a642255f4563656e11574dfeac62ab8c82bea",
+      "animatedSha256": "eccdbff4ab932bfeb0ad81fd8fc0fe8757bc993226e1ac0baf8a464af7bcf577"
+    },
+    {
+      "id": "mermaid-requirement-cs1",
+      "familyId": "requirementDiagram",
+      "colorset": "colorset1",
+      "variant": "cs1",
+      "source": "source/colorset1/requirement.mmd",
+      "staticSvg": "svg/colorset1/requirement.static.svg",
+      "animatedSvg": "svg/colorset1/requirement.animated.svg",
+      "sourceSha256": "d34936397ac195cfc8f35c26a22d0130244064bb392347c55ed54bf57aed50b8",
+      "staticSha256": "6f401d12826960ffdb79b5afcd7b4c524ea8a2d5633501485c94fb955618c656",
+      "animatedSha256": "2c854f631bc56a4426f8efe8c41b4c6319c683da0442d99e66ea10556bcb18c8"
+    },
+    {
+      "id": "mermaid-requirement-cs2",
+      "familyId": "requirementDiagram",
+      "colorset": "colorset2",
+      "variant": "cs2",
+      "source": "source/colorset2/requirement.mmd",
+      "staticSvg": "svg/colorset2/requirement.static.svg",
+      "animatedSvg": "svg/colorset2/requirement.animated.svg",
+      "sourceSha256": "4b1873bcde7bfa0b4556953307b5c41fda3bdec048d0f8791b54be8ff7699a2f",
+      "staticSha256": "8c2350c8303a3a01b126678de897cd5bce771eac0e891d96678c1e5b202cf241",
+      "animatedSha256": "d7c5e22193bb69ef480e062328f1fc76560cb92c3ab1881bd14e461ae40adb3b"
+    },
+    {
+      "id": "mermaid-gitgraph-cs1",
+      "familyId": "gitGraph",
+      "colorset": "colorset1",
+      "variant": "cs1",
+      "source": "source/colorset1/gitgraph.mmd",
+      "staticSvg": "svg/colorset1/gitgraph.static.svg",
+      "animatedSvg": "svg/colorset1/gitgraph.animated.svg",
+      "sourceSha256": "c1ad044875a4b696b6ec6b1667a1e8aa8adb78038637e6411382adcbc5470e2a",
+      "staticSha256": "3d9558dd15158a68cd422529cc30610e7201b5a7643d43876a21e9cb7456f8fa",
+      "animatedSha256": "fd96bc6f06e513311e9909ce416c08ec77f110b2ace619c619efd4469cac317a"
+    },
+    {
+      "id": "mermaid-gitgraph-cs2",
+      "familyId": "gitGraph",
+      "colorset": "colorset2",
+      "variant": "cs2",
+      "source": "source/colorset2/gitgraph.mmd",
+      "staticSvg": "svg/colorset2/gitgraph.static.svg",
+      "animatedSvg": "svg/colorset2/gitgraph.animated.svg",
+      "sourceSha256": "cf1288f8d3adba32e64553958b40839b86faa64dcb1a987667863ba37bbf2b31",
+      "staticSha256": "fae16d8280f9eca434fcfdf2ed72915c1ae92990ac9e221c5dd66e664ded094f",
+      "animatedSha256": "77522d9b31159ed0debb60757d104031755f70501c835a6d8f0431c7a742f425"
+    },
+    {
+      "id": "mermaid-c4-cs1",
+      "familyId": "c4",
+      "colorset": "colorset1",
+      "variant": "cs1",
+      "source": "source/colorset1/c4.mmd",
+      "staticSvg": "svg/colorset1/c4.static.svg",
+      "animatedSvg": "svg/colorset1/c4.animated.svg",
+      "sourceSha256": "23fd8a786ce5da0d1b477807320f68598172b85398fa32098d329cc6720361d7",
+      "staticSha256": "b6507999ad552f0593f9a2e13fccb1a31dd62a8e55b8eb02204ce2d33692fa18",
+      "animatedSha256": "a57f87a3108910800f92f763e504623874b2b43977dc7ed26eb279ecacc5ab0c"
+    },
+    {
+      "id": "mermaid-c4-cs2",
+      "familyId": "c4",
+      "colorset": "colorset2",
+      "variant": "cs2",
+      "source": "source/colorset2/c4.mmd",
+      "staticSvg": "svg/colorset2/c4.static.svg",
+      "animatedSvg": "svg/colorset2/c4.animated.svg",
+      "sourceSha256": "51f20cffa4b5154809245b6923287953aaba907e5d0b5c398122655ed22b9e64",
+      "staticSha256": "140423e8a65b056f63ec1e3db2a2ea38c1f88fa033dd7ed115bf26ff9c7c007d",
+      "animatedSha256": "934e568f9b2b1b82516a9763fd3cc137de6e7682c8bf868347def730ea88e9c5"
+    },
+    {
+      "id": "mermaid-mindmap-cs1",
+      "familyId": "mindmap",
+      "colorset": "colorset1",
+      "variant": "cs1",
+      "source": "source/colorset1/mindmap.mmd",
+      "staticSvg": "svg/colorset1/mindmap.static.svg",
+      "animatedSvg": "svg/colorset1/mindmap.animated.svg",
+      "sourceSha256": "d1d7f0b5072cc69ee0cb83649276cc7b3f308c732b8ec7cbe10809686b0cd9fe",
+      "staticSha256": "f585bc249e44175ebac49fe5ac491a7811e1dfdd4fd397cf53d2239937fc5e2f",
+      "animatedSha256": "283e8685f4e1bf4b5e392d8fe1cb9cb412f4c1a859b90c65600b08b6f5b98934"
+    },
+    {
+      "id": "mermaid-mindmap-cs2",
+      "familyId": "mindmap",
+      "colorset": "colorset2",
+      "variant": "cs2",
+      "source": "source/colorset2/mindmap.mmd",
+      "staticSvg": "svg/colorset2/mindmap.static.svg",
+      "animatedSvg": "svg/colorset2/mindmap.animated.svg",
+      "sourceSha256": "1c890c17d5f2f7d3d8a0fdd500b035d4480fe62e9b2ddcf3917f0b5456e3283c",
+      "staticSha256": "a6c4d16d223717aa078948d2fdba2d0554ef311384fdf08dbecaeefba3b1a510",
+      "animatedSha256": "666a74b348883e9b6d3eef55633031af95948fbdabe521ca1d62595fb995a696"
+    },
+    {
+      "id": "mermaid-timeline-cs1",
+      "familyId": "timeline",
+      "colorset": "colorset1",
+      "variant": "cs1",
+      "source": "source/colorset1/timeline.mmd",
+      "staticSvg": "svg/colorset1/timeline.static.svg",
+      "animatedSvg": "svg/colorset1/timeline.animated.svg",
+      "sourceSha256": "f7f6663d6066304807244e15dc03d4361f23b740680c3aa7d4cdce40c6523a59",
+      "staticSha256": "e728e9545a9311c70da26671288e775d330ce2a6635c4046d0731b5d809023fe",
+      "animatedSha256": "bb4e3b25dd896b35a8644868259c86a19e04ba1427844ae5a56f450f9979ec15"
+    },
+    {
+      "id": "mermaid-timeline-cs2",
+      "familyId": "timeline",
+      "colorset": "colorset2",
+      "variant": "cs2",
+      "source": "source/colorset2/timeline.mmd",
+      "staticSvg": "svg/colorset2/timeline.static.svg",
+      "animatedSvg": "svg/colorset2/timeline.animated.svg",
+      "sourceSha256": "1c92adb632a4af889b7595b3676d6a0d1f86ae797e394090be1b862d8a47c175",
+      "staticSha256": "d44ed2459a3bcd4595ea3e4681bd2f0863f720a18c903fd570364ae67b047803",
+      "animatedSha256": "6fbd116139c8eb446142cb01fea135625f21b17a52d6b1af326704590cd604ef"
+    },
+    {
+      "id": "mermaid-zenuml-cs1",
+      "familyId": "zenuml",
+      "colorset": "colorset1",
+      "variant": "cs1",
+      "source": "source/colorset1/zenuml.mmd",
+      "staticSvg": "svg/colorset1/zenuml.static.svg",
+      "animatedSvg": "svg/colorset1/zenuml.animated.svg",
+      "sourceSha256": "2459a7dae656f2340d19a9371bb8ca969f8ca2af9f1794f096d88d6a385d2a07",
+      "staticSha256": "be1041cdf4a17b43a44bea058bab63df632f158b90d68fbd2bbbe9a06833242c",
+      "animatedSha256": "99ba1c12ef18ede173fb38fa6ca10d987c4cf80f4200f0785c93fa0b7fb6b268"
+    },
+    {
+      "id": "mermaid-zenuml-cs2",
+      "familyId": "zenuml",
+      "colorset": "colorset2",
+      "variant": "cs2",
+      "source": "source/colorset2/zenuml.mmd",
+      "staticSvg": "svg/colorset2/zenuml.static.svg",
+      "animatedSvg": "svg/colorset2/zenuml.animated.svg",
+      "sourceSha256": "bbd4377df906d84b99e50afae678a8ab4ceef0714c836d3408451bf1d5223bdc",
+      "staticSha256": "cb438e91d2d8bf62fd03d50c39aae8e31caabb138c3cb37806a3907c26b18706",
+      "animatedSha256": "63c2b1d5563f5212607592e40896952a386fa8def2ea83dc3ba647ad102f262b"
+    },
+    {
+      "id": "mermaid-sankey-cs1",
+      "familyId": "sankey",
+      "colorset": "colorset1",
+      "variant": "cs1",
+      "source": "source/colorset1/sankey.mmd",
+      "staticSvg": "svg/colorset1/sankey.static.svg",
+      "animatedSvg": "svg/colorset1/sankey.animated.svg",
+      "sourceSha256": "81f945731004adef97bd3f0c5593d83392beaf99c165e95ccb635999f1bc9de0",
+      "staticSha256": "ab06c85af6675ac91c4d70670d9c074bcd103b0a4d7f7c25b24d7badfcda5b8f",
+      "animatedSha256": "5b2ac4fd74de3de2ffe292eb38f6775ebc6353a27dc5fe818c24edcb04f4ba59"
+    },
+    {
+      "id": "mermaid-sankey-cs2",
+      "familyId": "sankey",
+      "colorset": "colorset2",
+      "variant": "cs2",
+      "source": "source/colorset2/sankey.mmd",
+      "staticSvg": "svg/colorset2/sankey.static.svg",
+      "animatedSvg": "svg/colorset2/sankey.animated.svg",
+      "sourceSha256": "afe86c30132c6a0b79218f2929850708af972d1a5d95750ef1591fae5dc58f84",
+      "staticSha256": "a8a36030183ea99fe449109a41bf899321864052d45c2a3be76fdc74040ec7e4",
+      "animatedSha256": "f66a52bbccf968a21c49d6b4b52f24108e0f0e54b0f73b4a8d3ee25265970dc8"
+    },
+    {
+      "id": "mermaid-xy-chart-cs1",
+      "familyId": "xyChart",
+      "colorset": "colorset1",
+      "variant": "cs1",
+      "source": "source/colorset1/xy-chart.mmd",
+      "staticSvg": "svg/colorset1/xy-chart.static.svg",
+      "animatedSvg": "svg/colorset1/xy-chart.animated.svg",
+      "sourceSha256": "5827b80039dd1910158c5764ac8c3a4415f61fbe2610de7a0e91b7ab34246393",
+      "staticSha256": "3d5b66fc3335272c85aafe689348781443873c440b690a226449121c09f8f0b7",
+      "animatedSha256": "eb90ee61e26f69f16bfd8dbf3d220f0313203d3965d367cd599d750d7b346abd"
+    },
+    {
+      "id": "mermaid-xy-chart-cs2",
+      "familyId": "xyChart",
+      "colorset": "colorset2",
+      "variant": "cs2",
+      "source": "source/colorset2/xy-chart.mmd",
+      "staticSvg": "svg/colorset2/xy-chart.static.svg",
+      "animatedSvg": "svg/colorset2/xy-chart.animated.svg",
+      "sourceSha256": "45c871eb8d02b060b12e1e1a661952bbfb8907948a6bac061add7456e3ca80e5",
+      "staticSha256": "3bd55a5111b63cd2ca9b94ac7585f411972977ffc5004f5dee2f21e97eead365",
+      "animatedSha256": "1e6959fffb904b729390f92668c5fe7c4e34c1b4b69dcfd33ba32947925aa860"
+    },
+    {
+      "id": "mermaid-block-cs1",
+      "familyId": "block",
+      "colorset": "colorset1",
+      "variant": "cs1",
+      "source": "source/colorset1/block.mmd",
+      "staticSvg": "svg/colorset1/block.static.svg",
+      "animatedSvg": "svg/colorset1/block.animated.svg",
+      "sourceSha256": "992b8dd86050f769e9d478d4df59d732ff4cf6bb2fc6c64479ed1e0724de36a3",
+      "staticSha256": "d41f55de77520a55da270ed0a05657725b0e7d111254486507ea97f4c0445aa5",
+      "animatedSha256": "9e1a5ffabf2863d7684d84fbd2535e301972f5b1e3e916b63f0a93dc4d24bb2d"
+    },
+    {
+      "id": "mermaid-block-cs2",
+      "familyId": "block",
+      "colorset": "colorset2",
+      "variant": "cs2",
+      "source": "source/colorset2/block.mmd",
+      "staticSvg": "svg/colorset2/block.static.svg",
+      "animatedSvg": "svg/colorset2/block.animated.svg",
+      "sourceSha256": "058d34298875e02eff3550826564a61219c2ba47354361386a18bb8471f0e6ea",
+      "staticSha256": "d99c8cff39abc2cf56764341db53f3af872e6ad1fb8e8773f42dcf23655bf370",
+      "animatedSha256": "df80774365a95724d0b6a77fb2665f2a9293d1f85253a0ffae3a43790d2490b4"
+    },
+    {
+      "id": "mermaid-packet-cs1",
+      "familyId": "packet",
+      "colorset": "colorset1",
+      "variant": "cs1",
+      "source": "source/colorset1/packet.mmd",
+      "staticSvg": "svg/colorset1/packet.static.svg",
+      "animatedSvg": "svg/colorset1/packet.animated.svg",
+      "sourceSha256": "e0026ddc6a30679ce1631d283db614ffd707b5f38b94a48aeda979fec521c72a",
+      "staticSha256": "ffa623b484026c974d22f9399e56630559f70a22a357124604292cb2f0e484f5",
+      "animatedSha256": "9518e5fd008b7aae164b9bc0cad518ce68727e6c86b17c76d36b1ad31c3455e8"
+    },
+    {
+      "id": "mermaid-packet-cs2",
+      "familyId": "packet",
+      "colorset": "colorset2",
+      "variant": "cs2",
+      "source": "source/colorset2/packet.mmd",
+      "staticSvg": "svg/colorset2/packet.static.svg",
+      "animatedSvg": "svg/colorset2/packet.animated.svg",
+      "sourceSha256": "5cae10800fd790fc9ba6df8ee2da50434275cc4abce334cbcfdc4c75b5555356",
+      "staticSha256": "dd73bca55d589004b8b0e49d1c65874ed9f2bd93199b284e3f1c4d94c00c7c80",
+      "animatedSha256": "a6c8d1ff3fc53033954a4beecd6d907c42f9018c988b6f6e124d0785cccdb70e"
+    },
+    {
+      "id": "mermaid-kanban-cs1",
+      "familyId": "kanban",
+      "colorset": "colorset1",
+      "variant": "cs1",
+      "source": "source/colorset1/kanban.mmd",
+      "staticSvg": "svg/colorset1/kanban.static.svg",
+      "animatedSvg": "svg/colorset1/kanban.animated.svg",
+      "sourceSha256": "caa0af980cece71f21168afc0bc5704c6f525402d003ebdd506665b0432a144e",
+      "staticSha256": "e8a6dce94a3df47ebd1f6ca92f08811cf0c44f13d9f6d4232d3c327c3ee184e7",
+      "animatedSha256": "75260cff3787f29092aa81a146f183ecaa06e47d22425f64c9fb907cdf3dad3e"
+    },
+    {
+      "id": "mermaid-kanban-cs2",
+      "familyId": "kanban",
+      "colorset": "colorset2",
+      "variant": "cs2",
+      "source": "source/colorset2/kanban.mmd",
+      "staticSvg": "svg/colorset2/kanban.static.svg",
+      "animatedSvg": "svg/colorset2/kanban.animated.svg",
+      "sourceSha256": "4094154874d59dc78ddacd23485de1515c956c53ec88a57aa9b463650cb4b71c",
+      "staticSha256": "e9f3c0cae9ddcc6b9565298f588f8f3f46b2f59b33309d97724a622b5be7a4af",
+      "animatedSha256": "9d9e95b3f05e2b316a5e05e13beab197607fa83d99f40805fd0026fac5df45a5"
+    },
+    {
+      "id": "mermaid-architecture-cs1",
+      "familyId": "architecture",
+      "colorset": "colorset1",
+      "variant": "cs1",
+      "source": "source/colorset1/architecture.mmd",
+      "staticSvg": "svg/colorset1/architecture.static.svg",
+      "animatedSvg": "svg/colorset1/architecture.animated.svg",
+      "sourceSha256": "cf2d31270d43e3f0bd0ea7eda938d45a47b533196cef36293ae7e7dab3e7b4c1",
+      "staticSha256": "cc557582e00ed0edf79c93e0beb4d92bdfdcfc7fc2a4f74018d6d5e0a0fa806e",
+      "animatedSha256": "5d15d776ab981d684f4db33289a33386cf74457a65f631fac8de4ced8f4c512b"
+    },
+    {
+      "id": "mermaid-architecture-cs2",
+      "familyId": "architecture",
+      "colorset": "colorset2",
+      "variant": "cs2",
+      "source": "source/colorset2/architecture.mmd",
+      "staticSvg": "svg/colorset2/architecture.static.svg",
+      "animatedSvg": "svg/colorset2/architecture.animated.svg",
+      "sourceSha256": "9af342972e4c9958a0b7803c8c618467d90bfec226c844ef406baf76fec2b3e1",
+      "staticSha256": "a0a026e6ba846209226b73dd29548f371a9a267e7af73b699ead770e8793a03c",
+      "animatedSha256": "4d0c84e3914711feb6821f4834af144187ece4271563712c700e09b47c9bfa8e"
+    },
+    {
+      "id": "mermaid-radar-cs1",
+      "familyId": "radar",
+      "colorset": "colorset1",
+      "variant": "cs1",
+      "source": "source/colorset1/radar.mmd",
+      "staticSvg": "svg/colorset1/radar.static.svg",
+      "animatedSvg": "svg/colorset1/radar.animated.svg",
+      "sourceSha256": "15f544667e8ea95feb70cfd6904d3b217d77001feb0f30f23da9bb43d7cecf21",
+      "staticSha256": "28edc3e30dfb42d64c8dce8edfd326ec808654d039ec40e70cb8a549e56fae88",
+      "animatedSha256": "9e48a8d352ad8d2c226f56d72060d67309544cd080cbf603f9fcda1e565ee826"
+    },
+    {
+      "id": "mermaid-radar-cs2",
+      "familyId": "radar",
+      "colorset": "colorset2",
+      "variant": "cs2",
+      "source": "source/colorset2/radar.mmd",
+      "staticSvg": "svg/colorset2/radar.static.svg",
+      "animatedSvg": "svg/colorset2/radar.animated.svg",
+      "sourceSha256": "efdd76f0b2b9eb239af16e9c1589e82542f59b179ee2b1463cdc43977a747ce9",
+      "staticSha256": "743ce06f312023e6fca56aa365134213a770e26a2f3ef0dd5e8c142239443f74",
+      "animatedSha256": "13f105e0b57503427864fad7647a5633061c13d9263d8ccab408bafb98982926"
+    },
+    {
+      "id": "mermaid-event-modeling-cs1",
+      "familyId": "eventmodeling",
+      "colorset": "colorset1",
+      "variant": "cs1",
+      "source": "source/colorset1/event-modeling.mmd",
+      "staticSvg": "svg/colorset1/event-modeling.static.svg",
+      "animatedSvg": "svg/colorset1/event-modeling.animated.svg",
+      "sourceSha256": "1e6bffa734b0cffd73621577d7c7edcf8051c1796e8458f9f1ee101a3592b920",
+      "staticSha256": "c5631771ef4c37332b64a6d64feb7fabeb2af4b9637e067f2b6543e5e35bfa21",
+      "animatedSha256": "e8650ff5d9d1ee42f3ffbaa420161649828286250efe9364984de56f860c1958"
+    },
+    {
+      "id": "mermaid-event-modeling-cs2",
+      "familyId": "eventmodeling",
+      "colorset": "colorset2",
+      "variant": "cs2",
+      "source": "source/colorset2/event-modeling.mmd",
+      "staticSvg": "svg/colorset2/event-modeling.static.svg",
+      "animatedSvg": "svg/colorset2/event-modeling.animated.svg",
+      "sourceSha256": "9d289650d0d21adb9766d38545161f23e51937374f6f57d666adb321099ecadb",
+      "staticSha256": "c02fd48bad892f642386c1f15d617eab0023d664067b46807642e377741b8322",
+      "animatedSha256": "096c07b29f827197cb8a1a426b34230d14ac2982daf962b7566b2950cbf8291e"
+    },
+    {
+      "id": "mermaid-treemap-cs1",
+      "familyId": "treemap",
+      "colorset": "colorset1",
+      "variant": "cs1",
+      "source": "source/colorset1/treemap.mmd",
+      "staticSvg": "svg/colorset1/treemap.static.svg",
+      "animatedSvg": "svg/colorset1/treemap.animated.svg",
+      "sourceSha256": "b05f0e3eccb0ea6ed5a6dce6f62d089dbfd4484b6814549af0f45dea46f3c833",
+      "staticSha256": "b96d9bc6e9149f28089dfd37c1df3fe98d47329343bd831669ea6f71e5bc22db",
+      "animatedSha256": "3b23217386ec0e27e1f2c0b700943c4881cf701496c2dea12aa7182dfcdc9f3b"
+    },
+    {
+      "id": "mermaid-treemap-cs2",
+      "familyId": "treemap",
+      "colorset": "colorset2",
+      "variant": "cs2",
+      "source": "source/colorset2/treemap.mmd",
+      "staticSvg": "svg/colorset2/treemap.static.svg",
+      "animatedSvg": "svg/colorset2/treemap.animated.svg",
+      "sourceSha256": "8f0540fec943e4e73bdc7ea66f9507705413bf361a2e46dafa74ee85bfb8a4cf",
+      "staticSha256": "6f2fa93770e75be6fc41301abe81549560c38584c0c29f5e9d5be59588ea04fc",
+      "animatedSha256": "36b289f17523728cb1e0ba2fab4b8fe9726b2948d6db5ca0bb822c553725f9dc"
+    },
+    {
+      "id": "mermaid-venn-cs1",
+      "familyId": "venn",
+      "colorset": "colorset1",
+      "variant": "cs1",
+      "source": "source/colorset1/venn.mmd",
+      "staticSvg": "svg/colorset1/venn.static.svg",
+      "animatedSvg": "svg/colorset1/venn.animated.svg",
+      "sourceSha256": "06d508856ff93ac48f1dc7bfeb0b54a62431e9908609a418f5d8020bd406503a",
+      "staticSha256": "4f77a1e5c7a7b7667bfa1cc460eee1b6062f8baa6a8724c0905dde32316ee670",
+      "animatedSha256": "0608dbfab37e76a41e7201d084957b36a5ff36ac0e4d18ee5b787789c3e01942"
+    },
+    {
+      "id": "mermaid-venn-cs2",
+      "familyId": "venn",
+      "colorset": "colorset2",
+      "variant": "cs2",
+      "source": "source/colorset2/venn.mmd",
+      "staticSvg": "svg/colorset2/venn.static.svg",
+      "animatedSvg": "svg/colorset2/venn.animated.svg",
+      "sourceSha256": "4b012ed0ae4ed16586716b1860c2c569217b3b7881b6bb13a7939f433ba0e28f",
+      "staticSha256": "703a5a233ce3c16969307de6639a3a3db267095c9662db3103a213f214f147d8",
+      "animatedSha256": "49dbe99ec435805290a48c4e03bbd24b55f5b122e6f880388c17fa0c4aae8541"
+    },
+    {
+      "id": "mermaid-ishikawa-cs1",
+      "familyId": "ishikawa",
+      "colorset": "colorset1",
+      "variant": "cs1",
+      "source": "source/colorset1/ishikawa.mmd",
+      "staticSvg": "svg/colorset1/ishikawa.static.svg",
+      "animatedSvg": "svg/colorset1/ishikawa.animated.svg",
+      "sourceSha256": "ce27e81cd000d8c598d5f8632a6d64a02b2b14c79ed9bd03c1f0cef452782f73",
+      "staticSha256": "735d68212add0b33ec15ae9a72080ed6bbec34ef2ab732027c33b49179f9497f",
+      "animatedSha256": "ddbed2789d4a6f4036a6dc5d824ea70d4f24189f8756829cd1a1aab742b605f3"
+    },
+    {
+      "id": "mermaid-ishikawa-cs2",
+      "familyId": "ishikawa",
+      "colorset": "colorset2",
+      "variant": "cs2",
+      "source": "source/colorset2/ishikawa.mmd",
+      "staticSvg": "svg/colorset2/ishikawa.static.svg",
+      "animatedSvg": "svg/colorset2/ishikawa.animated.svg",
+      "sourceSha256": "67a24a155b5f752480d2935b0ca7a03e6d5cbcbd86b5f27106f656e903e82ba3",
+      "staticSha256": "c01d6858aaaf517e91d40ccd36d0e970b1485b6583a419fc09a5b9424b043fe6",
+      "animatedSha256": "95b5beadf62baf5e224812a61c2f72723b778335e1409053b45d5dc4a0fe0e66"
+    },
+    {
+      "id": "mermaid-wardley-cs1",
+      "familyId": "wardley",
+      "colorset": "colorset1",
+      "variant": "cs1",
+      "source": "source/colorset1/wardley.mmd",
+      "staticSvg": "svg/colorset1/wardley.static.svg",
+      "animatedSvg": "svg/colorset1/wardley.animated.svg",
+      "sourceSha256": "2f6037a1ebbf58caf43860a33b8becec900c3ede775c884b5ade87c74905872b",
+      "staticSha256": "c89b9604581bb6353e1941b2c6d903b14eda1bb7180041de3bd9f8668a58837b",
+      "animatedSha256": "2eabbc60c804c01ede62ef587d3afa9ac09cd77b13e7a3105f864decdc620136"
+    },
+    {
+      "id": "mermaid-wardley-cs2",
+      "familyId": "wardley",
+      "colorset": "colorset2",
+      "variant": "cs2",
+      "source": "source/colorset2/wardley.mmd",
+      "staticSvg": "svg/colorset2/wardley.static.svg",
+      "animatedSvg": "svg/colorset2/wardley.animated.svg",
+      "sourceSha256": "219cc9a682648e6ffff18633a61088adda3ffc872a5a85586b864b27af4be03b",
+      "staticSha256": "8634ef9490783394f9bf825afc3f1063acf4f3c125b1d224880ed502429b6e62",
+      "animatedSha256": "fc211a6141a97d04386bcdd50f2bf767267ea2dee9a9b3daa2e587cd54b5279c"
+    },
+    {
+      "id": "mermaid-cynefin-cs1",
+      "familyId": "cynefin",
+      "colorset": "colorset1",
+      "variant": "cs1",
+      "source": "source/colorset1/cynefin.mmd",
+      "staticSvg": "svg/colorset1/cynefin.static.svg",
+      "animatedSvg": "svg/colorset1/cynefin.animated.svg",
+      "sourceSha256": "f1d0fa3dd01a9f25654b1036fabd7153a9e33cb6d3521d7f860f921dea5cbde6",
+      "staticSha256": "7f0c35f3a84dc66eeec8c1105ac0bbd7e7d7da22f3aff698f1a03ff05ad1e717",
+      "animatedSha256": "f9a61e04fef8b0d1dfdf100f59c730c533d7790a003a31e5dc154a3c37a47fd3"
+    },
+    {
+      "id": "mermaid-cynefin-cs2",
+      "familyId": "cynefin",
+      "colorset": "colorset2",
+      "variant": "cs2",
+      "source": "source/colorset2/cynefin.mmd",
+      "staticSvg": "svg/colorset2/cynefin.static.svg",
+      "animatedSvg": "svg/colorset2/cynefin.animated.svg",
+      "sourceSha256": "f224fbc2232de8032817f767cf82119b02e1d2e434fbbe677f47b7f805f32b4c",
+      "staticSha256": "3290e78403fada2440594f75262bb1c8d07f3804cc565c7ee0ad58348b9152bb",
+      "animatedSha256": "a723e768f68fc610409644fbe7b1ee0094df0e07a485a7942d2d69eb9b451bda"
+    },
+    {
+      "id": "mermaid-treeview-cs1",
+      "familyId": "treeView",
+      "colorset": "colorset1",
+      "variant": "cs1",
+      "source": "source/colorset1/treeview.mmd",
+      "staticSvg": "svg/colorset1/treeview.static.svg",
+      "animatedSvg": "svg/colorset1/treeview.animated.svg",
+      "sourceSha256": "6988fa62419a54fc0eb8de8c330a87ec65e2177bff18cb939d47e425e053823d",
+      "staticSha256": "7ce32fc0b8c25234e7503569bee72fdfa73228f4bda46c3641b932bd87853c62",
+      "animatedSha256": "5d9640c1d8b185bcbe08b35819a31c6568ab1df224f3f0687b865a9bed836ec2"
+    },
+    {
+      "id": "mermaid-treeview-cs2",
+      "familyId": "treeView",
+      "colorset": "colorset2",
+      "variant": "cs2",
+      "source": "source/colorset2/treeview.mmd",
+      "staticSvg": "svg/colorset2/treeview.static.svg",
+      "animatedSvg": "svg/colorset2/treeview.animated.svg",
+      "sourceSha256": "d67d50a38424740bfbc68353b376d7188a6dfaf0c54d0181a1a3ea524291e19b",
+      "staticSha256": "81323f8490bab91c4ffececf36107382a020f2a78c8dfbfdfe319ab182178fc0",
+      "animatedSha256": "d87555183678732beaf9dcf85821d7d452bce6a72e02358bcb8325db2486fb23"
+    },
+    {
+      "id": "mermaid-railroad-cs1",
+      "familyId": "railroad",
+      "colorset": "colorset1",
+      "variant": "cs1",
+      "source": "source/colorset1/railroad.mmd",
+      "staticSvg": "svg/colorset1/railroad.static.svg",
+      "animatedSvg": "svg/colorset1/railroad.animated.svg",
+      "sourceSha256": "9f8fdce469802b52b04383a09ee5bc671eef8cfdb8aaf56e3f3ac8909ff01a7d",
+      "staticSha256": "a1a11c210f9a4bd5d65d6569d6300bd6f187dc8b3c0a987033c49b978649bd68",
+      "animatedSha256": "e8fa5e22c101dd941352377c3a1acdb85c0712102097ca27f64ee7d4b1a4d3b5"
+    },
+    {
+      "id": "mermaid-railroad-cs2",
+      "familyId": "railroad",
+      "colorset": "colorset2",
+      "variant": "cs2",
+      "source": "source/colorset2/railroad.mmd",
+      "staticSvg": "svg/colorset2/railroad.static.svg",
+      "animatedSvg": "svg/colorset2/railroad.animated.svg",
+      "sourceSha256": "30a62ee3f764f41c5bf4bbbb4ddc0153ceb7b2e09e7487b2aaa8411be961ee6f",
+      "staticSha256": "2bbca3830d14834ddff5108559cb07ed4658d5f7c66048d0c26aca6e4fd6e112",
+      "animatedSha256": "96d9f6654115cfe419c80d2f3035dd30bcaa8e954830936a3fa8fcbf8893a440"
+    }
+  ]
+}

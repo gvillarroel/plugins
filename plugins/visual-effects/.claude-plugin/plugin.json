@@ -1,0 +1,8 @@
+{
+  "name": "visual-effects",
+  "version": "1.0.0",
+  "description": "Create 3D scenes, pixel art, vector patterns and image effects using Three.js, Kornia and SVG.",
+  "author": {
+    "name": "Gerardo Villarroel"
+  }
+}

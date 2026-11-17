@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "ok": true,
+  "input": "assets/base-images/turner-aosta-snowstorm.jpg",
+  "input_sha256": "b0b07257992499378e05d60d1aa49e326e97e9889b110533a699407c1c2e051c",
+  "output": "svgs/vectorize-turner-aosta-snowstorm-cs1.svg",
+  "output_sha256": "84fd82d870d734efce3f33b0d2d6ca3b55e709e9374b3623d81b3b9d49a350bc",
+  "pattern_id": "vectorize-turner-aosta-snowstorm-cs1",
+  "mode": "stain",
+  "tile": "none",
+  "colorset": "colorset1",
+  "palette_contract_sha256": "f33804ae2e5fb81652343fee00ac6a48c6581eaf823ddead535a98035dd8b366",
+  "variation_seed": 0,
+  "composition_sha256": "3d50652e35edcea87c6f5b06daa3cc7bdf10b1f1d2281dd400d239b64c77f97c",
+  "parameters": {
+    "colors": 8,
+    "smoothing": 0.72,
+    "palette_method": "max-coverage",
+    "max_dimension": 560,
+    "filter_speckle": 28,
+    "curve_mode": "spline",
+    "hierarchical": "cutout",
+    "color_mapping": {
+      "background": "#333e48",
+      "layers": [
+        {
+          "source": "#aaa9a5",
+          "target": "#b5b5b5"
+        },
+        {
+          "source": "#7d7c78",
+          "target": "#828282"
+        },
+        {
+          "source": "#3d2f22",
+          "target": "#363636"
+        },
+        {
+          "source": "#78531c",
+          "target": "#9e1b32"
+        },
+        {
+          "source": "#876c43",
+          "target": "#696969"
+        },
+        {
+          "source": "#a38c5b",
+          "target": "#9c9c9c"
+        },
+        {
+          "source": "#dcd7cf",
+          "target": "#cfcfcf"
+        }
+      ],
+      "source_colors": [
+        "#5f5e5b",
+        "#aaa9a5",
+        "#7d7c78",
+        "#3d2f22",
+        "#78531c",
+        "#876c43",
+        "#a38c5b",
+        "#dcd7cf"
+      ],
+      "target_colors": [
+        "#333e48",
+        "#b5b5b5",
+        "#828282",
+        "#363636",
+        "#9e1b32",
+        "#696969",
+        "#9c9c9c",
+        "#cfcfcf"
+      ]
+    }
+  },
+  "source_width": 900,
+  "source_height": 671,
+  "vector_width": 560,
+  "vector_height": 418,
+  "render_width": 560,
+  "render_height": 418,
+  "palette": [
+    "#333e48",
+    "#363636",
+    "#696969",
+    "#828282",
+    "#9c9c9c",
+    "#9e1b32",
+    "#b5b5b5",
+    "#cfcfcf"
+  ],
+  "path_count": 20,
+  "output_bytes": 50343,
+  "rights": {
+    "basis": "source-manifest",
+    "source_id": "turner-aosta-snowstorm",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "source_url": "https://www.artic.edu/artworks/109938",
+    "attribution": "Joseph Mallord William Turner (English, 1775–1851); Frederick T. Haskell Collection",
+    "attribution_required": false,
+    "share_alike": false,
+    "input_sha256": "b0b07257992499378e05d60d1aa49e326e97e9889b110533a699407c1c2e051c"
+  },
+  "backend": "vtracer-0.6.15"
+}

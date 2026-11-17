@@ -1,0 +1,269 @@
+# Shared Renderer Helpers
+
+## Contents
+
+- [Default Geometry And Tokens](#default-geometry-and-tokens)
+- [Minimal Helpers](#minimal-helpers)
+- [Schematic Land Context](#schematic-land-context)
+- [Standalone Conversion Rules](#standalone-conversion-rules)
+- [Directional Connector Contract](#directional-connector-contract)
+
+Use this reference only when a per-pattern file under `references/patterns/` includes helper names from the gallery fixture. Recreate the minimal behavior locally; do not read the gallery source for normal pattern generation.
+
+Filled marks default to opaque single-token paint with no decorative stroke.
+Finalize custom HTML with the bundled colorset adapter before capturing SVG.
+Preserve transparency only on explicit `data-opacity-role="semantic"` shapes
+or groups when it communicates overlap, density, values, or a named selection
+state. Describe that meaning. Use `data-opacity-role="reveal"` for a
+programmatic reveal; CSS and SVG opacity animation also remains supported.
+Choose label ink against a freeze-to-visible reveal's final filled backing,
+including ancestor opacity, so initially hidden marks do not lock labels to
+canvas ink. Keep the reveal clock and explicit semantic alpha unchanged.
+For labels inside a growing face, set `data-text-backing="circle"` (or a local
+face selector) on their enclosing group. Inspect actual containment at delivery;
+the explicit face avoids the initial small geometry selecting canvas ink.
+
+## Default Geometry And Tokens
+
+Most gallery excerpts assume these small constants:
+
+```js
+const width = 560;
+const height = 420;
+const palette = {
+  blue: "#007298",
+  orange: "#e77204",
+  green: "#45842a",
+  red: "#9e1b32",
+  purple: "#652f6c",
+  cyan: "#00ace6",
+  gold: "#f1c319",
+  ink: "#333e48",
+  muted: "#696969",
+  gray50: "#f7f7f7",
+  gray100: "#e7e7e7",
+  gray200: "#cfcfcf",
+  gray300: "#b5b5b5",
+  gray400: "#9c9c9c",
+  gray500: "#828282",
+  gray600: "#696969",
+  gray700: "#4f4f4f",
+  gray800: "#363636",
+  gray900: "#1c1c1c",
+  blueHover: "#004d66",
+  orangeHover: "#994a00",
+  greenHover: "#294d19",
+  purpleHover: "#431f47",
+  redHover: "#6d1222",
+  yellowHover: "#98700c",
+  blueHighlight: "#cdf3ff",
+  orangeHighlight: "#ffe5cc",
+  yellowHighlight: "#fff4cc",
+  greenHighlight: "#dbffcc",
+  purpleHighlight: "#f9ccff",
+  redHighlight: "#ffccd5",
+  surface: "#ffffff",
+  line: "#cfcfcf"
+};
+// Read activePalette from the chosen bundled colorsets.json entry.
+const colors = activeColorset === "colorset1"
+  ? activePalette.solidSequence.filter(paint => paint !== palette.surface)
+  : [palette.blue, palette.orange, palette.green, palette.purple, palette.red];
+const ramps = {
+  blue: [palette.blueHighlight, palette.cyan, palette.blue, palette.blueHover],
+  heat: [palette.yellowHighlight, palette.orangeHighlight, palette.orange, palette.red],
+  terrain: [palette.yellowHighlight, palette.greenHighlight, palette.blueHighlight, palette.blue, palette.purple],
+  gray: [palette.gray100, palette.gray200, palette.gray300, palette.gray400, palette.gray700],
+  bivariate: [
+    [palette.gray100, palette.blueHighlight, palette.blue],
+    [palette.purpleHighlight, palette.gray200, palette.blueHover],
+    [palette.purple, palette.red, palette.purpleHover]
+  ]
+};
+```
+
+For repository-owned artifacts, prefer the full token guidance in `references/visual-tokens.md` when choosing new semantic colors.
+
+## Minimal Helpers
+
+Use these helpers as compact equivalents when converting a pattern excerpt into a standalone artifact:
+
+```js
+function prepareSvg(id, title, desc) {
+  const svg = d3.select("svg")
+    .attr("id", id)
+    .attr("data-pattern-id", `d3-${id}`)
+    .attr("role", "img")
+    .attr("aria-labelledby", `${id}-title ${id}-desc`)
+    .attr("viewBox", `0 0 ${width} ${height}`)
+    .attr("width", width)
+    .attr("height", height);
+  svg.selectAll("*").remove();
+  svg.append("title").attr("id", `${id}-title`).text(title);
+  svg.append("desc").attr("id", `${id}-desc`).text(desc);
+  svg.append("rect")
+    .attr("width", width)
+    .attr("height", height)
+    .attr("rx", 16)
+    .attr("fill", palette.surface);
+  svg.style("font-family", '"Open Sans", Arial, sans-serif');
+  return svg;
+}
+
+function fadeIn(selection, delay = 0, dur = 0.7) {
+  selection.attr("opacity", 1)
+    .append("animate")
+    .attr("attributeName", "opacity")
+    .attr("from", 0)
+    .attr("to", 1)
+    .attr("dur", `${dur}s`)
+    .attr("begin", `${delay}s`)
+    .attr("fill", "freeze");
+}
+
+function revealIn(selection, delay = 0, dur = 0.7) {
+  selection.attr("opacity", 1).each(function (d, i) {
+    const resolvedDelay = typeof delay === "function" ? Number(delay(d, i)) : Number(delay);
+    const resolvedDur = typeof dur === "function" ? Number(dur(d, i)) : Number(dur);
+    const safeDelay = Number.isFinite(resolvedDelay) ? Math.max(0, resolvedDelay) : 0;
+    const safeDur = Number.isFinite(resolvedDur) ? Math.max(0.001, resolvedDur) : 0.7;
+    const animation = d3.select(this).append("animate")
+      .attr("attributeName", "opacity")
+      .attr("dur", `${safeDelay + safeDur}s`)
+      .attr("begin", "0s")
+      .attr("fill", "freeze");
+    if (safeDelay > 0) {
+      animation
+        .attr("values", "0;0;1")
+        .attr("keyTimes", `0;${(safeDelay / (safeDelay + safeDur)).toFixed(3)};1`);
+    } else {
+      animation.attr("from", 0).attr("to", 1);
+    }
+  });
+}
+
+function grow(selection, attr, from, to, delay = 0, dur = 0.7) {
+  selection.attr(attr, to).each(function (d, i) {
+    const resolvedFrom = typeof from === "function" ? from(d, i) : from;
+    const resolvedTo = typeof to === "function" ? to(d, i) : to;
+    d3.select(this).append("animate")
+      .attr("attributeName", attr)
+      .attr("from", resolvedFrom)
+      .attr("to", resolvedTo)
+      .attr("dur", `${dur}s`)
+      .attr("begin", `${delay + i * .025}s`)
+      .attr("fill", "freeze");
+  });
+}
+
+function drawPath(selection, delay = 0, dur = 1.1) {
+  selection.each(function () {
+    const length = this.getTotalLength();
+    d3.select(this)
+      .attr("stroke-dasharray", `${length} ${length}`)
+      .attr("stroke-dashoffset", 0)
+      .append("animate")
+      .attr("attributeName", "stroke-dashoffset")
+      .attr("from", length)
+      .attr("to", 0)
+      .attr("dur", `${dur}s`)
+      .attr("begin", `${delay}s`)
+      .attr("fill", "freeze");
+  });
+}
+
+function axisBottom(svg, scale, y, ticks = 5) {
+  return svg.append("g")
+    .attr("class", "axis")
+    .attr("transform", `translate(0,${y})`)
+    .call(d3.axisBottom(scale).ticks(ticks));
+}
+
+function axisLeft(svg, scale, x, ticks = 5) {
+  return svg.append("g")
+    .attr("class", "axis")
+    .attr("transform", `translate(${x},0)`)
+    .call(d3.axisLeft(scale).ticks(ticks));
+}
+
+function quantizedRamp(domain, range) {
+  return d3.scaleQuantize().domain(domain).range(range);
+}
+
+function estimateSvgTextWidth(text, fontSize = 10) {
+  return Array.from(String(text)).reduce((sum, char) => {
+    if ("MW@#%".includes(char)) return sum + fontSize * .92;
+    if ("ABCDEFGHKNOPQRSTUVWXYZ0123456789".includes(char)) return sum + fontSize * .68;
+    if ("ilI.,:;!|".includes(char)) return sum + fontSize * .34;
+    if (char === " ") return sum + fontSize * .32;
+    return sum + fontSize * .56;
+  }, 0);
+}
+```
+
+## Schematic Land Context
+
+Map excerpts that call `appendSchematicLand` need a compact local `FeatureCollection` named `schematicLand`. Use six coarse polygons for North America, South America, Eurasia, Africa, Australia, and Greenland, then render them through the excerpt's projection before data marks. Mark the group `data-map-context="schematic-land"`; treat it as orientation context, never as analytical boundary data.
+
+```js
+const schematicLand = {
+  type: "FeatureCollection",
+  features: [
+    [[[-168,16],[-150,68],[-108,74],[-58,50],[-80,8],[-122,12],[-168,16]]]],
+    [[[-82,12],[-50,10],[-34,-54],[-70,-56],[-82,12]]]],
+    [[[-10,35],[6,70],[72,76],[178,54],[150,8],[96,6],[42,28],[-10,35]]]],
+    [[[-18,34],[48,34],[42,-36],[12,-35],[-18,34]]]],
+    [[[112,-10],[154,-12],[150,-44],[114,-38],[112,-10]]]],
+    [[[-74,60],[-60,82],[-22,84],[-20,60],[-74,60]]]]
+  ].map((coordinates, index) => ({
+    type: "Feature",
+    properties: { schematicRegion: index + 1 },
+    geometry: { type: "Polygon", coordinates }
+  }))
+};
+
+function appendSchematicLand(svg, path, fill = palette.gray100) {
+  return svg.append("g")
+    .attr("class", "schematic-land")
+    .attr("data-map-context", "schematic-land")
+    .selectAll("path")
+    .data(schematicLand.features)
+    .join("path")
+    .attr("d", path)
+    .attr("fill", fill)
+    .attr("fill-opacity", 1)
+    .attr("stroke", "none");
+}
+```
+
+Keep the coarse land geometry visibly subordinate. When geographic boundary accuracy is part of the data question, replace it with a verified local GeoJSON source rather than presenting the schematic polygons as real boundaries.
+
+## Standalone Conversion Rules
+
+For ordered categories use `D3SolidStyle.categoryStyle` or the matching Python
+`scripts/colorset_adapter.py::category_style`. After every usable solid, cycle
+allowed contrasting border colors (at least 3:1 against the fill), then
+solid/dashed/dotted styles, then widths of 1–3 px. The finite alternatives end
+with `tier: "structural"` and `cue: "label-symbol-or-split"`; retain direct
+labels or add symbols or split views rather than generating wider borders.
+
+- Inline the required helpers into the generated HTML or SVG; do not leave references to shared gallery state.
+- If the final artifact must be self-contained, use static SVG geometry and SVG-native animation. Do not depend on CDN D3 or runtime JavaScript.
+- Keep the excerpt's deterministic layout choices, such as seeded force simulations and fixed viewBox dimensions.
+- Replace gallery-specific CSS classes with local styles when needed, especially for `.mark-label`, `.axis`, grid lines, and label halos.
+
+## Directional connector contract
+
+Mark non-marker direction silhouettes with `data-direction-role="glyph"`: put it on a paired shaft/head group or the direction path inside an equipment symbol. The finalizer samples actual filled underlays, preserves geometry and magnitude encoding, and scopes one allowed contrasting paint to the pair. Keep semantic symbols and source artwork exempt from generic arrow inference; only explicitly directional glyphs receive this correction.
+
+For data-coded arrow ramps, choose distinct contrasting role variants before correction; the vector-field recipe uses dark yellow, dark orange and red to retain three magnitude bins. Closest-color repair of a light yellow would otherwise merge it with the orange bin. Retain arrow length as the quantitative magnitude cue.
+
+For a direction glyph fully contained inside one equipment face, set `data-direction-backing="circle"` (or a matching local face selector) and verify containment in the browser. The selector resolves within the glyph's parent, reads the actual face paint and persistent alpha, and avoids a reveal-time hit test selecting the canvas. Moving pulses are clipped out of the exact triangle silhouettes of these glyphs as well as marker tips.
+
+For a backing with a freeze-to-visible SMIL or Web Animation opacity reveal, choose persistent arrow paint against the final backing alpha, while preserving its actual hidden/reveal state. Explicit semantic opacity continues to use actual alpha. Keep the terminal shaft outside a filled actuator too; retreating a marker alone does not remove a same-colored shaft fragment inside that actuator.
+
+Keep categorical nodes opaque and borderless. Give each arrow a real gutter: its tip stays at least 4 SVG units outside the target fill, and its complete head fits between the source and target. Route the final control point outside the target so its terminal tangent points toward that target. Use explicit `markerUnits="userSpaceOnUse"` with bounded 8–10-unit heads when shaft widths vary; stroke-scaled heads can consume an entire narrow gutter. Scope marker paint per edge rather than sharing a blue head with a green reply. Preserve open heads, dots and source artwork semantics.
+
+`assets/templates/solid-style.js` finalizes authored end markers using actual filled backing geometry, composited persistent alpha, terminal tangents and explicit portable marker paint. It samples visible shaft portions independently of terminal paint, retains partial reveal/focus animation, and marks an edge `data-arrow-unresolved` when no allowed paint reaches 3:1. Resolve that finding by rerouting or splitting the semantic edge into separately painted spans; never accept its fallback paint as a pass. Transparent SVG backgrounds inherit the composited page background. The helper does not rewrite start/mid markers or embedded source artwork; inspect any such authored markers explicitly.
+
+Check tip, wings and shaft against their local backing at settled delivery, keyboard focus and reduced-motion states. Moving flow pulse layers preserve their trajectories and clocks but clip the exact triangular head silhouettes out of their paint, so persistent arrow tips remain visible without a halo. Audit the resulting clip geometry in exported SVG. Do not add outlines or halos around nodes to repair an arrow.

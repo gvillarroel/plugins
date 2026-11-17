@@ -1,0 +1,17 @@
+{
+  "name": "reflex-xy",
+  "version": "0.3.1",
+  "description": "Create interactive Python XY charts with a local MCP renderer and standalone HTML export.",
+  "author": {
+    "name": "gvillarroel"
+  },
+  "homepage": "https://gvillarroel.github.io/skills/examples/reflex-xy-capabilities/",
+  "repository": "https://github.com/gvillarroel/skills",
+  "keywords": [
+    "charts",
+    "python",
+    "xy",
+    "desktop",
+    "mcp-apps"
+  ]
+}

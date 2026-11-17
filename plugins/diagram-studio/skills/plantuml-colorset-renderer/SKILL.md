@@ -1,0 +1,167 @@
+---
+name: plantuml-colorset-renderer
+description: "Renders and validates PlantUML diagrams with bundled colorset themes across UML and non-UML families. Use for PlantUML creation, styling, cloud architecture diagrams, SVG or PNG batch rendering, deterministic reports, private local rendering, and diagram-family coverage; do not use for standalone logo search or export."
+---
+
+# PlantUML Colorset Renderer
+
+Read [the colorset output contract](references/colorset-contract.md) before authoring or auditing visual output. Apply one exact bundled palette to every authored output path and inspect rendered paint. Default to colorset1; declare colorset2 when its category distinctions are needed. Start category marks with opaque solid fills and no decorative borders; exhaust the selected palette's usable unique solids before outlined overflow variants. Choose black or white inside text by actual fill contrast.
+
+## Core Contract
+
+Map exact paths before rendering: the renderer writes
+`<output-root>/<format>/<source-relative-stem>.<format>`. For
+`input/diagram.puml` and a required `rendered/svg/diagram.svg`, pass
+`--output rendered`, and use that same root in the report validator. Do not
+pass `rendered/svg` as the root. Keep the requested input filename unchanged.
+
+Preserve the user's PlantUML source semantics. Apply the requested bundled colorset theme as presentation only, then render SVG and PNG outputs with a report that records every source, output path, format, colorset, and render engine. Default to colorset1; use colorset2 for an explicit full-color request or a documented semantic category need.
+
+Prefer local rendering for private diagrams. Use a remote fallback such as Kroki or PlantUML Server only when the user permits external rendering or the task is validation/example work with non-sensitive sources.
+
+Default connected diagrams to the smallest readable composition. Read [compact connected layouts](references/compact-composition.md) before authoring or reviewing their layout. Reduce unused margins, excessive spacing and connector detours while retaining complete labels, visible semantic heads and independently traceable routes. Preserve explicit user geometry and proportional chart or schedule scales.
+
+## Workflow
+
+Read [native style delivery](references/native-styling.md) when styling diagrams
+or repairing a theme. Use the bundled renderer so family-scoped theme rules and
+the native SVG finisher both apply; a direct theme-only render misses upstream
+hardcoded primitives.
+
+Read [native arrow contrast and clearance](references/arrow-contrast.md) when authoring directional links, rendering compound regions, or checking head position. Inspect shaft and complete head against actual painted backings; require at least 3:1 at delivery.
+
+Read [native network and schedule authoring](references/native-authoring.md)
+before generating NWDIAG or Gantt source. Keep bare network aliases separate
+from exact displayed names, and use native predecessor-end dependency syntax.
+
+1. Read `references/diagram-types.md` and its machine-readable source `references/diagram-types.json` when the task asks which PlantUML diagram types are covered or when maintaining examples.
+2. Run `scripts/render_plantuml_directory.py` against the requested directory with `--colorset colorset2` or `--colorset colorset1`, `--format svg --format png`, and a JSON report.
+3. Inspect the report. Confirm `ok` is `true`, failures are zero, and each result has the requested or capability-declared formats. Open the rendered diagram at its intended display size and inspect dense detail. Compare a tighter grouping or shorter source route when visible empty space or a detour can be reclaimed; keep only revisions that satisfy the compact-layout readability gates, then rerender and validate final artifacts.
+4. If maintaining this skill, supply `--coverage-manifest references/diagram-types.json`. Validate exact family and fixture sets instead of relying on a count.
+
+When maintaining the published examples, keep `assets/examples/plantuml-colorset-renderer/` as the only canonical GitHub Pages gallery. Treat `assets/examples/plantuml-colorset-renderer-cs1/` as a Colorset 1 render-asset source loaded by the canonical page's theme selector; do not add a second Pages catalog card or pattern page for it. Preserve the former CS1 URL as a redirect to `?theme=colorset1`.
+
+Normal user rendering does not load the coverage manifest. Ditaa, standalone AsciiMath, and standalone LaTeX still bypass theme injection because adding theme text would corrupt or be ignored by those syntaxes.
+
+Ditaa uses the separate source-backed raster style adapter described in
+[native style delivery](references/native-styling.md). Use its supported box
+contract and PNG format; unsupported geometry fails with a source repair
+instruction instead of a misleading style pass.
+
+## Commands
+
+Render a directory to SVG and PNG with the bundled colorset2 theme:
+
+```powershell
+uv run --script skills/plantuml-colorset-renderer/scripts/render_plantuml_directory.py path/to/plantuml --output path/to/renders --colorset colorset2 --format svg --format png --report path/to/plantuml-render-report.json
+```
+
+Render the same directory with the bundled colorset1 red-neutral theme:
+
+```powershell
+uv run --script skills/plantuml-colorset-renderer/scripts/render_plantuml_directory.py path/to/plantuml --output path/to/renders-cs1 --colorset colorset1 --format svg --format png --report path/to/plantuml-render-report-cs1.json
+```
+
+For the next three commands, set `<skill-root>` to the full `plantuml-colorset-renderer` source directory. This is an acceptance-fixture-only workflow that requires `assets/examples/`, which is intentionally excluded from the normal runtime payload.
+
+Render the bundled coverage examples when maintaining the skill:
+
+```powershell
+uv run --script <skill-root>/scripts/render_plantuml_directory.py <skill-root>/assets/examples/base --output projects/plantuml-colorset-renderer/artifacts/examples --format svg --format png --coverage-manifest <skill-root>/references/diagram-types.json --publication-only --report projects/plantuml-colorset-renderer/artifacts/examples/report.json
+```
+
+Validate a render report and artifacts:
+
+```powershell
+uv run --script <skill-root>/scripts/validate_plantuml_render_report.py --report projects/plantuml-colorset-renderer/artifacts/examples/report.json --output projects/plantuml-colorset-renderer/artifacts/examples --colorset colorset2 --coverage-manifest <skill-root>/references/diagram-types.json
+```
+
+Validate the frozen manifest, fixtures, reports, and published galleries:
+
+```powershell
+uv run --script <skill-root>/scripts/validate_plantuml_coverage.py --fixtures <skill-root>/assets/examples/base --report <skill-root>/assets/examples/plantuml-colorset-renderer/render-report.json --report <skill-root>/assets/examples/plantuml-colorset-renderer-cs1/render-report.json --gallery <skill-root>/assets/examples/plantuml-colorset-renderer --gallery <skill-root>/assets/examples/plantuml-colorset-renderer-cs1
+```
+
+Use a private/local PlantUML endpoint instead of the public server:
+
+```powershell
+uv run --script skills/plantuml-colorset-renderer/scripts/render_plantuml_directory.py path/to/plantuml --output path/to/renders --format svg --format png --engine server --server-url http://localhost:8080/plantuml --report path/to/plantuml-render-report.json
+```
+
+Use Kroki explicitly for remote rendering:
+
+```powershell
+uv run --script skills/plantuml-colorset-renderer/scripts/render_plantuml_directory.py path/to/plantuml --output path/to/renders --format svg --format png --engine kroki --report path/to/plantuml-render-report.json
+```
+
+Write themed source copies for debugging or handoff:
+
+```powershell
+uv run --script skills/plantuml-colorset-renderer/scripts/render_plantuml_directory.py path/to/plantuml --output path/to/renders --format svg --format png --write-themed --report path/to/plantuml-render-report.json
+```
+
+## Optional Logo Integration
+
+When a diagram needs an exact technical brand mark, use `$technical-logo-assets` when that companion skill is available. Export only the selected SVGs into the user's diagram project, keep their provenance and license sidecars, and reference those exported paths from the PlantUML source. This renderer must not read a sibling skill directory or assume a fixed companion installation path.
+
+```plantuml
+rectangle "<img:assets/logos/lambda.svg{scale=0.25}>\nAWS Lambda" as lambda
+rectangle "<img:assets/logos/cloud-run.svg{scale=0.25}>\nCloud Run" as run
+```
+
+Resolve image paths from the PlantUML source or renderer working directory, prefer paths without spaces, and use equal scales for peer logos. If the companion is unavailable, use user-supplied local artwork or a labeled PlantUML shape; never substitute a different brand or product.
+
+## Bundled Themes
+
+Both themes set native root padding to 6 without shrinking fonts. This reduces
+whitespace in supported activities, participants, and mind-map nodes; other
+families retain their native geometry. Later authored style rules override the
+theme. Inspect labels and connectors before reducing inter-node spacing; the
+theme does not impose a universal rank gap. Its padding is an initial safe
+default, not proof that the connected layout is compact. Prefer compact preview containers
+with access to the full-size SVG for dense diagrams.
+
+Use `assets/themes/cs2.puml` for the full colorset2 palette. It maps the repository colorset2 palette to PlantUML `skinparam` and CSS-like `<style>` rules:
+
+- Primary red: `#9e1b32`
+- Accent blue: `#007298`
+- Warning orange: `#e77204`
+- Success green: `#45842a`
+- Info cyan: `#00ace6`
+- Special purple: `#652f6c`
+- Neutral ink and grays: `#333e48`, `#696969`, `#e7e7e7`
+
+Use `assets/themes/cs1.puml` for the colorset1 red-neutral palette:
+
+- Start the primary category or family body with primary red: `#9e1b32`.
+- Allocate the exact bundled interleaved grayscale sequence next, including black and near-black, then white when it differs from the actual canvas. Alternate the darker and lighter luminance-ranked halves rather than an ascending gray ramp.
+- Use `#6d1222`, `#e8002a`, and `#ffccd5` only after that preceding categorical capacity is used, unless the user explicitly authors an override.
+- Read the exact ordered tokens from `assets/palettes/colorsets.json` and `solid_style`; repeated categories retain their fill. Containers, text, axes and semantic glyphs are not additional categories.
+
+Do not add semantic classes or labels to user diagrams unless the user asks. The renderer injects the theme in memory after compatible `@start...` lines and leaves the original files unchanged unless `--write-themed` is passed. It never injects theme text into `@startditaa`, `@startmath`, or `@startlatex`. Kroki Ditaa requests use the `ditaa` route.
+
+## Output Checks
+
+Validate ordinary render batches with
+`uv run --script <skill-root>/scripts/validate_plantuml_render_report.py --report <report.json> --output <render-directory> --colorset <requested-colorset>`.
+Use the actual output paths. This handles SVG token capitalization and allows
+neutral-only colorset1 line art, mathematical notation, and explicit source
+presentation. Default categorical bodies start primary red. Add
+`--coverage-manifest` only for frozen coverage fixtures.
+The bundled validator checks artifact paths, formats, SVG/PNG validity,
+palette evidence, current native-style delivery, and recomputed tagged body,
+label, and connector contrast. Inspect the rendered semantic glyphs and actual
+body silhouettes as well. After it passes, do not add grep or raw regex checks for
+those same properties; the SVG serializer can uppercase hex tokens. Preserve
+the exact output paths instead of moving results to fix an incorrect root.
+
+After rendering, verify:
+
+- `ok` is `true` in the report.
+- `failedDiagramCount` is `0`.
+- Each arbitrary diagram result has the requested outputs. Coverage-mode fixtures have the exact formats declared in `diagram-types.json`; Ditaa is PNG-only.
+- Coverage reports contain all 28 family IDs and all 29 fixture IDs exactly once, with Chronology recorded as `expected-unavailable` and no artifact.
+- The bundled report validator passes with the requested colorset; a diagram may use only a subset of that palette.
+- PNG outputs are non-empty binary files.
+- Connected-diagram review has reclaimed avoidable empty bands and detours without label collisions, hidden heads, ambiguous crossings or unrelated shared strokes. Every relation can be followed from its named source to its target; smaller bounds cannot override this gate.
+- For private source, the report uses a local endpoint or local PlantUML command rather than a public remote service.

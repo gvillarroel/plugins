@@ -1,0 +1,15 @@
+{
+  "name": "harbor",
+  "version": "1.0.0",
+  "description": "Author evaluation datasets, organize and report native Harbor studies, recover external failures, and improve complete skills with controlled evolution and independent validation.",
+  "author": {
+    "name": "Gerardo Villarroel"
+  },
+  "repository": "https://github.com/gvillarroel/skills",
+  "keywords": [
+    "harbor",
+    "evaluation",
+    "skills",
+    "evolution"
+  ]
+}

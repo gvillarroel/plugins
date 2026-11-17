@@ -1,0 +1,15 @@
+{
+  "name": "knowledge-catalog-local",
+  "description": "Semantic curation and synthetic lineage for Knowledge Catalog with local human review.",
+  "owner": {
+    "name": "Knowledge Catalog Curator contributors"
+  },
+  "plugins": [
+    {
+      "name": "kc-curator",
+      "source": "./plugin",
+      "description": "Semantic metadata curation with human approval",
+      "version": "0.3.0"
+    }
+  ]
+}

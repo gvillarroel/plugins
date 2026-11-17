@@ -1,0 +1,562 @@
+' plantuml-colorset-renderer: cs2 custom theme
+skinparam backgroundColor #ffffff
+skinparam shadowing false
+skinparam DefaultFontName Arial
+skinparam DefaultFontColor #000000
+skinparam ArrowColor #696969
+skinparam RoundCorner 6
+skinparam TitleFontColor #000000
+skinparam NoteBackgroundColor #9e1b32
+skinparam NoteBorderColor #9e1b32
+skinparam NoteBorderThickness 0
+skinparam NoteFontColor #ffffff
+skinparam SequenceParticipantBackgroundColor #007298
+skinparam SequenceParticipantBorderColor #007298
+skinparam SequenceParticipantBorderThickness 0
+skinparam SequenceParticipantFontColor #ffffff
+skinparam UsecaseBackgroundColor #e77204
+skinparam UsecaseBorderColor #e77204
+skinparam UsecaseBorderThickness 0
+skinparam UsecaseFontColor #000000
+skinparam ClassBackgroundColor #45842a
+skinparam ClassBorderColor #45842a
+skinparam ClassBorderThickness 0
+skinparam ClassFontColor #000000
+skinparam ObjectBackgroundColor #652f6c
+skinparam ObjectBorderColor #652f6c
+skinparam ObjectBorderThickness 0
+skinparam ObjectFontColor #ffffff
+skinparam ActivityBackgroundColor #f1c319
+skinparam ActivityBorderColor #f1c319
+skinparam ActivityBorderThickness 0
+skinparam ActivityFontColor #000000
+skinparam ActivityDiamondBackgroundColor #6d1222
+skinparam ActivityDiamondBorderColor #6d1222
+skinparam ActivityDiamondBorderThickness 0
+skinparam ActivityDiamondFontColor #ffffff
+skinparam ComponentBackgroundColor #004d66
+skinparam ComponentBorderColor #004d66
+skinparam ComponentBorderThickness 0
+skinparam ComponentFontColor #ffffff
+skinparam InterfaceBackgroundColor #ff9633
+skinparam InterfaceBorderColor #ff9633
+skinparam InterfaceBorderThickness 0
+skinparam InterfaceFontColor #000000
+skinparam NodeBackgroundColor #294d19
+skinparam NodeBorderColor #294d19
+skinparam NodeBorderThickness 0
+skinparam NodeFontColor #ffffff
+skinparam DatabaseBackgroundColor #431f47
+skinparam DatabaseBorderColor #431f47
+skinparam DatabaseBorderThickness 0
+skinparam DatabaseFontColor #ffffff
+skinparam CloudBackgroundColor #98700c
+skinparam CloudBorderColor #98700c
+skinparam CloudBorderThickness 0
+skinparam CloudFontColor #000000
+skinparam QueueBackgroundColor #e8002a
+skinparam QueueBorderColor #e8002a
+skinparam QueueBorderThickness 0
+skinparam QueueFontColor #ffffff
+skinparam StateBackgroundColor #00ace6
+skinparam StateBorderColor #00ace6
+skinparam StateBorderThickness 0
+skinparam StateFontColor #000000
+skinparam ClassHeaderBackgroundColor #45842a
+skinparam SequenceActorBackgroundColor #ffffff
+skinparam SequenceActorBorderColor #333e48
+skinparam SequenceActorFontColor #000000
+skinparam SequenceLifeLineBorderColor #696969
+skinparam SequenceArrowColor #696969
+skinparam ActorBackgroundColor #ffffff
+skinparam ActorBorderColor #333e48
+skinparam ActorFontColor #000000
+skinparam ActivityStartColor #333e48
+skinparam ActivityEndColor #e8002a
+skinparam StateStartColor #333e48
+skinparam StateEndColor #e8002a
+skinparam TimingBackgroundColor #ffffff
+skinparam TimingFontColor #000000
+skinparam TimingLineColor #696969
+skinparam LegendBackgroundColor #ffffff
+skinparam LegendBorderColor #ffffff
+skinparam LegendBorderThickness 0
+' Native family scopes prevent generic styles from overriding unrelated roles.
+<style>
+root {
+  BackGroundColor #ffffff
+  FontColor #000000
+  LineColor #696969
+  Padding 6
+}
+document {
+  BackGroundColor #ffffff
+  FontColor #000000
+  LineColor #ffffff
+  title {
+    BackGroundColor transparent
+    LineColor transparent
+    FontColor #000000
+    LineThickness 0
+  }
+  header, footer, caption {
+    FontColor #000000
+    BackGroundColor transparent
+  }
+  legend {
+    BackGroundColor #ffffff
+    FontColor #000000
+    LineColor transparent
+    LineThickness 0
+  }
+}
+arrow {
+  BackGroundColor #696969
+  FontColor #000000
+  LineColor #696969
+  LineThickness 1.5
+}
+actor, boundary, control {
+  BackGroundColor #ffffff
+  FontColor #000000
+  LineColor #333e48
+  LineThickness 1.5
+}
+node, artifact, folder, frame, rectangle, card {
+  BackGroundColor #294d19
+  FontColor #ffffff
+  LineColor #294d19
+  LineThickness 0
+}
+component {
+  BackGroundColor #004d66
+  FontColor #ffffff
+  LineColor #004d66
+  LineThickness 0
+}
+interface {
+  BackGroundColor #ff9633
+  FontColor #000000
+  LineColor #ff9633
+  LineThickness 0
+}
+database, storage, collections {
+  BackGroundColor #431f47
+  FontColor #ffffff
+  LineColor #431f47
+  LineThickness 0
+}
+cloud {
+  BackGroundColor #98700c
+  FontColor #000000
+  LineColor #98700c
+  LineThickness 0
+}
+queue {
+  BackGroundColor #e8002a
+  FontColor #ffffff
+  LineColor #e8002a
+  LineThickness 0
+}
+agent, participant {
+  BackGroundColor #007298
+  FontColor #ffffff
+  LineColor #007298
+  LineThickness 0
+}
+class {
+  BackGroundColor #45842a
+  FontColor #000000
+  LineColor #45842a
+  LineThickness 0
+}
+object {
+  BackGroundColor #652f6c
+  FontColor #ffffff
+  LineColor #652f6c
+  LineThickness 0
+}
+usecase {
+  BackGroundColor #e77204
+  FontColor #000000
+  LineColor #e77204
+  LineThickness 0
+}
+note {
+  BackGroundColor #9e1b32
+  FontColor #ffffff
+  LineColor #9e1b32
+  LineThickness 0
+}
+activity {
+  BackGroundColor #f1c319
+  FontColor #000000
+  LineColor #f1c319
+  LineThickness 0
+}
+state {
+  BackGroundColor #00ace6
+  FontColor #000000
+  LineColor #00ace6
+  LineThickness 0
+}
+classDiagram, componentDiagram, objectDiagram {
+  group, composite {
+    BackGroundColor #e7e7e7
+    FontColor #000000
+    LineColor #e7e7e7
+    LineThickness 0
+    title { FontColor #000000 }
+  }
+}
+objectDiagram {
+  object {
+    BackGroundColor #652f6c
+    FontColor #ffffff
+    LineColor #652f6c
+    LineThickness 0
+  }
+}
+componentDiagram {
+  usecase {
+    BackGroundColor #e77204
+    FontColor #000000
+    LineColor #e77204
+    LineThickness 0
+  }
+}
+sequenceDiagram {
+  participant {
+    BackGroundColor #007298
+    FontColor #ffffff
+    LineColor #007298
+    LineThickness 0
+  }
+  actor, boundary, control, entity {
+    BackGroundColor #ffffff
+    FontColor #000000
+    LineColor #333e48
+    LineThickness 1.5
+  }
+  database {
+    FontColor #000000
+  }
+  queue {
+    BackGroundColor #e8002a
+    FontColor #ffffff
+    LineColor #e8002a
+    LineThickness 0
+  }
+  collections {
+    BackGroundColor #431f47
+    FontColor #ffffff
+    LineColor #431f47
+    LineThickness 0
+  }
+  lifeLine {
+    LineColor #696969
+    LineThickness 1
+  }
+  activationBox {
+    BackGroundColor #e7e7e7
+    FontColor #000000
+    LineColor #696969
+    LineThickness 1
+  }
+  group, groupHeader, reference, referenceHeader, box, separator {
+    BackGroundColor #e7e7e7
+    FontColor #000000
+    LineColor #696969
+    LineThickness 1
+  }
+}
+activityDiagram {
+  activity {
+    BackGroundColor #f1c319
+    FontColor #000000
+    LineColor #f1c319
+    LineThickness 0
+  }
+  diamond {
+    BackGroundColor #6d1222
+    FontColor #ffffff
+    LineColor #6d1222
+    LineThickness 0
+  }
+  composite, partition, swimlane {
+    BackGroundColor #e7e7e7
+    FontColor #000000
+    LineColor #696969
+    LineThickness 1
+  }
+  circle {
+    start {
+      BackGroundColor #333e48
+      FontColor #ffffff
+      LineColor #333e48
+      LineThickness 1
+    }
+    stop, end {
+      BackGroundColor #e8002a
+      FontColor #ffffff
+      LineColor #e8002a
+      LineThickness 1.5
+    }
+  }
+  activityBar {
+    BackGroundColor #333e48
+    FontColor #ffffff
+    LineColor #333e48
+    LineThickness 1.5
+  }
+  arrow {
+    FontColor #000000
+    LineColor #696969
+    LineThickness 1.5
+  }
+}
+stateDiagram {
+  state {
+    BackGroundColor #00ace6
+    FontColor #000000
+    LineColor #00ace6
+    LineThickness 0
+  }
+  group {
+    BackGroundColor #e7e7e7
+    FontColor #000000
+    LineColor #696969
+    LineThickness 1
+  }
+  circle {
+    start {
+      BackGroundColor #333e48
+      FontColor #ffffff
+      LineColor #333e48
+      LineThickness 1
+    }
+    stop, end {
+      BackGroundColor #e8002a
+      FontColor #ffffff
+      LineColor #e8002a
+      LineThickness 1.5
+    }
+  }
+}
+mindmapDiagram, wbsDiagram {
+  node {
+    BackGroundColor #9e1b32
+    FontColor #ffffff
+    LineColor #9e1b32
+    LineThickness 0
+  }
+  arrow {
+    FontColor #000000
+    LineColor #696969
+    LineThickness 1.5
+  }
+}
+jsonDiagram, yamlDiagram {
+  node {
+    BackGroundColor #007298
+    FontColor #ffffff
+    LineColor #007298
+    LineThickness 0
+    separator {
+      LineColor #ffffff
+      LineThickness 1
+    }
+    highlight {
+      BackGroundColor #00ace6
+      FontColor #000000
+      LineColor #00ace6
+      LineThickness 0
+    }
+  }
+  arrow {
+    FontColor #000000
+    LineColor #696969
+    LineThickness 1.5
+  }
+}
+packetdiagDiagram {
+  rectangle {
+    BackGroundColor #9e1b32
+    FontColor #ffffff
+    LineColor #ffffff
+    LineThickness 1
+  }
+}
+chenEerDiagram {
+  chenEntity {
+    BackGroundColor #9e1b32
+    FontColor #ffffff
+    LineColor #9e1b32
+    LineThickness 0
+    .weak {
+      LineColor #ffffff
+      LineThickness 1.5
+    }
+  }
+  chenAttribute {
+    BackGroundColor #007298
+    FontColor #ffffff
+    LineColor #007298
+    LineThickness 0
+    .multi, .derived {
+      LineColor #ffffff
+      LineThickness 1.5
+    }
+  }
+  chenRelationship {
+    BackGroundColor #e77204
+    FontColor #000000
+    LineColor #e77204
+    LineThickness 0
+    .identifying {
+      LineColor #000000
+      LineThickness 1.5
+    }
+  }
+}
+nwdiagDiagram {
+  server {
+    BackGroundColor #007298
+    FontColor #ffffff
+    LineColor #007298
+    LineThickness 0
+  }
+  network {
+    BackGroundColor #cfcfcf
+    FontColor #000000
+    LineColor #696969
+    LineThickness 1
+  }
+  group {
+    BackGroundColor #e7e7e7
+    FontColor #000000
+    LineColor #e7e7e7
+    LineThickness 0
+  }
+  arrow {
+    FontColor #000000
+    LineColor #696969
+    LineThickness 1.5
+  }
+}
+' Railroad strokes encode grammar: native token outline widths are hard-coded.
+ebnf {
+  BackGroundColor #e77204
+  FontColor #000000
+  LineColor #696969
+  LineThickness 1.5
+}
+ganttDiagram {
+  task {
+    BackGroundColor #f1c319
+    FontColor #000000
+    LineColor #f1c319
+    LineThickness 0
+    unstarted {
+      BackGroundColor #f1c319
+      FontColor #000000
+      LineColor #f1c319
+      LineThickness 0
+    }
+  }
+  undone {
+    BackGroundColor #e7e7e7
+    FontColor #000000
+    LineColor #e7e7e7
+    LineThickness 0
+  }
+  timeline {
+    BackGroundColor #ffffff
+    FontColor #000000
+    LineColor #696969
+    LineThickness 1
+  }
+  closed {
+    BackGroundColor #e7e7e7
+    FontColor #000000
+    LineColor #e7e7e7
+    LineThickness 0
+  }
+  milestone {
+    BackGroundColor #333e48
+    FontColor #000000
+    LineColor #333e48
+    LineThickness 1
+  }
+  separator {
+    BackGroundColor transparent
+    FontColor #000000
+    LineColor #696969
+    LineThickness 1
+  }
+}
+timingDiagram {
+  FontColor #000000
+  LineColor #696969
+  LineThickness 1
+  robust {
+    BackGroundColor #9e1b32
+    FontColor #000000
+    LineColor #9e1b32
+    LineThickness 2
+  }
+  concise {
+    BackGroundColor #00ace6
+    FontColor #000000
+    LineColor #00ace6
+    LineThickness 1.5
+  }
+  binary, clock {
+    FontColor #000000
+    LineColor #9e1b32
+    LineThickness 1.5
+  }
+  arrow, constraintArrow {
+    FontColor #000000
+    LineColor #696969
+    LineThickness 1.5
+  }
+  timeline {
+    FontColor #000000
+    LineColor #696969
+    LineThickness 1.5
+  }
+}
+chartDiagram {
+  BackGroundColor #ffffff
+  FontColor #000000
+  LineColor #ffffff
+  axis {
+    FontColor #000000
+    LineColor #696969
+    LineThickness 1
+  }
+  grid {
+    LineColor #e7e7e7
+    LineThickness 1
+  }
+  bar {
+    BackGroundColor #9e1b32
+    FontColor #ffffff
+    LineColor #9e1b32
+    LineThickness 0
+  }
+  line {
+    LineColor #007298
+    LineThickness 1.5
+  }
+  scatter {
+    MarkerColor #e77204
+  }
+}
+filesDiagram, saltDiagram {
+  FontColor #000000
+  LineColor #696969
+  LineThickness 1
+}
+</style>

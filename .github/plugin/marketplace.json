@@ -1,0 +1,167 @@
+{
+  "name": "plugins",
+  "owner": {
+    "name": "gvillarroel"
+  },
+  "metadata": {
+    "description": "Skills and tools for knowledge engineering, evaluation, media production and project workflows."
+  },
+  "plugins": [
+    {
+      "name": "agent-foundry",
+      "source": "./plugins/agent-foundry",
+      "description": "Manage a declarative user bench, current-folder profiles, disposable subagents, and trusted skill references.",
+      "version": "0.12.1"
+    },
+    {
+      "name": "cloud-operations",
+      "source": "./plugins/cloud-operations",
+      "description": "Work with GCS user access, Google Cloud SKU pricing and evaluation datasets for GCP Radar.",
+      "version": "1.0.0"
+    },
+    {
+      "name": "confluence-publishing",
+      "source": "./plugins/confluence-publishing",
+      "description": "Prepare Markdown for Confluence and round-trip pages with their attachments and formatting.",
+      "version": "1.0.0"
+    },
+    {
+      "name": "data-simulation",
+      "source": "./plugins/data-simulation",
+      "description": "Plan, generate and evaluate synthetic tabular datasets, build simulations and test their quality and privacy.",
+      "version": "1.0.0"
+    },
+    {
+      "name": "delivery-planning",
+      "source": "./plugins/delivery-planning",
+      "description": "Extract requirements, review assumptions, plan delivery and construct project-specific Harbor evaluation datasets.",
+      "version": "1.0.0"
+    },
+    {
+      "name": "design-assets",
+      "source": "./plugins/design-assets",
+      "description": "Find licensed visual assets, stock footage, textures, icons and technical logos for creative projects.",
+      "version": "1.0.0"
+    },
+    {
+      "name": "diagram-studio",
+      "source": "./plugins/diagram-studio",
+      "description": "Compose and animate diagrams, charts and SVGs with D3, Mermaid, PlantUML, ECharts and Lucidchart.",
+      "version": "1.0.0"
+    },
+    {
+      "name": "editorial-research",
+      "source": "./plugins/editorial-research",
+      "description": "Find reaction GIFs and consult the blog workspace's verified expert sources while drafting articles.",
+      "version": "1.0.0"
+    },
+    {
+      "name": "harbor",
+      "source": "./plugins/harbor",
+      "description": "Author evaluation datasets, organize and report native Harbor studies, recover external failures, and improve complete skills with controlled evolution and independent validation.",
+      "version": "1.0.0"
+    },
+    {
+      "name": "hyperframes",
+      "source": "./plugins/hyperframes",
+      "description": "Compose and render HTML video using HyperFrames by HeyGen and the project Colorsets.",
+      "version": "0.8.199"
+    },
+    {
+      "name": "knowledge-authoring",
+      "source": "./plugins/knowledge-authoring",
+      "description": "Build expert skills and knowledge bundles, extract ontologies and review methodology against its bundled research corpus.",
+      "version": "1.0.0"
+    },
+    {
+      "name": "knowledge-tools",
+      "source": "./plugins/knowledge-tools",
+      "description": "Register, index and search knowledge with know, XERJ, OpenWiki, Open Ontologies and Television.",
+      "version": "1.0.0"
+    },
+    {
+      "name": "layers-evaluation",
+      "source": "./plugins/layers-evaluation",
+      "description": "Author and audit Harbor evaluation datasets for the Layers workspace.",
+      "version": "1.0.0"
+    },
+    {
+      "name": "line-world-video",
+      "source": "./plugins/line-world-video",
+      "description": "Create clean explanatory videos with sourced object photographs, restrained image treatments, original-paper tours, D3/Mermaid diagrams, semantic focus and editable timing. Includes whole-film review and a Google Vids narration and delivery adapter.",
+      "version": "0.27.0"
+    },
+    {
+      "name": "marketplace-check",
+      "source": "./plugins/marketplace-check",
+      "description": "Verify that installed skills can read the proof files shipped in their own package.",
+      "version": "1.0.0"
+    },
+    {
+      "name": "plugin-authoring",
+      "source": "./plugins/plugin-authoring",
+      "description": "Design agent plugin interfaces and MCP Apps, and author evaluation datasets in the marketplace development context.",
+      "version": "1.0.0"
+    },
+    {
+      "name": "presentation-studio",
+      "source": "./plugins/presentation-studio",
+      "description": "Build and audit Slidev presentations or transfer D3 graphics into editable Google Slides.",
+      "version": "1.0.0"
+    },
+    {
+      "name": "reflex-xy",
+      "source": "./plugins/reflex-xy",
+      "description": "Create interactive Python XY charts with a local MCP renderer and standalone HTML export.",
+      "version": "0.3.1"
+    },
+    {
+      "name": "semantic-curation",
+      "source": "./plugins/semantic-curation",
+      "description": "Curate semantic models, extract ontologies and map evidence to knowledge catalogs, book analysis and question indexes.",
+      "version": "1.0.0"
+    },
+    {
+      "name": "semantic-graphs",
+      "source": "./plugins/semantic-graphs",
+      "description": "Build and query graph-based Semantic OKF snapshots, including entity graphs, Graphify and procedural graphs.",
+      "version": "1.0.0"
+    },
+    {
+      "name": "semantic-okf",
+      "source": "./plugins/semantic-okf",
+      "description": "Build, consult and visualize Semantic OKF snapshots with classical, adaptive, embedding and ensemble retrieval.",
+      "version": "1.0.0"
+    },
+    {
+      "name": "semantic-search",
+      "source": "./plugins/semantic-search",
+      "description": "Build and query knowledge snapshots with Tantivy, Turso, Tika and RustMallet search backends.",
+      "version": "1.0.0"
+    },
+    {
+      "name": "store-studio",
+      "source": "./plugins/store-studio",
+      "description": "Prepare, critique and market print-on-demand products with artwork, photoshoots and Printify workflows.",
+      "version": "1.0.0"
+    },
+    {
+      "name": "video-production",
+      "source": "./plugins/video-production",
+      "description": "Plan and produce mixed-media videos with motion graphics, screen recordings, audio and delivery through Google Vids.",
+      "version": "1.0.0"
+    },
+    {
+      "name": "visual-effects",
+      "source": "./plugins/visual-effects",
+      "description": "Create 3D scenes, pixel art, vector patterns and image effects using Three.js, Kornia and SVG.",
+      "version": "1.0.0"
+    },
+    {
+      "name": "workflow-engineering",
+      "source": "./plugins/workflow-engineering",
+      "description": "Author ZX and Pi workflows, durable agent applications, repository reviewers and batch decisions.",
+      "version": "1.0.0"
+    }
+  ]
+}

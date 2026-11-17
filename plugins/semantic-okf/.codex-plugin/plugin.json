@@ -1,0 +1,14 @@
+{
+  "name": "semantic-okf",
+  "version": "1.0.0",
+  "description": "Build, consult and visualize Semantic OKF snapshots with classical, adaptive, embedding and ensemble retrieval.",
+  "author": {
+    "name": "Gerardo Villarroel"
+  },
+  "interface": {
+    "displayName": "Semantic OKF Retrieval",
+    "shortDescription": "Build, consult and visualize Semantic OKF snapshots with classical, adaptive, embedding and ensemble retrieval.",
+    "category": "Data"
+  },
+  "skills": "./skills/"
+}

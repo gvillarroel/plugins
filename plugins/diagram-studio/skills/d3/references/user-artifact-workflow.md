@@ -1,0 +1,126 @@
+# User-Owned D3 Artifact Workflow
+
+## Contents
+
+- [Output Policy](#output-policy)
+- [Starter-First Workflow](#starter-first-workflow)
+- [Portable Visual Defaults](#portable-visual-defaults)
+- [Starter Contract](#starter-contract)
+- [Adapting Gallery Patterns](#adapting-gallery-patterns)
+- [Validation](#validation)
+
+Use this reference when creating a new D3 visualization, SVG, or editable starter for a user's project. The goal is to produce code the user can keep editing without mutating this skill's validation gallery.
+
+## Output Policy
+
+- Write user deliverables outside the skill directory.
+- Use the path requested by the user. If no path is given, create `output/d3/<task-slug>/` from the current workspace.
+- Do not edit `skills/d3/assets/examples/` for ordinary user deliverables. That directory is an acceptance fixture and gallery source.
+- Edit `assets/examples/` only when the user explicitly asks to improve the skill, add a gallery card, repair validation fixtures, or update published examples.
+- Use gallery code as read-only reference. Copy or adapt the relevant pattern into a new artifact.
+
+## Starter-First Workflow
+
+1. Pick the closest pattern family: `operational-dashboard`, `inline-bar-table`, `context-window-matrix`, `animated-network`, or `blank`. Use `operational-dashboard` for KPI/table/status dashboards so the agent edits data inside a fixed layout instead of inventing panel geometry.
+2. Generate a starter when shell access is available:
+
+The starter defaults to colorset1 and 12 px page padding. Use `--colorset
+colorset2` only for an explicit extended-color request. It copies the bundled D3
+runtime into the output's `vendor/` directory and works without a network.
+
+```powershell
+uv run --script skills/d3/scripts/create_d3_svg_starter.py --pattern operational-dashboard --out output/d3/my-viz --title "My D3 visual"
+```
+
+3. Edit the generated files, not the skill gallery:
+   - `index.html`: rendering code and SVG structure
+   - `data.js`: editable data
+   - `styles.css`: page and SVG style tokens
+   - `NOTES.md`: implementation notes and validation status
+   For prepared templates such as `operational-dashboard`, edit `data.js` first and preserve the seeded layout unless the user explicitly requests a structural change. If labels or notes do not fit, shorten the data strings before editing `index.html` or `styles.css`.
+   Keep side-panel notes short: prefer one sentence fragment per note and no more than five rendered note lines.
+4. If shell access is unavailable, manually create the same file set in the requested output directory and follow the contracts below.
+5. Render or open `index.html`, then validate that the SVG is nonblank, labels fit, text stays inside the viewport, and the output can be edited without reading the skill again.
+
+## Portable Visual Defaults
+
+Use these defaults for ordinary user deliverables when the user or target project does not provide a palette. Do not read repository-level token files for this workflow.
+
+- Font stack: `"Open Sans", Arial, sans-serif`
+- Text: `#333e48`
+- Muted text: `#696969`
+- Grid/borders: `#e7e7e7` and `#cfcfcf`
+- Page background: `#f7f7f7`
+- Surface: `#ffffff`
+- Risk/emphasis red: `#9e1b32`
+- Supporting states: ink `#333e48`, gray `#4f4f4f`, and gray `#696969`
+- Quiet fills: white `#ffffff`, `#f7f7f7`, and `#e7e7e7`
+- Extended orange, yellow, green, and blue are colorset2-only; read `palette-contract.md`.
+- Pink `#ffccd5` is reserved for a justified last-resort category after red/neutrals, or an explicit request.
+
+Allocate ordinary category fills from primary red, then the bundled dark/middle
+gray interleave including black, white, and remaining colors. The context matrix assigns used segments
+in their data order; the network assigns groups in first-use order. A single
+line and its point marks share primary red. Keep fixed status meanings such
+as critical or behind in primary red and preserve their neutral supporting states.
+The shared finalizer computes black or white labels against actual fills.
+Follow `compact-composition.md` for measured box padding and responsive controls;
+preserve explicit sizes, readable labels, and quantitative spacing.
+
+## Starter Contract
+
+Every user-owned starter should include:
+
+- browser-openable `index.html`
+- editable data in `data.js` or inline data near the top of `index.html`
+- explicit `viewBox`, `role="img"`, `title`, `desc`, and root `font-family`
+- deterministic data and layout
+- D3 joins for marks instead of pasted static SVG bodies
+- portable SVG animation with SMIL or CSS when motion matters
+- short notes that identify the pattern family, output files, and validation performed
+
+## Adapting Gallery Patterns
+
+When adapting a gallery example:
+
+- Read the existing gallery only to understand geometry, data semantics, color roles, and animation timing.
+- Copy only the local helper logic needed by the new artifact.
+- Rename IDs and titles for the user's artifact.
+- Replace gallery data with task-specific data.
+- Keep the reusable visual grammar, not the fixture's labels or exact values.
+- Do not import the whole gallery, page scaffold, replay system, or unrelated renderers.
+
+## Validation
+
+For a direct-open HTML starter:
+
+```powershell
+uv run --script skills/d3/scripts/render_d3_svg.py output/d3/my-viz/index.html --selector "svg" -o output/d3/my-viz.svg --screenshot output/d3/my-viz.png --wait-ms 1200
+python skills/d3/scripts/check_palette_contract.py output/d3/my-viz.svg --colorset colorset1
+python skills/d3/scripts/check_visual_contract.py output/d3/my-viz.svg --require-id visual --require-tag title --require-tag desc
+```
+
+Use the selected colorset in the palette check. For the operational dashboard,
+also check `--require-class kpi:4 --require-class row:6` when those are the
+requested counts. The SVG capture includes computed visible paint and metadata.
+
+The directory is an offline artifact with local files. Do not apply
+`check_self_contained_html.py` to its `index.html`: that checker requires an
+inline single-file deliverable and intentionally rejects local script tags.
+Verify that all referenced local files are present, no external requests occur,
+and labels fit in the rendered SVG. If the user requires one standalone file,
+inline the data, stylesheet, and runtime before applying that single-file check.
+
+For repository validation after changing this skill:
+
+```powershell
+uv run --script scripts/validate-skills.py
+```
+
+The starter ships `solid-style.js` and its exact bundled palette contract. Keep
+this runtime file with the editable artifact: it removes decorative outlines,
+uses a solid role fill for light nodes with dark borders, and computes contained
+black/white label contrast. For new categorical roles call
+`D3SolidStyle.categoryStyle(index, colorset, actualCanvas)`; its initial tier
+exhausts all usable solid tokens before any border variant. Preserve genuine
+line geometry and use explicit `data-paint-mode` for source or line-art modes.

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Question-Oriented Knowledge Index"
+  short_description: "Build evidence-bound indexes for question families"
+  default_prompt: "Use $index-knowledge-questions to build and compare a question-oriented taxonomy and relation index for this knowledge corpus."

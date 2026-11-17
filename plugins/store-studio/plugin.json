@@ -1,0 +1,18 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "store-studio",
+  "version": "1.0.0",
+  "description": "Prepare, critique and market print-on-demand products with artwork, photoshoots and Printify workflows.",
+  "author": {
+    "name": "Gerardo Villarroel"
+  },
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Store Studio",
+        "shortDescription": "Prepare, critique and market print-on-demand products with artwork, photoshoots and Printify workflows.",
+        "category": "Productivity"
+      }
+    }
+  }
+}

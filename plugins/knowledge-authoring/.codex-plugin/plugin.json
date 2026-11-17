@@ -1,0 +1,14 @@
+{
+  "name": "knowledge-authoring",
+  "version": "1.0.0",
+  "description": "Build expert skills and knowledge bundles, extract ontologies and review methodology against its bundled research corpus.",
+  "author": {
+    "name": "Gerardo Villarroel"
+  },
+  "interface": {
+    "displayName": "Knowledge Authoring",
+    "shortDescription": "Build expert skills and knowledge bundles, extract ontologies and review methodology against its bundled research corpus.",
+    "category": "Productivity"
+  },
+  "skills": "./skills/"
+}

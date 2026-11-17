@@ -1,0 +1,4 @@
+interface:
+  display_name: "PyDub Projects"
+  short_description: "Coordinate independent or shared audio agent work"
+  default_prompt: "Use $pydub-projects to organize audio tasks with separate agent workspaces and a shared task board."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Open Ontologies"
+  short_description: "Operate RDF/OWL graphs, reasoning, and change plans"
+  default_prompt: "Use $open-ontologies to validate my ontology, run its competency queries, and report the reasoning and change evidence."

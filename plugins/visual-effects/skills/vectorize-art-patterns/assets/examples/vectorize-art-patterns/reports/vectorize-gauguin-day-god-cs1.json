@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "ok": true,
+  "input": "assets/base-images/gauguin-day-god.jpg",
+  "input_sha256": "d0ec07d3ec2be4065a3321ae55f690f212f4a0db92d6346a258d214760f4b09f",
+  "output": "svgs/vectorize-gauguin-day-god-cs1.svg",
+  "output_sha256": "8ebc328b6b430ad1bdaed10dd20a204455b8be24af654d84ef9d05bd09a4c5ed",
+  "pattern_id": "vectorize-gauguin-day-god-cs1",
+  "mode": "collage",
+  "tile": "none",
+  "colorset": "colorset1",
+  "palette_contract_sha256": "f33804ae2e5fb81652343fee00ac6a48c6581eaf823ddead535a98035dd8b366",
+  "variation_seed": 0,
+  "composition_sha256": "af72512edf902504d6ae693ac883dce88bc16145e4d251571b69b5aedd4e4b82",
+  "parameters": {
+    "colors": 9,
+    "smoothing": 0.36,
+    "palette_method": "median-cut",
+    "max_dimension": 560,
+    "filter_speckle": 18,
+    "curve_mode": "spline",
+    "hierarchical": "cutout",
+    "color_mapping": {
+      "background": "#333e48",
+      "layers": [
+        {
+          "source": "#384c59",
+          "target": "#4f4f4f"
+        },
+        {
+          "source": "#755347",
+          "target": "#696969"
+        },
+        {
+          "source": "#173043",
+          "target": "#363636"
+        },
+        {
+          "source": "#4a6a68",
+          "target": "#828282"
+        },
+        {
+          "source": "#b08267",
+          "target": "#9e1b32"
+        },
+        {
+          "source": "#17485e",
+          "target": "#1c1c1c"
+        },
+        {
+          "source": "#798d84",
+          "target": "#9c9c9c"
+        },
+        {
+          "source": "#b5ab8c",
+          "target": "#b5b5b5"
+        }
+      ],
+      "source_colors": [
+        "#966b59",
+        "#384c59",
+        "#755347",
+        "#173043",
+        "#4a6a68",
+        "#b08267",
+        "#17485e",
+        "#798d84",
+        "#b5ab8c"
+      ],
+      "target_colors": [
+        "#333e48",
+        "#4f4f4f",
+        "#696969",
+        "#363636",
+        "#828282",
+        "#9e1b32",
+        "#1c1c1c",
+        "#9c9c9c",
+        "#b5b5b5"
+      ]
+    }
+  },
+  "source_width": 900,
+  "source_height": 671,
+  "vector_width": 560,
+  "vector_height": 418,
+  "render_width": 560,
+  "render_height": 418,
+  "palette": [
+    "#1c1c1c",
+    "#333e48",
+    "#363636",
+    "#4f4f4f",
+    "#696969",
+    "#828282",
+    "#9c9c9c",
+    "#9e1b32",
+    "#b5b5b5"
+  ],
+  "path_count": 171,
+  "output_bytes": 229349,
+  "rights": {
+    "basis": "source-manifest",
+    "source_id": "gauguin-day-god",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "source_url": "https://www.artic.edu/artworks/27943",
+    "attribution": "Paul Gauguin (French, 1848–1903); Helen Birch Bartlett Memorial Collection",
+    "attribution_required": false,
+    "share_alike": false,
+    "input_sha256": "d0ec07d3ec2be4065a3321ae55f690f212f4a0db92d6346a258d214760f4b09f"
+  },
+  "backend": "vtracer-0.6.15"
+}

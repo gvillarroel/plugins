@@ -1,0 +1,4 @@
+interface:
+  display_name: "Create Shirt Product"
+  short_description: "Build print-ready shirt product spikes using learned store styles."
+  default_prompt: "Create a shirt product spike with print-ready transparent PNGs, garment previews, social drafts, and a quality decision index. For IA-Referencias, read the store identity, graphic styles, products index, and recent accepted products first; default short AI/dev slogans to vector-icon-text variants and validate the winner with real Printify mockups when moving to product."

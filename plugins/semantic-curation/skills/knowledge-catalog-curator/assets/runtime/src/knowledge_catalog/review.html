@@ -1,0 +1,3306 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Knowledge Catalog · Curator</title>
+    <style>
+      :root {
+        font-family:
+          Inter,
+          Segoe UI,
+          system-ui,
+          sans-serif;
+        color: #333e48;
+        background: #f7f7f7;
+        font-size: 15px;
+        color-scheme: light;
+        accent-color: #9e1b32;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      [hidden] {
+        display: none !important;
+      }
+      .grid > * {
+        min-width: 0;
+      }
+      main {
+        min-width: 0;
+      }
+      body {
+        margin: 0;
+      }
+      button,
+      input,
+      select,
+      textarea {
+        font: inherit;
+      }
+      button {
+        min-height: 44px;
+        min-width: 44px;
+        cursor: pointer;
+        border: 1px solid #828282;
+        border-radius: 8px;
+        background: #ffffff;
+        padding: 10px 14px;
+        color: #333e48;
+      }
+      button:hover:not(:disabled) {
+        background: #e7e7e7;
+      }
+      button:disabled {
+        opacity: 1;
+        color: #696969;
+        background: #e7e7e7;
+        border-color: #b5b5b5;
+        cursor: not-allowed;
+      }
+      .primary {
+        background: #9e1b32;
+        color: #ffffff;
+        border-color: #9e1b32;
+      }
+      .primary:hover:not(:disabled) {
+        background: #6d1222;
+      }
+      .danger {
+        color: #9e1b32;
+      }
+      input,
+      select,
+      textarea {
+        padding: 10px;
+        border: 1px solid #828282;
+        border-radius: 7px;
+        width: 100%;
+        background: #ffffff;
+        color: #1c1c1c;
+      }
+      input:not([type="checkbox"]),
+      select {
+        min-height: 44px;
+      }
+      input::placeholder {
+        color: #696969;
+        opacity: 1;
+      }
+      :focus-visible {
+        outline: 3px solid #9e1b32;
+        outline-offset: 3px;
+      }
+      aside :focus-visible {
+        outline-color: #ffccd5;
+      }
+      a {
+        color: #9e1b32;
+      }
+      .skip-link {
+        position: fixed;
+        top: 8px;
+        left: 8px;
+        z-index: 20;
+        transform: translateY(-180%);
+        background: #ffffff;
+        padding: 13px 18px;
+        border: 2px solid #9e1b32;
+        border-radius: 6px;
+      }
+      .skip-link:focus {
+        transform: translateY(0);
+      }
+      .panel-nav {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 22px;
+      }
+      .panel-nav a {
+        display: flex;
+        align-items: center;
+        min-height: 44px;
+        color: #f7f7f7;
+        padding: 10px;
+        border: 1px solid #828282;
+        border-radius: 7px;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      .panel-nav a:hover {
+        background: #363636;
+      }
+      .check-row {
+        min-height: 44px;
+        padding: 8px 0;
+      }
+      .check-row input {
+        width: 24px !important;
+        height: 24px;
+        flex: 0 0 24px;
+      }
+      .field-error {
+        color: #6d1222;
+        font-size: 13px;
+        line-height: 1.5;
+        margin: 6px 0;
+      }
+      aside .field-error {
+        color: #ffccd5;
+      }
+      aside .muted {
+        color: #cfcfcf;
+      }
+      [aria-invalid="true"] {
+        border: 2px solid #9e1b32;
+      }
+      #operation-status {
+        min-height: 42px;
+        padding: 11px 0;
+        color: #4f4f4f;
+        font-size: 13px;
+        line-height: 1.5;
+      }
+      #error-summary p {
+        margin-top: 0;
+      }
+      .action-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+        margin-top: 16px;
+      }
+      caption {
+        text-align: left;
+        font-size: 13px;
+        font-weight: 600;
+        padding: 10px 0;
+        color: #4f4f4f;
+      }
+      textarea {
+        resize: vertical;
+        line-height: 1.5;
+      }
+      label {
+        display: block;
+        font-size: 13px;
+        font-weight: 600;
+        margin: 13px 0 6px;
+      }
+      .shell {
+        display: grid;
+        grid-template-columns: 285px minmax(0, 1fr);
+        min-height: 100vh;
+      }
+      aside {
+        background: #1c1c1c;
+        color: #f7f7f7;
+        padding: 28px 20px;
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        overflow: auto;
+      }
+      .brand {
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 1.3;
+      }
+      .brand small {
+        font-size: 12px;
+        color: #cfcfcf;
+        display: block;
+        letter-spacing: 1.8px;
+        margin-top: 9px;
+        text-transform: uppercase;
+      }
+      .side-title {
+        font-size: 11px;
+        letter-spacing: 1.5px;
+        color: #cfcfcf;
+        margin: 35px 0 15px;
+      }
+      .entry {
+        display: block;
+        text-align: left;
+        width: 100%;
+        margin: 8px 0;
+        padding: 13px;
+        background: #363636;
+        border: 1px solid #828282;
+        color: #ffffff;
+      }
+      .entry.active {
+        border-color: #ffccd5;
+        background: #6d1222;
+      }
+      .entry small {
+        display: block;
+        color: #cfcfcf;
+        margin-top: 7px;
+      }
+      .entry span {
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .side-note {
+        font-size: 12px;
+        line-height: 1.7;
+        color: #cfcfcf;
+        margin-top: 30px;
+      }
+      main {
+        padding: 30px 38px;
+        max-width: 1550px;
+        width: 100%;
+        margin: auto;
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+      h1 {
+        font-size: 27px;
+        margin: 8px 0;
+        color: #1c1c1c;
+        letter-spacing: -0.7px;
+      }
+      h2 {
+        font-size: 18px;
+        margin: 0 0 15px;
+      }
+      h3 {
+        font-size: 14px;
+      }
+      .eyebrow {
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #696969;
+        font-size: 11px;
+        font-weight: 700;
+      }
+      .muted {
+        color: #696969;
+        font-size: 13px;
+        line-height: 1.65;
+      }
+      .pill {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        display: inline-block;
+        border-radius: 30px;
+        padding: 6px 11px;
+        background: #e7e7e7;
+        color: #333e48;
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .pill.warn {
+        background: #ffccd5;
+        color: #6d1222;
+      }
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+        margin: 25px 0;
+      }
+      .stat,
+      .card {
+        background: #ffffff;
+        border: 1px solid #cfcfcf;
+        border-radius: 13px;
+        padding: 20px;
+        box-shadow: none;
+      }
+      .stat b {
+        display: block;
+        font-size: 26px;
+        margin-top: 9px;
+      }
+      .stat small {
+        color: #696969;
+        font-size: 12px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.65fr) minmax(290px, 1fr);
+        gap: 20px;
+      }
+      .card {
+        margin-bottom: 20px;
+      }
+      .row {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .between {
+        justify-content: space-between;
+      }
+      .alert {
+        padding: 13px 16px;
+        border-radius: 8px;
+        background: #f7f7f7;
+        border: 1px solid #828282;
+        color: #333e48;
+        line-height: 1.6;
+        font-size: 13px;
+        margin: 16px 0;
+      }
+      .alert.error {
+        background: #ffccd5;
+        border-color: #9e1b32;
+        color: #6d1222;
+      }
+      .alert.ok {
+        background: #e7e7e7;
+        color: #333e48;
+        border-color: #828282;
+      }
+      .tag {
+        display: inline-block;
+        padding: 5px 9px;
+        margin: 4px 4px 4px 0;
+        background: #e7e7e7;
+        border-radius: 5px;
+        font-size: 12px;
+      }
+      .table-wrap {
+        overflow: auto;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 12px;
+      }
+      th {
+        text-align: left;
+        color: #4f4f4f;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        background: #f7f7f7;
+      }
+      td,
+      th {
+        padding: 11px 8px;
+        border-bottom: 1px solid #cfcfcf;
+        vertical-align: top;
+      }
+      td:first-child {
+        font-weight: 600;
+      }
+      .finding {
+        padding: 10px 0;
+        border-bottom: 1px solid #cfcfcf;
+        font-size: 12px;
+        line-height: 1.6;
+      }
+      .finding b {
+        color: #6d1222;
+      }
+      .code {
+        font-family: Consolas, monospace;
+        font-size: 12px;
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+        background: #f7f7f7;
+        padding: 14px;
+        border-radius: 7px;
+        max-height: 350px;
+        overflow: auto;
+      }
+      details summary {
+        cursor: pointer;
+        color: #9e1b32;
+        font-size: 13px;
+        min-height: 44px;
+        padding: 12px 0;
+      }
+      .field-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .spacer {
+        margin-top: 16px;
+      }
+      .sticky {
+        position: sticky;
+        top: 24px;
+        align-self: start;
+      }
+      .empty {
+        padding: 35px;
+        text-align: center;
+        color: #696969;
+      }
+      .footer {
+        font-size: 12px;
+        color: #696969;
+        padding: 8px 0 20px;
+      }
+      .concept {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        margin: 11px 0;
+        font-size: 12px;
+      }
+      .bar {
+        height: 7px;
+        border-radius: 4px;
+        background: #9e1b32;
+        min-width: 5px;
+      }
+      #toast {
+        position: static;
+        margin: 0 0 20px;
+        padding: 15px 20px;
+        background: #1c1c1c;
+        color: #ffffff;
+        border-radius: 10px;
+        display: none;
+      }
+      .toolbox {
+        margin-top: 18px;
+      }
+      .toolbox input {
+        margin-bottom: 8px;
+      }
+      @media (max-width: 1050px) {
+        main {
+          padding: 25px 22px;
+        }
+        .grid {
+          grid-template-columns: 1fr;
+        }
+        .sticky {
+          position: static;
+        }
+        .shell {
+          grid-template-columns: 235px minmax(0, 1fr);
+        }
+      }
+      @media (max-width: 700px) {
+        .shell {
+          display: block;
+        }
+        aside {
+          height: auto;
+          position: static;
+          padding: 18px 15px;
+        }
+        .side-title {
+          margin-top: 20px;
+        }
+        .side-note {
+          display: none;
+        }
+        .toolbox {
+          margin-top: 12px;
+        }
+        .stats {
+          grid-template-columns: 1fr 1fr;
+        }
+        .field-grid {
+          grid-template-columns: 1fr;
+        }
+        header {
+          align-items: start;
+        }
+        .row {
+          gap: 7px;
+        }
+        main {
+          padding: 22px 14px;
+        }
+      }
+
+      .shell {
+        grid-template-columns: 215px minmax(0, 1fr);
+      }
+      aside {
+        padding: 24px 18px;
+      }
+      aside .panel-nav {
+        margin-top: 28px;
+      }
+      aside .panel-nav a[aria-current="page"] {
+        background: #6d1222;
+        border-color: #ffccd5;
+        text-decoration: none;
+      }
+      main {
+        max-width: 1160px;
+        margin: 0 auto;
+        padding: 26px 36px;
+      }
+      .workflow-steps {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 8px;
+        margin: 22px 0 26px;
+      }
+      .workflow-steps button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        font-size: 13px;
+        padding: 10px 8px;
+        border-color: #828282;
+      }
+      .workflow-steps button span {
+        font-weight: 700;
+      }
+      .workflow-steps button[aria-current="step"] {
+        background: #ffccd5;
+        border-color: #9e1b32;
+        color: #6d1222;
+        box-shadow: inset 0 -3px #9e1b32;
+      }
+      .step-intro {
+        max-width: 720px;
+      }
+      .step-intro h1 {
+        margin-bottom: 10px;
+        font-size: 30px;
+      }
+      .step-intro > p {
+        margin: 5px 0;
+      }
+      #metadata-step-status {
+        font-size: 11px;
+      }
+      .selected-context {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        border-bottom: 1px solid #cfcfcf;
+        padding: 0 0 15px;
+        margin-bottom: 22px;
+      }
+      .selected-context .row {
+        flex: 1;
+      }
+      .selected-context h2 {
+        font-size: 14px;
+        margin: 0;
+        font-weight: 600;
+      }
+      .selected-context .pill {
+        padding: 4px 10px;
+        font-size: 11px;
+      }
+      .choose-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+        gap: 20px;
+      }
+      .entry {
+        background: #ffffff;
+        color: #333e48;
+        border-color: #828282;
+        margin: 10px 0;
+      }
+      .entry:hover {
+        background: #f7f7f7;
+      }
+      .entry.active {
+        border-color: #9e1b32;
+        background: #ffccd5;
+      }
+      .entry small {
+        color: #4f4f4f;
+      }
+      .entry span {
+        white-space: normal;
+        overflow-wrap: anywhere;
+      }
+      .small-count {
+        display: inline-block;
+        color: #4f4f4f;
+        background: #e7e7e7;
+        padding: 3px 9px;
+        border-radius: 20px;
+        font-size: 12px;
+        vertical-align: middle;
+      }
+      .supporting-detail {
+        background: #ffffff;
+        border: 1px solid #cfcfcf;
+        border-radius: 10px;
+        padding: 0 20px;
+        margin: 14px 0;
+      }
+      .supporting-detail > summary {
+        font-weight: 600;
+      }
+      .supporting-detail[open] > summary {
+        border-bottom: 1px solid #cfcfcf;
+        margin-bottom: 15px;
+      }
+      .supporting-detail.card {
+        box-shadow: none;
+      }
+      .taxonomy-candidate {
+        border: 1px solid #cfcfcf;
+        border-radius: 8px;
+        padding: 16px;
+        margin: 12px 0;
+        overflow-wrap: anywhere;
+      }
+      .taxonomy-candidate h3 {
+        margin: 0 0 8px;
+        font-size: 16px;
+      }
+      .taxonomy-candidate p,
+      .taxonomy-candidate li {
+        font-size: 13px;
+        line-height: 1.6;
+      }
+      .taxonomy-candidate ul {
+        padding-left: 20px;
+      }
+      #metadata-page-describe > .card {
+        margin-bottom: 18px;
+      }
+      .workflow-navigation {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        justify-content: space-between;
+        border-top: 1px solid #cfcfcf;
+        padding: 20px 0 8px;
+        margin-top: 24px;
+      }
+      #metadata-nav-note {
+        flex: 1;
+        margin: 0;
+      }
+      .local-draft-option {
+        border-top: 1px solid #cfcfcf;
+        padding-top: 12px;
+      }
+      .destination-choice {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      .destination-choice button {
+        text-align: left;
+        display: block;
+        padding: 18px;
+        border-color: #828282;
+      }
+      .destination-choice button strong,
+      .destination-choice button small {
+        display: block;
+      }
+      .destination-choice button small {
+        font-weight: 400;
+        margin-top: 8px;
+        color: #4f4f4f;
+        line-height: 1.6;
+      }
+      .destination-choice button[aria-pressed="true"] {
+        background: #ffccd5;
+        border: 2px solid #9e1b32;
+        padding: 17px;
+      }
+      #operation-status {
+        min-height: 32px;
+        padding: 8px 0;
+        margin-bottom: 10px;
+      }
+      #error-summary {
+        max-width: 100%;
+      }
+      #describe-quality-note button {
+        margin-left: 8px;
+      }
+      #publication-controls {
+        margin-top: 22px;
+      }
+      #decision-scope {
+        max-width: 700px;
+      }
+      #review-help {
+        margin-top: 18px;
+      }
+      .completion-card {
+        padding: 30px;
+      }
+      @media (max-width: 1050px) {
+        .shell {
+          grid-template-columns: 190px minmax(0, 1fr);
+        }
+        main {
+          padding: 24px;
+        }
+        .choose-layout {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 700px) {
+        .shell {
+          display: block;
+        }
+        aside {
+          height: auto;
+          position: static;
+          padding: 14px;
+        }
+        .brand {
+          font-size: 16px;
+        }
+        .brand small {
+          display: none;
+        }
+        aside .panel-nav {
+          flex-direction: row;
+          flex-wrap: wrap;
+          margin-top: 12px;
+          gap: 7px;
+        }
+        aside .panel-nav a {
+          font-size: 12px;
+          flex: 1;
+          justify-content: center;
+          padding: 8px;
+        }
+        main {
+          padding: 18px 14px;
+        }
+        .workflow-steps {
+          grid-template-columns: repeat(5, minmax(0, 1fr));
+          gap: 4px;
+          margin: 17px 0 20px;
+        }
+        .workflow-steps button {
+          flex-direction: column;
+          gap: 3px;
+          font-size: 11px;
+          padding: 7px 3px;
+          min-height: 62px;
+        }
+        .step-intro h1 {
+          font-size: 25px;
+        }
+        .selected-context {
+          align-items: start;
+          flex-direction: column;
+          gap: 7px;
+        }
+        .selected-context h2 {
+          font-size: 13px;
+        }
+        .destination-choice {
+          grid-template-columns: 1fr;
+        }
+        .workflow-navigation {
+          flex-wrap: wrap;
+          gap: 12px;
+        }
+        #metadata-nav-note {
+          flex-basis: 100%;
+          order: 3;
+          font-size: 12px;
+        }
+        #metadata-next {
+          margin-left: auto;
+        }
+        .card {
+          padding: 17px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to review content</a>
+    <div class="shell">
+      <aside aria-label="Workflow navigation">
+        <div class="brand">
+          ◈ Knowledge Catalog<small>Semantic curation</small>
+        </div>
+        <nav class="panel-nav" aria-label="Workflows">
+          <a href="/" aria-current="page">Review metadata</a>
+          <a id="lineage-link" href="/lineage">Explore data lineage</a>
+          <a id="help-link" href="#review-help">Help with this workflow</a>
+        </nav>
+        <p class="side-note">
+          Review one dataset at a time. Your drafts stay local until you
+          explicitly publish an approved revision.
+        </p>
+      </aside>
+      <main id="main" tabindex="-1">
+        <header>
+          <div class="eyebrow">METADATA REVIEW</div>
+          <span id="mode" class="pill warn">Local review</span>
+        </header>
+        <nav
+          id="metadata-steps"
+          class="workflow-steps"
+          aria-label="Metadata review steps"
+        >
+          <button
+            id="metadata-step-choose"
+            data-metadata-step="choose"
+            type="button"
+            aria-controls="metadata-page-choose"
+            aria-current="step"
+          >
+            <span>1</span> Choose
+          </button>
+          <button
+            id="metadata-step-describe"
+            data-metadata-step="describe"
+            type="button"
+            aria-controls="metadata-page-describe"
+          >
+            <span>2</span> Describe
+          </button>
+          <button
+            id="metadata-step-quality"
+            data-metadata-step="quality"
+            type="button"
+            aria-controls="metadata-page-quality"
+          >
+            <span>3</span> Check quality
+          </button>
+          <button
+            id="metadata-step-plan"
+            data-metadata-step="plan"
+            type="button"
+            aria-controls="metadata-page-plan"
+          >
+            <span>4</span> Plan
+          </button>
+          <button
+            id="metadata-step-decide"
+            data-metadata-step="decide"
+            type="button"
+            aria-controls="metadata-page-decide"
+          >
+            <span>5</span> Decide
+          </button>
+        </nav>
+        <div id="selected-context" class="selected-context" hidden>
+          <div class="row between">
+            <h2 id="title" tabindex="-1"></h2>
+            <span id="state" class="pill"></span>
+          </div>
+          <span class="muted">Revision <b id="revision">—</b></span>
+        </div>
+        <div class="step-intro">
+          <p id="metadata-step-status" class="eyebrow" aria-live="polite">
+            Step 1 of 5
+          </p>
+          <h1 id="flow-heading" tabindex="-1">Choose a dataset</h1>
+          <p id="flow-description" class="muted">
+            Open an existing draft or create one from a local file. Nothing is
+            published at this step.
+          </p>
+        </div>
+        <div
+          id="operation-status"
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
+        >
+          Loading review proposals…
+        </div>
+        <div
+          id="toast"
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
+        ></div>
+        <div
+          id="error-summary"
+          class="alert error"
+          role="alert"
+          aria-atomic="true"
+          tabindex="-1"
+          hidden
+        >
+          <p id="error-message"></p>
+          <button id="dismiss-error">Dismiss notice</button
+          ><button id="retry-state" hidden>Reload proposals</button>
+        </div>
+        <div id="workspace">
+          <section id="metadata-page-choose" data-metadata-page="choose">
+            <div class="choose-layout">
+              <section class="card">
+                <h2>
+                  Saved drafts <span id="count" class="small-count">0</span>
+                </h2>
+                <nav id="entries" aria-label="Metadata proposals"></nav>
+                <div id="empty" class="empty">
+                  No drafts yet. Create one from a local file to start reviewing
+                  its meaning.
+                </div>
+              </section>
+              <section class="card">
+                <h2>Create a draft</h2>
+                <p class="muted">
+                  Analyze a file on this computer. The original file stays
+                  local.
+                </p>
+                <label for="path">Local file path</label
+                ><input
+                  id="path"
+                  placeholder="Path to CSV, PDF, DOCX…"
+                  aria-describedby="path-help path-error"
+                />
+                <p id="path-help" class="muted">
+                  Use a file inside an allowed folder. Analysis creates a draft
+                  for review.
+                </p>
+                <p id="path-error" class="field-error" hidden></p>
+                <button id="analyze">Analyze file</button>
+              </section>
+            </div>
+            <details class="card supporting-detail" id="catalog-details">
+              <summary>Browse the existing GCP catalog</summary>
+              <p class="muted">
+                Optional: inspect cloud resources before selecting a local
+                draft. This read does not create a proposal.
+              </p>
+              <label for="query">Search catalog entries</label>
+              <p id="query-help" class="muted">
+                Enter a term or catalog query. Requires a configured project
+                with read access.
+              </p>
+              <div class="row">
+                <input
+                  id="query"
+                  aria-describedby="query-help query-error"
+                  placeholder="Search customers, orders, products…"
+                  style="flex: 1"
+                /><button id="search">Search</button
+                ><button id="inventory">Inventory</button>
+              </div>
+              <p id="query-error" class="field-error" hidden></p>
+              <pre
+                role="region"
+                id="remote"
+                class="code"
+                tabindex="0"
+                aria-label="Catalog results; use arrow keys to scroll"
+                hidden
+              ></pre>
+            </details>
+          </section>
+          <section
+            id="metadata-page-describe"
+            data-metadata-page="describe"
+            hidden
+          >
+            <div id="describe-quality-note" class="alert" hidden>
+              <span id="describe-quality-text"></span>
+              <button id="show-quality">Review findings</button>
+            </div>
+            <section class="card">
+              <h2>Business meaning</h2>
+              <div id="unsaved" class="alert" role="status" hidden>
+                Your edits are not saved yet. Continue to save and check them,
+                or discard the local changes.
+              </div>
+              <button id="restore-draft" hidden>Restore local changes</button>
+              <div class="muted">
+                Suggestions are inferences. Correct their meaning and add
+                verifiable context. Saving invalidates any previous approval.
+              </div>
+              <div class="field-grid">
+                <div>
+                  <label for="edit-title">Title</label
+                  ><input id="edit-title" maxlength="200" />
+                </div>
+                <div>
+                  <label for="owner">Domain owner</label
+                  ><input id="owner" placeholder="Responsible team or person" />
+                </div>
+              </div>
+              <label for="edit-description">Business description</label
+              ><textarea
+                id="edit-description"
+                rows="4"
+                maxlength="10000"
+              ></textarea>
+              <div class="field-grid">
+                <div>
+                  <label for="license">License</label><input id="license" />
+                </div>
+                <div>
+                  <label for="domain">Installed domain</label
+                  ><input id="domain" readonly aria-describedby="domain-help" />
+                  <p id="domain-help" class="muted">
+                    This installation uses the retail vocabulary.
+                  </p>
+                </div>
+              </div>
+              <details>
+                <summary>
+                  Advanced editing: columns, relationships, and limitations
+                  (JSON)
+                </summary>
+                <label for="advanced"
+                  >Columns, relationships, and limitations as JSON</label
+                >
+                <p id="advanced-help" class="muted">
+                  Edit descriptions and context. Observed names, types,
+                  statistics, and privacy indicators are preserved as source
+                  evidence.
+                </p>
+                <textarea
+                  id="advanced"
+                  rows="9"
+                  spellcheck="false"
+                  aria-describedby="advanced-help advanced-error"
+                ></textarea>
+                <p id="advanced-error" class="field-error" hidden></p>
+              </details>
+              <div class="action-row">
+                <button id="save" aria-keyshortcuts="Control+Enter Meta+Enter">
+                  Save draft</button
+                ><button id="discard-draft">Discard local changes</button>
+              </div>
+            </section>
+            <details class="card supporting-detail" id="taxonomy-details">
+              <summary>Review concept alternatives</summary>
+              <p id="taxonomy-help" class="muted">
+                Compare a saved column with the installed vocabulary. Choose
+                Open Ontologies for engine-backed dry-run alignment, or choose
+                local comparison explicitly. Scores are not probabilities or
+                validation. Nothing changes until you choose a concept and save
+                the draft.
+              </p>
+              <p id="taxonomy-no-columns" class="muted" hidden>
+                This draft has no observed columns. Column alternatives are
+                available for tabular datasets; use the business description
+                and advanced editing to review this document's meaning.
+              </p>
+              <div id="taxonomy-column-controls">
+                <label for="taxonomy-provider">Comparison provider</label>
+                <select id="taxonomy-provider" aria-describedby="taxonomy-provider-help">
+                  <option value="open-ontologies" selected>Open Ontologies</option>
+                  <option value="local">Local comparison</option>
+                </select>
+                <p id="taxonomy-provider-help" class="muted">
+                  Open Ontologies must complete a real engine run to provide
+                  engine-backed alternatives. A failed run never switches to
+                  local comparison automatically.
+                </p>
+                <label for="taxonomy-column">Column to review</label>
+                <select
+                  id="taxonomy-column"
+                  aria-describedby="taxonomy-current-mapping taxonomy-help"
+                ></select>
+                <p id="taxonomy-current-mapping" class="muted"></p>
+                <label for="taxonomy-context">Optional steward context</label>
+                <textarea
+                  id="taxonomy-context"
+                  maxlength="300"
+                  rows="2"
+                  aria-describedby="taxonomy-context-help"
+                  placeholder="Describe the column's business meaning or intended use"
+                ></textarea>
+                <p id="taxonomy-context-help" class="muted">
+                  Add up to 300 characters of business context. The lookup uses
+                  the saved revision and the installed local vocabulary.
+                </p>
+                <p id="taxonomy-save-first" class="muted" hidden>
+                  Save the current draft before requesting alternatives. The
+                  lookup uses a saved revision.
+                </p>
+                <div class="action-row">
+                  <button id="taxonomy-find" type="button">
+                    Find alternatives
+                  </button>
+                  <button id="taxonomy-unmapped" type="button">
+                    Keep unmapped
+                  </button>
+                </div>
+                <p
+                  id="taxonomy-status"
+                  class="muted"
+                  role="status"
+                  aria-live="polite"
+                  aria-atomic="true"
+                >
+                  Choose a column, then find alternatives. No candidate is
+                  selected automatically.
+                </p>
+                <div id="taxonomy-results"></div>
+                <details id="taxonomy-provenance" hidden>
+                  <summary>Vocabulary provenance and filters</summary>
+                  <pre
+                    id="taxonomy-provenance-data"
+                    class="code"
+                    role="region"
+                    tabindex="0"
+                    aria-label="Vocabulary provenance and candidate filtering; use arrow keys to scroll"
+                  ></pre>
+                </details>
+              </div>
+            </details>
+            <details class="card supporting-detail" id="schema-details">
+              <summary>
+                Inspect inferred schema <span id="columns">—</span> columns
+              </summary>
+
+              <p id="description" class="muted"></p>
+              <div id="keywords"></div>
+
+              <h3>Schema and proposed meaning</h3>
+              <div
+                class="table-wrap"
+                tabindex="0"
+                role="region"
+                aria-label="Column schema; scroll horizontally if needed"
+              >
+                <table>
+                  <caption>
+                    Columns, proposed meaning, and findings
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th>Column</th>
+                      <th>Type</th>
+                      <th>Concept</th>
+                      <th>Quality</th>
+                    </tr>
+                  </thead>
+                  <tbody id="schema"></tbody>
+                </table>
+              </div>
+              <h3>Domain concepts</h3>
+              <div id="concepts"></div>
+            </details>
+            <details class="card supporting-detail">
+              <summary>Check source evidence</summary>
+
+              <div id="source" class="muted"></div>
+              <details>
+                <summary>View original evidence and full profile</summary>
+                <pre
+                  role="region"
+                  id="metadata"
+                  class="code"
+                  tabindex="0"
+                  aria-label="Metadata and full profile; use arrow keys to scroll"
+                ></pre>
+              </details>
+            </details>
+            <details class="card supporting-detail" id="history-details">
+              <summary>Compare earlier revisions</summary>
+
+              <p
+                id="history-info"
+                class="muted"
+                role="status"
+                aria-live="polite"
+              >
+                Load saved revisions to compare their metadata.
+              </p>
+              <div class="row">
+                <button id="load-history">Load history</button>
+                <label for="history-from">Compare from revision</label>
+                <select
+                  id="history-from"
+                  aria-label="Compare from revision"
+                ></select>
+                <button id="compare-revision">View differences</button>
+                <button id="older-history" hidden>Earlier revisions</button>
+              </div>
+              <div id="history-results" class="table-wrap spacer" hidden>
+                <table>
+                  <caption>
+                    Metadata comparison between revisions
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th>Field</th>
+                      <th>Before</th>
+                      <th>Now</th>
+                    </tr>
+                  </thead>
+                  <tbody id="revision-diff"></tbody>
+                </table>
+              </div>
+            </details>
+          </section>
+          <section
+            id="metadata-page-quality"
+            data-metadata-page="quality"
+            hidden
+          >
+            <section class="card">
+              <div class="row between">
+                <h2>What needs your attention</h2>
+                <span class="pill">Score <b id="score">—</b></span>
+              </div>
+              <div id="sampling" class="alert"></div>
+              <p id="coverage" class="muted"></p>
+              <div id="quality-status"></div>
+              <div id="findings"></div>
+              <h3>Your source review</h3>
+              <p id="review-checks-note" class="alert" hidden>
+                Save your metadata edits first. Then review the updated
+                indicators and check these acknowledgments for the saved
+                revision.
+              </p>
+              <p class="muted">
+                Check these only after reviewing the indicators and source
+                limitations. Saving records your review for this revision.
+              </p>
+              <label class="row check-row"
+                ><input type="checkbox" id="privacy" style="width: auto" /> I
+                have reviewed the personal data indicators</label
+              ><label class="row check-row"
+                ><input type="checkbox" id="data-quality" style="width: auto" />
+                I have reviewed source anomalies and documented their
+                limitations</label
+              >
+              <div class="action-row">
+                <button id="quality-edit">Edit metadata or limitations</button>
+              </div>
+              <details>
+                <summary>SHACL report</summary>
+                <pre
+                  role="region"
+                  id="shacl"
+                  class="code"
+                  tabindex="0"
+                  aria-label="Structure and vocabulary validation report"
+                ></pre>
+              </details>
+            </section>
+            <div class="local-draft-option">
+              <p class="muted">
+                You can also save this work for later without configuring GCP or
+                approving it.
+              </p>
+              <button id="finish-local">Keep as a local draft</button>
+            </div>
+          </section>
+          <section id="metadata-page-plan" data-metadata-page="plan" hidden>
+            <section class="card">
+              <h2>Where should this review go?</h2>
+              <div
+                class="destination-choice"
+                role="group"
+                aria-label="Review destination"
+              >
+                <button id="intent-local" aria-pressed="true">
+                  <strong>Keep the review local</strong
+                  ><small
+                    >Record a review without sending anything to GCP.</small
+                  ></button
+                ><button id="intent-cloud" aria-pressed="false">
+                  <strong>Prepare for GCP</strong
+                  ><small
+                    >Inspect the exact cloud changes before approval.</small
+                  >
+                </button>
+              </div>
+              <p id="local-plan-copy" class="alert ok">
+                Continue to record a local review decision. A local approval
+                does not publish metadata.
+              </p>
+            </section>
+            <div id="cloud-plan-content" hidden>
+              <section class="card">
+                <h2>Review the cloud changes</h2>
+                <div id="project-setup" class="alert" hidden>
+                  <strong>A GCP project is not configured.</strong>
+                  <p>
+                    You can continue with a local review, or configure access
+                    before preparing a cloud plan.
+                  </p>
+                  <details>
+                    <summary>Set up GCP access</summary>
+                    <p class="muted">
+                      Configure the target project from the repository terminal.
+                      Read access and application credentials are required;
+                      publication remains disabled until you explicitly enable
+                      it.
+                    </p>
+                    <pre
+                      class="code"
+                      role="region"
+                      tabindex="0"
+                      aria-label="GCP project setup command"
+                    >
+.venv\Scripts\kc.exe configure --project YOUR_PROJECT --location us-central1</pre
+                    >
+                  </details>
+                </div>
+                <button id="live-plan">Prepare plan from a GCP read</button>
+                <details id="cloud-plan-preview">
+                  <summary id="cloud-preview-label">
+                    Inspect the offline preview (optional)
+                  </summary>
+                  <div id="target" class="muted"></div>
+                  <div id="plan-warning" class="alert"></div>
+                  <div id="operation-summary"></div>
+                  <details>
+                    <summary>Exact operations to be approved</summary>
+                    <pre
+                      role="region"
+                      id="plan"
+                      class="code"
+                      tabindex="0"
+                      aria-label="Exact plan operations; use arrow keys to scroll"
+                    ></pre>
+                  </details>
+                </details>
+              </section>
+            </div>
+          </section>
+          <section id="metadata-page-decide" data-metadata-page="decide" hidden>
+            <section class="card">
+              <h2 id="decision-title">Record your review</h2>
+              <p id="decision-scope" class="muted"></p>
+              <div id="decision-plan-summary" class="alert" hidden></div>
+              <button id="decision-plan-link" hidden>
+                Review the cloud plan
+              </button>
+              <button id="decision-quality-link" hidden>
+                Return to required findings
+              </button>
+              <div id="approval-info" class="muted spacer"></div>
+              <div id="approval-fields">
+                <p id="approval-policy" class="muted">
+                  Approval is bound to this revision and its exact plan for 24
+                  hours.
+                </p>
+                <label for="reviewer">Your reviewer name</label
+                ><input
+                  id="reviewer"
+                  placeholder="Reviewer name"
+                  maxlength="200"
+                  aria-required="true"
+                  aria-describedby="reviewer-help reviewer-error"
+                />
+                <p id="reviewer-help" class="muted">
+                  Required to record who reviewed this version. This is a local
+                  declaration.
+                </p>
+                <p id="reviewer-error" class="field-error" hidden></p>
+
+                <button class="primary spacer" id="approve">
+                  Approve this revision
+                </button>
+              </div>
+              <details id="correction-details">
+                <summary>Request a correction instead</summary>
+                <label for="reason">Reason for rejection or correction</label
+                ><input
+                  id="reason"
+                  placeholder="What needs improvement"
+                  maxlength="2000"
+                  aria-describedby="reason-error"
+                />
+                <p id="reason-error" class="field-error" hidden></p>
+                <button class="danger spacer" id="reject">
+                  Request corrections
+                </button>
+              </details>
+              <div id="publication-controls">
+                <button class="primary" id="publish">
+                  Publish approved revision
+                </button>
+                <p id="publish-hint" class="muted"></p>
+                <div id="recovery-controls" hidden>
+                  <p class="alert">
+                    Publication was left in progress. A remote request may have
+                    been applied. Inspect the target before recovering the local
+                    workflow; recovery removes approval and requires a new plan.
+                  </p>
+                  <label for="recovery-reason"
+                    >Recovery reason after inspecting status</label
+                  >
+                  <input
+                    id="recovery-reason"
+                    maxlength="2000"
+                    aria-describedby="recovery-reason-error"
+                  />
+                  <p id="recovery-reason-error" class="field-error" hidden></p>
+                  <button id="recover" class="spacer">
+                    Recover interrupted publication
+                  </button>
+                </div>
+              </div>
+              <div id="local-approved" class="alert ok" hidden>
+                <strong>Your local review is recorded.</strong>
+                <p>
+                  Nothing has been published. You can return to your datasets or
+                  prepare a separate GCP publication plan.
+                </p>
+                <div class="action-row">
+                  <button id="done-local">Back to datasets</button
+                  ><button id="plan-cloud-after-review">
+                    Prepare GCP publication
+                  </button>
+                </div>
+              </div>
+              <div id="publication-result" class="alert ok" hidden>
+                <strong>Metadata published.</strong>
+                <p>The approved changes have been confirmed by GCP.</p>
+                <button id="done-published">Back to datasets</button>
+              </div>
+              <details>
+                <summary>Revision fingerprint</summary>
+                <pre
+                  role="region"
+                  id="digest"
+                  class="code"
+                  tabindex="0"
+                  aria-label="Revision integrity fingerprint"
+                ></pre>
+              </details>
+            </section>
+            <details class="card supporting-detail">
+              <summary>Recent activity for this revision</summary>
+
+              <div id="activity"></div>
+            </details>
+          </section>
+          <section id="metadata-page-saved" data-metadata-page="saved" hidden>
+            <section class="card completion-card">
+              <h2>Your draft is saved locally</h2>
+              <p>
+                You can return to this dataset later. Nothing was approved or
+                published.
+              </p>
+              <p id="saved-quality-note" class="muted"></p>
+              <div class="action-row">
+                <button id="saved-done" class="primary">Back to datasets</button
+                ><button id="saved-continue">Continue the review</button>
+              </div>
+            </section>
+          </section>
+        </div>
+        <div id="metadata-navigation" class="workflow-navigation">
+          <button id="metadata-back" hidden>Back</button>
+          <p
+            id="metadata-nav-note"
+            class="muted"
+            role="status"
+            aria-live="polite"
+          ></p>
+          <button id="metadata-next" class="primary">
+            Open selected dataset
+          </button>
+        </div>
+        <details id="review-help" class="supporting-detail">
+          <summary>Workflow help</summary>
+          <p id="step-help" class="muted">
+            Choose a saved draft or analyze a local file. You can return to this
+            step to change datasets.
+          </p>
+          <p class="muted">
+            Use Tab and Shift+Tab to move between controls, and Enter or Space
+            to activate buttons. Ctrl+Enter or ⌘+Enter saves an editing field.
+            Scores check rules, not the truth of a description. Technical
+            evidence and history are available under Describe; exact cloud
+            operations are under Plan.
+          </p>
+        </details>
+        <div class="footer">
+          Drafts stay on this computer until you explicitly publish an approved
+          revision.
+        </div>
+      </main>
+    </div>
+    <script>
+      const fragment = location.hash.slice(1),
+        fragmentToken = /^[A-Za-z0-9_-]{32,128}$/.test(fragment)
+          ? fragment
+          : "",
+        token =
+          fragmentToken ||
+          sessionStorage.getItem("kc_token") ||
+          sessionStorage.getItem("kc-token") ||
+          "";
+      if (token) {
+        sessionStorage.setItem("kc_token", token);
+        sessionStorage.setItem("kc-token", token);
+      }
+      if (fragmentToken) history.replaceState(null, "", location.pathname);
+      let state = null,
+        current = null,
+        busy = false,
+        dirty = false,
+        conflictDraft = null,
+        workflowStep = "choose",
+        publicationIntent = "local",
+        taxonomyBusy = false,
+        taxonomyRequest = 0,
+        taxonomyRevisionKey = "",
+        taxonomyProposalId = null,
+        taxonomyResult = null,
+        taxonomyMessage =
+          "Choose a column, then find alternatives. No candidate is selected automatically.";
+      const $ = (id) => document.getElementById(id),
+        fmt = (x) => JSON.stringify(x, null, 2),
+        put = (id, value) => {
+          $(id).textContent = value ?? "";
+        };
+      const workflowKeys = ["choose", "describe", "quality", "plan", "decide"];
+      const workflowCopy = {
+        choose: {
+          title: "Choose a dataset",
+          description:
+            "Open a saved draft or analyze a local file. Nothing is published at this step.",
+          help: "Choose a saved draft to open it, or enter an allowed local file path. Catalog browsing is optional and requires GCP read access.",
+        },
+        describe: {
+          title: "Describe what this dataset means",
+          description:
+            "Confirm the business purpose, responsible owner, and source license. Inspect schema or evidence only when you need it.",
+          help: "Write a description another person can understand. Use the optional schema, provenance, and history sections to verify your interpretation. Advanced editing preserves observed names, types, and statistics.",
+        },
+        quality: {
+          title: "Check the findings that matter",
+          description:
+            "Resolve required findings and review the source indicators. The score checks rules; it does not prove that the descriptions are true.",
+          help: "Review each required finding. Edit metadata or limitations when needed, then check the privacy and anomaly acknowledgments only after your review. Continue saves these checks and revalidates the revision.",
+        },
+        plan: {
+          title: "Choose the next destination",
+          description:
+            "Keep this review local, or inspect the exact changes needed for a GCP publication.",
+          help: "A local review needs no GCP configuration. A cloud plan reads the configured target and does not publish. If no project is configured, use the setup guidance or return to the local path.",
+        },
+        decide: {
+          title: "Record a deliberate decision",
+          description:
+            "Review the current revision and choose whether to approve it or request a correction.",
+          help: "Approval records your review of this exact revision. It is separate from publishing. A GCP publication also needs a verified plan and enabled project writes. Edits or replanning invalidate approval.",
+        },
+        saved: {
+          title: "Saved for your next review",
+          description:
+            "Your work remains available on this computer. No approval or cloud publication was created.",
+          help: "Return to your datasets or continue reviewing this draft. Required findings may remain open; saving a draft is not approval.",
+        },
+      };
+      function showStep(step, focus = true) {
+        if (busy) return false;
+        if (!workflowCopy[step]) return false;
+        if (!current && step !== "choose") step = "choose";
+        if (dirty && ["plan", "decide"].includes(step)) {
+          showError(
+            "Save your edits and review checks before planning or recording a decision.",
+          );
+          return false;
+        }
+        workflowStep = step;
+        syncWorkflow();
+        if (focus) $("flow-heading").focus();
+        return true;
+      }
+      function hasUnsavedMetadata() {
+        if (!current) return false;
+        const metadata = current.metadata;
+        if (
+          [
+            ["edit-title", metadata.title],
+            ["edit-description", metadata.description],
+            ["owner", metadata.owner || metadata.source?.owner || ""],
+            ["license", metadata.license || metadata.source?.license || ""],
+            ["domain", metadata.domain || "retail"],
+          ].some(([id, value]) => $(id).value !== (value || ""))
+        )
+          return true;
+        try {
+          return (
+            JSON.stringify(JSON.parse($("advanced").value)) !==
+            JSON.stringify({
+              columns: metadata.columns || [],
+              relationships: metadata.relationships || [],
+              limitations: metadata.limitations || [],
+              concepts: metadata.concepts || [],
+            })
+          );
+        } catch {
+          return true;
+        }
+      }
+      function syncWorkflow() {
+        if (!current) workflowStep = "choose";
+        const p = current,
+          copy = workflowCopy[workflowStep],
+          contentEdits = hasUnsavedMetadata();
+        for (const page of document.querySelectorAll("[data-metadata-page]"))
+          page.hidden = page.dataset.metadataPage !== workflowStep;
+        for (const button of document.querySelectorAll(
+          "[data-metadata-step]",
+        )) {
+          const selected =
+            button.dataset.metadataStep ===
+            (workflowStep === "saved" ? "quality" : workflowStep);
+          if (selected) button.setAttribute("aria-current", "step");
+          else button.removeAttribute("aria-current");
+          button.disabled =
+            busy || (!p && button.dataset.metadataStep !== "choose");
+        }
+        $("workspace").hidden = false;
+        $("selected-context").hidden = !p || workflowStep === "choose";
+        put("flow-heading", copy.title);
+        put("flow-description", copy.description);
+        put("step-help", copy.help);
+        put(
+          "metadata-step-status",
+          workflowStep === "saved"
+            ? "Local draft"
+            : "Step " + (workflowKeys.indexOf(workflowStep) + 1) + " of 5",
+        );
+        if (dirty)
+          $("metadata-step-status").textContent += " · Unsaved changes";
+        $("metadata-back").hidden = ["choose", "saved"].includes(workflowStep);
+        $("metadata-back").disabled = busy;
+        $("metadata-next").hidden = ["decide", "saved"].includes(workflowStep);
+        let nextLabel = "Open selected dataset",
+          note = p
+            ? "Selected: " + p.metadata.title
+            : "Choose a saved draft or create one to continue.",
+          disabled = !p;
+        if (workflowStep === "describe") {
+          nextLabel = dirty ? "Save and check quality" : "Check quality";
+          note = dirty
+            ? "Your edits will be saved and revalidated before continuing."
+            : "Next, review source indicators and required findings.";
+        }
+        if (workflowStep === "quality") {
+          nextLabel = dirty
+            ? contentEdits
+              ? "Save metadata and recheck"
+              : "Save checks and continue"
+            : "Choose a destination";
+          disabled = !dirty && !p?.quality.conforms;
+          note = dirty
+            ? "Continue saves your review checks and updates validation."
+            : p?.quality.conforms
+              ? "Required rules pass. Choose a local review or a cloud plan next."
+              : "Resolve required findings above, or keep the work as a local draft.";
+        }
+        if (workflowStep === "plan") {
+          nextLabel =
+            publicationIntent === "cloud"
+              ? "Review cloud decision"
+              : "Review local decision";
+          disabled =
+            !p?.quality.conforms ||
+            (publicationIntent === "cloud" &&
+              p?.plan.snapshot.mode !== "verified");
+          note =
+            publicationIntent === "cloud"
+              ? p?.plan.snapshot.mode === "verified"
+                ? "The next step reviews this verified plan; publishing remains a separate action."
+                : "Prepare a plan from GCP first, or choose the local review path."
+              : "This path records a local review and sends nothing to GCP.";
+        }
+        if (workflowStep === "plan" && !p?.quality.conforms)
+          note =
+            "Resolve required findings in Check quality before recording a review decision.";
+        $("metadata-next").textContent = nextLabel;
+        $("metadata-next").disabled = busy || disabled;
+        put(
+          "metadata-nav-note",
+          ["decide", "saved"].includes(workflowStep) ? "" : note,
+        );
+        $("metadata-navigation").hidden = workflowStep === "saved";
+        $("intent-local").setAttribute(
+          "aria-pressed",
+          String(publicationIntent === "local"),
+        );
+        $("intent-cloud").setAttribute(
+          "aria-pressed",
+          String(publicationIntent === "cloud"),
+        );
+        $("intent-local").disabled = busy;
+        $("intent-cloud").disabled = busy;
+        $("cloud-plan-content").hidden = publicationIntent !== "cloud";
+        $("local-plan-copy").hidden = publicationIntent !== "local";
+        const projectConfigured = !!state?.config.project;
+        $("project-setup").hidden = projectConfigured;
+        $("live-plan").hidden = !projectConfigured;
+        $("cloud-preview-label").hidden = projectConfigured;
+        if (
+          $("cloud-plan-preview").dataset.configured !==
+          String(projectConfigured)
+        ) {
+          $("cloud-plan-preview").open = projectConfigured;
+          $("cloud-plan-preview").dataset.configured =
+            String(projectConfigured);
+        }
+        $("live-plan").disabled =
+          busy ||
+          dirty ||
+          !p ||
+          p.status === "publishing" ||
+          !state?.config.project;
+        $("finish-local").disabled = busy || !p || p.status === "publishing";
+        $("quality-edit").disabled = busy || p?.status === "publishing";
+        $("review-checks-note").hidden = !contentEdits;
+        for (const id of ["privacy", "data-quality"])
+          $(id).disabled = busy || p?.status === "publishing" || contentEdits;
+        $("describe-quality-note").hidden = !p || p.quality.conforms;
+        put(
+          "describe-quality-text",
+          "The saved revision has required findings. Save your edits, then check the updated results.",
+        );
+        if (!p) return;
+        put(
+          "saved-quality-note",
+          p.quality.conforms
+            ? "Required rules pass for this saved revision. A person still needs to review its meaning."
+            : "Required findings remain open. You can resume from Check quality later.",
+        );
+        const published = p.status === "published",
+          publishing = p.status === "publishing",
+          approved = p.status === "approved";
+        $("approval-fields").hidden = approved || published || publishing;
+        $("correction-details").hidden = published || publishing;
+        $("local-approved").hidden = !(
+          approved && publicationIntent === "local"
+        );
+        $("publication-result").hidden = !published;
+        $("publication-controls").hidden =
+          published || (publicationIntent !== "cloud" && !publishing);
+        $("publish").hidden = !approved;
+        put(
+          "decision-title",
+          published
+            ? "Publication confirmed"
+            : publishing
+              ? "Inspect the interrupted publication"
+              : approved
+                ? publicationIntent === "local"
+                  ? "Local review recorded"
+                  : "Publish the approved plan"
+                : "Record your review",
+        );
+        put(
+          "decision-scope",
+          published
+            ? "GCP confirmed the approved changes. You can now return to your datasets."
+            : publishing
+              ? "The remote outcome may be unknown. Inspect it before recovering the local workflow."
+              : publicationIntent === "local"
+                ? "This records a local review of revision " +
+                  p.revision +
+                  ". It does not send metadata to GCP."
+                : "Review the exact cloud plan before approval. Publishing is a separate, explicit action after approval.",
+        );
+        $("decision-quality-link").hidden =
+          p.quality.conforms || approved || published || publishing;
+        if (!p.quality.conforms && !approved && !published && !publishing)
+          put(
+            "decision-scope",
+            "This revision still has required findings. Return to Check quality, correct them, and save before approving.",
+          );
+        $("approve").disabled =
+          busy ||
+          dirty ||
+          !p.quality.conforms ||
+          !["draft", "rejected", "failed"].includes(p.status) ||
+          (publicationIntent === "cloud" &&
+            p.plan.snapshot.mode !== "verified");
+        $("decision-plan-summary").hidden =
+          publicationIntent !== "cloud" || published;
+        $("decision-plan-link").hidden =
+          publicationIntent !== "cloud" || published || publishing;
+        if (publicationIntent === "cloud") {
+          const operations = [...p.plan.bootstrap, ...p.plan.operations];
+          put(
+            "decision-plan-summary",
+            (p.plan.snapshot.mode === "verified"
+              ? "Verified GCP plan"
+              : "Unverified cloud preview") +
+              " · " +
+              operations.length +
+              " planned operations · Target: " +
+              p.plan.target,
+          );
+          if (
+            p.plan.snapshot.mode !== "verified" &&
+            !publishing &&
+            !published
+          ) {
+            put(
+              "decision-scope",
+              "Read GCP from Plan before approving cloud changes, or choose the local review path. This preview has not been verified against the cloud target.",
+            );
+          }
+        }
+        $("approve").textContent =
+          publicationIntent === "local"
+            ? "Approve local review"
+            : "Approve this cloud plan";
+      }
+      for (const button of document.querySelectorAll("[data-metadata-step]"))
+        button.addEventListener("click", () =>
+          showStep(button.dataset.metadataStep),
+        );
+      $("metadata-back").onclick = () =>
+        showStep(
+          workflowKeys[Math.max(0, workflowKeys.indexOf(workflowStep) - 1)],
+        );
+      $("metadata-next").onclick = async () => {
+        if (busy || !current) return;
+        if (workflowStep === "choose")
+          return showStep(
+            current.status === "publishing" ? "decide" : "describe",
+          );
+        if (["describe", "quality"].includes(workflowStep) && dirty) {
+          const reviewAfterSavingContent =
+            workflowStep === "quality" && hasUnsavedMetadata();
+          const result = await $("save").onclick();
+          if (!result) return;
+          if (reviewAfterSavingContent) {
+            announce(
+              "Metadata saved. Review its updated findings and source indicators before continuing.",
+            );
+            $("flow-heading").focus();
+            return;
+          }
+        }
+        if (workflowStep === "describe") return showStep("quality");
+        if (workflowStep === "quality") {
+          if (!current.quality.conforms) {
+            announce(
+              "Review checks saved. Resolve the remaining required findings before continuing.",
+            );
+            return;
+          }
+          return showStep("plan");
+        }
+        if (workflowStep === "plan") return showStep("decide");
+      };
+      $("show-quality").onclick = () => showStep("quality");
+      $("decision-quality-link").onclick = () => showStep("quality");
+      $("decision-plan-link").onclick = () => showStep("plan");
+      $("quality-edit").onclick = () => {
+        if (showStep("describe")) $("edit-title").focus();
+      };
+      $("intent-local").onclick = () => {
+        publicationIntent = "local";
+        syncWorkflow();
+      };
+      $("intent-cloud").onclick = () => {
+        publicationIntent = "cloud";
+        syncWorkflow();
+      };
+      $("finish-local").onclick = async () => {
+        if (busy || !current) return;
+        if (dirty && !(await $("save").onclick())) return;
+        showStep("saved");
+      };
+      for (const id of ["saved-done", "done-local", "done-published"])
+        $(id).onclick = () => showStep("choose");
+      $("saved-continue").onclick = () => showStep("quality");
+      $("plan-cloud-after-review").onclick = () => {
+        publicationIntent = "cloud";
+        showStep("plan");
+      };
+      $("help-link").onclick = () => {
+        $("review-help").open = true;
+        $("review-help").querySelector("summary").focus();
+      };
+      const statusLabels = {
+        draft: "Draft",
+        approved: "Approved",
+        rejected: "Corrections requested",
+        publishing: "Publication in progress",
+        published: "Published",
+        failed: "Review required",
+      };
+      const actionLabels = {
+        revise: "Saving and validating metadata",
+        approve: "Recording approval for this revision",
+        reject: "Recording the correction request",
+        publish: "Publishing approved metadata to GCP",
+        recover: "Recovering the local workflow",
+        plan: "Reading GCP to prepare the plan",
+        analyze: "Analyzing the local file",
+        inventory: "Reading the GCP inventory",
+        search: "Searching GCP entries",
+      };
+      let toastTimer = null,
+        lastErrorField = null;
+      function announce(message) {
+        put("operation-status", message);
+      }
+      function clearErrors() {
+        $("error-summary").hidden = true;
+        $("retry-state").hidden = true;
+        for (const element of document.querySelectorAll(
+          '[aria-invalid="true"]',
+        ))
+          element.removeAttribute("aria-invalid");
+        for (const element of document.querySelectorAll(".field-error")) {
+          element.hidden = true;
+          element.textContent = "";
+        }
+        lastErrorField = null;
+      }
+      function showError(message, field = null) {
+        put("error-message", message);
+        $("error-summary").hidden = false;
+        lastErrorField = field;
+        if (field) {
+          const input = $(field),
+            error = $(field + "-error");
+          input.setAttribute("aria-invalid", "true");
+          if (error) {
+            error.textContent = message;
+            error.hidden = false;
+          }
+          const page = input.closest("[data-metadata-page]");
+          if (page) {
+            workflowStep = page.dataset.metadataPage;
+            syncWorkflow();
+          }
+          if (input.closest("details")) input.closest("details").open = true;
+          input.focus();
+        } else $("error-summary").focus();
+        announce(
+          "The action was not completed. Review the notice and keep your local changes.",
+        );
+      }
+      function requiredValue(id, message) {
+        if ($(id).value.trim()) return true;
+        showError(message, id);
+        return false;
+      }
+      $("dismiss-error").onclick = () => {
+        const returnTo = lastErrorField;
+        clearErrors();
+        (returnTo ? $(returnTo) : $("main")).focus();
+      };
+      function toast(message) {
+        put("toast", message);
+        $("toast").style.display = "block";
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(
+          () => ($("toast").style.display = "none"),
+          6500,
+        );
+      }
+      const editFields = [
+        "edit-title",
+        "edit-description",
+        "owner",
+        "license",
+        "domain",
+        "privacy",
+        "data-quality",
+        "advanced",
+      ];
+      function formSnapshot() {
+        return Object.fromEntries(
+          editFields.map((id) => [
+            id,
+            $(id).type === "checkbox" ? $(id).checked : $(id).value,
+          ]),
+        );
+      }
+      function clearTaxonomyResults(message) {
+        taxonomyRequest += 1;
+        taxonomyBusy = false;
+        taxonomyResult = null;
+        taxonomyMessage =
+          message ||
+          "Choose a column, then find alternatives. No candidate is selected automatically.";
+        $("taxonomy-results").replaceChildren();
+        $("taxonomy-provenance").hidden = true;
+        $("taxonomy-provenance").open = false;
+        put("taxonomy-provenance-data", "");
+        $("taxonomy-status").className = "muted";
+      }
+      function syncTaxonomyColumns() {
+        const revisionKey = JSON.stringify([
+          current?.id || null,
+          current?.digest || null,
+        ]);
+        if (revisionKey === taxonomyRevisionKey) return;
+        const selectedName = $("taxonomy-column").value;
+        if (taxonomyProposalId !== current?.id)
+          $("taxonomy-context").value = "";
+        taxonomyProposalId = current?.id || null;
+        taxonomyRevisionKey = revisionKey;
+        clearTaxonomyResults();
+        $("taxonomy-column").replaceChildren();
+        for (const column of current?.metadata.columns || []) {
+          const option = document.createElement("option");
+          option.value = column.name;
+          option.textContent = column.name;
+          $("taxonomy-column").append(option);
+        }
+        if (
+          [...$("taxonomy-column").options].some(
+            (option) => option.value === selectedName,
+          )
+        )
+          $("taxonomy-column").value = selectedName;
+      }
+      function updateTaxonomyControls() {
+        const column = (current?.metadata.columns || []).find(
+          (item) => item.name === $("taxonomy-column").value,
+        );
+        const unavailable =
+          busy || !column || current?.status === "publishing";
+        $("taxonomy-no-columns").hidden = !!column;
+        $("taxonomy-column-controls").hidden = !column;
+        $("taxonomy-save-first").hidden = !dirty;
+        $("taxonomy-details").setAttribute(
+          "aria-busy",
+          String(taxonomyBusy),
+        );
+        $("taxonomy-column").disabled = unavailable;
+        $("taxonomy-provider").disabled = unavailable;
+        $("taxonomy-context").disabled = unavailable;
+        $("taxonomy-find").disabled =
+          unavailable || taxonomyBusy || dirty;
+        $("taxonomy-find").textContent = taxonomyBusy
+          ? "Finding alternatives…"
+          : "Find alternatives";
+        $("taxonomy-unmapped").disabled = unavailable || taxonomyBusy;
+        for (const button of $("taxonomy-results").querySelectorAll("button"))
+          button.disabled = unavailable || taxonomyBusy || dirty;
+        if (column) {
+          put(
+            "taxonomy-current-mapping",
+            `Saved proposed concept: ${column.semantic_type || "Unknown"}. This assignment is not verified business meaning.`,
+          );
+        }
+        put("taxonomy-status", taxonomyMessage);
+      }
+      function markDirty(message) {
+        dirty = true;
+        clearTaxonomyResults(
+          message ||
+            "Your draft has unsaved edits. Save it before finding alternatives for the updated revision.",
+        );
+        updateControls();
+      }
+      function taxonomyBindingMatches(binding) {
+        return (
+          current?.id === binding.proposal_id &&
+          current?.digest === binding.digest &&
+          current?.revision === binding.revision &&
+          $("taxonomy-column").value === binding.column_name &&
+          $("taxonomy-provider").value === binding.provider
+        );
+      }
+      function taxonomyText(value) {
+        return typeof value === "string" ? value : fmt(value);
+      }
+      function taxonomyParagraph(parent, value, className = "") {
+        const paragraph = document.createElement("p");
+        paragraph.textContent = value;
+        if (className) paragraph.className = className;
+        parent.append(paragraph);
+      }
+      function taxonomyList(parent, title, values) {
+        if (!Array.isArray(values) || !values.length) return;
+        const heading = document.createElement("strong");
+        heading.textContent = title;
+        const list = document.createElement("ul");
+        for (const value of values) {
+          const item = document.createElement("li");
+          item.textContent = taxonomyText(value);
+          list.append(item);
+        }
+        parent.append(heading, list);
+      }
+      function taxonomyProviderName(provider) {
+        return provider === "open-ontologies"
+          ? "Open Ontologies"
+          : "Local comparison";
+      }
+      function taxonomyEngineEvidence(value) {
+        if (!value || typeof value !== "object" || Array.isArray(value)) return null;
+        const evidence = {};
+        for (const key of ["confidence", "evidence_coverage"])
+          if (Number.isFinite(value[key]) && value[key] >= 0 && value[key] <= 1)
+            evidence[key] = value[key];
+        for (const key of ["ambiguous", "requires_review"])
+          if (typeof value[key] === "boolean") evidence[key] = value[key];
+        if (Array.isArray(value.informative_signals))
+          evidence.informative_signals = value.informative_signals
+            .filter((item) => typeof item === "string" && item.length <= 100)
+            .slice(0, 12);
+        if (Array.isArray(value.tied_with))
+          evidence.tied_with = value.tied_with.slice(0, 3).map((item) => {
+            const tie = {};
+            if (!item || typeof item !== "object" || Array.isArray(item)) return tie;
+            for (const key of ["source_iri", "target_iri"])
+              if (typeof item[key] === "string" && item[key].length <= 2048)
+                tie[key] = item[key];
+            if (Number.isFinite(item.confidence) && item.confidence >= 0 && item.confidence <= 1)
+              tie.confidence = item.confidence;
+            return tie;
+          });
+        return evidence;
+      }
+      function taxonomyProviderEvidence(value, concept) {
+        const provider = { id: value.id, label: taxonomyProviderName(value.id) };
+        if (value.id === "open-ontologies") {
+          if (value.invoked !== true || value.mode !== "dry-run")
+            throw new Error("An Open Ontologies selection needs a completed dry-run engine comparison.");
+          const targetHash = typeof value.target_sha256 === "string"
+            ? value.target_sha256
+            : value.target_sha256 && typeof value.target_sha256 === "object" && !Array.isArray(value.target_sha256)
+              ? value.target_sha256[concept]
+              : null;
+          if (typeof value.version !== "string" || !value.version || value.version.length > 100 ||
+              [value.binary_sha256, value.source_sha256, targetHash].some(
+                (hash) => typeof hash !== "string" || !/^[a-f0-9]{64}$/.test(hash)))
+            throw new Error("The engine version, binary fingerprint, or selected input fingerprints are missing or invalid.");
+          provider.invoked = true;
+          provider.mode = "dry-run";
+          if (typeof value.version === "string" && value.version.length <= 100)
+            provider.version = value.version;
+          for (const key of ["binary_sha256", "source_sha256"])
+            if (typeof value[key] === "string" && /^[a-f0-9]{64}$/.test(value[key]))
+              provider[key] = value[key];
+          provider.target_sha256 = targetHash;
+          if (typeof value.scoring === "string" && value.scoring.length <= 100)
+            provider.scoring = value.scoring;
+          if (Number.isInteger(value.comparison_count) && value.comparison_count >= 0 && value.comparison_count <= 1000)
+            provider.comparison_count = value.comparison_count;
+        } else {
+          provider.invoked = false;
+        }
+        return provider;
+      }
+      function renderTaxonomyAlternatives(value, binding) {
+        const candidates = Array.isArray(value.candidates)
+          ? value.candidates.slice(0, 3)
+          : [];
+        taxonomyResult = { value, binding };
+        const provider = value.provider,
+          engineRun = provider.id === "open-ontologies" && provider.invoked === true,
+          providerMessage = engineRun
+            ? "Open Ontologies completed a dry-run comparison. "
+            : provider.id === "local"
+              ? "Local comparison completed. "
+              : "Open Ontologies was not invoked because no eligible comparison remained. ";
+        taxonomyMessage = providerMessage + (typeof value.message === "string" ? value.message :
+          {
+            suggested:
+              "Compare these alternatives. No concept was selected; choose one only if its definition fits the source.",
+            ambiguous:
+              "Several concepts have similar matches. Review their definitions and evidence, or keep the column unmapped.",
+            no_reliable_match:
+              "No reliable match was found in the installed vocabulary. Add context and try again, or explicitly keep the column unmapped.",
+          }[value.status] ||
+          "Review the alternatives and their limitations before choosing.");
+        $("taxonomy-results").replaceChildren();
+        const result = taxonomyResult;
+        for (const candidate of candidates) {
+          const article = document.createElement("article");
+          article.className = "taxonomy-candidate";
+          const title = document.createElement("h3");
+          title.textContent = candidate.label || "Unnamed vocabulary concept";
+          article.append(title);
+          taxonomyParagraph(
+            article,
+            engineRun ? "Open Ontologies · dry-run alignment" : "Local comparison · lexical ranking",
+            "muted",
+          );
+          taxonomyParagraph(
+            article,
+            candidate.definition ||
+              "No definition is available in this vocabulary snapshot.",
+          );
+          const score = candidate.score;
+          taxonomyParagraph(
+            article,
+            Number.isFinite(score)
+              ? `${engineRun ? "Alignment" : "Match"} score: ${score.toFixed(3)} / 1 — ${engineRun ? "alignment support" : "lexical similarity"}, not probability.`
+              : "No finite match score was returned.",
+            "muted",
+          );
+          const engineEvidence = taxonomyEngineEvidence(candidate.engine_evidence);
+          if (engineRun && engineEvidence) {
+            const signals = engineEvidence.informative_signals || [];
+            if (signals.length === 1 && signals[0] === "label_similarity")
+              taxonomyParagraph(article, "Name-only comparison: structural or embedding evidence did not contribute.");
+            if (Number.isFinite(engineEvidence.evidence_coverage))
+              taxonomyParagraph(article, `Evidence coverage: ${(engineEvidence.evidence_coverage * 100).toFixed(0)}% of available scoring-signal weight.`, "muted");
+            if (engineEvidence.ambiguous)
+              taxonomyParagraph(article, "Ambiguous engine match. Compare the definitions and tied alternatives before choosing.", "alert");
+          }
+          if (candidate.requires_human_review === true || engineRun)
+            taxonomyParagraph(article, "Human review is required. The engine does not approve this interpretation.", "muted");
+          taxonomyList(article, "Matched terms", candidate.matched_terms);
+          taxonomyList(article, "Matching evidence", candidate.evidence);
+          taxonomyList(article, "Limitations to review", candidate.warnings);
+          const source = candidate.source || value.vocabulary || {},
+            version = String(source.version || "not recorded"),
+            shortVersion =
+              version.length > 16 ? version.slice(0, 12) + "…" : version;
+          taxonomyParagraph(
+            article,
+            `Source: ${source.scheme || source.label || source.id || "installed vocabulary"} · version ${shortVersion}. Full provenance is available below.`,
+            "muted",
+          );
+          const use = document.createElement("button");
+          use.type = "button";
+          use.textContent = "Use this concept";
+          use.setAttribute(
+            "aria-label",
+            "Use this concept: " + (candidate.label || "unnamed concept"),
+          );
+          use.onclick = () => stageTaxonomyChoice(candidate, result);
+          article.append(use);
+          $("taxonomy-results").append(article);
+        }
+        put(
+          "taxonomy-provenance-data",
+          fmt({
+            vocabulary: value.vocabulary,
+            method: value.method,
+            provider: value.provider,
+            filter_summary: value.filter_summary,
+            candidate_sources: candidates.map((candidate) => ({
+              concept: candidate.concept,
+              broader: candidate.broader,
+              source: candidate.source,
+              engine_evidence: candidate.engine_evidence,
+            })),
+          }),
+        );
+        $("taxonomy-provenance").hidden = false;
+      }
+      function stageTaxonomyChoice(candidate, result = null) {
+        if (busy || taxonomyBusy || !current || current.status === "publishing")
+          return;
+        const binding = result?.binding || {
+          proposal_id: current.id,
+          digest: current.digest,
+          revision: current.revision,
+          column_name: $("taxonomy-column").value,
+          provider: $("taxonomy-provider").value,
+        };
+        if (
+          !taxonomyBindingMatches(binding) ||
+          (candidate && (dirty || result !== taxonomyResult))
+        ) {
+          clearTaxonomyResults(
+            "The draft or selected column changed. Save the current draft and find alternatives again.",
+          );
+          updateTaxonomyControls();
+          return;
+        }
+        try {
+          const advanced = JSON.parse($("advanced").value);
+          if (
+            !advanced ||
+            typeof advanced !== "object" ||
+            Array.isArray(advanced) ||
+            !Array.isArray(advanced.columns)
+          )
+            throw new Error("Advanced JSON must contain the observed columns.");
+          const matches = advanced.columns.filter(
+            (column) => column?.name === binding.column_name,
+          );
+          if (matches.length !== 1)
+            throw new Error("The selected observed column must occur exactly once.");
+          const column = matches[0];
+          if (
+            column.semantic_caveats !== undefined &&
+            !Array.isArray(column.semantic_caveats)
+          )
+            throw new Error("The column's semantic caveats must remain a list.");
+          const unmappedCaveat =
+              "Kept unmapped by the steward. No vocabulary concept is asserted; business meaning still requires review.",
+            selectedCaveat =
+              "A steward selected this concept from reviewed vocabulary alternatives. Confirm its business meaning against source evidence; the comparison score does not prove correctness.",
+            previousSelectedCaveat =
+              "A steward selected this concept from local vocabulary alternatives. Confirm its business meaning against source evidence; the match score does not prove correctness.";
+          let concepts = [],
+            label = "Unknown",
+            confidence = 0,
+            caveat = unmappedCaveat;
+          const caveats = (column.semantic_caveats || []).filter(
+            (item) => item !== unmappedCaveat && item !== selectedCaveat && item !== previousSelectedCaveat,
+          );
+          if (candidate) {
+            const version = result.value.vocabulary?.version;
+            if (
+              typeof candidate.concept !== "string" ||
+              !candidate.concept ||
+              typeof candidate.label !== "string" ||
+              !candidate.label ||
+              !Number.isFinite(candidate.score) ||
+              candidate.score < 0 ||
+              candidate.score > 1 ||
+              typeof version !== "string" ||
+              !version
+            )
+              throw new Error("The candidate lacks a valid concept, score, or vocabulary version.");
+            label = candidate.label;
+            confidence = candidate.score;
+            const methodVersion = result.value.method?.version,
+              provider = taxonomyProviderEvidence(result.value.provider, candidate.concept),
+              providerLabel = taxonomyProviderName(provider.id),
+              engineEvidence = provider.id === "open-ontologies"
+                ? taxonomyEngineEvidence(candidate.engine_evidence)
+                : null,
+              matchedTerms = Array.isArray(candidate.matched_terms)
+                ? candidate.matched_terms
+                    .filter((term) => typeof term === "string")
+                    .slice(0, 12)
+                : [];
+            concepts = [{
+              concept: candidate.concept,
+              label,
+              confidence,
+              vocabulary_version: version,
+              ...(typeof methodVersion === "string" && methodVersion
+                ? { method_version: methodVersion }
+                : {}),
+              matched_terms: matchedTerms,
+              requires_human_review: true,
+              provider,
+              ...(engineEvidence ? { engine_evidence: engineEvidence } : {}),
+              evidence:
+                `Explicit steward selection from ${providerLabel} alternatives. Vocabulary version ${version}.${typeof methodVersion === "string" && methodVersion ? " Method version " + methodVersion + "." : ""}${provider.id === "open-ontologies" ? " Engine version " + provider.version + "; binary SHA-256 " + provider.binary_sha256 + "." : ""} ${provider.id === "open-ontologies" ? "Dry-run alignment" : "Local lexical comparison"} score ${confidence.toFixed(4)} is not probability or validated business meaning.`,
+            }];
+            caveat = selectedCaveat;
+            for (const warning of Array.isArray(candidate.warnings)
+              ? candidate.warnings
+              : [])
+              if (typeof warning === "string" && !caveats.includes(warning))
+                caveats.push(warning);
+          }
+          if (!caveats.includes(caveat)) caveats.push(caveat);
+          const oldLabel = column.semantic_type || "Unknown",
+            type = column.data_type,
+            generatedDescriptions = new Set([
+              `Observed ${type} field; suggested concept: ${oldLabel}.`,
+              `Observed ${type} field; steward-proposed concept: ${oldLabel}.`,
+              `Observed ${type} field; business meaning remains unmapped.`,
+            ]);
+          const description =
+            typeof type === "string" &&
+            generatedDescriptions.has(column.description)
+              ? candidate
+                ? `Observed ${type} field; steward-proposed concept: ${label}.`
+                : `Observed ${type} field; business meaning remains unmapped.`
+              : column.description;
+          advanced.columns = advanced.columns.map((item) =>
+            item === column
+              ? {
+                  ...item,
+                  semantic_type: label,
+                  semantic_confidence: confidence,
+                  concepts,
+                  semantic_caveats: caveats,
+                  ...(description !== column.description ? { description } : {}),
+                }
+              : item,
+          );
+          $("advanced").value = fmt(advanced);
+          const message =
+            `${candidate ? "Concept " + label : "Unmapped meaning"} staged for ${binding.column_name}. Save the draft to persist the choice and rerun validation.`;
+          markDirty(message);
+          toast(message);
+        } catch (error) {
+          showError(
+            "The concept was not staged. " + error.message +
+              " Check the advanced JSON before continuing.",
+            "advanced",
+          );
+        }
+      }
+      $("taxonomy-column").addEventListener("change", () => {
+        clearTaxonomyResults();
+        updateTaxonomyControls();
+      });
+      $("taxonomy-provider").addEventListener("change", () => {
+        clearTaxonomyResults("Provider changed. Find alternatives again for the selected comparison provider.");
+        updateTaxonomyControls();
+      });
+      $("taxonomy-context").addEventListener("input", () => {
+        clearTaxonomyResults(
+          "Context changed. Find alternatives again to compare the new matches.",
+        );
+        updateTaxonomyControls();
+      });
+      $("taxonomy-unmapped").onclick = () => stageTaxonomyChoice(null);
+      $("taxonomy-find").onclick = async () => {
+        if ($("taxonomy-find").disabled || !current) return;
+        clearTaxonomyResults("Finding alternatives with " + taxonomyProviderName($("taxonomy-provider").value) + "…");
+        const request = taxonomyRequest,
+          binding = {
+            proposal_id: current.id,
+            digest: current.digest,
+            revision: current.revision,
+            column_name: $("taxonomy-column").value,
+            provider: $("taxonomy-provider").value,
+          };
+        taxonomyBusy = true;
+        updateTaxonomyControls();
+        try {
+          const value = await api("/api/action", {
+            action: "taxonomy_suggest",
+            id: binding.proposal_id,
+            expected_digest: binding.digest,
+            column_name: binding.column_name,
+            provider: binding.provider,
+            query: $("taxonomy-context").value,
+          });
+          if (
+            request !== taxonomyRequest ||
+            dirty ||
+            !taxonomyBindingMatches(binding)
+          )
+            return;
+          if (
+            value.proposal_id !== binding.proposal_id ||
+            value.digest !== binding.digest ||
+            value.revision !== binding.revision ||
+            value.column_name !== binding.column_name ||
+            value.provider?.id !== binding.provider
+          )
+            throw new Error("The response does not match this saved revision, column, and comparison provider.");
+          if (
+            binding.provider === "open-ontologies" &&
+            Array.isArray(value.candidates) && value.candidates.length &&
+            (value.provider.invoked !== true || value.provider.mode !== "dry-run")
+          )
+            throw new Error("The response does not confirm a real dry-run Open Ontologies engine comparison.");
+          renderTaxonomyAlternatives(value, binding);
+        } catch (error) {
+          if (request !== taxonomyRequest || !taxonomyBindingMatches(binding))
+            return;
+          taxonomyMessage =
+            error.message === "Unknown action"
+              ? "This running review service does not support concept alternatives yet. Restart the updated review service and reopen the panel."
+              : binding.provider === "open-ontologies"
+                ? "Open Ontologies alternatives could not be loaded. " + error.message +
+                  " No engine-backed alternatives were loaded. Try again, or explicitly choose Local comparison."
+                : "Local alternatives could not be loaded. " + error.message +
+                  " Reload the saved revision if it changed, then try again.";
+          $("taxonomy-status").className = "alert error";
+        } finally {
+          if (request === taxonomyRequest) {
+            taxonomyBusy = false;
+            updateTaxonomyControls();
+          }
+        }
+      };
+      function updateControls() {
+        $("workspace").setAttribute("aria-busy", String(busy));
+        $("unsaved").hidden = !dirty;
+        $("restore-draft").hidden =
+          !conflictDraft || conflictDraft.id !== current?.id;
+        for (const id of ["save", "reject", "live-plan"])
+          $(id).disabled = busy || !current || current.status === "publishing";
+        $("analyze").disabled = busy;
+        for (const id of [
+          "search",
+          "inventory",
+          "load-history",
+          "older-history",
+          "path",
+          "query",
+          "reviewer",
+          "reason",
+          "recovery-reason",
+          "restore-draft",
+        ])
+          $(id).disabled = busy;
+        $("discard-draft").disabled = busy || !dirty;
+        $("history-from").disabled = busy || !$("history-from").options.length;
+        $("compare-revision").disabled =
+          busy || !$("history-from").options.length;
+        $("approve").disabled =
+          busy ||
+          dirty ||
+          !current?.quality.conforms ||
+          !["draft", "rejected", "failed"].includes(current?.status);
+        $("publish").disabled =
+          busy ||
+          dirty ||
+          current?.status !== "approved" ||
+          !state?.config.writes_enabled ||
+          current?.plan.snapshot.mode !== "verified";
+        $("recovery-controls").hidden = current?.status !== "publishing";
+        $("recover").disabled =
+          busy || dirty || current?.status !== "publishing";
+        for (const id of editFields)
+          $(id).disabled = busy || current?.status === "publishing";
+        for (const button of $("entries").querySelectorAll("button"))
+          button.disabled = busy;
+        updateTaxonomyControls();
+        syncWorkflow();
+      }
+      for (const id of editFields)
+        $(id).addEventListener("input", () => markDirty());
+      addEventListener("beforeunload", (event) => {
+        if (dirty) {
+          event.preventDefault();
+          event.returnValue = "";
+        }
+      });
+      $("restore-draft").onclick = () => {
+        if (!conflictDraft || conflictDraft.id !== current?.id) return;
+        for (const [id, value] of Object.entries(conflictDraft.form)) {
+          if ($(id).type === "checkbox") $(id).checked = value;
+          else $(id).value = value;
+        }
+        markDirty(
+          "Local changes restored. Save the draft before finding alternatives for the updated revision.",
+        );
+        conflictDraft = null;
+        updateControls();
+        toast(
+          "Draft restored. Compare its changes with the current revision before saving.",
+        );
+      };
+      $("discard-draft").onclick = () => {
+        if (busy || !dirty || !current) return;
+        conflictDraft = { id: current.id, form: formSnapshot() };
+        dirty = false;
+        clearErrors();
+        render();
+        $("restore-draft").focus();
+        toast(
+          "Local changes discarded. You can retrieve them with “Restore local changes”.",
+        );
+      };
+      document.addEventListener("keydown", (event) => {
+        if (
+          (event.ctrlKey || event.metaKey) &&
+          event.key === "Enter" &&
+          editFields.includes(document.activeElement?.id)
+        ) {
+          event.preventDefault();
+          if (!$("save").disabled) $("save").click();
+        }
+      });
+      $("lineage-link").addEventListener("click", (event) => {
+        if (
+          !dirty ||
+          event.ctrlKey ||
+          event.metaKey ||
+          event.shiftKey ||
+          event.altKey
+        )
+          return;
+        if (
+          !confirm("There are unsaved changes. Leave the panel without saving?")
+        )
+          event.preventDefault();
+        else dirty = false;
+      });
+      async function api(path, body) {
+        const r = await fetch(path, {
+          method: body ? "POST" : "GET",
+          headers: {
+            Authorization: "Bearer " + token,
+            ...(body ? { "Content-Type": "application/json" } : {}),
+          },
+          ...(body ? { body: JSON.stringify(body) } : {}),
+        });
+        const value = await r.json();
+        if (!r.ok) {
+          const error = Error(value.error || r.status);
+          error.status = r.status;
+          throw error;
+        }
+        return value;
+      }
+      async function refresh(id) {
+        state = await api("/api/state");
+        current =
+          state.proposals.find((p) => p.id === (id || current?.id)) ||
+          state.proposals[0];
+        render();
+      }
+      async function action(body, message) {
+        if (busy) return;
+        const readOnly = ["search", "inventory"].includes(body.action);
+        if (dirty && body.action !== "revise" && !readOnly)
+          return showError(
+            "Save your changes before continuing with this action.",
+          );
+        const trigger = document.activeElement;
+        busy = true;
+        clearErrors();
+        announce((actionLabels[body.action] || "Processing the request") + "…");
+        updateControls();
+        try {
+          const result = await api("/api/action", {
+            id: current?.id,
+            expected_digest: current?.digest,
+            ...body,
+          });
+          if (!readOnly) {
+            dirty = false;
+            conflictDraft = null;
+            if (body.action === "analyze") {
+              workflowStep = "describe";
+              publicationIntent = "local";
+            }
+            await refresh(result.id);
+          }
+          toast(message || "Operation completed");
+          announce(
+            message || "Operation completed. You can continue reviewing.",
+          );
+          return result;
+        } catch (e) {
+          if (e.status === 409) {
+            if (dirty) conflictDraft = { id: current.id, form: formSnapshot() };
+            try {
+              dirty = false;
+              await refresh();
+              showError(
+                "The proposal changed in another session. Its current revision has been loaded. Restore your local changes if needed and compare them before saving or approving.",
+              );
+            } catch (refreshError) {
+              dirty = !!conflictDraft;
+              showError(
+                "The proposal changed and its current state could not be loaded. Your local changes are preserved; reload before continuing.",
+              );
+              $("retry-state").hidden = false;
+            }
+          } else {
+            showError(e.message);
+          }
+        } finally {
+          busy = false;
+          updateControls();
+          if (
+            $("error-summary").hidden &&
+            trigger?.isConnected &&
+            !trigger.disabled
+          )
+            trigger.focus({ preventScroll: true });
+        }
+      }
+      const cell = (row, value) => {
+        const td = document.createElement("td");
+        td.textContent =
+          typeof value === "object" ? fmt(value) : (value ?? "—");
+        row.append(td);
+      };
+      function render() {
+        syncTaxonomyColumns();
+        put("count", state.proposals.length);
+        put(
+          "mode",
+          state.config.project
+            ? state.config.project +
+                " · " +
+                (state.config.writes_enabled ? "writes enabled" : "read only")
+            : "Local review",
+        );
+        $("entries").replaceChildren();
+        for (const p of state.proposals) {
+          const b = document.createElement("button");
+          b.className = "entry" + (p.id === current?.id ? " active" : "");
+          if (p.id === current?.id) b.setAttribute("aria-current", "true");
+          const title = document.createElement("span");
+          title.textContent = p.metadata.title;
+          const info = document.createElement("small");
+          info.textContent =
+            (statusLabels[p.status] || p.status) +
+            " · revision " +
+            p.revision +
+            " · " +
+            p.quality.score +
+            "/100";
+          b.append(title, info);
+          b.onclick = () => {
+            if (busy) return;
+            if (
+              dirty &&
+              !confirm(
+                "There are unsaved changes. Discard them to switch proposals?",
+              )
+            )
+              return;
+            dirty = false;
+            $("revision-diff").replaceChildren();
+            $("history-results").hidden = true;
+            $("history-from").replaceChildren();
+            $("older-history").hidden = true;
+            historyNext = null;
+            put(
+              "history-info",
+              "Load this proposal's history to compare revisions.",
+            );
+            current = p;
+            workflowStep = p.status === "publishing" ? "decide" : "describe";
+            publicationIntent =
+              p.plan.snapshot.mode === "verified" || p.status === "publishing"
+                ? "cloud"
+                : "local";
+            render();
+            $("flow-heading").focus();
+            announce(
+              "Selected proposal: " +
+                p.metadata.title +
+                ". Revision " +
+                p.revision +
+                ".",
+            );
+          };
+          $("entries").append(b);
+        }
+        $("empty").hidden = !!current;
+        $("workspace").hidden = false;
+        if (!current) {
+          updateControls();
+          return;
+        }
+        const p = current,
+          m = p.metadata,
+          q = p.quality;
+        put("score", q.score + "/100");
+        put("columns", (m.columns || []).length);
+        put("revision", String(p.revision).padStart(2, "0"));
+        put("title", m.title);
+        put("state", statusLabels[p.status] || p.status);
+        put("description", m.description);
+        $("keywords").replaceChildren();
+        for (const word of m.keywords || []) {
+          const span = document.createElement("span");
+          span.className = "tag";
+          span.textContent = typeof word === "string" ? word : fmt(word);
+          $("keywords").append(span);
+        }
+        put(
+          "sampling",
+          m.profile?.sampled
+            ? "Partial profile: statistics are calculated from a sample. Review its scope before using them."
+            : "Local profile. Semantic assignments are heuristic proposals requiring review.",
+        );
+        $("schema").replaceChildren();
+        const counts = {};
+        for (const c of m.columns || []) {
+          const row = document.createElement("tr");
+          cell(row, c.name);
+          if (c.description) {
+            const description = document.createElement("small");
+            description.textContent = c.description;
+            description.style.cssText =
+              "display:block;font-weight:400;color:#696969;line-height:1.5;max-width:320px;margin-top:5px";
+            row.firstChild.append(description);
+          }
+          cell(row, c.data_type || c.type || c.inferred_type);
+          const concept =
+            c.semantic_type || c.concept || c.semantic?.concept || "unassigned";
+          cell(row, concept);
+          row.children[2].title = (c.semantic_caveats || []).join(" · ");
+          cell(
+            row,
+            (c.pii_flags || []).length
+              ? "Review privacy: " + c.pii_flags.join(", ")
+              : c.statistics?.null_count
+                ? c.statistics.null_count + " nulls"
+                : "View profile",
+          );
+          $("schema").append(row);
+          counts[concept] = (counts[concept] || 0) + 1;
+        }
+        $("concepts").replaceChildren();
+        for (const [name, n] of Object.entries(counts)) {
+          const div = document.createElement("div");
+          div.className = "concept";
+          const span = document.createElement("span");
+          span.textContent = name;
+          span.style.minWidth = "120px";
+          const bar = document.createElement("span");
+          bar.className = "bar";
+          bar.style.width =
+            Math.max(8, (n / Math.max(1, (m.columns || []).length)) * 250) +
+            "px";
+          const num = document.createElement("span");
+          num.textContent = n;
+          div.append(span, bar, num);
+          $("concepts").append(div);
+        }
+        put(
+          "source",
+          fmt({
+            system:
+              m.source.system ||
+              m.source.provider ||
+              m.source.source ||
+              "local",
+            url: m.source.dataset_url || m.source.url || m.source.source_url,
+            format: m.source.format,
+            license: m.source.license,
+            sha256: m.source.sha256,
+            synthetic: m.source.synthetic,
+            version:
+              m.source.version ||
+              m.source.version_number ||
+              m.source.dataset_version,
+          }),
+        );
+        $("source").style.whiteSpace = "pre-wrap";
+        $("source").style.overflowWrap = "anywhere";
+        put("metadata", fmt(m));
+        $("edit-title").value = m.title || "";
+        $("edit-description").value = m.description || "";
+        $("owner").value = m.owner || m.source?.owner || "";
+        $("license").value = m.license || m.source?.license || "";
+        $("domain").value = m.domain || "retail";
+        $("privacy").checked = !!m.privacy_reviewed;
+        $("data-quality").checked = !!m.data_quality_reviewed;
+        $("advanced").value = fmt({
+          columns: m.columns || [],
+          relationships: m.relationships || [],
+          limitations: m.limitations || [],
+          concepts: m.concepts || [],
+        });
+        put("target", p.plan.target);
+        $("operation-summary").replaceChildren();
+        const operationNames = {
+          entryGroup: "Entry group",
+          aspectType: "Metadata type",
+          entryType: "Dataset type",
+          entry: "Dataset metadata",
+        };
+        for (const op of [...p.plan.bootstrap, ...p.plan.operations]) {
+          const div = document.createElement("div");
+          div.className = "finding";
+          const effect =
+            op.needed === false
+              ? "Reuse"
+              : op.method === "PATCH"
+                ? "Update managed aspect"
+                : "Create";
+          div.textContent =
+            effect +
+            " · " +
+            (operationNames[op.kind] || op.kind) +
+            " · " +
+            op.target;
+          div.style.overflowWrap = "anywhere";
+          $("operation-summary").append(div);
+        }
+        put(
+          "plan-warning",
+          p.plan.snapshot.mode === "verified"
+            ? "Plan based on a GCP read. If the resource changes, it must be reviewed again."
+            : "Offline preview. Prepare a plan using GCP before approving a live publication.",
+        );
+        put(
+          "plan",
+          fmt({
+            bootstrap: p.plan.bootstrap,
+            operations: p.plan.operations,
+            warnings: p.plan.warnings,
+          }),
+        );
+        put(
+          "quality-status",
+          q.conforms ? "✓ Meets required rules" : "Findings prevent approval",
+        );
+        $("quality-status").className =
+          "alert " + (q.conforms ? "ok" : "error");
+        $("findings").replaceChildren();
+        const requiredFindings = [],
+          advisoryFindings = [];
+        for (const finding of [
+          ...(q.findings || []),
+          ...(m.quality_findings || []),
+        ]) {
+          const severity =
+            typeof finding === "string" ? "info" : finding.severity;
+          (["error", "violation", "critical"].includes(
+            String(severity).toLowerCase(),
+          )
+            ? requiredFindings
+            : advisoryFindings
+          ).push(finding);
+        }
+        const addFinding = (target, finding) => {
+          const div = document.createElement("div");
+          div.className = "finding";
+          if (typeof finding === "string") div.textContent = finding;
+          else {
+            const field =
+              finding.column ||
+              finding.field ||
+              finding.path ||
+              finding.evidence?.columns?.join(", ");
+            const affected =
+              finding.evidence?.affected_rows != null
+                ? finding.evidence.affected_rows +
+                  " of " +
+                  finding.evidence.evaluated_rows +
+                  " evaluated rows (" +
+                  finding.evidence.sample_scope +
+                  ")"
+                : "";
+            div.textContent = [field, finding.message, affected]
+              .filter(Boolean)
+              .join(" · ");
+            div.title = [finding.severity, finding.source_code || finding.code]
+              .filter(Boolean)
+              .join(" · ");
+          }
+          target.append(div);
+        };
+        requiredFindings.forEach((finding) =>
+          addFinding($("findings"), finding),
+        );
+        if (advisoryFindings.length) {
+          const details = document.createElement("details"),
+            summary = document.createElement("summary");
+          details.id = "advisory-findings";
+          summary.textContent =
+            "Review " + advisoryFindings.length + " advisory findings";
+          details.append(summary);
+          advisoryFindings.forEach((finding) => addFinding(details, finding));
+          $("findings").append(details);
+        }
+        put("shacl", q.report);
+        put(
+          "coverage",
+          q.coverage
+            ? q.coverage.mapped_columns +
+                " of " +
+                q.coverage.total_columns +
+                " columns mapped to vocabulary concepts. Conformance validates rules, not the truth of the content."
+            : "Conformance validates declared rules, not the truth of the content.",
+        );
+        put(
+          "approval-policy",
+          "Approval is bound to this revision and its exact plan; it expires after " +
+            (state.config.approval_ttl_seconds >= 3600
+              ? (state.config.approval_ttl_seconds / 3600).toLocaleString(
+                  undefined,
+                  { maximumFractionDigits: 2 },
+                ) + " hours"
+              : state.config.approval_ttl_seconds >= 60
+                ? (state.config.approval_ttl_seconds / 60).toLocaleString(
+                    undefined,
+                    { maximumFractionDigits: 2 },
+                  ) + " minutes"
+                : state.config.approval_ttl_seconds.toLocaleString() +
+                  " seconds") +
+            ". Saving changed content requires repeating the human review checks.",
+        );
+        put("digest", p.digest);
+        put(
+          "approval-info",
+          p.approval
+            ? "Approved by " +
+                p.approval.reviewer +
+                " · " +
+                new Date(p.approval.at * 1000).toLocaleString()
+            : "This revision has not been approved yet.",
+        );
+        $("approve").disabled =
+          !q.conforms || !["draft", "rejected", "failed"].includes(p.status);
+        $("publish").disabled =
+          p.status !== "approved" ||
+          !state.config.writes_enabled ||
+          p.plan.snapshot.mode !== "verified";
+        put(
+          "publish-hint",
+          !state.config.writes_enabled
+            ? "GCP publication is disabled in the configuration."
+            : p.plan.snapshot.mode !== "verified"
+              ? "Prepare and approve a plan using GCP first."
+              : "Only the metadata and operations in the approved plan will be sent.",
+        );
+        $("activity").replaceChildren();
+        for (const e of state.events
+          .filter((e) => e.proposal === p.id)
+          .slice(0, 6)) {
+          const div = document.createElement("div");
+          div.className = "finding";
+          div.textContent =
+            new Date(e.at * 1000).toLocaleTimeString() +
+            " · " +
+            e.action +
+            (e.detail ? " · " + e.detail : "");
+          $("activity").append(div);
+        }
+        updateControls();
+      }
+      $("save").onclick = () => {
+        try {
+          const advanced = JSON.parse($("advanced").value);
+          if (
+            !advanced ||
+            typeof advanced !== "object" ||
+            Array.isArray(advanced)
+          )
+            return showError(
+              "Advanced content must be a JSON object with columns, relationships, and limitations.",
+              "advanced",
+            );
+          return action(
+            {
+              action: "revise",
+              updates: {
+                ...advanced,
+                title: $("edit-title").value,
+                description: $("edit-description").value,
+                owner: $("owner").value,
+                license: $("license").value,
+                domain: $("domain").value,
+                privacy_reviewed: $("privacy").checked,
+                data_quality_reviewed: $("data-quality").checked,
+              },
+            },
+            "Metadata saved; validation updated",
+          );
+        } catch (e) {
+          showError(
+            "The advanced JSON could not be read. Check quotes, braces, and commas before saving.",
+            "advanced",
+          );
+        }
+      };
+      $("approve").onclick = () => {
+        if (
+          !requiredValue(
+            "reviewer",
+            "Enter your reviewer name before approving this revision.",
+          )
+        )
+          return;
+        return action(
+          {
+            action: "approve",
+            digest: current.digest,
+            reviewer: $("reviewer").value,
+          },
+          "Revision approved",
+        );
+      };
+      $("reject").onclick = () => {
+        if (
+          !requiredValue(
+            "reason",
+            "Describe what must be corrected before the proposal can be reviewed again.",
+          )
+        )
+          return;
+        return action(
+          { action: "reject", reason: $("reason").value },
+          "Corrections requested",
+        );
+      };
+      $("publish").onclick = () =>
+        action({ action: "publish" }, "Metadata published to GCP");
+      $("recover").onclick = () => {
+        if (
+          !requiredValue(
+            "recovery-reason",
+            "Describe why you are recovering the workflow after inspecting the remote status.",
+          )
+        )
+          return;
+        return action(
+          { action: "recover", reason: $("recovery-reason").value },
+          "Workflow recovered without a remote retry. Prepare a plan using GCP and review it again.",
+        );
+      };
+      $("live-plan").onclick = () =>
+        action(
+          { action: "plan", live: true },
+          "GCP plan prepared; review the new version",
+        );
+      $("analyze").onclick = () => {
+        if (
+          !requiredValue(
+            "path",
+            "Enter an allowed local file path before creating the proposal.",
+          )
+        )
+          return;
+        return action(
+          { action: "analyze", path: $("path").value },
+          "Proposal created",
+        );
+      };
+      let historyNext = null;
+      async function loadHistory(older = false) {
+        if (!current || busy) return;
+        const selectedId = current.id;
+        busy = true;
+        clearErrors();
+        updateControls();
+        announce("Loading revision history…");
+        try {
+          const history = await api("/api/action", {
+            action: "history",
+            id: selectedId,
+            before_revision: older ? historyNext : null,
+          });
+          if (current.id !== selectedId) return;
+          if (!older) $("history-from").replaceChildren();
+          for (const revision of history.revisions) {
+            if (revision.revision >= current.revision) continue;
+            const option = document.createElement("option");
+            option.value = revision.revision;
+            option.textContent =
+              "Revision " +
+              revision.revision +
+              " · " +
+              new Date(revision.at * 1000).toLocaleString();
+            $("history-from").append(option);
+          }
+          historyNext = history.next_before_revision;
+          $("older-history").hidden = !historyNext;
+          put(
+            "history-info",
+            $("history-from").options.length
+              ? "Saved versions are immutable. Compare an earlier revision with the current one."
+              : "No earlier version has been saved. Older proposals retain their migrated state; subsequent edits will add history.",
+          );
+          announce("History loaded. Select an earlier revision to compare.");
+        } catch (e) {
+          showError(e.message);
+        } finally {
+          busy = false;
+          updateControls();
+        }
+      }
+      $("load-history").onclick = () => loadHistory();
+      $("older-history").onclick = () => loadHistory(true);
+      $("compare-revision").onclick = async () => {
+        if (busy) return;
+        if (!$("history-from").value || !current)
+          return toast("Load an earlier revision first.");
+        const selectedId = current.id;
+        busy = true;
+        clearErrors();
+        updateControls();
+        announce("Comparing the selected revisions…");
+        try {
+          const difference = await api("/api/action", {
+            action: "diff",
+            id: selectedId,
+            from_revision: Number($("history-from").value),
+          });
+          if (current.id !== selectedId) return;
+          $("revision-diff").replaceChildren();
+          for (const change of difference.changes.filter(
+            (change) =>
+              change.path.startsWith("/metadata/") &&
+              !change.path.startsWith("/metadata/quality"),
+          )) {
+            const row = document.createElement("tr");
+            cell(row, change.path);
+            cell(row, change.before);
+            cell(row, change.after);
+            $("revision-diff").append(row);
+          }
+          $("history-results").hidden = !$("revision-diff").children.length;
+          put(
+            "history-info",
+            "Revision " +
+              difference.from_revision +
+              " → " +
+              difference.to_revision +
+              (difference.truncated
+                ? ": partial result; export the proposal to inspect all content."
+                : $("revision-diff").children.length
+                  ? ": metadata differences."
+                  : ": no metadata differences in the available result."),
+          );
+          announce(
+            "Comparison complete. Differences appear in the history table.",
+          );
+        } catch (e) {
+          showError(e.message);
+        } finally {
+          busy = false;
+          updateControls();
+        }
+      };
+      for (const name of ["inventory", "search"])
+        $(name).onclick = async () => {
+          if (
+            name === "search" &&
+            !requiredValue(
+              "query",
+              "Enter a search term or use Inventory to list existing resources.",
+            )
+          )
+            return;
+          const result = await action({
+            action: name,
+            query: $("query").value,
+          });
+          if (result) {
+            put("remote", fmt(result));
+            $("remote").hidden = false;
+          }
+        };
+      $("query").addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          if (!$("search").disabled) $("search").click();
+        }
+      });
+      async function loadState() {
+        if (busy) return;
+        if (dirty && current)
+          conflictDraft = { id: current.id, form: formSnapshot() };
+        const hadChanges = dirty;
+        dirty = false;
+        busy = true;
+        clearErrors();
+        updateControls();
+        announce("Loading review proposals…");
+        try {
+          await refresh();
+          announce(
+            hadChanges
+              ? "Panel refreshed. You can restore local changes and compare them with the current revision."
+              : state.proposals.length
+                ? "Panel ready. Select a proposal or continue reviewing."
+                : "Panel ready. The queue is empty; create a proposal from a local file.",
+          );
+        } catch (e) {
+          dirty = hadChanges;
+          showError(
+            e.status === 401
+              ? "The review session could not be opened. Reopen the panel from Claude or kc ui to get a valid link."
+              : "Proposals could not be loaded. Check that the local service is still running and try again.",
+          );
+          $("retry-state").hidden = false;
+        } finally {
+          busy = false;
+          updateControls();
+        }
+      }
+      $("retry-state").onclick = loadState;
+      loadState();
+    </script>
+  </body>
+</html>

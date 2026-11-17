@@ -1,0 +1,290 @@
+{
+  "schemaVersion": 3,
+  "pageId": "vectorize-art-patterns",
+  "title": "Open Masterpieces, Two Color Systems",
+  "artworkCount": 30,
+  "variantCount": 60,
+  "colorsets": ["colorset1", "colorset2"],
+  "defaultMaxDimension": 560,
+  "artworks": [
+    {
+      "id": "bailly-beauties-fancy",
+      "displayTitle": "Le caprice des belles",
+      "genre": "abstraction",
+      "mode": "collage",
+      "colors": 9,
+      "smoothing": 0.34,
+      "paletteMethod": "median-cut",
+      "filterSpeckle": 18
+    },
+    {
+      "id": "breton-song-lark",
+      "genre": "figure",
+      "mode": "collage",
+      "colors": 9,
+      "smoothing": 0.4,
+      "paletteMethod": "median-cut",
+      "filterSpeckle": 22
+    },
+    {
+      "id": "caillebotte-paris-street",
+      "genre": "city",
+      "mode": "collage",
+      "colors": 9,
+      "smoothing": 0.38,
+      "paletteMethod": "median-cut",
+      "filterSpeckle": 20
+    },
+    {
+      "id": "cassatt-childs-bath",
+      "genre": "figure",
+      "mode": "organic",
+      "colors": 9,
+      "smoothing": 0.48,
+      "paletteMethod": "median-cut",
+      "filterSpeckle": 22
+    },
+    {
+      "id": "cezanne-basket-apples",
+      "genre": "still-life",
+      "mode": "collage",
+      "colors": 9,
+      "smoothing": 0.38,
+      "paletteMethod": "median-cut",
+      "filterSpeckle": 18
+    },
+    {
+      "id": "courbet-rock-hautepierre",
+      "genre": "landscape",
+      "mode": "stain",
+      "colors": 8,
+      "smoothing": 0.64,
+      "paletteMethod": "max-coverage",
+      "filterSpeckle": 26
+    },
+    {
+      "id": "degas-ballet-opera",
+      "genre": "figure",
+      "mode": "collage",
+      "colors": 8,
+      "smoothing": 0.4,
+      "paletteMethod": "median-cut",
+      "filterSpeckle": 20
+    },
+    {
+      "id": "el-greco-assumption",
+      "genre": "sacred",
+      "mode": "organic",
+      "colors": 9,
+      "smoothing": 0.48,
+      "paletteMethod": "max-coverage",
+      "filterSpeckle": 22,
+      "maxDimension": 620
+    },
+    {
+      "id": "gauguin-day-god",
+      "genre": "symbolist",
+      "mode": "collage",
+      "colors": 9,
+      "smoothing": 0.36,
+      "paletteMethod": "median-cut",
+      "filterSpeckle": 18
+    },
+    {
+      "id": "hilma-primordial-chaos-16",
+      "displayTitle": "Primordial Chaos, No. 16",
+      "genre": "abstraction",
+      "mode": "organic",
+      "colors": 8,
+      "smoothing": 0.5,
+      "paletteMethod": "max-coverage",
+      "filterSpeckle": 18
+    },
+    {
+      "id": "hiroshige-sudden-shower",
+      "displayTitle": "Sudden Shower over Shin-Ōhashi Bridge and Atake",
+      "genre": "print",
+      "mode": "collage",
+      "colors": 8,
+      "smoothing": 0.34,
+      "paletteMethod": "median-cut",
+      "filterSpeckle": 16,
+      "maxDimension": 620
+    },
+    {
+      "id": "hokusai-great-wave",
+      "displayTitle": "Under the Wave off Kanagawa (The Great Wave)",
+      "genre": "print",
+      "mode": "collage",
+      "colors": 8,
+      "smoothing": 0.36,
+      "paletteMethod": "median-cut",
+      "filterSpeckle": 18,
+      "maxDimension": 620
+    },
+    {
+      "id": "homer-herring-net",
+      "genre": "maritime",
+      "mode": "organic",
+      "colors": 8,
+      "smoothing": 0.5,
+      "paletteMethod": "max-coverage",
+      "filterSpeckle": 22
+    },
+    {
+      "id": "juan-gris-still-life-1919",
+      "displayTitle": "Still Life",
+      "genre": "still-life",
+      "mode": "collage",
+      "colors": 9,
+      "smoothing": 0.32,
+      "paletteMethod": "median-cut",
+      "filterSpeckle": 16
+    },
+    {
+      "id": "kandinsky-improvisation-27",
+      "displayTitle": "Improvisation No. 27 (Garden of Love II)",
+      "genre": "abstraction",
+      "mode": "organic",
+      "colors": 9,
+      "smoothing": 0.48,
+      "paletteMethod": "max-coverage",
+      "filterSpeckle": 18
+    },
+    {
+      "id": "manet-jesus-mocked",
+      "genre": "sacred",
+      "mode": "collage",
+      "colors": 9,
+      "smoothing": 0.4,
+      "paletteMethod": "median-cut",
+      "filterSpeckle": 22
+    },
+    {
+      "id": "monet-normandy-train",
+      "genre": "city",
+      "mode": "stain",
+      "colors": 8,
+      "smoothing": 0.66,
+      "paletteMethod": "max-coverage",
+      "filterSpeckle": 26
+    },
+    {
+      "id": "monet-water-lilies",
+      "genre": "landscape",
+      "mode": "stain",
+      "colors": 8,
+      "smoothing": 0.72,
+      "paletteMethod": "max-coverage",
+      "filterSpeckle": 28
+    },
+    {
+      "id": "morisot-woman-toilette",
+      "genre": "figure",
+      "mode": "stain",
+      "colors": 8,
+      "smoothing": 0.62,
+      "paletteMethod": "max-coverage",
+      "filterSpeckle": 24
+    },
+    {
+      "id": "pissarro-place-du-havre",
+      "genre": "city",
+      "mode": "organic",
+      "colors": 9,
+      "smoothing": 0.5,
+      "paletteMethod": "max-coverage",
+      "filterSpeckle": 22
+    },
+    {
+      "id": "redon-flower-clouds",
+      "genre": "symbolist",
+      "mode": "stain",
+      "colors": 8,
+      "smoothing": 0.74,
+      "paletteMethod": "max-coverage",
+      "filterSpeckle": 28
+    },
+    {
+      "id": "rembrandt-old-man-gold-chain",
+      "genre": "portrait",
+      "mode": "organic",
+      "colors": 8,
+      "smoothing": 0.5,
+      "paletteMethod": "max-coverage",
+      "filterSpeckle": 22
+    },
+    {
+      "id": "renoir-two-sisters",
+      "genre": "figure",
+      "mode": "organic",
+      "colors": 9,
+      "smoothing": 0.5,
+      "paletteMethod": "max-coverage",
+      "filterSpeckle": 22
+    },
+    {
+      "id": "seurat-grande-jatte",
+      "genre": "figure",
+      "mode": "organic",
+      "colors": 9,
+      "smoothing": 0.52,
+      "paletteMethod": "median-cut",
+      "filterSpeckle": 24
+    },
+    {
+      "id": "tanner-two-disciples",
+      "genre": "sacred",
+      "mode": "organic",
+      "colors": 8,
+      "smoothing": 0.54,
+      "paletteMethod": "max-coverage",
+      "filterSpeckle": 24
+    },
+    {
+      "id": "toulouse-lautrec-moulin-rouge",
+      "genre": "nightlife",
+      "mode": "collage",
+      "colors": 9,
+      "smoothing": 0.36,
+      "paletteMethod": "median-cut",
+      "filterSpeckle": 18
+    },
+    {
+      "id": "turner-aosta-snowstorm",
+      "genre": "landscape",
+      "mode": "stain",
+      "colors": 8,
+      "smoothing": 0.72,
+      "paletteMethod": "max-coverage",
+      "filterSpeckle": 28
+    },
+    {
+      "id": "van-gogh-bedroom",
+      "genre": "interior",
+      "mode": "collage",
+      "colors": 9,
+      "smoothing": 0.34,
+      "paletteMethod": "median-cut",
+      "filterSpeckle": 18
+    },
+    {
+      "id": "van-gogh-self-portrait",
+      "genre": "portrait",
+      "mode": "organic",
+      "colors": 9,
+      "smoothing": 0.46,
+      "paletteMethod": "max-coverage",
+      "filterSpeckle": 20
+    },
+    {
+      "id": "whistler-nocturne-blue-gold",
+      "genre": "landscape",
+      "mode": "stain",
+      "colors": 7,
+      "smoothing": 0.76,
+      "paletteMethod": "max-coverage",
+      "filterSpeckle": 30
+    }
+  ]
+}

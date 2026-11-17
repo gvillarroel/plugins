@@ -1,0 +1,14 @@
+{
+  "name": "delivery-planning",
+  "version": "1.0.0",
+  "description": "Extract requirements, review assumptions, plan delivery and construct project-specific Harbor evaluation datasets.",
+  "author": {
+    "name": "Gerardo Villarroel"
+  },
+  "interface": {
+    "displayName": "Delivery Planning",
+    "shortDescription": "Extract requirements, review assumptions, plan delivery and construct project-specific Harbor evaluation datasets.",
+    "category": "Developer tools"
+  },
+  "skills": "./skills/"
+}

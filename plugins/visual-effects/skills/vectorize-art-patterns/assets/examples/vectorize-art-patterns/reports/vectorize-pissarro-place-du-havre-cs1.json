@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "ok": true,
+  "input": "assets/base-images/pissarro-place-du-havre.jpg",
+  "input_sha256": "c62f31ef16dc3b8ac3a89aa928d530ba3a5d3f284abb6dd28f449fa76a626731",
+  "output": "svgs/vectorize-pissarro-place-du-havre-cs1.svg",
+  "output_sha256": "1e2bad1366987503353364b18b1640aba32f9b383616ed9207921e5d1c07b3b4",
+  "pattern_id": "vectorize-pissarro-place-du-havre-cs1",
+  "mode": "organic",
+  "tile": "none",
+  "colorset": "colorset1",
+  "palette_contract_sha256": "f33804ae2e5fb81652343fee00ac6a48c6581eaf823ddead535a98035dd8b366",
+  "variation_seed": 0,
+  "composition_sha256": "2b2f04683b088e0d53abd46c766c2ca68dd9e84280ea41c3c7d2e36f3a9e5e3c",
+  "parameters": {
+    "colors": 9,
+    "smoothing": 0.5,
+    "palette_method": "max-coverage",
+    "max_dimension": 560,
+    "filter_speckle": 22,
+    "curve_mode": "spline",
+    "hierarchical": "cutout",
+    "color_mapping": {
+      "background": "#333e48",
+      "layers": [
+        {
+          "source": "#9db1be",
+          "target": "#b5b5b5"
+        },
+        {
+          "source": "#6d5f4f",
+          "target": "#696969"
+        },
+        {
+          "source": "#e2bf97",
+          "target": "#cfcfcf"
+        },
+        {
+          "source": "#3f556f",
+          "target": "#4f4f4f"
+        },
+        {
+          "source": "#b5806a",
+          "target": "#828282"
+        },
+        {
+          "source": "#4e719f",
+          "target": "#9e1b32"
+        },
+        {
+          "source": "#253744",
+          "target": "#363636"
+        },
+        {
+          "source": "#eceadb",
+          "target": "#e7e7e7"
+        }
+      ],
+      "source_colors": [
+        "#81948b",
+        "#9db1be",
+        "#6d5f4f",
+        "#e2bf97",
+        "#3f556f",
+        "#b5806a",
+        "#4e719f",
+        "#253744",
+        "#eceadb"
+      ],
+      "target_colors": [
+        "#333e48",
+        "#b5b5b5",
+        "#696969",
+        "#cfcfcf",
+        "#4f4f4f",
+        "#828282",
+        "#9e1b32",
+        "#363636",
+        "#e7e7e7"
+      ]
+    }
+  },
+  "source_width": 900,
+  "source_height": 733,
+  "vector_width": 560,
+  "vector_height": 456,
+  "render_width": 560,
+  "render_height": 456,
+  "palette": [
+    "#333e48",
+    "#363636",
+    "#4f4f4f",
+    "#696969",
+    "#828282",
+    "#9e1b32",
+    "#b5b5b5",
+    "#cfcfcf"
+  ],
+  "path_count": 94,
+  "output_bytes": 241842,
+  "rights": {
+    "basis": "source-manifest",
+    "source_id": "pissarro-place-du-havre",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "source_url": "https://www.artic.edu/artworks/81551",
+    "attribution": "Camille Pissarro (French, 1830–1903); Potter Palmer Collection",
+    "attribution_required": false,
+    "share_alike": false,
+    "input_sha256": "c62f31ef16dc3b8ac3a89aa928d530ba3a5d3f284abb6dd28f449fa76a626731"
+  },
+  "backend": "vtracer-0.6.15"
+}

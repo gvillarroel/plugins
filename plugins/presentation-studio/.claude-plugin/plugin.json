@@ -1,0 +1,8 @@
+{
+  "name": "presentation-studio",
+  "version": "1.0.0",
+  "description": "Build and audit Slidev presentations or transfer D3 graphics into editable Google Slides.",
+  "author": {
+    "name": "Gerardo Villarroel"
+  }
+}

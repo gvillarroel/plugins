@@ -1,0 +1,4 @@
+interface:
+  display_name: "Procedural Graph Knowledge Consultation"
+  short_description: "Ground source claims with frozen execution graph guidance"
+  default_prompt: "Use $consult-semantic-okf-procedural-graph to consult the validated knowledge snapshot, inspect exact source evidence, and follow the declared frozen graph runtime when available."

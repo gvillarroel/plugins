@@ -1,0 +1,4 @@
+interface:
+  display_name: "Slidev ECharts"
+  short_description: "ECharts stories and HyperFrames scenes in Slidev"
+  default_prompt: "Use $slidev-echarts to add responsive charts or synchronized HyperFrames scenes to this Slidev deck, as requested."

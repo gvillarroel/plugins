@@ -1,0 +1,18 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "diagram-studio",
+  "version": "1.0.0",
+  "description": "Compose and animate diagrams, charts and SVGs with D3, Mermaid, PlantUML, ECharts and Lucidchart.",
+  "author": {
+    "name": "Gerardo Villarroel"
+  },
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Diagram Studio",
+        "shortDescription": "Compose and animate diagrams, charts and SVGs with D3, Mermaid, PlantUML, ECharts and Lucidchart.",
+        "category": "Creativity"
+      }
+    }
+  }
+}

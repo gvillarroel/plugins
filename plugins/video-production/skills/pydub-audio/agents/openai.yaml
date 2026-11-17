@@ -1,0 +1,4 @@
+interface:
+  display_name: "PyDub Audio"
+  short_description: "Create, edit, mix and verify audio with PyDub"
+  default_prompt: "Use $pydub-audio to create an editable audio plan, render it and verify the exported file."

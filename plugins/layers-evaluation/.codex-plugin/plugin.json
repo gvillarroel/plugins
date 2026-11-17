@@ -1,0 +1,14 @@
+{
+  "name": "layers-evaluation",
+  "version": "1.0.0",
+  "description": "Author and audit Harbor evaluation datasets for the Layers workspace.",
+  "author": {
+    "name": "Gerardo Villarroel"
+  },
+  "interface": {
+    "displayName": "Layers Evaluation",
+    "shortDescription": "Author and audit Harbor evaluation datasets for the Layers workspace.",
+    "category": "Developer tools"
+  },
+  "skills": "./skills/"
+}

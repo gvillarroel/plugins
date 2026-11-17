@@ -1,0 +1,34 @@
+{
+  "name": "hyperframes",
+  "version": "0.8.199",
+  "description": "Compose and render HTML video using HyperFrames by HeyGen and the project Colorsets.",
+  "author": {
+    "name": "HeyGen",
+    "email": "hyperframes@heygen.com",
+    "url": "https://hyperframes.heygen.com"
+  },
+  "homepage": "https://hyperframes.heygen.com",
+  "repository": "https://github.com/heygen-com/hyperframes",
+  "license": "Apache-2.0",
+  "interface": {
+    "displayName": "HyperFrames with Colorsets",
+    "shortDescription": "Author and render HTML videos with the project palettes.",
+    "longDescription": "The HyperFrames CLI, registry, composition and media workflows packaged with two editable project palettes.",
+    "developerName": "HeyGen",
+    "category": "Creativity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://hyperframes.heygen.com",
+    "defaultPrompt": [
+      "Turn this website into a 20-second product promo",
+      "Create an animated title card with kinetic type",
+      "Add synced captions to this voiceover"
+    ],
+    "brandColor": "#0a0a0a",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/logo.png"
+  },
+  "skills": "./skills/"
+}

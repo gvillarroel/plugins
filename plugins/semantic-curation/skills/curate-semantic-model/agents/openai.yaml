@@ -1,0 +1,4 @@
+interface:
+  display_name: "Curate Semantic Models"
+  short_description: "Review reproducible graphs, semantic changes and conflicts"
+  default_prompt: "Use $curate-semantic-model to build reproducible semantic snapshots, compare repository changes, and inspect evidence-backed gaps and conflicts with review choices."

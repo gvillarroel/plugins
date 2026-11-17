@@ -1,0 +1,18 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "data-simulation",
+  "version": "1.0.0",
+  "description": "Plan, generate and evaluate synthetic tabular datasets, build simulations and test their quality and privacy.",
+  "author": {
+    "name": "Gerardo Villarroel"
+  },
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Synthetic Data and Simulation",
+        "shortDescription": "Plan, generate and evaluate synthetic tabular datasets, build simulations and test their quality and privacy.",
+        "category": "Data"
+      }
+    }
+  }
+}

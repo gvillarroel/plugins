@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; connect-src 'none'; font-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Repository semantic review</title>
+<style>
+:root{color-scheme:light;--bg:#f7f7f7;--ink:#333e48;--paper:#fff;--muted:#696969;--accent:#9e1b32;--soft:#ffccd5;--border:#828282;--evidence:#526579;--evidence-soft:#eef2f5}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}main{max-width:1600px;margin:auto;padding:26px}h1,h2,h3,p{margin:0}h1{font-size:30px;line-height:1.2;font-weight:650}h2{font-size:20px}h3{font-size:17px}.eyebrow{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);font-weight:700}.intro{max-width:85ch;margin:12px 0}.notice{padding:12px 16px;background:var(--paper);border-left:4px solid var(--accent);margin:16px 0}.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}.toolbar{margin:18px 0;justify-content:space-between}.small{font-size:13px;color:var(--muted)}.hash{font:12px/1.5 ui-monospace,monospace;overflow-wrap:anywhere}.summary{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0}.stat{border:1px solid #e7e7e7;background:var(--paper);padding:10px 16px;min-width:130px}.stat strong{font-size:24px;display:block}.graph-pair{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}.panel{min-width:0;background:var(--paper);border:1px solid #e7e7e7;border-radius:8px;padding:16px}.panel-header{margin-bottom:12px}.graph-scroll{overflow:auto;max-height:520px;min-height:220px;border:1px solid #e7e7e7;border-radius:5px;background:var(--bg)}svg{display:block;min-width:100%}.graph-node,.graph-edge{cursor:pointer;outline:none}.graph-node rect{stroke:var(--border);stroke-width:1.2;fill:var(--paper)}.graph-node text{fill:var(--ink);font-size:13px;pointer-events:none}.graph-node .node-type{fill:var(--muted);font-size:11px}.graph-node.changed rect{stroke:var(--accent);stroke-width:3;fill:var(--soft)}.graph-node.evidence-updated rect{stroke:var(--evidence);stroke-width:2;stroke-dasharray:2 3;fill:var(--evidence-soft)}.graph-node.added rect{stroke:var(--accent);stroke-width:3;stroke-dasharray:7 3}.graph-node.removed rect{stroke:var(--muted);stroke-width:2;stroke-dasharray:3 4}.graph-node.selected rect,.graph-node:focus rect{stroke:var(--ink);stroke-width:4}.graph-edge .visible-edge{stroke:var(--muted);stroke-width:1.6;fill:none}.graph-edge.changed .visible-edge{stroke:var(--accent);stroke-width:3}.graph-edge.evidence-updated .visible-edge{stroke:var(--evidence);stroke-width:2;stroke-dasharray:3 4}.graph-edge:focus .visible-edge,.graph-edge.selected .visible-edge{stroke:var(--ink);stroke-width:4}.edge-label{font:11px system-ui;fill:var(--ink);paint-order:stroke;stroke:var(--bg);stroke-width:5px;stroke-linejoin:round}.legend{gap:14px;margin:12px 0;font-size:13px}.legend span{display:inline-flex;gap:6px;align-items:center}.swatch{height:14px;width:20px;border:1px solid var(--border);display:inline-block;background:var(--paper)}.swatch.changed{background:var(--soft);border:2px solid var(--accent)}.swatch.evidence-updated{background:var(--evidence-soft);border:2px dotted var(--evidence)}.swatch.added{border:2px dashed var(--accent)}.swatch.removed{border:2px dotted var(--muted)}button,select,input,textarea{font:inherit;color:inherit;max-width:100%}button,select,input{min-height:44px;border:1px solid var(--border);border-radius:5px;padding:9px 12px;background:var(--paper)}button{cursor:pointer}button:hover{background:var(--soft)}button.primary{background:var(--accent);color:#fff;border-color:var(--accent)}button:disabled{opacity:.5;cursor:default}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-offset:3px}label{display:grid;gap:5px;font-size:13px;font-weight:600;min-width:0}textarea{width:100%;min-height:78px;border:1px solid var(--border);border-radius:5px;padding:10px;background:var(--paper)}.selection-bar{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;margin:16px 0}.selection-bar select{width:100%}.inspect{margin:16px 0}.compare-detail{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}.detail-body{margin:10px 0;white-space:pre-wrap;overflow-wrap:anywhere}.missing{color:var(--accent);font-weight:650}.tag{font-size:12px;background:#e7e7e7;border-radius:4px;padding:2px 7px;display:inline-block}.evidence{border-left:3px solid #e7e7e7;padding:8px 12px;margin:12px 0;overflow-wrap:anywhere}.evidence blockquote{margin:7px 0;white-space:pre-wrap}.grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}.review-list{display:grid;gap:12px;margin-top:12px}.review-card{border:1px solid #e7e7e7;border-left:4px solid var(--accent);padding:14px;overflow-wrap:anywhere}.review-card p{margin:8px 0}.review-card select{width:100%;margin:6px 0}.review-card .card-action{min-width:0;margin-top:8px}.review-card button{width:100%;text-align:left}.filterbar{display:grid;grid-template-columns:minmax(0,1fr) 160px;gap:12px;margin:12px 0}.empty{padding:24px;color:var(--muted)}details summary{min-height:44px;cursor:pointer;padding:10px 0}pre{max-width:100%;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.5 ui-monospace,monospace}#status{min-height:24px}footer{margin-top:24px;padding-top:16px;border-top:1px solid #e7e7e7}noscript{display:block;padding:20px;color:var(--accent)}[hidden]{display:none!important}
+#status:empty{display:none}
+.check-result{margin:8px 0;padding:9px 12px;background:var(--evidence-soft);border-left:3px solid var(--evidence);border-radius:4px;overflow-wrap:anywhere}.check-result dl{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:3px 10px;margin:6px 0 0}.check-result dt{font-weight:650}.check-result dd{margin:0}
+@media(max-width:420px){.check-result dl{grid-template-columns:minmax(0,1fr)}.check-result dd+dt{margin-top:4px}}
+@media(max-width:800px){main{padding:18px}.graph-pair,.grid,.compare-detail{grid-template-columns:minmax(0,1fr)}.graph-pair>article:nth-child(2){order:-1}h1{font-size:26px}.graph-scroll{max-height:400px}.summary{gap:8px}.stat{flex:1;min-width:100px;padding:9px 12px}}
+@media(max-width:420px){main{padding:12px}.panel{padding:12px}.selection-bar,.filterbar{grid-template-columns:minmax(0,1fr)}h1{font-size:24px}.intro{margin:8px 0}.notice{margin:10px 0;padding:8px 10px;font-size:13px}.summary{margin:12px 0}.toolbar{margin:12px 0;gap:8px;flex-wrap:nowrap}.toolbar button{width:auto;padding:8px 10px;font-size:13px}.toolbar .small{font-size:12px}input,select,textarea{font-size:16px}.stat{min-width:85px;font-size:12px;padding:6px 8px}.stat strong{font-size:20px}.legend{gap:8px 12px;margin:10px 0;font-size:12px}}
+@media(forced-colors:active){.graph-node rect,.graph-edge .visible-edge{stroke:CanvasText}.graph-node.changed rect{stroke:Highlight}.graph-node.evidence-updated rect,.graph-edge.evidence-updated .visible-edge{stroke:GrayText;stroke-dasharray:2 3}.graph-node text,.edge-label{fill:CanvasText}}
+</style>
+</head>
+<body>
+<main>
+<header>
+<p class="eyebrow">Evidence-linked pull request review</p>
+<h1>How does this change the knowledge graph?</h1>
+<p class="intro">Inspect changes to concepts, definitions and relationships, with their source evidence.</p>
+<div class="notice"><strong>Draft review.</strong> Check source support before accepting changes. <span id="semantic-status"></span></div>
+<div id="summary" class="summary" aria-label="Comparison summary"></div>
+<div class="row toolbar"><div><p class="small">Comparison revision</p><p id="revision" class="hash"></p></div><button id="export" class="primary" type="button">Export draft choices</button></div>
+<p id="status" role="status" aria-live="polite"></p>
+</header>
+<section aria-labelledby="graphs-title">
+<h2 id="graphs-title">Before and proposed</h2>
+<div class="row legend" aria-label="Graph legend"><span><i class="swatch"></i>Unchanged</span><span><i class="swatch changed"></i>Content modified</span><span><i class="swatch evidence-updated"></i>Evidence updated only</span><span><i class="swatch added"></i>Added</span><span><i class="swatch removed"></i>Removed</span></div>
+<p class="small">Select a node or arrow to inspect its evidence. Red indicates a content change; a neutral dotted mark indicates evidence changed without a content change. Evidence-only updates and review decisions remain in the recorded changes and may need provenance review. Scroll larger graphs.</p>
+<div class="graph-pair" id="graph-pair">
+<article class="panel"><div class="panel-header"><h3>Baseline snapshot</h3><p id="base-validation" class="small"></p></div><div class="graph-scroll" id="base-graph"></div><p id="base-hash" class="hash"></p></article>
+<article class="panel"><div class="panel-header"><h3>Proposed candidate</h3><p id="head-validation" class="small"></p></div><div class="graph-scroll" id="head-graph"></div><p id="head-hash" class="hash"></p></article>
+</div>
+<div class="selection-bar"><label>Inspect a concept<select id="node-select"><option value="">Choose a concept</option></select></label><label>Inspect a directed relationship<select id="edge-select"><option value="">Choose a relationship</option></select></label></div>
+<article class="panel inspect" aria-labelledby="inspect-title"><h2 id="inspect-title">Concept and evidence</h2><p id="inspect-hint" class="small">Select a graph element to inspect both revisions and the cited source passages.</p><div id="detail" class="compare-detail"></div></article>
+</section>
+<div class="grid">
+<section class="panel" aria-labelledby="findings-title"><h2 id="findings-title">Findings to review</h2><p class="small">The applicable contract explains structural findings. Meaning and source support still need review.</p><div class="filterbar"><label>Find a finding<input id="finding-search" type="search" placeholder="Code, concept or message"></label><label>Severity<select id="severity"><option value="all">All severities</option><option value="error">Errors</option><option value="warning">Warnings</option><option value="info">Information</option></select></label></div><div id="findings" class="review-list"></div></section>
+<section class="panel" aria-labelledby="changes-title"><h2 id="changes-title">Recorded changes</h2><p class="small">Identity uses exact persistent IDs. Renames and definition edits remain visible without creating new concepts.</p><label>Find a change<input id="change-search" type="search" placeholder="Change kind or concept"></label><div id="changes" class="review-list"></div></section>
+</div>
+<footer><p class="small">Everything on this page runs locally. No model calls, external requests or automatic acceptance are triggered by graph inspection or draft choices.</p><details><summary>Snapshot fingerprints and validation details</summary><p class="small">Structural checks and declared competency answers do not establish semantic truth. OWL reasoning and SHACL validation are not performed by this review. Exported choices are drafts; they do not resolve findings or modify either graph. Checks marked not_run or null were not completed.</p><pre id="validation-details"></pre></details></footer>
+<noscript>This review needs JavaScript to display its local SVG graphs and evidence. The original JSON comparison remains the authoritative artifact.</noscript>
+</main>
+<script id="review-data" type="application/json">__REVIEW_JSON__</script>
+<script id="review-number-lexemes" type="application/json">__REVIEW_NUMBER_LEXEMES__</script>
+<script>
+"use strict";
+(()=>{
+// numeric-hydration:start
+const exactNumbers=new WeakMap();
+const isExactNumber=value=>value!==null&&typeof value==="object"&&exactNumbers.has(value);
+const numberPath=(path,key)=>path+"/"+String(key).replaceAll("~","~0").replaceAll("/","~1");
+const hydrateExactNumbers=(root,lexemes)=>{
+ if(!lexemes||typeof lexemes!=="object"||Array.isArray(lexemes))throw new Error("Numeric lexeme map must be an object.");
+ const seen=new Set(),numberPattern=/^-?(?:0|[1-9][0-9]*)(?:\.[0-9]+)?(?:[eE][+-]?[0-9]+)?$/;
+ const visit=(value,path)=>{
+  if(typeof value==="number"){
+   if(!Object.prototype.hasOwnProperty.call(lexemes,path))throw new Error("Missing numeric lexeme at "+path+".");
+   const lexeme=lexemes[path],parsed=Number(lexeme);
+   if(typeof lexeme!=="string"||!numberPattern.test(lexeme)||!Object.is(parsed,value))throw new Error("Invalid numeric lexeme at "+path+".");
+   seen.add(path);const exact=Object.create(null);exactNumbers.set(exact,lexeme);
+   Object.defineProperty(exact,Symbol.toPrimitive,{value:()=>lexeme,enumerable:false});
+   return exact;
+  }
+  if(Array.isArray(value)){for(let i=0;i<value.length;i++)value[i]=visit(value[i],numberPath(path,i));return value;}
+  if(value!==null&&typeof value==="object"){for(const key of Object.keys(value))value[key]=visit(value[key],numberPath(path,key));}
+  return value;
+ };
+ const hydrated=visit(root,"");
+ if(seen.size!==Object.keys(lexemes).length)throw new Error("Numeric lexeme map contains an unknown path.");
+ return hydrated;
+};
+const losslessStringify=(value,space=0)=>{
+ const gap=typeof space==="number"?" ".repeat(Math.max(0,Math.min(10,space))):String(space).slice(0,10);
+ const encode=(item,depth)=>{
+  if(isExactNumber(item))return exactNumbers.get(item);
+  if(item===null||typeof item==="boolean"||typeof item==="number"||typeof item==="string")return JSON.stringify(item);
+  if(Array.isArray(item)){
+   if(!item.length)return "[]";
+   const values=item.map(child=>encode(child,depth+1)??"null");
+   return gap?"[\n"+values.map(child=>gap.repeat(depth+1)+child).join(",\n")+"\n"+gap.repeat(depth)+"]":"["+values.join(",")+"]";
+  }
+  if(item&&typeof item==="object"){
+   const values=Object.keys(item).map(key=>[key,encode(item[key],depth+1)]).filter(([,child])=>child!==undefined);
+   if(!values.length)return "{}";
+   const fields=values.map(([key,child])=>JSON.stringify(key)+(gap?": ":":")+child);
+   return gap?"{\n"+fields.map(child=>gap.repeat(depth+1)+child).join(",\n")+"\n"+gap.repeat(depth)+"}":"{"+fields.join(",")+"}";
+  }
+  return undefined;
+ };
+ return encode(value,0);
+};
+// numeric-hydration:end
+const report=JSON.parse(document.getElementById("review-data").textContent);
+const numberLexemes=JSON.parse(document.getElementById("review-number-lexemes").textContent);
+hydrateExactNumbers(report,numberLexemes);
+const $=id=>document.getElementById(id), ns="http://www.w3.org/2000/svg";
+const make=(tag,text,cls)=>{const e=document.createElement(tag);if(text!==undefined)e.textContent=String(text);if(cls)e.className=cls;return e;};
+const svg=(tag,attrs={})=>{const e=document.createElementNS(ns,tag);for(const [k,v] of Object.entries(attrs))e.setAttribute(k,String(v));return e;};
+const display=v=>v===undefined?"Not supplied":typeof v==="string"?v:losslessStringify(v,2);
+const models={base:report.base.model,head:report.head.model};
+const indexes={};for(const side of ["base","head"]){indexes[side]={};for(const c of ["nodes","relations","sources"])indexes[side][c]=new Map(models[side][c].map(x=>[x.id,x]));}
+const ids=[...new Set([...indexes.base.nodes.keys(),...indexes.head.nodes.keys()])].sort();
+const edgeIds=[...new Set([...indexes.base.relations.keys(),...indexes.head.relations.keys()])].sort();
+const nodeSelect=$("node-select"),edgeSelect=$("edge-select"),draft=new Map();let selected=null;
+const choices=[["defer","Defer for review"],["keep_base","Keep the baseline"],["propose_change","Propose a corrected change"],["split_scope","Separate the scopes"],["request_evidence","Request supporting evidence"]];
+const kindWords=v=>String(v||"change").replaceAll("_"," ");
+// change-classification:start
+const canonical=value=>isExactNumber(value)?`number:${exactNumbers.get(value)}`:Array.isArray(value)?`[${value.map(child=>child===undefined?"null":canonical(child)).join(",")}]`:value&&typeof value==="object"?`{${Object.keys(value).filter(key=>value[key]!==undefined).sort().map(key=>JSON.stringify(key)+":"+canonical(value[key])).join(",")}}`:JSON.stringify(value);
+const nodeContent=node=>({type:node.type,label:node.label,definition:node.definition,attributes:node.attributes,aliases:node.aliases});
+const relationContent=relation=>{const value={...relation};delete value.source_ids;delete value.review;return value;};
+const sameValue=(a,b)=>canonical(a)===canonical(b);
+const statusForRecords=(collection,b,h)=>!b?"added":!h?"removed":sameValue(collection==="nodes"?nodeContent(b):relationContent(b),collection==="nodes"?nodeContent(h):relationContent(h))?"unchanged":"changed";
+const changedSourceIds=(base,head)=>{
+ const before=new Map((base.sources||[]).map(record=>[record.id,record])),after=new Map((head.sources||[]).map(record=>[record.id,record])),changed=new Set();
+ for(const id of new Set([...before.keys(),...after.keys()]))if(!sameValue(before.get(id),after.get(id)))changed.add(id);
+ return changed;
+};
+const evidenceUpdatedForRecords=(b,h,sourceChanges=null)=>{
+ if(!b||!h)return false;
+ const before=b.source_ids||[],after=h.source_ids||[];
+ if(!sameValue(before,after))return true;
+ if(!sourceChanges||!Array.isArray(before))return false;
+ return before.some(id=>typeof id==="string"&&id.trim().length>0&&sourceChanges.has(id));
+};
+const classForRecords=(collection,b,h,sourceChanges=null)=>{const status=statusForRecords(collection,b,h);return status==="unchanged"&&evidenceUpdatedForRecords(b,h,sourceChanges)?"evidence-updated":status;};
+const graphChangeCounts=(base,head,recorded=[],sourceChanges=changedSourceIds(base,head))=>{let content=0,evidenceOnly=0;for(const collection of ["nodes","relations"]){const before=new Map(base[collection].map(record=>[record.id,record])),after=new Map(head[collection].map(record=>[record.id,record]));for(const id of new Set([...before.keys(),...after.keys()])){const status=statusForRecords(collection,before.get(id),after.get(id));if(status==="unchanged"){if(evidenceUpdatedForRecords(before.get(id),after.get(id),sourceChanges))evidenceOnly++;}else content++;}}return {content,evidenceOnly,recorded:recorded.length};};
+const statusFor=(collection,id)=>statusForRecords(collection,indexes.base[collection].get(id),indexes.head[collection].get(id));
+const classFor=(collection,id)=>classForRecords(collection,indexes.base[collection].get(id),indexes.head[collection].get(id),citedSourceChanges);
+// change-classification:end
+const citedSourceChanges=changedSourceIds(models.base,models.head);
+for(const id of ids){const n=indexes.head.nodes.get(id)||indexes.base.nodes.get(id);const o=make("option",`${n.label||id} · ${id}`);o.value=id;nodeSelect.append(o);}
+for(const id of edgeIds){const r=indexes.head.relations.get(id)||indexes.base.relations.get(id);const o=make("option",`${r.from||"?"} → ${r.type||"?"} → ${r.to||"?"} · ${id}`);o.value=id;edgeSelect.append(o);}
+nodeSelect.addEventListener("change",()=>{if(nodeSelect.value)select("nodes",nodeSelect.value);});edgeSelect.addEventListener("change",()=>{if(edgeSelect.value)select("relations",edgeSelect.value);});
+function wrapLabel(value){const words=String(value).split(/\s+/);const lines=[];let line="";for(const word of words){if((line+" "+word).trim().length>22&&line){lines.push(line);line="";}line+=(line?" ":"")+word;}if(line)lines.push(line);return lines.length>3?[...lines.slice(0,2),lines[2].slice(0,20)+"…"]:lines;}
+function activate(element,collection,id){element.addEventListener("click",()=>select(collection,id));element.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();select(collection,id);}});}
+// geometry:start
+function routeKey(edge){return JSON.stringify([edge.id,edge.from,edge.to]);}
+function graphGeometry(nodeIds,edges){
+ const orderedIds=[...new Set(nodeIds)].sort(),cols=Math.max(1,Math.min(3,orderedIds.length));
+ const ordinal=new Map(orderedIds.map((id,i)=>[id,i]));
+ const routeRecords=new Map();
+ for(const edge of edges)if(ordinal.has(edge.from)&&ordinal.has(edge.to))routeRecords.set(routeKey(edge),edge);
+ const orderedRoutes=[...routeRecords.entries()].sort((a,b)=>a[0]<b[0]?-1:a[0]>b[0]?1:0);
+ const columnCounts=new Map(),rowCounts=new Map(),lanes=new Map();
+ for(const [key,edge] of orderedRoutes){
+  const column=ordinal.get(edge.from)%cols,row=Math.floor(ordinal.get(edge.to)/cols);
+  const columnLane=columnCounts.get(column)||0,rowLane=rowCounts.get(row)||0;
+  lanes.set(key,{columnLane,rowLane});columnCounts.set(column,columnLane+1);rowCounts.set(row,rowLane+1);
+ }
+ const columnGap=Math.max(70,30+Math.max(0,...columnCounts.values())*6);
+ const rowGap=Math.max(90,30+Math.max(0,...rowCounts.values())*14);
+ const positions=Object.create(null),routes=Object.create(null),nodeWidth=180,nodeHeight=86;
+ for(const [id,i] of ordinal)positions[id]={x:70+(i%cols)*(nodeWidth+columnGap),y:rowGap+Math.floor(i/cols)*(nodeHeight+rowGap)};
+ for(const [key,edge] of orderedRoutes){
+  const from=positions[edge.from],to=positions[edge.to],lane=lanes.get(key);
+  const gutterX=from.x+nodeWidth+14+lane.columnLane*6,gapY=to.y-18-lane.rowLane*14;
+  const points=[[from.x+nodeWidth,from.y+nodeHeight/2],[gutterX,from.y+nodeHeight/2],
+                [gutterX,gapY],[to.x+nodeWidth/2,gapY],[to.x+nodeWidth/2,to.y]];
+  routes[key]={points,label:{x:(gutterX+to.x+nodeWidth/2)/2,y:gapY-4}};
+ }
+ return {positions,routes,nodeWidth,nodeHeight,width:cols*(nodeWidth+columnGap)+140,
+         height:Math.max(220,rowGap+Math.ceil(orderedIds.length/cols)*(nodeHeight+rowGap))};
+}
+// geometry:end
+const geometry=graphGeometry(ids,[...models.base.relations,...models.head.relations]);
+function draw(side){
+ const host=$(side+"-graph"),model=models[side],{width,height}=geometry;
+ if(!model.nodes.length){host.append(make("p","No concepts in this revision.","empty"));return;}
+ const canvas=svg("svg",{viewBox:`0 0 ${width} ${height}`,width,height,role:"group","aria-label":side==="base"?"Baseline snapshot graph":"Proposed candidate graph"});const defs=svg("defs");const marker=svg("marker",{id:side+"-arrow",viewBox:"0 0 10 10",refX:9,refY:5,markerWidth:7,markerHeight:7,orient:"auto-start-reverse"});marker.append(svg("path",{d:"M 0 0 L 10 5 L 0 10 z",fill:"#696969"}));defs.append(marker);canvas.append(defs);
+ const position=new Map(Object.entries(geometry.positions));
+ let missingEndpoints=0;
+ for(const relation of model.relations){const route=geometry.routes[routeKey(relation)];if(!route||!indexes[side].nodes.has(relation.from)||!indexes[side].nodes.has(relation.to)){missingEndpoints++;continue;}const group=svg("g",{class:"graph-edge "+classFor("relations",relation.id),tabindex:0,role:"button","aria-label":`${relation.from} ${relation.type} ${relation.to}`,"data-entity-id":relation.id,"data-collection":"relations","data-from":relation.from,"data-to":relation.to,"data-route-points":JSON.stringify(route.points)});const d=route.points.map(([x,y],i)=>`${i?"L":"M"} ${x} ${y}`).join(" "),labelX=route.label.x,labelY=route.label.y;
+ const hit=svg("path",{d,stroke:"transparent","stroke-width":18,fill:"none"});const line=svg("path",{d,class:"visible-edge","marker-end":`url(#${side}-arrow)`});const title=svg("title");title.textContent=`${relation.id}: ${relation.from} → ${relation.type} → ${relation.to}`;const edgeText=svg("text",{x:labelX,y:labelY,class:"edge-label","text-anchor":"middle"});edgeText.textContent=String(relation.type||"Missing predicate").slice(0,22);group.append(hit,line,title,edgeText);activate(group,"relations",relation.id);canvas.append(group);
+ }
+ for(const node of model.nodes){const pos=position.get(node.id),group=svg("g",{class:"graph-node "+classFor("nodes",node.id),transform:`translate(${pos.x},${pos.y})`,tabindex:0,role:"button","aria-label":`${node.label||node.id}: ${node.definition||"Definition missing"}`,"data-entity-id":node.id,"data-collection":"nodes"});group.append(svg("rect",{x:0,y:0,width:180,height:86,rx:7}));const title=svg("title");title.textContent=`${node.id}: ${node.label||"Label missing"}\n${node.definition||"Definition missing"}`;group.append(title);const lines=wrapLabel(node.label||node.id);for(let i=0;i<lines.length;i++){const t=svg("text",{x:12,y:20+i*16});t.textContent=lines[i];group.append(t);}const t=svg("text",{x:12,y:75,class:"node-type"});t.textContent=String(node.type||"Type missing").slice(0,27);group.append(t);activate(group,"nodes",node.id);canvas.append(group);}
+ host.append(canvas);if(missingEndpoints)host.append(make("p",`${missingEndpoints} relationship${missingEndpoints===1?" has":"s have"} a missing endpoint and cannot be drawn. Inspect the relationship selector and validation findings.`,"notice missing"));
+}
+function evidence(target,record,side){
+ const sourceIds=Array.isArray(record.source_ids)?record.source_ids:[];
+ if(!sourceIds.length)target.append(make("p","No source evidence cited.","missing"));
+ for(const id of sourceIds){const source=indexes[side].sources.get(id),box=make("div",undefined,"evidence");box.append(make("strong",id));if(!source){box.append(make("p","Source reference is missing.","missing"));}else{box.append(make("p",source.locator||"Locator missing","hash"));box.append(make("blockquote",source.text||"Source text missing"));}target.append(box);}
+}
+// selection-reveal:start
+function revealSelection(collection,id){
+ for(const side of ["base","head"]){
+  const host=$(side+"-graph"),record=indexes[side][collection]?.get(id);
+  if(!host||!record)continue;
+  const anchorId=collection==="nodes"?id:record.from;
+  const anchor=[...host.querySelectorAll(".graph-node")].find(node=>node.dataset.entityId===anchorId);
+  if(!anchor)continue;
+  const rect=anchor.getBoundingClientRect(),bounds=host.getBoundingClientRect();
+  host.scrollLeft+=rect.left+rect.width/2-(bounds.left+host.clientLeft+host.clientWidth/2);
+  host.scrollTop+=rect.top+rect.height/2-(bounds.top+host.clientTop+host.clientHeight/2);
+ }
+}
+// selection-reveal:end
+function select(collection,id){selected={collection,id};nodeSelect.value=collection==="nodes"?id:"";edgeSelect.value=collection==="relations"?id:"";$("inspect-hint").hidden=true;$("inspect-title").textContent=collection==="nodes"?"Concept and evidence":"Directed relationship and evidence";const detail=$("detail");detail.replaceChildren();for(const side of ["base","head"]){const section=make("section"),record=indexes[side][collection].get(id);section.append(make("h3",side==="base"?"Baseline snapshot":"Proposed candidate"));section.append(make("p",id,"hash"));if(!record){section.append(make("p","Absent in this revision.","missing"));}else if(collection==="nodes"){section.append(make("h3",record.label||"Label missing"));section.append(make("span",record.type||"Type missing","tag"));section.append(make("p",record.definition||"Definition missing",record.definition?"detail-body":"detail-body missing"));if(record.attributes)section.append(make("pre",display(record.attributes)));if(Array.isArray(record.aliases)&&record.aliases.length)section.append(make("p","Aliases: "+record.aliases.join(", "),"small"));evidence(section,record,side);}else{section.append(make("p",`${record.from||"Missing source"} → ${record.type||"Missing predicate"} → ${record.to||"Missing target"}`,"detail-body"));if(record.review)section.append(make("pre",display(record.review)));evidence(section,record,side);}detail.append(section);}for(const el of document.querySelectorAll("[data-collection]"))el.classList.toggle("selected",el.dataset.collection===collection&&el.dataset.entityId===id);revealSelection(collection,id);}
+function focusEntity(entityId){if(indexes.head.nodes.has(entityId)||indexes.base.nodes.has(entityId)){select("nodes",entityId);return true;}if(indexes.head.relations.has(entityId)||indexes.base.relations.has(entityId)){select("relations",entityId);return true;}return false;}
+function choiceControls(card,entry,targetType){const key=targetType+":"+entry.id;const label=make("label","Draft choice"),input=make("select");input.setAttribute("aria-label",`Draft choice for ${entry.code||entry.kind||entry.id}`);const empty=make("option","No choice recorded");empty.value="";input.append(empty);for(const [value,text] of choices){const option=make("option",text);option.value=value;input.append(option);}const rationaleLabel=make("label","Rationale (optional)"),rationale=make("textarea");rationale.setAttribute("aria-label",`Rationale for ${entry.code||entry.kind||entry.id}`);const saved=draft.get(key);input.value=saved?.choice||"";rationale.value=saved?.rationale||"";const update=()=>{if(input.value)draft.set(key,{target_type:targetType,target_id:entry.id,fingerprint:entry.fingerprint||entry.id,entity_id:entry.entity_id??null,choice:input.value,rationale:rationale.value,status:"pending_validation"});else draft.delete(key);$("status").textContent=`${draft.size} draft choice${draft.size===1?"":"s"} recorded locally. No graph has been modified.`;};input.addEventListener("change",update);rationale.addEventListener("input",update);label.append(input);rationaleLabel.append(rationale);card.append(label,rationaleLabel);}
+function findingCard(entry){
+ const card=make("article",undefined,"review-card");card.dataset.findingId=entry.id;
+ card.append(make("span",[entry.severity||"info",entry.classification].filter(Boolean).join(" · "),"tag"));
+ card.append(make("h3",entry.code||"Finding"));
+ const diagnostic=entry.diagnostic,path=diagnostic?.path;
+ const idList=value=>Array.isArray(value)&&value.every(id=>typeof id==="string"&&id.length>0);
+ const competency=entry.code==="COMPETENCY_CHECK_FAILED"&&typeof path==="string"&&path.startsWith("/checks/")&&path.length>8&&idList(diagnostic.expected)&&idList(diagnostic.actual);
+ if(competency){
+  const checkId=path.slice(8),proposed=entry.policy_scope==="proposed";
+  const baseline=entry.policy_scope==null||entry.policy_scope==="baseline";
+  const observedLabel=entry.classification==="resolved"?"Observed in baseline":entry.classification==="historical"?"Observed in both":entry.classification==="new"?"Observed in candidate":"Reported IDs";
+  const result=make("div",undefined,"check-result"),values=make("dl");
+  const ids=value=>value.length?value.join(", "):"No matching IDs";
+  result.append(make("p","Declared check: "+checkId+" · "+(proposed?"Proposed contract":baseline?"Baseline contract":"Contract scope not recognized")));
+  values.append(make("dt","Expected"),make("dd",ids(diagnostic.expected)),make("dt",observedLabel),make("dd",ids(diagnostic.actual)));
+  result.append(values);card.append(result);
+  const contract=proposed?report.head?.proposed_contract:baseline?report.base?.contract:null;
+  const query=Array.isArray(contract?.checks)?contract.checks.find(check=>check?.id===checkId)?.query:null;
+  const from=query?.from;
+  if((query?.op==="neighbors"||query?.op==="reachable")&&typeof from==="string"&&(indexes.base.nodes.has(from)||indexes.head.nodes.has(from))){
+   const button=make("button","Inspect query concept "+from);button.type="button";
+   button.addEventListener("click",()=>{select("nodes",from);$("inspect-title").scrollIntoView({block:"start",behavior:"smooth"});});card.append(button);
+  }
+ }else{
+  card.append(make("p",entry.message||"Review this finding."));
+  if(entry.entity_id){const b=make("button","Inspect "+entry.entity_id);b.type="button";b.addEventListener("click",()=>{if(focusEntity(entry.entity_id))$("inspect-title").scrollIntoView({block:"start",behavior:"smooth"});else $("status").textContent="This finding concerns a contract or source record; inspect its diagnostic below.";});card.append(b);}
+ }
+ if(entry.reviewer)card.append(make("p",`Proposed by ${entry.reviewer.kind||"unspecified"} reviewer: ${entry.reviewer.id||"unspecified"}.`,"small"));
+ if(entry.evidence){const d=make("details"),s=make("summary","Finding evidence and rule witness");d.append(s,make("pre",display(entry.evidence)));card.append(d);}
+ if(diagnostic){const d=make("details"),s=make("summary","Finding details and uncertainty");d.append(s,make("pre",display(diagnostic)));card.append(d);}
+ choiceControls(card,entry,"finding");return card;
+}
+function membershipText(entry,side){const label=side==="base"?"Before":"After",present=entry[side+"_present"];if(typeof present==="boolean"){const field=entry.field||entry.collection||entry.entity_id||"field";return `${label}: ${field} ${present?"present":"absent"}.`;}const fields=entry[side+"_present_fields"];if(Array.isArray(fields))return `${label} record fields present: ${fields.length?fields.join(", "):"(none)"}.`;return null;}
+function changeCard(entry){const card=make("article",undefined,"review-card");card.dataset.changeId=entry.id;card.append(make("h3",kindWords(entry.kind)));card.append(make("p",entry.entity_id||entry.collection||"Model change","hash"));if(entry.entity_id){const button=make("button","Inspect changed element");button.type="button";button.addEventListener("click",()=>{if(focusEntity(entry.entity_id))$("inspect-title").scrollIntoView({block:"start",behavior:"smooth"});else $("status").textContent="This change concerns a source, binding or contract; inspect before and after below.";});card.append(button);}const d=make("details"),s=make("summary","Before and after records");d.append(s,make("h3","Before"));const beforeMembership=membershipText(entry,"base");if(beforeMembership)d.append(make("p",beforeMembership,"presence"));d.append(make("pre",display(entry.before)),make("h3","After"));const afterMembership=membershipText(entry,"head");if(afterMembership)d.append(make("p",afterMembership,"presence"));d.append(make("pre",display(entry.after)));card.append(d);choiceControls(card,entry,"change");return card;}
+function filterFindings(){const term=$("finding-search").value.toLowerCase(),severity=$("severity").value,entries=report.findings.filter(f=>(severity==="all"||f.severity===severity)&&losslessStringify(f).toLowerCase().includes(term));$("findings").replaceChildren(...entries.map(findingCard));if(!entries.length)$("findings").append(make("p",report.findings.length?"No findings match the filters.":"No structural findings were reported. Semantic review is still required.","empty"));}
+function filterChanges(){const term=$("change-search").value.toLowerCase(),entries=report.changes.filter(f=>losslessStringify(f).toLowerCase().includes(term));$("changes").replaceChildren(...entries.map(changeCard));if(!entries.length)$("changes").append(make("p",report.changes.length?"No changes match the filter.":"No recorded graph, evidence or policy changes.","empty"));}
+$("finding-search").addEventListener("input",filterFindings);$("severity").addEventListener("change",filterFindings);$("change-search").addEventListener("input",filterChanges);
+$("export").addEventListener("click",()=>{const decisions={schema_version:"1",review_revision:report.review_revision,status:"draft_pending_validation",decisions:[...draft.values()].sort((a,b)=>(a.target_type+":"+a.fingerprint).localeCompare(b.target_type+":"+b.fingerprint))};const blob=new Blob([JSON.stringify(decisions,null,2)+"\n"],{type:"application/json"});const url=URL.createObjectURL(blob),link=make("a");link.href=url;link.download="semantic-review-decisions.json";document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);$("status").textContent=`Exported ${draft.size} draft choices bound to this comparison revision. Apply a reviewed candidate and rerun validation before resolving findings.`;});
+$("semantic-status").textContent="Semantic review status: "+(report.semantic_status||"not supplied").replaceAll("_"," ")+".";
+$("revision").textContent=report.review_revision.slice(0,12);$("revision").title=report.review_revision;
+const graphChanges=graphChangeCounts(models.base,models.head,report.changes,citedSourceChanges);for(const [value,label] of [[ids.length,"concept IDs"],[graphChanges.content,"content changes"],[graphChanges.evidenceOnly,"evidence-only updates"],[graphChanges.recorded,"recorded changes"],[report.findings.length,"review findings"]]){const box=make("div",undefined,"stat");box.append(make("strong",value),make("span",label));$("summary").append(box);}
+for(const side of ["base","head"]){const snap=report[side];$(side+"-hash").textContent="Graph SHA-256: "+(snap.graph_sha256||"not supplied");$(side+"-validation").textContent="Baseline contract: "+(snap.validation?.contract_status||"not checked")+" · "+models[side].nodes.length+" concepts · "+models[side].relations.length+" relationships";draw(side);}
+// validation-details:start
+const validationDetails=()=>({review_revision:report.review_revision,base:{model_sha256:report.base.model_sha256,graph_sha256:report.base.graph_sha256,contract_sha256:report.base.contract_sha256,validation:report.base.validation,source_binding:report.base.model.metadata?.repository_sources},head:{model_sha256:report.head.model_sha256,graph_sha256:report.head.graph_sha256,contract_sha256:report.head.contract_sha256,validation:report.head.validation,proposed_validation:report.head.proposed_validation,source_binding:report.head.model.metadata?.repository_sources},competency_deltas:report.competency_deltas,semantic_status:report.semantic_status,summary:report.summary});
+// validation-details:end
+$("validation-details").textContent=losslessStringify(validationDetails(),2);
+filterFindings();filterChanges();if(ids.length)select("nodes",ids[0]);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "semantic-okf",
+  "version": "1.0.0",
+  "description": "Build, consult and visualize Semantic OKF snapshots with classical, adaptive, embedding and ensemble retrieval.",
+  "author": {
+    "name": "Gerardo Villarroel"
+  },
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Semantic OKF Retrieval",
+        "shortDescription": "Build, consult and visualize Semantic OKF snapshots with classical, adaptive, embedding and ensemble retrieval.",
+        "category": "Data"
+      }
+    }
+  }
+}

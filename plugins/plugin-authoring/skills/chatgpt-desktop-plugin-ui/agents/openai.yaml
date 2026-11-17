@@ -1,0 +1,4 @@
+interface:
+  display_name: "ChatGPT Desktop Plugin UI"
+  short_description: "Build ChatGPT Desktop plugin app interfaces"
+  default_prompt: "Use $chatgpt-desktop-plugin-ui for one focused human decision, relevant evidence and a result returned to the agent; validate the actual host and use semantic native styling."

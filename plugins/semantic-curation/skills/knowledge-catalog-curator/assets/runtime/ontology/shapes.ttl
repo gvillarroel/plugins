@@ -1,0 +1,52 @@
+@prefix kc: <https://example.org/knowledge-catalog/> .
+@prefix retail: <https://example.org/knowledge-catalog/retail/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+kc:DatasetShape a sh:NodeShape ; sh:targetClass dcat:Dataset ;
+    sh:property [ sh:path dct:title ; sh:minCount 1 ; sh:maxCount 1 ;
+        sh:datatype xsd:string ; sh:minLength 3 ; sh:maxLength 200 ;
+        sh:message "Provide a meaningful title (3–200 characters)." ] ;
+    sh:property [ sh:path dct:description ; sh:minCount 1 ; sh:maxCount 1 ;
+        sh:datatype xsd:string ; sh:minLength 20 ; sh:maxLength 10000 ;
+        sh:message "Provide a substantive, verified description (20–10000 characters)." ] ;
+    sh:property [ sh:path dct:publisher ; sh:minCount 1 ; sh:maxCount 1 ; sh:class foaf:Agent ;
+        sh:node kc:OwnerShape ; sh:message "Supply the responsible owner or steward; do not infer ownership." ] ;
+    sh:property [ sh:path dct:license ; sh:minCount 1 ; sh:maxCount 1 ;
+        sh:class dct:LicenseDocument ; sh:node kc:LicenseShape ;
+        sh:message "Supply the source license supported by evidence." ] ;
+    sh:property [ sh:path kc:domain ; sh:minCount 1 ; sh:maxCount 1 ; sh:in ( "retail" ) ;
+        sh:message "The installed domain vocabulary supports retail only." ] ;
+    sh:property [ sh:path kc:sha256 ; sh:minCount 1 ; sh:maxCount 1 ;
+        sh:datatype xsd:string ; sh:pattern "^[0-9a-f]{64}$" ;
+        sh:message "A SHA-256 fingerprint of the analyzed source is required." ] ;
+    sh:property [ sh:path dcat:theme ; sh:minCount 1 ; sh:nodeKind sh:IRI ;
+        sh:in ( retail:Customer retail:Order retail:Product retail:Payment retail:Return retail:Quantity
+            retail:Revenue retail:Currency retail:Date retail:Identifier retail:Category ) ;
+        sh:message "Map at least one verified concept from the local retail vocabulary." ] .
+
+kc:OwnerShape a sh:NodeShape ;
+    sh:property [ sh:path foaf:name ; sh:minCount 1 ; sh:datatype xsd:string ; sh:minLength 3 ;
+        sh:message "Owner must name an accountable person or team (at least 3 characters)." ] .
+kc:LicenseShape a sh:NodeShape ;
+    sh:property [ sh:path rdfs:label ; sh:minCount 1 ; sh:datatype xsd:string ; sh:minLength 3 ;
+        sh:message "License must identify the actual source license (at least 3 characters)." ] .
+
+kc:ColumnShape a sh:NodeShape ; sh:targetClass kc:Column ;
+    sh:property [ sh:path dct:subject ; sh:nodeKind sh:IRI ;
+        sh:in ( retail:Customer retail:Order retail:Product retail:Payment retail:Return retail:Quantity
+            retail:Revenue retail:Currency retail:Date retail:Identifier retail:Category ) ;
+        sh:message "Column subject links must use the installed retail vocabulary." ] ;
+    sh:property [ sh:path dct:title ; sh:minCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ;
+        sh:message "Each column needs a nonempty name." ] ;
+    sh:property [ sh:path kc:dataType ; sh:minCount 1 ;
+        sh:in ( "unknown" "string" "integer" "number" "boolean" "date" "datetime" "json" "mixed" ) ;
+        sh:message "Column type must be one of the supported observed types." ] ;
+    sh:property [ sh:path kc:semanticType ; sh:minCount 1 ;
+        sh:in ( "Unknown" "Customer" "Order" "Product" "Payment" "Return" "Quantity" "Revenue"
+            "Currency" "Date" "Identifier" "Category" ) ;
+        sh:message "Column semantics must use the installed vocabulary or Unknown." ] .

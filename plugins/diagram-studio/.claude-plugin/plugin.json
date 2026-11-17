@@ -1,0 +1,8 @@
+{
+  "name": "diagram-studio",
+  "version": "1.0.0",
+  "description": "Compose and animate diagrams, charts and SVGs with D3, Mermaid, PlantUML, ECharts and Lucidchart.",
+  "author": {
+    "name": "Gerardo Villarroel"
+  }
+}

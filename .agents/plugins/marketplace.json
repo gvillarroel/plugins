@@ -1,0 +1,308 @@
+{
+  "name": "plugins",
+  "interface": {
+    "displayName": "Plugins de Gerardo Villarroel"
+  },
+  "plugins": [
+    {
+      "name": "cloud-operations",
+      "source": {
+        "source": "local",
+        "path": "./plugins/cloud-operations"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer tools"
+    },
+    {
+      "name": "confluence-publishing",
+      "source": {
+        "source": "local",
+        "path": "./plugins/confluence-publishing"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "data-simulation",
+      "source": {
+        "source": "local",
+        "path": "./plugins/data-simulation"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Data"
+    },
+    {
+      "name": "delivery-planning",
+      "source": {
+        "source": "local",
+        "path": "./plugins/delivery-planning"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer tools"
+    },
+    {
+      "name": "design-assets",
+      "source": {
+        "source": "local",
+        "path": "./plugins/design-assets"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Creativity"
+    },
+    {
+      "name": "diagram-studio",
+      "source": {
+        "source": "local",
+        "path": "./plugins/diagram-studio"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Creativity"
+    },
+    {
+      "name": "editorial-research",
+      "source": {
+        "source": "local",
+        "path": "./plugins/editorial-research"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "harbor",
+      "source": {
+        "source": "local",
+        "path": "./plugins/harbor"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer tools"
+    },
+    {
+      "name": "hyperframes",
+      "source": {
+        "source": "local",
+        "path": "./plugins/hyperframes"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Creativity"
+    },
+    {
+      "name": "knowledge-authoring",
+      "source": {
+        "source": "local",
+        "path": "./plugins/knowledge-authoring"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "knowledge-tools",
+      "source": {
+        "source": "local",
+        "path": "./plugins/knowledge-tools"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "layers-evaluation",
+      "source": {
+        "source": "local",
+        "path": "./plugins/layers-evaluation"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer tools"
+    },
+    {
+      "name": "line-world-video",
+      "source": {
+        "source": "local",
+        "path": "./plugins/line-world-video"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Creativity"
+    },
+    {
+      "name": "marketplace-check",
+      "source": {
+        "source": "local",
+        "path": "./plugins/marketplace-check"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer tools"
+    },
+    {
+      "name": "plugin-authoring",
+      "source": {
+        "source": "local",
+        "path": "./plugins/plugin-authoring"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer tools"
+    },
+    {
+      "name": "presentation-studio",
+      "source": {
+        "source": "local",
+        "path": "./plugins/presentation-studio"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Creativity"
+    },
+    {
+      "name": "reflex-xy",
+      "source": {
+        "source": "local",
+        "path": "./plugins/reflex-xy"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "semantic-curation",
+      "source": {
+        "source": "local",
+        "path": "./plugins/semantic-curation"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Data"
+    },
+    {
+      "name": "semantic-graphs",
+      "source": {
+        "source": "local",
+        "path": "./plugins/semantic-graphs"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Data"
+    },
+    {
+      "name": "semantic-okf",
+      "source": {
+        "source": "local",
+        "path": "./plugins/semantic-okf"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Data"
+    },
+    {
+      "name": "semantic-search",
+      "source": {
+        "source": "local",
+        "path": "./plugins/semantic-search"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Data"
+    },
+    {
+      "name": "store-studio",
+      "source": {
+        "source": "local",
+        "path": "./plugins/store-studio"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "video-production",
+      "source": {
+        "source": "local",
+        "path": "./plugins/video-production"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Creativity"
+    },
+    {
+      "name": "visual-effects",
+      "source": {
+        "source": "local",
+        "path": "./plugins/visual-effects"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Creativity"
+    },
+    {
+      "name": "workflow-engineering",
+      "source": {
+        "source": "local",
+        "path": "./plugins/workflow-engineering"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer tools"
+    }
+  ]
+}

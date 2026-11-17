@@ -1,0 +1,14 @@
+{
+  "name": "knowledge-tools",
+  "version": "1.0.0",
+  "description": "Register, index and search knowledge with know, XERJ, OpenWiki, Open Ontologies and Television.",
+  "author": {
+    "name": "Gerardo Villarroel"
+  },
+  "interface": {
+    "displayName": "Knowledge Tools",
+    "shortDescription": "Register, index and search knowledge with know, XERJ, OpenWiki, Open Ontologies and Television.",
+    "category": "Productivity"
+  },
+  "skills": "./skills/"
+}

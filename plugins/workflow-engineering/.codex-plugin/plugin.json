@@ -1,0 +1,14 @@
+{
+  "name": "workflow-engineering",
+  "version": "1.0.0",
+  "description": "Author ZX and Pi workflows, durable agent applications, repository reviewers and batch decisions.",
+  "author": {
+    "name": "Gerardo Villarroel"
+  },
+  "interface": {
+    "displayName": "Workflow Engineering",
+    "shortDescription": "Author ZX and Pi workflows, durable agent applications, repository reviewers and batch decisions.",
+    "category": "Developer tools"
+  },
+  "skills": "./skills/"
+}

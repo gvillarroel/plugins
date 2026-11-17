@@ -1,0 +1,63 @@
+---
+# mermaid: config begin
+config:
+  theme: "base"
+  themeVariables:
+    background: "#ffffff"
+    primaryColor: "#9e1b32"
+    primaryTextColor: "#ffffff"
+    primaryBorderColor: "#9e1b32"
+    secondaryColor: "#000000"
+    secondaryTextColor: "#ffffff"
+    secondaryBorderColor: "#000000"
+    tertiaryColor: "#828282"
+    tertiaryTextColor: "#000000"
+    tertiaryBorderColor: "#828282"
+    lineColor: "#696969"
+    textColor: "#333e48"
+    mainBkg: "#9e1b32"
+    nodeBkg: "#9e1b32"
+    nodeBorder: "#9e1b32"
+    clusterBkg: "#e7e7e7"
+    clusterBorder: "#9c9c9c"
+    defaultLinkColor: "#696969"
+    edgeLabelBackground: "#ffffff"
+    classText: "#ffffff"
+    labelColor: "#ffffff"
+    titleColor: "#333e48"
+  themeCSS: ".node > rect, .node > circle, .node > ellipse, .node > polygon, .node > path, rect.actor, .note, .task, .task0, .task1, .task2, .task3 { stroke-width: 0 !important; }"
+  flowchart:
+    padding: 6
+    nodeSpacing: 24
+    rankSpacing: 32
+    subGraphTitleMargin:
+      top: 4
+      bottom: 12
+# mermaid: config end
+# mermaid: metadata begin
+mermaid:
+  colorset: "colorset1"
+  mode: "standard"
+  palette: "basic-red-neutral-style"
+# mermaid: metadata end
+---
+flowchart LR
+  accTitle: Flowchart maximum complexity showcase
+  accDescr: Nine styled process roles form an ordered validation path from the primary entry through the neutral terminal role.
+  R01["Flow role 01"]:::csPrimary --> R02["Flow role 02"]:::csAccent
+  R02 --> R03["Flow role 03"]:::csMuted
+  R03 --> R04["Flow role 04"]:::csCritical
+  R04 --> R05["Flow role 05"]:::csWarning
+  R05 --> R06["Flow role 06"]:::csSuccess
+  R06 --> R07["Flow role 07"]:::csInfo
+  R07 --> R08["Flow role 08"]:::csSpecial
+  R08 --> R09["Flow role 09"]:::csNeutral
+  classDef csPrimary fill:#9e1b32,stroke:none,color:#ffffff,stroke-width:0px;
+  classDef csAccent fill:#000000,stroke:none,color:#ffffff,stroke-width:0px;
+  classDef csMuted fill:#828282,stroke:none,color:#000000,stroke-width:0px;
+  classDef csCritical fill:#1c1c1c,stroke:none,color:#ffffff,stroke-width:0px;
+  classDef csWarning fill:#9c9c9c,stroke:none,color:#000000,stroke-width:0px;
+  classDef csSuccess fill:#363636,stroke:none,color:#ffffff,stroke-width:0px;
+  classDef csInfo fill:#b5b5b5,stroke:none,color:#000000,stroke-width:0px;
+  classDef csSpecial fill:#333e48,stroke:none,color:#ffffff,stroke-width:0px;
+  classDef csNeutral fill:#cfcfcf,stroke:none,color:#000000,stroke-width:0px;

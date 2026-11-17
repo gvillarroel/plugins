@@ -1,0 +1,461 @@
+<div id="book-semantic-explorer">
+  <style>
+    #book-semantic-explorer{min-width:0;overflow-wrap:anywhere}
+    #book-semantic-explorer .bsx-flow{display:grid;grid-template-columns:minmax(0,1fr);gap:calc(var(--font-size-base) * 1)}
+    #book-semantic-explorer .bsx-close{display:grid;grid-template-columns:minmax(0,1fr);gap:calc(var(--font-size-base) * .5)}
+    #book-semantic-explorer .bsx-section{margin-top:calc(var(--font-size-base) * 1)}
+    #book-semantic-explorer .bsx-quote{margin:0;white-space:pre-wrap;overflow-wrap:anywhere}
+    #book-semantic-explorer .bsx-paragraph{white-space:pre-wrap;overflow-wrap:anywhere}
+    #book-semantic-explorer .bsx-list{margin:0;padding-left:calc(var(--font-size-base) * 1.5)}
+    #book-semantic-explorer .bsx-evidence{display:grid;gap:calc(var(--font-size-base) * .5);margin-top:calc(var(--font-size-base) * 1)}
+    #book-semantic-explorer .bsx-count{font-variant-numeric:tabular-nums}
+    #book-semantic-explorer .bsx-graph-canvas{position:relative;min-width:0}
+    #book-semantic-explorer .bsx-map-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:calc(var(--font-size-base) * 1)}
+    #book-semantic-explorer .bsx-claim-stack{display:grid;grid-template-columns:minmax(0,1fr);min-width:0;gap:calc(var(--font-size-base) * .5);margin-top:calc(var(--font-size-base) * 1);padding-inline-start:calc(var(--font-size-base) * 1.25)}
+    #book-semantic-explorer .bsx-map-svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+    #book-semantic-explorer .bsx-link-row{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:calc(var(--font-size-base) * .5)}
+    #book-semantic-explorer .bsx-edge-control{display:flex;justify-content:center;justify-self:center;width:max-content;max-width:100%;min-width:0}
+    #book-semantic-explorer .bsx-link-list{display:grid;gap:calc(var(--font-size-base) * .5);margin-top:calc(var(--font-size-base) * .5)}
+    #book-semantic-explorer [hidden]{display:none}
+  </style>
+  <script type="application/json" data-book-data>__BOOK_DATA__</script>
+  <div class="bsx-flow" data-explorer>
+    <header class="bsx-close">
+      <h2 data-book-title></h2>
+      <p class="text-small" data-book-identity></p>
+      <p class="text-small" data-scope></p>
+    </header>
+    <section class="bsx-close" data-graph aria-labelledby="bsx-map-heading">
+      <h3 id="bsx-map-heading">Interpretation map</h3>
+      <p class="text-small">Branches group claims by theme. Arrows show evidence-backed links between claims.</p>
+      <div class="bsx-graph-canvas" data-graph-canvas>
+        <svg class="bsx-map-svg" data-graph-svg role="img" aria-label="Theme membership branches and directed semantic claim links"></svg>
+        <div class="bsx-map-grid" data-graph-membership></div>
+        <p class="text-small bsx-section" data-link-heading>Directed semantic links</p>
+        <div class="bsx-link-list" data-graph-links></div>
+        <p class="text-small bsx-section" data-graph-empty hidden>No evidence-backed relations are recorded. Theme membership alone does not imply a semantic link.</p>
+      </div>
+    </section>
+    <section class="bsx-flow" data-selected-relation hidden aria-labelledby="bsx-relation-heading">
+      <h3 id="bsx-relation-heading">Selected connection</h3>
+      <p data-relation-rationale></p>
+      <div class="bsx-close" data-relation-endpoints></div>
+      <div data-relation-evidence></div>
+    </section>
+    <section class="bsx-close" data-claim-section aria-labelledby="bsx-claim-heading">
+      <h3 id="bsx-claim-heading">Selected interpretation</h3>
+      <p id="bsx-claim-text" data-claim-text></p>
+      <p class="text-small" data-claim-meta></p>
+      <p class="sr-only" aria-live="polite" data-selection-status></p>
+    </section>
+    <div class="viz-controls">
+      <label class="form-label">Theme<select class="form-select" data-theme aria-label="Theme"></select></label>
+      <label class="form-label">Claim<select class="form-select" data-claim aria-label="Claim" aria-describedby="bsx-claim-text"></select></label>
+    </div>
+    <div class="bsx-close"><p data-theme-label hidden></p><p data-theme-summary></p></div>
+    <section data-claim-evidence aria-labelledby="bsx-evidence-heading">
+      <h3 id="bsx-evidence-heading">Passage evidence</h3>
+      <div data-evidence></div>
+    </section>
+    <details data-interpretation-details>
+      <summary>Alternative readings and limits</summary>
+      <div class="bsx-flow bsx-section" data-alternatives></div>
+    </details>
+    <details data-relations-details hidden>
+      <summary>Connected interpretations</summary>
+      <div class="bsx-flow bsx-section" data-relations></div>
+    </details>
+    <details>
+      <summary>Chapter evidence coverage</summary>
+      <div class="bsx-close bsx-section">
+        <p class="text-small">Distinct passages cited by the selected theme. Counts describe evidence coverage, not importance or confidence.</p>
+        <table class="table table-sm"><thead><tr><th scope="col">Chapter</th><th scope="col">Cited passages</th><th scope="col">Reviewed</th></tr></thead><tbody data-coverage></tbody></table>
+      </div>
+    </details>
+    <details>
+      <summary>Book source and analysis scope</summary>
+      <div class="bsx-flow bsx-section" data-provenance></div>
+    </details>
+  </div>
+  <p class="text-destructive" role="alert" data-error hidden></p>
+</div>
+<script>
+(() => {
+  const root = document.getElementById('book-semantic-explorer');
+  if (!root) return;
+  const one = selector => root.querySelector(selector);
+  const element = (tag, text, className) => {
+    const node = document.createElement(tag);
+    if (text !== undefined && text !== null) node.textContent = String(text);
+    if (className) node.className = className;
+    return node;
+  };
+  const array = value => Array.isArray(value) ? value : [];
+  const words = value => String(value || '').replace(/[-_]/g, ' ');
+  const safeId = value => String(value).replace(/[^a-zA-Z0-9_-]/g, '-');
+  const optionLabel = (value, limit = 30) => {
+    const text = String(value || '').replace(/\s+/g, ' ').trim();
+    if (text.length <= limit) return text;
+    const prefix = text.slice(0, limit - 1);
+    const boundary = prefix.lastIndexOf(' ');
+    return (boundary > limit / 2 ? prefix.slice(0, boundary) : prefix) + '…';
+  };
+  let payload;
+  try {
+    payload = JSON.parse(one('[data-book-data]').textContent);
+    if (!payload.corpus?.book || !Array.isArray(payload.corpus.passages) || !Array.isArray(payload.analysis?.claims) || !Array.isArray(payload.analysis?.themes)) throw new Error('Missing book or interpretation data.');
+  } catch (error) {
+    one('[data-explorer]').hidden = true;
+    one('[data-error]').hidden = false;
+    one('[data-error]').textContent = 'The book evidence could not be loaded. Check the supplied corpus and analysis data.';
+    return;
+  }
+  const {corpus, analysis} = payload;
+  const passages = new Map(corpus.passages.map(p => [String(p.id), p]));
+  const chapters = new Map(array(corpus.chapters).map(c => [String(c.id), c]));
+  const claims = new Map(analysis.claims.map(c => [String(c.id), c]));
+  const themes = analysis.themes.filter(t => array(t.claimIds).some(id => claims.has(String(id))));
+  if (!themes.length) {
+    one('[data-explorer]').hidden = true;
+    one('[data-error]').hidden = false;
+    one('[data-error]').textContent = 'No supported interpretations are available for inspection.';
+    return;
+  }
+  const bookHash = String(corpus.book.sourceSha256 || '');
+  const themeSelect = one('[data-theme]');
+  const claimSelect = one('[data-claim]');
+  let activeTheme = String(themes[0].id);
+  let activeClaim = String(array(themes[0].claimIds).find(id => claims.has(String(id))));
+  let activeRelation = null;
+  const themeById = id => themes.find(t => String(t.id) === String(id));
+  const themeClaims = theme => array(theme.claimIds).map(id => claims.get(String(id))).filter(Boolean);
+  const relationLabel = type => type === 'develops' ? 'develops into' : type === 'contrasts' ? 'contrasts with' : words(type);
+  const claimRef = id => String(id).length <= 5 ? String(id) : `C${analysis.claims.findIndex(c=>String(c.id)===String(id))+1}`;
+  const graphClaimLabel = claim => `${claimRef(claim.id)} · ${claim.label || optionLabel(claim.text, 110)}`;
+  const labelCache = new WeakMap(), measure = document.createElement('canvas').getContext('2d');
+  function labelButton(button, text) { button.dataset.graphLabel=String(text); button.append(element('span',text)); }
+  function wrapButton(button) {
+    const style=getComputedStyle(button), available=button.getBoundingClientRect().width-parseFloat(style.paddingLeft)-parseFloat(style.paddingRight)-parseFloat(style.borderLeftWidth)-parseFloat(style.borderRightWidth);
+    const text=button.dataset.graphLabel, previous=labelCache.get(button);
+    if(available<15 || (previous && Math.abs(previous.width-available)<.5 && previous.text===text)) return;
+    measure.font=style.font || `${style.fontWeight} ${style.fontSize} ${style.fontFamily}`;
+    const lines=[]; let line='';
+    String(text).split(/\s+/).forEach(word=>{
+      if(line && measure.measureText(`${line} ${word}`).width>available){lines.push(line);line='';}
+      for(const character of Array.from(word)){
+        if(measure.measureText(line+character).width>available && line){lines.push(line);line='';}
+        line+=character;
+      }
+      line+=' ';
+    });
+    if(line.trim())lines.push(line.trim());
+    const span=element('span'); lines.forEach((value,index)=>{if(index)span.append(document.createElement('br'));span.append(document.createTextNode(value.trim()));});
+    button.replaceChildren(span);labelCache.set(button,{width:available,text});
+  }
+  const relations = array(analysis.relations);
+  const ownerOf = id => themes.find(t => array(t.claimIds).map(String).includes(String(id)));
+  function chooseClaim(id) {
+    const owner = ownerOf(id);
+    if (!owner) return;
+    activeTheme = String(owner.id); activeClaim = String(id); activeRelation = null;
+    render(true);
+  }
+  function chooseRelation(id) {
+    const relation = relations.find(r => String(r.id) === String(id));
+    if (!relation || !ownerOf(relation.fromClaimId)) return;
+    activeTheme = String(ownerOf(relation.fromClaimId).id);
+    activeClaim = String(relation.fromClaimId); activeRelation = String(relation.id);
+    render(true);
+  }
+  function endpointButton(id, label) {
+    const claim = claims.get(String(id));
+    const button = element('button', null, label ? 'btn btn-block' : 'btn');
+    if(label) labelButton(button,label);
+    else {const caption=element('span','Claim');caption.append(document.createElement('br'),document.createTextNode(claimRef(id)));button.append(caption);}
+    button.type = 'button'; button.dataset.relationEndpoint = String(id);
+    button.setAttribute('aria-label', `Select ${id}: ${claim.text}`);
+    button.dataset.tooltip = claim.text;
+    button.addEventListener('click', () => {chooseClaim(id);[...root.querySelectorAll('[data-graph-claim-id]')].find(node=>node.dataset.graphClaimId===String(id))?.focus();});
+    return button;
+  }
+  function buildGraph() {
+    const membership = one('[data-graph-membership]');
+    themes.forEach(theme => {
+      const group = element('div'); group.dataset.graphTheme = String(theme.id); group.dataset.graphThemeId = String(theme.id);
+      const hub = element('button', null, 'btn viz-tile btn-block'); labelButton(hub,theme.label);
+      hub.type = 'button'; hub.dataset.graphThemeControl = String(theme.id);
+      hub.addEventListener('click', () => chooseClaim(themeClaims(theme)[0].id));
+      const stack = element('div', null, 'bsx-claim-stack');
+      themeClaims(theme).forEach(claim => {
+        const button = element('button', null, 'btn viz-tile btn-block'); labelButton(button,graphClaimLabel(claim));
+        button.type = 'button'; button.dataset.graphClaimId = String(claim.id);
+        button.setAttribute('aria-label', `Select ${claim.id}: ${claim.text}`);
+        button.dataset.tooltip = claim.text;
+        button.addEventListener('click', () => chooseClaim(claim.id));
+        stack.append(button);
+      });
+      group.append(hub, stack); membership.append(group);
+    });
+    relations.forEach(relation => {
+      const row = element('div', null, 'bsx-link-row'); row.dataset.graphLinkRow = String(relation.id);
+      const slot = element('div', null, 'bsx-edge-control');
+      const button = element('button', relationLabel(relation.type), 'btn viz-tile');
+      button.type = 'button'; button.dataset.graphRelationId = String(relation.id);
+      button.dataset.fromClaimId = String(relation.fromClaimId); button.dataset.toClaimId = String(relation.toClaimId);
+      button.dataset.relationType = relation.type;
+      button.setAttribute('aria-label', `${relation.fromClaimId} ${relationLabel(relation.type)} ${relation.toClaimId}: inspect relation evidence`);
+      button.addEventListener('click', () => chooseRelation(relation.id));
+      slot.append(button);
+      row.append(endpointButton(relation.fromClaimId), slot, endpointButton(relation.toClaimId));
+      one('[data-graph-links]').append(row);
+    });
+    one('[data-graph-empty]').hidden = relations.length > 0;
+    one('[data-link-heading]').hidden = !relations.length;
+  }
+  function drawGraph() {
+    root.querySelectorAll('[data-graph-label]').forEach(wrapButton);
+    const canvas = one('[data-graph-canvas]'), svg = one('[data-graph-svg]');
+    const bounds = canvas.getBoundingClientRect();
+    if (!bounds.width || !bounds.height) return;
+    const ns = 'http://www.w3.org/2000/svg';
+    const shape = (tag, attrs) => { const node = document.createElementNS(ns, tag); Object.entries(attrs).forEach(([k,v]) => node.setAttribute(k,v)); return node; };
+    const box = node => { const r = node.getBoundingClientRect(); return {x:r.left-bounds.left,y:r.top-bounds.top,w:r.width,h:r.height}; };
+    svg.replaceChildren(); svg.setAttribute('viewBox', `0 0 ${bounds.width} ${bounds.height}`);
+    const defs = shape('defs', {}), marker = shape('marker', {id:'bsx-semantic-arrow',viewBox:'0 0 10 10',refX:9,refY:5,markerWidth:7,markerHeight:7,orient:'auto-start-reverse'});
+    marker.append(shape('path',{d:'M 1 1 L 9 5 L 1 9 Z',fill:'var(--foreground)'})); defs.append(marker); svg.append(defs);
+    root.querySelectorAll('[data-graph-theme]').forEach(group => {
+      const hub = box(group.querySelector('[data-graph-theme-control]')), children = [...group.querySelectorAll('[data-graph-claim-id]')].map(node=>({node,rect:box(node)}));
+      const spine = Math.min(...children.map(child=>child.rect.x))-9;
+      children.forEach(child => {
+        const r = child.rect, y = r.y+r.h/2;
+        svg.append(shape('path',{d:`M ${hub.x+hub.w/2} ${hub.y+hub.h} V ${hub.y+hub.h+5} H ${spine} V ${y} H ${r.x}`,fill:'none',stroke:'var(--border)','stroke-width':1,'data-membership-edge':'','data-theme-id':group.dataset.graphTheme,'data-claim-id':child.node.dataset.graphClaimId}));
+      });
+    });
+    root.querySelectorAll('[data-graph-link-row]').forEach(row => {
+      const relation = relations.find(r=>String(r.id)===row.dataset.graphLinkRow);
+      const endpoints = row.querySelectorAll('[data-relation-endpoint]');
+      const a=box(endpoints[0]), b=box(row.querySelector('[data-graph-relation-id]')), c=box(endpoints[1]);
+      const y=a.y+a.h/2, stroke=String(relation.id)===activeRelation?'var(--viz-series-1)':'var(--foreground)';
+      const before=shape('path',{d:`M ${a.x+a.w+2} ${y} H ${b.x-3}`,fill:'none',stroke,'stroke-width':1.5});
+      const after=shape('path',{d:`M ${b.x+b.w+3} ${y} H ${c.x-5}`,fill:'none',stroke,'stroke-width':1.5,'marker-end':'url(#bsx-semantic-arrow)','data-graph-edge-path':relation.id});
+      if(relation.type==='contrasts') before.setAttribute('marker-start','url(#bsx-semantic-arrow)');
+      [before,after].forEach(path=>{path.style.pointerEvents='stroke';path.classList.add('cursor-interaction');path.addEventListener('click',()=>chooseRelation(relation.id));svg.append(path);});
+    });
+  }
+
+  one('[data-book-title]').textContent = corpus.book.title || 'Book interpretations';
+  one('[data-book-identity]').textContent = corpus.book.author || 'Author not specified';
+  const reviewed = new Set(array(analysis.scope?.reviewedChapterIds).map(String));
+  const scopeLabel = words(analysis.scope?.kind) || 'Scope not specified';
+  one('[data-scope]').textContent = `${scopeLabel} · ${reviewed.size} of ${chapters.size} chapters reviewed`;
+  themes.forEach(theme => themeSelect.add(new Option(optionLabel(theme.label), String(theme.id))));
+
+  function evidenceView(evidence, prefix) {
+    const block = element('div', null, 'bsx-evidence');
+    const passage = passages.get(String(evidence.passageId));
+    const chapter = passage && chapters.get(String(passage.chapterId));
+    const role = evidence.role === 'complicates' ? 'Complicates' : 'Supports';
+    const chapterLabel = chapter?.title || passage?.chapterId || 'Chapter unavailable';
+    const heading = element('p', `${role} · ${chapterLabel}`);
+    block.append(heading);
+    const quote = element('blockquote', evidence.quote || '', 'bsx-quote');
+    quote.setAttribute('aria-label', `${role}: quoted passage`);
+    block.append(quote);
+    if (evidence.rationale) block.append(element('p', evidence.rationale));
+    if (!passage) {
+      const error = element('p', 'The cited paragraph is missing from this corpus.', 'text-destructive');
+      error.setAttribute('role', 'alert');
+      block.append(error);
+      return block;
+    }
+    const exact = typeof evidence.quote === 'string' && passage.text.includes(evidence.quote);
+    if (!exact) {
+      const error = element('p', 'The quotation does not exactly match the cited paragraph.', 'text-destructive');
+      error.setAttribute('role', 'alert');
+      block.append(error);
+    }
+    const paragraphId = `bsx-passage-${safeId(prefix)}-${safeId(passage.id)}`;
+    const context = element('details');
+    context.id = paragraphId;
+    const summary = element('summary', `Full paragraph · ${passage.id}`);
+    const full = element('p', passage.text, 'bsx-paragraph bsx-section');
+    const anchorRow = element('p', null, 'text-small bsx-section');
+    const anchor = element('a', `Chapter passage anchor · ${passage.id}`);
+    anchor.href = `#${paragraphId}`;
+    anchor.addEventListener('click', () => { context.open = true; });
+    anchorRow.append(anchor);
+    context.append(summary, full, anchorRow);
+    block.append(context);
+    return block;
+  }
+
+  function renderAlternatives(claim) {
+    const target = one('[data-alternatives]');
+    target.replaceChildren();
+    const alternatives = array(claim.alternatives);
+    target.append(element('h3', 'Alternative readings'));
+    if (alternatives.length) {
+      const list = element('ul', null, 'bsx-list');
+      alternatives.forEach(text => list.append(element('li', text)));
+      target.append(list);
+    } else target.append(element('p', 'No alternative reading is recorded.'));
+    target.append(element('h3', 'Interpretation limits'), element('p', claim.limits || 'No claim-specific limit is recorded.'));
+  }
+
+  function renderRelations(claim) {
+    const items = array(analysis.relations).filter(r => String(r.fromClaimId) === String(claim.id) || String(r.toClaimId) === String(claim.id));
+    const target = one('[data-relations]');
+    target.replaceChildren();
+    one('[data-relations-details]').hidden = !items.length;
+    items.forEach((relation, index) => {
+      const otherId = String(relation.fromClaimId) === String(claim.id) ? String(relation.toClaimId) : String(relation.fromClaimId);
+      const other = claims.get(otherId);
+      if (!other) return;
+      const region = element('section', null, 'bsx-close');
+      region.append(element('h3', words(relation.type) || 'Connection'), element('p', relation.rationale || ''));
+      const button = element('button', other.text, 'btn btn-ghost');
+      button.type = 'button';
+      button.addEventListener('click', () => {
+        const owner = themes.find(t => array(t.claimIds).map(String).includes(otherId));
+        if (!owner) return;
+        activeTheme = String(owner.id);
+        activeClaim = otherId;
+        activeRelation = null;
+        render(true);
+        claimSelect.focus();
+      });
+      region.append(button);
+      array(relation.evidence).forEach((ev, n) => region.append(evidenceView(ev, `relation-${relation.id || index}-${n}`)));
+      target.append(region);
+    });
+  }
+
+  function renderCoverage(theme) {
+    const ids = new Set();
+    themeClaims(theme).forEach(claim => array(claim.evidence).forEach(ev => ids.add(String(ev.passageId))));
+    const target = one('[data-coverage]');
+    target.replaceChildren();
+    chapters.forEach(chapter => {
+      const count = [...ids].filter(id => String(passages.get(id)?.chapterId) === String(chapter.id)).length;
+      const row = element('tr');
+      const name = element('th', chapter.title || chapter.id);
+      name.scope = 'row';
+      row.append(name, element('td', count, 'bsx-count'), element('td', reviewed.has(String(chapter.id)) ? 'Yes' : 'No'));
+      target.append(row);
+    });
+  }
+
+  function renderProvenance() {
+    const target = one('[data-provenance]');
+    target.append(element('p', `${corpus.book.title || 'Untitled'} · ${corpus.book.author || 'Author not specified'}`));
+    try {
+      const url = new URL(corpus.book.sourceUrl);
+      if (['https:', 'http:'].includes(url.protocol)) {
+        const link = element('a', 'Original book source');
+        link.href = url.href;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        target.append(link);
+      }
+    } catch (_) {}
+    target.append(element('p', `Source SHA-256: ${bookHash || 'not provided'}`, 'text-small'));
+    target.append(element('p', `Analysis scope: ${scopeLabel}. Reviewed chapters: ${[...reviewed].map(id => chapters.get(id)?.title || id).join('; ') || 'none recorded'}.`));
+    const limits = array(analysis.scope?.limitations);
+    if (limits.length) {
+      const list = element('ul', null, 'bsx-list');
+      limits.forEach(text => list.append(element('li', text)));
+      target.append(list);
+    } else if (typeof analysis.scope?.limitations === 'string' && analysis.scope.limitations) target.append(element('p', analysis.scope.limitations));
+    else target.append(element('p', 'No scope limitation is recorded.'));
+    target.append(element('p', 'Confidence labels are qualitative judgments, not numerical probabilities.', 'text-small'));
+  }
+
+  function saveSelection() {
+    if (typeof window.openai?.setWidgetState !== 'function') return;
+    const selected = {sourceSha256: bookHash, themeId: activeTheme, claimId: activeClaim, relationId: activeRelation};
+    try {
+      const pending = window.openai.setWidgetState({modelContent: {bookSelection: selected}, privateContent: {bookExplorer: selected}});
+      if (pending && typeof pending.catch === 'function') pending.catch(() => {});
+    } catch (_) {}
+  }
+
+  function restoreSelection(snapshot) {
+    const saved = snapshot?.privateContent?.bookExplorer || snapshot?.modelContent?.bookSelection;
+    if (!saved || String(saved.sourceSha256) !== bookHash || !themeById(saved.themeId)) return false;
+    const owner = themeById(saved.themeId);
+    const possible = themeClaims(owner);
+    activeTheme = String(owner.id);
+    activeClaim = possible.some(c => String(c.id) === String(saved.claimId)) ? String(saved.claimId) : String(possible[0].id);
+    const relation = relations.find(r=>String(r.id)===String(saved.relationId));
+    activeRelation = relation ? String(relation.id) : null;
+    if (relation && ownerOf(relation.fromClaimId)) { activeTheme=String(ownerOf(relation.fromClaimId).id); activeClaim=String(relation.fromClaimId); }
+    return true;
+  }
+
+  function render(save) {
+    const theme = themeById(activeTheme) || themes[0];
+    const available = themeClaims(theme);
+    if (!available.some(c => String(c.id) === activeClaim)) activeClaim = String(available[0].id);
+    const claim = claims.get(activeClaim);
+    themeSelect.value = String(theme.id);
+    claimSelect.replaceChildren();
+    available.forEach((item, index) => {
+      const prefix = `${index + 1}. `;
+      claimSelect.add(new Option(prefix + optionLabel(item.text, 30 - prefix.length), String(item.id)));
+    });
+    claimSelect.value = activeClaim;
+    claimSelect.dataset.tooltip = claim.text;
+    themeSelect.dataset.tooltip = theme.label;
+    one('[data-theme-label]').textContent = theme.label;
+    one('[data-theme-label]').hidden = optionLabel(theme.label) === theme.label;
+    one('[data-theme-summary]').textContent = theme.summary || '';
+    one('[data-claim-text]').textContent = claim.text;
+    const confidence = ['strong', 'plausible', 'tentative'].includes(claim.confidence) ? claim.confidence : 'not specified';
+    one('[data-claim-meta]').textContent = `Stance: ${words(claim.stance) || 'not specified'} · Confidence: ${confidence}`;
+    const evidence = one('[data-evidence]');
+    evidence.replaceChildren();
+    if (!array(claim.evidence).length) evidence.append(element('p', 'No passage evidence is recorded for this interpretation.'));
+    array(claim.evidence).forEach((ev, index) => evidence.append(evidenceView(ev, `claim-${claim.id}-${index}`)));
+    renderAlternatives(claim);
+    renderRelations(claim);
+    renderCoverage(theme);
+    one('[data-interpretation-details]').open = false;
+    one('[data-relations-details]').open = false;
+    const selectedRelation = relations.find(r=>String(r.id)===activeRelation);
+    one('[data-selected-relation]').hidden = !selectedRelation;
+    one('[data-claim-section]').hidden = !!selectedRelation;
+    one('[data-claim-evidence]').hidden = !!selectedRelation;
+    one('[data-interpretation-details]').hidden = !!selectedRelation;
+    if (selectedRelation) {
+      one('[data-selected-relation]').dataset.relationId=String(selectedRelation.id);
+      one('[data-relation-rationale]').textContent=selectedRelation.rationale;
+      one('[data-relation-endpoints]').replaceChildren(endpointButton(selectedRelation.fromClaimId,`${selectedRelation.fromClaimId}: ${claims.get(String(selectedRelation.fromClaimId)).text}`),element('p',relationLabel(selectedRelation.type)),endpointButton(selectedRelation.toClaimId,`${selectedRelation.toClaimId}: ${claims.get(String(selectedRelation.toClaimId)).text}`));
+      one('[data-relation-evidence]').replaceChildren(...array(selectedRelation.evidence).map((ev,index)=>evidenceView(ev,`selected-relation-${selectedRelation.id}-${index}`)));
+      one('[data-relations-details]').hidden=true;
+    }
+    root.querySelectorAll('[data-graph-claim-id]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.graphClaimId===activeClaim)));
+    root.querySelectorAll('[data-graph-theme-control]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.graphThemeControl===activeTheme)));
+    root.querySelectorAll('[data-graph-relation-id]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.graphRelationId===activeRelation)));
+    drawGraph();
+    one('[data-selection-status]').textContent = `${theme.label}. Interpretation ${available.findIndex(c => String(c.id) === activeClaim) + 1} of ${available.length}. ${array(claim.evidence).length} evidence passages.`;
+    if (save) saveSelection();
+  }
+
+  themeSelect.addEventListener('change', () => {
+    activeTheme = themeSelect.value;
+    activeClaim = String(themeClaims(themeById(activeTheme))[0].id);
+    activeRelation = null;
+    render(true);
+  });
+  claimSelect.addEventListener('change', () => { activeClaim = claimSelect.value; activeRelation = null; render(true); });
+  window.addEventListener('openai:set_globals', event => {
+    if (restoreSelection(event.detail?.globals?.widgetState)) render(false);
+  });
+  renderProvenance();
+  buildGraph();
+  restoreSelection(window.openai?.widgetState);
+  render(false);
+  const graphObserver = new ResizeObserver(drawGraph);
+  graphObserver.observe(one('[data-graph-canvas]'));
+})();
+</script>

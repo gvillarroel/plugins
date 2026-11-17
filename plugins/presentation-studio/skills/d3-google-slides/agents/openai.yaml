@@ -1,0 +1,4 @@
+interface:
+  display_name: "D3 to Google Slides"
+  short_description: "Transfer D3 visuals and galleries to editable Slides"
+  default_prompt: "Use $d3-google-slides to bring these D3 visuals into Google Slides with editable curves, shapes, and text. Preserve visual effects and link the original where needed."

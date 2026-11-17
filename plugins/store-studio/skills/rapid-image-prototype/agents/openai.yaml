@@ -1,0 +1,4 @@
+interface:
+  display_name: "Rapid Image Prototype"
+  short_description: "Generate five sharper image prototype variants"
+  default_prompt: "Use $rapid-image-prototype to turn this image prompt and current prototypes into five improved generation options."

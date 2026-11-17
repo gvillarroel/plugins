@@ -1,0 +1,4 @@
+interface:
+  display_name: "Video Style Reverse Engineering"
+  short_description: "Research strong videos and organize reusable styles"
+  default_prompt: "Use $video-style-reverse-engineering to find strong video references, compare their performance, organize their editing styles and create an original video from my script."

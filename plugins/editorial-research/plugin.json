@@ -1,0 +1,18 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "editorial-research",
+  "version": "1.0.0",
+  "description": "Find reaction GIFs and consult the blog workspace's verified expert sources while drafting articles.",
+  "author": {
+    "name": "Gerardo Villarroel"
+  },
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Editorial Research",
+        "shortDescription": "Find reaction GIFs and consult the blog workspace's verified expert sources while drafting articles.",
+        "category": "Productivity"
+      }
+    }
+  }
+}

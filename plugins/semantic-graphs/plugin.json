@@ -1,0 +1,18 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "semantic-graphs",
+  "version": "1.0.0",
+  "description": "Build and query graph-based Semantic OKF snapshots, including entity graphs, Graphify and procedural graphs.",
+  "author": {
+    "name": "Gerardo Villarroel"
+  },
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Semantic Graphs",
+        "shortDescription": "Build and query graph-based Semantic OKF snapshots, including entity graphs, Graphify and procedural graphs.",
+        "category": "Data"
+      }
+    }
+  }
+}

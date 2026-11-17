@@ -1,0 +1,1273 @@
+{
+  "ok": true,
+  "colorset": "colorset2",
+  "theme": "assets/themes/cs2.puml",
+  "engine": "cli",
+  "serverUrl": null,
+  "krokiUrl": null,
+  "formats": [
+    "svg",
+    "png"
+  ],
+  "publicationOnly": true,
+  "coverageManifest": "references/diagram-types.json",
+  "coverageBaseline": {
+    "product": "PlantUML",
+    "version": "1.2026.6",
+    "releaseDate": "2026-06-08",
+    "auditedAt": "2026-07-09",
+    "taxonomyUrl": "https://github.com/plantuml/plantuml/blob/v1.2026.6/README.md#%EF%B8%8F-supported-diagram-types",
+    "releaseUrl": "https://github.com/plantuml/plantuml/releases/tag/v1.2026.6",
+    "changesUrl": "https://plantuml.com/changes"
+  },
+  "coverageCounts": {
+    "canonicalFamilies": 27,
+    "releaseExtraFamilies": 1,
+    "totalFamilies": 28,
+    "fixtures": 29,
+    "publishedFixtures": 28
+  },
+  "sourceDiagramCount": 29,
+  "renderedDiagramCount": 28,
+  "coveredDiagramCount": 29,
+  "expectedUnavailableDiagramCount": 1,
+  "renderedOutputCount": 28,
+  "failedDiagramCount": 0,
+  "results": [
+    {
+      "source": "activity.puml",
+      "diagramId": "activity",
+      "startDirective": "@startuml",
+      "themedSource": null,
+      "status": "rendered",
+      "familyId": "activity",
+      "fixtureId": "activity",
+      "taxonomy": "canonical",
+      "themeMode": "inject",
+      "themeApplied": true,
+      "availability": "available",
+      "requestedFormats": [
+        "svg",
+        "png"
+      ],
+      "expectedFormats": [
+        "svg"
+      ],
+      "skippedFormats": [
+        "png"
+      ],
+      "krokiDiagramType": null,
+      "ok": true,
+      "error": null,
+      "outputs": [
+        {
+          "format": "svg",
+          "path": "svg/activity.svg",
+          "size_bytes": 8246,
+          "engine": "cli",
+          "palette_normalized": true,
+          "source_media_preserved": false,
+          "svg_derived": false,
+          "native_style": {
+            "version": "scoped-solid-v3",
+            "mode": "bundled-solid",
+            "textCount": 8,
+            "bodyCount": 0
+          }
+        }
+      ]
+    },
+    {
+      "source": "archimate.puml",
+      "diagramId": "archimate",
+      "startDirective": "@startuml",
+      "themedSource": null,
+      "status": "rendered",
+      "familyId": "archimate",
+      "fixtureId": "archimate",
+      "taxonomy": "canonical",
+      "themeMode": "inject",
+      "themeApplied": true,
+      "availability": "available",
+      "requestedFormats": [
+        "svg",
+        "png"
+      ],
+      "expectedFormats": [
+        "svg"
+      ],
+      "skippedFormats": [
+        "png"
+      ],
+      "krokiDiagramType": null,
+      "ok": true,
+      "error": null,
+      "outputs": [
+        {
+          "format": "svg",
+          "path": "svg/archimate.svg",
+          "size_bytes": 3948,
+          "engine": "cli",
+          "palette_normalized": true,
+          "source_media_preserved": false,
+          "svg_derived": false,
+          "native_style": {
+            "version": "scoped-solid-v3",
+            "mode": "bundled-solid",
+            "textCount": 6,
+            "bodyCount": 3
+          }
+        }
+      ]
+    },
+    {
+      "source": "chart.puml",
+      "diagramId": "chart",
+      "startDirective": "@startchart",
+      "themedSource": null,
+      "status": "rendered",
+      "familyId": "chart",
+      "fixtureId": "chart",
+      "taxonomy": "canonical",
+      "themeMode": "inject",
+      "themeApplied": true,
+      "availability": "available",
+      "requestedFormats": [
+        "svg",
+        "png"
+      ],
+      "expectedFormats": [
+        "svg"
+      ],
+      "skippedFormats": [
+        "png"
+      ],
+      "krokiDiagramType": null,
+      "ok": true,
+      "error": null,
+      "outputs": [
+        {
+          "format": "svg",
+          "path": "svg/chart.svg",
+          "size_bytes": 5494,
+          "engine": "cli",
+          "palette_normalized": true,
+          "source_media_preserved": false,
+          "svg_derived": false,
+          "native_style": {
+            "version": "scoped-solid-v3",
+            "mode": "bundled-solid",
+            "textCount": 13,
+            "bodyCount": 0
+          }
+        }
+      ]
+    },
+    {
+      "source": "chen.puml",
+      "diagramId": "chen",
+      "startDirective": "@startchen",
+      "themedSource": null,
+      "status": "rendered",
+      "familyId": "chen",
+      "fixtureId": "chen",
+      "taxonomy": "canonical",
+      "themeMode": "inject",
+      "themeApplied": true,
+      "availability": "available",
+      "requestedFormats": [
+        "svg",
+        "png"
+      ],
+      "expectedFormats": [
+        "svg"
+      ],
+      "skippedFormats": [
+        "png"
+      ],
+      "krokiDiagramType": null,
+      "ok": true,
+      "error": null,
+      "outputs": [
+        {
+          "format": "svg",
+          "path": "svg/chen.svg",
+          "size_bytes": 5316,
+          "engine": "cli",
+          "palette_normalized": true,
+          "source_media_preserved": false,
+          "svg_derived": false,
+          "native_style": {
+            "version": "scoped-solid-v3",
+            "mode": "bundled-solid",
+            "textCount": 10,
+            "bodyCount": 0
+          }
+        }
+      ]
+    },
+    {
+      "source": "chronology.puml",
+      "diagramId": "chronology",
+      "startDirective": "@startchronology",
+      "themedSource": null,
+      "status": "expected-unavailable",
+      "familyId": "chronology",
+      "fixtureId": "chronology",
+      "taxonomy": "canonical",
+      "themeMode": "none",
+      "themeApplied": false,
+      "availability": "upstream-unavailable",
+      "requestedFormats": [
+        "svg",
+        "png"
+      ],
+      "expectedFormats": [],
+      "skippedFormats": [
+        "svg",
+        "png"
+      ],
+      "krokiDiagramType": null,
+      "ok": true,
+      "error": null,
+      "outputs": []
+    },
+    {
+      "source": "class.puml",
+      "diagramId": "class",
+      "startDirective": "@startuml",
+      "themedSource": null,
+      "status": "rendered",
+      "familyId": "class",
+      "fixtureId": "class",
+      "taxonomy": "canonical",
+      "themeMode": "inject",
+      "themeApplied": true,
+      "availability": "available",
+      "requestedFormats": [
+        "svg",
+        "png"
+      ],
+      "expectedFormats": [
+        "svg"
+      ],
+      "skippedFormats": [
+        "png"
+      ],
+      "krokiDiagramType": null,
+      "ok": true,
+      "error": null,
+      "outputs": [
+        {
+          "format": "svg",
+          "path": "svg/class.svg",
+          "size_bytes": 6740,
+          "engine": "cli",
+          "palette_normalized": true,
+          "source_media_preserved": false,
+          "svg_derived": false,
+          "native_style": {
+            "version": "scoped-solid-v3",
+            "mode": "bundled-solid",
+            "textCount": 9,
+            "bodyCount": 2
+          }
+        }
+      ]
+    },
+    {
+      "source": "component.puml",
+      "diagramId": "component",
+      "startDirective": "@startuml",
+      "themedSource": null,
+      "status": "rendered",
+      "familyId": "component",
+      "fixtureId": "component",
+      "taxonomy": "canonical",
+      "themeMode": "inject",
+      "themeApplied": true,
+      "availability": "available",
+      "requestedFormats": [
+        "svg",
+        "png"
+      ],
+      "expectedFormats": [
+        "svg"
+      ],
+      "skippedFormats": [
+        "png"
+      ],
+      "krokiDiagramType": null,
+      "ok": true,
+      "error": null,
+      "outputs": [
+        {
+          "format": "svg",
+          "path": "svg/component.svg",
+          "size_bytes": 6894,
+          "engine": "cli",
+          "palette_normalized": true,
+          "source_media_preserved": false,
+          "svg_derived": false,
+          "native_style": {
+            "version": "scoped-solid-v3",
+            "mode": "bundled-solid",
+            "textCount": 8,
+            "bodyCount": 4
+          }
+        }
+      ]
+    },
+    {
+      "source": "deployment.puml",
+      "diagramId": "deployment",
+      "startDirective": "@startuml",
+      "themedSource": null,
+      "status": "rendered",
+      "familyId": "deployment",
+      "fixtureId": "deployment",
+      "taxonomy": "canonical",
+      "themeMode": "inject",
+      "themeApplied": true,
+      "availability": "available",
+      "requestedFormats": [
+        "svg",
+        "png"
+      ],
+      "expectedFormats": [
+        "svg"
+      ],
+      "skippedFormats": [
+        "png"
+      ],
+      "krokiDiagramType": null,
+      "ok": true,
+      "error": null,
+      "outputs": [
+        {
+          "format": "svg",
+          "path": "svg/deployment.svg",
+          "size_bytes": 6887,
+          "engine": "cli",
+          "palette_normalized": true,
+          "source_media_preserved": false,
+          "svg_derived": false,
+          "native_style": {
+            "version": "scoped-solid-v3",
+            "mode": "bundled-solid",
+            "textCount": 6,
+            "bodyCount": 4
+          }
+        }
+      ]
+    },
+    {
+      "source": "ditaa.puml",
+      "diagramId": "ditaa",
+      "startDirective": "@startditaa",
+      "themedSource": null,
+      "status": "rendered",
+      "familyId": "ditaa",
+      "fixtureId": "ditaa",
+      "taxonomy": "canonical",
+      "themeMode": "none",
+      "themeApplied": false,
+      "availability": "available",
+      "requestedFormats": [
+        "svg",
+        "png"
+      ],
+      "expectedFormats": [
+        "png"
+      ],
+      "skippedFormats": [
+        "svg"
+      ],
+      "krokiDiagramType": null,
+      "ok": true,
+      "error": null,
+      "outputs": [
+        {
+          "format": "png",
+          "path": "png/ditaa.png",
+          "size_bytes": 3242,
+          "engine": "cli",
+          "palette_normalized": true,
+          "source_media_preserved": false,
+          "svg_derived": false,
+          "native_style": {
+            "version": "scoped-solid-v3",
+            "mode": "ditaa-source-backed",
+            "textCount": 3,
+            "bodyCount": 3,
+            "styledBoxes": 3,
+            "paintedFillPixels": 14440,
+            "removedContourPixels": 1294,
+            "sourceBacked": true,
+            "shadowsDisabled": true
+          }
+        }
+      ]
+    },
+    {
+      "source": "ebnf.puml",
+      "diagramId": "ebnf",
+      "startDirective": "@startebnf",
+      "themedSource": null,
+      "status": "rendered",
+      "familyId": "ebnf",
+      "fixtureId": "ebnf",
+      "taxonomy": "canonical",
+      "themeMode": "inject",
+      "themeApplied": true,
+      "availability": "available",
+      "requestedFormats": [
+        "svg",
+        "png"
+      ],
+      "expectedFormats": [
+        "svg"
+      ],
+      "skippedFormats": [
+        "png"
+      ],
+      "krokiDiagramType": null,
+      "ok": true,
+      "error": null,
+      "outputs": [
+        {
+          "format": "svg",
+          "path": "svg/ebnf.svg",
+          "size_bytes": 9976,
+          "engine": "cli",
+          "palette_normalized": true,
+          "source_media_preserved": false,
+          "svg_derived": false,
+          "native_style": {
+            "version": "scoped-solid-v3",
+            "mode": "bundled-solid",
+            "textCount": 11,
+            "bodyCount": 4
+          }
+        }
+      ]
+    },
+    {
+      "source": "files.puml",
+      "diagramId": "files",
+      "startDirective": "@startfiles",
+      "themedSource": null,
+      "status": "rendered",
+      "familyId": "files",
+      "fixtureId": "files",
+      "taxonomy": "canonical",
+      "themeMode": "inject",
+      "themeApplied": true,
+      "availability": "available",
+      "requestedFormats": [
+        "svg",
+        "png"
+      ],
+      "expectedFormats": [
+        "svg"
+      ],
+      "skippedFormats": [
+        "png"
+      ],
+      "krokiDiagramType": null,
+      "ok": true,
+      "error": null,
+      "outputs": [
+        {
+          "format": "svg",
+          "path": "svg/files.svg",
+          "size_bytes": 19320,
+          "engine": "cli",
+          "palette_normalized": true,
+          "source_media_preserved": false,
+          "svg_derived": false,
+          "native_style": {
+            "version": "scoped-solid-v3",
+            "mode": "bundled-solid",
+            "textCount": 9,
+            "bodyCount": 0
+          }
+        }
+      ]
+    },
+    {
+      "source": "gantt.puml",
+      "diagramId": "gantt",
+      "startDirective": "@startgantt",
+      "themedSource": null,
+      "status": "rendered",
+      "familyId": "gantt",
+      "fixtureId": "gantt",
+      "taxonomy": "canonical",
+      "themeMode": "inject",
+      "themeApplied": true,
+      "availability": "available",
+      "requestedFormats": [
+        "svg",
+        "png"
+      ],
+      "expectedFormats": [
+        "svg"
+      ],
+      "skippedFormats": [
+        "png"
+      ],
+      "krokiDiagramType": null,
+      "ok": true,
+      "error": null,
+      "outputs": [
+        {
+          "format": "svg",
+          "path": "svg/gantt.svg",
+          "size_bytes": 10700,
+          "engine": "cli",
+          "palette_normalized": true,
+          "source_media_preserved": false,
+          "svg_derived": false,
+          "native_style": {
+            "version": "scoped-solid-v3",
+            "mode": "bundled-solid",
+            "textCount": 42,
+            "bodyCount": 3
+          }
+        }
+      ]
+    },
+    {
+      "source": "ie.puml",
+      "diagramId": "ie",
+      "startDirective": "@startuml",
+      "themedSource": null,
+      "status": "rendered",
+      "familyId": "ie",
+      "fixtureId": "ie",
+      "taxonomy": "canonical",
+      "themeMode": "inject",
+      "themeApplied": true,
+      "availability": "available",
+      "requestedFormats": [
+        "svg",
+        "png"
+      ],
+      "expectedFormats": [
+        "svg"
+      ],
+      "skippedFormats": [
+        "png"
+      ],
+      "krokiDiagramType": null,
+      "ok": true,
+      "error": null,
+      "outputs": [
+        {
+          "format": "svg",
+          "path": "svg/ie.svg",
+          "size_bytes": 7558,
+          "engine": "cli",
+          "palette_normalized": true,
+          "source_media_preserved": false,
+          "svg_derived": false,
+          "native_style": {
+            "version": "scoped-solid-v3",
+            "mode": "bundled-solid",
+            "textCount": 8,
+            "bodyCount": 2
+          }
+        }
+      ]
+    },
+    {
+      "source": "json.puml",
+      "diagramId": "json",
+      "startDirective": "@startjson",
+      "themedSource": null,
+      "status": "rendered",
+      "familyId": "json",
+      "fixtureId": "json",
+      "taxonomy": "canonical",
+      "themeMode": "inject",
+      "themeApplied": true,
+      "availability": "available",
+      "requestedFormats": [
+        "svg",
+        "png"
+      ],
+      "expectedFormats": [
+        "svg"
+      ],
+      "skippedFormats": [
+        "png"
+      ],
+      "krokiDiagramType": null,
+      "ok": true,
+      "error": null,
+      "outputs": [
+        {
+          "format": "svg",
+          "path": "svg/json.svg",
+          "size_bytes": 3864,
+          "engine": "cli",
+          "palette_normalized": true,
+          "source_media_preserved": false,
+          "svg_derived": false,
+          "native_style": {
+            "version": "scoped-solid-v3",
+            "mode": "bundled-solid",
+            "textCount": 8,
+            "bodyCount": 0
+          }
+        }
+      ]
+    },
+    {
+      "source": "latex.puml",
+      "diagramId": "latex",
+      "startDirective": "@startlatex",
+      "themedSource": null,
+      "status": "rendered",
+      "familyId": "math",
+      "fixtureId": "latex",
+      "taxonomy": "canonical",
+      "themeMode": "none",
+      "themeApplied": false,
+      "availability": "available",
+      "requestedFormats": [
+        "svg",
+        "png"
+      ],
+      "expectedFormats": [
+        "svg"
+      ],
+      "skippedFormats": [
+        "png"
+      ],
+      "krokiDiagramType": null,
+      "ok": true,
+      "error": null,
+      "outputs": [
+        {
+          "format": "svg",
+          "path": "svg/latex.svg",
+          "size_bytes": 524,
+          "engine": "cli",
+          "palette_normalized": true,
+          "source_media_preserved": false,
+          "svg_derived": false,
+          "native_style": {
+            "version": "scoped-solid-v3",
+            "mode": "native-notation",
+            "textCount": 0,
+            "bodyCount": 0
+          }
+        }
+      ]
+    },
+    {
+      "source": "math.puml",
+      "diagramId": "math",
+      "startDirective": "@startmath",
+      "themedSource": null,
+      "status": "rendered",
+      "familyId": "math",
+      "fixtureId": "math",
+      "taxonomy": "canonical",
+      "themeMode": "none",
+      "themeApplied": false,
+      "availability": "available",
+      "requestedFormats": [
+        "svg",
+        "png"
+      ],
+      "expectedFormats": [
+        "svg"
+      ],
+      "skippedFormats": [
+        "png"
+      ],
+      "krokiDiagramType": null,
+      "ok": true,
+      "error": null,
+      "outputs": [
+        {
+          "format": "svg",
+          "path": "svg/math.svg",
+          "size_bytes": 533,
+          "engine": "cli",
+          "palette_normalized": true,
+          "source_media_preserved": false,
+          "svg_derived": false,
+          "native_style": {
+            "version": "scoped-solid-v3",
+            "mode": "native-notation",
+            "textCount": 0,
+            "bodyCount": 0
+          }
+        }
+      ]
+    },
+    {
+      "source": "mindmap.puml",
+      "diagramId": "mindmap",
+      "startDirective": "@startmindmap",
+      "themedSource": null,
+      "status": "rendered",
+      "familyId": "mindmap",
+      "fixtureId": "mindmap",
+      "taxonomy": "canonical",
+      "themeMode": "inject",
+      "themeApplied": true,
+      "availability": "available",
+      "requestedFormats": [
+        "svg",
+        "png"
+      ],
+      "expectedFormats": [
+        "svg"
+      ],
+      "skippedFormats": [
+        "png"
+      ],
+      "krokiDiagramType": null,
+      "ok": true,
+      "error": null,
+      "outputs": [
+        {
+          "format": "svg",
+          "path": "svg/mindmap.svg",
+          "size_bytes": 4978,
+          "engine": "cli",
+          "palette_normalized": true,
+          "source_media_preserved": false,
+          "svg_derived": false,
+          "native_style": {
+            "version": "scoped-solid-v3",
+            "mode": "bundled-solid",
+            "textCount": 9,
+            "bodyCount": 0
+          }
+        }
+      ]
+    },
+    {
+      "source": "nwdiag.puml",
+      "diagramId": "nwdiag",
+      "startDirective": "@startnwdiag",
+      "themedSource": null,
+      "status": "rendered",
+      "familyId": "nwdiag",
+      "fixtureId": "nwdiag",
+      "taxonomy": "canonical",
+      "themeMode": "inject",
+      "themeApplied": true,
+      "availability": "available",
+      "requestedFormats": [
+        "svg",
+        "png"
+      ],
+      "expectedFormats": [
+        "svg"
+      ],
+      "skippedFormats": [
+        "png"
+      ],
+      "krokiDiagramType": null,
+      "ok": true,
+      "error": null,
+      "outputs": [
+        {
+          "format": "svg",
+          "path": "svg/nwdiag.svg",
+          "size_bytes": 3606,
+          "engine": "cli",
+          "palette_normalized": true,
+          "source_media_preserved": false,
+          "svg_derived": false,
+          "native_style": {
+            "version": "scoped-solid-v3",
+            "mode": "bundled-solid",
+            "textCount": 12,
+            "bodyCount": 0
+          }
+        }
+      ]
+    },
+    {
+      "source": "object.puml",
+      "diagramId": "object",
+      "startDirective": "@startuml",
+      "themedSource": null,
+      "status": "rendered",
+      "familyId": "object",
+      "fixtureId": "object",
+      "taxonomy": "canonical",
+      "themeMode": "inject",
+      "themeApplied": true,
+      "availability": "available",
+      "requestedFormats": [
+        "svg",
+        "png"
+      ],
+      "expectedFormats": [
+        "svg"
+      ],
+      "skippedFormats": [
+        "png"
+      ],
+      "krokiDiagramType": null,
+      "ok": true,
+      "error": null,
+      "outputs": [
+        {
+          "format": "svg",
+          "path": "svg/object.svg",
+          "size_bytes": 4482,
+          "engine": "cli",
+          "palette_normalized": true,
+          "source_media_preserved": false,
+          "svg_derived": false,
+          "native_style": {
+            "version": "scoped-solid-v3",
+            "mode": "bundled-solid",
+            "textCount": 7,
+            "bodyCount": 3
+          }
+        }
+      ]
+    },
+    {
+      "source": "packetdiag.puml",
+      "diagramId": "packetdiag",
+      "startDirective": "@startpacketdiag",
+      "themedSource": null,
+      "status": "rendered",
+      "familyId": "packetdiag",
+      "fixtureId": "packetdiag",
+      "taxonomy": "release-extra",
+      "themeMode": "inject",
+      "themeApplied": true,
+      "availability": "available",
+      "requestedFormats": [
+        "svg",
+        "png"
+      ],
+      "expectedFormats": [
+        "svg"
+      ],
+      "skippedFormats": [
+        "png"
+      ],
+      "krokiDiagramType": null,
+      "ok": true,
+      "error": null,
+      "outputs": [
+        {
+          "format": "svg",
+          "path": "svg/packetdiag.svg",
+          "size_bytes": 5411,
+          "engine": "cli",
+          "palette_normalized": true,
+          "source_media_preserved": false,
+          "svg_derived": false,
+          "native_style": {
+            "version": "scoped-solid-v3",
+            "mode": "bundled-solid",
+            "textCount": 12,
+            "bodyCount": 0
+          }
+        }
+      ]
+    },
+    {
+      "source": "regex.puml",
+      "diagramId": "regex",
+      "startDirective": "@startregex",
+      "themedSource": null,
+      "status": "rendered",
+      "familyId": "regex",
+      "fixtureId": "regex",
+      "taxonomy": "canonical",
+      "themeMode": "inject",
+      "themeApplied": true,
+      "availability": "available",
+      "requestedFormats": [
+        "svg",
+        "png"
+      ],
+      "expectedFormats": [
+        "svg"
+      ],
+      "skippedFormats": [
+        "png"
+      ],
+      "krokiDiagramType": null,
+      "ok": true,
+      "error": null,
+      "outputs": [
+        {
+          "format": "svg",
+          "path": "svg/regex.svg",
+          "size_bytes": 9677,
+          "engine": "cli",
+          "palette_normalized": true,
+          "source_media_preserved": false,
+          "svg_derived": false,
+          "native_style": {
+            "version": "scoped-solid-v3",
+            "mode": "bundled-solid",
+            "textCount": 8,
+            "bodyCount": 3
+          }
+        }
+      ]
+    },
+    {
+      "source": "salt.puml",
+      "diagramId": "salt",
+      "startDirective": "@startsalt",
+      "themedSource": null,
+      "status": "rendered",
+      "familyId": "salt",
+      "fixtureId": "salt",
+      "taxonomy": "canonical",
+      "themeMode": "inject",
+      "themeApplied": true,
+      "availability": "available",
+      "requestedFormats": [
+        "svg",
+        "png"
+      ],
+      "expectedFormats": [
+        "svg"
+      ],
+      "skippedFormats": [
+        "png"
+      ],
+      "krokiDiagramType": null,
+      "ok": true,
+      "error": null,
+      "outputs": [
+        {
+          "format": "svg",
+          "path": "svg/salt.svg",
+          "size_bytes": 2747,
+          "engine": "cli",
+          "palette_normalized": true,
+          "source_media_preserved": false,
+          "svg_derived": false,
+          "native_style": {
+            "version": "scoped-solid-v3",
+            "mode": "bundled-solid",
+            "textCount": 10,
+            "bodyCount": 2
+          }
+        }
+      ]
+    },
+    {
+      "source": "sdl.puml",
+      "diagramId": "sdl",
+      "startDirective": "@startuml",
+      "themedSource": null,
+      "status": "rendered",
+      "familyId": "sdl",
+      "fixtureId": "sdl",
+      "taxonomy": "canonical",
+      "themeMode": "inject",
+      "themeApplied": true,
+      "availability": "available",
+      "requestedFormats": [
+        "svg",
+        "png"
+      ],
+      "expectedFormats": [
+        "svg"
+      ],
+      "skippedFormats": [
+        "png"
+      ],
+      "krokiDiagramType": null,
+      "ok": true,
+      "error": null,
+      "outputs": [
+        {
+          "format": "svg",
+          "path": "svg/sdl.svg",
+          "size_bytes": 5232,
+          "engine": "cli",
+          "palette_normalized": true,
+          "source_media_preserved": false,
+          "svg_derived": false,
+          "native_style": {
+            "version": "scoped-solid-v3",
+            "mode": "bundled-solid",
+            "textCount": 5,
+            "bodyCount": 0
+          }
+        }
+      ]
+    },
+    {
+      "source": "sequence.puml",
+      "diagramId": "sequence",
+      "startDirective": "@startuml",
+      "themedSource": null,
+      "status": "rendered",
+      "familyId": "sequence",
+      "fixtureId": "sequence",
+      "taxonomy": "canonical",
+      "themeMode": "inject",
+      "themeApplied": true,
+      "availability": "available",
+      "requestedFormats": [
+        "svg",
+        "png"
+      ],
+      "expectedFormats": [
+        "svg"
+      ],
+      "skippedFormats": [
+        "png"
+      ],
+      "krokiDiagramType": null,
+      "ok": true,
+      "error": null,
+      "outputs": [
+        {
+          "format": "svg",
+          "path": "svg/sequence.svg",
+          "size_bytes": 11750,
+          "engine": "cli",
+          "palette_normalized": true,
+          "source_media_preserved": false,
+          "svg_derived": false,
+          "native_style": {
+            "version": "scoped-solid-v3",
+            "mode": "bundled-solid",
+            "textCount": 15,
+            "bodyCount": 6
+          }
+        }
+      ]
+    },
+    {
+      "source": "state.puml",
+      "diagramId": "state",
+      "startDirective": "@startuml",
+      "themedSource": null,
+      "status": "rendered",
+      "familyId": "state",
+      "fixtureId": "state",
+      "taxonomy": "canonical",
+      "themeMode": "inject",
+      "themeApplied": true,
+      "availability": "available",
+      "requestedFormats": [
+        "svg",
+        "png"
+      ],
+      "expectedFormats": [
+        "svg"
+      ],
+      "skippedFormats": [
+        "png"
+      ],
+      "krokiDiagramType": null,
+      "ok": true,
+      "error": null,
+      "outputs": [
+        {
+          "format": "svg",
+          "path": "svg/state.svg",
+          "size_bytes": 7045,
+          "engine": "cli",
+          "palette_normalized": true,
+          "source_media_preserved": false,
+          "svg_derived": false,
+          "native_style": {
+            "version": "scoped-solid-v3",
+            "mode": "bundled-solid",
+            "textCount": 7,
+            "bodyCount": 3
+          }
+        }
+      ]
+    },
+    {
+      "source": "timing.puml",
+      "diagramId": "timing",
+      "startDirective": "@startuml",
+      "themedSource": null,
+      "status": "rendered",
+      "familyId": "timing",
+      "fixtureId": "timing",
+      "taxonomy": "canonical",
+      "themeMode": "inject",
+      "themeApplied": true,
+      "availability": "available",
+      "requestedFormats": [
+        "svg",
+        "png"
+      ],
+      "expectedFormats": [
+        "svg"
+      ],
+      "skippedFormats": [
+        "png"
+      ],
+      "krokiDiagramType": null,
+      "ok": true,
+      "error": null,
+      "outputs": [
+        {
+          "format": "svg",
+          "path": "svg/timing.svg",
+          "size_bytes": 5720,
+          "engine": "cli",
+          "palette_normalized": true,
+          "source_media_preserved": false,
+          "svg_derived": false,
+          "native_style": {
+            "version": "scoped-solid-v3",
+            "mode": "bundled-solid",
+            "textCount": 11,
+            "bodyCount": 0
+          }
+        }
+      ]
+    },
+    {
+      "source": "usecase.puml",
+      "diagramId": "usecase",
+      "startDirective": "@startuml",
+      "themedSource": null,
+      "status": "rendered",
+      "familyId": "usecase",
+      "fixtureId": "usecase",
+      "taxonomy": "canonical",
+      "themeMode": "inject",
+      "themeApplied": true,
+      "availability": "available",
+      "requestedFormats": [
+        "svg",
+        "png"
+      ],
+      "expectedFormats": [
+        "svg"
+      ],
+      "skippedFormats": [
+        "png"
+      ],
+      "krokiDiagramType": null,
+      "ok": true,
+      "error": null,
+      "outputs": [
+        {
+          "format": "svg",
+          "path": "svg/usecase.svg",
+          "size_bytes": 5495,
+          "engine": "cli",
+          "palette_normalized": true,
+          "source_media_preserved": false,
+          "svg_derived": false,
+          "native_style": {
+            "version": "scoped-solid-v3",
+            "mode": "bundled-solid",
+            "textCount": 7,
+            "bodyCount": 2
+          }
+        }
+      ]
+    },
+    {
+      "source": "wbs.puml",
+      "diagramId": "wbs",
+      "startDirective": "@startwbs",
+      "themedSource": null,
+      "status": "rendered",
+      "familyId": "wbs",
+      "fixtureId": "wbs",
+      "taxonomy": "canonical",
+      "themeMode": "inject",
+      "themeApplied": true,
+      "availability": "available",
+      "requestedFormats": [
+        "svg",
+        "png"
+      ],
+      "expectedFormats": [
+        "svg"
+      ],
+      "skippedFormats": [
+        "png"
+      ],
+      "krokiDiagramType": null,
+      "ok": true,
+      "error": null,
+      "outputs": [
+        {
+          "format": "svg",
+          "path": "svg/wbs.svg",
+          "size_bytes": 6039,
+          "engine": "cli",
+          "palette_normalized": true,
+          "source_media_preserved": false,
+          "svg_derived": false,
+          "native_style": {
+            "version": "scoped-solid-v3",
+            "mode": "bundled-solid",
+            "textCount": 10,
+            "bodyCount": 0
+          }
+        }
+      ]
+    },
+    {
+      "source": "yaml.puml",
+      "diagramId": "yaml",
+      "startDirective": "@startyaml",
+      "themedSource": null,
+      "status": "rendered",
+      "familyId": "yaml",
+      "fixtureId": "yaml",
+      "taxonomy": "canonical",
+      "themeMode": "inject",
+      "themeApplied": true,
+      "availability": "available",
+      "requestedFormats": [
+        "svg",
+        "png"
+      ],
+      "expectedFormats": [
+        "svg"
+      ],
+      "skippedFormats": [
+        "png"
+      ],
+      "krokiDiagramType": null,
+      "ok": true,
+      "error": null,
+      "outputs": [
+        {
+          "format": "svg",
+          "path": "svg/yaml.svg",
+          "size_bytes": 9018,
+          "engine": "cli",
+          "palette_normalized": true,
+          "source_media_preserved": false,
+          "svg_derived": false,
+          "native_style": {
+            "version": "scoped-solid-v3",
+            "mode": "bundled-solid",
+            "textCount": 15,
+            "bodyCount": 0
+          }
+        }
+      ]
+    }
+  ]
+}

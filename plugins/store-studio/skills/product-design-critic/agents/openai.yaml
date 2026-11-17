@@ -1,0 +1,6 @@
+interface:
+  display_name: "Crítico de productos"
+  short_description: "Crítica visual con evidencia y cambios concretos"
+  default_prompt: "Usa $product-design-critic para evaluar estos diseños, ordenar sus fallos y proponer mejoras con la herramienta y la prueba adecuadas."
+policy:
+  allow_implicit_invocation: true

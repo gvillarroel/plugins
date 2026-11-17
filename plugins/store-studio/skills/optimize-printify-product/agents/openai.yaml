@@ -1,0 +1,6 @@
+interface:
+  display_name: "Optimize Printify Product"
+  short_description: "Tune Printify listings and Etsy-aware pricing."
+  default_prompt: "Use $optimize-printify-product to optimize this Printify draft's title, description, tags, variants, pricing, and documentation."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,71 @@
+---
+# mermaid: config begin
+config:
+  theme: "base"
+  themeVariables:
+    background: "#ffffff"
+    primaryColor: "#9e1b32"
+    primaryTextColor: "#ffffff"
+    primaryBorderColor: "#9e1b32"
+    secondaryColor: "#007298"
+    secondaryTextColor: "#ffffff"
+    secondaryBorderColor: "#007298"
+    tertiaryColor: "#e77204"
+    tertiaryTextColor: "#000000"
+    tertiaryBorderColor: "#e77204"
+    lineColor: "#696969"
+    textColor: "#333e48"
+    mainBkg: "#9e1b32"
+    nodeBkg: "#9e1b32"
+    nodeBorder: "#9e1b32"
+    clusterBkg: "#e7e7e7"
+    clusterBorder: "#9c9c9c"
+    defaultLinkColor: "#696969"
+    edgeLabelBackground: "#ffffff"
+    classText: "#ffffff"
+    labelColor: "#ffffff"
+    titleColor: "#333e48"
+  themeCSS: ".node > rect, .node > circle, .node > ellipse, .node > polygon, .node > path, rect.actor, .note, .task, .task0, .task1, .task2, .task3 { stroke-width: 0 !important; }"
+  flowchart:
+    nodeSpacing: 10
+    rankSpacing: 20
+    padding: 6
+    subGraphTitleMargin:
+      top: 4
+      bottom: 12
+# mermaid: config end
+# mermaid: metadata begin
+mermaid:
+  colorset: "colorset2"
+  mode: "extended"
+  palette: "full-color-style"
+# mermaid: metadata end
+---
+swimlane-beta LR
+  accTitle: Swimlane maximum complexity showcase
+  accDescr: Nine styled process roles move in order across three responsibility lanes and expose two cross-lane handoffs.
+  subgraph lane_a [Lane A]
+    R01["Lane role 01"]:::csPrimary
+    R02["Lane role 02"]:::csAccent
+    R03["Lane role 03"]:::csMuted
+  end
+  subgraph lane_b [Lane B]
+    R04["Lane role 04"]:::csCritical
+    R05["Lane role 05"]:::csWarning
+    R06["Lane role 06"]:::csSuccess
+  end
+  subgraph lane_c [Lane C]
+    R07["Lane role 07"]:::csInfo
+    R08["Lane role 08"]:::csSpecial
+    R09["Lane role 09"]:::csNeutral
+  end
+  R01 --> R02 --> R03 --> R04 --> R05 --> R06 --> R07 --> R08 --> R09
+  classDef csPrimary fill:#9e1b32,stroke:none,color:#ffffff,stroke-width:0px;
+  classDef csAccent fill:#007298,stroke:none,color:#ffffff,stroke-width:0px;
+  classDef csMuted fill:#e77204,stroke:none,color:#000000,stroke-width:0px;
+  classDef csCritical fill:#45842a,stroke:none,color:#000000,stroke-width:0px;
+  classDef csWarning fill:#652f6c,stroke:none,color:#ffffff,stroke-width:0px;
+  classDef csSuccess fill:#f1c319,stroke:none,color:#000000,stroke-width:0px;
+  classDef csInfo fill:#6d1222,stroke:none,color:#ffffff,stroke-width:0px;
+  classDef csSpecial fill:#004d66,stroke:none,color:#ffffff,stroke-width:0px;
+  classDef csNeutral fill:#994a00,stroke:none,color:#ffffff,stroke-width:0px;

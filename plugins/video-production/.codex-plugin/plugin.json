@@ -1,0 +1,14 @@
+{
+  "name": "video-production",
+  "version": "1.0.0",
+  "description": "Plan and produce mixed-media videos with motion graphics, screen recordings, audio and delivery through Google Vids.",
+  "author": {
+    "name": "Gerardo Villarroel"
+  },
+  "interface": {
+    "displayName": "Video Production",
+    "shortDescription": "Plan and produce mixed-media videos with motion graphics, screen recordings, audio and delivery through Google Vids.",
+    "category": "Creativity"
+  },
+  "skills": "./skills/"
+}

@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "ok": true,
+  "input": "assets/base-images/seurat-grande-jatte.jpg",
+  "input_sha256": "659a2ff0a990f0d2a038a231d2d2dadf924afa9f078221af53241fd310fc2175",
+  "output": "svgs/vectorize-seurat-grande-jatte-cs2.svg",
+  "output_sha256": "c7c8c7e437246420c515e236c89a7c30f417d70a94ad6444e5b545512271dc97",
+  "pattern_id": "vectorize-seurat-grande-jatte-cs2",
+  "mode": "organic",
+  "tile": "none",
+  "colorset": "colorset2",
+  "palette_contract_sha256": "f33804ae2e5fb81652343fee00ac6a48c6581eaf823ddead535a98035dd8b366",
+  "variation_seed": 0,
+  "composition_sha256": "0641ca85c916636a083053e542a0cbb3c4a504cb840afc0dab83eb60723bea8c",
+  "parameters": {
+    "colors": 9,
+    "smoothing": 0.52,
+    "palette_method": "median-cut",
+    "max_dimension": 560,
+    "filter_speckle": 24,
+    "curve_mode": "spline",
+    "hierarchical": "cutout",
+    "color_mapping": {
+      "background": "#333e48",
+      "layers": [
+        {
+          "source": "#595c5b",
+          "target": "#007298"
+        },
+        {
+          "source": "#4e5d52",
+          "target": "#4f4f4f"
+        },
+        {
+          "source": "#83796e",
+          "target": "#828282"
+        },
+        {
+          "source": "#6a7266",
+          "target": "#696969"
+        },
+        {
+          "source": "#4b4e4f",
+          "target": "#004d66"
+        },
+        {
+          "source": "#9e9c87",
+          "target": "#9c9c9c"
+        },
+        {
+          "source": "#616061",
+          "target": "#363636"
+        },
+        {
+          "source": "#706364",
+          "target": "#294d19"
+        }
+      ],
+      "source_colors": [
+        "#918c74",
+        "#595c5b",
+        "#4e5d52",
+        "#83796e",
+        "#6a7266",
+        "#4b4e4f",
+        "#9e9c87",
+        "#616061",
+        "#706364"
+      ],
+      "target_colors": [
+        "#333e48",
+        "#007298",
+        "#4f4f4f",
+        "#828282",
+        "#696969",
+        "#004d66",
+        "#9c9c9c",
+        "#363636",
+        "#294d19"
+      ]
+    }
+  },
+  "source_width": 900,
+  "source_height": 603,
+  "vector_width": 560,
+  "vector_height": 375,
+  "render_width": 560,
+  "render_height": 375,
+  "palette": [
+    "#004d66",
+    "#007298",
+    "#294d19",
+    "#333e48",
+    "#363636",
+    "#4f4f4f",
+    "#696969",
+    "#828282",
+    "#9c9c9c"
+  ],
+  "path_count": 82,
+  "output_bytes": 187071,
+  "rights": {
+    "basis": "source-manifest",
+    "source_id": "seurat-grande-jatte",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "source_url": "https://www.artic.edu/artworks/27992",
+    "attribution": "Georges Seurat (French, 1859–1891); Helen Birch Bartlett Memorial Collection",
+    "attribution_required": false,
+    "share_alike": false,
+    "input_sha256": "659a2ff0a990f0d2a038a231d2d2dadf924afa9f078221af53241fd310fc2175"
+  },
+  "backend": "vtracer-0.6.15"
+}

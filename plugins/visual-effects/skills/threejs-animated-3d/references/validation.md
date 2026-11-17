@@ -1,0 +1,42 @@
+# Three.js Validation
+
+Use browser verification for Three.js because static DOM checks cannot prove WebGL scenes rendered. For output from `build_standalone_threejs.py`, run `scripts/validate_standalone_threejs.py` rather than recreating these probes ad hoc.
+
+## Required Checks
+
+1. Open the page through an HTTP server, not `file://`, when using modules or Vite.
+2. Listen for console errors, console warnings, and page errors.
+3. Wait for an explicit ready flag such as `window.__threeGalleryReady === true`.
+4. Verify the expected number of scene cards, canvases, and replay controls.
+5. Sample canvas pixels after rendering:
+   - Nonwhite pixel count proves the canvas is not blank.
+   - Tonal variation proves shaded objects rendered instead of a flat clear color; neutral shading is valid and does not require extra hues.
+   - Canvas bounds prove responsive sizing is usable.
+6. Sample canvas hashes before and after a delay to confirm animation changes frames.
+7. Click replay controls and confirm replay state changes without duplicating canvases or listeners.
+8. Perform a pointer drag on at least one canvas and confirm interaction state changes.
+9. Capture desktop and mobile screenshots and inspect them for framing, overlap, and text fit.
+10. Inspect actual material and light colors through `window.__threeRuntimeScene.inspect()` for builder output. Default materials must be red/neutral, lights white, and pink absent. Validate colorset2 only when selected. Inspect multiple animation phases and camera angles for clipped objects, and preserve 44 px touch targets while reducing visible panel padding.
+11. For connected diagrams, inspect projected label/node/head bounds, both edge
+    endpoints and nearby parallel routes at delivery scale. Compare a compacted
+    revision with its previous readable version across supported camera positions
+    and motion extrema. Nonblank pixels and changing hashes do not establish that
+    a concept label, directional arrow or crowded connection remains readable.
+
+Do not probe undocumented Playwright properties to discover launch APIs. Do not
+run an expected-negative `grep` as a bare command: a correct no-match result has
+exit code 1 and becomes a false tool failure. The bundled validator expresses
+negative network-reference checks as assertions and uses the supported Chromium
+launch path.
+
+## Canvas Pixel Probe
+
+Use `preserveDrawingBuffer: true` in verification fixtures so Playwright can read `canvas.toDataURL()` reliably. Draw that data URL into a temporary 2D canvas and sample pixels from the image. Avoid `canvas.getContext("2d")` on a WebGL canvas; a canvas cannot switch context types after WebGL is created.
+
+## Movement Probe
+
+Hash a downsampled image from each canvas, wait 500 to 800 milliseconds, then hash again. Require most or all hashes to change. Keep animations deterministic enough that a failed movement check signals a real render loop or visibility problem.
+
+## Screenshot Output
+
+Store verification screenshots in `projects/<project-id>/artifacts/screenshots/`, or in `projects/threejs-animated-3d-validation/artifacts/screenshots/` for this repository's validation fixture. Keep generated screenshots and build artifacts out of the skill directory.

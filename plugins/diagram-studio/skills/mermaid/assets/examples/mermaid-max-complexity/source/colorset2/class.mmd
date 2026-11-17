@@ -1,0 +1,70 @@
+---
+# mermaid: config begin
+config:
+  theme: "base"
+  themeVariables:
+    background: "#ffffff"
+    primaryColor: "#9e1b32"
+    primaryTextColor: "#ffffff"
+    primaryBorderColor: "#9e1b32"
+    secondaryColor: "#007298"
+    secondaryTextColor: "#ffffff"
+    secondaryBorderColor: "#007298"
+    tertiaryColor: "#e77204"
+    tertiaryTextColor: "#000000"
+    tertiaryBorderColor: "#e77204"
+    lineColor: "#696969"
+    textColor: "#333e48"
+    mainBkg: "#9e1b32"
+    nodeBkg: "#9e1b32"
+    nodeBorder: "#9e1b32"
+    clusterBkg: "#e7e7e7"
+    clusterBorder: "#9c9c9c"
+    defaultLinkColor: "#696969"
+    edgeLabelBackground: "#ffffff"
+    classText: "#ffffff"
+    labelColor: "#ffffff"
+    titleColor: "#333e48"
+  themeCSS: ".node > rect, .node > circle, .node > ellipse, .node > polygon, .node > path, rect.actor, .note, .task, .task0, .task1, .task2, .task3 { stroke-width: 0 !important; }"
+  class:
+    padding: 6
+    nodeSpacing: 28
+    rankSpacing: 36
+# mermaid: config end
+# mermaid: metadata begin
+mermaid:
+  colorset: "colorset2"
+  mode: "extended"
+  palette: "full-color-style"
+# mermaid: metadata end
+---
+classDiagram
+  accTitle: Class maximum complexity showcase
+  accDescr: Nine class roles form an ordered dependency chain and expose every semantic class available to the Mermaid styler.
+  direction LR
+  class ClassRole01:::csPrimary
+  class ClassRole02:::csAccent
+  class ClassRole03:::csMuted
+  class ClassRole04:::csCritical
+  class ClassRole05:::csWarning
+  class ClassRole06:::csSuccess
+  class ClassRole07:::csInfo
+  class ClassRole08:::csSpecial
+  class ClassRole09:::csNeutral
+  ClassRole01 --> ClassRole02
+  ClassRole02 --> ClassRole03
+  ClassRole03 --> ClassRole04
+  ClassRole04 --> ClassRole05
+  ClassRole05 --> ClassRole06
+  ClassRole06 --> ClassRole07
+  ClassRole07 --> ClassRole08
+  ClassRole08 --> ClassRole09
+  classDef csPrimary fill:#9e1b32,stroke:none,color:#ffffff,stroke-width:0px;
+  classDef csAccent fill:#007298,stroke:none,color:#ffffff,stroke-width:0px;
+  classDef csMuted fill:#e77204,stroke:none,color:#000000,stroke-width:0px;
+  classDef csCritical fill:#45842a,stroke:none,color:#000000,stroke-width:0px;
+  classDef csWarning fill:#652f6c,stroke:none,color:#ffffff,stroke-width:0px;
+  classDef csSuccess fill:#f1c319,stroke:none,color:#000000,stroke-width:0px;
+  classDef csInfo fill:#6d1222,stroke:none,color:#ffffff,stroke-width:0px;
+  classDef csSpecial fill:#004d66,stroke:none,color:#ffffff,stroke-width:0px;
+  classDef csNeutral fill:#994a00,stroke:none,color:#ffffff,stroke-width:0px;

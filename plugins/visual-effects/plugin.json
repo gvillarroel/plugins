@@ -1,0 +1,18 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "visual-effects",
+  "version": "1.0.0",
+  "description": "Create 3D scenes, pixel art, vector patterns and image effects using Three.js, Kornia and SVG.",
+  "author": {
+    "name": "Gerardo Villarroel"
+  },
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Visual Effects",
+        "shortDescription": "Create 3D scenes, pixel art, vector patterns and image effects using Three.js, Kornia and SVG.",
+        "category": "Creativity"
+      }
+    }
+  }
+}

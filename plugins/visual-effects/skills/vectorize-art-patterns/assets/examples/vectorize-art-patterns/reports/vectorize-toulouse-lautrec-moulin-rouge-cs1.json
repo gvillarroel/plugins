@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "ok": true,
+  "input": "assets/base-images/toulouse-lautrec-moulin-rouge.jpg",
+  "input_sha256": "264790b10a56a533736afc2b102f7903a4352fc550383ca3c0d1ee058b248f14",
+  "output": "svgs/vectorize-toulouse-lautrec-moulin-rouge-cs1.svg",
+  "output_sha256": "7317baada0d35e445416e62a784ff405c8223c9533dffaedeadae8307d1f5829",
+  "pattern_id": "vectorize-toulouse-lautrec-moulin-rouge-cs1",
+  "mode": "collage",
+  "tile": "none",
+  "colorset": "colorset1",
+  "palette_contract_sha256": "f33804ae2e5fb81652343fee00ac6a48c6581eaf823ddead535a98035dd8b366",
+  "variation_seed": 0,
+  "composition_sha256": "be07c683ae2628602f0847571cc773180e73367a9c40d1bfcab10f2d5025420a",
+  "parameters": {
+    "colors": 9,
+    "smoothing": 0.36,
+    "palette_method": "median-cut",
+    "max_dimension": 560,
+    "filter_speckle": 18,
+    "curve_mode": "spline",
+    "hierarchical": "cutout",
+    "color_mapping": {
+      "background": "#1c1c1c",
+      "layers": [
+        {
+          "source": "#534728",
+          "target": "#4f4f4f"
+        },
+        {
+          "source": "#5f3a0d",
+          "target": "#6d1222"
+        },
+        {
+          "source": "#3e2212",
+          "target": "#363636"
+        },
+        {
+          "source": "#4c3b20",
+          "target": "#333e48"
+        },
+        {
+          "source": "#673c09",
+          "target": "#9e1b32"
+        },
+        {
+          "source": "#666447",
+          "target": "#696969"
+        },
+        {
+          "source": "#201911",
+          "target": "#000000"
+        },
+        {
+          "source": "#4d3114",
+          "target": "#828282"
+        }
+      ],
+      "source_colors": [
+        "#2b2519",
+        "#534728",
+        "#5f3a0d",
+        "#3e2212",
+        "#4c3b20",
+        "#673c09",
+        "#666447",
+        "#201911",
+        "#4d3114"
+      ],
+      "target_colors": [
+        "#1c1c1c",
+        "#4f4f4f",
+        "#6d1222",
+        "#363636",
+        "#333e48",
+        "#9e1b32",
+        "#696969",
+        "#000000",
+        "#828282"
+      ]
+    }
+  },
+  "source_width": 900,
+  "source_height": 786,
+  "vector_width": 560,
+  "vector_height": 489,
+  "render_width": 560,
+  "render_height": 489,
+  "palette": [
+    "#000000",
+    "#1c1c1c",
+    "#333e48",
+    "#363636",
+    "#4f4f4f",
+    "#696969",
+    "#6d1222",
+    "#828282",
+    "#9e1b32"
+  ],
+  "path_count": 103,
+  "output_bytes": 207238,
+  "rights": {
+    "basis": "source-manifest",
+    "source_id": "toulouse-lautrec-moulin-rouge",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "source_url": "https://www.artic.edu/artworks/61128",
+    "attribution": "Henri de Toulouse-Lautrec (French, 1864–1901); Helen Birch Bartlett Memorial Collection",
+    "attribution_required": false,
+    "share_alike": false,
+    "input_sha256": "264790b10a56a533736afc2b102f7903a4352fc550383ca3c0d1ee058b248f14"
+  },
+  "backend": "vtracer-0.6.15"
+}

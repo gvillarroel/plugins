@@ -1,0 +1,8 @@
+{
+  "name": "confluence-publishing",
+  "version": "1.0.0",
+  "description": "Prepare Markdown for Confluence and round-trip pages with their attachments and formatting.",
+  "author": {
+    "name": "Gerardo Villarroel"
+  }
+}

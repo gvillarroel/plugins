@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "ok": true,
+  "input": "assets/base-images/manet-jesus-mocked.jpg",
+  "input_sha256": "fef2c46fc60991d1225abca91aad12bd39b870a941b821280df8a84ac6e54a83",
+  "output": "svgs/vectorize-manet-jesus-mocked-cs1.svg",
+  "output_sha256": "a2b7ea449e3d7b2e203a8bced087968b05a3666b749e5b60cb278b20b5cf9736",
+  "pattern_id": "vectorize-manet-jesus-mocked-cs1",
+  "mode": "collage",
+  "tile": "none",
+  "colorset": "colorset1",
+  "palette_contract_sha256": "f33804ae2e5fb81652343fee00ac6a48c6581eaf823ddead535a98035dd8b366",
+  "variation_seed": 0,
+  "composition_sha256": "f8e425c6908574151c6cd6e4f022c2437f4faa70b5f2fe2e5851d9bced1d4796",
+  "parameters": {
+    "colors": 9,
+    "smoothing": 0.4,
+    "palette_method": "median-cut",
+    "max_dimension": 560,
+    "filter_speckle": 22,
+    "curve_mode": "spline",
+    "hierarchical": "cutout",
+    "color_mapping": {
+      "background": "#1c1c1c",
+      "layers": [
+        {
+          "source": "#040506",
+          "target": "#000000"
+        },
+        {
+          "source": "#d1bfa1",
+          "target": "#b5b5b5"
+        },
+        {
+          "source": "#68523f",
+          "target": "#4f4f4f"
+        },
+        {
+          "source": "#403d36",
+          "target": "#363636"
+        },
+        {
+          "source": "#9f856b",
+          "target": "#9e1b32"
+        },
+        {
+          "source": "#2d2822",
+          "target": "#333e48"
+        },
+        {
+          "source": "#010303",
+          "target": "#6d1222"
+        },
+        {
+          "source": "#191a19",
+          "target": "#696969"
+        }
+      ],
+      "source_colors": [
+        "#090b0c",
+        "#040506",
+        "#d1bfa1",
+        "#68523f",
+        "#403d36",
+        "#9f856b",
+        "#2d2822",
+        "#010303",
+        "#191a19"
+      ],
+      "target_colors": [
+        "#1c1c1c",
+        "#000000",
+        "#b5b5b5",
+        "#4f4f4f",
+        "#363636",
+        "#9e1b32",
+        "#333e48",
+        "#6d1222",
+        "#696969"
+      ]
+    }
+  },
+  "source_width": 900,
+  "source_height": 1156,
+  "vector_width": 436,
+  "vector_height": 560,
+  "render_width": 436,
+  "render_height": 560,
+  "palette": [
+    "#1c1c1c",
+    "#333e48",
+    "#363636",
+    "#4f4f4f",
+    "#696969",
+    "#6d1222",
+    "#9e1b32",
+    "#b5b5b5"
+  ],
+  "path_count": 128,
+  "output_bytes": 223399,
+  "rights": {
+    "basis": "source-manifest",
+    "source_id": "manet-jesus-mocked",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "source_url": "https://www.artic.edu/artworks/16499",
+    "attribution": "Édouard Manet (French, 1832–1883); Gift of James Deering",
+    "attribution_required": false,
+    "share_alike": false,
+    "input_sha256": "fef2c46fc60991d1225abca91aad12bd39b870a941b821280df8a84ac6e54a83"
+  },
+  "backend": "vtracer-0.6.15"
+}

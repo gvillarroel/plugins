@@ -1,0 +1,18 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "semantic-curation",
+  "version": "1.0.0",
+  "description": "Curate semantic models, extract ontologies and map evidence to knowledge catalogs, book analysis and question indexes.",
+  "author": {
+    "name": "Gerardo Villarroel"
+  },
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Semantic Curation",
+        "shortDescription": "Curate semantic models, extract ontologies and map evidence to knowledge catalogs, book analysis and question indexes.",
+        "category": "Data"
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "cloud-operations",
+  "version": "1.0.0",
+  "description": "Work with GCS user access, Google Cloud SKU pricing and evaluation datasets for GCP Radar.",
+  "author": {
+    "name": "Gerardo Villarroel"
+  },
+  "interface": {
+    "displayName": "Google Cloud Operations",
+    "shortDescription": "Work with GCS user access, Google Cloud SKU pricing and evaluation datasets for GCP Radar.",
+    "category": "Developer tools"
+  },
+  "skills": "./skills/"
+}

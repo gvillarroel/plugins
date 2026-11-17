@@ -1,0 +1,4 @@
+interface:
+  display_name: "Create Printify Product"
+  short_description: "Build, price, and validate Printify products."
+  default_prompt: "Use $create-printify-product to create Printify-compatible product assets, Etsy-aware pricing checks, real Printify mockups, and API payloads. For IA-Referencias tee products, start from the Bella+Canvas 3001 / Printify Choice default unless the spike documents a better tradeoff."

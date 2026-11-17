@@ -1,0 +1,8 @@
+{
+  "name": "marketplace-check",
+  "version": "1.0.0",
+  "description": "Verify that installed skills can read the proof files shipped in their own package.",
+  "author": {
+    "name": "Gerardo Villarroel"
+  }
+}

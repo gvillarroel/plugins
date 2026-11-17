@@ -1,0 +1,4 @@
+interface:
+  display_name: "OpenWiki Knowledge"
+  short_description: "Manage source-backed knowledge through OpenWiki MCP"
+  default_prompt: "Use $openwiki-knowledge to inspect the bound store, register or synchronize authorized sources, and browse their acquired evidence."

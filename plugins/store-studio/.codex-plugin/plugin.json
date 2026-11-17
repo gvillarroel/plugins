@@ -1,0 +1,14 @@
+{
+  "name": "store-studio",
+  "version": "1.0.0",
+  "description": "Prepare, critique and market print-on-demand products with artwork, photoshoots and Printify workflows.",
+  "author": {
+    "name": "Gerardo Villarroel"
+  },
+  "interface": {
+    "displayName": "Store Studio",
+    "shortDescription": "Prepare, critique and market print-on-demand products with artwork, photoshoots and Printify workflows.",
+    "category": "Productivity"
+  },
+  "skills": "./skills/"
+}

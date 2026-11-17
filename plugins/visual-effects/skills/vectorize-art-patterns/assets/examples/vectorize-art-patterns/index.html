@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en" data-pattern-page-id="vectorize-art-patterns">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Thirty distinct open-access masterpieces, traced once and recolored as geometry-locked Colorset 1 and Colorset 2 SVG pairs.">
+  <title>Open Masterpieces, Two Color Systems</title>
+  <link rel="stylesheet" href="gallery.css">
+</head>
+<body>
+  <header class="masthead">
+    <nav aria-label="Example navigation">
+      <a href="../../">All examples</a>
+      <a href="../vectorize-abstract-world-maps/">Abstract maps</a>
+      <a href="../style-reference.html">Style reference</a>
+    </nav>
+    <div class="palette-strip" aria-label="Colorset palette preview">
+      <span class="swatch swatch-red"></span>
+      <span class="swatch swatch-blue"></span>
+      <span class="swatch swatch-orange"></span>
+      <span class="swatch swatch-green"></span>
+      <span class="swatch swatch-violet"></span>
+      <span class="swatch swatch-ink"></span>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow">OPEN ACCESS ART · OSS VECTOR TRACING · EXACT PALETTES</p>
+        <h1 id="page-title">Thirty sources.<br>Not three hundred echoes.</h1>
+      </div>
+      <div class="hero-context">
+        <p>
+          Every card begins with a different verified open image. VTracer traces
+          each composition once; Colorset 1 and Colorset 2 repaint the same path
+          geometry without inventing another drawing.
+        </p>
+        <dl class="hero-stats">
+          <div><dt id="artwork-count">30</dt><dd>source artworks</dd></div>
+          <div><dt id="variant-count">60</dt><dd>SVG variants</dd></div>
+          <div><dt>1:1</dt><dd>source-to-drawing</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="method" aria-labelledby="method-title">
+      <div>
+        <p class="eyebrow">WHY THIS REPLACED THE OLD GALLERY</p>
+        <h2 id="method-title">Diversity now comes from art, not parameter noise.</h2>
+      </div>
+      <div class="method-grid">
+        <article>
+          <strong>Before</strong>
+          <p>300 nominally unique outputs derived from only six images, including eighty variations of one source.</p>
+        </article>
+        <article>
+          <strong>Now</strong>
+          <p>30 independently sourced works by 28 artists, with no repeated source image and one locked geometry per work.</p>
+        </article>
+        <article>
+          <strong>Tool choice</strong>
+          <p>Palette-mapped VTracer preserves complex scenes; the OpenCV contour route remains available for softer stains and ink studies.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="controls" aria-label="Gallery controls">
+      <fieldset class="colorset-control">
+        <legend>Paint system</legend>
+        <button type="button" class="colorset-button is-active" data-colorset="colorset1" aria-pressed="true">
+          <span class="control-dot cs1-dot"></span>Colorset 1
+        </button>
+        <button type="button" class="colorset-button" data-colorset="colorset2" aria-pressed="false">
+          <span class="control-dot cs2-dot"></span>Colorset 2
+        </button>
+      </fieldset>
+      <label>
+        <span>Search artist or work</span>
+        <input id="search" type="search" autocomplete="off" placeholder="Hokusai, bedroom, Paris…">
+      </label>
+      <label>
+        <span>Genre</span>
+        <select id="genre-filter">
+          <option value="">All genres</option>
+        </select>
+      </label>
+      <p class="result-count" aria-live="polite"><strong id="visible-count">30</strong> works visible</p>
+    </section>
+
+    <section class="gallery-shell" aria-labelledby="gallery-title">
+      <div class="section-heading">
+        <p class="eyebrow">THE OPEN MASTERPIECE SET</p>
+        <h2 id="gallery-title">One card per source artwork.</h2>
+      </div>
+      <div id="gallery" class="gallery" role="list"></div>
+      <p id="empty-state" class="empty-state" hidden>No artworks match these filters.</p>
+    </section>
+
+    <section class="rights" aria-labelledby="rights-title">
+      <div>
+        <p class="eyebrow">SOURCE TRAIL</p>
+        <h2 id="rights-title">Open images remain attributable and inspectable.</h2>
+      </div>
+      <p>
+        The collection uses public-domain or CC0 images from the Art Institute
+        of Chicago and Wikimedia Commons. Every SVG embeds the source URL,
+        license, source SHA-256, colorset contract, and VTracer settings.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <span>Stable example set: vectorize-art-patterns</span>
+    <span>Editable SVG · no embedded rasters · no external runtime assets</span>
+  </footer>
+
+  <template id="artwork-template">
+    <article class="artwork-card" role="listitem">
+      <a class="art-link image-link">
+        <img class="artwork-image" alt="">
+      </a>
+      <div class="artwork-copy">
+        <div class="card-kicker">
+          <span class="genre"></span>
+          <span class="mode"></span>
+        </div>
+        <h3></h3>
+        <p class="creator"></p>
+        <p class="date"></p>
+        <dl class="card-data">
+          <div><dt>Source</dt><dd class="source-id"></dd></div>
+          <div><dt>Geometry</dt><dd class="geometry"></dd></div>
+          <div><dt>Paths</dt><dd class="path-count"></dd></div>
+          <div><dt>License</dt><dd class="license"></dd></div>
+        </dl>
+        <div class="actions">
+          <a class="open-svg">Open SVG</a>
+          <a class="download-svg" download>Download</a>
+          <a class="source-link" target="_blank" rel="noreferrer">Source record</a>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <script src="gallery.js" defer></script>
+</body>
+</html>

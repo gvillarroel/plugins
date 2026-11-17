@@ -1,0 +1,32 @@
+{
+  "name": "harbor",
+  "version": "1.0.0",
+  "description": "Author evaluation datasets, organize and report native Harbor studies, recover external failures, and improve complete skills with controlled evolution and independent validation.",
+  "author": {
+    "name": "Gerardo Villarroel"
+  },
+  "repository": "https://github.com/gvillarroel/skills",
+  "keywords": [
+    "harbor",
+    "evaluation",
+    "skills",
+    "evolution"
+  ],
+  "interface": {
+    "displayName": "Harbor",
+    "shortDescription": "Evaluation datasets, native Harbor reports and skill evolution",
+    "longDescription": "One plugin containing the twelve maintained Harbor skills for dataset authoring, study isolation, execution, reporting, external failure recovery, candidate realization and controlled skill evolution.",
+    "developerName": "Gerardo Villarroel",
+    "category": "Developer tools",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Help me organize an isolated Harbor evaluation study.",
+      "Inspect and compare completed Harbor jobs.",
+      "Improve this skill using development evidence and independent validation."
+    ]
+  },
+  "skills": "./skills/"
+}

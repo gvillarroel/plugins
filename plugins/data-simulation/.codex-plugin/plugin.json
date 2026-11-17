@@ -1,0 +1,14 @@
+{
+  "name": "data-simulation",
+  "version": "1.0.0",
+  "description": "Plan, generate and evaluate synthetic tabular datasets, build simulations and test their quality and privacy.",
+  "author": {
+    "name": "Gerardo Villarroel"
+  },
+  "interface": {
+    "displayName": "Synthetic Data and Simulation",
+    "shortDescription": "Plan, generate and evaluate synthetic tabular datasets, build simulations and test their quality and privacy.",
+    "category": "Data"
+  },
+  "skills": "./skills/"
+}

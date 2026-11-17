@@ -1,0 +1,8 @@
+name = "plugins"
+owner = "gvillarroel"
+display_name = "Plugins de Gerardo Villarroel"
+description = "Skills and tools for knowledge engineering, evaluation, media production and project workflows."
+
+[clients]
+# The contract skill calls a tool supplied by the native Copilot extension.
+agent-foundry = ["copilot"]
