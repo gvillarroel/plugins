@@ -1,7 +1,7 @@
 {
   "name": "plugins",
   "interface": {
-    "displayName": "Plugins de Gerardo Villarroel"
+    "displayName": "Gerardo Villarroel's Plugins"
   },
   "plugins": [
     {

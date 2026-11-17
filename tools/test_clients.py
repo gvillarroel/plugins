@@ -9,6 +9,7 @@ import re
 import shutil
 import subprocess
 import tempfile
+import tomllib
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -28,6 +29,47 @@ def check_payload(source, installed):
         for path in expected:
             if not filecmp.cmp(source / path, installed / path, shallow=False):
                 raise RuntimeError(f"Installed content differs: {installed / path}")
+
+
+def verify_pi(only, checkout):
+    executable = shutil.which("pi")
+    if not executable:
+        raise SystemExit("Pi is required for this test")
+    root = Path(checkout).resolve()
+    manifest = root / "marketplace.toml"
+    if not manifest.is_file():
+        raise SystemExit("Pi installs packages from a local clone. Pass its path with --source.")
+    overrides = tomllib.loads(manifest.read_text(encoding="utf-8")).get("clients", {})
+    available = sorted(p for p in (root / "plugins").iterdir() if p.is_dir()
+                       and "pi" in overrides.get(p.name, ("pi",)))
+    selection = [p for p in available if only is None or p.name == only]
+    if not selection:
+        raise SystemExit(f"{only} is not offered by Pi")
+    total = 0
+    with tempfile.TemporaryDirectory(prefix="pi-plugin-qa-") as tmp:
+        for plugin in selection:
+            # Isolate each package so that copies with the same skill name can be tested independently.
+            profile = Path(tmp) / plugin.name
+            profile.mkdir()
+            env = dict(os.environ, PI_CODING_AGENT_DIR=str(profile), PI_SKIP_VERSION_CHECK="1", NO_COLOR="1")
+            options = dict(env=env, capture_output=True, encoding="utf-8", errors="replace", timeout=90)
+            install = subprocess.run([executable, "install", f"./plugins/{plugin.name}"],
+                                     cwd=root, stdin=subprocess.DEVNULL, **options)
+            if install.returncode:
+                raise RuntimeError(f"Pi could not install {plugin.name}\n{install.stdout}\n{install.stderr}")
+            commands = subprocess.run([executable, "--mode", "rpc", "--no-session", "--no-extensions"],
+                                      cwd=tmp, input='{"id":"catalog","type":"get_commands"}\n', **options)
+            replies = (json.loads(line) for line in commands.stdout.splitlines() if line.startswith("{"))
+            reply = next((r for r in replies if r.get("id") == "catalog"), {})
+            if commands.returncode or not reply.get("success"):
+                raise RuntimeError(f"Pi skill discovery failed for {plugin.name}\n{reply}\n{commands.stderr}")
+            found = {r["name"]: Path(r["sourceInfo"]["path"]).resolve() for r in reply["data"]["commands"]
+                     if r.get("source") == "skill" and r["sourceInfo"].get("origin") == "package"}
+            expected = {f"skill:{p.parent.name}": p.resolve() for p in (plugin / "skills").glob("*/SKILL.md")}
+            if found != expected:
+                raise RuntimeError(f"Pi discovery mismatch for {plugin.name}: {expected.items() ^ found.items()}")
+            total += len(found)
+    print(f"pi: {len(available)} available, {len(selection)} installed, {total} skill commands verified.")
 
 
 def verify(client, only, marketplace_source):
@@ -112,8 +154,11 @@ def verify(client, only, marketplace_source):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("client", choices=sorted(CATALOGS))
+    parser.add_argument("client", choices=sorted([*CATALOGS, "pi"]))
     parser.add_argument("--plugin", help="Install only this plugin after checking the full catalog.")
     parser.add_argument("--source", default=str(ROOT), help="Marketplace to register, for example gvillarroel/plugins. Defaults to this checkout.")
     args = parser.parse_args()
-    verify(args.client, args.plugin, args.source)
+    if args.client == "pi":
+        verify_pi(args.plugin, args.source)
+    else:
+        verify(args.client, args.plugin, args.source)

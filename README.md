@@ -1,42 +1,63 @@
-# plugins
+# Plugins
 
-Marketplace de skills de Gerardo Villarroel para Codex, GitHub Copilot CLI y Claude Code. Instala los plugins que corresponden a tu trabajo. Cada uno lleva sus propias skills, scripts y recursos. Puedes editar una variante dentro de su plugin sin cambiar las demás.
+Gerardo Villarroel's marketplace for Codex, Claude Code and GitHub Copilot CLI. Each plugin bundles the skills, scripts and resources for a particular workflow. A skill can have a different version in each plugin. The [plugin catalog](docs/catalog.md) lists the skills and installation commands for every plugin.
 
-[Ver los plugins y las skills que contiene cada uno](docs/catalog.md).
+For personal utilities, `agent-utilities` includes `find-skills` and `delegate-map-reduce`. The `workstation-tools` plugin includes Playwright and the Google Workspace CLI workflow.
 
-## Instalar desde GitHub
+## Install from GitHub
 
-Con una cuenta que tenga acceso a `gvillarroel/plugins`, registra el marketplace una vez en cada cliente. El ejemplo instala `diagram-studio` desde la rama `main`.
+Sign in with an account that can read the private repository `gvillarroel/plugins`. Register the marketplace once in Codex, Claude Code or Copilot CLI. The examples install `diagram-studio` from `main`. To install another plugin, replace `diagram-studio` with its catalog name and keep the `@plugins` suffix.
 
-| Cliente | Registrar `gvillarroel/plugins` | Instalar `diagram-studio` |
-| --- | --- | --- |
-| Codex | `codex plugin marketplace add gvillarroel/plugins --ref main` | `codex plugin add diagram-studio@plugins` |
-| GitHub Copilot CLI | `copilot plugin marketplace add gvillarroel/plugins` | `copilot plugin install diagram-studio@plugins` |
-| Claude Code | `claude plugin marketplace add gvillarroel/plugins` | `claude plugin install diagram-studio@plugins` |
+### Codex
 
-Las utilidades personales también se instalan desde este catálogo. Por ejemplo, `agent-utilities@plugins` contiene `find-skills` y `delegate-map-reduce`, y `workstation-tools@plugins` contiene Playwright y las instrucciones de Google Workspace CLI.
+```sh
+codex plugin marketplace add gvillarroel/plugins --ref main
+codex plugin add diagram-studio@plugins
+```
 
-En Windows, si Git muestra `Filename too long` al registrar el marketplace, ejecuta `git config --global core.longpaths true` y repite el registro. Algunos clientes crean el clon dentro de varias carpetas temporales.
+### Claude Code
 
-## Trabajar desde un clon
+```sh
+claude plugin marketplace add gvillarroel/plugins
+claude plugin install diagram-studio@plugins
+```
+
+In Claude Code, `/diagram-studio:mermaid` invokes the plugin's Mermaid skill.
+
+### GitHub Copilot CLI
+
+```sh
+copilot plugin marketplace add gvillarroel/plugins
+copilot plugin install diagram-studio@plugins
+```
+
+`agent-foundry` ships a native Copilot extension. Start `copilot --experimental` to use its `/contract` command.
+
+## Pi
+
+Pi loads individual skill packages from a local clone. Clone the repository once and keep the checkout at the same path.
 
 ```sh
 gh repo clone gvillarroel/plugins
 cd plugins
+pi install ./plugins/diagram-studio
+pi list
 ```
 
-Abre una terminal en la raíz de este repositorio. Guarda la ruta absoluta con `$repo = (Get-Location).Path` en PowerShell o `repo="$PWD"` en Bash. Registra el marketplace en el cliente que usas y elige un plugin del catálogo. Este ejemplo instala `diagram-studio`.
+Use `/skill:mermaid` in Pi. For another package, run its `pi install` command from the checkout root. Run `git pull --ff-only` there to update the files and `/reload` in an open Pi session. These packages expose skills in Pi. Components such as the Reflex XY MCP renderer require separate host support.
 
-| Cliente | Registrar el marketplace | Instalar el plugin |
-| --- | --- | --- |
-| Codex | `codex plugin marketplace add "$repo"` | `codex plugin add diagram-studio@plugins` |
-| GitHub Copilot CLI | `copilot plugin marketplace add "$repo"` | `copilot plugin install diagram-studio@plugins` |
-| Claude Code | `claude plugin marketplace add "$repo"` | `claude plugin install diagram-studio@plugins` |
+## Use a local checkout with Codex, Claude Code or Copilot
 
-En Claude Code, por ejemplo, `/diagram-studio:mermaid` abre la variante de Mermaid de ese plugin. Para una prueba pequeña en cualquiera de los tres clientes, instala `marketplace-check@plugins` y pide a la skill `shared-example-1` que lea su archivo de prueba.
+Clone the repository as shown above. From its root, set `$repo = (Get-Location).Path` in PowerShell or `repo="$PWD"` in Bash. Register the absolute path in the client you use, then run the same plugin installation command as above.
 
-**Agent Foundry** se ofrece en Copilot CLI. Su comando `/contract` necesita la extensión nativa de Copilot. El paquete incluye esa extensión y su runtime. Para usar sus controles, inicia Copilot con `copilot --experimental`.
+| Client | Register the local marketplace |
+| --- | --- |
+| Codex | `codex plugin marketplace add "$repo"` |
+| Claude Code | `claude plugin marketplace add "$repo"` |
+| GitHub Copilot CLI | `copilot plugin marketplace add "$repo"` |
 
-Algunos flujos necesitan datos o herramientas del proyecto. Por ejemplo, `editorial-research` consulta los corpus privados del blog desde su checkout, `store-studio` usa el catálogo y los recursos de la tienda activa y `reflex-xy` usa Node y `uv` para renderizar gráficos. Los requisitos de cada flujo están en su `SKILL.md`.
+If Git reports `Filename too long` on Windows, run `git config --global core.longpaths true` and retry. Some clients clone the marketplace into deeply nested temporary directories.
 
-[Mantenimiento, procedencia y pruebas](docs/maintenance.md).
+For a small installation check, install `marketplace-check` and ask its `shared-example-1` skill to read the bundled fixture. Some workflows need additional inputs. For example, `editorial-research` reads the blog's private research corpus, `store-studio` uses the active store's catalog and assets, and `reflex-xy` uses Node.js and `uv` for rendering. Each skill describes its requirements.
+
+[Maintenance, provenance and tests](docs/maintenance.md)

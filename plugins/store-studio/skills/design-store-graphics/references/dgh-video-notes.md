@@ -1,166 +1,95 @@
-# Dan George Hill: fuentes para decisiones de diseño
+# Dan George Hill design references
 
-Revisión: **26 de septiembre de 2026**, fecha local del workspace.
-Canal: [@dangeorgehill / DGH Graphic Design](https://www.youtube.com/@dangeorgehill).
-ID público: `UClEBfDS5SO5qw7yvvKYoNiA`.
+This review was recorded on **September 26, 2026**, in the workspace's local time. The public channel ID is `UClEBfDS5SO5qw7yvvKYoNiA`. [DGH Graphic Design](https://www.youtube.com/@dangeorgehill)
 
-## Alcance y método
+## Scope and method
 
-Se exploró una página de **30 videos** del canal y se seleccionaron ocho por
-su utilidad para tipografía, camisetas, composición, textura y proceso. Se
-leyeron sus transcripciones completas en inglés, recuperadas con marcas de
-tiempo mediante ScrapeCreators a través de treg. Las notas siguientes son
-paráfrasis. Los subtítulos pueden contener errores de reconocimiento.
+The review surveyed a page of 30 channel videos and selected eight for their treatment of typography, tees, composition, texture and design process. It used the complete English transcripts, retrieved with timestamps from ScrapeCreators through `treg`. The notes paraphrase those transcripts. Captions can contain recognition errors.
 
-Se inspeccionaron además cuadros puntuales del reproductor de YouTube; se
-documentan debajo. Esto es una revisión de transcripciones con muestreo visual,
-no una afirmación de haber visto de principio a fin los ocho videos. Las fechas
-proceden del campo `publishDate`; las fechas relativas del listado no se usan
-para inferir la publicación. Los originales, transcripciones completas y packs
-del autor no se redistribuyen en la skill.
+The reviewer also inspected selected frames in the YouTube player. Specific frames are identified below. The review covered full transcripts and sampled visuals. Publication dates come from the `publishDate` field. The originals, full transcripts and the creator's asset packs remain with their sources.
 
-Los IDs **DGH-01…08** identifican evidencia del canal. Las aplicaciones a
-IA Referencias en las recetas son decisiones propias apoyadas en la identidad
-y el historial del repositorio, no recomendaciones del autor sobre esta tienda.
+DGH-01 through DGH-08 identify channel evidence. The applications to IA Referencias are the store's own decisions, informed by its identity and its repository history.
 
-## DGH-01 — Jerarquía y retícula derivadas del contenido
+## DGH-01 — Build hierarchy and a grid from the content
 
-[How to Design a Clean Typographic Poster *Essential Design Tips*](https://www.youtube.com/watch?v=4UOGUzGyG2s)
-· 2026-03-14 · 11:16 según catálogo.
+March 14, 2026. The catalog lists a duration of 11:16. [How to Design a Clean Typographic Poster *Essential Design Tips*](https://www.youtube.com/watch?v=4UOGUzGyG2s)
 
-- [03:13–04:18](https://www.youtube.com/watch?v=4UOGUzGyG2s&t=193s): reutiliza
-  formato y una relación de tamaños para diferenciar niveles de texto.
-- [05:17–07:49](https://www.youtube.com/watch?v=4UOGUzGyG2s&t=317s): reorganiza
-  la retícula según el número y la función de los bloques; ajusta números y
-  alineación para conservar equilibrio.
-- [07:49–10:16](https://www.youtube.com/watch?v=4UOGUzGyG2s&t=469s): establece
-  el orden de lectura y reduce una textura que ocultaba información.
+- Hill reuses a format and a size ratio to distinguish text levels. [03:13–04:18](https://www.youtube.com/watch?v=4UOGUzGyG2s&t=193s)
+- He rearranges the grid around the number and purpose of the blocks, adjusting numbers and alignment for balance. [05:17–07:49](https://www.youtube.com/watch?v=4UOGUzGyG2s&t=317s)
+- He establishes reading order and reduces a texture that obscured information. [07:49–10:16](https://www.youtube.com/watch?v=4UOGUzGyG2s&t=469s)
 
-**Muestreo visual:** cuadros en 08:02 y 10:01. En 10:01 se ve el diseño en
-Photoshop: columnas de texto arriba, gesto manual superpuesto, fotografía
-inferior y acentos pequeños. La abundancia de microtexto pertenece a ese póster;
-no constituye un modelo directo para una polera de frase corta.
+Frames sampled at 08:02 and 10:01. The latter shows the Photoshop composition with columns of text above, an overlaid hand-drawn mark, a photograph below and small accents. The dense microcopy suits that poster. A short-slogan tee needs its own hierarchy.
 
-## DGH-02 — Contraste de escala con estructura
+## DGH-02 — Use scale contrast within a structure
 
-[Why Your Type Posters SUCK... (and how to fix them)](https://www.youtube.com/watch?v=6f67Q3nizAg)
-· 2025-12-17 · 14:01.
+December 17, 2025. Duration 14:01. [Why Your Type Posters SUCK... (and how to fix them)](https://www.youtube.com/watch?v=6f67Q3nizAg)
 
-- [02:36–06:41](https://www.youtube.com/watch?v=6f67Q3nizAg&t=156s): retícula,
-  contraste entre tamaños y pesos, y espacio libre alrededor de elementos.
-- [07:46–09:56](https://www.youtube.com/watch?v=6f67Q3nizAg&t=466s): prueba
-  posiciones y tamaños de imagen para sostener el protagonismo tipográfico.
-- [10:19–11:40](https://www.youtube.com/watch?v=6f67Q3nizAg&t=619s): elige una
-  textura sutil de impresión/escaneo que encaje con el tema.
+- Hill combines a grid, contrasting sizes and weights, and space around elements. [02:36–06:41](https://www.youtube.com/watch?v=6f67Q3nizAg&t=156s)
+- He tests image positions and sizes that keep the typography prominent. [07:46–09:56](https://www.youtube.com/watch?v=6f67Q3nizAg&t=466s)
+- He chooses a subtle print-and-scan texture that fits the subject. [10:19–11:40](https://www.youtube.com/watch?v=6f67Q3nizAg&t=619s)
 
-**Límite de transferencia:** el ejemplo incluye abundante texto generado sobre
-diamantes. La skill aprovecha decisiones visuales; ese texto no se toma como
-fuente factual ni como plantilla de contenido para productos.
+The example contains extensive generated copy about diamonds. The store draws on the visual decisions. Product copy and factual claims need their own sources.
 
-## DGH-03 — Textura por elemento y luego integración
+## DGH-03 — Texture individual elements before integrating the finish
 
-[The Texture System I Use For Consistent Results *Photoshop Tutorial*](https://www.youtube.com/watch?v=uFier8b7q4w)
-· 2026-04-06 · 9:41.
+April 6, 2026. Duration 09:41. [The Texture System I Use For Consistent Results *Photoshop Tutorial*](https://www.youtube.com/watch?v=uFier8b7q4w)
 
-- [01:21–03:33](https://www.youtube.com/watch?v=uFier8b7q4w&t=81s): modifica
-  máscaras y bordes; usa distinta intensidad para titular y texto pequeño.
-- [03:33–07:05](https://www.youtube.com/watch?v=uFier8b7q4w&t=213s): añade y
-  recupera detalle con máscaras, variando densidad y conservando legibilidad.
-- [07:05–09:09](https://www.youtube.com/watch?v=uFier8b7q4w&t=425s): integra
-  overlays y ajusta niveles después del trabajo por elemento.
+- Hill changes masks and edges, treating headlines and small text at different intensities. [01:21–03:33](https://www.youtube.com/watch?v=uFier8b7q4w&t=81s)
+- He adds and recovers detail with masks, varying density to maintain legibility. [03:33–07:05](https://www.youtube.com/watch?v=uFier8b7q4w&t=213s)
+- He integrates overlays and adjusts levels after the per-element work. [07:05–09:09](https://www.youtube.com/watch?v=uFier8b7q4w&t=425s)
 
-**Aplicación propia:** guardar un control limpio y poder retirar cada efecto.
-Los valores de desplazamiento, opacidad y pincel del video dependen de su lienzo
-y sus assets; se recalibran para el archivo y la superficie del producto.
+For the store, keep a clean control and make each effect removable. Recalibrate displacement, opacity and brush settings for the artwork and product surface. The tutorial uses its own canvas and assets.
 
-## DGH-04 — Referencias, collage y comprobación en prenda
+## DGH-04 — Reference, collage and garment checks
 
-[Designing a Vintage Tee for A$AP Rocky *DON'T BE DUMB*](https://www.youtube.com/watch?v=9YoTV2cfXzE)
-· 2026-02-04 · 10:10.
+February 4, 2026. Duration 10:10. [Designing a Vintage Tee for A$AP Rocky *DON'T BE DUMB*](https://www.youtube.com/watch?v=9YoTV2cfXzE)
 
-- [00:24–01:58](https://www.youtube.com/watch?v=9YoTV2cfXzE&t=24s): recopila
-  alternativas y un moodboard para orientar composición y tratamiento.
-- [02:08–03:54](https://www.youtube.com/watch?v=9YoTV2cfXzE&t=128s): integra
-  recortes, corrige texto invertido y compara sus valores tonales.
-- [05:42–07:57](https://www.youtube.com/watch?v=9YoTV2cfXzE&t=342s): combina
-  paleta limitada y textura por elemento; separa un acabado para presentación.
-- [08:10–09:35](https://www.youtube.com/watch?v=9YoTV2cfXzE&t=490s): revisa
-  exportación, transparencia, escala y colocación mediante un mockup.
+- Hill gathers alternatives and a mood board to guide composition and treatment. [00:24–01:58](https://www.youtube.com/watch?v=9YoTV2cfXzE&t=24s)
+- He integrates cutouts, corrects mirrored text and compares tonal values. [02:08–03:54](https://www.youtube.com/watch?v=9YoTV2cfXzE&t=128s)
+- He combines a limited palette and per-element texture, keeping a separate presentation finish. [05:42–07:57](https://www.youtube.com/watch?v=9YoTV2cfXzE&t=342s)
+- He checks export, transparency, scale and placement using a mockup. [08:10–09:35](https://www.youtube.com/watch?v=9YoTV2cfXzE&t=490s)
 
-**Muestreo visual:** cuadro 09:13, edición del PNG y su silueta durante la
-preparación del mockup. El recurso del tutorial ilustra el proceso; para nuestros
-productos, la referencia de colocación será el mockup real de Printify.
+The frame at 09:13 shows work on the PNG and its silhouette during mockup preparation. Use the actual Printify mockup to judge placement on the store's products.
 
-## DGH-05 — Diseñar para la superficie y el significado
+## DGH-05 — Design for the surface and the meaning
 
-[Designing a Real Magazine Spread in Adobe InDesign](https://www.youtube.com/watch?v=2DesMgw7wsY)
-· 2026-05-12 · 14:26.
+May 12, 2026. Duration 14:26. [Designing a Real Magazine Spread in Adobe InDesign](https://www.youtube.com/watch?v=2DesMgw7wsY)
 
-- [01:23–03:45](https://www.youtube.com/watch?v=2DesMgw7wsY&t=83s): organiza
-  contenido y estilos antes de cerrar la composición; revisa el flujo del texto.
-- [04:40–06:36](https://www.youtube.com/watch?v=2DesMgw7wsY&t=280s): considera
-  resolución a escala y mueve un punto focal que caía sobre el lomo.
-- [07:02–09:22](https://www.youtube.com/watch?v=2DesMgw7wsY&t=422s): usa el
-  sentido de una frase para decidir el salto y una intervención manuscrita;
-  relaciona el acento con los colores de la fotografía.
-- [10:47–12:47](https://www.youtube.com/watch?v=2DesMgw7wsY&t=647s): una máscara
-  libera espacio para información y exige reparar transparencias accidentales.
+- Hill organizes content and styles before finalizing the composition and checks text flow. [01:23–03:45](https://www.youtube.com/watch?v=2DesMgw7wsY&t=83s)
+- He considers resolution at scale and moves a focal point that landed on the spine. [04:40–06:36](https://www.youtube.com/watch?v=2DesMgw7wsY&t=280s)
+- He uses a phrase's meaning to choose a line break and a handwritten mark, then relates the accent to the photograph's colors. [07:02–09:22](https://www.youtube.com/watch?v=2DesMgw7wsY&t=422s)
+- A mask clears space for information and creates accidental transparent areas that need repair. [10:47–12:47](https://www.youtube.com/watch?v=2DesMgw7wsY&t=647s)
 
-**Aplicación propia:** revisar la zona de uso del objeto. Para resolución,
-calcular píxeles por tamaño impreso y consultar al proveedor; los megabytes del
-archivo y el umbral del ejemplo no constituyen una regla universal.
+For the store, check the usable area of the object. Calculate resolution from pixels and printed dimensions, then consult the supplier. File size in megabytes and the example's threshold cannot establish print suitability on their own.
 
-## DGH-06 — Paleta separable y edición vinculada
+## DGH-06 — Separate colors and edit linked layers
 
-[How to Separate Colour Layers in Photoshop **PRINT READY**](https://www.youtube.com/watch?v=j1FTg8kGpOw)
-· 2026-01-14 · 9:57.
+January 14, 2026. Duration 09:57. [How to Separate Colour Layers in Photoshop **PRINT READY**](https://www.youtube.com/watch?v=j1FTg8kGpOw)
 
-- [01:00–04:41](https://www.youtube.com/watch?v=j1FTg8kGpOw&t=60s): organiza
-  copias vinculadas, umbrales, máscaras y rellenos para tratar rangos tonales.
-- [07:33–09:52](https://www.youtube.com/watch?v=j1FTg8kGpOw&t=453s): cambia
-  textura en el origen y conserva capas de color editables para exportar.
+- Hill organizes linked copies, thresholds, masks and fills to work across tonal ranges. [01:00–04:41](https://www.youtube.com/watch?v=j1FTg8kGpOw&t=60s)
+- He changes texture at its source and keeps the color layers editable for export. [07:33–09:52](https://www.youtube.com/watch?v=j1FTg8kGpOw&t=453s)
 
-**Límite de transferencia:** separar colores puede facilitar una estética de
-tintas limitadas. Una separación industrial requiere las condiciones de la
-imprenta; para Printify manda la especificación del producto y proceso elegidos.
-No imponer a todos los productos las dimensiones ni el flujo del tutorial.
+Color separation can support a limited-ink aesthetic. Industrial separation depends on the printer's requirements. For Printify, follow the specifications of the chosen product and process when selecting dimensions and workflow.
 
-## DGH-07 — Aprender de iteraciones recuperables
+## DGH-07 — Learn from iterations you can reproduce
 
-[I Designed 500 Posters Daily... Here's What Happened](https://www.youtube.com/watch?v=E6d29yG0bG4)
-· 2026-08-14 · 13:34.
+August 14, 2026. Duration 13:34. [I Designed 500 Posters Daily... Here's What Happened](https://www.youtube.com/watch?v=E6d29yG0bG4)
 
-- [08:01–10:01](https://www.youtube.com/watch?v=E6d29yG0bG4&t=481s): describe
-  cómo reconoció sus preferencias al trabajar, y las limitaciones de equiparar
-  productividad con terminar y publicar una pieza diaria.
-- [10:59–12:25](https://www.youtube.com/watch?v=E6d29yG0bG4&t=659s): destaca
-  el valor de conservar trabajo propio que se puede reproducir y de experimentar
-  en medios acordes al objetivo.
+- Hill describes recognizing his preferences through his work and the limits of measuring productivity by finishing and publishing one piece every day. [08:01–10:01](https://www.youtube.com/watch?v=E6d29yG0bG4&t=481s)
+- He discusses the value of keeping work he can reproduce and experimenting in media appropriate to the objective. [10:59–12:25](https://www.youtube.com/watch?v=E6d29yG0bG4&t=659s)
 
-**Aplicación propia:** registrar hipótesis, descartes y procedimientos útiles
-por producto. El relato personal del autor no demuestra demanda, conversión
-ni ventas para IA Referencias y no crea una obligación de publicar diariamente.
+For each product, record hypotheses, rejected options and useful procedures. This personal account supplies no demand, conversion or sales evidence for IA Referencias. Set the store's publishing cadence from its own needs.
 
-## DGH-08 — Espacio negativo y acento editorial
+## DGH-08 — Give negative space and an editorial accent a purpose
 
-[How To Create Brutal Editorial Designs in Photoshop (Step-by-Step)](https://www.youtube.com/watch?v=8kV8XiouFh0)
-· 2026-07-15 · 18:41.
+July 15, 2026. Duration 18:41. [How To Create Brutal Editorial Designs in Photoshop (Step-by-Step)](https://www.youtube.com/watch?v=8kV8XiouFh0)
 
-- [00:26–03:40](https://www.youtube.com/watch?v=8kV8XiouFh0&t=26s): usa el
-  espacio de la imagen y una retícula para probar tamaños y posiciones del título.
-- [06:20–08:38](https://www.youtube.com/watch?v=8kV8XiouFh0&t=380s): limita
-  la paleta y separa un elemento mediante color y contraste.
-- [08:38–15:03](https://www.youtube.com/watch?v=8kV8XiouFh0&t=518s): diferencia
-  tratamientos por escala, revisa legibilidad y evita bordes visibles del patrón.
+- Hill tests title size and position using space within the image and a grid. [00:26–03:40](https://www.youtube.com/watch?v=8kV8XiouFh0&t=26s)
+- He limits the palette and separates one element through color and contrast. [06:20–08:38](https://www.youtube.com/watch?v=8kV8XiouFh0&t=380s)
+- He varies treatments by scale, checks legibility and removes visible pattern edges. [08:38–15:03](https://www.youtube.com/watch?v=8kV8XiouFh0&t=518s)
 
-**Aplicación propia:** el acento debe apuntar al mecanismo satírico de nuestro
-concepto. Los textos accesorios y las divisiones de palabra del póster se juzgan
-según el soporte; no se importan automáticamente a las prendas.
+For the store, direct the accent toward the mechanism of the joke. Judge secondary copy and word breaks on the intended surface before adapting a poster treatment to a garment.
 
-## Cómo ampliar esta referencia
+## Add a source
 
-Para incorporar otro video, abrirlo y leer su contenido, guardar título, URL,
-fecha y minutos relevantes, y distinguir observación de aplicación propia.
-Inspeccionar cuadros si la recomendación depende de geometría, escala o textura.
-Una miniatura, un título o un resumen de terceros no bastan para atribuir una
-técnica al autor. Añadir solo aprendizajes que cambien una decisión de diseño.
+Open the video and review its content. Record the title, URL, publication date and relevant timestamps. Distinguish the observed technique from the store's application. Inspect frames when a recommendation depends on geometry, scale or texture. Verify techniques against the source before attributing them to the creator. Add an observation when it would change a design decision.

@@ -1,52 +1,61 @@
-# Mantenimiento
+# Marketplace maintenance
 
-## Editar una variante
+## Edit or add a plugin
 
-Edita `plugins/<plugin>/skills/<skill>/` directamente. Para reutilizarla en otro contexto, copia la carpeta completa al plugin de destino, adapta las instrucciones y revisa los scripts y ejemplos desde ese nuevo contexto. Las copias no se sincronizan automáticamente.
+Edit each skill in `plugins/<plugin>/skills/<skill>/`. To use a skill in a different context, copy its entire directory into the destination plugin, adapt the instructions and test its scripts and examples there. Each copy evolves independently.
 
-El manifiesto principal de cada plugin es `plugins/<plugin>/plugin.json`. El campo `version` identifica la versión que instala cada cliente. Al distribuir cambios de una skill, aumenta la versión de su plugin. En `marketplace.toml` están el nombre del catálogo y las excepciones de compatibilidad.
+The main manifest for each plugin is `plugins/<plugin>/plugin.json`. Clients use its `version` when installing the plugin. Increment it when distributing changes, and keep any package manifest that declares the same version in sync. The marketplace name and client compatibility overrides are in `marketplace.toml`.
 
-Desde la raíz, regenera los catálogos, los manifiestos de compatibilidad y el índice con:
+To add a plugin, create its manifest and at least one `skills/<name>/SKILL.md`. The generator discovers each directory and checks that its name matches the YAML frontmatter. The repository tools use Python 3.11 or later. From the repository root, regenerate and verify the catalogs, compatibility manifests and index.
 
 ```sh
 uv run --script tools/catalog.py --write
 uv run --script tools/catalog.py
 ```
 
-Para añadir un plugin, crea su manifiesto y al menos una carpeta `skills/<nombre>/` con su `SKILL.md`. El generador descubre las carpetas y comprueba que cada nombre coincida con su cabecera YAML. La generación solo escribe manifiestos de compatibilidad, catálogos e índice.
-
-| Cliente | Catálogo del repositorio | Configuración del paquete |
+| Client | Repository catalog | Package configuration |
 | --- | --- | --- |
-| [Codex](https://developers.openai.com/plugins/build/plugins) | `.agents/plugins/marketplace.json` | `plugin.json` y compatibilidad en `.codex-plugin/plugin.json` |
-| [GitHub Copilot CLI](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-plugin-reference) | `.github/plugin/marketplace.json` | `plugin.json` |
+| [Codex](https://developers.openai.com/plugins/build/plugins) | `.agents/plugins/marketplace.json` | `plugin.json` and the `.codex-plugin/plugin.json` compatibility manifest |
 | [Claude Code](https://code.claude.com/docs/en/plugin-marketplaces) | `.claude-plugin/marketplace.json` | `.claude-plugin/plugin.json` |
+| [GitHub Copilot CLI](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-plugin-reference) | `.github/plugin/marketplace.json` | `plugin.json` |
+| Pi | Individual package directories in a local clone | The conventional `skills/` directory or an explicit `pi.skills` entry in `package.json` |
 
-## Procedencia
+## Provenance
 
-El inventario registra 169 copias y 160 nombres de skill. La primera importación reunió 161 copias de 11 repositorios de `gvillarroel`. Otras ocho proceden de los cuatro plugins personales que se incorporaron a este catálogo. [Inventario por plugin y skill](provenance.json).
+The [import inventory](provenance.json) records 169 skill copies with 160 distinct names. The first import brought in 161 copies from 11 repositories owned by `gvillarroel`. Four personal plugins supplied eight more.
 
-Cada fila identifica el repositorio, la ruta y el estado en la importación. `committed` proviene de la revisión indicada. `working-tree` incluye cambios locales y `untracked` identifica una skill cuyo archivo principal aún no estaba versionado. `verified-release` identifica las seis variantes del paquete de Line World Video, verificadas contra su manifiesto de distribución. Reflex XY también incorpora los recursos y el servidor de su paquete publicado localmente. Los identificadores de revisión describen el punto de partida de cada checkout. La huella `importSha256` identifica los archivos con los que se inició cada copia, antes de las adaptaciones de este marketplace.
+| Import state | Meaning |
+| --- | --- |
+| `committed` | The files came from the recorded Git revision. |
+| `working-tree` | The import included local edits from the source checkout. |
+| `untracked` | The skill's entry point had yet to be committed at the source. |
+| `verified-release` | The six Line World Video variants were checked against their release manifest. |
+| `packaged-install` | The path and digest identify a copy from the former personal marketplace. Where available, `upstream.skillBlob` identifies the original Git blob for its `SKILL.md`. |
 
-La huella recorre las rutas relativas ordenadas. Para cada archivo incorpora su ruta UTF-8, un byte NUL y los 32 bytes de su SHA-256. Se conservan los avisos de origen y las licencias que acompañan a los paquetes y a sus recursos. El inventario es histórico y puede diferir de una variante editada.
+The repository revisions identify the starting checkout. Each `importSha256` identifies the files as imported, before any changes for this marketplace. To reproduce it, sort the relative file paths and, for each file, hash its UTF-8 path, a NUL byte and the 32 raw bytes of its SHA-256 into the running SHA-256 digest. A later edit to a variant can legitimately produce another digest. Source notices and licenses accompany the relevant packages and resources. Reflex XY also includes the resources and server from its locally published package.
 
-Las filas `packaged-install` registran la ruta y la huella de la copia que se importó del antiguo marketplace personal. Cuando se pudo identificar el archivo de origen, `upstream.skillBlob` indica el blob Git de su `SKILL.md`. Los avisos de licencia correspondientes acompañan a cada skill.
+The initial import covered maintained skill directories, project skills in `.agents/skills`, the reusable SDLC planning example and packages selected by the source `skills` repository's catalogs. Evaluation indexes, candidate snapshots, temporary checkouts and third-party installations provided context for the review. The Harbor material came from the owner's repositories. The account had write access to `mvk-001/skill-arena`, which another account administered.
 
-Se incluyeron las carpetas de skills mantenidas en los repositorios, las skills de proyecto en `.agents/skills`, el ejemplo reutilizable de planificación de SDLC y los paquetes seleccionados por los catálogos del repositorio `skills`. Los índices de evaluación, snapshots de candidatos, checkouts temporales e instalaciones de terceros se revisaron como fuentes de contexto. El material de Harbor proviene de tus repositorios. En `mvk-001/skill-arena` la cuenta tenía permiso de escritura y la administración correspondía a otra cuenta.
+## Verify a release
 
-## Verificar una distribución
-
-La primera prueba ejecuta flujos locales desde un directorio de trabajo independiente. Comprueba las huellas SHA-256 de los recursos, la selección de GIFs, los límites de salida y la composición de una imagen de producto.
+Run the payload checks from the repository root. They exercise local workflows from a separate working directory, including resource hashes, GIF selection, output bounds and product image composition.
 
 ```sh
 uv run --script tools/test_payloads.py
 ```
 
-Para probar el registro, instalación y contenido con cada CLI, ejecuta los comandos siguientes desde un clon limpio. Cada prueba crea y limpia un perfil temporal. La opción `--plugin marketplace-check` instala solo el paquete de prueba después de verificar el catálogo completo.
+From a clean clone, run the native client checks. Each creates a temporary profile, registers the marketplace, installs the packages offered to that client and compares the installed files with the checkout. Use `--plugin marketplace-check` to install a single fixture after checking the entire catalog.
 
 ```sh
 python tools/test_clients.py codex
-python tools/test_clients.py copilot
 python tools/test_clients.py claude
+python tools/test_clients.py copilot
 ```
 
-Para comprobar la instalación desde GitHub, ejecuta la prueba en un clon actualizado de `main` con credenciales que tengan acceso al repositorio. Por ejemplo, `python tools/test_clients.py codex --source gvillarroel/plugins --plugin agent-utilities` compara el contenido instalado con los archivos del clon.
+Verify Pi packages separately. The test installs each documented local package into a fresh Pi profile, then checks the discovered `/skill:` commands and their source paths through Pi's RPC interface.
+
+```sh
+python tools/test_clients.py pi
+```
+
+To test a GitHub installation, start with an up-to-date clone of `main` and credentials that can read the repository. For example, `python tools/test_clients.py codex --source gvillarroel/plugins --plugin agent-utilities` compares the remotely installed plugin with the clone.

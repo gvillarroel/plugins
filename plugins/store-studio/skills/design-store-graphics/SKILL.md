@@ -1,133 +1,64 @@
 ---
 name: design-store-graphics
-description: Create or improve product artwork for IA Referencias using reference-led composition, typography, image integration, and restrained texture. Use for new graphic concepts, editorial merch, posters, collage, or revisions with weak hierarchy or visual coherence. Applies practical lessons from Dan George Hill while preserving the store's style and product requirements; pair with the product-family skill for production.
+description: Create or improve product artwork for IA Referencias using reference-led composition, typography, image integration, and restrained texture. Use for new graphic concepts, editorial merch, posters, collage, or revisions with weak hierarchy or visual coherence. Applies practical lessons from Dan George Hill while preserving the store's style and product requirements. Pair with the product-family skill for production.
 ---
 
-# Diseño gráfico para la tienda
+# Design graphics for the store
 
-Las rutas que empiezan por `stores/` o `docs/` se resuelven desde la raíz del proyecto de la tienda. Para otra tienda, usa su identidad y catálogo vigentes.
+Resolve paths beginning with `stores/` or `docs/` from the store project's root. For another store, use its current identity and catalog.
 
-Convierte una idea en una composición que funcione sobre el producto. Usa las
-referencias para tomar decisiones sobre jerarquía, encuadre, contraste y textura.
-Produce los diseños solicitados, inspecciónalos y corrige los fallos visibles;
-un prompt o una lista de consejos solo bastan si eso es lo que pidió el usuario.
+Turn the idea into a composition that works on the product. Use references to make decisions about hierarchy, framing, contrast and texture. Produce the requested artwork, open it and correct visible problems. A prompt or a list of suggestions is sufficient when that is what the user requested.
 
-Esta skill adapta un estudio de ocho videos de **Dan George Hill / DGH Graphic
-Design**. [Fuentes, minutos y límites de la revisión](references/dgh-video-notes.md).
-Sus técnicas son referencias de trabajo; las reglas de la tienda y del producto
-se consultan en sus documentos vigentes.
+This skill draws on a review of eight videos by **Dan George Hill / DGH Graphic Design**. Consult the current store and product documents for their requirements. [Sources, timestamps and review scope](references/dgh-video-notes.md)
 
-## 1. Fijar el mensaje y el soporte
+## 1. Establish the message and surface
 
-- Lee la solicitud, el `AGENTS.md` aplicable y, para IA Referencias, la
-  identidad (`stores/ia-referencias/IDENTITY.md`),
-  dirección gráfica (`stores/ia-referencias/GRAPHIC_STYLE.md`),
-  familias de diseño (`stores/ia-referencias/DESIGN_STYLES.md`) y
-  catálogo (`stores/ia-referencias/products/index.md`).
-- En una revisión, abre el arte exacto y las decisiones más recientes del
-  producto. Conserva el original como control. Una exclusión del usuario
-  prevalece sobre una etiqueta histórica de aceptación. Consulta la
-  selección corregida (`stores/ia-referencias/spikes/2026-09-26-fox-rockett-approved-products/README.md`)
-  cuando trabajes sobre las propuestas Fox Rockett.
-- Escribe un brief corto: público, frase exacta, contradicción, primer elemento
-  que debe verse, soporte, superficie/color y etapa solicitada. Separa el texto
-  obligatorio del detalle opcional. Usa la
-  [plantilla de brief y revisión](references/brief-and-review.md) si facilita
-  conservar estas decisiones en el spike.
-- Elige una familia existente: `vector-icon-text`, `segmented-photo-collage` o
-  `targeted-accent-intervention`. Para un eslogan corto, empieza por la primera.
-  Si el destino es Dibujos Infantiles, lee su identidad y preserva el dibujo y
-  el trazo del autor; adapta solo los principios que ayuden a ese encargo.
+- Read the request and the applicable `AGENTS.md`. For IA Referencias, consult the identity (`stores/ia-referencias/IDENTITY.md`), art direction (`stores/ia-referencias/GRAPHIC_STYLE.md`), design families (`stores/ia-referencias/DESIGN_STYLES.md`) and catalog (`stores/ia-referencias/products/index.md`).
+- For a revision, open the exact artwork and the most recent product decisions. Keep the original as a control. A user's exclusion takes precedence over an older approval label. For Fox Rockett proposals, consult the corrected selection in `stores/ia-referencias/spikes/2026-09-26-fox-rockett-approved-products/README.md`.
+- Record the audience, exact phrase, contradiction, intended first read, product, surface color and requested stage. Identify which text must appear and which details are optional. Use the [brief and review template](references/brief-and-review.md) to keep these decisions with the design study.
+- Choose an existing family. Start a short slogan with `vector-icon-text`. The alternatives are `segmented-photo-collage` and `targeted-accent-intervention`. For Dibujos Infantiles, consult its identity and preserve the artist's drawing and linework. Apply only the principles that serve that brief.
 
-## 2. Escoger referencias por su función
+## 2. Choose references for a specific decision
 
-Consulta la [receta de la familia elegida](references/design-recipes.md). Selecciona
-solo referencias que resuelvan una decisión concreta: escala tipográfica,
-distribución de masas, recorte, unión entre imágenes o tratamiento de tinta.
-Anota qué extraes y qué cambias para el producto. Las referencias orientan;
-el motivo, las palabras y la composición deben responder a nuestro concepto.
+Use the recipe for the selected family. Select references that resolve type scale, visual weight, crop, image integration or ink treatment. Record what you took from each reference and what you adapted. Build the motif, wording and composition around the store's concept. [Design recipes](references/design-recipes.md)
 
-Consulta la guía Fox Rockett (`docs/operations/fox-rockett-assets.md`) y su
-revisión por producto (`stores/ia-referencias/spikes/2026-09-26-fox-rockett-product-review/README.md`)
-antes de elegir recursos comprados. Usa un asset si aclara la metáfora; registra
-su ID, adaptación y licencia. Conserva los motivos ya elegidos por el usuario.
-Los tutoriales no acreditan derechos comerciales sobre las fotos, fuentes,
-personajes o packs que muestran. Usa material propio o con permiso documentado.
+Before selecting purchased assets, read `docs/operations/fox-rockett-assets.md` and the product review in `stores/ia-referencias/spikes/2026-09-26-fox-rockett-product-review/README.md`. Use an asset when it clarifies the metaphor. Record its ID, adaptation and license. Retain motifs the user has selected. Use original material or material with documented permission. Tutorials alone do not establish commercial rights to the photos, fonts, characters or packs they show.
 
-## 3. Resolver la composición antes del acabado
+## 3. Resolve composition before finishing
 
-1. Construye una versión limpia y editable. Fija el orden de lectura entre
-   frase, imagen y apoyo. Prueba primero el balance de claros y oscuros.
-2. Deriva una retícula sencilla del contenido y del soporte. Alinea por bordes
-   y ejes útiles; ajusta ópticamente después. El espacio vacío debe permitir
-   respirar a la frase y reconocer la silueta.
-3. Haz que la tipografía organice el mensaje: contraste de tamaño o peso,
-   cortes de línea con sentido y separación entre niveles. La proporción 1.618
-   que aparece en DGH puede iniciar una prueba; el texto y la vista del producto
-   deciden el tamaño final.
-4. Si usas imágenes, comprueba recorte, orientación, luz, valores tonales y
-   solapamiento. Cambia su escala o máscara para integrarlas. Al reflejar una
-   imagen, revisa letras, logotipos y detalles cuya orientación tenga significado.
-5. En un spike serio de IA Referencias, compara al menos tres hipótesis dentro
-   de la familia escogida. Para frases en poleras: composición apilada directa,
-   emblema compacto y UI/icono contenido. Explica qué decisión prueba cada una.
-   Si el usuario delimita una corrección o pide una sola salida, respeta ese alcance.
+1. Build a clean, editable version. Set the reading order of the phrase, image and supporting detail. Check the balance of light and dark areas first.
+2. Derive a simple grid from the content and the surface. Align to meaningful edges and axes, then adjust optically. Leave enough space for the phrase to read and the silhouette to be recognizable.
+3. Use type size, weight, meaningful line breaks and separation between levels to organize the message. The 1.618 ratio shown in the DGH material is a starting point to try. Choose the final size by checking the text on the product.
+4. For images, check crop, orientation, lighting, tonal values and overlap. Adjust scale or masking to integrate the parts. When mirroring an image, recheck lettering, logos and any detail whose orientation carries meaning.
+5. For a substantial IA Referencias design study, compare at least three hypotheses within the chosen family. For a slogan tee, try a direct stacked composition, a compact emblem and a restrained UI element or icon. Explain the decision each tests. Respect a narrower request for a single output or a targeted correction.
 
-Para un lema breve, el cuerpo de texto denso de algunos pósters del canal se
-traduce en **jerarquía y alineación**. Mantén una frase principal y, como máximo,
-una secundaria conforme al estilo de la tienda.
+For a short slogan, take hierarchy and alignment from the denser reference posters. Keep one main phrase and at most one secondary phrase according to the store's style.
 
-## 4. Aplicar color y textura con una función
+## 4. Give color and texture a job
 
-- Asigna al acento una tarea: señalar el remate, distinguir un estado o unir
-  elementos. Examina también la composición en escala de grises.
-- Si la textura ayuda al concepto, conserva el control limpio. Trabaja primero
-  los elementos o sus máscaras y después la integración general. Ajusta la
-  intensidad a su escala: un titular grande tolera un tratamiento que podría
-  borrar una línea secundaria. Revisa bordes, contraformas y costuras de patrones.
-- Para collage, prueba un ajuste tonal común y corrige cada recorte antes de
-  añadir ruido global. Retira el efecto si pierde contraste o hace desaparecer
-  la metáfora sobre la superficie real.
-- Mantén separadas las capas de arte, textura de impresión y presentación.
-  Un fondo de papel o una sombra de mockup no deben terminar accidentalmente en
-  el PNG transparente. Conserva texto editable y una exportación reproducible.
+- Use the accent to identify the punchline, distinguish a state or connect elements. Check the composition in grayscale.
+- Keep the clean control if texture helps the idea. Treat individual elements or masks first, then integrate the overall finish. A large headline can tolerate distressing that erases a smaller line. Check edges, letter counters and pattern seams.
+- For collage, try a common tonal adjustment and correct each cutout before adding global noise. Reduce or remove any effect that costs contrast or hides the metaphor on the actual surface.
+- Separate artwork, print texture and presentation layers. Keep paper backgrounds and mockup shadows out of a transparent print PNG. Preserve editable text and a reproducible export.
 
-## 5. Ejecutar con la herramienta adecuada
+## 5. Choose the tool for the job
 
-| Trabajo | Recurso |
+| Task | Tool or resource |
 | --- | --- |
-| Tipografía, símbolos, retícula y exportación precisa | SVG/código o editor vectorial disponible; usa la guía de herramientas (`docs/operations/product-design-toolchain.md`). |
-| Recortes, luz, máscaras, desgaste o textura | Editor raster o scripts adecuados al tratamiento; conservar capas y parámetros. |
-| Ilustración o fotografía nueva mediante un modelo | Skill de generación disponible. Especifica composición, superficie y función visual; compón el texto final de forma determinista. |
-| Polera/camiseta, sus PNG y previews | [create-shirt-product](../create-shirt-product/SKILL.md), incluida su referencia de composición. |
-| Especificación, variante, proveedor, precio, upload o mockup real | [create-printify-product](../create-printify-product/SKILL.md). |
-| Campaña o modelos llevando un producto | [marketing](../marketing/SKILL.md), con referencias actuales del producto. |
-| Crítica detallada o comparación difícil | [product-design-critic](../product-design-critic/SKILL.md). |
+| Typography, symbols, grid and precise export | SVG, code or an available vector editor. Consult `docs/operations/product-design-toolchain.md`. |
+| Cutouts, lighting, masks, wear or texture | A raster editor or scripts suited to the treatment. Preserve layers and parameters. |
+| New illustration or photography using a model | An available image generation skill. Specify composition, surface and visual purpose. Typeset the exact final wording with deterministic tools. |
+| Tee artwork, PNGs and previews | [Create a shirt product](../create-shirt-product/SKILL.md), including its composition reference. |
+| Print specifications, variants, provider, price, upload or real mockup | [Create a Printify product](../create-printify-product/SKILL.md). |
+| A campaign or models wearing an existing product | [Marketing](../marketing/SKILL.md), using current product references. |
+| Detailed critique or a difficult comparison | [Product design critic](../product-design-critic/SKILL.md). |
 
-Photoshop y los packs de DGH son opcionales. Traduce la operación a herramientas
-disponibles y assets autorizados. Una solicitud de arte se resuelve hasta esa
-etapa; las operaciones externas dependen del alcance ya autorizado. Sigue la
-política vigente de la tienda para la etiqueta visible `AI Generated Image`.
+Photoshop and DGH's asset packs are optional. Adapt the operation to the available tools and authorized assets. Finish the requested artwork stage. Any external action depends on the scope the user authorized. Follow the store's current policy for the visible `AI Generated Image` label.
 
-## 6. Revisar el resultado y cerrar la iteración
+## 6. Inspect the result and close the iteration
 
-- Abre las imágenes reales. Compara arte completo y producto completo a 300 y
-  600 px, con igual encuadre por tipo de evidencia; inspecciona detalles aparte.
-  Usa el [generador de evidencia existente](../product-design-critic/references/review-contract.md)
-  para preparar láminas repetibles cuando sea útil. OCR y medidas ayudan a
-  detectar riesgos; la lectura visual decide.
-- Comprueba frase exacta, remate, contraste, espacio, recortes, bordes y textura
-  después de reducir. En producto, inspecciona las zonas que puedan tapar o
-  deformar el mensaje: asa, lomo, costura o curvatura según corresponda.
-- Elige por claridad del concepto y ejecución visible. Un diseño limpio puede
-  ganar. Corrige el fallo de mayor impacto y repite la comparación de la zona
-  afectada. Detente cuando cumpla el brief y los controles de la etapa; si falta
-  evidencia, entrega el resultado verificable y especifica la limitación.
-- Para aceptar un producto Printify, usa sus mockups reales y los controles de
-  su skill. El título «print ready» de un tutorial, una simulación o un archivo
-  aplanado no acreditan la calidad física ni sustituyen la especificación.
-- Guarda fuentes, ruta elegida, archivo/versiones, parámetros, evidencia y
-  motivos de descarte en `RESOURCES.md`. Mantén las iteraciones en las carpetas
-  ignoradas y entrega los artes y láminas finales en los destinos del spike.
-  Actualiza su índice cuando corresponda. En la respuesta, muestra el resultado,
-  explica el cambio útil y distingue revisión propia de pruebas con compradores.
+- Open the actual images. Compare full artwork and full product views at both 300 and 600 px. Keep framing consistent within each comparison and inspect critical details separately. Use the existing evidence generator for repeatable review sheets when helpful. OCR and measurements can flag risks. Inspect the visual result to decide. [Evidence contract](../product-design-critic/references/review-contract.md)
+- After reducing the image, check the exact wording, punchline, contrast, spacing, crops, edges and texture. Inspect areas that product geometry could hide or distort, including handles, spines, seams and curves.
+- Choose on the strength of the idea and its visible execution. A clean version can win. Correct the highest-impact defect and compare the affected area again. Stop when the brief and stage checks are met. If evidence is missing, deliver what can be verified and identify the limitation.
+- For Printify acceptance, use the actual product mockups and the checks in its skill. A tutorial titled “print ready,” a simulation or a flattened file cannot establish physical print quality or replace the product specification.
+- Record sources, selected approach, file versions, parameters, evidence and reasons for rejecting alternatives in `RESOURCES.md`. Keep iterations in the ignored directories. Deliver final artwork and comparison sheets to the study's designated locations and update its index when appropriate. Show the result, explain the improvement and identify which observations come from your own review or from buyer testing.

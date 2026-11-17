@@ -1,41 +1,41 @@
-# Adaptar la delegación a las herramientas disponibles
+# Adapting delegation to the host
 
-La skill no añade herramientas, autenticación, permisos, un motor de caché ni un scheduler. Identifica las capacidades reales antes de elegir el mecanismo. Conserva el mismo contrato de trabajo aunque cambie el ejecutor.
+Check which tools, credentials, permissions, caching and scheduling the host actually provides. Keep the same work contract when the executor changes.
 
-## Codex con colaboración
+## Codex with collaboration tools
 
-Si el entorno expone herramientas como `spawn_agent`, `send_message`, `followup_task` y `wait_agent`, delega mediante esas herramientas. Usa los nombres y esquemas que estén realmente disponibles. Una tarea para un subagente de la ejecución actual no equivale a crear un chat independiente ni autoriza contactar a personas o tareas ajenas.
+If the environment exposes tools such as `spawn_agent`, `send_message`, `followup_task` and `wait_agent`, use their available names and schemas for authorized delegation. A subtask belongs to the current run. Starting a separate chat or contacting people or unrelated tasks requires its own authorization.
 
-- Entrega encargos autocontenidos con objetivo, unidades, fuentes, contrato y límites. Reutiliza la sesión de un worker sólo si no arrastra contexto incompatible.
-- Despacha por lotes según los slots disponibles. El padre conserva el ledger y hace trabajo independiente mientras llegan resultados.
-- Para evaluar de forma independiente una conclusión, pasa las fuentes necesarias y la pregunta, evitando revelar la respuesta esperada. No uses una revisión que sólo compruebe el razonamiento que ya le sugeriste.
-- Recoge resultados terminales, valida y alimenta reductores con artefactos concretos. Usa esperas con eventos o intervalos razonables, sin polling apretado. El padre entrega cobertura y conclusión.
-- El contexto puede ser compartido y los agentes pueden editar el mismo filesystem: asigna propietarios de archivos para cambios y reserva una etapa de integración.
+- Give each worker a self-contained objective, units, sources, contract and limits. Reuse a worker session only if its context is compatible.
+- Dispatch batches that fit the available slots. The parent maintains the ledger and works on independent tasks while waiting.
+- For an independent review, send the sources and question without revealing the expected answer. The reviewer should reach its own conclusion.
+- Collect terminal results, validate them and pass concrete artifacts to reducers. Use event-based waits or reasonable intervals. The parent delivers coverage and the conclusion.
+- Agents may share context and a filesystem. Assign files to individual owners and reserve an integration stage for edits.
 
-Estas herramientas pueden no exponer payloads, claves de afinidad ni usage. No declares control del prompt cache ni tokens ahorrados sin esa información. Las marcas temporales y prompts estables no prueban un hit.
+These tools may hide payloads, affinity keys and usage. Report prompt-cache control or token savings only with supporting measurements. Timestamps and stable prompts alone cannot establish a hit.
 
-## Pi con el POC de documentación disponible
+## Pi with the documentation proof of concept
 
-Si la sesión registra `analyze_product_docs`, lee su schema efectivo y usa ese runner para el caso que cubre: un manifest de documentación, preguntas, maps y reducción con citas. No inventes parámetros a partir de esta referencia.
+If the session registers `analyze_product_docs`, read its active schema. The documented runner supports a documentation manifest, questions, map tasks and a reduction with citations. Use the parameters exposed by the installed version.
 
-El POC aprendido expone `manifest`, `output_dir`, `backend`, `workers`, `question`, `cache_dir`, `cache_wait_ms`, `cache_warmup_delay_ms` y `prompt_cache`. Comprueba la versión cargada. `backend=demo` verifica orquestación determinista; no representa análisis semántico de un modelo.
+The proof of concept exposed `manifest`, `output_dir`, `backend`, `workers`, `question`, `cache_dir`, `cache_wait_ms`, `cache_warmup_delay_ms` and `prompt_cache`. The `demo` backend verifies deterministic orchestration. Semantic analysis requires a model-backed run.
 
-La ejecución se lleva a cabo dentro de Pi y devuelve rutas a artefactos. Lee informe, cobertura y métricas antes de presentar una conclusión. Conserva el mismo `cache_dir` entre outputs que puedan compartir resultados. Si la extensión no está cargada, su nombre en este documento no la hace ejecutable.
+The runner executes inside Pi and returns artifact paths. Read the report, coverage and metrics before drawing conclusions. Share the same `cache_dir` across output directories where results are reusable. Check that the extension is loaded before calling it.
 
-Si existe un checkout compatible con `src/cli.ts`, `package.json` y el manifest esperado, el CLI Node es otra entrada al mismo runner. Inspecciona primero `node src/cli.ts --help` y usa rutas reales. Ejemplo del POC, desde ese checkout:
+A compatible checkout containing `src/cli.ts`, `package.json` and the expected manifest can access the same runner through Node. Inspect `node src/cli.ts --help` and use real paths. The proof-of-concept checkout supports the following example.
 
 ```sh
-node src/cli.ts run examples/product.json --backend pi --workers 4 --cache-dir .cache/docbatch --cache-warmup-delay-ms 1000 --output runs/analisis
+node src/cli.ts run examples/product.json --backend pi --workers 4 --cache-dir .cache/docbatch --cache-warmup-delay-ms 1000 --output runs/analysis
 ```
 
-No presupongas que ese checkout existe donde se instaló esta skill. Su código no forma parte del paquete de instrucciones. Para este runner, Pi debe estar instalado y autenticado por los mecanismos del usuario.
+The runner lives in that separate checkout. This skill package provides the instructions. The runner requires Pi installed and authenticated through the user's usual mechanism.
 
-## Pi con otra extensión de delegación o sin runner
+## Pi with another delegation extension or without a runner
 
-Si hay una extensión de subagentes, usa únicamente sus herramientas verificadas y conserva contratos, presupuesto y cobertura. La CLI base o la instalación de esta skill no prueban que esa extensión exista. No la instales ni cambies configuración como efecto incidental de ejecutar un análisis.
+If a subagent extension is available, use its verified tools and preserve contracts, budget and coverage. Check the current configuration. Installing or reconfiguring an extension is a separate task from performing the analysis.
 
-Si sólo puedes iniciar procesos Pi y el usuario autorizó inferencia, un runner Node puede ejecutar trabajos acotados en procesos aislados, con stdin y argv sin shell, timeout, cancelación y parsing de resultados terminales. Usa el protocolo confirmado por la versión instalada; no escribas un nuevo harness si uno existente ya resuelve el encargo. Cuenta todas las llamadas y los workers anidados. Si no hay delegación utilizable, procesa las unidades en secuencia con el mismo ledger y declara el modo utilizado.
+If only Pi subprocesses are available and the user authorized inference, a Node runner can execute bounded tasks in isolated processes using stdin and argv without a shell, timeouts, cancellation and parsing of terminal results. Verify the protocol for the installed version and reuse an existing runner when possible. Count every call and nested worker. If delegation is unavailable, process units sequentially with the same ledger and report that mode.
 
-## Descubrimiento de esta skill
+## Invoke the skill
 
-En Codex se invoca como `$delegate-map-reduce`. En Pi, con la skill descubierta y los comandos de skills activos, se invoca como `/skill:delegate-map-reduce`. La disponibilidad se determina al cargar o recargar los recursos del harness; los archivos instalados no implican que una sesión ya abierta haya actualizado su catálogo.
+In Codex, use the `$` skill picker to select `agent-utilities:delegate-map-reduce`. In Pi, use `/skill:delegate-map-reduce` after discovery with skill commands enabled. Load or reload the host's resources to make a new installation visible in an open session.

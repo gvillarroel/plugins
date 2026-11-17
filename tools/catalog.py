@@ -15,7 +15,7 @@ from pathlib import Path
 import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
-CLIENTS = ("codex", "copilot", "claude")
+CLIENTS = ("codex", "claude", "copilot", "pi")
 LOCATIONS = {
     "codex": ".agents/plugins/marketplace.json",
     "copilot": ".github/plugin/marketplace.json",
@@ -66,8 +66,9 @@ def build():
         "claude": {**common, "description": config["description"], "plugins": []},
     }
     outputs = {}
-    docs = ["# Catálogo de plugins", "",
-            "Cada enlace abre la copia de la skill que pertenece a ese plugin.", ""]
+    docs = ["# Plugin catalog", "",
+            "Register the marketplace once in your client using the [installation guide](../README.md#install-from-github). "
+            "Run Pi commands from the root of a local clone. Each skill link opens the version shipped by that plugin.", ""]
     folders = sorted(p for p in (ROOT / "plugins").iterdir() if p.is_dir())
     overrides = config.get("clients", {})
     if unknown := set(overrides) - {p.name for p in folders}:
@@ -107,16 +108,25 @@ def build():
         if "copilot" in clients:
             catalogs["copilot"]["plugins"].append(entry)
 
-        labels = {"codex": "Codex", "copilot": "Copilot CLI", "claude": "Claude Code"}
-        docs += [f"## {key}", "", desc, "",
-                 "Disponible en " + ", ".join(labels[c] for c in clients) + ".", ""]
+        selector = f"{key}@{name}"
+        commands = {
+            "codex": ("Codex", f"codex plugin add {selector}"),
+            "claude": ("Claude Code", f"claude plugin install {selector}"),
+            "copilot": ("GitHub Copilot CLI", f"copilot plugin install {selector}"),
+            "pi": ("Pi (skills)", f"pi install {source}"),
+        }
+        docs += [f"## {key}", "", desc, "", "| Client | Install command |", "| --- | --- |"]
+        for client in clients:
+            label, command = commands[client]
+            docs.append(f"| {label} | `{command}` |")
+        docs += ["", "**Skills**", ""]
         docs += [f"- [{s}](../plugins/{key}/skills/{s}/SKILL.md)" for s in names]
         docs.append("")
 
     for client, catalog in catalogs.items():
         outputs[ROOT / LOCATIONS[client]] = json_text(catalog)
     outputs[ROOT / "docs/catalog.md"] = "\n".join(docs)
-    return outputs, {c: len(catalogs[c]["plugins"]) for c in CLIENTS}
+    return outputs, {client: len(catalog["plugins"]) for client, catalog in catalogs.items()}
 
 
 def main():

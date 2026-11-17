@@ -9,7 +9,7 @@
       "name": "agent-utilities",
       "source": "./plugins/agent-utilities",
       "description": "Discover plugins, coordinate multi-source research and refactor complex methods.",
-      "version": "1.0.1"
+      "version": "1.0.2"
     },
     {
       "name": "cloud-operations",
@@ -153,7 +153,7 @@
       "name": "store-studio",
       "source": "./plugins/store-studio",
       "description": "Prepare, critique and market print-on-demand products with artwork, photoshoots and Printify workflows.",
-      "version": "1.0.0"
+      "version": "1.0.1"
     },
     {
       "name": "video-production",

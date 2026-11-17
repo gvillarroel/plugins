@@ -1,12 +1,16 @@
-# Catálogo de plugins
+# Plugin catalog
 
-Cada enlace abre la copia de la skill que pertenece a ese plugin.
+Register the marketplace once in your client using the [installation guide](../README.md#install-from-github). Run Pi commands from the root of a local clone. Each skill link opens the version shipped by that plugin.
 
 ## agent-foundry
 
 Manage a declarative user bench, current-folder profiles, disposable subagents, and trusted skill references.
 
-Disponible en Copilot CLI.
+| Client | Install command |
+| --- | --- |
+| GitHub Copilot CLI | `copilot plugin install agent-foundry@plugins` |
+
+**Skills**
 
 - [contract](../plugins/agent-foundry/skills/contract/SKILL.md)
 
@@ -14,7 +18,14 @@ Disponible en Copilot CLI.
 
 Discover plugins, coordinate multi-source research and refactor complex methods.
 
-Disponible en Codex, Copilot CLI, Claude Code.
+| Client | Install command |
+| --- | --- |
+| Codex | `codex plugin add agent-utilities@plugins` |
+| Claude Code | `claude plugin install agent-utilities@plugins` |
+| GitHub Copilot CLI | `copilot plugin install agent-utilities@plugins` |
+| Pi (skills) | `pi install ./plugins/agent-utilities` |
+
+**Skills**
 
 - [delegate-map-reduce](../plugins/agent-utilities/skills/delegate-map-reduce/SKILL.md)
 - [find-skills](../plugins/agent-utilities/skills/find-skills/SKILL.md)
@@ -24,7 +35,14 @@ Disponible en Codex, Copilot CLI, Claude Code.
 
 Work with GCS user access, Google Cloud SKU pricing and evaluation datasets for GCP Radar.
 
-Disponible en Codex, Copilot CLI, Claude Code.
+| Client | Install command |
+| --- | --- |
+| Codex | `codex plugin add cloud-operations@plugins` |
+| Claude Code | `claude plugin install cloud-operations@plugins` |
+| GitHub Copilot CLI | `copilot plugin install cloud-operations@plugins` |
+| Pi (skills) | `pi install ./plugins/cloud-operations` |
+
+**Skills**
 
 - [gcs-user-access](../plugins/cloud-operations/skills/gcs-user-access/SKILL.md)
 - [google-cloud-sku-pricing](../plugins/cloud-operations/skills/google-cloud-sku-pricing/SKILL.md)
@@ -34,7 +52,14 @@ Disponible en Codex, Copilot CLI, Claude Code.
 
 Prepare Markdown for Confluence and round-trip pages with their attachments and formatting.
 
-Disponible en Codex, Copilot CLI, Claude Code.
+| Client | Install command |
+| --- | --- |
+| Codex | `codex plugin add confluence-publishing@plugins` |
+| Claude Code | `claude plugin install confluence-publishing@plugins` |
+| GitHub Copilot CLI | `copilot plugin install confluence-publishing@plugins` |
+| Pi (skills) | `pi install ./plugins/confluence-publishing` |
+
+**Skills**
 
 - [md2conf](../plugins/confluence-publishing/skills/md2conf/SKILL.md)
 - [roundtrip-confluence-pages](../plugins/confluence-publishing/skills/roundtrip-confluence-pages/SKILL.md)
@@ -43,7 +68,14 @@ Disponible en Codex, Copilot CLI, Claude Code.
 
 Plan, generate and evaluate synthetic tabular datasets, build simulations and test their quality and privacy.
 
-Disponible en Codex, Copilot CLI, Claude Code.
+| Client | Install command |
+| --- | --- |
+| Codex | `codex plugin add data-simulation@plugins` |
+| Claude Code | `claude plugin install data-simulation@plugins` |
+| GitHub Copilot CLI | `copilot plugin install data-simulation@plugins` |
+| Pi (skills) | `pi install ./plugins/data-simulation` |
+
+**Skills**
 
 - [evaluate-synthetic-data](../plugins/data-simulation/skills/evaluate-synthetic-data/SKILL.md)
 - [generate-synthetic-data](../plugins/data-simulation/skills/generate-synthetic-data/SKILL.md)
@@ -56,7 +88,14 @@ Disponible en Codex, Copilot CLI, Claude Code.
 
 Extract requirements, review assumptions, plan delivery and construct project-specific Harbor evaluation datasets.
 
-Disponible en Codex, Copilot CLI, Claude Code.
+| Client | Install command |
+| --- | --- |
+| Codex | `codex plugin add delivery-planning@plugins` |
+| Claude Code | `claude plugin install delivery-planning@plugins` |
+| GitHub Copilot CLI | `copilot plugin install delivery-planning@plugins` |
+| Pi (skills) | `pi install ./plugins/delivery-planning` |
+
+**Skills**
 
 - [build-delivery-plan](../plugins/delivery-planning/skills/build-delivery-plan/SKILL.md)
 - [challenge-assumptions](../plugins/delivery-planning/skills/challenge-assumptions/SKILL.md)
@@ -67,7 +106,14 @@ Disponible en Codex, Copilot CLI, Claude Code.
 
 Find licensed visual assets, stock footage, textures, icons and technical logos for creative projects.
 
-Disponible en Codex, Copilot CLI, Claude Code.
+| Client | Install command |
+| --- | --- |
+| Codex | `codex plugin add design-assets@plugins` |
+| Claude Code | `claude plugin install design-assets@plugins` |
+| GitHub Copilot CLI | `copilot plugin install design-assets@plugins` |
+| Pi (skills) | `pi install ./plugins/design-assets` |
+
+**Skills**
 
 - [ambientcg-material-search](../plugins/design-assets/skills/ambientcg-material-search/SKILL.md)
 - [destockd-video-search](../plugins/design-assets/skills/destockd-video-search/SKILL.md)
@@ -81,7 +127,14 @@ Disponible en Codex, Copilot CLI, Claude Code.
 
 Compose and animate diagrams, charts and SVGs with D3, Mermaid, PlantUML, ECharts and Lucidchart.
 
-Disponible en Codex, Copilot CLI, Claude Code.
+| Client | Install command |
+| --- | --- |
+| Codex | `codex plugin add diagram-studio@plugins` |
+| Claude Code | `claude plugin install diagram-studio@plugins` |
+| GitHub Copilot CLI | `copilot plugin install diagram-studio@plugins` |
+| Pi (skills) | `pi install ./plugins/diagram-studio` |
+
+**Skills**
 
 - [compose-synchronized-svg](../plugins/diagram-studio/skills/compose-synchronized-svg/SKILL.md)
 - [d3](../plugins/diagram-studio/skills/d3/SKILL.md)
@@ -99,7 +152,14 @@ Disponible en Codex, Copilot CLI, Claude Code.
 
 Find reaction GIFs and consult the blog workspace's verified expert sources while drafting articles.
 
-Disponible en Codex, Copilot CLI, Claude Code.
+| Client | Install command |
+| --- | --- |
+| Codex | `codex plugin add editorial-research@plugins` |
+| Claude Code | `claude plugin install editorial-research@plugins` |
+| GitHub Copilot CLI | `copilot plugin install editorial-research@plugins` |
+| Pi (skills) | `pi install ./plugins/editorial-research` |
+
+**Skills**
 
 - [choose-contextual-gif](../plugins/editorial-research/skills/choose-contextual-gif/SKILL.md)
 - [consult-expert-knowledge](../plugins/editorial-research/skills/consult-expert-knowledge/SKILL.md)
@@ -108,7 +168,14 @@ Disponible en Codex, Copilot CLI, Claude Code.
 
 Author evaluation datasets, organize and report native Harbor studies, recover external failures, and improve complete skills with controlled evolution and independent validation.
 
-Disponible en Codex, Copilot CLI, Claude Code.
+| Client | Install command |
+| --- | --- |
+| Codex | `codex plugin add harbor@plugins` |
+| Claude Code | `claude plugin install harbor@plugins` |
+| GitHub Copilot CLI | `copilot plugin install harbor@plugins` |
+| Pi (skills) | `pi install ./plugins/harbor` |
+
+**Skills**
 
 - [harbor-author-evaluation-datasets](../plugins/harbor/skills/harbor-author-evaluation-datasets/SKILL.md)
 - [harbor-evolve-skill](../plugins/harbor/skills/harbor-evolve-skill/SKILL.md)
@@ -127,7 +194,14 @@ Disponible en Codex, Copilot CLI, Claude Code.
 
 Compose and render HTML video using HyperFrames by HeyGen and the project Colorsets.
 
-Disponible en Codex, Copilot CLI, Claude Code.
+| Client | Install command |
+| --- | --- |
+| Codex | `codex plugin add hyperframes@plugins` |
+| Claude Code | `claude plugin install hyperframes@plugins` |
+| GitHub Copilot CLI | `copilot plugin install hyperframes@plugins` |
+| Pi (skills) | `pi install ./plugins/hyperframes` |
+
+**Skills**
 
 - [colorsets](../plugins/hyperframes/skills/colorsets/SKILL.md)
 - [hyperframes](../plugins/hyperframes/skills/hyperframes/SKILL.md)
@@ -139,7 +213,14 @@ Disponible en Codex, Copilot CLI, Claude Code.
 
 Build expert skills and knowledge bundles, extract ontologies and review methodology against its bundled research corpus.
 
-Disponible en Codex, Copilot CLI, Claude Code.
+| Client | Install command |
+| --- | --- |
+| Codex | `codex plugin add knowledge-authoring@plugins` |
+| Claude Code | `claude plugin install knowledge-authoring@plugins` |
+| GitHub Copilot CLI | `copilot plugin install knowledge-authoring@plugins` |
+| Pi (skills) | `pi install ./plugins/knowledge-authoring` |
+
+**Skills**
 
 - [build-classical-chunked-knowledge-skill](../plugins/knowledge-authoring/skills/build-classical-chunked-knowledge-skill/SKILL.md)
 - [build-classical-knowledge-skill](../plugins/knowledge-authoring/skills/build-classical-knowledge-skill/SKILL.md)
@@ -154,7 +235,14 @@ Disponible en Codex, Copilot CLI, Claude Code.
 
 Register, index and search knowledge with know, XERJ, OpenWiki, Open Ontologies and Television.
 
-Disponible en Codex, Copilot CLI, Claude Code.
+| Client | Install command |
+| --- | --- |
+| Codex | `codex plugin add knowledge-tools@plugins` |
+| Claude Code | `claude plugin install knowledge-tools@plugins` |
+| GitHub Copilot CLI | `copilot plugin install knowledge-tools@plugins` |
+| Pi (skills) | `pi install ./plugins/knowledge-tools` |
+
+**Skills**
 
 - [know](../plugins/knowledge-tools/skills/know/SKILL.md)
 - [open-ontologies](../plugins/knowledge-tools/skills/open-ontologies/SKILL.md)
@@ -166,7 +254,14 @@ Disponible en Codex, Copilot CLI, Claude Code.
 
 Author and audit Harbor evaluation datasets for the Layers workspace.
 
-Disponible en Codex, Copilot CLI, Claude Code.
+| Client | Install command |
+| --- | --- |
+| Codex | `codex plugin add layers-evaluation@plugins` |
+| Claude Code | `claude plugin install layers-evaluation@plugins` |
+| GitHub Copilot CLI | `copilot plugin install layers-evaluation@plugins` |
+| Pi (skills) | `pi install ./plugins/layers-evaluation` |
+
+**Skills**
 
 - [harbor-author-evaluation-datasets](../plugins/layers-evaluation/skills/harbor-author-evaluation-datasets/SKILL.md)
 
@@ -174,7 +269,14 @@ Disponible en Codex, Copilot CLI, Claude Code.
 
 Create clean explanatory videos with sourced object photographs, restrained image treatments, original-paper tours, D3/Mermaid diagrams, semantic focus and editable timing. Includes whole-film review and a Google Vids narration and delivery adapter.
 
-Disponible en Codex, Copilot CLI, Claude Code.
+| Client | Install command |
+| --- | --- |
+| Codex | `codex plugin add line-world-video@plugins` |
+| Claude Code | `claude plugin install line-world-video@plugins` |
+| GitHub Copilot CLI | `copilot plugin install line-world-video@plugins` |
+| Pi (skills) | `pi install ./plugins/line-world-video` |
+
+**Skills**
 
 - [line-world-d3](../plugins/line-world-video/skills/line-world-d3/SKILL.md)
 - [line-world-google-vids](../plugins/line-world-video/skills/line-world-google-vids/SKILL.md)
@@ -187,7 +289,14 @@ Disponible en Codex, Copilot CLI, Claude Code.
 
 Create, inspect and visually verify PDFs with the workstation PDF workflow.
 
-Disponible en Codex, Copilot CLI, Claude Code.
+| Client | Install command |
+| --- | --- |
+| Codex | `codex plugin add local-pdf@plugins` |
+| Claude Code | `claude plugin install local-pdf@plugins` |
+| GitHub Copilot CLI | `copilot plugin install local-pdf@plugins` |
+| Pi (skills) | `pi install ./plugins/local-pdf` |
+
+**Skills**
 
 - [pdf](../plugins/local-pdf/skills/pdf/SKILL.md)
 
@@ -195,7 +304,14 @@ Disponible en Codex, Copilot CLI, Claude Code.
 
 Verify that installed skills can read the proof files shipped in their own package.
 
-Disponible en Codex, Copilot CLI, Claude Code.
+| Client | Install command |
+| --- | --- |
+| Codex | `codex plugin add marketplace-check@plugins` |
+| Claude Code | `claude plugin install marketplace-check@plugins` |
+| GitHub Copilot CLI | `copilot plugin install marketplace-check@plugins` |
+| Pi (skills) | `pi install ./plugins/marketplace-check` |
+
+**Skills**
 
 - [shared-example-1](../plugins/marketplace-check/skills/shared-example-1/SKILL.md)
 - [shared-example-2](../plugins/marketplace-check/skills/shared-example-2/SKILL.md)
@@ -205,7 +321,14 @@ Disponible en Codex, Copilot CLI, Claude Code.
 
 Build Material UI components and themes.
 
-Disponible en Codex, Copilot CLI, Claude Code.
+| Client | Install command |
+| --- | --- |
+| Codex | `codex plugin add material-ui@plugins` |
+| Claude Code | `claude plugin install material-ui@plugins` |
+| GitHub Copilot CLI | `copilot plugin install material-ui@plugins` |
+| Pi (skills) | `pi install ./plugins/material-ui` |
+
+**Skills**
 
 - [mui](../plugins/material-ui/skills/mui/SKILL.md)
 
@@ -213,7 +336,14 @@ Disponible en Codex, Copilot CLI, Claude Code.
 
 Design agent plugin interfaces and MCP Apps, and author evaluation datasets in the marketplace development context.
 
-Disponible en Codex, Copilot CLI, Claude Code.
+| Client | Install command |
+| --- | --- |
+| Codex | `codex plugin add plugin-authoring@plugins` |
+| Claude Code | `claude plugin install plugin-authoring@plugins` |
+| GitHub Copilot CLI | `copilot plugin install plugin-authoring@plugins` |
+| Pi (skills) | `pi install ./plugins/plugin-authoring` |
+
+**Skills**
 
 - [chatgpt-desktop-plugin-ui](../plugins/plugin-authoring/skills/chatgpt-desktop-plugin-ui/SKILL.md)
 - [code-native-plugin-ui](../plugins/plugin-authoring/skills/code-native-plugin-ui/SKILL.md)
@@ -228,7 +358,14 @@ Disponible en Codex, Copilot CLI, Claude Code.
 
 Build and audit Slidev presentations or transfer D3 graphics into editable Google Slides.
 
-Disponible en Codex, Copilot CLI, Claude Code.
+| Client | Install command |
+| --- | --- |
+| Codex | `codex plugin add presentation-studio@plugins` |
+| Claude Code | `claude plugin install presentation-studio@plugins` |
+| GitHub Copilot CLI | `copilot plugin install presentation-studio@plugins` |
+| Pi (skills) | `pi install ./plugins/presentation-studio` |
+
+**Skills**
 
 - [d3-google-slides](../plugins/presentation-studio/skills/d3-google-slides/SKILL.md)
 - [slidev-animejs](../plugins/presentation-studio/skills/slidev-animejs/SKILL.md)
@@ -239,7 +376,14 @@ Disponible en Codex, Copilot CLI, Claude Code.
 
 Create interactive Python XY charts with a local MCP renderer and standalone HTML export.
 
-Disponible en Codex, Copilot CLI, Claude Code.
+| Client | Install command |
+| --- | --- |
+| Codex | `codex plugin add reflex-xy@plugins` |
+| Claude Code | `claude plugin install reflex-xy@plugins` |
+| GitHub Copilot CLI | `copilot plugin install reflex-xy@plugins` |
+| Pi (skills) | `pi install ./plugins/reflex-xy` |
+
+**Skills**
 
 - [reflex-xy](../plugins/reflex-xy/skills/reflex-xy/SKILL.md)
 
@@ -247,7 +391,14 @@ Disponible en Codex, Copilot CLI, Claude Code.
 
 Curate semantic models, extract ontologies and map evidence to knowledge catalogs, book analysis and question indexes.
 
-Disponible en Codex, Copilot CLI, Claude Code.
+| Client | Install command |
+| --- | --- |
+| Codex | `codex plugin add semantic-curation@plugins` |
+| Claude Code | `claude plugin install semantic-curation@plugins` |
+| GitHub Copilot CLI | `copilot plugin install semantic-curation@plugins` |
+| Pi (skills) | `pi install ./plugins/semantic-curation` |
+
+**Skills**
 
 - [book-semantic-analysis](../plugins/semantic-curation/skills/book-semantic-analysis/SKILL.md)
 - [curate-semantic-model](../plugins/semantic-curation/skills/curate-semantic-model/SKILL.md)
@@ -260,7 +411,14 @@ Disponible en Codex, Copilot CLI, Claude Code.
 
 Build and query graph-based Semantic OKF snapshots, including entity graphs, Graphify and procedural graphs.
 
-Disponible en Codex, Copilot CLI, Claude Code.
+| Client | Install command |
+| --- | --- |
+| Codex | `codex plugin add semantic-graphs@plugins` |
+| Claude Code | `claude plugin install semantic-graphs@plugins` |
+| GitHub Copilot CLI | `copilot plugin install semantic-graphs@plugins` |
+| Pi (skills) | `pi install ./plugins/semantic-graphs` |
+
+**Skills**
 
 - [build-semantic-okf-entity-graph](../plugins/semantic-graphs/skills/build-semantic-okf-entity-graph/SKILL.md)
 - [build-semantic-okf-graphify](../plugins/semantic-graphs/skills/build-semantic-okf-graphify/SKILL.md)
@@ -276,7 +434,14 @@ Disponible en Codex, Copilot CLI, Claude Code.
 
 Build, consult and visualize Semantic OKF snapshots with classical, adaptive, embedding and ensemble retrieval.
 
-Disponible en Codex, Copilot CLI, Claude Code.
+| Client | Install command |
+| --- | --- |
+| Codex | `codex plugin add semantic-okf@plugins` |
+| Claude Code | `claude plugin install semantic-okf@plugins` |
+| GitHub Copilot CLI | `copilot plugin install semantic-okf@plugins` |
+| Pi (skills) | `pi install ./plugins/semantic-okf` |
+
+**Skills**
 
 - [build-semantic-okf](../plugins/semantic-okf/skills/build-semantic-okf/SKILL.md)
 - [build-semantic-okf-adaptive](../plugins/semantic-okf/skills/build-semantic-okf-adaptive/SKILL.md)
@@ -299,7 +464,14 @@ Disponible en Codex, Copilot CLI, Claude Code.
 
 Build and query knowledge snapshots with Tantivy, Turso, Tika and RustMallet search backends.
 
-Disponible en Codex, Copilot CLI, Claude Code.
+| Client | Install command |
+| --- | --- |
+| Codex | `codex plugin add semantic-search@plugins` |
+| Claude Code | `claude plugin install semantic-search@plugins` |
+| GitHub Copilot CLI | `copilot plugin install semantic-search@plugins` |
+| Pi (skills) | `pi install ./plugins/semantic-search` |
+
+**Skills**
 
 - [build-semantic-okf-rust-mallet](../plugins/semantic-search/skills/build-semantic-okf-rust-mallet/SKILL.md)
 - [build-semantic-okf-rust-mallet-evolved](../plugins/semantic-search/skills/build-semantic-okf-rust-mallet-evolved/SKILL.md)
@@ -318,7 +490,14 @@ Disponible en Codex, Copilot CLI, Claude Code.
 
 Prepare, critique and market print-on-demand products with artwork, photoshoots and Printify workflows.
 
-Disponible en Codex, Copilot CLI, Claude Code.
+| Client | Install command |
+| --- | --- |
+| Codex | `codex plugin add store-studio@plugins` |
+| Claude Code | `claude plugin install store-studio@plugins` |
+| GitHub Copilot CLI | `copilot plugin install store-studio@plugins` |
+| Pi (skills) | `pi install ./plugins/store-studio` |
+
+**Skills**
 
 - [create-printify-product](../plugins/store-studio/skills/create-printify-product/SKILL.md)
 - [create-shirt-product](../plugins/store-studio/skills/create-shirt-product/SKILL.md)
@@ -334,7 +513,14 @@ Disponible en Codex, Copilot CLI, Claude Code.
 
 Plan and produce mixed-media videos with motion graphics, screen recordings, audio and delivery through Google Vids.
 
-Disponible en Codex, Copilot CLI, Claude Code.
+| Client | Install command |
+| --- | --- |
+| Codex | `codex plugin add video-production@plugins` |
+| Claude Code | `claude plugin install video-production@plugins` |
+| GitHub Copilot CLI | `copilot plugin install video-production@plugins` |
+| Pi (skills) | `pi install ./plugins/video-production` |
+
+**Skills**
 
 - [animated-svg-to-gif](../plugins/video-production/skills/animated-svg-to-gif/SKILL.md)
 - [asciinema-real-command-video](../plugins/video-production/skills/asciinema-real-command-video/SKILL.md)
@@ -351,7 +537,14 @@ Disponible en Codex, Copilot CLI, Claude Code.
 
 Create 3D scenes, pixel art, vector patterns and image effects using Three.js, Kornia and SVG.
 
-Disponible en Codex, Copilot CLI, Claude Code.
+| Client | Install command |
+| --- | --- |
+| Codex | `codex plugin add visual-effects@plugins` |
+| Claude Code | `claude plugin install visual-effects@plugins` |
+| GitHub Copilot CLI | `copilot plugin install visual-effects@plugins` |
+| Pi (skills) | `pi install ./plugins/visual-effects` |
+
+**Skills**
 
 - [kornia-artistic-transforms](../plugins/visual-effects/skills/kornia-artistic-transforms/SKILL.md)
 - [one-bit-dither-svg](../plugins/visual-effects/skills/one-bit-dither-svg/SKILL.md)
@@ -363,7 +556,14 @@ Disponible en Codex, Copilot CLI, Claude Code.
 
 Author ZX and Pi workflows, durable agent applications, repository reviewers and batch decisions.
 
-Disponible en Codex, Copilot CLI, Claude Code.
+| Client | Install command |
+| --- | --- |
+| Codex | `codex plugin add workflow-engineering@plugins` |
+| Claude Code | `claude plugin install workflow-engineering@plugins` |
+| GitHub Copilot CLI | `copilot plugin install workflow-engineering@plugins` |
+| Pi (skills) | `pi install ./plugins/workflow-engineering` |
+
+**Skills**
 
 - [jev-batch-decisions](../plugins/workflow-engineering/skills/jev-batch-decisions/SKILL.md)
 - [pi-durable](../plugins/workflow-engineering/skills/pi-durable/SKILL.md)
@@ -375,7 +575,14 @@ Disponible en Codex, Copilot CLI, Claude Code.
 
 Operate Google Workspace from the command line, automate browsers and produce HTML animation videos.
 
-Disponible en Codex, Copilot CLI, Claude Code.
+| Client | Install command |
+| --- | --- |
+| Codex | `codex plugin add workstation-tools@plugins` |
+| Claude Code | `claude plugin install workstation-tools@plugins` |
+| GitHub Copilot CLI | `copilot plugin install workstation-tools@plugins` |
+| Pi (skills) | `pi install ./plugins/workstation-tools` |
+
+**Skills**
 
 - [gws-shared](../plugins/workstation-tools/skills/gws-shared/SKILL.md)
 - [html-d3-anime-video-workflow](../plugins/workstation-tools/skills/html-d3-anime-video-workflow/SKILL.md)
