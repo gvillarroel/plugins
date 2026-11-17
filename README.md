@@ -16,6 +16,8 @@ Con una cuenta que tenga acceso a `gvillarroel/plugins`, registra el marketplace
 
 Las utilidades personales también se instalan desde este catálogo. Por ejemplo, `agent-utilities@plugins` contiene `find-skills` y `delegate-map-reduce`, y `workstation-tools@plugins` contiene Playwright y las instrucciones de Google Workspace CLI.
 
+En Windows, si Git muestra `Filename too long` al registrar el marketplace, ejecuta `git config --global core.longpaths true` y repite el registro. Algunos clientes crean el clon dentro de varias carpetas temporales.
+
 ## Trabajar desde un clon
 
 ```sh

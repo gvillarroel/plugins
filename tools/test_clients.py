@@ -49,9 +49,9 @@ def verify(client, only, marketplace_source):
                    CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC="1", DISABLE_AUTOUPDATER="1",
                    NO_COLOR="1", PYTHONDONTWRITEBYTECODE="1")
 
-        def run(*args):
+        def run(*args, timeout=180):
             result = subprocess.run([executable, *args], cwd=work, env=env, stdin=subprocess.DEVNULL,
-                                    capture_output=True, encoding="utf-8", errors="replace", timeout=180)
+                                    capture_output=True, encoding="utf-8", errors="replace", timeout=timeout)
             if result.returncode:
                 raise RuntimeError(f"{client} {' '.join(args)}\n{result.stdout}\n{result.stderr}")
             return result.stdout.strip()
@@ -60,7 +60,8 @@ def verify(client, only, marketplace_source):
             return json.loads(run(*args))
 
         print(run("--version").splitlines()[0], flush=True)
-        run("plugin", "marketplace", "add", marketplace_source)
+        # A remote registration may fetch every plugin before the client returns.
+        run("plugin", "marketplace", "add", marketplace_source, timeout=600)
         if client == "claude":
             read("plugin", "validate", str(ROOT / CATALOGS[client]), "--strict", "--json")
             listed = read("plugin", "list", "--available", "--json")["available"]
