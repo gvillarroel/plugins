@@ -1,0 +1,14 @@
+{
+  "name": "agent-utilities",
+  "version": "1.0.1",
+  "description": "Discover plugins, coordinate multi-source research and refactor complex methods.",
+  "author": {
+    "name": "gvillarroel"
+  },
+  "interface": {
+    "displayName": "Agent Utilities",
+    "shortDescription": "Discover plugins, coordinate multi-source research and refactor complex methods.",
+    "category": "Productivity"
+  },
+  "skills": "./skills/"
+}

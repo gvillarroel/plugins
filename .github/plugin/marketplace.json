@@ -14,6 +14,12 @@
       "version": "0.12.1"
     },
     {
+      "name": "agent-utilities",
+      "source": "./plugins/agent-utilities",
+      "description": "Discover plugins, coordinate multi-source research and refactor complex methods.",
+      "version": "1.0.1"
+    },
+    {
       "name": "cloud-operations",
       "source": "./plugins/cloud-operations",
       "description": "Work with GCS user access, Google Cloud SKU pricing and evaluation datasets for GCP Radar.",
@@ -92,10 +98,22 @@
       "version": "0.27.0"
     },
     {
+      "name": "local-pdf",
+      "source": "./plugins/local-pdf",
+      "description": "Create, inspect and visually verify PDFs with the workstation PDF workflow.",
+      "version": "1.0.0"
+    },
+    {
       "name": "marketplace-check",
       "source": "./plugins/marketplace-check",
       "description": "Verify that installed skills can read the proof files shipped in their own package.",
       "version": "1.0.0"
+    },
+    {
+      "name": "material-ui",
+      "source": "./plugins/material-ui",
+      "description": "Build Material UI components and themes.",
+      "version": "1.0.1"
     },
     {
       "name": "plugin-authoring",
@@ -162,6 +180,12 @@
       "source": "./plugins/workflow-engineering",
       "description": "Author ZX and Pi workflows, durable agent applications, repository reviewers and batch decisions.",
       "version": "1.0.0"
+    },
+    {
+      "name": "workstation-tools",
+      "source": "./plugins/workstation-tools",
+      "description": "Operate Google Workspace from the command line, automate browsers and produce HTML animation videos.",
+      "version": "1.0.1"
     }
   ]
 }

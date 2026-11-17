@@ -1,0 +1,14 @@
+{
+  "name": "material-ui",
+  "version": "1.0.1",
+  "description": "Build Material UI components and themes.",
+  "author": {
+    "name": "gvillarroel"
+  },
+  "interface": {
+    "displayName": "Material UI",
+    "shortDescription": "Build Material UI components and themes.",
+    "category": "Productivity"
+  },
+  "skills": "./skills/"
+}

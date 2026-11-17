@@ -1,0 +1,18 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "local-pdf",
+  "version": "1.0.0",
+  "description": "Create, inspect and visually verify PDFs with the workstation PDF workflow.",
+  "author": {
+    "name": "gvillarroel"
+  },
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Local PDF",
+        "shortDescription": "Create, inspect and visually verify PDFs with the workstation PDF workflow.",
+        "category": "Productivity"
+      }
+    }
+  }
+}

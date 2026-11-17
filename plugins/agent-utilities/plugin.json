@@ -1,0 +1,18 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "agent-utilities",
+  "version": "1.0.1",
+  "description": "Discover plugins, coordinate multi-source research and refactor complex methods.",
+  "author": {
+    "name": "gvillarroel"
+  },
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Agent Utilities",
+        "shortDescription": "Discover plugins, coordinate multi-source research and refactor complex methods.",
+        "category": "Productivity"
+      }
+    }
+  }
+}

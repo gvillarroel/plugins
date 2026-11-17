@@ -1,0 +1,14 @@
+{
+  "name": "workstation-tools",
+  "version": "1.0.1",
+  "description": "Operate Google Workspace from the command line, automate browsers and produce HTML animation videos.",
+  "author": {
+    "name": "gvillarroel"
+  },
+  "interface": {
+    "displayName": "Workstation Tools",
+    "shortDescription": "Operate Google Workspace from the command line, automate browsers and produce HTML animation videos.",
+    "category": "Productivity"
+  },
+  "skills": "./skills/"
+}

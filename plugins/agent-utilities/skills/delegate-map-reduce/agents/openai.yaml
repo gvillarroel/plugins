@@ -1,0 +1,4 @@
+interface:
+  display_name: "Delegar con map reduce"
+  short_description: "Delegación paralela con evidencia, cobertura y caché"
+  default_prompt: "Usa $delegate-map-reduce para dividir este trabajo, delegar las unidades independientes y entregar una conclusión con evidencia y cobertura verificadas."

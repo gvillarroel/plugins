@@ -30,7 +30,7 @@ def check_payload(source, installed):
                 raise RuntimeError(f"Installed content differs: {installed / path}")
 
 
-def verify(client, only):
+def verify(client, only, marketplace_source):
     executable = shutil.which(client)
     if not executable:
         raise SystemExit(f"{client} is required for this test")
@@ -60,7 +60,7 @@ def verify(client, only):
             return json.loads(run(*args))
 
         print(run("--version").splitlines()[0], flush=True)
-        run("plugin", "marketplace", "add", str(ROOT))
+        run("plugin", "marketplace", "add", marketplace_source)
         if client == "claude":
             read("plugin", "validate", str(ROOT / CATALOGS[client]), "--strict", "--json")
             listed = read("plugin", "list", "--available", "--json")["available"]
@@ -113,5 +113,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("client", choices=sorted(CATALOGS))
     parser.add_argument("--plugin", help="Install only this plugin after checking the full catalog.")
+    parser.add_argument("--source", default=str(ROOT), help="Marketplace to register, for example gvillarroel/plugins. Defaults to this checkout.")
     args = parser.parse_args()
-    verify(args.client, args.plugin)
+    verify(args.client, args.plugin, args.source)

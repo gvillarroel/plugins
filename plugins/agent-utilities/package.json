@@ -1,0 +1,10 @@
+{
+  "name": "agent-utilities",
+  "version": "1.0.1",
+  "private": true,
+  "pi": {
+    "skills": [
+      "./skills"
+    ]
+  }
+}

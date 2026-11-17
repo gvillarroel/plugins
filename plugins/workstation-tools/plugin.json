@@ -1,0 +1,18 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "workstation-tools",
+  "version": "1.0.1",
+  "description": "Operate Google Workspace from the command line, automate browsers and produce HTML animation videos.",
+  "author": {
+    "name": "gvillarroel"
+  },
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Workstation Tools",
+        "shortDescription": "Operate Google Workspace from the command line, automate browsers and produce HTML animation videos.",
+        "category": "Productivity"
+      }
+    }
+  }
+}

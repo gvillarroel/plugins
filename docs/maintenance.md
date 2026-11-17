@@ -23,11 +23,13 @@ Para añadir un plugin, crea su manifiesto y al menos una carpeta `skills/<nombr
 
 ## Procedencia
 
-El inventario inicial registra 161 copias, 152 nombres de skill y 11 repositorios de `gvillarroel`. [Inventario por plugin y skill](provenance.json).
+El inventario registra 169 copias y 160 nombres de skill. La primera importación reunió 161 copias de 11 repositorios de `gvillarroel`. Otras ocho proceden de los cuatro plugins personales que se incorporaron a este catálogo. [Inventario por plugin y skill](provenance.json).
 
 Cada fila identifica el repositorio, la ruta y el estado en la importación. `committed` proviene de la revisión indicada. `working-tree` incluye cambios locales y `untracked` identifica una skill cuyo archivo principal aún no estaba versionado. `verified-release` identifica las seis variantes del paquete de Line World Video, verificadas contra su manifiesto de distribución. Reflex XY también incorpora los recursos y el servidor de su paquete publicado localmente. Los identificadores de revisión describen el punto de partida de cada checkout. La huella `importSha256` identifica los archivos con los que se inició cada copia, antes de las adaptaciones de este marketplace.
 
 La huella recorre las rutas relativas ordenadas. Para cada archivo incorpora su ruta UTF-8, un byte NUL y los 32 bytes de su SHA-256. Se conservan los avisos de origen y las licencias que acompañan a los paquetes y a sus recursos. El inventario es histórico y puede diferir de una variante editada.
+
+Las filas `packaged-install` registran la ruta y la huella de la copia que se importó del antiguo marketplace personal. Cuando se pudo identificar el archivo de origen, `upstream.skillBlob` indica el blob Git de su `SKILL.md`. Los avisos de licencia correspondientes acompañan a cada skill.
 
 Se incluyeron las carpetas de skills mantenidas en los repositorios, las skills de proyecto en `.agents/skills`, el ejemplo reutilizable de planificación de SDLC y los paquetes seleccionados por los catálogos del repositorio `skills`. Los índices de evaluación, snapshots de candidatos, checkouts temporales e instalaciones de terceros se revisaron como fuentes de contexto. El material de Harbor proviene de tus repositorios. En `mvk-001/skill-arena` la cuenta tenía permiso de escritura y la administración correspondía a otra cuenta.
 
@@ -46,3 +48,5 @@ python tools/test_clients.py codex
 python tools/test_clients.py copilot
 python tools/test_clients.py claude
 ```
+
+Para comprobar la instalación desde GitHub, ejecuta la prueba en un clon actualizado de `main` con credenciales que tengan acceso al repositorio. Por ejemplo, `python tools/test_clients.py codex --source gvillarroel/plugins --plugin agent-utilities` compara el contenido instalado con los archivos del clon.

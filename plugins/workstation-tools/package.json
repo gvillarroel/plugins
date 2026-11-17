@@ -1,0 +1,10 @@
+{
+  "name": "workstation-tools",
+  "version": "1.0.1",
+  "private": true,
+  "pi": {
+    "skills": [
+      "./skills"
+    ]
+  }
+}

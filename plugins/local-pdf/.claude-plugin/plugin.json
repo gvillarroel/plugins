@@ -1,0 +1,8 @@
+{
+  "name": "local-pdf",
+  "version": "1.0.0",
+  "description": "Create, inspect and visually verify PDFs with the workstation PDF workflow.",
+  "author": {
+    "name": "gvillarroel"
+  }
+}

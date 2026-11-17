@@ -70,6 +70,39 @@
       "importSha256": "58a574963334b46ed3a84993b7e97404e6ee966e35987b6f97df3efe7116b804"
     },
     {
+      "plugin": "agent-utilities",
+      "skill": "delegate-map-reduce",
+      "state": "packaged-install",
+      "path": "plugins/agent-utilities/skills/delegate-map-reduce",
+      "importSha256": "88adf22e6865d09d8f9bac1b2b01ede0fd418ff82f55c0a8f4f6e2dbab50f1d4"
+    },
+    {
+      "plugin": "agent-utilities",
+      "skill": "find-skills",
+      "state": "packaged-install",
+      "path": "plugins/agent-utilities/skills/find-skills",
+      "importSha256": "2a1b343c60b9ad2950ece214b8b1b51871525885d4ab68df36e9320b13a738c5",
+      "upstream": {
+        "repository": "vercel-labs/skills",
+        "path": "skills/find-skills/SKILL.md",
+        "skillBlob": "a41bdd074bb587afd861332cf2f473f3154de4d7",
+        "licenseBlob": "eabe3008f6c0275929faa8b07d406e82717648cc"
+      }
+    },
+    {
+      "plugin": "agent-utilities",
+      "skill": "refactor-method-complexity-reduce",
+      "state": "packaged-install",
+      "path": "plugins/agent-utilities/skills/refactor-method-complexity-reduce",
+      "importSha256": "5ef7801a0d452822c1a19b3c4e21e847397a62726d803f392c4beaeeb41c930f",
+      "upstream": {
+        "repository": "github/awesome-copilot",
+        "path": "skills/refactor-method-complexity-reduce/SKILL.md",
+        "skillBlob": "46f0700f595686797dcefc0e1c0143a66da2e67d",
+        "licenseBlob": "89bc5e962c9944cdb050887062afdaaf89be504a"
+      }
+    },
+    {
       "plugin": "cloud-operations",
       "skill": "gcs-user-access",
       "repository": "gvillarroel/skills",
@@ -646,6 +679,18 @@
       "importSha256": "1387adca4d1f6cb852a7d98cab341de7a91991b072d5ce08ca7ff729482d1d72"
     },
     {
+      "plugin": "local-pdf",
+      "skill": "pdf",
+      "state": "packaged-install",
+      "path": "plugins/local-pdf/skills/pdf",
+      "importSha256": "9e29366ccb9e26832d54c68291a336929c76bb2ff2274017f1dbad5f6f2020dd",
+      "upstream": {
+        "repository": "openai/skills",
+        "path": "skills/.curated/pdf/SKILL.md",
+        "skillBlob": "fd5d56058f10202e4f50a30bc2906f39696024a1"
+      }
+    },
+    {
       "plugin": "marketplace-check",
       "skill": "shared-example-1",
       "repository": "gvillarroel/marketplace",
@@ -668,6 +713,19 @@
       "path": "plugins/shared-skills-example/library/shared-example-3",
       "state": "committed",
       "importSha256": "e6241d4b8d734c4bd6537d9b31c6fdf8f51ffaffdc0d370d18eec3da2ad33f45"
+    },
+    {
+      "plugin": "material-ui",
+      "skill": "mui",
+      "state": "packaged-install",
+      "path": "plugins/material-ui/skills/mui",
+      "importSha256": "2a03e9f822713188589a3024905ca5a870b3522bdb74e63c2f932b05d905caef",
+      "upstream": {
+        "repository": "davila7/claude-code-templates",
+        "path": "cli-tool/components/skills/development/mui/SKILL.md",
+        "skillBlob": "cc235b246e3887db6b37dc12c61fdb25a740a3c4",
+        "licenseBlob": "b92d7062bc207a15cf2fee3d04280fec730c8440"
+      }
     },
     {
       "plugin": "plugin-authoring",
@@ -1348,6 +1406,38 @@
       "path": "skills/zx-workflow-author",
       "state": "working-tree",
       "importSha256": "4db460ab3bbb92f66097eec29380d9165bfc2a771af8889c5c7a8fd7d75c524c"
+    },
+    {
+      "plugin": "workstation-tools",
+      "skill": "gws-shared",
+      "state": "packaged-install",
+      "path": "plugins/workstation-tools/skills/gws-shared",
+      "importSha256": "48de1e55959f7524aed3eaf658cf8e703e0be452a544957eb3b71d6be93dd64c",
+      "upstream": {
+        "repository": "googleworkspace/cli",
+        "path": "skills/gws-shared/SKILL.md",
+        "skillBlob": "543ab62c533d731324b2805de919af9794af3fb6",
+        "licenseBlob": "d645695673349e3947e8e5ae42332d0ac3164cd7"
+      }
+    },
+    {
+      "plugin": "workstation-tools",
+      "skill": "html-d3-anime-video-workflow",
+      "state": "packaged-install",
+      "path": "plugins/workstation-tools/skills/html-d3-anime-video-workflow",
+      "importSha256": "df69f48cfe912d63d8b918547da02942eb7d1529d3bb90c334f3f7ba0ec1b9e8"
+    },
+    {
+      "plugin": "workstation-tools",
+      "skill": "playwright",
+      "state": "packaged-install",
+      "path": "plugins/workstation-tools/skills/playwright",
+      "importSha256": "ba18721cfc3b852d9311712a30029dddc40a1a5f89e1cc46d171e18483eba685",
+      "upstream": {
+        "repository": "openai/skills",
+        "path": "skills/.curated/playwright/SKILL.md",
+        "skillBlob": "77c01afb31aa602d0b002ae2438c2b67f0335fcb"
+      }
     }
   ],
   "supportingResources": [

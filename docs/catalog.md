@@ -10,6 +10,16 @@ Disponible en Copilot CLI.
 
 - [contract](../plugins/agent-foundry/skills/contract/SKILL.md)
 
+## agent-utilities
+
+Discover plugins, coordinate multi-source research and refactor complex methods.
+
+Disponible en Codex, Copilot CLI, Claude Code.
+
+- [delegate-map-reduce](../plugins/agent-utilities/skills/delegate-map-reduce/SKILL.md)
+- [find-skills](../plugins/agent-utilities/skills/find-skills/SKILL.md)
+- [refactor-method-complexity-reduce](../plugins/agent-utilities/skills/refactor-method-complexity-reduce/SKILL.md)
+
 ## cloud-operations
 
 Work with GCS user access, Google Cloud SKU pricing and evaluation datasets for GCP Radar.
@@ -173,6 +183,14 @@ Disponible en Codex, Copilot CLI, Claude Code.
 - [line-world-mermaid](../plugins/line-world-video/skills/line-world-mermaid/SKILL.md)
 - [line-world-video](../plugins/line-world-video/skills/line-world-video/SKILL.md)
 
+## local-pdf
+
+Create, inspect and visually verify PDFs with the workstation PDF workflow.
+
+Disponible en Codex, Copilot CLI, Claude Code.
+
+- [pdf](../plugins/local-pdf/skills/pdf/SKILL.md)
+
 ## marketplace-check
 
 Verify that installed skills can read the proof files shipped in their own package.
@@ -182,6 +200,14 @@ Disponible en Codex, Copilot CLI, Claude Code.
 - [shared-example-1](../plugins/marketplace-check/skills/shared-example-1/SKILL.md)
 - [shared-example-2](../plugins/marketplace-check/skills/shared-example-2/SKILL.md)
 - [shared-example-3](../plugins/marketplace-check/skills/shared-example-3/SKILL.md)
+
+## material-ui
+
+Build Material UI components and themes.
+
+Disponible en Codex, Copilot CLI, Claude Code.
+
+- [mui](../plugins/material-ui/skills/mui/SKILL.md)
 
 ## plugin-authoring
 
@@ -344,3 +370,13 @@ Disponible en Codex, Copilot CLI, Claude Code.
 - [pi-mentor](../plugins/workflow-engineering/skills/pi-mentor/SKILL.md)
 - [repository-reviewer-creator](../plugins/workflow-engineering/skills/repository-reviewer-creator/SKILL.md)
 - [zx-workflow-author](../plugins/workflow-engineering/skills/zx-workflow-author/SKILL.md)
+
+## workstation-tools
+
+Operate Google Workspace from the command line, automate browsers and produce HTML animation videos.
+
+Disponible en Codex, Copilot CLI, Claude Code.
+
+- [gws-shared](../plugins/workstation-tools/skills/gws-shared/SKILL.md)
+- [html-d3-anime-video-workflow](../plugins/workstation-tools/skills/html-d3-anime-video-workflow/SKILL.md)
+- [playwright](../plugins/workstation-tools/skills/playwright/SKILL.md)
