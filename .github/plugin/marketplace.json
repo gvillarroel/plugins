@@ -119,7 +119,7 @@
       "name": "plugin-authoring",
       "source": "./plugins/plugin-authoring",
       "description": "Design agent plugin interfaces and MCP Apps, and author evaluation datasets in the marketplace development context.",
-      "version": "1.0.0"
+      "version": "1.0.1"
     },
     {
       "name": "presentation-studio",

@@ -1,0 +1,5 @@
+{
+  "name": "multi-client-hooks",
+  "version": "0.1.0",
+  "hooks": "./hooks/codex.json"
+}

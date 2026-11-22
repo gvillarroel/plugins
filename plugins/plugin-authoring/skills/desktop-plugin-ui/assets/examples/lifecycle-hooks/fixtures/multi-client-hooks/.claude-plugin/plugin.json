@@ -1,0 +1,9 @@
+{
+  "name": "multi-client-hooks",
+  "version": "0.1.0",
+  "description": "Probe lifecycle hooks from one plugin directory.",
+  "author": {
+    "name": "Plugin marketplace maintainers"
+  },
+  "hooks": "./hooks/claude.json"
+}

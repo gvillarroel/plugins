@@ -1,11 +1,15 @@
 ---
 name: desktop-plugin-ui
-description: Compares assistant plugin UI mechanisms and plan interfaces spanning Claude Desktop, Claude Code, Pi, Codex, ChatGPT Desktop, Gemini Enterprise, or Copilot. Use for cross-host surface selection, compatibility studies, and shared-domain adapter blueprints; prefer a dedicated host skill for a single-host implementation.
+description: Compares plugin packaging, lifecycle hooks, skill discovery, marketplace sources, and UI mechanisms across Codex, Claude Code, Copilot, OpenCode, Pi, and desktop surfaces. Use for cross-host compatibility, distribution, and shared-domain adapter blueprints. Prefer a dedicated host skill for a single-host implementation.
 ---
 
 # Assistant Plugin UI Comparison
 
-Start with the pending human decision. Read
+For packaging, marketplace sources, or missing plugin components, start with
+[plugin capabilities by harness](references/plugin-capabilities.md). Match
+the executing build and manifest format before choosing a package layout.
+
+For UI design, start with the pending human decision. Read
 [micro-decisions.md](references/micro-decisions.md) for the default agent UI:
 one bounded question, only decision-relevant evidence, and a typed result
 returned to the agent. Use a full workspace only when the user requests it.
@@ -30,10 +34,11 @@ bundle is independently usable; none requires this comparison bundle.
 | Claude Desktop ordinary Chat | `desktop-chat-plugin-ui` | Connected MCP server, MCP Apps iframe, optional MCPB installer. |
 | Claude Code terminal / Desktop Code / Claude VS Code | `code-native-plugin-ui` | Native command, Mod tree, and frontend-specific controls. |
 | Pi Coding Agent | `pi-extension-ui` | TypeScript commands, native dialogs, widgets, mode-aware TUI/RPC. |
-| Codex CLI / desktop / app-server / IDE | `codex-plugin-ui` | Executing-loader-specific plugins, MCP, negotiated forms, frontend rendering. |
+| Codex CLI / desktop / app-server | `codex-plugin-ui` | Executing-loader-specific plugins, MCP, negotiated forms, frontend rendering. |
 | ChatGPT Desktop | `chatgpt-desktop-plugin-ui` | Local-thread desktop-only plugin or remote MCP Apps connection. |
 | Google Cloud Gemini Enterprise | `gemini-enterprise-ui` | Host-supported A2UI catalogs over A2A, hosted agent, admin registration. |
 | GitHub Copilot | This comparison skill | Select the actual CLI extension or VS Code webview/MCP App route. |
+| OpenCode | This comparison skill | Match the V1 or V2 plugin API and use the native skill sources. |
 
 ## Compare only the relevant surfaces
 

@@ -1,0 +1,9 @@
+{
+  "name": "dual-client-hooks",
+  "version": "0.1.0",
+  "description": "Verify Claude Code and Codex discover separate hooks in the same plugin.",
+  "author": {
+    "name": "Plugin marketplace maintainers"
+  },
+  "hooks": "./hooks/claude.json"
+}

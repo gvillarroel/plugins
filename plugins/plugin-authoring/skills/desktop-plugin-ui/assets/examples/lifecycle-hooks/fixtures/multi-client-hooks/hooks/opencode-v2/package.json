@@ -1,0 +1,6 @@
+{
+  "name": "multi-client-hooks-opencode",
+  "private": true,
+  "type": "module",
+  "exports": "./index.js"
+}

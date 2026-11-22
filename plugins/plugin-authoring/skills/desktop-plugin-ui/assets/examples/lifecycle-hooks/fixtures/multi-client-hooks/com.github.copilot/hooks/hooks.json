@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "hooks": {
+    "sessionStart": [
+      {
+        "type": "command",
+        "exec": "node",
+        "args": ["${PLUGIN_ROOT}/hooks/record.cjs", "copilot:sessionStart"]
+      }
+    ]
+  }
+}

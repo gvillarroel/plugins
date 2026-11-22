@@ -4,6 +4,9 @@ Use when building a local OpenAI plugin, checking an archive, or diagnosing a
 catalog entry that has no tools. Snapshot: October 25, 2026. These are package
 contracts and bounded runtime observations, not frontend paint guarantees.
 
+For skill roots, native overlays, source types, and lifecycle hooks across
+clients, see [plugin capabilities by harness](plugin-capabilities.md).
+
 ## Contents
 
 - [Declare both portable schemas](#declare-both-portable-schemas)
