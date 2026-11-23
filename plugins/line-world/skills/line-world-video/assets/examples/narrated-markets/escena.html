@@ -1,0 +1,439 @@
+<!doctype html><html lang="es"><meta charset="utf-8"><title>La semana en los mercados</title><style>html,body{margin:0;background:white}canvas{display:block;width:100%;height:auto}</style>
+<canvas data-export-surface width="__WIDTH__" height="__HEIGHT__" aria-label="Mercados de la semana"></canvas>
+<script type="application/json" id="payload">__PAYLOAD__</script><script>
+"use strict";
+const D=JSON.parse(document.querySelector("#payload").textContent), S=D.data.series, cx=document.querySelector("canvas").getContext("2d");
+const ink="#333e48", muted="#696969", quiet="#cfcfcf", red="#9e1b32", white="#ffffff";
+const daysMs=86400000;
+const families={sans:"Arial,sans-serif",serif:"Georgia,serif"};
+const mobile=cx.canvas.width===390;
+const f=(n,d=2)=>(n<0?"−":"")+new Intl.NumberFormat("es-ES",{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:"always"}).format(Math.abs(n));
+const signed=(n,d=2)=>(n<0?"−":n>0?"+":"")+f(Math.abs(n),d);
+const tickFormat=new Intl.NumberFormat("es-ES",{maximumFractionDigits:10,useGrouping:"always"});
+const signedTick=n=>(n<0?"−":n>0?"+":"")+tickFormat.format(Math.abs(n));
+const rateLevel=new Intl.NumberFormat("es-ES",{minimumFractionDigits:2,maximumFractionDigits:8});
+const levelLabel=(id,n)=>id==="ust10"?rateLevel.format(n)+" %":f(n);
+const basisPoints=v=>signedTick(+((v[v.length-1]-v[0])*100).toFixed(6))+" pb";
+const last=arr=>arr[arr.length-1], change=id=>(last(S[id].values)/S[id].values[0]-1)*100;
+const direction=id=>Math.sign(last(S[id].values)-S[id].values[0]);
+function bondExample(){
+  const rate=direction("ust10"),rise=rate>0;
+  if(rate===0)return {rate,question:"¿Y su precio?",discount:"El descuento se mantiene.",
+    value:"El valor presente no cambia por la tasa."};
+  return {rate,question:rate*direction("tlt")<0?(rise?"¿Por qué bajan?":"¿Por qué suben?"):"¿Y su precio?",
+    discount:rise?"Un tipo de descuento mayor":"Un tipo de descuento menor",
+    value:rise?"reduce el valor del pago hoy.":"eleva el valor del pago hoy."};
+}
+const unit=id=>S[id].unidad_eje||(id==="ust10"&&S[id].unidad==="rendimiento anual, %"?"Rendimiento anual (%)":S[id].unidad);
+const priceDescriptor=id=>S[id].etiqueta_variacion||(id==="tlt"&&S[id].nombre==="Bonos del Tesoro"?"Variación del precio de TLT":"Variación del precio");
+const publishers={"spglobal.com":"S&P Dow Jones Indices","nasdaq.com":"Nasdaq","coinmarketcap.com":"CoinMarketCap","coinbase.com":"Coinbase Exchange","investing.com":"Investing.com","ishares.com":"iShares","treasury.gov":"Tesoro de EE. UU."};
+function sourceLabel(s){
+  if(s.fuente_corta)return s.fuente_corta;
+  const host=new URL(s.fuentes[0]).hostname.replace(/^www\./,"");
+  return Object.entries(publishers).find(([domain])=>host===domain||host.endsWith("."+domain))?.[1]||host;
+}
+const aliases={"Bonos del Tesoro":"Bonos del Tesoro (TLT)","Tesoro a 10 años":"Tesoro a diez años"};
+const names=Object.fromEntries(Object.entries(S).map(([k,s])=>[k,s.etiqueta||aliases[s.nombre]||s.nombre]));
+const namedTlt=["TLT","Bonos del Tesoro","Bonos del Tesoro (TLT)"].includes(S.tlt.nombre);
+const shortName=k=>S[k].nombre_corto||(k==="tlt"&&namedTlt?"TLT · bonos >20 años":names[k]);
+const priceIds=D.data.orden||["sp500","nasdaq","oro","btc","tlt"];
+function marketBreadth(){
+  const classes=[[-1,"bajaron","Bajas"],[1,"subieron","Alzas"],[0,"quedaron sin cambio","Sin cambio"]];
+  const groups=classes.map(([sign,word,label])=>({word,label,ids:priceIds.filter(id=>direction(id)===sign)}));
+  const count=Math.max(...groups.map(group=>group.ids.length));
+  const leaders=groups.filter(group=>group.ids.length===count);
+  return {leaders,count,ids:leaders.flatMap(g=>g.ids)};
+}
+const breadth=marketBreadth();
+const breadthCount=u=>Math.min(breadth.count,Math.floor(breadth.count*u+1e-8));
+function breadthReadout(){
+  const fraction=breadth.count+" de "+priceIds.length;
+  const {leaders}=breadth;
+  if(leaders.length>1)return ["Empate",leaders.map(g=>g.label).join(" y ")+" · "+fraction+" por grupo"];
+  return [fraction,"referencias "+leaders[0].word];
+}
+function markRow(y,compact){
+  if(compact)line(11,y-4,11,y+12,red,3);
+  else line(552,y-11,552,y+11,red,5);
+}
+function markBreadthRows(u,compact){
+  const shown=breadthCount(u);
+  breadth.leaders.forEach((_,group)=>{
+    for(let row=0;row<shown;row++){
+      const index=group*breadth.count+row;
+      if(compact){
+        const y=364+index*62;
+        markRow(y,true);
+        line(327,y+6,368,y+6,muted,2.5);
+      }else{
+        const y=221+index*66;
+        markRow(y,false);
+        line(1157,y+20,1220,y+20,muted,3.5);
+      }
+    }
+  });
+}
+function rankReadout(id){
+  const sign=direction(id);
+  if(!sign)return "Sin cambio";
+  const value=Math.abs(change(id));
+  const rank=1+priceIds.filter(other=>direction(other)===sign && Math.abs(change(other))>value).length;
+  return (rank===1?"Mayor ":rank+".ª mayor ")+(sign<0?"caída":"alza");
+}
+function rankLabels(shot){
+  const ordinal=rankReadout(shot.series);
+  return shot.approxPercent?["Casi el "+f(shot.approxPercent,0)+" %",ordinal+" entre las cinco referencias"]:
+    [ordinal,"Entre las cinco referencias de precio"];
+}
+const yieldDescription=D.data.sintetico?"Variación semanal de la tasa":"Variación semanal de la tasa a 10 años";
+const yieldMeasure=D.data.sintetico?unit("ust10"):"Rendimiento anual del Tesoro a 10 años";
+const tltDescription=namedTlt?"Fondo de bonos del Tesoro a más de 20 años":priceDescriptor("tlt");
+const universe=D.data.descripcionUniverso||["Bolsas, oro, bitcoin","y bonos del Tesoro."];
+const headerTag=(compact)=>(D.data.sintetico?"DATOS SINTÉTICOS":"MERCADOS")+(compact?" / ":"  /  ")+D.data.mercado;
+const basicDate=s=>new Date(s+"T00:00:00Z");
+function previousWeekAnchor(dates){
+  const first=basicDate(dates[0]),end=basicDate(D.data.fin);
+  const days=(end-first)/daysMs,daysSinceMonday=(end.getUTCDay()+6)%7;
+  if(days<=daysSinceMonday || days>daysSinceMonday+7)return "";
+  const weekday=["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"][first.getUTCDay()];
+  return weekday+" anterior";
+}
+function introducesOtherMaturity(shot){
+  return shot.view==="line" && shot.series==="ust10" && namedTlt &&
+    ["Tesoro a 10 años","Tesoro a diez años"].includes(S.ust10.nombre) &&
+    D.shots.some(previous=>previous.start<shot.start && previous.series==="tlt");
+}
+const dateLabel=s=>new Intl.DateTimeFormat("es-ES",{day:"numeric",month:"short",timeZone:"UTC"}).format(basicDate(s)).replace(".","");
+const closingLabel=id=>"Cierre del "+dateLabel(last(S[id].fechas))+" · "+unit(id);
+function dateTicks(dates,toX,size,edgeAligned=false){
+  const lastIndex=dates.length-1;
+  if(lastIndex===1)return [0,1];
+  const mid=Math.floor(lastIndex/2),x=i=>toX(dates[i]);
+  cx.font=size+"px "+families.sans;
+  const w=i=>cx.measureText(dateLabel(dates[i])).width;
+  const outer=edgeAligned?1:.5;
+  return x(mid)-w(mid)/2>=x(0)+w(0)*outer+8 && x(mid)+w(mid)/2<=x(lastIndex)-w(lastIndex)*outer-8?
+    [0,mid,lastIndex]:[0,lastIndex];
+}
+function text(str,x,y,sz,opts={}){
+  cx.textAlign=opts.align||"left";cx.textBaseline="alphabetic";cx.fillStyle=opts.color||ink;
+  let size=sz;
+  const font=()=>{cx.font=(opts.bold?"bold ":"")+size+"px "+families[opts.serif?"serif":"sans"]};
+  font();while(opts.limit&&cx.measureText(str).width>opts.limit&&size>(mobile?13:18)){size-=.5;font();}
+  if(opts.limit&&cx.measureText(str).width>opts.limit+.5)throw Error("Texto sin espacio: "+str);
+  cx.fillText(str,x,y);
+}
+function line(x1,y1,x2,y2,color=quiet,w=2){
+  cx.strokeStyle=color;cx.lineWidth=w;cx.beginPath();cx.moveTo(x1,y1);cx.lineTo(x2,y2);cx.stroke();
+}
+function dot(x,y,r,color){cx.fillStyle=color;cx.beginPath();cx.arc(x,y,r,0,Math.PI*2);cx.fill()}
+function arrow(x,y,dir,color=red,sz=10){
+  cx.fillStyle=color;cx.beginPath();
+  const sign=dir==="up"?-1:1;
+  cx.moveTo(x,y+sign*sz);cx.lineTo(x-sz,y-sign*sz);cx.lineTo(x+sz,y-sign*sz);
+  cx.closePath();cx.fill();
+}
+function nice(lo,hi,count=3){
+  if(lo===hi){lo-=Math.max(Math.abs(lo)*.01,1);hi+=Math.max(Math.abs(hi)*.01,1);}
+  const rough=(hi-lo)/count, magnitude=10**Math.floor(Math.log10(rough));
+  const step=[1,2,2.5,5,10].map(k=>k*magnitude).find(k=>k>=rough);
+  const low=Math.floor(lo/step)*step,high=Math.ceil(hi/step)*step;
+  return {low,high,ticks:Array.from({length:Math.round((high-low)/step)+1},(_,i)=>low+i*step)};
+}
+const interp=(a,b,t)=>a+(b-a)*t;
+const coord=(n,lo,hi,a,b)=>interp(a,b,(n-lo)/(hi-lo));
+function axisDecimals(low,high,ticks){
+  const baseline=high-low<2?2:high-low<12?1:0;
+  const step=+(ticks[1]-ticks[0]).toPrecision(8);
+  return Math.max(baseline,new Intl.NumberFormat("en",{maximumFractionDigits:10}).formatToParts(step).find(p=>p.type==="fraction")?.value.length||0);
+}
+function header(){
+  cx.fillStyle=white;cx.fillRect(0,0,1280,720);
+  text(headerTag(false),60,63,24,{bold:true});
+  text(D.data.semana,1220,63,25,{align:"right",bold:true,limit:550});line(60,88,1220,88,ink,2);
+}
+function levels(id){
+  const s=S[id], vals=s.values;
+  const ds=s.fechas;
+  [[dateLabel(ds[0]),levelLabel(id,vals[0])],[dateLabel(last(ds)),levelLabel(id,last(vals))]].forEach(([day,val],i)=>{
+    text(day,62,461+i*56,27,{color:muted});text(val,485,461+i*56,35,{bold:true,align:"right",limit:320});
+  });
+}
+function yieldWords(id){
+  const values=S[id].values, delta=+(last(values)-values[0]).toFixed(8), magnitude=Math.abs(delta);
+  const quantity=new Intl.NumberFormat("es-ES",{minimumFractionDigits:2,maximumFractionDigits:8}).format(magnitude);
+  const bps=+(magnitude*100).toFixed(6);
+  return {headline:delta===0?"Sin cambio":(delta<0?"Bajó ":"Subió ")+quantity,
+    unit:delta===0?"0 puntos porcentuales":magnitude===1?"punto porcentual":"puntos porcentuales",
+    equivalent:tickFormat.format(bps)+(bps===1?" punto básico":" puntos básicos")};
+}
+function left(shot,u){
+  let title=shot.metric==="breadth"?"Balance semanal":names[shot.series], hero, descriptor;
+  if(shot.view==="coupon"){
+    title=shot.metric==="question"?"Bonos del Tesoro":"Un bono ya emitido";
+    hero=shot.metric==="question"?bondExample().question:"Cupón fijo";
+    descriptor=shot.metric==="question"?"Los pagos ya están pactados.":"Mismos pagos futuros";
+  }else if(shot.metric==="breadth"){
+    [hero,descriptor]=breadthReadout();
+  }else if(shot.metric==="rank"){
+    [hero,descriptor]=rankLabels(shot);
+  }else if(shot.metric==="level"){
+    hero=f(last(S[shot.series].values));descriptor=closingLabel(shot.series);
+  }else if(shot.metric==="yield"){
+    hero=basisPoints(S.ust10.values);descriptor=yieldDescription;
+  }else{hero=signed(change(shot.series))+" %";descriptor=shot.series==="tlt"?tltDescription:priceDescriptor(shot.series);}
+  if(introducesOtherMaturity(shot))text("Otro plazo",62,132,24,{bold:true,color:muted,limit:480});
+  text(title,60,192,51,{serif:true,limit:480});
+  const ranked=shot.metric==="rank";
+  const plainYield=shot.metric==="yield" && shot.yieldUnit==="percentage-points";
+  if(plainYield){
+    const result=yieldWords(shot.series);
+    text(result.headline,57,269,72,{bold:true,color:red,limit:480});
+    text(result.unit,60,322,46,{bold:true,color:red,limit:480});
+    text(result.equivalent,62,372,28,{limit:483});
+  }else{
+    text(hero,57,323,ranked?52:81,{bold:true,color:ranked?ink:red,limit:480});
+    text(descriptor,62,372,28,{limit:483});
+  }
+  if(plainYield)text(yieldMeasure,62,397,20,{color:muted,limit:480});
+  if(shot.view==="coupon"){
+    if(shot.metric!=="question"){line(62,409,485,409);text(bondExample().discount,62,469,28,{limit:423});text(bondExample().value,62,510,28,{limit:423});}
+  }else if(shot.metric==="breadth"){
+    line(62,409,485,409);text(universe[0],62,469,30,{limit:425});text(universe[1],62,512,30,{limit:425});
+  }else{
+    line(62,407,485,407);levels(shot.series);
+    text(plainYield?yieldDescription:shot.series==="ust10"?"1 pb = 0,01 puntos porcentuales":unit(shot.series),62,566,24,{color:muted,limit:488});
+  }
+}
+function ranking(shot,u){
+  const overview=shot.view==="breadth";
+  const ids=overview?[...breadth.ids,...priceIds.filter(id=>!breadth.ids.includes(id))]:priceIds;
+  text("Precios · variación semanal (%)",570,159,29,{bold:true,limit:650});
+  const vals=ids.map(change),{low,high,ticks}=nice(Math.min(0,...vals),Math.max(0,...vals));
+  const l=869,r=1110,x=v=>coord(v,low,high,l,r);const y=i=>221+i*66;
+  line(x(0),196,x(0),510,muted,2.4);
+  ids.forEach((k,i)=>{
+    const val=vals[i], yy=y(i), xe=x(val), active=!overview&&k===shot.series;
+    if(active)markRow(yy,false);
+    text(shortName(k),570,yy+9,26,{limit:280});
+    line(x(0),yy,xe,yy,active?red:muted,15);
+    text(signed(val)+" %",1220,yy+10,active&&shot.metric==="rank"?34:26,{bold:active,align:"right",color:active?red:ink,limit:112});
+    if(active && val===0)dot(x(0),yy,7,red);
+  });
+  if(overview){
+    markBreadthRows(u,false);
+    return;
+  }
+  line(l,548,r,548,quiet,2);
+  ticks.forEach(t=>{line(x(t),545,x(t),555,muted,2);text(signedTick(t),x(t),590,22,{align:"center",color:muted})});
+}
+function observation(data,u){
+  const pos=u*data.fechas.length,index=Math.min(data.fechas.length-1,Math.floor(pos));
+  return {index,date:data.fechas[index],value:data.values[index],fraction:u>=1?1:pos-index};
+}
+function observedSeries(data,xs,ys,at,axis,compact){
+  const n=at.index,x=xs[n],y=ys[n];
+  // Connect adjacent daily observations only. A skipped calendar day has no price path.
+  for(let i=1;i<xs.length;i++){
+    if(+basicDate(data.fechas[i])-+basicDate(data.fechas[i-1])!==daysMs)continue;
+    line(xs[i-1],ys[i-1],xs[i],ys[i],i<=n?red:muted,compact?(i<=n?4:2.5):(i<=n?7:4));
+  }
+  line(x,y,x,axis,quiet,2);
+  line(x,y,x,interp(y,axis-12,at.fraction),muted,compact?3:4);
+  xs.forEach((v,i)=>dot(v,ys[i],compact?3.5:5,i<=n?red:muted));
+  dot(x,y,(compact?4:6)+(compact?4:6)*at.fraction,red);
+}
+function dateTick(x,axis,mobile){
+  const half=mobile?6:8;line(x,axis-half,x,axis+half,ink,mobile?3:4);
+}
+function observedDate(at,compact){
+  const right=compact?369:1215,baseline=compact?717:612,size=compact?14:19;
+  const label="Cierre observado · "+dateLabel(at.date);
+  text(label,right,baseline,size,{align:"right",color:muted});
+  const width=cx.measureText(label).width;
+  if(at.fraction>0)line(right-width,baseline+4,right-width+width*at.fraction,baseline+4,ink,compact?2:3);
+}
+function series(shot,u){
+  const id=shot.series, data=S[id],vals=data.values,ds=data.fechas;
+  text(unit(id),575,159,29,{bold:true,limit:640});
+  const {low,high,ticks}=nice(Math.min(...vals),Math.max(...vals));
+  const l=715,r=1193,top=215,bottom=478;
+  const first=+basicDate(ds[0]),end=+basicDate(last(ds)),xs=ds.map(d=>coord(+basicDate(d),first,end,l,r));
+  const yy=v=>coord(v,low,high,bottom,top), ys=vals.map(yy);
+  const digits=axisDecimals(low,high,ticks);
+  ticks.forEach(n=>{line(l,yy(n),r,yy(n),quiet,1.5);text(f(n,digits),l-17,yy(n)+8,22,{align:"right",color:muted})});
+  const at=observation(data,u);
+  observedSeries(data,xs,ys,at,548,false);
+  line(l,548,r,548,quiet,2);
+  const indexes=dateTicks(ds,d=>coord(+basicDate(d),first,end,l,r),23);
+  const anchor=previousWeekAnchor(ds);
+  if(anchor)text(anchor,l,571,18,{align:"center",color:muted});
+  for(const i of indexes){line(xs[i],545,xs[i],555,muted,2);text(dateLabel(ds[i]),xs[i],590,23,{align:"center",color:muted})}
+  dateTick(xs[at.index],548,false);observedDate(at,false);
+}
+function coupon(u){
+  text("Relación precio–rendimiento",575,159,29,{bold:true,limit:645});
+  text("Rendimiento exigido",575,279,32,{limit:420});
+  text("Precio del bono",575,457,32,{limit:420});
+  const x=1115;
+  line(x,232,x,313,quiet,6);line(x,509,x,423,quiet,6);
+  const {rate:direction}=bondExample();
+  if(direction===0){line(x-15,274,x+15,274,ink,7);line(x-15,463,x+15,463,red,7);return;}
+  const rise=direction>0,rate=rise?interp(309,243,u):interp(243,309,u),price=rise?interp(425,502,u):interp(502,425,u);
+  line(x,rise?320:231,x,rate,ink,7);arrow(x,rate,rise?"up":"down",ink,11);
+  line(x,rise?414:511,x,price,red,7);arrow(x,price,rise?"down":"up",red,11);
+}
+function comparisonPeriod(){
+  if(!priceIds.every(id=>S[id].fechas[0]===D.data.inicio && last(S[id].fechas)===D.data.fin))
+    return "Cierres según mercado";
+  return [D.data.inicio,D.data.fin].every(s=>basicDate(s).getUTCDay()===5)?"Cierres de viernes a viernes":"Cierres del período";
+}
+function footer(shot){
+  const comparison=["ranking","breadth"].includes(shot.view);
+  const fund=namedTlt?"TLT: USD por participación":shortName("tlt")+": "+unit("tlt");
+  if(D.data.sintetico){
+    const context=comparison && comparisonPeriod()==="Cierres según mercado"?" · Cierres según mercado":"";
+    return "Datos sintéticos de prueba · "+D.data.procedencia+context+(comparison?" · "+fund:"");
+  }
+  if(shot.view==="coupon")return "Ejemplo a vencimiento constante · fuente: SEC, Investor.gov";
+  if(comparison)return comparisonPeriod()+" · "+fund;
+  if(shot.series==="ust10")return "Fuente: "+sourceLabel(S.ust10)+" · Tasa anual";
+  return "Fuente: "+sourceLabel(S[shot.series]);
+}
+function footerRows(label,width,size){
+  cx.font=size+"px "+families.sans;
+  const rows=[];
+  for(const word of label.split(/\s+/)){
+    const last=rows.length-1,joined=last<0?word:rows[last]+" "+word;
+    if(last<0 || cx.measureText(joined).width>width)rows.push(word);
+    else rows[last]=joined;
+  }
+  return rows;
+}
+function sourceNote(shot,compact){
+  const label=footer(shot);
+  if(!compact){
+    // The observation date occupies the right corner of the same baseline.
+    const wide=footerRows(label,820,22);
+    if(wide.length===1){text(label,62,617,22,{color:muted,limit:820});return;}
+  }
+  const width=compact?346:478, x=compact?22:62;
+  let size=compact?14:20,rows=footerRows(label,width,size);
+  if(rows.length>2){size=compact?13:18;rows=footerRows(label,width,size);}
+  if(rows.length>3)throw Error("La fuente necesita un nombre corto para caber sobre los subtítulos: "+label);
+  const step=size+(compact?3:2), last=compact?787:624;
+  rows.forEach((row,i)=>text(row,x,last-(rows.length-i-1)*step,size,{color:muted,limit:width}));
+}
+function mobileHeader(shot,u){
+  const k=shot.series,metric=shot.metric,z=S[k]?.values||[];
+  cx.fillStyle=white;cx.fillRect(0,0,390,844);
+  const tag=D.data.sintetico?"DATOS SINTÉTICOS":headerTag(true);
+  cx.font="bold 14px "+families.sans;
+  const twoRows=cx.measureText(tag).width+12+cx.measureText(D.data.semana).width>348;
+  text(tag,21,twoRows?18:31,14,{bold:true,limit:348});
+  text(D.data.semana,369,twoRows?39:31,14,{bold:true,align:"right",limit:348});line(21,48,369,48);
+  const title=metric==="breadth"?"Balance semanal":metric==="question"?"Bonos del Tesoro":shot.view==="coupon"?"Un bono ya emitido":names[k];
+  if(introducesOtherMaturity(shot))text("Otro plazo",22,66,14,{bold:true,color:muted,limit:346});
+  text(title,20,98,33,{serif:true,limit:350});
+  let big,descriptor;
+  if(metric==="breadth"){[big,descriptor]=breadthReadout();}
+  else if(shot.view==="coupon"){big=metric==="question"?bondExample().question:"Cupón fijo";descriptor=metric==="question"?"Los pagos ya están pactados.":"Mismos pagos futuros";}
+  else if(metric==="level"){big=f(last(z));descriptor=closingLabel(k);}
+  else if(metric==="yield"){big=basisPoints(z);descriptor=yieldDescription;}
+  else if(metric==="rank"){[big,descriptor]=rankLabels(shot);}
+  else{big=signed(change(k))+" %";descriptor=k==="tlt"?tltDescription:priceDescriptor(k);}
+  if(metric==="yield" && shot.yieldUnit==="percentage-points"){
+    const result=yieldWords(k);
+    text(result.headline,19,149,49,{bold:true,color:red,limit:350});
+    text(result.unit,21,180,28,{bold:true,color:red,limit:347});
+    text(result.equivalent,22,201,17,{limit:345});
+  }else{
+    text(big,19,167,metric==="rank"?37:57,{bold:true,color:metric==="rank"?ink:red,limit:350});
+    text(descriptor,22,197,18,{limit:345});
+  }
+  if(metric==="breadth"){
+    text(universe[0],22,249,22,{limit:346});text(universe[1],22,278,22,{limit:346});
+  }else if(shot.view==="coupon"){
+    if(metric!=="question"){text(bondExample().discount,22,248,21,{limit:346});text(bondExample().value,22,277,21,{limit:346});}
+  }else{
+    if(k==="tlt")text(unit(k),22,218,15,{color:muted,limit:346});
+    if(metric==="yield" && shot.yieldUnit==="percentage-points")text(yieldMeasure,22,219,15,{color:muted,limit:346});
+    [0,z.length-1].forEach((j,i)=>{
+      const x=i?210:22;text(dateLabel(S[k].fechas[j]),x,244,16,{color:muted});
+      text(levelLabel(k,z[j]),x,276,25,{bold:true,limit:153});
+    });
+  }
+  line(22,297,369,297);
+}
+function mobileRanking(shot,u){
+  const overview=shot.view==="breadth",g=breadth;
+  const ids=overview?[...g.ids,...priceIds.filter(id=>!g.ids.includes(id))]:priceIds;
+  const vals=ids.map(change),scale=nice(Math.min(...vals,0),Math.max(...vals,0));
+  const l=27,r=366,x=v=>coord(v,scale.low,scale.high,l,r);
+  text("Variación semanal del precio (%)",22,328,19,{bold:true,limit:346});
+  ids.forEach((id,i)=>{
+    const y=364+i*62,val=vals[i],active=!overview&&id===shot.series;
+    if(active)markRow(y,true);
+    text(shortName(id),22,y,17,{limit:215});
+    text(signed(val)+" %",368,y,active&&shot.metric==="rank"?26:18,{bold:true,align:"right",color:active?red:ink,limit:115});
+    line(x(0),y+13,x(0),y+28,muted,1.3);line(x(0),y+20,x(val),y+20,active?red:muted,7);
+    if(active && val===0)dot(x(0),y+20,4,red);
+  });
+  if(overview){
+    markBreadthRows(u,true);
+  }else{
+    line(l,674,r,674,quiet,1.5);
+    scale.ticks.forEach(n=>{const px=x(n);line(px,670,px,679,muted,1);text(signedTick(n),px,699,15,{color:muted,align:n===scale.low?"left":n===scale.high?"right":"center"})});
+  }
+}
+function mobileSeries(shot,u){
+  const id=shot.series,v=S[id].values,ds=S[id].fechas,scale=nice(Math.min(...v),Math.max(...v));
+  text(unit(id),22,329,19,{bold:true,limit:345});
+  const l=83,r=363,top=380,bottom=620;
+  const x=d=>coord(+basicDate(d),+basicDate(ds[0]),+basicDate(last(ds)),l,r);
+  const y=n=>coord(n,scale.low,scale.high,bottom,top),digits=axisDecimals(scale.low,scale.high,scale.ticks);
+  scale.ticks.forEach(n=>{line(l,y(n),r,y(n),quiet,1);text(f(n,digits),l-10,y(n)+5,15,{align:"right",color:muted})});
+  const at=observation(S[id],u);
+  observedSeries(S[id],ds.map(x),v.map(y),at,674,true);
+  line(l,674,r,674,quiet,1.5);
+  dateTicks(ds,x,15,true).forEach(j=>{
+    const px=x(ds[j]);line(px,670,px,680,muted,1);text(dateLabel(ds[j]),px,698,15,{align:j===0?"left":j===ds.length-1?"right":"center",color:muted});
+  });
+  const anchor=previousWeekAnchor(ds);
+  if(anchor)text(anchor,l,717,14,{align:"center",color:muted});
+  dateTick(x(at.date),674,true);observedDate(at,true);
+}
+function mobileCoupon(u){
+  text("Precio y rendimiento",22,330,21,{bold:true});
+  text("Rendimiento exigido",22,425,23,{limit:259});text("Precio del bono",22,590,23,{limit:259});
+  const x=331,{rate:direction}=bondExample();
+  line(x,370,x,455,quiet,4);line(x,636,x,541,quiet,4);
+  if(direction===0){line(x-12,412,x+12,412,ink,5);line(x-12,590,x+12,590,red,5);return;}
+  const rise=direction>0,rate=rise?interp(448,375,u):interp(375,448,u),price=rise?interp(548,629,u):interp(629,548,u);
+  line(x,rise?455:370,x,rate,ink,5);arrow(x,rate,rise?"up":"down",ink,8);
+  line(x,rise?541:636,x,price,red,5);arrow(x,price,rise?"down":"up",red,8);
+}
+function portrait(shot,u){
+  mobileHeader(shot,u);
+  if(shot.view==="coupon") mobileCoupon(u);else if(shot.view==="line") mobileSeries(shot,u);else mobileRanking(shot,u);
+  if(shot.series==="ust10" && shot.view==="line")text(shot.yieldUnit==="percentage-points"?yieldDescription:"1 pb = 0,01 puntos porcentuales",22,739,15,{color:muted,limit:346});
+  sourceNote(shot,true);
+}
+function state(frame){
+  const shot=D.shots.find(q=>q.start<=frame && frame<q.end)||last(D.shots);
+  const ratio=Math.min(1,Math.max(0,(frame-shot.start)/Math.max(1,shot.stop-shot.start-1)));
+  return {shot,u:interp(shot.from,shot.to,ratio),mode:frame<shot.stop?"motion":"read"};
+}
+window.renderAt=(seconds,absoluteFrame)=>{
+  const frame=Number.isInteger(absoluteFrame)?absoluteFrame:Math.round(seconds*D.fps),{shot,u,mode}=state(frame);
+  if(mobile)portrait(shot,u);
+  else {
+    header();left(shot,u);
+    if(shot.view==="coupon")coupon(u);else if(shot.view==="line")series(shot,u);else ranking(shot,u);
+    sourceNote(shot,false);
+  }
+  return {frame,series:shot.series,view:shot.view,metric:shot.metric,focus:shot.focus,mode,progress:u,
+          observation:shot.view==="line"?observation(S[shot.series],u):null};
+};
+window.renderAt(0);
+</script></html>

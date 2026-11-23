@@ -1,0 +1,21 @@
+{
+  "fps": 30,
+  "target_lufs": -18,
+  "cues": [
+    {
+      "id": "contacto", "sound": "switch/light", "seed": 31, "use": "play",
+      "frame": 6, "anchor": "onset", "offset_ms": -9.23, "peak_dbfs": -23,
+      "roi": [392,260,400,266],
+      "protect_sentence": 1, "term": "interruptor",
+      "reason": "La pala toca el contacto fijo. El transitorio permite localizar el cierre antes de la explicación.",
+      "silence": "La desaparición del hueco ya comunica el cierre sin sonido."
+    },
+    {
+      "id": "capitulo", "sound": "title/bag", "seed": 7, "use": "silence",
+      "frame": 199, "anchor": "peak", "peak_dbfs": -23,
+      "protect_sentence": 3, "term": "bobina",
+      "reason": "Se conserva el mismo circuito al cambiar de capítulo. Un golpe anunciaría un corte ausente.",
+      "silence": "La pausa de la voz separa los capítulos y permite seguir el campo de la bobina."
+    }
+  ]
+}

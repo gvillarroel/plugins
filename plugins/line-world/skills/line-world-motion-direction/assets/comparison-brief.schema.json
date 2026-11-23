@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Comparación narrada de dos medidas",
+  "type": "object",
+  "required": ["version", "subject", "source", "measures"],
+  "dependentRequired": {"recordings": ["narration"]},
+  "properties": {
+    "version": {"const": 1},
+    "subject": {"$ref": "#/$defs/text"},
+    "subjectLabel": {"$ref": "#/$defs/text"},
+    "title": {"$ref": "#/$defs/text"},
+    "source": {
+      "type": "object",
+      "required": ["type", "detail"],
+      "properties": {
+        "type": {"enum": ["observed", "simulated"]},
+        "detail": {"$ref": "#/$defs/text"},
+        "citation": {"$ref": "#/$defs/text"}
+      },
+      "if": {"properties": {"type": {"const": "observed"}}},
+      "then": {"required": ["citation"]}
+    },
+    "measures": {
+      "type": "array", "minItems": 2, "maxItems": 2,
+      "items": {
+        "type": "object", "required": ["label", "value", "unit"],
+        "properties": {
+          "label": {"$ref": "#/$defs/text"},
+          "value": {"type": "number"},
+          "unit": {"$ref": "#/$defs/text"}
+        }
+      }
+    },
+    "spokenUnit": {"$ref": "#/$defs/text"},
+    "takeaway": {"$ref": "#/$defs/text"},
+    "narration": {
+      "type": "array", "minItems": 2, "maxItems": 2,
+      "prefixItems": [
+        {"allOf": [{"$ref": "#/$defs/text"}, {"pattern": "\\{a\\}"}, {"pattern": "\\{b\\}"}]},
+        {"$ref": "#/$defs/text"}
+      ]
+    },
+    "recordings": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"$ref": "#/$defs/text"}}
+  },
+  "$defs": {"text": {"type": "string", "pattern": "\\S"}}
+}

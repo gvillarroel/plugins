@@ -1,0 +1,18 @@
+{
+  "preset": "neutral",
+  "seed": 31,
+  "scenes": [
+    {
+      "id": "interruptor",
+      "text": "Al cerrar el interruptor, se completa el circuito. La corriente puede circular.",
+      "lead_s": 0.52,
+      "effects": [
+        {"at_s": 0.19, "sound": "switch/light", "want": "a physical plastic switch clicking into place", "seed": 31, "peak_dbfs": -23}
+      ]
+    },
+    {
+      "id": "bobina",
+      "text": "Al pasar por la bobina, la corriente crea un campo magnético. Si abrimos el interruptor, la corriente se detiene."
+    }
+  ]
+}

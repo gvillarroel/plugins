@@ -1,0 +1,9 @@
+{
+  "version":1,"fps":12,"size":[720,400],
+  "source":"Diagrama cualitativo de estados estacionarios. La escala relativa de cada fila usa como unidad el valor del circuito cerrado. La transición visual explica dos estados; no mide el transitorio eléctrico.",
+  "anchor":{"label":"Circuito","value":"CC–01"},
+  "scenes":[
+    {"id":"interruptor","kind":"compare","title":"La corriente y su campo magnético","labels":["Corriente","Campo"],"fromValues":[0,0],"values":[1,1],"unit":"rel.","cue":2,"move":18,"hold":20,"timing":{"effect":0,"moveSeconds":1.5},"idea":"Al cerrar el contacto aparecen la corriente y el campo que produce."},
+    {"id":"bobina","kind":"compare","title":"La corriente y su campo magnético","labels":["Corriente","Campo"],"fromValues":[1,1],"values":[0,0],"unit":"rel.","cue":12,"move":18,"hold":20,"timing":{"sentence":1,"moveSeconds":1.5},"idea":"Tras abrir el contacto, la corriente y su campo dejan de sostenerse."}
+  ]
+}

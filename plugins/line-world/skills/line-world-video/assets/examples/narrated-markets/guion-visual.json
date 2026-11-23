@@ -1,0 +1,136 @@
+[
+  {
+    "scene": "intro",
+    "sentence": 0,
+    "view": "breadth",
+    "series": "conjunto",
+    "metric": "breadth",
+    "from": 0,
+    "to": 1,
+    "idea": "Las referencias de mercado que terminaron la semana a la baja."
+  },
+  {
+    "scene": "intro",
+    "sentence": 1,
+    "view": "ranking",
+    "series": "tlt",
+    "metric": "change",
+    "from": 0,
+    "to": 1,
+    "idea": "El fondo de bonos a largo plazo avanzó."
+  },
+  {
+    "scene": "bolsa",
+    "sentence": 0,
+    "view": "line",
+    "series": "sp500",
+    "metric": "change",
+    "from": 0,
+    "to": 1,
+    "idea": "El S&P 500 mide la evolución del precio de las grandes empresas estadounidenses."
+  },
+  {
+    "scene": "bolsa",
+    "sentence": 1,
+    "view": "line",
+    "series": "nasdaq",
+    "metric": "change",
+    "from": 0,
+    "to": 1,
+    "idea": "El Nasdaq Composite terminó con un descenso mayor."
+  },
+  {
+    "scene": "oro",
+    "sentence": 0,
+    "view": "line",
+    "series": "oro",
+    "metric": "change",
+    "from": 0,
+    "to": 0.28,
+    "idea": "La onza de oro terminó la semana a la baja."
+  },
+  {
+    "scene": "oro",
+    "sentence": 1,
+    "view": "line",
+    "series": "oro",
+    "metric": "level",
+    "from": 0.28,
+    "to": 1,
+    "idea": "Las dos cotizaciones de la onza explican el cambio de precio."
+  },
+  {
+    "scene": "oro",
+    "sentence": 2,
+    "view": "ranking",
+    "series": "oro",
+    "metric": "rank",
+    "approxPercent": 9,
+    "spokenApprox": "casi el nueve por ciento",
+    "from": 0,
+    "to": 1,
+    "idea": "El oro perdió casi el nueve por ciento. Su fila muestra el cambio exacto y el rótulo indica el puesto por magnitud."
+  },
+  {
+    "scene": "btc",
+    "sentence": 0,
+    "view": "ranking",
+    "series": "btc",
+    "metric": "change",
+    "from": 0,
+    "to": 1,
+    "idea": "Bitcoin tuvo la mayor caída de las cinco referencias de precio."
+  },
+  {
+    "scene": "btc",
+    "sentence": 1,
+    "startOn": "y cerró",
+    "view": "line",
+    "series": "btc",
+    "metric": "level",
+    "from": 0,
+    "to": 1,
+    "idea": "Bitcoin se negoció también el sábado y el domingo."
+  },
+  {
+    "scene": "bonos",
+    "sentence": 0,
+    "view": "line",
+    "series": "tlt",
+    "metric": "change",
+    "from": 0,
+    "to": 1,
+    "idea": "TLT es el precio de una participación en un fondo de bonos a más de veinte años."
+  },
+  {
+    "scene": "bonos",
+    "sentence": 1,
+    "view": "coupon",
+    "series": "ust10",
+    "metric": "question",
+    "from": 0,
+    "to": 0.36,
+    "idea": "Con pagos fijos, el precio de mercado del bono puede cambiar."
+  },
+  {
+    "scene": "bonos",
+    "sentence": 2,
+    "view": "coupon",
+    "series": "ust10",
+    "metric": "mechanism",
+    "from": 0.36,
+    "to": 1,
+    "idea": "Si baja el rendimiento exigido, sube el valor presente de los pagos pactados."
+  },
+  {
+    "scene": "bonos",
+    "sentence": 3,
+    "view": "line",
+    "series": "ust10",
+    "metric": "yield",
+    "yieldUnit": "percentage-points",
+    "from": 0,
+    "to": 1,
+    "idea": "La tasa anual publicada por el Tesoro a diez años se mide en puntos básicos de variación."
+  }
+]

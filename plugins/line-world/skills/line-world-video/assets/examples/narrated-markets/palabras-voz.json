@@ -1,0 +1,832 @@
+{
+  "version": 1,
+  "origin": {
+    "mediaSha256": "469b42baad16a8b9f4219e2432e8cbbbbfdb38fc760b189556af255b63671361",
+    "audioStream": "a:0",
+    "clock": "seconds-from-first-decoded-sample",
+    "method": "asr-aligned-to-master",
+    "provider": "faster-whisper 1.2.1",
+    "model": "base",
+    "language": "es",
+    "segmentation": "frases",
+    "sourceMediaSha256": "cb69ed5077ebf1ca288bf24cedaee934f1390c61c41e58aa02f84734da30194d",
+    "alignment": "13 speech windows; zero lag at 16 kHz",
+    "directMasterPhrase": "btc/1"
+  },
+  "words": [
+    {
+      "word": "del",
+      "start": 0.403333,
+      "end": 0.623333
+    },
+    {
+      "word": "16",
+      "start": 0.623333,
+      "end": 1.083333
+    },
+    {
+      "word": "al",
+      "start": 1.083333,
+      "end": 1.423333
+    },
+    {
+      "word": "20",
+      "start": 1.423333,
+      "end": 1.583333
+    },
+    {
+      "word": "de",
+      "start": 1.583333,
+      "end": 1.923333
+    },
+    {
+      "word": "noviembre,",
+      "start": 1.923333,
+      "end": 2.423333
+    },
+    {
+      "word": "las",
+      "start": 2.943333,
+      "end": 3.063333
+    },
+    {
+      "word": "bolsas",
+      "start": 3.063333,
+      "end": 3.483333
+    },
+    {
+      "word": "estadounidenses,",
+      "start": 3.483333,
+      "end": 4.503333
+    },
+    {
+      "word": "el",
+      "start": 4.903333,
+      "end": 5.043333
+    },
+    {
+      "word": "oro",
+      "start": 5.043333,
+      "end": 5.223333
+    },
+    {
+      "word": "y",
+      "start": 5.223333,
+      "end": 5.703333
+    },
+    {
+      "word": "decó",
+      "start": 5.703333,
+      "end": 6.043333
+    },
+    {
+      "word": "imperdieron",
+      "start": 6.043333,
+      "end": 6.623333
+    },
+    {
+      "word": "terreno.",
+      "start": 6.623333,
+      "end": 7.083333
+    },
+    {
+      "word": "Los",
+      "start": 7.662937,
+      "end": 7.882937
+    },
+    {
+      "word": "bonos",
+      "start": 7.882937,
+      "end": 8.282937
+    },
+    {
+      "word": "del",
+      "start": 8.282937,
+      "end": 8.442937
+    },
+    {
+      "word": "tesoro",
+      "start": 8.442937,
+      "end": 8.882938
+    },
+    {
+      "word": "a",
+      "start": 8.882938,
+      "end": 9.002937
+    },
+    {
+      "word": "largo",
+      "start": 9.002937,
+      "end": 9.322938
+    },
+    {
+      "word": "plazo",
+      "start": 9.322938,
+      "end": 9.782937
+    },
+    {
+      "word": "subieron.",
+      "start": 9.782937,
+      "end": 10.242938
+    },
+    {
+      "word": "En",
+      "start": 11.111667,
+      "end": 11.351667
+    },
+    {
+      "word": "Bolsa,",
+      "start": 11.351667,
+      "end": 11.751667
+    },
+    {
+      "word": "el",
+      "start": 12.251667,
+      "end": 12.391667
+    },
+    {
+      "word": "índice",
+      "start": 12.391667,
+      "end": 12.711667
+    },
+    {
+      "word": "de",
+      "start": 12.711667,
+      "end": 12.811667
+    },
+    {
+      "word": "las",
+      "start": 12.811667,
+      "end": 12.971667
+    },
+    {
+      "word": "500",
+      "start": 12.971667,
+      "end": 13.211667
+    },
+    {
+      "word": "grandes",
+      "start": 13.211667,
+      "end": 13.951667
+    },
+    {
+      "word": "empresas",
+      "start": 13.951667,
+      "end": 14.391667
+    },
+    {
+      "word": "cayó",
+      "start": 14.391667,
+      "end": 14.911667
+    },
+    {
+      "word": "1",
+      "start": 14.911667,
+      "end": 15.071667
+    },
+    {
+      "word": ",6",
+      "start": 15.071667,
+      "end": 15.831667
+    },
+    {
+      "word": "%",
+      "start": 15.831667,
+      "end": 16.531667
+    },
+    {
+      "word": "El",
+      "start": 17.175375,
+      "end": 17.395375
+    },
+    {
+      "word": "NASDAQ,",
+      "start": 17.395375,
+      "end": 17.855375
+    },
+    {
+      "word": "con",
+      "start": 18.135375,
+      "end": 18.355375
+    },
+    {
+      "word": "más",
+      "start": 18.355375,
+      "end": 18.615375
+    },
+    {
+      "word": "peso",
+      "start": 18.615375,
+      "end": 18.915375
+    },
+    {
+      "word": "tecnológico,",
+      "start": 18.915375,
+      "end": 19.715375
+    },
+    {
+      "word": "perdió",
+      "start": 20.195375,
+      "end": 20.535375
+    },
+    {
+      "word": "un",
+      "start": 20.535375,
+      "end": 20.675375
+    },
+    {
+      "word": "10",
+      "start": 20.675375,
+      "end": 20.915375
+    },
+    {
+      "word": "%",
+      "start": 20.915375,
+      "end": 21.515375
+    },
+    {
+      "word": "El",
+      "start": 22.445,
+      "end": 22.665
+    },
+    {
+      "word": "oro",
+      "start": 22.665,
+      "end": 22.825
+    },
+    {
+      "word": "también",
+      "start": 22.825,
+      "end": 23.285
+    },
+    {
+      "word": "retrocedió.",
+      "start": 23.285,
+      "end": 24.025
+    },
+    {
+      "word": "Pasó",
+      "start": 24.538104,
+      "end": 24.878104
+    },
+    {
+      "word": "de",
+      "start": 24.878104,
+      "end": 24.998104
+    },
+    {
+      "word": "unos",
+      "start": 24.998104,
+      "end": 25.158104
+    },
+    {
+      "word": "3",
+      "start": 25.158104,
+      "end": 25.598104
+    },
+    {
+      "word": ".880",
+      "start": 25.598104,
+      "end": 26.898104
+    },
+    {
+      "word": "dólares",
+      "start": 26.898104,
+      "end": 27.258104
+    },
+    {
+      "word": "por",
+      "start": 27.258104,
+      "end": 27.598104
+    },
+    {
+      "word": "1",
+      "start": 27.598104,
+      "end": 27.718104
+    },
+    {
+      "word": ".3",
+      "start": 27.718104,
+      "end": 28.218104
+    },
+    {
+      "word": ".533.",
+      "start": 28.218104,
+      "end": 29.698104
+    },
+    {
+      "word": "una",
+      "start": 30.392896,
+      "end": 30.652896
+    },
+    {
+      "word": "caída",
+      "start": 30.652896,
+      "end": 31.032896
+    },
+    {
+      "word": "de",
+      "start": 31.032896,
+      "end": 31.172896
+    },
+    {
+      "word": "casi",
+      "start": 31.172896,
+      "end": 31.512896
+    },
+    {
+      "word": "el",
+      "start": 31.512896,
+      "end": 31.772896
+    },
+    {
+      "word": "9",
+      "start": 31.772896,
+      "end": 31.992896
+    },
+    {
+      "word": "%",
+      "start": 31.992896,
+      "end": 32.652896
+    },
+    {
+      "word": "Bicco",
+      "start": 33.57,
+      "end": 33.99
+    },
+    {
+      "word": "intuvo",
+      "start": 33.99,
+      "end": 34.37
+    },
+    {
+      "word": "la",
+      "start": 34.37,
+      "end": 34.53
+    },
+    {
+      "word": "mayor",
+      "start": 34.53,
+      "end": 34.83
+    },
+    {
+      "word": "caída",
+      "start": 34.83,
+      "end": 35.33
+    },
+    {
+      "word": "de",
+      "start": 35.33,
+      "end": 35.47
+    },
+    {
+      "word": "la",
+      "start": 35.47,
+      "end": 35.57
+    },
+    {
+      "word": "comparación.",
+      "start": 35.57,
+      "end": 36.27
+    },
+    {
+      "word": "De",
+      "start": 36.824104,
+      "end": 37.024104
+    },
+    {
+      "word": "viernes",
+      "start": 37.024104,
+      "end": 37.384104
+    },
+    {
+      "word": "a",
+      "start": 37.384104,
+      "end": 37.544104
+    },
+    {
+      "word": "viernes",
+      "start": 37.544104,
+      "end": 37.904104
+    },
+    {
+      "word": "perdió",
+      "start": 37.904104,
+      "end": 38.324104
+    },
+    {
+      "word": "casi",
+      "start": 38.324104,
+      "end": 38.644104
+    },
+    {
+      "word": "el",
+      "start": 38.644104,
+      "end": 38.824104
+    },
+    {
+      "word": "14",
+      "start": 38.824104,
+      "end": 39.244104
+    },
+    {
+      "word": "%",
+      "start": 39.244104,
+      "end": 39.784104
+    },
+    {
+      "word": "y",
+      "start": 39.784104,
+      "end": 40.484104
+    },
+    {
+      "word": "cerró",
+      "start": 40.484104,
+      "end": 40.784104
+    },
+    {
+      "word": "por",
+      "start": 40.784104,
+      "end": 40.984104
+    },
+    {
+      "word": "debajo",
+      "start": 40.984104,
+      "end": 41.364104
+    },
+    {
+      "word": "de",
+      "start": 41.364104,
+      "end": 41.504104
+    },
+    {
+      "word": "los",
+      "start": 41.504104,
+      "end": 41.604104
+    },
+    {
+      "word": "50",
+      "start": 41.604104,
+      "end": 42.044104
+    },
+    {
+      "word": "y",
+      "start": 42.044104,
+      "end": 42.724104
+    },
+    {
+      "word": "9",
+      "start": 42.724104,
+      "end": 42.964104
+    },
+    {
+      "word": ".000",
+      "start": 42.964104,
+      "end": 43.264104
+    },
+    {
+      "word": "dólares.",
+      "start": 43.264104,
+      "end": 43.644104
+    },
+    {
+      "word": "El",
+      "start": 44.57,
+      "end": 44.79
+    },
+    {
+      "word": "fondo",
+      "start": 44.79,
+      "end": 45.11
+    },
+    {
+      "word": "que",
+      "start": 45.11,
+      "end": 45.33
+    },
+    {
+      "word": "sigue",
+      "start": 45.33,
+      "end": 45.57
+    },
+    {
+      "word": "los",
+      "start": 45.57,
+      "end": 45.79
+    },
+    {
+      "word": "bonos",
+      "start": 45.79,
+      "end": 46.21
+    },
+    {
+      "word": "del",
+      "start": 46.21,
+      "end": 46.33
+    },
+    {
+      "word": "tesoro",
+      "start": 46.33,
+      "end": 46.73
+    },
+    {
+      "word": "a",
+      "start": 46.73,
+      "end": 46.83
+    },
+    {
+      "word": "más",
+      "start": 46.83,
+      "end": 47.03
+    },
+    {
+      "word": "de",
+      "start": 47.03,
+      "end": 47.25
+    },
+    {
+      "word": "20",
+      "start": 47.25,
+      "end": 47.57
+    },
+    {
+      "word": "años",
+      "start": 47.57,
+      "end": 47.93
+    },
+    {
+      "word": "ganó",
+      "start": 47.93,
+      "end": 48.27
+    },
+    {
+      "word": "un",
+      "start": 48.27,
+      "end": 48.39
+    },
+    {
+      "word": "2",
+      "start": 48.39,
+      "end": 48.61
+    },
+    {
+      "word": ",6",
+      "start": 48.61,
+      "end": 49.15
+    },
+    {
+      "word": "%.",
+      "start": 49.15,
+      "end": 49.83
+    },
+    {
+      "word": "¿Por",
+      "start": 50.482792,
+      "end": 50.702792
+    },
+    {
+      "word": "qué",
+      "start": 50.702792,
+      "end": 50.862792
+    },
+    {
+      "word": "pueden",
+      "start": 50.862792,
+      "end": 51.282792
+    },
+    {
+      "word": "subir",
+      "start": 51.282792,
+      "end": 51.562792
+    },
+    {
+      "word": "los",
+      "start": 51.562792,
+      "end": 51.802792
+    },
+    {
+      "word": "bonos?",
+      "start": 51.802792,
+      "end": 52.302792
+    },
+    {
+      "word": "Cuando",
+      "start": 52.7965,
+      "end": 53.0765
+    },
+    {
+      "word": "baja",
+      "start": 53.0765,
+      "end": 53.3565
+    },
+    {
+      "word": "el",
+      "start": 53.3565,
+      "end": 53.5765
+    },
+    {
+      "word": "rendimiento",
+      "start": 53.5765,
+      "end": 53.9765
+    },
+    {
+      "word": "que",
+      "start": 53.9765,
+      "end": 54.3365
+    },
+    {
+      "word": "exigen",
+      "start": 54.3365,
+      "end": 54.7365
+    },
+    {
+      "word": "los",
+      "start": 54.7365,
+      "end": 54.9765
+    },
+    {
+      "word": "compradores,",
+      "start": 54.9765,
+      "end": 55.6565
+    },
+    {
+      "word": "los",
+      "start": 55.9765,
+      "end": 56.2965
+    },
+    {
+      "word": "bonos",
+      "start": 56.2965,
+      "end": 56.6965
+    },
+    {
+      "word": "ya",
+      "start": 56.6965,
+      "end": 56.8965
+    },
+    {
+      "word": "emitidos,",
+      "start": 56.8965,
+      "end": 57.4765
+    },
+    {
+      "word": "que",
+      "start": 57.7965,
+      "end": 57.9565
+    },
+    {
+      "word": "paran",
+      "start": 57.9565,
+      "end": 58.2365
+    },
+    {
+      "word": "un",
+      "start": 58.2365,
+      "end": 58.4365
+    },
+    {
+      "word": "interés",
+      "start": 58.4365,
+      "end": 58.9765
+    },
+    {
+      "word": "fijo,",
+      "start": 58.9765,
+      "end": 59.3965
+    },
+    {
+      "word": "canan",
+      "start": 59.9165,
+      "end": 60.1765
+    },
+    {
+      "word": "valor.",
+      "start": 60.1765,
+      "end": 60.4965
+    },
+    {
+      "word": "Esa",
+      "start": 61.112604,
+      "end": 61.432604
+    },
+    {
+      "word": "semana.",
+      "start": 61.432604,
+      "end": 61.832604
+    },
+    {
+      "word": "El",
+      "start": 62.432604,
+      "end": 62.672604
+    },
+    {
+      "word": "rendimiento",
+      "start": 62.672604,
+      "end": 63.112604
+    },
+    {
+      "word": "del",
+      "start": 63.112604,
+      "end": 63.452604
+    },
+    {
+      "word": "tesoro",
+      "start": 63.452604,
+      "end": 63.792604
+    },
+    {
+      "word": "a",
+      "start": 63.792604,
+      "end": 63.972604
+    },
+    {
+      "word": "10",
+      "start": 63.972604,
+      "end": 64.172604
+    },
+    {
+      "word": "años",
+      "start": 64.172604,
+      "end": 64.612604
+    },
+    {
+      "word": "bajó",
+      "start": 64.612604,
+      "end": 65.032604
+    },
+    {
+      "word": "del",
+      "start": 65.032604,
+      "end": 65.212604
+    },
+    {
+      "word": "5",
+      "start": 65.212604,
+      "end": 65.572604
+    },
+    {
+      "word": ",15",
+      "start": 65.572604,
+      "end": 66.272604
+    },
+    {
+      "word": "al",
+      "start": 66.272604,
+      "end": 66.472604
+    },
+    {
+      "word": "4",
+      "start": 66.472604,
+      "end": 66.772604
+    },
+    {
+      "word": ",90",
+      "start": 66.772604,
+      "end": 67.312604
+    },
+    {
+      "word": "y",
+      "start": 67.312604,
+      "end": 68.092604
+    },
+    {
+      "word": "2",
+      "start": 68.092604,
+      "end": 68.312604
+    },
+    {
+      "word": "por",
+      "start": 68.312604,
+      "end": 68.452604
+    },
+    {
+      "word": "ciento.",
+      "start": 68.452604,
+      "end": 68.892604
+    }
+  ],
+  "subtitleLayouts": {
+    "intro/1": [
+      "Los bonos del Tesoro\na largo plazo subieron."
+    ],
+    "bolsa/0": [
+      "En bolsa, el índice\nde las quinientas grandes empresas",
+      "cayó un ocho coma seis por ciento."
+    ],
+    "btc/0": [
+      "Bitcóin tuvo la mayor caída\nde la comparación."
+    ],
+    "btc/1": [
+      "De viernes a viernes perdió\ncasi el catorce por ciento",
+      "y cerró por debajo\nde los cincuenta y nueve mil dólares."
+    ],
+    "bonos/2": [
+      "Cuando baja el rendimiento\nque exigen los compradores,",
+      "los bonos ya emitidos,\nque pagan un interés fijo, ganan valor."
+    ],
+    "bonos/3": [
+      "Esa semana, el rendimiento\ndel Tesoro a diez años",
+      "bajó del cinco coma quince\nal cuatro coma noventa y dos por ciento."
+    ]
+  }
+}

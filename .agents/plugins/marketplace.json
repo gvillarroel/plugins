@@ -161,6 +161,18 @@
       "category": "Developer tools"
     },
     {
+      "name": "line-world",
+      "source": {
+        "source": "local",
+        "path": "./plugins/line-world"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Creativity"
+    },
+    {
       "name": "line-world-video",
       "source": {
         "source": "local",

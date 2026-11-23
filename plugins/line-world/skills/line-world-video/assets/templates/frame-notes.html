@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="es">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:,">
+<title>Revisión de vídeo</title>
+<style>
+  :root { color-scheme:light; --ink:#333e48; --wine:#9e1b32; --line:#cfcfcf; --paper:#fff; --quiet:#f7f7f7 }
+  * { box-sizing:border-box }
+  body { margin:0; color:var(--ink); background:var(--paper); font:16px/1.45 "Segoe UI",Arial,sans-serif }
+  main { max-width:1450px; margin:auto; padding:clamp(16px,3.5vw,54px) }
+  header { border-bottom:2px solid var(--ink); margin-bottom:22px; padding-bottom:15px }
+  h1 { font:normal clamp(25px,3vw,44px)/1.1 Georgia,serif; margin:0 }
+  h2 { font-size:19px; margin:0 0 12px }
+  .layout { display:grid; grid-template-columns:minmax(0,2.3fr) minmax(260px,1fr); gap:clamp(20px,3vw,48px) }
+  .player { min-width:0 }
+  .well { background:var(--quiet); min-height:160px; display:grid; place-items:center; border:1px solid var(--line) }
+  .screen { position:relative; max-width:100%; line-height:0; overflow:hidden }
+  video { display:block; max-width:100%; max-height:64vh; width:auto; height:auto; cursor:crosshair }
+  #mark { position:absolute; width:20px; height:20px; border:3px solid var(--wine); outline:2px solid white; border-radius:50%; transform:translate(-50%,-50%); pointer-events:none }
+  button,textarea,input,select { font:inherit }
+  button,select { color:var(--ink); background:var(--paper); border:1px solid var(--line); border-radius:4px; padding:6px 10px }
+  button { cursor:pointer }
+  button:disabled { cursor:default; color:#696969; background:var(--quiet) }
+  :focus-visible { outline:2px solid var(--wine); outline-offset:2px }
+  input[type=range] { accent-color:var(--wine); width:100%; margin:13px 0 8px }
+  .transport,.actions { display:flex; align-items:center; gap:8px; flex-wrap:wrap }
+  #time { margin-left:auto; font-variant-numeric:tabular-nums; font-size:14px }
+  #scene { margin:14px 0 2px; font-weight:650 }
+  #idea { margin:0 }
+  #captions { margin-top:18px; border-top:1px solid var(--line); padding-top:12px }
+  #captions summary { cursor:pointer; font-weight:600 }
+  #spoken { min-height:3.4em; margin:0; padding:.3em .6em; white-space:pre-line; overflow-wrap:anywhere; text-align:center; font-size:clamp(16px,1.35vw,21px); line-height:1.4; background:var(--paper); border:1px solid var(--line); border-top:0 }
+  #toggleCaptions[aria-pressed="true"] { color:var(--wine); border-color:var(--wine); font-weight:600 }
+  #cueList { list-style:none; padding:0; max-height:17em; overflow:auto }
+  #cueList button { width:100%; text-align:left; margin-bottom:3px }
+  #cueList button[aria-current="true"] { border-left:4px solid var(--wine); font-weight:600 }
+  aside { border-left:1px solid var(--line); padding-left:clamp(16px,2vw,32px) }
+  label { display:block; font-weight:600; margin:12px 0 4px }
+  textarea,select { display:block; width:100% }
+  textarea { min-height:82px; border:1px solid var(--line); padding:8px; border-radius:4px; resize:vertical }
+  .hint,#range,#status { font-size:14px; margin:7px 0 }
+  #save { background:var(--wine); color:white; border-color:var(--wine); font-weight:600 }
+  #save:disabled { background:var(--quiet); color:#696969; border-color:var(--line) }
+  .notes { border-top:1px solid var(--line); margin-top:20px; padding-top:16px }
+  ul { list-style:none; padding:0; margin:10px 0 16px }
+  li { border-bottom:1px solid var(--line); padding:8px 0; overflow-wrap:anywhere }
+  li button { border:0; padding:3px; text-align:left; color:var(--wine); font-weight:600 }
+  li p { margin:2px 0 0 }
+  .sr { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%) }
+  @media(max-width:760px) {
+    .layout { grid-template-columns:1fr; gap:22px }
+    aside { border-left:0; border-top:1px solid var(--line); padding:18px 0 0 }
+    video { max-height:56vh }
+  }
+</style>
+<main>
+  <header><h1 id="title"></h1></header>
+  <div class="layout">
+    <section class="player" aria-label="Reproductor">
+      <div class="well"><div class="screen" id="screen"><video id="movie" preload="auto" playsinline></video><span id="mark" hidden></span></div></div>
+      <p id="spoken" hidden></p>
+      <label class="sr" for="seek">Fotograma</label><input id="seek" type="range" min="0" value="0" step="1">
+      <div class="transport">
+        <button type="button" id="play">Reproducir</button>
+        <button type="button" id="back" aria-label="Fotograma anterior">−1</button>
+        <button type="button" id="next" aria-label="Fotograma siguiente">+1</button>
+        <button type="button" id="toggleCaptions" aria-pressed="false" aria-controls="spoken" hidden>Subtítulos</button>
+        <output id="time"></output>
+      </div>
+      <p id="scene"></p><p id="idea"></p>
+      <details id="captions" hidden><summary>Subtítulos del vídeo</summary>
+        <button id="saveVtt">Descargar WebVTT</button>
+        <ol id="cueList" aria-label="Ir a una frase"></ol>
+      </details>
+    </section>
+    <aside aria-label="Notas de edición">
+      <h2>Señalar un fotograma</h2>
+      <p class="hint">Pausa y pulsa sobre el detalle que quieres comentar. También puedes marcar el centro con el botón.</p>
+      <div class="actions"><button id="center">Marcar centro</button><button id="end" disabled>Hasta este cuadro</button></div>
+      <p id="range" aria-live="polite"></p>
+      <label for="element">Elemento</label><select id="element"><option value="">Zona de la imagen</option></select>
+      <label for="kind">Decisión</label><select id="kind"><option value="ajustar">Ajustar</option><option value="conservar">Conservar</option></select>
+      <label for="text">Nota</label><textarea id="text" maxlength="2000"></textarea>
+      <button id="save" disabled>Guardar nota</button>
+      <div class="notes">
+        <h2 id="count">Notas (0)</h2><ul id="notes"></ul>
+        <div class="actions"><button id="download" disabled>Exportar notas</button><button id="import">Importar notas</button></div>
+        <input id="file" class="sr" type="file" accept=".json,application/json" aria-label="Archivo de notas">
+      </div>
+      <p id="status" role="status"></p>
+    </aside>
+  </div>
+</main>
+<script type="application/json" id="config">__FRAME_NOTES_DATA__</script>
+<script>
+  const data=JSON.parse(document.getElementById("config").textContent);
+  const el=id=>document.getElementById(id);
+  const movie=el("movie"), pts=data.pts, seek=el("seek");
+  let frame=0, pending=null, reviewTime=pts[0], draft=null, editing=null, notes=[];
+  const cacheKey="line-world-notas-v1-"+data.videoSha256+"-"+(data.attentionSha256||"");
+  el("title").textContent=data.title;
+  document.title=data.title+" · Revisión";
+  seek.max=pts.length-1;
+  function seconds(t) {
+    const ms=Math.round(t*1000);
+    return Math.floor(ms/60000)+":"+String(Math.floor(ms/1000)%60).padStart(2,"0")+","+String(ms%1000).padStart(3,"0");
+  }
+  const beatAt=n=>data.beats.find(b=>b.start<=n && n<b.end);
+  const chapterAtTime=t=>data.chapters.find(c=>c.start<=t && t<c.end);
+  const label=(n)=>seconds(pts[n])+" · f"+n;
+  function currentIndex(time) {
+    let lo=0, hi=pts.length;
+    while(lo+1<hi){ const mid=Math.floor((lo+hi)/2); if(pts[mid]<=time+.000002)lo=mid;else hi=mid; }
+    return lo;
+  }
+  function display(n,time=pts[n]) {
+    frame=n; reviewTime=time; seek.value=String(n);
+    el("time").textContent=seconds(time)+" · f"+n+" / "+seconds(data.duration);
+    el("scene").textContent=chapterAtTime(time)?.title||"";
+    el("idea").textContent=beatAt(n)?.idea||"";
+    if(data.captions && !el("spoken").hidden) showCaptions(time);
+    el("mark").hidden=!draft || n<draft.frame || n>draft.endFrame;
+  }
+  function go(n,exactTime=null) {
+    if(movie.readyState<1)return;
+    movie.pause();
+    n=Math.max(0,Math.min(pts.length-1,n));
+    const next=pts[n+1]??data.pictureEnd;
+    const destination=Math.min(movie.duration,exactTime??(pts[n]+next)/2);
+    display(n,exactTime??pts[n]);
+    if(Math.abs(movie.currentTime-destination)<.000001){pending=null;return;}
+    pending=n; movie.currentTime=destination;
+  }
+  let captionStamp=-Infinity,nextCaptionChange=-Infinity,highlightedCues=[];
+  function showCaptions(time) {
+    const stamp=time*1000;
+    if(captionStamp<=stamp && stamp<nextCaptionChange)return;
+    for(const index of highlightedCues)el("cueList").children[index].firstChild.removeAttribute("aria-current");
+    highlightedCues=[];
+    nextCaptionChange=Infinity;
+    captionStamp=stamp;
+    const active=[];
+    for(const [index,cue] of data.captions.cues.entries()){
+      if(cue.startMs>stamp){nextCaptionChange=Math.min(nextCaptionChange,cue.startMs);break;}
+      if(stamp<cue.endMs){
+        active.push(cue.text);highlightedCues.push(index);nextCaptionChange=Math.min(nextCaptionChange,cue.endMs);
+        el("cueList").children[index].firstChild.setAttribute("aria-current","true");
+      }
+    }
+    const words=active.join("\n");
+    if(el("spoken").textContent!==words)el("spoken").textContent=words;
+  }
+  if(data.captions) {
+    const panel=el("captions");
+    panel.hidden=false;
+    for(const cue of data.captions.cues) {
+      const row=document.createElement("li"), button=document.createElement("button");
+      button.textContent=seconds(cue.startMs/1000)+" · "+cue.text.replace(/\s+/g," ");
+      button.onclick=()=>{
+        const time=cue.startMs/1000;
+        setCaptions(true);
+        go(currentIndex(time),time);
+      };
+      row.append(button);el("cueList").append(row);
+    }
+    const toggle=el("toggleCaptions");
+    toggle.hidden=false;
+    function setCaptions(show){
+      toggle.setAttribute("aria-pressed",String(show));
+      el("spoken").hidden=!show;
+      if(show)showCaptions(movie.paused?reviewTime:movie.currentTime);
+    }
+    toggle.onclick=()=>setCaptions(el("spoken").hidden);
+    panel.ontoggle=()=>{if(panel.open)setCaptions(true);};
+    el("saveVtt").onclick=()=>{
+      const url=URL.createObjectURL(new Blob([data.captions.vtt],{type:"text/vtt;charset=utf-8"}));
+      const link=document.createElement("a");link.href=url;link.download="subtitulos-"+data.captions.language+".vtt";
+      link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+    };
+  }
+  movie.addEventListener("seeked",()=>{if(pending!==null && currentIndex(movie.currentTime)===pending){display(pending,reviewTime); pending=null;}});
+  movie.addEventListener("loadeddata",()=>{if(movie.paused && movie.currentTime+.00001<pts[0])go(0);});
+  let captionAnimation;
+  function followSpeech() {
+    if(movie.paused||movie.ended)return;
+    if(data.captions && !el("spoken").hidden)showCaptions(movie.currentTime);
+    captionAnimation=requestAnimationFrame(followSpeech);
+  }
+  movie.addEventListener("play",()=>{pending=null;el("play").textContent="Pausar";if(data.captions){cancelAnimationFrame(captionAnimation);followSpeech();}});
+  movie.addEventListener("pause",()=>{el("play").textContent="Reproducir";});
+  if("requestVideoFrameCallback" in movie) {
+    const presented=(_time,meta)=>{if(!movie.paused && pending===null)display(currentIndex(meta.mediaTime),movie.currentTime);movie.requestVideoFrameCallback(presented);};
+    movie.requestVideoFrameCallback(presented);
+  }
+  movie.addEventListener("timeupdate",()=>{if(!movie.paused)display(currentIndex(movie.currentTime),movie.currentTime);});
+  movie.addEventListener("error",()=>{el("status").textContent="No se pudo abrir el vídeo. Coloca el MP4 en su ruta relativa y vuelve a abrir la revisión.";});
+  movie.src=data.video;
+  const playPause=()=>{if(movie.paused)movie.play().catch(error=>{el("status").textContent=error.message;});else movie.pause();};
+  el("play").onclick=playPause;
+  el("back").onclick=()=>go(frame-1); el("next").onclick=()=>go(frame+1);
+  seek.oninput=()=>go(Number(seek.value));
+  document.addEventListener("keydown",event=>{
+    if(["TEXTAREA","INPUT","SELECT","BUTTON"].includes(event.target.tagName))return;
+    if(["ArrowLeft","ArrowRight"," "].includes(event.key))event.preventDefault();
+    if(event.key==="ArrowLeft")go(frame-1);
+    if(event.key==="ArrowRight")go(frame+1);
+    if(event.key===" ")playPause();
+  });
+  function candidates(n,point) {
+    const beat=beatAt(n);
+    if(!beat)return [];
+    return (beat.visible||Object.keys(data.tracks)).filter(id=>{
+      const [x,y,w,h]=data.tracks[id].box;
+      return x-.00001<=point[0] && point[0]<=x+w+.00001 && y-.00001<=point[1] && point[1]<=y+h+.00001;
+    }).sort((a,b)=>{
+      const area=id=>data.tracks[id].box[2]*data.tracks[id].box[3];
+      return area(a)-area(b);
+    });
+  }
+  function selection() {
+    el("range").textContent=draft?(draft.frame===draft.endFrame?label(draft.frame):label(draft.frame)+" → "+label(draft.endFrame)):"";
+    el("save").disabled=!draft || !el("text").value.trim();
+    el("end").disabled=!draft;
+    display(frame,reviewTime);
+  }
+  function pin(point, record) {
+    if(!record&&(pending!==null||movie.readyState<2)){el("status").textContent="Espera a que se muestre el fotograma.";return;}
+    if(!record&&(movie.currentTime+.00001<pts[0] || movie.currentTime>data.pictureEnd+.00001)){
+      el("status").textContent="Selecciona un fotograma dentro de la pista de imagen.";return;
+    }
+    movie.pause();
+    editing=record?.id||null;
+    draft=record?structuredClone(record):{frame:frame,endFrame:frame,point:point.map(value=>Math.round(value*1e6)/1e6)};
+    const matches=candidates(draft.frame,draft.point);
+    const select=el("element"); select.replaceChildren(new Option("Zona de la imagen",""));
+    for(const id of matches){
+      const words=id.replace(/^[^-]+-\d+-/,"").replace(/[-_]+/g," ");
+      const readable=words.charAt(0).toLocaleUpperCase("es")+words.slice(1);
+      select.add(new Option(data.tracks[id].label||readable,id));
+    }
+    select.value=record?(record.element||""):(matches[0]||"");
+    if(record){el("kind").value=record.kind;el("text").value=record.text;}
+    el("mark").style.left=(100*draft.point[0])+"%"; el("mark").style.top=(100*draft.point[1])+"%";
+    selection(); el("text").focus({preventScroll:true});
+  }
+  el("screen").onclick=e=>{
+    const rect=movie.getBoundingClientRect();
+    if(!rect.width||!rect.height)return;
+    pin([(e.clientX-rect.left)/rect.width,(e.clientY-rect.top)/rect.height]);
+  };
+  el("center").onclick=()=>pin([.5,.5]);
+  el("end").onclick=()=>{
+    if(!draft||pending!==null)return;
+    if(frame<draft.frame){el("status").textContent="El final debe quedar después del inicio marcado.";return;}
+    draft.endFrame=frame; selection();
+  };
+  el("text").oninput=selection;
+  const payload=()=>({version:1,videoSha256:data.videoSha256,attentionSha256:data.attentionSha256,notes});
+  function renderNotes() {
+    const list=el("notes"); list.replaceChildren();
+    for(const item of notes){
+      const row=document.createElement("li"), button=document.createElement("button"), desc=document.createElement("p");
+      button.textContent=label(item.frame)+" · "+(item.kind==="ajustar"?"Ajustar":"Conservar");
+      button.onclick=()=>{go(item.frame);pin(item.point,item);};
+      desc.textContent=item.text;row.append(button,desc);list.append(row);
+    }
+    el("count").textContent="Notas ("+notes.length+")"; el("download").disabled=!notes.length;
+  }
+  function store() {
+    renderNotes();
+    try{localStorage.setItem(cacheKey,JSON.stringify(payload()));}catch{el("status").textContent="Exporta el JSON para conservar las notas.";}
+  }
+  el("save").onclick=()=>{
+    if(!draft||!el("text").value.trim())return;
+    const beat=beatAt(draft.frame);
+    const item={...draft,id:editing||crypto.randomUUID(),element:el("element").value||null,kind:el("kind").value,
+      text:el("text").value.trim(),scene:beat?.cues?.[0]?.scene||chapterAtTime(pts[draft.frame])?.title||null,
+      seconds:pts[draft.frame],idea:beat?.idea||null,cues:beat?.cues||[]};
+    if(editing)notes=notes.map(n=>n.id===editing?item:n);else notes.push(item);
+    notes.sort((a,b)=>a.frame-b.frame);draft=null;editing=null;el("text").value="";
+    el("status").textContent="Nota guardada.";store();selection();
+  };
+  function importData(doc) {
+    if(doc?.version!==1 || doc.videoSha256!==data.videoSha256 || doc.attentionSha256!==data.attentionSha256)
+      throw Error("Las notas pertenecen a otra versión del vídeo o del plan.");
+    if(!Array.isArray(doc.notes))throw Error("El archivo no contiene una lista de notas.");
+    const ids=new Set();
+    for(const n of doc.notes) {
+      if(!n||typeof n.id!=="string"||!n.id||ids.has(n.id)||!Number.isInteger(n.frame)||!Number.isInteger(n.endFrame)||
+        n.frame<0||n.endFrame<n.frame||n.endFrame>=pts.length||!Array.isArray(n.point)||n.point.length!==2||
+        !n.point.every(v=>Number.isFinite(v)&&v>=0&&v<=1)||typeof n.text!=="string"||!n.text.trim()||n.text.length>2000||
+        !["conservar","ajustar"].includes(n.kind)||(n.element!=null&&!candidates(n.frame,n.point).includes(n.element)))
+        throw Error("El archivo contiene una nota inválida.");
+      ids.add(n.id);
+    }
+    // Merge by stable ID so importing a colleague's notes preserves local additions.
+    const merged=new Map(notes.map(n=>[n.id,n]));
+    for(const n of doc.notes)merged.set(n.id,n);
+    notes=[...merged.values()].sort((a,b)=>a.frame-b.frame);store();
+  }
+  el("download").onclick=()=>{
+    const url=URL.createObjectURL(new Blob([JSON.stringify(payload(),null,2)],{type:"application/json"}));
+    const link=document.createElement("a");link.href=url;link.download="notas-"+data.videoSha256.slice(0,10)+".json";
+    link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+  };
+  el("import").onclick=()=>el("file").click();
+  el("file").onchange=async()=>{
+    try{importData(JSON.parse(await el("file").files[0].text()));el("status").textContent="Notas importadas.";}
+    catch(error){el("status").textContent=error.message;}
+    finally{el("file").value="";}
+  };
+  try{const cached=localStorage.getItem(cacheKey);if(cached)importData(JSON.parse(cached));}catch{}
+  display(0);
+</script>
+</html>

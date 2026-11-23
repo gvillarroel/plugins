@@ -1,0 +1,14 @@
+{
+  "fps": 30,
+  "target_lufs": -18,
+  "cues": [
+    {
+      "id": "dato", "sound": "tick/key", "seed": 21, "use": "play",
+      "frame": 190, "anchor": "peak", "peak_dbfs": -29,
+      "roi": [15,105,371,176],
+      "protect_sentence": 3, "term": "dos por ciento",
+      "reason": "El titular cambia del recuento general al primer dato del fondo. Un único pulso marca su entrada.",
+      "silence": "El titular granate y la lectura del porcentaje también identifican la cifra."
+    }
+  ]
+}

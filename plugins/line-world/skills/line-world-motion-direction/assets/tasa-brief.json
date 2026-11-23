@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "subject": "Rendimiento anual a diez años",
+  "source": {
+    "type": "observed",
+    "detail": "Tesoro de EE. UU., noviembre de 2026",
+    "citation": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/pages/xmlview?data=daily_treasury_yield_curve&field_tdr_date_value_month=202611"
+  },
+  "measures": [
+    {
+      "label": "13 de noviembre",
+      "value": 5.15,
+      "unit": "%"
+    },
+    {
+      "label": "20 de noviembre",
+      "value": 4.92,
+      "unit": "%"
+    }
+  ]
+}

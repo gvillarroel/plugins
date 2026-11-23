@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "fps": 24,
+  "scenes": [
+    {
+      "id": "comparar-horarios",
+      "artifact": "data-chart",
+      "props": {
+        "title": "Salidas por hora",
+        "detail": "Estación Central · Datos de ejemplo",
+        "labels": ["06 h", "10 h", "14 h", "18 h"],
+        "values": [6, 9, 12, 8],
+        "highlightIndex": 2,
+        "focusHold": 3.5,
+        "duration": 1.5
+      },
+      "hold": 7
+    }
+  ]
+}

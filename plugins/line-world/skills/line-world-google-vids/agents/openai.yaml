@@ -1,0 +1,4 @@
+interface:
+  display_name: "Line World Google Vids"
+  short_description: "Edit native Google Vids projects and verify saved changes"
+  default_prompt: "Use $line-world-google-vids to edit the existing native project, verify the requested edits after reopening it, then verify any requested MP4 export and its editable project URL."

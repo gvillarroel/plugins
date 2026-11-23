@@ -1,0 +1,22 @@
+{
+  "repository": "https://github.com/Leonxlnx/earshot",
+  "revision": "7a7f7c5c70d4a763a1eca4b3666af7c77e313f97",
+  "license": "MIT",
+  "files": [
+    {
+      "path": "references/earshot.md",
+      "source": "skills/earshot/SKILL.md",
+      "originalSha256": "41425a9986200073533d31d16bfdf1c5221151c0440db4fc2d049158ea09117b"
+    },
+    {
+      "path": "references/recorded-sound.md",
+      "source": "skills/real-sound/references/sound-design.md",
+      "originalSha256": "199c18ada0ff8a5782479bd41eb90fd2011eafa188a251a837f95b94bb5f5389"
+    },
+    {
+      "path": "scripts/analyze.py",
+      "source": "skills/real-sound/scripts/analyze.py",
+      "originalSha256": "b3d450d895d74214656c290e9240848ac49ed03175451598f8e59a7872ced208"
+    }
+  ]
+}

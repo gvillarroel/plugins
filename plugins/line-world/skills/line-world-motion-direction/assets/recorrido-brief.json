@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "subject": "Al mercado",
+  "subjectLabel": "Destino",
+  "title": "Duración del recorrido",
+  "source": {"type": "simulated", "detail": "Recorridos de ejemplo"},
+  "measures": [
+    {"label": "Calle", "value": 18, "unit": "min"},
+    {"label": "Parque", "value": 12, "unit": "min"}
+  ],
+  "spokenUnit": "minutos",
+  "takeaway": "Por el parque se ahorran {gap}",
+  "narration": [
+    "En este ejemplo, ir por la calle lleva {a} y cruzar el parque, {b}.",
+    "Por el parque ahorramos {gap}."
+  ]
+}

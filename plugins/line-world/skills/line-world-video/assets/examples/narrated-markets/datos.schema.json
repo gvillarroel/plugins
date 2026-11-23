@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Cierres observados para una comparación semanal",
+  "type": "object",
+  "required": ["inicio", "fin", "series"],
+  "allOf": [{
+    "if": {"required":["sintetico"],"properties":{"sintetico":{"const":true}}},
+    "then": {"required":["procedencia"]},
+    "else": {"properties":{"series":{"additionalProperties":{"required":["fuentes"],"properties":{"fuentes":{"minItems":1}}}}}}
+  }],
+  "properties": {
+    "inicio": {"type": "string", "format": "date"},
+    "fin": {"type": "string", "format": "date"},
+    "semana": {"type": "string"},
+    "mercado": {"type": "string"},
+    "sintetico": {"type": "boolean"},
+    "procedencia": {"type": "string", "minLength": 1},
+    "dias": {"$ref": "#/$defs/dias"},
+    "orden": {"type": "array", "items": {"enum": ["sp500","nasdaq","oro","btc","tlt"]}, "minItems": 5, "maxItems": 5, "uniqueItems": true},
+    "series": {"type": "object", "minProperties": 1, "additionalProperties": {"$ref": "#/$defs/serie"}}
+  },
+  "$defs": {
+    "dias": {"type": "array", "minItems": 2, "items": {"type": "integer", "minimum": 1, "maximum": 31}, "uniqueItems": true},
+    "serie": {
+      "type": "object", "required": ["nombre","tipo","unidad"],
+      "anyOf": [{"required":["values"]}, {"required":["observaciones"]}],
+      "properties": {
+        "nombre": {"type":"string","minLength":1},
+        "tipo": {"enum":["precio","rendimiento"]},
+        "unidad": {"type":"string","minLength":1},
+        "escala_tasa": {"enum":["porcentaje","fraccion","puntos_basicos"]},
+        "fuentes": {"type":"array","items":{"type":"string","format":"uri","pattern":"^https://"}},
+        "fuente_corta": {"type":"string","minLength":1},
+        "zona_horaria": {"type":"string","minLength":1},
+        "convencion_cierre": {"type":"string","minLength":1},
+        "observaciones": {
+          "type":"array","minItems":2,
+          "items":{"type":"object","required":["fecha","valor"],"properties":{
+            "fecha":{"type":"string","format":"date"},"valor":{"type":"number"},
+            "cierre":{"type":"string","format":"date-time","description":"Instante conocido con desplazamiento UTC; omitir si solo se conoce la sesión."}
+          }}
+        },
+        "fechas": {"type":"array","minItems":2,"uniqueItems":true,"items":{"type":"string","format":"date"}},
+        "dias": {"$ref":"#/$defs/dias"},
+        "values": {"type":"array","minItems":2,"items":{"type":"number"}}
+      }
+    }
+  }
+}

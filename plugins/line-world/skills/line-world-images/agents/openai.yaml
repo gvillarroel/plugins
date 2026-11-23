@@ -1,0 +1,4 @@
+interface:
+  display_name: "Line World Images"
+  short_description: "Prepare and verify generated images for video"
+  default_prompt: "Use $line-world-images to choose the source for a scene, direct Codex ImageGen when useful and check the chosen asset in the final crop."

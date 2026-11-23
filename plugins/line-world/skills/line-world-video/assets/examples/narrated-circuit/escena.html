@@ -1,0 +1,125 @@
+<!doctype html><html lang="es"><meta charset="utf-8"><title>El interruptor y la bobina</title>
+<style>html,body{margin:0;background:white}canvas{width:100%;height:auto;display:block}</style>
+<canvas data-export-surface width="1280" height="720" aria-label="Circuito de corriente continua con pila, interruptor y bobina; detalle de una línea del campo magnético."></canvas>
+<script type="application/json" id="clock">__CLOCK__</script>
+<script>
+"use strict";
+const clock=JSON.parse(document.querySelector("#clock").textContent);
+const c=document.querySelector("canvas").getContext("2d");
+const p={white:"#ffffff",ink:"#333e48",red:"#9e1b32",mid:"#696969",rule:"#cfcfcf"};
+const {fps,edges:e}=clock;
+const clamp=n=>Math.min(1,Math.max(0,n));
+const mix=(a,b,v)=>a+(b-a)*v;
+const phase=(frame,a,b)=>clamp((frame-a)/(b-a));
+const ease=u=>u*u*(3-2*u);
+function label(caption,x,y,size,{color=p.ink,serif=false,align="left",bold=false}={}){
+  c.fillStyle=color;c.textAlign=align;c.textBaseline="alphabetic";
+  c.font=(bold?"600 ":"") + size+"px "+(serif?"Georgia,serif":"Arial,sans-serif");c.fillText(caption,x,y);
+}
+function line(points,color,width){
+  c.strokeStyle=color;c.lineWidth=width;c.lineJoin="round";c.lineCap="round";c.beginPath();
+  points.forEach(([x,y],i)=>i?c.lineTo(x,y):c.moveTo(x,y));c.stroke();
+}
+function dot(x,y,r,color){
+  c.fillStyle=color;c.beginPath();c.arc(x,y,r,0,2*Math.PI);c.fill();
+}
+function poly(points,color){
+  c.fillStyle=color;c.beginPath();points.forEach(([x,y],i)=>i?c.lineTo(x,y):c.moveTo(x,y));c.closePath();c.fill();
+}
+function curve(d){
+  const native=document.createElementNS("http://www.w3.org/2000/svg","path");
+  native.setAttribute("d",d);
+  const total=native.getTotalLength(), cache=Array.from({length:Math.ceil(total)+1},(_,i)=>{
+    const q=native.getPointAtLength(Math.min(i,total)); return [q.x,q.y];
+  });
+  return {total,cache,path:new Path2D(d)};
+}
+function trace(geometry,f,color,width){
+  if(f<=0) return;
+  c.strokeStyle=color;c.lineWidth=width;c.lineJoin="round";c.lineCap="round";
+  if(f>=1){c.stroke(geometry.path);return;}
+  const distance=f*geometry.total, integer=Math.floor(distance), tail=distance-integer;
+  const points=geometry.cache;
+  c.beginPath();c.moveTo(...points[0]);
+  for(let i=1;i<=integer;i++) c.lineTo(...points[i]);
+  if(integer+1<points.length)c.lineTo(mix(points[integer][0],points[integer+1][0],tail),mix(points[integer][1],points[integer+1][1],tail));
+  c.stroke();
+}
+const coil=curve("M610 311 L610 327 C644 327 644 357 610 357 C644 357 644 387 610 387 C644 387 644 417 610 417 C644 417 644 447 610 447 C644 447 644 477 610 477 L610 493");
+// One closed field line passes through the center of the winding and returns outside.
+const field=curve("M839 409 C902 409 1070 409 1131 409 C1183 409 1217 392 1217 355 C1217 280 1109 244 1004 244 C893 244 782 281 782 355 C782 395 801 409 839 409 Z");
+const helix=[];
+for(let i=0;i<=480;i++){
+  const u=i/480,a=u*6*2*Math.PI;
+  helix.push([857+261*u+17*Math.sin(a),410-42*Math.cos(a)]);
+}
+// Conventional current leaves the long (+) plate and returns to the short (−) plate.
+function currentArrow(x,y,direction,left,right){
+  c.save();c.beginPath();c.rect(left,y-18,right-left,36);c.clip();
+  const q=(n)=>x+direction*n;
+  poly([[q(-23),y-4],[q(2),y-4],[q(2),y-13],[q(22),y],[q(2),y+13],[q(2),y+4],[q(-23),y+4]],p.red);
+  c.restore();
+}
+function stateAt(frame){
+  const beforeClose=frame<e.close, opened=phase(frame,e.open,e.opened);
+  const angle=beforeClose?mix(-31,0,phase(frame,0,e.close)):mix(0,-31,ease(opened));
+  const arm=angle*Math.PI/180;
+  const tip=[285+125*Math.cos(arm),263+125*Math.sin(arm)];
+  const energize=phase(frame,e.close,e.established), flow=phase(frame,e.flow,e.flowEnd);
+  const magnet=phase(frame,e.magnet,e.magnetEnd);
+  const topX=frame<e.open?mix(440,497,energize)+52*flow:mix(549,643,opened);
+  const bottomX=mix(625,486,energize)-364*flow;
+  const fieldLength=frame<e.open?energize:1-opened;
+  const beat=clock.beats.find(b=>frame>=b.start && frame<b.end)||clock.beats.at(-1);
+  return {frame,focus:beat.focus,moving:beat.moving,mode:beat.mode,tip,gap:263-tip[1],
+    energized:frame>=e.close&&frame<e.open,topX,bottomX,magnet,fieldLength,openRatio:opened};
+}
+function renderAt(seconds,absoluteFrame){
+  const frame=Number.isInteger(absoluteFrame)?absoluteFrame:Math.round(seconds*fps);
+  const s=stateAt(Math.max(0,Math.min(clock.frames-1,frame)));
+  c.fillStyle=p.white;c.fillRect(0,0,1280,720);
+  label("Circuito de corriente continua",60,99,45,{serif:true});
+  label("Campo magnético",752,99,45,{serif:true});
+  label("Interruptor",344,169,32,{align:"center"});
+  label("Pila",35,389,35);
+  label("Bobina",454,417,32);
+  line([[569,403],[594,403]],p.rule,2.5);
+  label("Detalle de la bobina",997,571,30,{align:"center",color:p.mid});
+  // Continuous stationary schematic: the only breaks are the source and the switch.
+  line([[150,370],[150,263],[285,263]],p.ink,6);
+  line([[410,263],[610,263],[610,311]],p.ink,6);
+  trace(coil,1,p.ink,6);
+  line([[610,493],[610,531],[150,531],[150,414]],p.ink,6);
+  line([[116,370],[184,370]],p.ink,7);line([[130,414],[170,414]],p.ink,7);
+  label("+",104,354,32,{align:"center",bold:true});label("−",104,435,32,{align:"center",bold:true});
+  // A caliper encodes the switch gap during its single closing gesture.
+  if(s.frame<e.close){
+    const x=439, y=s.tip[1];
+    line([[x,y],[x,263]],p.mid,3.5);
+    line([[x-7,y],[x+7,y]],p.mid,3.5);line([[x-7,263],[x+7,263]],p.mid,3.5);
+  }
+  dot(410,263,9,p.ink);line([[285,263],s.tip],p.red,8);
+  dot(285,263,10,p.ink);dot(285,263,4,p.white);
+  if(s.frame>=e.close && s.frame<e.opened){
+    currentArrow(s.topX,263,1,462,602);
+    currentArrow(s.bottomX,531,-1,156,593);
+  }
+  // A single semantic marker follows the actual arc length of the inductor symbol.
+  if(s.frame>=e.magnet && s.frame<e.magnetEnd){
+    const k=Math.min(coil.cache.length-1, Math.round(s.magnet*(coil.cache.length-1)));
+    const [x,y]=coil.cache[k];dot(x,y,9,p.red);
+  }
+  if(s.fieldLength>0){
+    trace(field,s.fieldLength,p.mid,4.5);
+    if(s.magnet>0) trace(field,Math.min(s.magnet,s.fieldLength),p.red,5.5);
+  }
+  // Draw individual turns of the same physical coil as one continuous winding.
+  line([[821,369],[857,368]],p.ink,6);line(helix,p.ink,6);
+  line([[1118,368],[1161,368]],p.ink,6);
+  // Fixed key: direction only, with no numerical current or field scale.
+  currentArrow(89,644,1,60,120);
+  label("Corriente convencional",129,655,30,{color:p.mid});
+  window.lastCircuitState=s;return s;
+}
+window.renderAt=renderAt;window.stateAt=stateAt;renderAt(0);
+</script></html>

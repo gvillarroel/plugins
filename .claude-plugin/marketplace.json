@@ -84,6 +84,12 @@
       "version": "1.0.0"
     },
     {
+      "name": "line-world",
+      "source": "./plugins/line-world",
+      "description": "Create and edit narrated explainers with measured attention, source-based charts, portraits, original illustrations and filmed scenes. Generate voices and effects, edit Google Vids and verify the exported MP4.",
+      "version": "1.8.2"
+    },
+    {
       "name": "line-world-video",
       "source": "./plugins/line-world-video",
       "description": "Create clean explanatory videos with sourced object photographs, restrained image treatments, original-paper tours, D3/Mermaid diagrams, semantic focus and editable timing. Includes whole-film review and a Google Vids narration and delivery adapter.",

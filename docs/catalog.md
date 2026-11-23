@@ -265,6 +265,40 @@ Author and audit Harbor evaluation datasets for the Layers workspace.
 
 - [harbor-author-evaluation-datasets](../plugins/layers-evaluation/skills/harbor-author-evaluation-datasets/SKILL.md)
 
+## line-world
+
+Create and edit narrated explainers with measured attention, source-based charts, portraits, original illustrations and filmed scenes. Generate voices and effects, edit Google Vids and verify the exported MP4.
+
+| Client | Install command |
+| --- | --- |
+| Codex | `codex plugin add line-world@plugins` |
+| Claude Code | `claude plugin install line-world@plugins` |
+| GitHub Copilot CLI | `copilot plugin install line-world@plugins` |
+| Pi (skills) | `pi install ./plugins/line-world` |
+
+**Skills**
+
+- [animated-svg-to-gif](../plugins/line-world/skills/animated-svg-to-gif/SKILL.md)
+- [asciinema-real-command-video](../plugins/line-world/skills/asciinema-real-command-video/SKILL.md)
+- [colorsets](../plugins/line-world/skills/colorsets/SKILL.md)
+- [hyperframes-explainer](../plugins/line-world/skills/hyperframes-explainer/SKILL.md)
+- [line-world-d3](../plugins/line-world/skills/line-world-d3/SKILL.md)
+- [line-world-google-vids](../plugins/line-world/skills/line-world-google-vids/SKILL.md)
+- [line-world-hyperframes](../plugins/line-world/skills/line-world-hyperframes/SKILL.md)
+- [line-world-icons](../plugins/line-world/skills/line-world-icons/SKILL.md)
+- [line-world-images](../plugins/line-world/skills/line-world-images/SKILL.md)
+- [line-world-mermaid](../plugins/line-world/skills/line-world-mermaid/SKILL.md)
+- [line-world-motion-direction](../plugins/line-world/skills/line-world-motion-direction/SKILL.md)
+- [line-world-sound](../plugins/line-world/skills/line-world-sound/SKILL.md)
+- [line-world-video](../plugins/line-world/skills/line-world-video/SKILL.md)
+- [manim-svg-video](../plugins/line-world/skills/manim-svg-video/SKILL.md)
+- [media-use](../plugins/line-world/skills/media-use/SKILL.md)
+- [pydub-audio](../plugins/line-world/skills/pydub-audio/SKILL.md)
+- [pydub-projects](../plugins/line-world/skills/pydub-projects/SKILL.md)
+- [reference-motion](../plugins/line-world/skills/reference-motion/SKILL.md)
+- [video](../plugins/line-world/skills/video/SKILL.md)
+- [video-style-reverse-engineering](../plugins/line-world/skills/video-style-reverse-engineering/SKILL.md)
+
 ## line-world-video
 
 Create clean explanatory videos with sourced object photographs, restrained image treatments, original-paper tours, D3/Mermaid diagrams, semantic focus and editable timing. Includes whole-film review and a Google Vids narration and delivery adapter.

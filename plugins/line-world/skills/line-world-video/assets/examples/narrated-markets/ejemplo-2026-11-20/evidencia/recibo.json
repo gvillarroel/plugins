@@ -1,0 +1,841 @@
+{
+  "start": "2026-11-13",
+  "end": "2026-11-20",
+  "providers": {
+    "fred": {
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?coed=2026-11-20&cosd=2026-11-13&id=SP500",
+      "http": 200,
+      "fetchedUtc": "2026-11-23T06:47:55.301172+00:00",
+      "contentType": "application/csv",
+      "httpDate": "Mon, 23 Nov 2026 06:47:55 GMT",
+      "originalBytes": 118,
+      "responseSha256": "d9eec58aca5dd1a437755df242321b3571ba241428e72493ca6e4bb5d9f71638",
+      "rows": {
+        "2026-11-13": {
+          "value": "7561.67",
+          "originalRow": {
+            "observation_date": "2026-11-13",
+            "SP500": "7561.67"
+          }
+        },
+        "2026-11-16": {
+          "value": "7416.59",
+          "originalRow": {
+            "observation_date": "2026-11-16",
+            "SP500": "7416.59"
+          }
+        },
+        "2026-11-17": {
+          "value": "7340.53",
+          "originalRow": {
+            "observation_date": "2026-11-17",
+            "SP500": "7340.53"
+          }
+        },
+        "2026-11-18": {
+          "value": "7323.63",
+          "originalRow": {
+            "observation_date": "2026-11-18",
+            "SP500": "7323.63"
+          }
+        },
+        "2026-11-19": {
+          "value": "7175.83",
+          "originalRow": {
+            "observation_date": "2026-11-19",
+            "SP500": "7175.83"
+          }
+        }
+      },
+      "status": "rows"
+    },
+    "cboe": {
+      "url": "https://cdn-api.cboe.com/api/global/us_indices/daily_prices/SPX_History.csv",
+      "http": 200,
+      "fetchedUtc": "2026-11-23T06:47:55.473392+00:00",
+      "contentType": "text/csv",
+      "httpDate": "Mon, 23 Nov 2026 06:47:55 GMT",
+      "originalBytes": 293815,
+      "responseSha256": "538eeefe44e47f764b4a66a6e2782c630bdda40c3d8e11ab008ca0a425add68a",
+      "rows": {
+        "2026-11-13": {
+          "value": "7561.670000",
+          "originalRow": {
+            "DATE": "11/13/2026",
+            "SPX": "7561.670000"
+          }
+        },
+        "2026-11-16": {
+          "value": "7416.590000",
+          "originalRow": {
+            "DATE": "11/16/2026",
+            "SPX": "7416.590000"
+          }
+        },
+        "2026-11-17": {
+          "value": "7340.530000",
+          "originalRow": {
+            "DATE": "11/17/2026",
+            "SPX": "7340.530000"
+          }
+        },
+        "2026-11-18": {
+          "value": "7323.630000",
+          "originalRow": {
+            "DATE": "11/18/2026",
+            "SPX": "7323.630000"
+          }
+        },
+        "2026-11-19": {
+          "value": "7175.830000",
+          "originalRow": {
+            "DATE": "11/19/2026",
+            "SPX": "7175.830000"
+          }
+        },
+        "2026-11-20": {
+          "value": "6910.390000",
+          "originalRow": {
+            "DATE": "11/20/2026",
+            "SPX": "6910.390000"
+          }
+        }
+      },
+      "status": "rows"
+    },
+    "comp": {
+      "url": "https://api.nasdaq.com/api/quote/COMP/historical?assetclass=index&fromdate=2026-11-13&todate=2026-11-20",
+      "http": 200,
+      "fetchedUtc": "2026-11-23T06:47:55.311757+00:00",
+      "contentType": "application/json; charset=utf-8",
+      "httpDate": "Mon, 23 Nov 2026 06:47:55 GMT",
+      "originalBytes": 939,
+      "responseSha256": "2aeb1b2d029c1a1d987b6200cc62ca97fbac8969a82f6fb3df0d10b99f5ea66b",
+      "rows": {
+        "2026-11-13": {
+          "value": "25136.27",
+          "originalRow": {
+            "date": "11/13/2026",
+            "close": "25,136.27",
+            "volume": "--",
+            "open": "25,408.00",
+            "high": "25,423.09",
+            "low": "24,872.41"
+          }
+        },
+        "2026-11-16": {
+          "value": "24509.76",
+          "originalRow": {
+            "date": "11/16/2026",
+            "close": "24,509.76",
+            "volume": "--",
+            "open": "24,853.35",
+            "high": "24,882.04",
+            "low": "24,460.28"
+          }
+        },
+        "2026-11-17": {
+          "value": "24328.38",
+          "originalRow": {
+            "date": "11/17/2026",
+            "close": "24,328.38",
+            "volume": "--",
+            "open": "24,528.06",
+            "high": "24,547.66",
+            "low": "23,989.09"
+          }
+        },
+        "2026-11-18": {
+          "value": "24429.88",
+          "originalRow": {
+            "date": "11/18/2026",
+            "close": "24,429.88",
+            "volume": "--",
+            "open": "24,486.17",
+            "high": "24,538.78",
+            "low": "24,225.30"
+          }
+        },
+        "2026-11-19": {
+          "value": "23879.20",
+          "originalRow": {
+            "date": "11/19/2026",
+            "close": "23,879.20",
+            "volume": "--",
+            "open": "24,809.05",
+            "high": "24,939.62",
+            "low": "23,870.70"
+          }
+        },
+        "2026-11-20": {
+          "value": "22617.73",
+          "originalRow": {
+            "date": "11/20/2026",
+            "close": "22,617.73",
+            "volume": "--",
+            "open": "23,592.67",
+            "high": "23,837.76",
+            "low": "22,513.01"
+          }
+        }
+      },
+      "status": "rows"
+    },
+    "tlt": {
+      "url": "https://api.nasdaq.com/api/quote/TLT/historical?assetclass=etf&fromdate=2026-11-13&todate=2026-11-20",
+      "http": 200,
+      "fetchedUtc": "2026-11-23T06:47:55.300961+00:00",
+      "contentType": "application/json; charset=utf-8",
+      "httpDate": "Mon, 23 Nov 2026 06:47:55 GMT",
+      "originalBytes": 897,
+      "responseSha256": "1d0c62c16850fc10c25eafac5d3538cd680a30b089ea6bc2b3755cd42fc19e7d",
+      "rows": {
+        "2026-11-13": {
+          "value": "79.38",
+          "originalRow": {
+            "date": "11/13/2026",
+            "close": "79.38",
+            "volume": "31,851,860",
+            "open": "79.30",
+            "high": "79.635",
+            "low": "79.1109"
+          }
+        },
+        "2026-11-16": {
+          "value": "79.38",
+          "originalRow": {
+            "date": "11/16/2026",
+            "close": "79.38",
+            "volume": "30,944,110",
+            "open": "79.51",
+            "high": "79.755",
+            "low": "79.275"
+          }
+        },
+        "2026-11-17": {
+          "value": "79.55",
+          "originalRow": {
+            "date": "11/17/2026",
+            "close": "79.55",
+            "volume": "34,859,620",
+            "open": "79.30",
+            "high": "79.77",
+            "low": "79.235"
+          }
+        },
+        "2026-11-18": {
+          "value": "80.22",
+          "originalRow": {
+            "date": "11/18/2026",
+            "close": "80.22",
+            "volume": "42,013,020",
+            "open": "79.91",
+            "high": "80.28",
+            "low": "79.82"
+          }
+        },
+        "2026-11-19": {
+          "value": "80.35",
+          "originalRow": {
+            "date": "11/19/2026",
+            "close": "80.35",
+            "volume": "38,753,440",
+            "open": "80.08",
+            "high": "80.45",
+            "low": "79.81"
+          }
+        },
+        "2026-11-20": {
+          "value": "81.45",
+          "originalRow": {
+            "date": "11/20/2026",
+            "close": "81.45",
+            "volume": "66,140,020",
+            "open": "80.74",
+            "high": "81.71",
+            "low": "80.685"
+          }
+        }
+      },
+      "status": "rows"
+    },
+    "tesoro": {
+      "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/pages/xmlview?data=daily_treasury_yield_curve&field_tdr_date_value_month=202611",
+      "http": 200,
+      "fetchedUtc": "2026-11-23T06:47:55.455656+00:00",
+      "contentType": "text/xml; charset=UTF-8",
+      "httpDate": "Mon, 23 Nov 2026 06:47:55 GMT",
+      "originalBytes": 39037,
+      "responseSha256": "0d9a49538b55cb808d910022da2a4cf0ef65d7053a4291d25a3d764bca7d3f58",
+      "rows": {
+        "2026-11-13": {
+          "value": "5.15",
+          "originalRow": {
+            "Id": "357",
+            "NEW_DATE": "2026-11-13T00:00:00",
+            "BC_10YEAR": "5.15"
+          }
+        },
+        "2026-11-16": {
+          "value": "5.12",
+          "originalRow": {
+            "Id": "358",
+            "NEW_DATE": "2026-11-16T00:00:00",
+            "BC_10YEAR": "5.12"
+          }
+        },
+        "2026-11-17": {
+          "value": "5.10",
+          "originalRow": {
+            "Id": "359",
+            "NEW_DATE": "2026-11-17T00:00:00",
+            "BC_10YEAR": "5.10"
+          }
+        },
+        "2026-11-18": {
+          "value": "5.07",
+          "originalRow": {
+            "Id": "360",
+            "NEW_DATE": "2026-11-18T00:00:00",
+            "BC_10YEAR": "5.07"
+          }
+        },
+        "2026-11-19": {
+          "value": "5.04",
+          "originalRow": {
+            "Id": "361",
+            "NEW_DATE": "2026-11-19T00:00:00",
+            "BC_10YEAR": "5.04"
+          }
+        },
+        "2026-11-20": {
+          "value": "4.92",
+          "originalRow": {
+            "Id": "362",
+            "NEW_DATE": "2026-11-20T00:00:00",
+            "BC_10YEAR": "4.92"
+          }
+        }
+      },
+      "status": "rows"
+    },
+    "xau": {
+      "url": "https://www.investing.com/currencies/xau-usd-historical-data",
+      "status": "rows",
+      "retrieval": "public daily HTML table captured through web reader",
+      "extractFile": "xau-2026-11-23.csv",
+      "extractSha256": "1474dc93405fce16a4311d4e9c9e473fe23e4f1371c21e7b127b8db34c80d19b",
+      "importedUtc": "2026-11-23T06:49:43.982568+00:00",
+      "httpAttempt": {
+        "url": "https://www.investing.com/currencies/xau-usd-historical-data",
+        "status": "unavailable",
+        "error": "HTTP Error 403: Forbidden"
+      },
+      "rows": {
+        "2026-11-13": {
+          "value": "3880.70",
+          "originalRow": {
+            "Date": "Nov 13, 2026",
+            "Price": "3,880.70",
+            "Open": "3,876.86",
+            "High": "3,923.35",
+            "Low": "3,867.65"
+          }
+        },
+        "2026-11-16": {
+          "value": "3856.65",
+          "originalRow": {
+            "Date": "Nov 16, 2026",
+            "Price": "3,856.65",
+            "Open": "3,869.30",
+            "High": "3,901.40",
+            "Low": "3,831.41"
+          }
+        },
+        "2026-11-17": {
+          "value": "3850.17",
+          "originalRow": {
+            "Date": "Nov 17, 2026",
+            "Price": "3,850.17",
+            "Open": "3,856.50",
+            "High": "3,891.14",
+            "Low": "3,836.88"
+          }
+        },
+        "2026-11-18": {
+          "value": "3723.60",
+          "originalRow": {
+            "Date": "Nov 18, 2026",
+            "Price": "3,723.60",
+            "Open": "3,850.29",
+            "High": "3,857.91",
+            "Low": "3,719.86"
+          }
+        },
+        "2026-11-19": {
+          "value": "3622.90",
+          "originalRow": {
+            "Date": "Nov 19, 2026",
+            "Price": "3,622.90",
+            "Open": "3,723.61",
+            "High": "3,758.71",
+            "Low": "3,620.05"
+          }
+        },
+        "2026-11-20": {
+          "value": "3532.85",
+          "originalRow": {
+            "Date": "Nov 20, 2026",
+            "Price": "3,532.85",
+            "Open": "3,622.85",
+            "High": "3,637.21",
+            "Low": "3,502.85"
+          }
+        }
+      }
+    },
+    "xau-es": {
+      "url": "https://es.investing.com/currencies/xau-usd-historical-data",
+      "status": "rows",
+      "retrieval": "public daily HTML table captured through web reader",
+      "extractFile": "xau-es-2026-11-23.csv",
+      "extractSha256": "6b960d1d354d17bea48bdd5105e7b558eb14116f5eddc4f0754ff02b51051923",
+      "importedUtc": "2026-11-23T06:49:43.990298+00:00",
+      "httpAttempt": {
+        "url": "https://es.investing.com/currencies/xau-usd-historical-data",
+        "status": "unavailable",
+        "error": "HTTP Error 403: Forbidden"
+      },
+      "rows": {
+        "2026-11-13": {
+          "value": "3880.70",
+          "originalRow": {
+            "Date": "13.11.2026",
+            "Price": "3.880,70",
+            "Open": "3.876,86",
+            "High": "3.923,35",
+            "Low": "3.867,65"
+          }
+        },
+        "2026-11-16": {
+          "value": "3856.65",
+          "originalRow": {
+            "Date": "16.11.2026",
+            "Price": "3.856,65",
+            "Open": "3.869,30",
+            "High": "3.901,40",
+            "Low": "3.831,41"
+          }
+        },
+        "2026-11-17": {
+          "value": "3850.17",
+          "originalRow": {
+            "Date": "17.11.2026",
+            "Price": "3.850,17",
+            "Open": "3.856,50",
+            "High": "3.891,14",
+            "Low": "3.836,88"
+          }
+        },
+        "2026-11-18": {
+          "value": "3723.60",
+          "originalRow": {
+            "Date": "18.11.2026",
+            "Price": "3.723,60",
+            "Open": "3.850,29",
+            "High": "3.857,91",
+            "Low": "3.719,86"
+          }
+        },
+        "2026-11-19": {
+          "value": "3622.90",
+          "originalRow": {
+            "Date": "19.11.2026",
+            "Price": "3.622,90",
+            "Open": "3.723,61",
+            "High": "3.758,71",
+            "Low": "3.620,05"
+          }
+        },
+        "2026-11-20": {
+          "value": "3532.85",
+          "originalRow": {
+            "Date": "20.11.2026",
+            "Price": "3.532,85",
+            "Open": "3.622,85",
+            "High": "3.637,21",
+            "Low": "3.502,85"
+          }
+        }
+      }
+    },
+    "btc-ohlc": {
+      "url": "https://api.coinmarketcap.com/data-api/v3/cryptocurrency/historical?id=1&convertId=2781&timeStart=1794528000&timeEnd=1795219199",
+      "http": 200,
+      "fetchedUtc": "2026-11-23T06:47:55.472607+00:00",
+      "contentType": "application/json",
+      "httpDate": "Mon, 23 Nov 2026 06:47:55 GMT",
+      "originalBytes": 3495,
+      "responseSha256": "337a6e3fab20f13511ece71a4e434fd9eb4c601dd40ec94249162d7ad9766e72",
+      "rows": {
+        "2026-11-13": {
+          "value": "68249.2720284610",
+          "originalRow": {
+            "timeOpen": "2026-11-13T00:00:00.000Z",
+            "timeClose": "2026-11-13T23:59:59.999Z",
+            "quote": {
+              "name": "2781",
+              "open": "71342.9685754377",
+              "high": "71428.5317934538",
+              "low": "67653.0669600989",
+              "close": "68249.2720284610",
+              "timestamp": "2026-11-13T23:59:59.999Z"
+            }
+          }
+        },
+        "2026-11-14": {
+          "value": "64128.0511040949",
+          "originalRow": {
+            "timeOpen": "2026-11-14T00:00:00.000Z",
+            "timeClose": "2026-11-14T23:59:59.999Z",
+            "quote": {
+              "name": "2781",
+              "open": "68249.2720284610",
+              "high": "68377.5383564100",
+              "low": "63329.4289589581",
+              "close": "64128.0511040949",
+              "timestamp": "2026-11-14T23:59:59.999Z"
+            }
+          }
+        },
+        "2026-11-15": {
+          "value": "65305.0642540342",
+          "originalRow": {
+            "timeOpen": "2026-11-15T00:00:00.000Z",
+            "timeClose": "2026-11-15T23:59:59.999Z",
+            "quote": {
+              "name": "2781",
+              "open": "64128.0511040949",
+              "high": "66055.1010084892",
+              "low": "62017.8836253590",
+              "close": "65305.0642540342",
+              "timestamp": "2026-11-15T23:59:59.999Z"
+            }
+          }
+        },
+        "2026-11-16": {
+          "value": "64855.8426186460",
+          "originalRow": {
+            "timeOpen": "2026-11-16T00:00:00.000Z",
+            "timeClose": "2026-11-16T23:59:59.999Z",
+            "quote": {
+              "name": "2781",
+              "open": "65305.0642540342",
+              "high": "65604.6000525102",
+              "low": "63834.6709744707",
+              "close": "64855.8426186460",
+              "timestamp": "2026-11-16T23:59:59.999Z"
+            }
+          }
+        },
+        "2026-11-17": {
+          "value": "64893.9466636244",
+          "originalRow": {
+            "timeOpen": "2026-11-17T00:00:00.000Z",
+            "timeClose": "2026-11-17T23:59:59.999Z",
+            "quote": {
+              "name": "2781",
+              "open": "64855.8426186460",
+              "high": "65365.1279120638",
+              "low": "63284.4564903263",
+              "close": "64893.9466636244",
+              "timestamp": "2026-11-17T23:59:59.999Z"
+            }
+          }
+        },
+        "2026-11-18": {
+          "value": "62987.2664179107",
+          "originalRow": {
+            "timeOpen": "2026-11-18T00:00:00.000Z",
+            "timeClose": "2026-11-18T23:59:59.999Z",
+            "quote": {
+              "name": "2781",
+              "open": "64893.9466636244",
+              "high": "64928.8001890236",
+              "low": "62017.3776069413",
+              "close": "62987.2664179107",
+              "timestamp": "2026-11-18T23:59:59.999Z"
+            }
+          }
+        },
+        "2026-11-19": {
+          "value": "61901.8203414335",
+          "originalRow": {
+            "timeOpen": "2026-11-19T00:00:00.000Z",
+            "timeClose": "2026-11-19T23:59:59.999Z",
+            "quote": {
+              "name": "2781",
+              "open": "62987.2664179107",
+              "high": "64017.2696986562",
+              "low": "61380.8813048203",
+              "close": "61901.8203414335",
+              "timestamp": "2026-11-19T23:59:59.999Z"
+            }
+          }
+        },
+        "2026-11-20": {
+          "value": "58798.9809281520",
+          "originalRow": {
+            "timeOpen": "2026-11-20T00:00:00.000Z",
+            "timeClose": "2026-11-20T23:59:59.999Z",
+            "quote": {
+              "name": "2781",
+              "open": "61901.8203414335",
+              "high": "62540.2116522105",
+              "low": "57708.6972678279",
+              "close": "58798.9809281520",
+              "timestamp": "2026-11-20T23:59:59.999Z"
+            }
+          }
+        }
+      },
+      "status": "rows"
+    },
+    "ishares-cierre": {
+      "url": "https://www.ishares.com/us/products/239454/ishares-20-year-treasury-bond-etf",
+      "http": 200,
+      "fetchedUtc": "2026-11-23T06:47:56.342136+00:00",
+      "contentType": "text/html;charset=UTF-8",
+      "httpDate": "Mon, 23 Nov 2026 06:47:56 GMT",
+      "originalBytes": 2056893,
+      "responseSha256": "215eb1d8a15d72cf783bff8aad67d8d71a1a82cc2d6e67dfa88f55e4a3e27455",
+      "rows": {
+        "2026-11-20": {
+          "value": "81.45",
+          "originalRow": {
+            "name": "closingPrice",
+            "label": "Closing Price",
+            "formattedValue": "81.45",
+            "formattedAsOfDate": "Nov 20, 2026",
+            "prefix": "$"
+          }
+        }
+      },
+      "status": "rows"
+    },
+    "ishares-nav": {
+      "url": "https://www.blackrock.com/varnish-api/blk-one01-product-data/product-data/api/v1/get-fund-document?appType=PRODUCT_PAGE&appSubType=ISHARES&targetSite=us-ishares&locale=en_US&portfolioId=239454&component=fundDownload&userType=individual",
+      "http": 200,
+      "fetchedUtc": "2026-11-23T06:47:56.686684+00:00",
+      "contentType": "application/vnd.ms-excel",
+      "httpDate": "Mon, 23 Nov 2026 06:47:56 GMT",
+      "originalBytes": 2553634,
+      "responseSha256": "042d8b1309a05707a2e2e62410e26010ca93574ad310f9fa21fe068698e02bf9",
+      "rows": {
+        "2026-11-13": {
+          "value": "79.313728",
+          "originalRow": {
+            "As Of": "Nov 13, 2026",
+            "NAV per Share": "79.313728"
+          }
+        },
+        "2026-11-16": {
+          "value": "79.349177",
+          "originalRow": {
+            "As Of": "Nov 16, 2026",
+            "NAV per Share": "79.349177"
+          }
+        },
+        "2026-11-17": {
+          "value": "79.538226",
+          "originalRow": {
+            "As Of": "Nov 17, 2026",
+            "NAV per Share": "79.538226"
+          }
+        },
+        "2026-11-18": {
+          "value": "80.180402",
+          "originalRow": {
+            "As Of": "Nov 18, 2026",
+            "NAV per Share": "80.180402"
+          }
+        },
+        "2026-11-19": {
+          "value": "80.311983",
+          "originalRow": {
+            "As Of": "Nov 19, 2026",
+            "NAV per Share": "80.311983"
+          }
+        },
+        "2026-11-20": {
+          "value": "81.384668",
+          "originalRow": {
+            "As Of": "Nov 20, 2026",
+            "NAV per Share": "81.384668"
+          }
+        }
+      },
+      "status": "rows"
+    },
+    "btc-snapshot/2026-11-13": {
+      "url": "https://coinmarketcap.com/historical/20261113/",
+      "http": 200,
+      "fetchedUtc": "2026-11-23T06:47:55.749952+00:00",
+      "contentType": "text/html; charset=utf-8",
+      "httpDate": "Mon, 23 Nov 2026 06:47:55 GMT",
+      "originalBytes": 517369,
+      "responseSha256": "d79d400f08565088d629e35d52947c5ffe9552b581c3b961976d730d1472413e",
+      "rows": {
+        "2026-11-13": {
+          "value": "68249.27",
+          "originalRow": {
+            "date": "2026-11-13",
+            "symbol": "BTC",
+            "price": "$68,249.27"
+          }
+        }
+      },
+      "status": "rows"
+    },
+    "btc-snapshot/2026-11-14": {
+      "url": "https://coinmarketcap.com/historical/20261114/",
+      "http": 200,
+      "fetchedUtc": "2026-11-23T06:47:55.766844+00:00",
+      "contentType": "text/html; charset=utf-8",
+      "httpDate": "Mon, 23 Nov 2026 06:47:55 GMT",
+      "originalBytes": 517346,
+      "responseSha256": "3154c956f3e6548420afe327500612e748068b8381ae22d0166785f747c66538",
+      "rows": {
+        "2026-11-14": {
+          "value": "64128.05",
+          "originalRow": {
+            "date": "2026-11-14",
+            "symbol": "BTC",
+            "price": "$64,128.05"
+          }
+        }
+      },
+      "status": "rows"
+    },
+    "btc-snapshot/2026-11-15": {
+      "url": "https://coinmarketcap.com/historical/20261115/",
+      "http": 200,
+      "fetchedUtc": "2026-11-23T06:47:55.811607+00:00",
+      "contentType": "text/html; charset=utf-8",
+      "httpDate": "Mon, 23 Nov 2026 06:47:55 GMT",
+      "originalBytes": 517171,
+      "responseSha256": "ca889ad54488c25e2503466b2c00a16e72cc1c14690f95d49c269514d032cb98",
+      "rows": {
+        "2026-11-15": {
+          "value": "65305.06",
+          "originalRow": {
+            "date": "2026-11-15",
+            "symbol": "BTC",
+            "price": "$65,305.06"
+          }
+        }
+      },
+      "status": "rows"
+    },
+    "btc-snapshot/2026-11-16": {
+      "url": "https://coinmarketcap.com/historical/20261116/",
+      "http": 200,
+      "fetchedUtc": "2026-11-23T06:47:56.039033+00:00",
+      "contentType": "text/html; charset=utf-8",
+      "httpDate": "Mon, 23 Nov 2026 06:47:55 GMT",
+      "originalBytes": 517659,
+      "responseSha256": "d35ceeb75114b500c5b7659f4538b67b65f75f396083919b9a9cd5f1d606a8d2",
+      "rows": {
+        "2026-11-16": {
+          "value": "64855.84",
+          "originalRow": {
+            "date": "2026-11-16",
+            "symbol": "BTC",
+            "price": "$64,855.84"
+          }
+        }
+      },
+      "status": "rows"
+    },
+    "btc-snapshot/2026-11-17": {
+      "url": "https://coinmarketcap.com/historical/20261117/",
+      "http": 200,
+      "fetchedUtc": "2026-11-23T06:47:56.063274+00:00",
+      "contentType": "text/html; charset=utf-8",
+      "httpDate": "Mon, 23 Nov 2026 06:47:55 GMT",
+      "originalBytes": 516843,
+      "responseSha256": "5e89f4a0f119beca479a3081b8e5de1d22f22792d4242c7e9dd9d6082d15754d",
+      "rows": {
+        "2026-11-17": {
+          "value": "64893.95",
+          "originalRow": {
+            "date": "2026-11-17",
+            "symbol": "BTC",
+            "price": "$64,893.95"
+          }
+        }
+      },
+      "status": "rows"
+    },
+    "btc-snapshot/2026-11-18": {
+      "url": "https://coinmarketcap.com/historical/20261118/",
+      "http": 200,
+      "fetchedUtc": "2026-11-23T06:47:56.125453+00:00",
+      "contentType": "text/html; charset=utf-8",
+      "httpDate": "Mon, 23 Nov 2026 06:47:55 GMT",
+      "originalBytes": 517055,
+      "responseSha256": "1a8267fa8087f041c8405e673619d2767ba6cec01df33d3e593305df16ed1e65",
+      "rows": {
+        "2026-11-18": {
+          "value": "62987.27",
+          "originalRow": {
+            "date": "2026-11-18",
+            "symbol": "BTC",
+            "price": "$62,987.27"
+          }
+        }
+      },
+      "status": "rows"
+    },
+    "btc-snapshot/2026-11-19": {
+      "url": "https://coinmarketcap.com/historical/20261119/",
+      "http": 200,
+      "fetchedUtc": "2026-11-23T06:47:56.440650+00:00",
+      "contentType": "text/html; charset=utf-8",
+      "httpDate": "Mon, 23 Nov 2026 06:47:56 GMT",
+      "originalBytes": 517211,
+      "responseSha256": "58d42b543e9dc34d450e946ffb28395bc7320c077a05ba8d72846faaea834905",
+      "rows": {
+        "2026-11-19": {
+          "value": "61901.82",
+          "originalRow": {
+            "date": "2026-11-19",
+            "symbol": "BTC",
+            "price": "$61,901.82"
+          }
+        }
+      },
+      "status": "rows"
+    },
+    "btc-snapshot/2026-11-20": {
+      "url": "https://coinmarketcap.com/historical/20261120/",
+      "http": 200,
+      "fetchedUtc": "2026-11-23T06:47:56.424064+00:00",
+      "contentType": "text/html; charset=utf-8",
+      "httpDate": "Mon, 23 Nov 2026 06:46:16 GMT",
+      "originalBytes": 517971,
+      "responseSha256": "0abda41f4ac102328dfad05679d7dc47a419fbbb202c9a85b773b640ab4ded5d",
+      "rows": {
+        "2026-11-20": {
+          "value": "58798.98",
+          "originalRow": {
+            "date": "2026-11-20",
+            "symbol": "BTC",
+            "price": "$58,798.98"
+          }
+        }
+      },
+      "status": "rows"
+    }
+  }
+}

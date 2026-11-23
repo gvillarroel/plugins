@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "source": "Serie didáctica simulada para probar etiquetas largas, descenso, temperaturas negativas, igualdad y cero.",
+  "fps": 12,
+  "size": [390,844],
+  "anchor": {"label":"Estación de montaña","value":"Sierra 02"},
+  "scenes": [
+    {"id":"envio","kind":"transfer","title":"De la estación de montaña al registro de observaciones de la madrugada","labels":["Estación meteorológica","Registro del observatorio"],"cue":2,"move":13,"hold":13},
+    {"id":"frio","kind":"trace","title":"La temperatura baja, se estabiliza y cruza el punto de congelación","labels":["Tarde","Noche","Medianoche","Alba"],"values":[2.75,0,0,-1.125],"unit":"°C","cue":2,"move":15,"hold":15},
+    {"id":"intervalos","kind":"compare","title":"Precipitación acumulada en dos intervalos de observación consecutivos","labels":["Antes del amanecer","Después del amanecer"],"values":[0,0.0625],"unit":"mm","cue":2,"move":14,"hold":16}
+  ]
+}

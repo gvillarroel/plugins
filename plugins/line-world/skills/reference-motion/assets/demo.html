@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Biblioteca de movimiento · Line World Motion Studio</title>
+<style>
+  :root{color-scheme:light;--paper:#ffffff;--ink:#333e48;--muted:#696969;--quiet:#e7e7e7;--line:#cfcfcf;--red:#9e1b32;font:16px/1.5 "Segoe UI",Arial,sans-serif;color:var(--ink);background:var(--paper)}
+  *{box-sizing:border-box}body{margin:0}button,input,select{font:inherit;color:inherit}button,select,input[type=range]{cursor:pointer}
+  :focus-visible{outline:3px solid var(--red);outline-offset:2px}h1,h2,h3,p,ul{margin:0}
+  header{height:64px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px;padding:0 clamp(20px,4vw,64px)}
+  .brandmark{width:23px;height:23px;border:2px solid var(--ink);border-radius:50%;position:relative}
+  .brandmark::after{content:"";position:absolute;top:-2px;right:0;background:var(--red);width:8px;height:8px;border-radius:50%}
+  .brand{font-size:16px;font-weight:650;letter-spacing:-.035em}
+  .route{padding-left:16px;margin-left:4px;border-left:1px solid var(--line);font-size:13px;color:var(--muted)}
+  .layout{display:grid;grid-template-columns:clamp(205px,19vw,260px) minmax(0,1fr);gap:clamp(25px,4.2vw,66px);max-width:1510px;margin:auto;padding:32px clamp(20px,4vw,64px) 64px}
+  aside{position:sticky;top:20px;align-self:start}h1{font-size:clamp(23px,2.2vw,31px);line-height:1.1;letter-spacing:-.055em;font-weight:620;margin:6px 0 20px}
+  .groups{display:flex;margin:0 0 12px;border-bottom:1px solid var(--line)}
+  .groups button{background:var(--paper);border:0;border-bottom:2px solid var(--paper);padding:8px 4px;flex:1;min-height:40px;font-size:14px;color:var(--muted)}
+  .groups button[aria-pressed=true]{border-bottom-color:var(--red);color:var(--ink);font-weight:650}
+  input[type=search],select{background:var(--paper);border:1px solid var(--line);border-radius:4px;min-height:36px;padding:5px 8px}
+  input[type=search],.mobile-only select{width:100%}.list,.refs{list-style:none;padding:0}
+  .list{margin-top:12px;max-height:calc(100dvh - 277px);overflow-y:auto;scrollbar-width:thin}.list button{display:block;width:100%;text-align:left;border:0;background:white;padding:8px 10px;font-size:14px;line-height:1.35}
+  .list button:hover{background:var(--quiet)}.list button[aria-current=true]{color:var(--red);font-weight:650;border-left:3px solid var(--red);padding-left:7px}
+  .mobile-only{display:none}.sr{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0,0,0,0)}#empty{font-size:14px;color:var(--muted);padding:8px}
+  article{min-width:0}.heading{margin:3px 0 15px}.classline{font-size:13px;color:var(--red);font-weight:650}
+  h2{font-size:clamp(31px,3.3vw,48px);font-weight:600;letter-spacing:-.055em;line-height:1.12;margin:4px 0 6px}
+  #description{font-size:clamp(14px,1.1vw,17px);max-width:74ch;color:var(--ink)}#timing,.ref-time{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+  .player{background:white;border:1px solid var(--line)}
+  #stage{display:block;width:100%;height:auto;aspect-ratio:16 / 9}
+  .controls{display:flex;align-items:center;gap:14px;border-top:1px solid var(--line);padding:9px 12px;min-width:0}
+  button.play,.copy{border:1px solid var(--line);border-radius:4px;background:var(--paper);padding:6px 10px;min-height:36px;font-size:13px}
+  button.play{width:108px;flex:none;display:inline-flex;align-items:center;justify-content:center;gap:5px;white-space:nowrap;padding:6px}.play span:first-child{color:var(--red);font-size:12px}.play:hover,.copy:hover{background:var(--quiet)}
+  #seek{flex:1;min-width:25px;accent-color:var(--red)}#clock{font-variant-numeric:tabular-nums;white-space:nowrap;font-size:12px;color:var(--muted)}
+  .timing{margin-top:8px;display:flex;align-items:center;flex-wrap:wrap;gap:8px 20px}
+  #pace-control{display:inline-flex;align-items:center;gap:6px;font-size:12px}#pace{font-size:12px;min-height:32px}
+  .facts{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(230px,1fr);gap:24px;margin-top:28px}
+  .box{border-top:1px solid var(--line);min-width:0;padding-top:12px}.boxhead{display:flex;align-items:center;justify-content:space-between;gap:8px}
+  h3{font-size:17px;font-weight:650;letter-spacing:-.025em}.box p,.refs small{font-size:13px;color:var(--muted)}.box p{margin-top:6px}.snippet{border:1px solid var(--line);margin:12px 0 0;padding:12px;max-height:245px;overflow:auto;font:12px/1.55 Consolas,monospace}
+  .refs li{margin:12px 0 17px}.refs a{font-size:14px;color:var(--red);text-underline-offset:3px}.refs small,.ref-time{display:block}.refs small{margin-top:3px}
+  [hidden]{display:none!important}
+  .render header,.render aside,.render .heading,.render .controls,.render .timing,.render .facts{display:none}
+  .render .layout,.render .player{padding:0;margin:0;border:0;display:block}
+  .render #stage{position:fixed;inset:0;width:100vw;height:100vh;object-fit:contain;background:var(--paper)}
+  @media(max-width:900px){.layout{grid-template-columns:200px minmax(0,1fr);padding:25px 20px;gap:22px}.facts{grid-template-columns:1fr}.controls{gap:7px}}
+  @media(max-width:680px){header{height:52px;padding:0 16px}.route{font-size:12px}.layout{display:block;padding:18px 16px 36px}.desktop-only{display:none}.mobile-only{display:block}aside{position:static}
+    h1{font-size:24px;margin:0 0 10px}.mobile-only label{font-size:12px;color:var(--muted);display:block}.mobile-only select{margin:3px 0 14px}
+    .heading{margin:3px 0 12px}h2{font-size:30px}.controls{padding:6px 7px}.controls .play{width:94px}.facts{gap:19px;margin-top:21px}.timing{gap:4px 12px}#clock{font-size:11px}}
+</style>
+</head>
+<body>
+<header><span class="brandmark" aria-hidden="true"></span><span class="brand">Line World Motion Studio</span><span class="route">Referencia visual</span></header>
+<main class="layout">
+  <aside aria-label="Selector de patrones">
+    <h1>Biblioteca de movimiento</h1>
+    <div class="desktop-only">
+      <div class="groups" role="group" aria-label="Tipo de patrón"><button type="button" id="transitions">Transiciones</button><button type="button" id="artifacts">Elementos</button></div>
+      <label class="sr" for="filter">Buscar en la categoría</label><input id="filter" type="search" placeholder="Buscar en la categoría" autocomplete="off">
+      <ul class="list" id="list"></ul><p id="empty" hidden>Sin coincidencias.</p>
+    </div>
+    <div class="mobile-only"><label for="mobile">Seleccionar patrón</label><select id="mobile"></select></div>
+  </aside>
+  <article>
+    <div class="heading"><p class="classline" id="kind"></p><h2 id="title"></h2><p id="description"></p></div>
+    <div class="player">
+      <canvas id="stage" width="1280" height="720" aria-label="Vista previa del patrón seleccionado"></canvas>
+      <div class="controls"><button type="button" class="play" id="play"><span id="play-icon" aria-hidden="true">▶</span> <span id="play-name">Reproducir</span></button><label for="seek" class="sr">Tiempo del ejemplo en segundos</label><input type="range" id="seek" min="0" max="8" step=".01" value="0"><output for="seek" id="clock"></output></div>
+    </div>
+    <div class="timing"><label id="pace-control" for="pace">Movimiento <select id="pace"><option value="studio">Ritmo de lectura</option><option value="source">Duración de referencia</option></select></label><p id="timing"></p></div>
+    <div class="facts">
+      <section class="box"><div class="boxhead"><h3>Código reutilizable</h3><button class="copy" type="button" id="copy">Copiar</button></div><p>Carga <code>motion.js</code>, <code>demo-art.js</code> y <code>presets.js</code> junto a tu <code>&lt;canvas&gt;</code>.</p><pre class="snippet" id="snippet" tabindex="0"></pre></section>
+      <section class="box"><h3>Referencias del patrón</h3><ul class="refs" id="refs"></ul></section>
+    </div>
+  </article>
+</main>
+<script src="motion.js"></script><script src="reference-index.js"></script><script src="demo-art.js"></script><script src="presets.js"></script><script src="demo.js"></script>
+</body></html>

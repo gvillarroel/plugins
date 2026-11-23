@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "subject": "Dos jarras",
+  "subjectLabel": "Recipientes",
+  "title": "Agua en cada jarra",
+  "source": {"type": "simulated", "detail": "Volúmenes de ejemplo"},
+  "measures": [
+    {"label": "Pequeña", "value": 0.6, "unit": "L"},
+    {"label": "Grande", "value": 1.2, "unit": "L"}
+  ],
+  "spokenUnit": "litros",
+  "takeaway": "La jarra grande tiene {gap} más",
+  "narration": [
+    "En el ejemplo, la jarra pequeña contiene {a} y la grande, {b}.",
+    "La jarra grande contiene {gap} más."
+  ]
+}

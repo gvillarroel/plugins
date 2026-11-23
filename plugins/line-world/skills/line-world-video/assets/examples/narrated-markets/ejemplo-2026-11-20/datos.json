@@ -1,0 +1,184 @@
+{
+  "inicio": "2026-11-13",
+  "fin": "2026-11-20",
+  "semana": "16–20 noviembre 2026",
+  "mercado": "EE. UU.",
+  "dias": [
+    13,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "series": {
+    "sp500": {
+      "nombre": "S&P 500",
+      "unidad": "puntos",
+      "tipo": "precio",
+      "values": [
+        7561.67,
+        7416.59,
+        7340.53,
+        7323.63,
+        7175.83,
+        6910.39
+      ],
+      "fuentes": [
+        "https://www.spglobal.com/spdji/en/indices/equity/sp-500/",
+        "https://fred.stlouisfed.org/series/SP500",
+        "https://finance.yahoo.com/quote/%5EGSPC/history/"
+      ],
+      "fechas": [
+        "2026-11-13",
+        "2026-11-16",
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19",
+        "2026-11-20"
+      ]
+    },
+    "nasdaq": {
+      "nombre": "Nasdaq Composite",
+      "unidad": "puntos",
+      "tipo": "precio",
+      "values": [
+        25136.27,
+        24509.76,
+        24328.38,
+        24429.88,
+        23879.2,
+        22617.73
+      ],
+      "fuentes": [
+        "https://api.nasdaq.com/api/quote/COMP/historical?assetclass=index&fromdate=2026-11-13&todate=2026-11-20"
+      ],
+      "fechas": [
+        "2026-11-13",
+        "2026-11-16",
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19",
+        "2026-11-20"
+      ]
+    },
+    "oro": {
+      "nombre": "Oro al contado",
+      "unidad": "USD por onza troy",
+      "tipo": "precio",
+      "values": [
+        3880.7,
+        3856.65,
+        3850.17,
+        3723.6,
+        3622.9,
+        3532.85
+      ],
+      "fuentes": [
+        "https://www.investing.com/currencies/xau-usd-historical-data"
+      ],
+      "fechas": [
+        "2026-11-13",
+        "2026-11-16",
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19",
+        "2026-11-20"
+      ]
+    },
+    "btc": {
+      "nombre": "Bitcoin",
+      "unidad": "USD por BTC",
+      "tipo": "precio",
+      "dias": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "values": [
+        68249.27,
+        64128.05,
+        65305.06,
+        64855.84,
+        64893.95,
+        62987.27,
+        61901.82,
+        58798.98
+      ],
+      "fuentes": [
+        "https://coinmarketcap.com/historical/20261113/",
+        "https://coinmarketcap.com/historical/20261114/",
+        "https://coinmarketcap.com/historical/20261115/",
+        "https://coinmarketcap.com/historical/20261116/",
+        "https://coinmarketcap.com/historical/20261117/",
+        "https://coinmarketcap.com/historical/20261118/",
+        "https://coinmarketcap.com/historical/20261119/",
+        "https://coinmarketcap.com/historical/20261120/"
+      ],
+      "fechas": [
+        "2026-11-13",
+        "2026-11-14",
+        "2026-11-15",
+        "2026-11-16",
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19",
+        "2026-11-20"
+      ]
+    },
+    "tlt": {
+      "nombre": "Bonos del Tesoro",
+      "unidad": "USD por participación de TLT",
+      "tipo": "precio",
+      "values": [
+        79.38,
+        79.38,
+        79.55,
+        80.22,
+        80.35,
+        81.45
+      ],
+      "fuentes": [
+        "https://api.nasdaq.com/api/quote/TLT/historical?assetclass=etf&fromdate=2026-11-13&todate=2026-11-20",
+        "https://www.ishares.com/us/products/239454/ishares-20-year-treasury-bond-etf"
+      ],
+      "fechas": [
+        "2026-11-13",
+        "2026-11-16",
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19",
+        "2026-11-20"
+      ]
+    },
+    "ust10": {
+      "nombre": "Tesoro a 10 años",
+      "unidad": "rendimiento anual, %",
+      "tipo": "rendimiento",
+      "values": [
+        5.15,
+        5.12,
+        5.1,
+        5.07,
+        5.04,
+        4.92
+      ],
+      "fuentes": [
+        "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/pages/xmlview?data=daily_treasury_yield_curve&field_tdr_date_value_month=202611"
+      ],
+      "fechas": [
+        "2026-11-13",
+        "2026-11-16",
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19",
+        "2026-11-20"
+      ]
+    }
+  }
+}

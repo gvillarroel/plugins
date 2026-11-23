@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "source": "Ejemplo didáctico con tiempos simulados. La misma solicitud se compara con y sin caché.",
+  "fps": 24,
+  "size": [960, 540],
+  "anchor": {"label": "Solicitud", "value": "R–07"},
+  "scenes": [
+    {"id":"ruta","kind":"transfer","title":"Del cliente al servidor","labels":["Cliente","Servidor"],"cue":10,"move":34,"hold":30},
+    {"id":"lectura","kind":"trace","title":"¿Dónde se consume el tiempo?","labels":["Inicio","Lectura","Entrega"],"values":[0,21,24],"unit":"s","cue":8,"move":46,"hold":36},
+    {"id":"prueba","kind":"compare","title":"Repetir la misma solicitud","labels":["Sin caché","Con caché"],"values":[24,8],"unit":"s","note":"16 s menos","cue":8,"move":38,"hold":48}
+  ]
+}

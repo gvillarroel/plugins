@@ -1,0 +1,34 @@
+{
+  "portrait-collins.png": {
+    "kind": "portrait",
+    "subject": "Eileen Collins",
+    "credit": "NASA, via scikit-image",
+    "source": "https://scikit-image.org/docs/0.20.x/api/skimage.data.html#skimage.data.astronaut",
+    "download": "https://raw.githubusercontent.com/scikit-image/scikit-image/v0.20.0/skimage/data/astronaut.png",
+    "sha256": "88431cd9653ccd539741b555fb0a46b61558b301d4110412b5bc28b5e3ea6cb5"
+  },
+  "portrait-johnson.jpg": {
+    "kind": "portrait",
+    "subject": "Katherine Johnson",
+    "credit": "NASA Langley Research Center, 1983",
+    "source": "https://images.nasa.gov/details/LRC-1983-B701_P-04373",
+    "download": "https://images-assets.nasa.gov/image/LRC-1983-B701_P-04373/LRC-1983-B701_P-04373~medium.jpg",
+    "sha256": "02d94f83d5c5af8b5497a13d9afba90d4c985d3c7a1665e0046222668dae4dca"
+  },
+  "coffee.png": {
+    "kind": "photograph",
+    "subject": "Coffee cup",
+    "credit": "Rachel Michetti, via scikit-image",
+    "source": "https://scikit-image.org/docs/0.20.x/api/skimage.data.html#skimage.data.coffee",
+    "download": "https://raw.githubusercontent.com/scikit-image/scikit-image/v0.20.0/skimage/data/coffee.png",
+    "sha256": "cc02f8ca188b167c775a7101b5d767d1e71792cf762c33d6fa15a4599b5a8de7"
+  },
+  "garden.mp4": {
+    "kind": "footage",
+    "subject": "Flowers in moving garden footage",
+    "credit": "MDN interactive examples, CC0 video collection",
+    "source": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/video",
+    "download": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+    "sha256": "0cd83d944a6ca7822b4a8306cecc60a36e859b041f6702c6a1ad9ead78924451"
+  }
+}

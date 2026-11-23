@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="es">
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box }
+  html, body { margin: 0; height: 100%; color: #363636 }
+  body { display: grid; align-content: center; font-family: "Segoe UI", Arial, sans-serif }
+  h1, p { margin: 0 }
+  h1 { font-size: clamp(26px, 10vw, 56px); line-height: 1.08; letter-spacing: -.035em; max-width: 13ch }
+  #caption { margin-top: .8em; font-size: clamp(17px, 5.2vw, 25px); line-height: 1.3; max-width: 28ch }
+  #credit { margin-top: 1.1em; color: #333e48; font-size: clamp(15px, 4.2vw, 20px); line-height: 1.24 }
+</style>
+<h1></h1><p id="caption"></p><p id="credit"></p>
+<script>
+  const copy = [
+    ["La fotografía", "Puedes detenerte en el rostro de Eileen Collins.", "Retrato de la NASA"],
+    ["El plano", "Sigue los pétalos rojos mientras se abre la flor.", "Vídeo de la colección CC0 de MDN"],
+    ["La secuencia", "El mismo plano, ahora un fotograma cada medio segundo.", "Seis fotogramas del vídeo anterior"]
+  ];
+  window.renderVideoFrame = (seconds) => {
+    const [title, caption, credit] = copy[Math.min(2, Math.floor(seconds / 3))];
+    document.querySelector("h1").textContent = title;
+    document.querySelector("#caption").textContent = caption;
+    document.querySelector("#credit").textContent = credit;
+  };
+</script>
+</html>

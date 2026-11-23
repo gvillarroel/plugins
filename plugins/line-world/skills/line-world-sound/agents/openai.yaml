@@ -1,0 +1,4 @@
+interface:
+  display_name: "Line World Sound"
+  short_description: "Time narration and sound effects to film frames"
+  default_prompt: "Use $line-world-sound to generate voice and timed effects for a Line World film and check the final audio against the picture."

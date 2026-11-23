@@ -1,0 +1,4 @@
+interface:
+  display_name: "Line World · Dirección de movimiento"
+  short_description: "Dirige planos explicativos con un sujeto persistente"
+  default_prompt: "Usa $line-world-motion-direction para dirigir una secuencia de planos editables sobre un mismo sujeto. Sincroniza dos acciones físicas con el dato que explican, conserva pausas de lectura y verifica el MP4."

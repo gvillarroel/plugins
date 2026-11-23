@@ -1,0 +1,134 @@
+{
+  "engine": "Piper 1.4.2",
+  "voice": "es_MX-claude-high",
+  "sample_rate": 48000,
+  "channels": 1,
+  "model_card": "https://huggingface.co/rhasspy/piper-voices/resolve/e9c8a39444359388adaa94255becb37a5a2b8e51/es/es_MX/claude/high/MODEL_CARD",
+  "scenes": [
+    {
+      "id": "intro",
+      "file": "intro.wav",
+      "duration_s": 10.274,
+      "frames": 493153,
+      "integrated_lufs": -18.0,
+      "true_peak_dbtp": -2.76,
+      "clipped_samples": 0,
+      "sha256": "dcfa22dc0a8d6a88df90564d5bbb785b80abc32f8d8c2a0eaa7314ff46390413",
+      "sentences": [
+        {
+          "text": "Del dieciséis al veinte de noviembre, las bolsas estadounidenses, el oro y bitcóin perdieron terreno.",
+          "start_s": 0.07,
+          "end_s": 6.9896
+        },
+        {
+          "text": "Los bonos del Tesoro a largo plazo subieron.",
+          "start_s": 7.3296,
+          "end_s": 10.174
+        }
+      ]
+    },
+    {
+      "id": "bolsa",
+      "file": "bolsa.wav",
+      "duration_s": 10.8778,
+      "frames": 522132,
+      "integrated_lufs": -18.0,
+      "true_peak_dbtp": -2.85,
+      "clipped_samples": 0,
+      "sha256": "9f7e80d6d24c1575ddca4e171fe96e061a19bcb6015501501e2b4913a5a9059d",
+      "sentences": [
+        {
+          "text": "En bolsa, el índice de las quinientas grandes empresas cayó un ocho coma seis por ciento.",
+          "start_s": 0.07,
+          "end_s": 5.7937
+        },
+        {
+          "text": "El Nasdaq, con más peso tecnológico, perdió un diez por ciento.",
+          "start_s": 6.1337,
+          "end_s": 10.7777
+        }
+      ]
+    },
+    {
+      "id": "oro",
+      "file": "oro.wav",
+      "duration_s": 10.7069,
+      "frames": 513931,
+      "integrated_lufs": -18.0,
+      "true_peak_dbtp": -4.17,
+      "clipped_samples": 0,
+      "sha256": "c31334571fcbfa29457072b2ff25e40bd5c585556deeae6ddfee0ea9fa850630",
+      "sentences": [
+        {
+          "text": "El oro también retrocedió.",
+          "start_s": 0.07,
+          "end_s": 1.8231
+        },
+        {
+          "text": "Pasó de unos tres mil ochocientos ochenta dólares por onza a tres mil quinientos treinta y tres.",
+          "start_s": 2.1631,
+          "end_s": 7.6779
+        },
+        {
+          "text": "Una caída de casi el nueve por ciento.",
+          "start_s": 8.0179,
+          "end_s": 10.6069
+        }
+      ]
+    },
+    {
+      "id": "btc",
+      "file": "btc.wav",
+      "duration_s": 10.5527,
+      "frames": 506528,
+      "integrated_lufs": -18.0,
+      "true_peak_dbtp": -2.33,
+      "clipped_samples": 0,
+      "sha256": "a908e2d7cafefbd84ed0ba24147e65a10c794ee49585f73558dcbdf5093ca593",
+      "sentences": [
+        {
+          "text": "Bitcóin tuvo la mayor caída de la comparación.",
+          "start_s": 0.07,
+          "end_s": 2.9841
+        },
+        {
+          "text": "De viernes a viernes perdió casi el catorce por ciento y cerró por debajo de los cincuenta y nueve mil dólares.",
+          "start_s": 3.3241,
+          "end_s": 10.4527
+        }
+      ]
+    },
+    {
+      "id": "bonos",
+      "file": "bonos.wav",
+      "duration_s": 24.7699,
+      "frames": 1188955,
+      "integrated_lufs": -18.0,
+      "true_peak_dbtp": -2.33,
+      "clipped_samples": 0,
+      "sha256": "98013e647a7710444f4ea500ff2543a9946fefc0a91ddd2438ac0ccf007740bf",
+      "sentences": [
+        {
+          "text": "El fondo que sigue los bonos del Tesoro a más de veinte años ganó un dos coma seis por ciento.",
+          "start_s": 0.07,
+          "end_s": 5.6428
+        },
+        {
+          "text": "¿Por qué pueden subir los bonos?",
+          "start_s": 5.9828,
+          "end_s": 7.9565
+        },
+        {
+          "text": "Cuando baja el rendimiento que exigen los compradores, los bonos ya emitidos, que pagan un interés fijo, ganan valor.",
+          "start_s": 8.2965,
+          "end_s": 16.2726
+        },
+        {
+          "text": "Esa semana, el rendimiento del Tesoro a diez años bajó del cinco coma quince al cuatro coma noventa y dos por ciento.",
+          "start_s": 16.6126,
+          "end_s": 24.6699
+        }
+      ]
+    }
+  ]
+}

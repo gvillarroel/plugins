@@ -1,0 +1,96 @@
+name: Verify Line World motion
+on:
+  pull_request:
+    paths:
+      - 'plugins/line-world/**'
+      - '.github/workflows/line-world-motion.yml'
+  push:
+    paths:
+      - 'plugins/line-world/**'
+      - '.github/workflows/line-world-motion.yml'
+  workflow_dispatch:
+    inputs:
+      suite:
+        description: 'Real-media renders to encode and verify'
+        required: true
+        type: choice
+        default: catalogue
+        options:
+          - catalogue
+          - matrix
+          - portrait
+          - stress
+          - all
+permissions:
+  contents: read
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: plugins/line-world/skills/reference-motion
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python -m pip install playwright==1.61.0 Pillow==12.2.0 'numpy>=2,<3' 'av>=18,<20'
+      - run: python -m playwright install --with-deps chromium
+      - run: sudo apt-get install -y ffmpeg
+      - run: python scripts/test_motion_recipe.py
+      - run: python scripts/test_motion_render.py
+      - run: python scripts/test_chart_attention.py
+      - run: python scripts/test_guest_budget.py
+      - run: python scripts/generate_motion.py audit-library "$RUNNER_TEMP/motion/qa.json" --sheet "$RUNNER_TEMP/motion/atlas.jpg"
+      - run: python scripts/generate_motion.py render assets/ejemplo.json "$RUNNER_TEMP/motion/ejemplo.mp4"
+      - run: python scripts/generate_motion.py verify assets/ejemplo.json "$RUNNER_TEMP/motion/ejemplo.mp4"
+      - name: Verify coordinated attention and reject repeating states
+        run: |
+          python ../line-world-video/scripts/sync_producer_profiles.py
+          python ../line-world-video/scripts/test_cadence_scan.py
+          python ../line-world-video/scripts/test_content_clock.py
+          python ../line-world-video/scripts/audit_cadence.py --cases 16 --report "$RUNNER_TEMP/motion/cadencia.json"
+          python ../line-world-video/scripts/test_review_attention.py
+          python ../line-world-video/scripts/test_attention_layers.py
+          python ../line-world-video/scripts/test_narrated_export.py
+          python ../line-world-video/scripts/test_audio_channels.py
+          python ../line-world-video/scripts/test_composer_publication.py
+          python ../line-world-video/scripts/test_frame_notes.py
+          python ../line-world-video/scripts/test_compare_frame_notes.py
+          python ../line-world-video/scripts/test_caption_tracks.py
+          python ../line-world-video/scripts/test_caption_overlay.py
+          python ../line-world-video/scripts/test_solid_regions.py
+          python ../line-world-video/scripts/test_solid_paints.py
+          python ../video/scripts/test_media_fit.py
+          python ../line-world-motion-direction/scripts/test_direction.py
+          python ../line-world-motion-direction/scripts/test_brief_to_video.py
+          python ../line-world-motion-direction/scripts/audit_comparisons.py --cases 30 --report "$RUNNER_TEMP/motion/medidas.json"
+      - name: Verify chart geometry, imported narration and Vids edit plans
+        run: |
+          python ../line-world-d3/scripts/test_video_chart.py
+          python ../line-world-video/assets/examples/narrated-markets/test_bundled_example.py
+          python ../line-world-video/assets/examples/narrated-markets/test_publicar.py
+          python ../media-use/audio/scripts/test_scene_audio.py
+          python ../media-use/audio/scripts/test_check_spoken_facts.py
+          python ../line-world-video/scripts/test_spoken_visuals.py
+          python -m unittest discover -s ../line-world-google-vids/scripts -p test_vids_edit.py
+          python -m unittest discover -s ../line-world-google-vids/scripts -p test_vids_chapters.py
+      - name: Review real-media catalogue on demand
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          SUITE: ${{ inputs.suite }}
+        run: |
+          python scripts/review_catalogue.py fetch-media --media-dir "$RUNNER_TEMP/motion/media"
+          suites=("$SUITE")
+          if [[ "$SUITE" == all ]]; then
+            suites=(catalogue matrix portrait stress)
+          fi
+          for part in "${suites[@]}"; do
+            python scripts/review_catalogue.py review --suite "$part" --media-dir "$RUNNER_TEMP/motion/media" --out "$RUNNER_TEMP/motion/exports/$part"
+          done
+      - name: Save manual catalogue review
+        if: github.event_name == 'workflow_dispatch'
+        uses: actions/upload-artifact@v4
+        with:
+          name: line-world-catalogue
+          path: ${{ runner.temp }}/motion/exports

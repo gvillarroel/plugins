@@ -1,0 +1,117 @@
+# Session plan contract
+
+## Contents
+
+- [Required top-level fields](#required-top-level-fields)
+- [Target](#target)
+- [Choose the execution shape](#choose-the-execution-shape)
+- [Direct-argv mode](#direct-argv-mode)
+- [One-record claim](#one-record-claim)
+- [Terminal and render settings](#terminal-and-render-settings)
+- [Context modes](#context-modes)
+
+Use one JSON plan as the reviewed source for target identity, prompt order, interaction behavior, terminal geometry, render settings, and declared side-effect scope. The bundled runner rejects duplicate JSON keys and unknown fields.
+
+## Required top-level fields
+
+- `schema_version`: integer `1`.
+- `title`: non-empty recording title.
+- `working_directory`: existing directory, resolved relative to the plan file when not absolute.
+- `declared_scope`: plain-English statement of authorized behavior. This is evidence, not a sandbox; enforce restrictions with the target's own permission flags.
+- `terminal`: terminal geometry object.
+- `render`: deterministic render settings.
+- Choose exactly one execution shape:
+  - `target` plus `steps`, and optional `interaction`, for direct-argv or one TUI.
+  - `tui_sessions` for two to eight sequential real TUIs in one recording. Omit top-level `target`, `steps`, and `interaction` in this shape.
+
+## Target
+
+```json
+{
+  "name": "GitHub Copilot CLI",
+  "executable": "copilot",
+  "version_args": ["--version"]
+}
+```
+
+`executable` must resolve in the recording environment or be an absolute executable path. TUI mode launches it once; direct-argv mode launches it once per step. `version_args` are run before the prompts and the real output is recorded.
+
+## Choose the execution shape
+
+For a product UI, read [tui-plan.md](tui-plan.md) for persistent prompts, explicit text/key/pause actions, and sequential multi-TUI fields. Do not apply direct-argv fields to an interactive recording. For an explicitly non-interactive command, use the contract below and omit the entire `interaction` key; `null` and `{}` are invalid.
+
+## Direct-argv mode
+
+Start from `assets/templates/direct-argv-session-plan.json`. Omit the entire
+top-level `interaction` key in this mode; `"interaction": null` and an empty
+object are invalid because the presence of that key selects the TUI contract.
+
+```json
+{
+  "id": "prompt-1",
+  "prompt": "Explain what a Git commit is in two sentences.",
+  "args": ["--session-id", "{run_id}", "-p", "{prompt}"],
+  "timeout_seconds": 600,
+  "pause_after_seconds": 1.0,
+  "expected_exit_codes": [0]
+}
+```
+
+- Use a unique lowercase hyphen-case `id`.
+- Put the exact user-approved text in `prompt`.
+- `args` is an argv array, not a command string. It must contain `{prompt}` exactly once. The runner replaces it inside that single argument, so prompt punctuation cannot become shell syntax.
+- `{run_id}` is optional and expands to the recording UUID. Reuse it in each step when the target supports explicit session IDs.
+- In direct-argv step arguments, only `{prompt}` and `{run_id}` are substituted. Other braces remain literal, so Python f-strings, JSON snippets, and similar argv content are preserved unchanged. `{windows_working_directory}` is reserved for TUI `launch_args`.
+- Set a finite `timeout_seconds` for each real process.
+- Use `pause_after_seconds` only for watchability; it does not alter target output.
+- List every acceptable process status in `expected_exit_codes`. Use `[0]` for normal prompt sessions.
+
+Do not assume any other placeholder is expanded. Do not put secrets in prompts or add an environment-variable map to the plan.
+
+## One-record claim
+
+For new work, initialize one directory with `init-video`, preflight it with
+`preflight-video`, and capture it with `record-video`. The recording command
+derives every output path from the directory and atomically creates the hidden
+`.session-plan.recording-attempt.json` ledger beside `session-plan.json`. A
+second recording transaction fails even if artifacts were moved or deleted.
+Preserve the directory and failed evidence. The one-attempt contract is
+broader than this file guard: a different plan path, directory, output name,
+or launch adapter does not authorize another attempt for the same
+user-requested deliverable. Stop after a failed recording. Only a later user
+request or explicit authorization may define a genuinely new recording
+session. See [video-bundles.md](video-bundles.md) for the fixed layout.
+
+## Terminal and render settings
+
+```json
+{
+  "terminal": {"cols": 100, "rows": 30},
+  "render": {
+    "theme": "colorset1",
+    "font_size": 18,
+    "line_height": 1.4,
+    "fps": 30,
+    "speed": 1.0,
+    "idle_time_limit": null,
+    "last_frame_duration": 2.0,
+    "start_at": "tui-ready",
+    "end_at": "target-exit"
+  }
+}
+```
+
+Use at least 90 columns for agent output. Increase rows before shrinking the font. `agg` renders a one-pass GIF intermediary with these settings; ffmpeg converts it to H.264/yuv420p MP4 at constant frame rate. The cast remains the authoritative timing and text record.
+
+TUI mode requires `speed: 1.0` and `idle_time_limit: null`; this preserves visible typing, thinking, and response time. Direct-argv mode may set a finite idle limit when shortening inactive gaps is part of the reviewed recording design.
+
+Use `start_at: "tui-ready"` for a user-facing TUI video. The cast still retains the complete recorder/controller lead-in and teardown, but the MP4 begins just before the independently detected stable ready-screen update. The derived lead includes the startup settle window and a small render margin, so the empty editor appears before the first typed character. Use `start_at: "recording"`, or omit the field, only when the complete visible recorder transaction is intentionally part of the deliverable. `tui-ready` is invalid for direct-argv mode.
+
+`end_at` defaults to `target-exit`. With `tui-ready`, that presentation ends immediately before tmux restores the controller terminal. For a target-exit action plan whose final key clears the app—such as `q` in lazygit—set `end_at: "before-final-key"` and make the final action a `key`. The runner marks the instant immediately before delivering that real key, trims only the MP4 at that marker, and freezes the preceding authentic TUI frame for the positive `last_frame_duration`. The untrimmed cast and runtime report retain and verify the final key, the target's exit, and its status. `before-final-key` is invalid for direct-argv, prompt steps, non-final keys, and `exit-text` shutdown.
+
+## Context modes
+
+- Interactive shared context: use TUI mode. Every prompt is entered into one persistent target process.
+- Programmatic shared context: in direct-argv mode, give every step the same explicit session UUID via `{run_id}` when the target supports it.
+- Independent prompts: omit the session argument from every step and state that the prompts are separate in `declared_scope`.
+- Do not use a global `--continue` or equivalent when concurrent or unrelated sessions could exist. If the target only supports “latest session,” isolate its config directory and document that limitation.

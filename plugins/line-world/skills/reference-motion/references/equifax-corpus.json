@@ -1,0 +1,8038 @@
+{
+ "window": [
+  "2024-11-22",
+  "2026-11-22"
+ ],
+ "method": "Lectura visual de ocho posiciones del storyboard público de cada video. Cada observación apunta a una celda específica. El muestreo recoge presencia, no exhaustividad ni movimiento. Una posición puede repetirse al redondear al intervalo de la cuadrícula de YouTube. Los conteos indican videos con al menos una observación de la categoría.",
+ "boundaries_method": "Límites propuestos automáticamente por rea-video en la pista visual completa. La cadencia se indica por pieza.",
+ "taxonomy": {
+  "speaker-id": "Nombre de la persona integrado en el plano, a menudo acompañado por cargo o afiliación.",
+  "question-card": "Pregunta legible en una tarjeta, un panel lateral o un bloque superpuesto al plano.",
+  "caption-overlay": "Frase editorial o subtítulo superpuesto directamente a una fotografía, una toma o una diapositiva.",
+  "editorial-split": "Composición con dos zonas diferenciadas para texto/íconos y fotografía, presentador o video.",
+  "slide-pip": "Diapositiva dominante acompañada por una vista del presentador en una zona secundaria.",
+  "insight-band": "Banda o bloque de color que sostiene una frase breve y destaca respecto del fondo.",
+  "dashboard-stack": "Vistas de interfaz colocadas en capas dentro del encuadre.",
+  "icon-card": "Icono o pequeño grupo de pictogramas acompañado por texto o por una persona que presenta.",
+  "disc-endcard": "Cierre con marca centrada dentro de un disco que contrasta con el fondo.",
+  "chart-focus": "Gráfico cuantitativo destacado y reconocible, por ejemplo barras o líneas.",
+  "type-title": "Título, lema o rótulo editorial como foco principal del cuadro.",
+  "brand-slate": "Placa con un logotipo o marca de la serie, al entrar o salir del segmento.",
+  "guest-grid": "Dos o más participantes en rectángulos de video simultáneos.",
+  "speaker-shot": "Una persona ocupa el plano principal de una entrevista, presentación o videollamada.",
+  "context-footage": "Plano de contexto, actividad o lugar que ilustra el tema.",
+  "product-view": "Pantalla, navegador o dispositivo con la interfaz del producto visible.",
+  "metric-callout": "Una o varias cifras se presentan con mayor peso visual que sus etiquetas.",
+  "cta-card": "Invitación a visitar, escanear o suscribirse, mediante URL, QR o botones de plataformas.",
+  "concept-diagram": "Distribución gráfica de entidades, símbolos o conexiones para explicar un concepto.",
+  "event-panel": "Panel o entrevista en un escenario o mesa físicos, con el contexto de la producción visible.",
+  "circular-composition": "La figura circular o el arco organiza fotografías o ilustraciones en la composición.",
+  "circle-callout": "Círculo de énfasis que contiene una cifra breve o texto."
+ },
+ "distinct_video_counts": {
+  "cta-card": 79,
+  "speaker-shot": 77,
+  "disc-endcard": 68,
+  "type-title": 41,
+  "speaker-id": 38,
+  "brand-slate": 29,
+  "guest-grid": 26,
+  "editorial-split": 25,
+  "context-footage": 24,
+  "icon-card": 17,
+  "slide-pip": 15,
+  "question-card": 15,
+  "chart-focus": 11,
+  "caption-overlay": 9,
+  "circle-callout": 8,
+  "event-panel": 8,
+  "concept-diagram": 7,
+  "insight-band": 6,
+  "metric-callout": 3,
+  "product-view": 3,
+  "circular-composition": 2,
+  "dashboard-stack": 1
+ },
+ "videos": [
+  {
+   "id": "dIUi2DnHh8I",
+   "title": "Market Pulse: Regional Economies and the Outlook for Growth and Risk",
+   "date": "2026-11-20",
+   "duration_s": 3659,
+   "url": "https://www.youtube.com/watch?v=dIUi2DnHh8I",
+   "source_sha256": "3c230bc499d5ec63078f96d772f1ebb47f4a47c65be67c86afdd77ae2bad64d2",
+   "native_fps": 25.0,
+   "analysis_fps": 4.0,
+   "detected_shots": 44,
+   "candidate_boundaries_s": [
+    0.5,
+    17.0,
+    28.25,
+    113.0,
+    156.25,
+    173.75,
+    193.25,
+    265.5,
+    369.75,
+    441.75,
+    643.25,
+    723.5,
+    797.75,
+    800.0,
+    904.5,
+    977.0,
+    1041.0,
+    1161.0,
+    1164.75,
+    1332.0,
+    1342.0,
+    1345.0,
+    1464.25,
+    1568.0,
+    1621.75,
+    1781.0,
+    1787.0,
+    1831.5,
+    2043.0,
+    2136.25,
+    2221.25,
+    2320.5,
+    2413.25,
+    2519.5,
+    2604.5,
+    2663.75,
+    2767.5,
+    2896.5,
+    3042.0,
+    3044.75,
+    3565.0,
+    3581.5,
+    3585.25
+   ],
+   "observations": [
+    {
+     "category": "slide-pip",
+     "at_s": 370.0
+    },
+    {
+     "category": "chart-focus",
+     "at_s": 1020.0
+    },
+    {
+     "category": "guest-grid",
+     "at_s": 3330.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 3650.0
+    }
+   ]
+  },
+  {
+   "id": "vb3k_OdYQs4",
+   "title": "Accelerating Commercial Loan Decisions: Grasshopper Bank and Equifax",
+   "date": "2026-11-13",
+   "duration_s": 80,
+   "url": "https://www.youtube.com/watch?v=vb3k_OdYQs4",
+   "source_sha256": "ff792dd4994dc5e2f3917bcb232f2e8069cdd7d154719b86da4e573fd08456e2",
+   "native_fps": 24.0,
+   "analysis_fps": 24.0,
+   "detected_shots": 16,
+   "candidate_boundaries_s": [
+    3.75,
+    5.458,
+    9.208,
+    16.25,
+    20.542,
+    23.458,
+    28.25,
+    34.333,
+    42.0,
+    47.792,
+    52.042,
+    56.292,
+    60.208,
+    66.167,
+    74.917
+   ],
+   "observations": [
+    {
+     "category": "brand-slate",
+     "at_s": 0.0
+    },
+    {
+     "category": "speaker-id",
+     "at_s": 8.0
+    },
+    {
+     "category": "speaker-shot",
+     "at_s": 22.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 79.0
+    }
+   ]
+  },
+  {
+   "id": "zCr72dcu7Do",
+   "title": "How Equifax Empowers Talent in the Age of Applied AI",
+   "date": "2026-11-11",
+   "duration_s": 88,
+   "url": "https://www.youtube.com/watch?v=zCr72dcu7Do",
+   "source_sha256": "3c47d94aacc7a88f68840eacc1ae782601b6dade2f79adce2793157983a90b6a",
+   "native_fps": 23.976023976023978,
+   "analysis_fps": 23.976023976023978,
+   "detected_shots": 13,
+   "candidate_boundaries_s": [
+    7.633,
+    10.802,
+    19.561,
+    23.982,
+    30.822,
+    36.495,
+    44.711,
+    52.177,
+    60.227,
+    70.32,
+    79.079,
+    82.291
+   ],
+   "observations": [
+    {
+     "category": "speaker-shot",
+     "at_s": 25.0
+    },
+    {
+     "category": "type-title",
+     "at_s": 9.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 87.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 87.0
+    }
+   ]
+  },
+  {
+   "id": "QP8-fR1Gnec",
+   "title": "2026 Macroeconomic and Credit Trends Update | Market Pulse Index",
+   "date": "2026-11-11",
+   "duration_s": 393,
+   "url": "https://www.youtube.com/watch?v=QP8-fR1Gnec",
+   "source_sha256": "355d62f50387fd23258923531d3100e0d5a270fb8a62d567f2efe4e44341c34e",
+   "native_fps": 30.0,
+   "analysis_fps": 4.0,
+   "detected_shots": 5,
+   "candidate_boundaries_s": [
+    5.0,
+    6.75,
+    384.5,
+    391.25
+   ],
+   "observations": [
+    {
+     "category": "editorial-split",
+     "at_s": 40.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 390.0
+    }
+   ]
+  },
+  {
+   "id": "SiHYS0BQk0s",
+   "title": "How Mastercard Open Finance & Equifax Are Delivering New Credit Signals",
+   "date": "2026-11-05",
+   "duration_s": 109,
+   "url": "https://www.youtube.com/watch?v=SiHYS0BQk0s",
+   "source_sha256": "6ac867c145ae83455bc4604b69203b376b7773f1083d7e8246f2097e9f942a05",
+   "native_fps": 24.0,
+   "analysis_fps": 24.0,
+   "detected_shots": 30,
+   "candidate_boundaries_s": [
+    1.75,
+    3.75,
+    6.0,
+    9.833,
+    13.542,
+    15.0,
+    16.833,
+    20.833,
+    22.25,
+    23.875,
+    27.042,
+    35.75,
+    41.833,
+    46.417,
+    49.667,
+    53.542,
+    57.708,
+    60.042,
+    63.042,
+    68.167,
+    70.25,
+    72.833,
+    75.667,
+    78.208,
+    80.542,
+    87.458,
+    89.708,
+    93.042,
+    103.875
+   ],
+   "observations": [
+    {
+     "category": "brand-slate",
+     "at_s": 0.0
+    },
+    {
+     "category": "speaker-shot",
+     "at_s": 11.0
+    },
+    {
+     "category": "context-footage",
+     "at_s": 80.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 108.0
+    }
+   ]
+  },
+  {
+   "id": "j7soav2lPYc",
+   "title": "Holiday Spending Outlook: Are Consumers Feeling the Pinch?",
+   "date": "2026-11-05",
+   "duration_s": 2182,
+   "url": "https://www.youtube.com/watch?v=j7soav2lPYc",
+   "source_sha256": "2378f72d158c87f1588174f06fbd53c4da179810d922af8d02d952e6837764e7",
+   "native_fps": 24.0,
+   "analysis_fps": 4.0,
+   "detected_shots": 85,
+   "candidate_boundaries_s": [
+    15.25,
+    45.5,
+    49.25,
+    50.0,
+    53.5,
+    55.25,
+    58.0,
+    67.0,
+    232.0,
+    242.75,
+    261.0,
+    261.25,
+    262.25,
+    269.0,
+    270.5,
+    357.75,
+    358.25,
+    363.75,
+    394.25,
+    410.25,
+    420.0,
+    424.75,
+    435.75,
+    448.75,
+    461.25,
+    464.25,
+    465.75,
+    467.5,
+    474.75,
+    476.5,
+    494.5,
+    498.75,
+    507.75,
+    521.0,
+    527.25,
+    551.25,
+    556.25,
+    559.25,
+    576.25,
+    577.75,
+    623.0,
+    637.0,
+    646.25,
+    664.25,
+    670.0,
+    675.5,
+    733.5,
+    736.25,
+    737.5,
+    741.25,
+    743.5,
+    849.0,
+    941.75,
+    956.5,
+    1000.25,
+    1150.75,
+    1186.5,
+    1220.0,
+    1351.0,
+    1352.0,
+    1527.5,
+    1528.75,
+    1532.5,
+    1554.0,
+    1559.75,
+    1562.5,
+    1567.75,
+    1577.0,
+    1592.25,
+    1606.75,
+    1771.0,
+    1896.5,
+    1908.5,
+    1980.75,
+    1987.0,
+    1990.0,
+    1992.0,
+    2021.0,
+    2023.0,
+    2094.5,
+    2096.75,
+    2128.25,
+    2133.25,
+    2148.0
+   ],
+   "observations": [
+    {
+     "category": "speaker-shot",
+     "at_s": 220.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 2180.0
+    }
+   ]
+  },
+  {
+   "id": "BRNnx_WtlZQ",
+   "title": "Reducing Friction in Commercial Lending: Baker Hill and Equifax",
+   "date": "2026-11-04",
+   "duration_s": 84,
+   "url": "https://www.youtube.com/watch?v=BRNnx_WtlZQ",
+   "source_sha256": "33cb25d8e51210ebacd610635ade04c4c86732d3060120cd16c16f1937c92634",
+   "native_fps": 24.0,
+   "analysis_fps": 24.0,
+   "detected_shots": 12,
+   "candidate_boundaries_s": [
+    3.75,
+    5.292,
+    10.833,
+    20.125,
+    25.042,
+    41.0,
+    48.083,
+    58.417,
+    66.667,
+    72.458,
+    79.208
+   ],
+   "observations": [
+    {
+     "category": "brand-slate",
+     "at_s": 0.0
+    },
+    {
+     "category": "speaker-id",
+     "at_s": 8.0
+    },
+    {
+     "category": "speaker-shot",
+     "at_s": 24.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 83.0
+    }
+   ]
+  },
+  {
+   "id": "QIZdehvyyDg",
+   "title": "Revitalizing Atlanta’s Historic Westside: Equifax and the Westside Future Fund",
+   "date": "2026-11-02",
+   "duration_s": 183,
+   "url": "https://www.youtube.com/watch?v=QIZdehvyyDg",
+   "source_sha256": "0a6d738e81141bd6f6f50701125373afd714120baa8a50f1ea0a689b8b598528",
+   "native_fps": 24.0,
+   "analysis_fps": 24.0,
+   "detected_shots": 52,
+   "candidate_boundaries_s": [
+    0.542,
+    7.208,
+    10.958,
+    16.167,
+    26.625,
+    31.125,
+    34.167,
+    37.667,
+    40.333,
+    44.708,
+    46.333,
+    49.167,
+    52.667,
+    58.375,
+    60.5,
+    62.0,
+    64.0,
+    67.125,
+    72.792,
+    76.458,
+    84.0,
+    88.042,
+    93.5,
+    96.667,
+    99.375,
+    102.25,
+    103.958,
+    107.792,
+    112.333,
+    116.708,
+    119.417,
+    123.125,
+    124.875,
+    126.792,
+    129.333,
+    131.083,
+    133.083,
+    139.417,
+    142.833,
+    145.625,
+    148.292,
+    149.833,
+    151.292,
+    153.667,
+    161.958,
+    163.125,
+    166.042,
+    167.625,
+    171.375,
+    174.625,
+    178.208
+   ],
+   "observations": [
+    {
+     "category": "context-footage",
+     "at_s": 2.0
+    },
+    {
+     "category": "speaker-shot",
+     "at_s": 18.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 182.0
+    }
+   ]
+  },
+  {
+   "id": "iGaqukBHo8s",
+   "title": "October 2026 Credit Trends",
+   "date": "2026-10-22",
+   "duration_s": 583,
+   "url": "https://www.youtube.com/watch?v=iGaqukBHo8s",
+   "source_sha256": "8fab36288d34d44b530324ca33d0d8c1cd91a0f5de400cc4f59ce7fe0daccc37",
+   "native_fps": 30.0,
+   "analysis_fps": 4.0,
+   "detected_shots": 11,
+   "candidate_boundaries_s": [
+    5.0,
+    37.5,
+    111.25,
+    166.75,
+    226.25,
+    318.0,
+    424.5,
+    508.75,
+    573.75,
+    580.75
+   ],
+   "observations": [
+    {
+     "category": "slide-pip",
+     "at_s": 60.0
+    },
+    {
+     "category": "metric-callout",
+     "at_s": 425.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 580.0
+    }
+   ]
+  },
+  {
+   "id": "nZ2FGDafCK4",
+   "title": "Market Pulse: The K-Shaped Holiday: Consumer Spending, Credit, and Fraud in a Divided Economy",
+   "date": "2026-10-16",
+   "duration_s": 3717,
+   "url": "https://www.youtube.com/watch?v=nZ2FGDafCK4",
+   "source_sha256": "b481d949a9b33b2ba0f3c9d76fb4b10cda901275a924992b6cc32342570c7119",
+   "native_fps": 25.0,
+   "analysis_fps": 4.0,
+   "detected_shots": 46,
+   "candidate_boundaries_s": [
+    0.25,
+    19.0,
+    19.5,
+    29.75,
+    30.0,
+    84.5,
+    84.75,
+    134.0,
+    134.25,
+    139.0,
+    489.75,
+    548.25,
+    700.0,
+    821.0,
+    991.5,
+    1121.0,
+    1192.75,
+    1301.25,
+    1305.5,
+    1345.0,
+    1418.75,
+    1474.25,
+    1533.5,
+    1625.25,
+    1731.75,
+    1816.25,
+    1894.75,
+    2006.75,
+    2017.0,
+    2203.0,
+    2205.0,
+    2354.25,
+    2466.75,
+    2567.5,
+    2728.5,
+    2730.5,
+    2819.25,
+    2903.5,
+    3077.75,
+    3394.75,
+    3396.0,
+    3397.75,
+    3403.0,
+    3614.5,
+    3616.75
+   ],
+   "observations": [
+    {
+     "category": "slide-pip",
+     "at_s": 370.0
+    },
+    {
+     "category": "chart-focus",
+     "at_s": 1040.0
+    },
+    {
+     "category": "type-title",
+     "at_s": 1930.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 3710.0
+    }
+   ]
+  },
+  {
+   "id": "NwPgUDYnOl4",
+   "title": "The Two Sides of Trust: Inside Equifax Security",
+   "date": "2026-10-12",
+   "duration_s": 117,
+   "url": "https://www.youtube.com/watch?v=NwPgUDYnOl4",
+   "source_sha256": "92035eae1c5279e0ff9f3180726d9cbc09dd46dcecf65d58644df1adc5b702b1",
+   "native_fps": 24.0,
+   "analysis_fps": 24.0,
+   "detected_shots": 14,
+   "candidate_boundaries_s": [
+    3.542,
+    11.0,
+    16.125,
+    21.917,
+    29.875,
+    47.875,
+    53.083,
+    63.417,
+    71.75,
+    80.333,
+    86.458,
+    101.0,
+    112.458
+   ],
+   "observations": [
+    {
+     "category": "type-title",
+     "at_s": 2.0
+    },
+    {
+     "category": "speaker-shot",
+     "at_s": 12.0
+    },
+    {
+     "category": "circle-callout",
+     "at_s": 61.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 116.0
+    }
+   ]
+  },
+  {
+   "id": "d5iVA1MWhKA",
+   "title": "Shaping What’s Next in Credit Reporting",
+   "date": "2026-10-10",
+   "duration_s": 2723,
+   "url": "https://www.youtube.com/watch?v=d5iVA1MWhKA",
+   "source_sha256": "b6b0ff6697429f20e4c57c6f4e8c9e48874e7a22c88889bf17a927b91bffe714",
+   "native_fps": 24.0,
+   "analysis_fps": 4.0,
+   "detected_shots": 96,
+   "candidate_boundaries_s": [
+    15.25,
+    93.25,
+    95.75,
+    98.0,
+    100.5,
+    108.0,
+    133.5,
+    136.5,
+    143.0,
+    222.25,
+    238.75,
+    245.25,
+    308.5,
+    366.75,
+    380.5,
+    386.5,
+    397.5,
+    579.0,
+    619.5,
+    695.0,
+    718.25,
+    747.5,
+    814.0,
+    823.75,
+    826.0,
+    827.5,
+    848.75,
+    942.5,
+    1005.5,
+    1013.5,
+    1015.75,
+    1022.75,
+    1024.0,
+    1078.0,
+    1088.0,
+    1093.25,
+    1126.5,
+    1148.75,
+    1206.0,
+    1210.75,
+    1224.5,
+    1226.25,
+    1227.5,
+    1236.0,
+    1237.75,
+    1254.25,
+    1303.5,
+    1310.0,
+    1326.0,
+    1345.5,
+    1349.25,
+    1358.5,
+    1361.25,
+    1387.75,
+    1406.75,
+    1416.5,
+    1535.25,
+    1536.25,
+    1611.25,
+    1620.25,
+    1702.0,
+    1709.75,
+    1744.0,
+    1807.75,
+    1851.0,
+    1884.0,
+    1939.0,
+    1947.25,
+    1962.5,
+    1997.5,
+    2013.25,
+    2075.5,
+    2098.0,
+    2160.0,
+    2177.0,
+    2206.75,
+    2309.5,
+    2339.75,
+    2344.5,
+    2370.0,
+    2372.0,
+    2443.25,
+    2448.5,
+    2453.75,
+    2456.0,
+    2467.0,
+    2507.25,
+    2514.5,
+    2531.25,
+    2585.5,
+    2589.25,
+    2618.5,
+    2636.0,
+    2648.75,
+    2684.5
+   ],
+   "observations": [
+    {
+     "category": "speaker-shot",
+     "at_s": 270.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 2720.0
+    }
+   ]
+  },
+  {
+   "id": "fFCtwEP_o80",
+   "title": "Affordability: What Consumers are Really Experiencing",
+   "date": "2026-09-30",
+   "duration_s": 2453,
+   "url": "https://www.youtube.com/watch?v=fFCtwEP_o80",
+   "source_sha256": "2bc0daf56dc51f62c87c9722726fe3cec3d0c523da3b8d027afa897b7a29f1b4",
+   "native_fps": 24.0,
+   "analysis_fps": 4.0,
+   "detected_shots": 89,
+   "candidate_boundaries_s": [
+    15.25,
+    30.5,
+    34.75,
+    38.75,
+    68.0,
+    73.0,
+    207.5,
+    207.75,
+    214.5,
+    377.0,
+    381.25,
+    389.75,
+    430.75,
+    471.5,
+    486.25,
+    494.5,
+    510.75,
+    523.0,
+    526.0,
+    551.0,
+    564.75,
+    579.5,
+    609.0,
+    638.75,
+    661.25,
+    666.75,
+    669.75,
+    689.75,
+    691.5,
+    693.0,
+    739.75,
+    745.0,
+    765.5,
+    771.5,
+    801.25,
+    834.75,
+    914.75,
+    931.5,
+    936.0,
+    976.5,
+    1003.0,
+    1034.75,
+    1184.25,
+    1270.0,
+    1376.5,
+    1454.0,
+    1514.25,
+    1579.75,
+    1605.0,
+    1606.0,
+    1647.0,
+    1711.5,
+    1716.0,
+    1726.0,
+    1728.75,
+    1791.5,
+    1794.5,
+    1795.5,
+    1799.0,
+    1801.25,
+    1890.75,
+    1954.75,
+    2016.25,
+    2125.75,
+    2138.0,
+    2143.5,
+    2164.5,
+    2171.0,
+    2173.75,
+    2177.5,
+    2182.5,
+    2185.75,
+    2191.0,
+    2192.0,
+    2257.0,
+    2285.25,
+    2293.0,
+    2299.5,
+    2301.75,
+    2304.25,
+    2373.5,
+    2374.25,
+    2390.25,
+    2391.5,
+    2392.25,
+    2392.75,
+    2394.0,
+    2418.25
+   ],
+   "observations": [
+    {
+     "category": "speaker-shot",
+     "at_s": 250.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 2450.0
+    }
+   ]
+  },
+  {
+   "id": "hkMgvWZtHHQ",
+   "title": "September 2026 Credit Trends",
+   "date": "2026-09-29",
+   "duration_s": 718,
+   "url": "https://www.youtube.com/watch?v=hkMgvWZtHHQ",
+   "source_sha256": "4269efe83c853f11e4446f0af586a064be6be2931aafe0a1386f5c827755e3a7",
+   "native_fps": 30.0,
+   "analysis_fps": 4.0,
+   "detected_shots": 9,
+   "candidate_boundaries_s": [
+    5.0,
+    13.0,
+    37.75,
+    151.75,
+    237.25,
+    412.25,
+    709.5,
+    716.25
+   ],
+   "observations": [
+    {
+     "category": "slide-pip",
+     "at_s": 70.0
+    },
+    {
+     "category": "circle-callout",
+     "at_s": 70.0
+    },
+    {
+     "category": "chart-focus",
+     "at_s": 375.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 715.0
+    }
+   ]
+  },
+  {
+   "id": "krX_fBKmIdw",
+   "title": "Reimagining the Average Consumer:  What Today's Economy Means for Lending Risk",
+   "date": "2026-09-25",
+   "duration_s": 3703,
+   "url": "https://www.youtube.com/watch?v=krX_fBKmIdw",
+   "source_sha256": "61e1376bb2a953d6f0a6ed4406821198bc5d5b78b89388d78bad9772fcb82e7f",
+   "native_fps": 25.0,
+   "analysis_fps": 4.0,
+   "detected_shots": 69,
+   "candidate_boundaries_s": [
+    0.25,
+    5.75,
+    6.75,
+    28.0,
+    125.75,
+    177.75,
+    225.75,
+    230.5,
+    239.0,
+    268.75,
+    275.0,
+    281.75,
+    289.25,
+    295.5,
+    351.25,
+    355.0,
+    457.5,
+    465.0,
+    545.5,
+    558.5,
+    714.5,
+    722.25,
+    862.0,
+    872.0,
+    1115.25,
+    1136.0,
+    1155.5,
+    1158.75,
+    1330.75,
+    1339.5,
+    1379.0,
+    1385.75,
+    1426.0,
+    1429.0,
+    1589.5,
+    1593.75,
+    1751.0,
+    1756.0,
+    1807.75,
+    1812.25,
+    1857.75,
+    1863.75,
+    1907.25,
+    1911.5,
+    2081.75,
+    2087.5,
+    2181.5,
+    2185.75,
+    2314.5,
+    2323.5,
+    2385.5,
+    2391.25,
+    2490.25,
+    2500.0,
+    2521.75,
+    2546.5,
+    2660.5,
+    2745.75,
+    2921.0,
+    3279.75,
+    3283.25,
+    3289.75,
+    3290.75,
+    3291.5,
+    3294.0,
+    3297.5,
+    3631.5,
+    3635.0
+   ],
+   "observations": [
+    {
+     "category": "speaker-shot",
+     "at_s": 370.0
+    },
+    {
+     "category": "slide-pip",
+     "at_s": 2700.0
+    },
+    {
+     "category": "guest-grid",
+     "at_s": 3370.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 3700.0
+    }
+   ]
+  },
+  {
+   "id": "pPladopITb4",
+   "title": "Elevate Higher Education with Equifax Ignite for Graduate Outcomes",
+   "date": "2026-09-01",
+   "duration_s": 105,
+   "url": "https://www.youtube.com/watch?v=pPladopITb4",
+   "source_sha256": "9fd39857d3043b6cca4e6d08b1f429a57fc819323a3b885d3cf2705377096d90",
+   "native_fps": 30.0,
+   "analysis_fps": 30.0,
+   "detected_shots": 13,
+   "candidate_boundaries_s": [
+    12.4,
+    17.8,
+    22.933,
+    39.233,
+    43.567,
+    48.733,
+    70.533,
+    74.967,
+    79.433,
+    83.667,
+    86.2,
+    89.1
+   ],
+   "observations": [
+    {
+     "category": "question-card",
+     "at_s": 10.0
+    },
+    {
+     "category": "editorial-split",
+     "at_s": 10.0
+    },
+    {
+     "category": "product-view",
+     "at_s": 29.0
+    },
+    {
+     "category": "dashboard-stack",
+     "at_s": 55.0
+    },
+    {
+     "category": "chart-focus",
+     "at_s": 55.0
+    },
+    {
+     "category": "insight-band",
+     "at_s": 77.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 104.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 104.0
+    }
+   ]
+  },
+  {
+   "id": "AJpOYlwae0c",
+   "title": "June 2026 Credit Trends",
+   "date": "2026-08-28",
+   "duration_s": 416,
+   "url": "https://www.youtube.com/watch?v=AJpOYlwae0c",
+   "source_sha256": "d259569b1128eb1805ec76a7d4b08013cb878bb8d8841cff9c88c2c14f858b8a",
+   "native_fps": 30.0,
+   "analysis_fps": 4.0,
+   "detected_shots": 8,
+   "candidate_boundaries_s": [
+    5.25,
+    34.5,
+    150.75,
+    240.25,
+    353.25,
+    407.25,
+    414.0
+   ],
+   "observations": [
+    {
+     "category": "slide-pip",
+     "at_s": 40.0
+    },
+    {
+     "category": "caption-overlay",
+     "at_s": 40.0
+    },
+    {
+     "category": "brand-slate",
+     "at_s": 415.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 415.0
+    }
+   ]
+  },
+  {
+   "id": "MdLcymvr5kU",
+   "title": "Market Pulse: Capital, Confidence, and Change: The Future of Small Business",
+   "date": "2026-08-28",
+   "duration_s": 3600,
+   "url": "https://www.youtube.com/watch?v=MdLcymvr5kU",
+   "source_sha256": "44b7752b28c038e4f6ddbf30594ed58f0f95bd18be4dc5e194de4e670f2f2f40",
+   "native_fps": 25.0,
+   "analysis_fps": 4.0,
+   "detected_shots": 40,
+   "candidate_boundaries_s": [
+    0.75,
+    18.0,
+    46.5,
+    90.0,
+    90.5,
+    191.0,
+    198.75,
+    203.75,
+    325.0,
+    452.25,
+    529.25,
+    753.0,
+    755.0,
+    810.25,
+    956.75,
+    1051.75,
+    1053.75,
+    1128.5,
+    1191.25,
+    1246.5,
+    1255.5,
+    1313.25,
+    1374.75,
+    1458.0,
+    1530.75,
+    1595.75,
+    1651.25,
+    1718.0,
+    1866.75,
+    1930.5,
+    1978.0,
+    2135.25,
+    2200.25,
+    2206.75,
+    3156.75,
+    3163.5,
+    3451.75,
+    3454.25,
+    3539.25
+   ],
+   "observations": [
+    {
+     "category": "slide-pip",
+     "at_s": 360.0
+    },
+    {
+     "category": "chart-focus",
+     "at_s": 1870.0
+    },
+    {
+     "category": "guest-grid",
+     "at_s": 3280.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 3590.0
+    }
+   ]
+  },
+  {
+   "id": "he_rL5cpOYw",
+   "title": "Market Pulse: Decoding Wealth, Risk, and the Middle Market's Shifting Divide",
+   "date": "2026-08-28",
+   "duration_s": 3589,
+   "url": "https://www.youtube.com/watch?v=he_rL5cpOYw",
+   "source_sha256": "564fe740729617e1d0e5b116f98ca6a633e99414e9f6ed85f96cccbb50fbc0ae",
+   "native_fps": 30.0,
+   "analysis_fps": 4.0,
+   "detected_shots": 42,
+   "candidate_boundaries_s": [
+    1.5,
+    20.0,
+    31.5,
+    86.75,
+    87.0,
+    125.25,
+    130.25,
+    161.75,
+    278.0,
+    367.5,
+    480.5,
+    542.0,
+    560.5,
+    634.25,
+    691.0,
+    785.25,
+    940.0,
+    1034.5,
+    1135.0,
+    1276.0,
+    1368.5,
+    1434.5,
+    1653.5,
+    1762.5,
+    1875.25,
+    2005.75,
+    2071.25,
+    2136.5,
+    2142.0,
+    2450.25,
+    2618.25,
+    2663.5,
+    2738.75,
+    2933.25,
+    3046.0,
+    3171.25,
+    3249.5,
+    3326.0,
+    3423.0,
+    3514.25,
+    3517.0
+   ],
+   "observations": [
+    {
+     "category": "slide-pip",
+     "at_s": 360.0
+    },
+    {
+     "category": "chart-focus",
+     "at_s": 1870.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 3580.0
+    }
+   ]
+  },
+  {
+   "id": "TOiDCgSheDw",
+   "title": "August 2026 Credit Trends",
+   "date": "2026-08-28",
+   "duration_s": 767,
+   "url": "https://www.youtube.com/watch?v=TOiDCgSheDw",
+   "source_sha256": "65b1333796f54a875c23b592e93c37c785151d8a6b3e0b441c0e6b02f7d1ebd0",
+   "native_fps": 30.0,
+   "analysis_fps": 4.0,
+   "detected_shots": 12,
+   "candidate_boundaries_s": [
+    5.0,
+    10.25,
+    45.25,
+    177.5,
+    335.25,
+    458.25,
+    531.5,
+    585.5,
+    637.5,
+    758.25,
+    765.0
+   ],
+   "observations": [
+    {
+     "category": "slide-pip",
+     "at_s": 75.0
+    },
+    {
+     "category": "chart-focus",
+     "at_s": 215.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 765.0
+    }
+   ]
+  },
+  {
+   "id": "j_4gQxuAVI4",
+   "title": "Moody’s Economic Update: The Economy Beneath the Headlines",
+   "date": "2026-08-26",
+   "duration_s": 1782,
+   "url": "https://www.youtube.com/watch?v=j_4gQxuAVI4",
+   "source_sha256": "0f54b93e85cf948bdf077dedfb464431c0284a8c3c0bf0c1b33cba1a5e3ece7e",
+   "native_fps": 24.0,
+   "analysis_fps": 4.0,
+   "detected_shots": 41,
+   "candidate_boundaries_s": [
+    15.75,
+    42.75,
+    71.25,
+    206.0,
+    224.25,
+    266.0,
+    302.0,
+    339.0,
+    365.75,
+    499.5,
+    520.0,
+    568.5,
+    585.75,
+    650.25,
+    668.25,
+    774.5,
+    784.25,
+    797.5,
+    940.75,
+    948.5,
+    956.0,
+    1125.25,
+    1139.75,
+    1176.0,
+    1196.75,
+    1300.75,
+    1306.0,
+    1318.5,
+    1384.25,
+    1408.5,
+    1498.75,
+    1512.5,
+    1588.0,
+    1619.25,
+    1663.5,
+    1668.25,
+    1681.0,
+    1722.25,
+    1732.75,
+    1746.25
+   ],
+   "observations": [
+    {
+     "category": "speaker-shot",
+     "at_s": 180.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 1780.0
+    }
+   ]
+  },
+  {
+   "id": "VuvZKYl4jX0",
+   "title": "Market Pulse: The Mortgage Market at a Crossroads: Affordability and Future Growth",
+   "date": "2026-08-21",
+   "duration_s": 3837,
+   "url": "https://www.youtube.com/watch?v=VuvZKYl4jX0",
+   "source_sha256": "2d641108077b0047cd1ee6ad6883817b7b5c46b53783fef33626427bb84fbd22",
+   "native_fps": 25.0,
+   "analysis_fps": 4.0,
+   "detected_shots": 35,
+   "candidate_boundaries_s": [
+    1.25,
+    19.5,
+    31.75,
+    83.5,
+    163.5,
+    164.5,
+    167.0,
+    168.5,
+    195.5,
+    197.75,
+    202.0,
+    2061.5,
+    2074.5,
+    2076.75,
+    2179.0,
+    2189.25,
+    2224.0,
+    2356.5,
+    2514.0,
+    2637.0,
+    2710.25,
+    2764.5,
+    2816.25,
+    2942.75,
+    3023.75,
+    3032.75,
+    3191.25,
+    3241.25,
+    3312.5,
+    3393.25,
+    3494.5,
+    3552.5,
+    3669.0,
+    3701.0
+   ],
+   "observations": [
+    {
+     "category": "guest-grid",
+     "at_s": 380.0
+    },
+    {
+     "category": "speaker-id",
+     "at_s": 380.0
+    },
+    {
+     "category": "slide-pip",
+     "at_s": 2800.0
+    },
+    {
+     "category": "chart-focus",
+     "at_s": 3490.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 3830.0
+    }
+   ]
+  },
+  {
+   "id": "2V2ZB3XGRzQ",
+   "title": "VantageScore Helps Optimize Performance and Reduce Costs for Georgia’s Own Credit Union",
+   "date": "2026-08-19",
+   "duration_s": 70,
+   "url": "https://www.youtube.com/watch?v=2V2ZB3XGRzQ",
+   "source_sha256": "a9a70dd57ab98f11cae9679a1890a6362abfe83e15c5012047fb8fe41989858a",
+   "native_fps": 24.0,
+   "analysis_fps": 24.0,
+   "detected_shots": 25,
+   "candidate_boundaries_s": [
+    6.708,
+    9.792,
+    12.375,
+    17.75,
+    22.708,
+    28.167,
+    31.083,
+    33.167,
+    34.292,
+    35.542,
+    36.917,
+    40.875,
+    44.25,
+    46.917,
+    48.458,
+    54.833,
+    56.458,
+    57.708,
+    60.917,
+    62.875,
+    64.458,
+    65.625,
+    66.5,
+    68.0
+   ],
+   "observations": [
+    {
+     "category": "brand-slate",
+     "at_s": 2.0
+    },
+    {
+     "category": "speaker-id",
+     "at_s": 7.0
+    },
+    {
+     "category": "context-footage",
+     "at_s": 36.0
+    },
+    {
+     "category": "chart-focus",
+     "at_s": 51.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 69.0
+    }
+   ]
+  },
+  {
+   "id": "o28h61g_Q9A",
+   "title": "How Patelco Credit Union Succeeds with VantageScore",
+   "date": "2026-08-19",
+   "duration_s": 112,
+   "url": "https://www.youtube.com/watch?v=o28h61g_Q9A",
+   "source_sha256": "608077f6239b65da372531fd048d9843c06a4bfe265e3f0c8c63c6e851fad30d",
+   "native_fps": 24.0,
+   "analysis_fps": 24.0,
+   "detected_shots": 28,
+   "candidate_boundaries_s": [
+    6.708,
+    15.917,
+    18.375,
+    27.0,
+    28.708,
+    30.25,
+    32.875,
+    40.625,
+    46.792,
+    48.792,
+    52.042,
+    55.875,
+    58.292,
+    62.333,
+    67.458,
+    68.917,
+    70.833,
+    79.0,
+    82.542,
+    86.333,
+    90.0,
+    92.792,
+    96.583,
+    99.25,
+    100.958,
+    102.625,
+    109.708
+   ],
+   "observations": [
+    {
+     "category": "brand-slate",
+     "at_s": 2.0
+    },
+    {
+     "category": "speaker-id",
+     "at_s": 11.0
+    },
+    {
+     "category": "circle-callout",
+     "at_s": 31.0
+    },
+    {
+     "category": "context-footage",
+     "at_s": 82.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 111.0
+    }
+   ]
+  },
+  {
+   "id": "A-W2rvoOuvo",
+   "title": "Helping U.S. Consumers Build Credit with Confidence: Kikoff and Equifax",
+   "date": "2026-08-19",
+   "duration_s": 107,
+   "url": "https://www.youtube.com/watch?v=A-W2rvoOuvo",
+   "source_sha256": "f75edce0d61b72d44798e4fa15fc67ae8d79090926276a66b32aa13c27feb42f",
+   "native_fps": 24.0,
+   "analysis_fps": 24.0,
+   "detected_shots": 31,
+   "candidate_boundaries_s": [
+    1.375,
+    5.917,
+    8.333,
+    11.292,
+    14.167,
+    21.583,
+    23.917,
+    27.167,
+    33.833,
+    37.167,
+    40.292,
+    45.625,
+    47.958,
+    50.708,
+    53.875,
+    58.375,
+    61.25,
+    66.667,
+    67.917,
+    70.208,
+    77.458,
+    80.75,
+    84.708,
+    89.042,
+    92.625,
+    95.5,
+    97.042,
+    98.708,
+    100.167,
+    102.792
+   ],
+   "observations": [
+    {
+     "category": "context-footage",
+     "at_s": 11.0
+    },
+    {
+     "category": "product-view",
+     "at_s": 78.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 106.0
+    }
+   ]
+  },
+  {
+   "id": "plp_E047hNY",
+   "title": "Reducing Blind Spots in Small Business Lending",
+   "date": "2026-08-19",
+   "duration_s": 69,
+   "url": "https://www.youtube.com/watch?v=plp_E047hNY",
+   "source_sha256": "11792b709bf698e486bbe7227982c56c975c9d763b55fc995e20f26455a6800d",
+   "native_fps": 24.0,
+   "analysis_fps": 24.0,
+   "detected_shots": 22,
+   "candidate_boundaries_s": [
+    5.292,
+    8.583,
+    11.042,
+    13.583,
+    16.583,
+    19.958,
+    24.25,
+    26.833,
+    29.458,
+    32.875,
+    37.667,
+    40.375,
+    43.583,
+    46.083,
+    48.375,
+    51.917,
+    54.083,
+    56.292,
+    58.208,
+    62.042,
+    65.167
+   ],
+   "observations": [
+    {
+     "category": "brand-slate",
+     "at_s": 0.0
+    },
+    {
+     "category": "speaker-id",
+     "at_s": 7.0
+    },
+    {
+     "category": "speaker-shot",
+     "at_s": 19.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 68.0
+    }
+   ]
+  },
+  {
+   "id": "7rgjA-Tb5XY",
+   "title": "IXI Network 2026 Wealth Trends Webinar",
+   "date": "2026-08-17",
+   "duration_s": 2094,
+   "url": "https://www.youtube.com/watch?v=7rgjA-Tb5XY",
+   "source_sha256": "ca0c8fd0fca58823d74b8c5e5fbe484e136e1cd539e7ca534ee359c5888afa78",
+   "native_fps": 23.976023976023978,
+   "analysis_fps": 4.0,
+   "detected_shots": 24,
+   "candidate_boundaries_s": [
+    0.75,
+    17.25,
+    71.5,
+    106.75,
+    125.25,
+    565.75,
+    579.5,
+    956.25,
+    1028.0,
+    1093.0,
+    1107.5,
+    1422.75,
+    1578.75,
+    1644.75,
+    1713.75,
+    1780.75,
+    1796.5,
+    2054.0,
+    2054.75,
+    2057.0,
+    2075.75,
+    2091.0,
+    2093.25
+   ],
+   "observations": [
+    {
+     "category": "slide-pip",
+     "at_s": 210.0
+    },
+    {
+     "category": "chart-focus",
+     "at_s": 210.0
+    },
+    {
+     "category": "guest-grid",
+     "at_s": 1910.0
+    },
+    {
+     "category": "editorial-split",
+     "at_s": 2090.0
+    }
+   ]
+  },
+  {
+   "id": "JJ97BC0hxXQ",
+   "title": "VINE Explained",
+   "date": "2026-08-10",
+   "duration_s": 233,
+   "url": "https://www.youtube.com/watch?v=JJ97BC0hxXQ",
+   "source_sha256": "6bdf7b19cbf1320c27dfd34c345e2e25488e9718ef77eb09b0de4e6c4d823a3a",
+   "native_fps": 23.976023976023978,
+   "analysis_fps": 23.976023976023978,
+   "detected_shots": 47,
+   "candidate_boundaries_s": [
+    4.88,
+    12.346,
+    19.353,
+    20.854,
+    21.063,
+    22.189,
+    23.649,
+    26.86,
+    33.033,
+    37.955,
+    43.961,
+    46.797,
+    49.883,
+    59.184,
+    64.898,
+    75.784,
+    83.083,
+    88.088,
+    91.133,
+    93.593,
+    97.055,
+    98.682,
+    103.27,
+    105.981,
+    109.067,
+    112.821,
+    118.035,
+    121.246,
+    124.791,
+    127.878,
+    140.932,
+    143.435,
+    145.812,
+    149.358,
+    154.488,
+    163.33,
+    169.961,
+    177.761,
+    182.641,
+    188.48,
+    193.86,
+    199.699,
+    207.999,
+    215.549,
+    221.555,
+    227.477
+   ],
+   "observations": [
+    {
+     "category": "speaker-shot",
+     "at_s": 2.0
+    },
+    {
+     "category": "context-footage",
+     "at_s": 24.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 232.0
+    }
+   ]
+  },
+  {
+   "id": "onnbgz3JLhg",
+   "title": "Smart Risk Decisioning Webinar: How to Bridge the Credit, Fraud, and Affordability Data Gap",
+   "date": "2026-08-05",
+   "duration_s": 3423,
+   "url": "https://www.youtube.com/watch?v=onnbgz3JLhg",
+   "source_sha256": "7d2bcca00637852a1034fb1e062dcb4ea18efbefbe489151cb4fb34986f26d41",
+   "native_fps": 25.0,
+   "analysis_fps": 4.0,
+   "detected_shots": 20,
+   "candidate_boundaries_s": [
+    1.25,
+    38.0,
+    38.25,
+    126.75,
+    180.5,
+    452.75,
+    616.0,
+    832.0,
+    832.5,
+    971.25,
+    1303.25,
+    1518.5,
+    1708.5,
+    2559.0,
+    2567.5,
+    2568.5,
+    3240.5,
+    3243.25,
+    3364.25
+   ],
+   "observations": [
+    {
+     "category": "slide-pip",
+     "at_s": 340.0
+    },
+    {
+     "category": "type-title",
+     "at_s": 960.0
+    },
+    {
+     "category": "guest-grid",
+     "at_s": 1780.0
+    },
+    {
+     "category": "concept-diagram",
+     "at_s": 3420.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 3420.0
+    }
+   ]
+  },
+  {
+   "id": "QeFjDFFNiog",
+   "title": "Prosperity Connection & The Equifax Foundation",
+   "date": "2026-08-05",
+   "duration_s": 102,
+   "url": "https://www.youtube.com/watch?v=QeFjDFFNiog",
+   "source_sha256": "68f889e2312ea16ca80ad9f2a98016c6f793d5a79559c4180c1966f4a44858c0",
+   "native_fps": 23.976023976023978,
+   "analysis_fps": 23.976023976023978,
+   "detected_shots": 17,
+   "candidate_boundaries_s": [
+    1.877,
+    5.631,
+    13.347,
+    17.893,
+    25.567,
+    37.037,
+    43.043,
+    49.633,
+    53.762,
+    58.517,
+    63.355,
+    68.402,
+    75.284,
+    83.083,
+    90.507,
+    98.015
+   ],
+   "observations": [
+    {
+     "category": "speaker-id",
+     "at_s": 10.0
+    },
+    {
+     "category": "speaker-shot",
+     "at_s": 53.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 101.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 101.0
+    }
+   ]
+  },
+  {
+   "id": "TR3G8TPzOqA",
+   "title": "How the K-Shaped Economy is Reshaping Financial Services",
+   "date": "2026-07-27",
+   "duration_s": 2872,
+   "url": "https://www.youtube.com/watch?v=TR3G8TPzOqA",
+   "source_sha256": "a8dfb94fa0ecd7b3025d82b920fdf466d9cc8441ddc7b5e92d127e981e1de808",
+   "native_fps": 24.0,
+   "analysis_fps": 4.0,
+   "detected_shots": 52,
+   "candidate_boundaries_s": [
+    14.75,
+    31.5,
+    31.75,
+    191.25,
+    210.75,
+    231.25,
+    319.0,
+    332.5,
+    450.5,
+    467.5,
+    790.5,
+    793.5,
+    795.75,
+    829.25,
+    863.0,
+    992.75,
+    1010.0,
+    1020.25,
+    1024.5,
+    1026.5,
+    1031.5,
+    1045.75,
+    1077.25,
+    1321.75,
+    1336.75,
+    1600.25,
+    1678.75,
+    1851.75,
+    1861.75,
+    1897.75,
+    1925.5,
+    2004.0,
+    2021.25,
+    2035.0,
+    2075.5,
+    2150.5,
+    2164.25,
+    2338.25,
+    2355.5,
+    2392.0,
+    2514.75,
+    2520.0,
+    2534.0,
+    2588.0,
+    2604.75,
+    2611.5,
+    2651.25,
+    2684.0,
+    2788.0,
+    2836.0,
+    2837.5
+   ],
+   "observations": [
+    {
+     "category": "speaker-shot",
+     "at_s": 290.0
+    },
+    {
+     "category": "guest-grid",
+     "at_s": 2610.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 2870.0
+    }
+   ]
+  },
+  {
+   "id": "lyiCdegwvrg",
+   "title": "How AI Accelerates Human Creativity and Innovation at Work with Harald",
+   "date": "2026-07-22",
+   "duration_s": 86,
+   "url": "https://www.youtube.com/watch?v=lyiCdegwvrg",
+   "source_sha256": "b5cf2db3a5925b21bd867b17c8b47a0750235e2e518214b9abda765b69751b07",
+   "native_fps": 23.976023976023978,
+   "analysis_fps": 23.976023976023978,
+   "detected_shots": 17,
+   "candidate_boundaries_s": [
+    5.297,
+    9.051,
+    12.054,
+    17.559,
+    19.019,
+    22.731,
+    26.735,
+    30.364,
+    36.787,
+    43.919,
+    46.672,
+    57.557,
+    66.483,
+    73.74,
+    77.327,
+    80.539
+   ],
+   "observations": [
+    {
+     "category": "speaker-shot",
+     "at_s": 9.0
+    },
+    {
+     "category": "type-title",
+     "at_s": 78.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 85.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 85.0
+    }
+   ]
+  },
+  {
+   "id": "nU2elWssHw0",
+   "title": "Combating Small Business Fraud in an AI-Powered World",
+   "date": "2026-07-16",
+   "duration_s": 1876,
+   "url": "https://www.youtube.com/watch?v=nU2elWssHw0",
+   "source_sha256": "15ccf9a584c745db4c657ec3ae29469a82da5918be4d99bf6fb8534b9da8b71d",
+   "native_fps": 24.0,
+   "analysis_fps": 4.0,
+   "detected_shots": 36,
+   "candidate_boundaries_s": [
+    15.5,
+    27.0,
+    55.5,
+    55.75,
+    128.75,
+    137.5,
+    169.5,
+    211.25,
+    290.5,
+    495.75,
+    614.25,
+    640.5,
+    881.0,
+    911.5,
+    925.75,
+    1021.75,
+    1040.5,
+    1144.5,
+    1180.5,
+    1299.5,
+    1331.5,
+    1334.75,
+    1351.5,
+    1358.0,
+    1377.0,
+    1430.25,
+    1448.75,
+    1522.5,
+    1579.0,
+    1601.75,
+    1702.5,
+    1721.0,
+    1783.5,
+    1813.25,
+    1842.5
+   ],
+   "observations": [
+    {
+     "category": "speaker-shot",
+     "at_s": 190.0
+    },
+    {
+     "category": "guest-grid",
+     "at_s": 1370.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 1870.0
+    }
+   ]
+  },
+  {
+   "id": "bvVlAHNS3NM",
+   "title": "Day in the Life of a Sales Customer Success Manager",
+   "date": "2026-07-16",
+   "duration_s": 124,
+   "url": "https://www.youtube.com/watch?v=bvVlAHNS3NM",
+   "source_sha256": "21a5d50f195b31dbde7d09cf78f3ddc8554485f87e2ba51a63a00a56072415bf",
+   "native_fps": 23.976023976023978,
+   "analysis_fps": 23.976023976023978,
+   "detected_shots": 19,
+   "candidate_boundaries_s": [
+    4.463,
+    9.927,
+    17.851,
+    32.407,
+    40.332,
+    44.753,
+    55.555,
+    63.563,
+    65.232,
+    66.817,
+    72.406,
+    82.291,
+    89.673,
+    98.015,
+    103.854,
+    108.442,
+    115.365,
+    118.577
+   ],
+   "observations": [
+    {
+     "category": "question-card",
+     "at_s": 2.0
+    },
+    {
+     "category": "speaker-id",
+     "at_s": 12.0
+    },
+    {
+     "category": "question-card",
+     "at_s": 34.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 122.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 122.0
+    }
+   ]
+  },
+  {
+   "id": "Tj5H5dGgWc0",
+   "title": "Day in the Life of a Business Development Executive",
+   "date": "2026-07-15",
+   "duration_s": 102,
+   "url": "https://www.youtube.com/watch?v=Tj5H5dGgWc0",
+   "source_sha256": "9165a5839dbed017dab9415236587242b2755a46cce670cdfc06672ff92e8514",
+   "native_fps": 23.976023976023978,
+   "analysis_fps": 23.976023976023978,
+   "detected_shots": 15,
+   "candidate_boundaries_s": [
+    3.045,
+    6.548,
+    16.225,
+    27.194,
+    33.033,
+    39.456,
+    44.753,
+    48.507,
+    55.931,
+    62.813,
+    69.987,
+    82.457,
+    93.51,
+    96.722
+   ],
+   "observations": [
+    {
+     "category": "type-title",
+     "at_s": 2.0
+    },
+    {
+     "category": "speaker-id",
+     "at_s": 10.0
+    },
+    {
+     "category": "question-card",
+     "at_s": 29.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 101.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 101.0
+    }
+   ]
+  },
+  {
+   "id": "V6ANXYVw_FI",
+   "title": "Day in the Life of a Sales Engineer",
+   "date": "2026-07-14",
+   "duration_s": 114,
+   "url": "https://www.youtube.com/watch?v=V6ANXYVw_FI",
+   "source_sha256": "99137396953cd37122d731b12a2af108760811ccc8bfbb167ca4c78cb4021468",
+   "native_fps": 23.976023976023978,
+   "analysis_fps": 23.976023976023978,
+   "detected_shots": 24,
+   "candidate_boundaries_s": [
+    3.045,
+    3.921,
+    8.05,
+    11.929,
+    17.768,
+    19.394,
+    20.854,
+    26.401,
+    30.155,
+    37.454,
+    47.214,
+    51.551,
+    60.269,
+    65.566,
+    73.907,
+    79.663,
+    84.209,
+    87.671,
+    92.467,
+    94.928,
+    102.144,
+    106.606,
+    108.567
+   ],
+   "observations": [
+    {
+     "category": "type-title",
+     "at_s": 2.0
+    },
+    {
+     "category": "speaker-shot",
+     "at_s": 11.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 113.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 113.0
+    }
+   ]
+  },
+  {
+   "id": "iv3dfBsJNN8",
+   "title": "Day in the Life of a Sales Account Executive",
+   "date": "2026-07-13",
+   "duration_s": 118,
+   "url": "https://www.youtube.com/watch?v=iv3dfBsJNN8",
+   "source_sha256": "698d2edab814b5faee1969fa47887bcd987bee585d71c05570611cee44f4c3d3",
+   "native_fps": 23.976023976023978,
+   "analysis_fps": 23.976023976023978,
+   "detected_shots": 22,
+   "candidate_boundaries_s": [
+    3.045,
+    8.592,
+    14.806,
+    20.604,
+    26.276,
+    31.698,
+    36.078,
+    44.002,
+    48.799,
+    53.553,
+    57.891,
+    62.729,
+    69.861,
+    77.869,
+    83.792,
+    88.005,
+    94.553,
+    99.308,
+    105.522,
+    110.152,
+    112.112
+   ],
+   "observations": [
+    {
+     "category": "type-title",
+     "at_s": 2.0
+    },
+    {
+     "category": "speaker-id",
+     "at_s": 12.0
+    },
+    {
+     "category": "speaker-shot",
+     "at_s": 61.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 117.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 117.0
+    }
+   ]
+  },
+  {
+   "id": "AFxtkF-HRjM",
+   "title": "Day in the Life of a Sales Support Consultant",
+   "date": "2026-07-09",
+   "duration_s": 141,
+   "url": "https://www.youtube.com/watch?v=AFxtkF-HRjM",
+   "source_sha256": "b4929eb61b8be190c15d838f07499b9b62367f5ef31325a986f978132f22d25a",
+   "native_fps": 23.976023976023978,
+   "analysis_fps": 23.976023976023978,
+   "detected_shots": 28,
+   "candidate_boundaries_s": [
+    3.045,
+    5.13,
+    12.554,
+    22.689,
+    28.07,
+    34.034,
+    38.413,
+    43.252,
+    47.339,
+    50.509,
+    60.811,
+    64.773,
+    69.152,
+    75.409,
+    80.956,
+    86.587,
+    89.798,
+    95.053,
+    101.685,
+    109.609,
+    112.821,
+    116.783,
+    121.913,
+    125.25,
+    130.714,
+    133.425,
+    135.385
+   ],
+   "observations": [
+    {
+     "category": "type-title",
+     "at_s": 2.0
+    },
+    {
+     "category": "speaker-shot",
+     "at_s": 14.0
+    },
+    {
+     "category": "question-card",
+     "at_s": 40.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 140.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 140.0
+    }
+   ]
+  },
+  {
+   "id": "ZGoWSsCVC4k",
+   "title": "Launch Your Sales Career through the Rotational Development Program",
+   "date": "2026-07-08",
+   "duration_s": 95,
+   "url": "https://www.youtube.com/watch?v=ZGoWSsCVC4k",
+   "source_sha256": "087fb47a9aa3d2479b4bc034935136684cd3c35843cc74510df34e225d32a7f7",
+   "native_fps": 23.976023976023978,
+   "analysis_fps": 23.976023976023978,
+   "detected_shots": 19,
+   "candidate_boundaries_s": [
+    3.045,
+    9.468,
+    13.222,
+    21.647,
+    27.778,
+    33.242,
+    42.084,
+    46.296,
+    53.595,
+    57.015,
+    61.311,
+    63.814,
+    68.735,
+    74.575,
+    77.619,
+    85.794,
+    87.462,
+    89.423
+   ],
+   "observations": [
+    {
+     "category": "type-title",
+     "at_s": 2.0
+    },
+    {
+     "category": "speaker-id",
+     "at_s": 10.0
+    },
+    {
+     "category": "context-footage",
+     "at_s": 27.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 94.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 94.0
+    }
+   ]
+  },
+  {
+   "id": "H3hwxwUI8VY",
+   "title": "The Future of Mortgage Credit",
+   "date": "2026-06-30",
+   "duration_s": 2689,
+   "url": "https://www.youtube.com/watch?v=H3hwxwUI8VY",
+   "source_sha256": "d48a6449cfb5cade0f55f2d720a6c93d8c98ffc9d8fe78fd42f3b14f9fd1eae2",
+   "native_fps": 24.0,
+   "analysis_fps": 4.0,
+   "detected_shots": 1,
+   "candidate_boundaries_s": [],
+   "observations": [
+    {
+     "category": "guest-grid",
+     "at_s": 0.0
+    }
+   ]
+  },
+  {
+   "id": "RfgFdYLE0kg",
+   "title": "From Data to Decision Intelligence: Shaping the Future of AI with Raghu",
+   "date": "2026-06-25",
+   "duration_s": 144,
+   "url": "https://www.youtube.com/watch?v=RfgFdYLE0kg",
+   "source_sha256": "33b35d45f33807835650eba2869c5c1b90becd2d2b4cd88d86819b8fc4bd5019",
+   "native_fps": 23.976023976023978,
+   "analysis_fps": 23.976023976023978,
+   "detected_shots": 35,
+   "candidate_boundaries_s": [
+    3.67,
+    5.672,
+    8.675,
+    17.1,
+    19.353,
+    27.027,
+    32.532,
+    38.163,
+    42.376,
+    44.753,
+    48.423,
+    50.926,
+    54.805,
+    57.891,
+    62.896,
+    63.981,
+    68.277,
+    71.446,
+    76.118,
+    81.373,
+    86.753,
+    89.965,
+    93.635,
+    99.224,
+    102.769,
+    108.942,
+    110.027,
+    113.113,
+    120.537,
+    123.582,
+    126.084,
+    130.756,
+    135.177,
+    138.388
+   ],
+   "observations": [
+    {
+     "category": "question-card",
+     "at_s": 14.0
+    },
+    {
+     "category": "editorial-split",
+     "at_s": 14.0
+    },
+    {
+     "category": "speaker-shot",
+     "at_s": 74.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 142.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 142.0
+    }
+   ]
+  },
+  {
+   "id": "jRvj3vgpUYg",
+   "title": "What the Equifax Market Pulse Index Reveals About the U.S. Consumer",
+   "date": "2026-06-25",
+   "duration_s": 2572,
+   "url": "https://www.youtube.com/watch?v=jRvj3vgpUYg",
+   "source_sha256": "1621097e8a3670f502699638a0477eaffe2b4f2fb09e78fb5591452f576049e4",
+   "native_fps": 24.0,
+   "analysis_fps": 4.0,
+   "detected_shots": 82,
+   "candidate_boundaries_s": [
+    15.25,
+    43.75,
+    51.75,
+    191.25,
+    205.25,
+    206.75,
+    208.5,
+    211.25,
+    216.0,
+    223.25,
+    244.75,
+    260.5,
+    279.5,
+    284.0,
+    295.25,
+    307.5,
+    318.25,
+    331.0,
+    343.25,
+    433.5,
+    465.5,
+    474.5,
+    476.25,
+    503.75,
+    524.25,
+    583.0,
+    608.25,
+    625.5,
+    690.5,
+    701.5,
+    757.0,
+    813.25,
+    830.25,
+    848.25,
+    862.5,
+    898.0,
+    902.0,
+    943.75,
+    978.25,
+    1004.25,
+    1016.25,
+    1047.25,
+    1065.0,
+    1139.5,
+    1163.25,
+    1253.0,
+    1266.0,
+    1300.0,
+    1316.0,
+    1322.0,
+    1340.5,
+    1373.5,
+    1386.0,
+    1490.5,
+    1509.0,
+    1556.0,
+    1604.5,
+    1625.5,
+    1638.25,
+    1672.25,
+    1753.75,
+    1812.25,
+    1822.75,
+    1864.75,
+    1947.5,
+    2052.0,
+    2112.25,
+    2114.0,
+    2117.5,
+    2214.0,
+    2224.0,
+    2258.5,
+    2269.5,
+    2300.5,
+    2309.5,
+    2402.75,
+    2477.5,
+    2491.0,
+    2515.5,
+    2523.75,
+    2537.0
+   ],
+   "observations": [
+    {
+     "category": "speaker-shot",
+     "at_s": 260.0
+    },
+    {
+     "category": "guest-grid",
+     "at_s": 1340.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 2570.0
+    }
+   ]
+  },
+  {
+   "id": "gd4xyHOOb2U",
+   "title": "Sales Culture at Equifax",
+   "date": "2026-06-24",
+   "duration_s": 103,
+   "url": "https://www.youtube.com/watch?v=gd4xyHOOb2U",
+   "source_sha256": "c8540fe5407b51b0232b890eeeab622b035caf803590d1637bd711aea93a8634",
+   "native_fps": 23.976023976023978,
+   "analysis_fps": 23.976023976023978,
+   "detected_shots": 26,
+   "candidate_boundaries_s": [
+    4.671,
+    5.964,
+    8.508,
+    14.806,
+    20.187,
+    21.605,
+    23.774,
+    26.61,
+    28.487,
+    34.743,
+    39.79,
+    44.127,
+    50.05,
+    53.553,
+    55.764,
+    60.06,
+    65.941,
+    69.987,
+    74.825,
+    79.621,
+    84.459,
+    88.463,
+    92.926,
+    94.428,
+    97.639
+   ],
+   "observations": [
+    {
+     "category": "type-title",
+     "at_s": 2.0
+    },
+    {
+     "category": "speaker-id",
+     "at_s": 10.0
+    },
+    {
+     "category": "speaker-shot",
+     "at_s": 29.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 102.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 102.0
+    }
+   ]
+  },
+  {
+   "id": "WrJ04HTkibo",
+   "title": "Chart Your Own Sales Career Path at Equifax",
+   "date": "2026-06-17",
+   "duration_s": 125,
+   "url": "https://www.youtube.com/watch?v=WrJ04HTkibo",
+   "source_sha256": "4d5a3bec36e7220fbc55b6b7aa30b31f57cf45797a6e0b24c569fc8aed07af66",
+   "native_fps": 23.976023976023978,
+   "analysis_fps": 23.976023976023978,
+   "detected_shots": 26,
+   "candidate_boundaries_s": [
+    0.584,
+    1.627,
+    8.3,
+    13.472,
+    18.393,
+    22.689,
+    27.569,
+    34.284,
+    38.58,
+    43.835,
+    50.425,
+    53.512,
+    59.142,
+    62.688,
+    65.232,
+    69.903,
+    76.41,
+    80.163,
+    87.129,
+    94.594,
+    102.602,
+    108.066,
+    114.406,
+    116.45,
+    119.661
+   ],
+   "observations": [
+    {
+     "category": "insight-band",
+     "at_s": 2.0
+    },
+    {
+     "category": "speaker-id",
+     "at_s": 12.0
+    },
+    {
+     "category": "context-footage",
+     "at_s": 36.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 124.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 124.0
+    }
+   ]
+  },
+  {
+   "id": "V4dkcZELXHM",
+   "title": "The Equifax Early Careers Program in India",
+   "date": "2026-06-15",
+   "duration_s": 198,
+   "url": "https://www.youtube.com/watch?v=V4dkcZELXHM",
+   "source_sha256": "62a428dd916b86da878323ed40e7078dc31682a5175077583aa4f6c60e0748ce",
+   "native_fps": 25.0,
+   "analysis_fps": 25.0,
+   "detected_shots": 44,
+   "candidate_boundaries_s": [
+    1.96,
+    3.8,
+    5.12,
+    9.12,
+    15.8,
+    23.6,
+    30.64,
+    34.4,
+    36.4,
+    44.64,
+    51.24,
+    55.24,
+    56.84,
+    58.84,
+    60.84,
+    70.32,
+    82.8,
+    87.64,
+    96.08,
+    100.08,
+    102.48,
+    104.48,
+    106.48,
+    108.08,
+    112.72,
+    114.72,
+    117.32,
+    123.16,
+    133.64,
+    137.64,
+    148.12,
+    153.32,
+    155.68,
+    157.44,
+    158.88,
+    162.68,
+    165.12,
+    169.12,
+    176.72,
+    181.68,
+    188.08,
+    191.04,
+    193.52
+   ],
+   "observations": [
+    {
+     "category": "speaker-shot",
+     "at_s": 0.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 196.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 196.0
+    }
+   ]
+  },
+  {
+   "id": "cFkm026JLp8",
+   "title": "4 Hiring Myths Busted by Equifax Talent Acquisition Head in India",
+   "date": "2026-06-12",
+   "duration_s": 173,
+   "url": "https://www.youtube.com/watch?v=cFkm026JLp8",
+   "source_sha256": "5ee7953c0033616a31bb2f5d984a6adde2bd65e00bcff01ebcb2ab781b81b40b",
+   "native_fps": 25.0,
+   "analysis_fps": 25.0,
+   "detected_shots": 24,
+   "candidate_boundaries_s": [
+    5.48,
+    11.72,
+    13.48,
+    17.48,
+    24.24,
+    31.0,
+    38.92,
+    42.92,
+    55.88,
+    64.04,
+    77.52,
+    81.52,
+    86.44,
+    96.2,
+    102.6,
+    120.08,
+    124.08,
+    132.68,
+    139.72,
+    144.44,
+    151.04,
+    165.24,
+    168.0
+   ],
+   "observations": [
+    {
+     "category": "speaker-id",
+     "at_s": 2.0
+    },
+    {
+     "category": "speaker-shot",
+     "at_s": 48.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 172.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 172.0
+    }
+   ]
+  },
+  {
+   "id": "srbwBSqaFYE",
+   "title": "Day in the Life of an SRE at Equifax with Sumi Sulai",
+   "date": "2026-06-04",
+   "duration_s": 101,
+   "url": "https://www.youtube.com/watch?v=srbwBSqaFYE",
+   "source_sha256": "ebda087a7fb84bb9097c4f289cb1370b78b9fd6fcb4cad40d564fd9d662dd53d",
+   "native_fps": 25.0,
+   "analysis_fps": 25.0,
+   "detected_shots": 25,
+   "candidate_boundaries_s": [
+    2.6,
+    10.6,
+    14.6,
+    16.48,
+    17.48,
+    18.48,
+    20.6,
+    22.32,
+    24.32,
+    26.96,
+    35.4,
+    41.0,
+    43.6,
+    46.36,
+    49.56,
+    57.56,
+    61.56,
+    70.12,
+    73.12,
+    76.12,
+    78.12,
+    84.8,
+    93.76,
+    96.24
+   ],
+   "observations": [
+    {
+     "category": "speaker-id",
+     "at_s": 2.0
+    },
+    {
+     "category": "speaker-shot",
+     "at_s": 28.0
+    },
+    {
+     "category": "context-footage",
+     "at_s": 74.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 100.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 100.0
+    }
+   ]
+  },
+  {
+   "id": "4daGXw_F4Ks",
+   "title": "Navigating Campus to Corporate",
+   "date": "2026-06-03",
+   "duration_s": 133,
+   "url": "https://www.youtube.com/watch?v=4daGXw_F4Ks",
+   "source_sha256": "e19100c2631d3cbd27907b1936d3b8987d8ab9ac63ece1ab413b59771bd8f691",
+   "native_fps": 25.0,
+   "analysis_fps": 25.0,
+   "detected_shots": 20,
+   "candidate_boundaries_s": [
+    8.0,
+    11.0,
+    16.8,
+    22.0,
+    29.4,
+    40.32,
+    43.32,
+    53.56,
+    68.08,
+    71.08,
+    83.28,
+    90.16,
+    98.76,
+    101.76,
+    105.28,
+    115.24,
+    121.56,
+    125.4,
+    127.88
+   ],
+   "observations": [
+    {
+     "category": "speaker-id",
+     "at_s": 2.0
+    },
+    {
+     "category": "question-card",
+     "at_s": 70.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 132.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 132.0
+    }
+   ]
+  },
+  {
+   "id": "Vht8NtyWwno",
+   "title": "How to Build Your SRE Career with Sumi Sulai",
+   "date": "2026-06-02",
+   "duration_s": 101,
+   "url": "https://www.youtube.com/watch?v=Vht8NtyWwno",
+   "source_sha256": "6ea8889d0a5e4f78daba65ad33fc4d83ca6e93d216f2e2aca94b7a6f5daa95aa",
+   "native_fps": 25.0,
+   "analysis_fps": 25.0,
+   "detected_shots": 17,
+   "candidate_boundaries_s": [
+    2.6,
+    10.48,
+    14.48,
+    20.04,
+    25.96,
+    34.16,
+    43.72,
+    50.2,
+    54.56,
+    56.36,
+    61.0,
+    73.96,
+    81.8,
+    84.8,
+    93.44,
+    95.92
+   ],
+   "observations": [
+    {
+     "category": "speaker-id",
+     "at_s": 2.0
+    },
+    {
+     "category": "insight-band",
+     "at_s": 28.0
+    },
+    {
+     "category": "speaker-shot",
+     "at_s": 74.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 100.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 100.0
+    }
+   ]
+  },
+  {
+   "id": "yon2v81PcPA",
+   "title": "Understand Consumer Spending Habits with Spending Insights",
+   "date": "2026-05-27",
+   "duration_s": 109,
+   "url": "https://www.youtube.com/watch?v=yon2v81PcPA",
+   "source_sha256": "679fbcd6a3dfdfd0289aca0ea9cbcc127ae932a3711ca061c555912ac2c77636",
+   "native_fps": 24.0,
+   "analysis_fps": 24.0,
+   "detected_shots": 19,
+   "candidate_boundaries_s": [
+    4.625,
+    8.167,
+    8.417,
+    9.25,
+    11.625,
+    14.125,
+    17.458,
+    22.625,
+    33.708,
+    40.292,
+    41.792,
+    47.292,
+    50.167,
+    56.333,
+    62.958,
+    70.958,
+    86.458,
+    91.0
+   ],
+   "observations": [
+    {
+     "category": "concept-diagram",
+     "at_s": 80.0
+    },
+    {
+     "category": "icon-card",
+     "at_s": 80.0
+    },
+    {
+     "category": "brand-slate",
+     "at_s": 108.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 108.0
+    }
+   ]
+  },
+  {
+   "id": "uUcY5yuf5HI",
+   "title": "From Junior Architect to Principal Leader: Ellen’s Fast-Track Journey",
+   "date": "2026-05-14",
+   "duration_s": 129,
+   "url": "https://www.youtube.com/watch?v=uUcY5yuf5HI",
+   "source_sha256": "53306fda1bb3fdc707ba41bc4b9e259986a9324a3937bcb20411f3a90b88245a",
+   "native_fps": 25.0,
+   "analysis_fps": 25.0,
+   "detected_shots": 13,
+   "candidate_boundaries_s": [
+    13.84,
+    17.52,
+    41.6,
+    45.2,
+    56.28,
+    76.36,
+    80.0,
+    90.44,
+    94.0,
+    121.04,
+    123.8,
+    127.92
+   ],
+   "observations": [
+    {
+     "category": "speaker-id",
+     "at_s": 2.0
+    },
+    {
+     "category": "speaker-shot",
+     "at_s": 36.0
+    }
+   ]
+  },
+  {
+   "id": "HlJXsmRvfXo",
+   "title": "Making an Impact: The Equifax Foundation & Habitat for Humanity",
+   "date": "2026-05-13",
+   "duration_s": 49,
+   "url": "https://www.youtube.com/watch?v=HlJXsmRvfXo",
+   "source_sha256": "036f048e0a17f0f7856a60b9fea5f771deb69e1e1d20be66950fd8645f3e7b93",
+   "native_fps": 29.97002997002997,
+   "analysis_fps": 29.97002997002997,
+   "detected_shots": 11,
+   "candidate_boundaries_s": [
+    5.239,
+    7.674,
+    9.877,
+    12.179,
+    14.581,
+    25.158,
+    30.964,
+    33.567,
+    39.773,
+    44.144
+   ],
+   "observations": [
+    {
+     "category": "speaker-id",
+     "at_s": 2.0
+    },
+    {
+     "category": "context-footage",
+     "at_s": 14.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 48.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 48.0
+    }
+   ]
+  },
+  {
+   "id": "W0OfWFD-iPI",
+   "title": "Understanding the K-Shaped Economy in 2026",
+   "date": "2026-05-12",
+   "duration_s": 2358,
+   "url": "https://www.youtube.com/watch?v=W0OfWFD-iPI",
+   "source_sha256": "2b4714c3e26576a0a03e5cb83e148b03071737703a242eb97e659b12ffe1494b",
+   "native_fps": 24.0,
+   "analysis_fps": 4.0,
+   "detected_shots": 94,
+   "candidate_boundaries_s": [
+    15.25,
+    45.75,
+    50.75,
+    55.5,
+    60.25,
+    66.5,
+    70.75,
+    84.0,
+    89.5,
+    103.0,
+    106.75,
+    110.25,
+    134.25,
+    148.75,
+    161.25,
+    174.25,
+    181.0,
+    196.0,
+    212.75,
+    220.25,
+    232.5,
+    245.75,
+    264.75,
+    272.25,
+    297.5,
+    371.25,
+    389.5,
+    445.25,
+    445.5,
+    480.5,
+    498.25,
+    560.0,
+    591.5,
+    602.0,
+    674.5,
+    726.25,
+    768.0,
+    827.0,
+    888.75,
+    901.75,
+    918.0,
+    939.5,
+    945.5,
+    1010.0,
+    1026.75,
+    1109.5,
+    1137.75,
+    1159.0,
+    1185.5,
+    1195.0,
+    1246.75,
+    1310.5,
+    1362.75,
+    1372.0,
+    1428.25,
+    1459.5,
+    1489.0,
+    1547.75,
+    1567.5,
+    1603.0,
+    1645.0,
+    1660.75,
+    1700.5,
+    1726.0,
+    1760.0,
+    1766.5,
+    1769.25,
+    1810.25,
+    1823.25,
+    1903.75,
+    1939.5,
+    1959.75,
+    2000.75,
+    2013.75,
+    2068.75,
+    2101.25,
+    2120.25,
+    2136.0,
+    2140.0,
+    2148.75,
+    2182.75,
+    2212.25,
+    2213.25,
+    2234.25,
+    2261.5,
+    2269.0,
+    2295.25,
+    2298.0,
+    2309.5,
+    2314.25,
+    2316.75,
+    2323.75,
+    2325.25
+   ],
+   "observations": [
+    {
+     "category": "guest-grid",
+     "at_s": 240.0
+    },
+    {
+     "category": "speaker-shot",
+     "at_s": 660.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 2350.0
+    }
+   ]
+  },
+  {
+   "id": "wp8oli-fvTc",
+   "title": "What Are Health Savings Accounts and How Do They Work?",
+   "date": "2026-05-07",
+   "duration_s": 105,
+   "url": "https://www.youtube.com/watch?v=wp8oli-fvTc",
+   "source_sha256": "1415ed9e60b0d21b0fc8e0c8cb606be2f7d353ee583ccd45b9a8a61d3c8beb2f",
+   "native_fps": 30.0,
+   "analysis_fps": 30.0,
+   "detected_shots": 23,
+   "candidate_boundaries_s": [
+    0.667,
+    3.033,
+    9.033,
+    15.2,
+    19.1,
+    22.333,
+    25.033,
+    31.033,
+    37.033,
+    43.333,
+    48.867,
+    49.433,
+    52.033,
+    58.033,
+    64.033,
+    70.033,
+    76.267,
+    79.733,
+    83.033,
+    89.033,
+    94.467,
+    99.9
+   ],
+   "observations": [
+    {
+     "category": "question-card",
+     "at_s": 2.0
+    },
+    {
+     "category": "editorial-split",
+     "at_s": 2.0
+    },
+    {
+     "category": "caption-overlay",
+     "at_s": 10.0
+    },
+    {
+     "category": "insight-band",
+     "at_s": 77.0
+    },
+    {
+     "category": "brand-slate",
+     "at_s": 104.0
+    }
+   ]
+  },
+  {
+   "id": "kxXn92cWBdc",
+   "title": "Personal Loans: Five Things to Consider Before You Borrow",
+   "date": "2026-05-07",
+   "duration_s": 117,
+   "url": "https://www.youtube.com/watch?v=kxXn92cWBdc",
+   "source_sha256": "88a16625642c10f39fc14209d88f70248a3f322bbbe8bdf626ff511f66c65ab1",
+   "native_fps": 30.0,
+   "analysis_fps": 30.0,
+   "detected_shots": 28,
+   "candidate_boundaries_s": [
+    0.667,
+    3.033,
+    7.033,
+    11.133,
+    15.1,
+    17.767,
+    22.333,
+    28.033,
+    32.033,
+    36.033,
+    40.033,
+    46.333,
+    52.1,
+    54.767,
+    59.033,
+    63.033,
+    67.033,
+    71.033,
+    75.167,
+    75.567,
+    81.333,
+    87.333,
+    93.333,
+    99.333,
+    105.1,
+    108.033,
+    112.033
+   ],
+   "observations": [
+    {
+     "category": "type-title",
+     "at_s": 2.0
+    },
+    {
+     "category": "editorial-split",
+     "at_s": 2.0
+    },
+    {
+     "category": "insight-band",
+     "at_s": 12.0
+    },
+    {
+     "category": "caption-overlay",
+     "at_s": 33.0
+    },
+    {
+     "category": "circle-callout",
+     "at_s": 85.0
+    },
+    {
+     "category": "brand-slate",
+     "at_s": 116.0
+    }
+   ]
+  },
+  {
+   "id": "QOL7d6BshB8",
+   "title": "The Pros and Cons of Cosigning Loans",
+   "date": "2026-05-07",
+   "duration_s": 147,
+   "url": "https://www.youtube.com/watch?v=QOL7d6BshB8",
+   "source_sha256": "edabf212a73595ac3ddcbe7de70f20a7b0818b0b90d19480225a612ce0eb3432",
+   "native_fps": 30.0,
+   "analysis_fps": 30.0,
+   "detected_shots": 29,
+   "candidate_boundaries_s": [
+    0.633,
+    3.1,
+    6.167,
+    12.333,
+    18.333,
+    24.333,
+    30.1,
+    34.033,
+    40.033,
+    46.033,
+    52.167,
+    56.033,
+    62.033,
+    68.033,
+    74.333,
+    80.033,
+    86.033,
+    92.033,
+    98.033,
+    104.033,
+    110.033,
+    116.033,
+    122.033,
+    129.533,
+    130.033,
+    136.033,
+    140.033,
+    142.033
+   ],
+   "observations": [
+    {
+     "category": "editorial-split",
+     "at_s": 2.0
+    },
+    {
+     "category": "icon-card",
+     "at_s": 14.0
+    },
+    {
+     "category": "caption-overlay",
+     "at_s": 42.0
+    },
+    {
+     "category": "circle-callout",
+     "at_s": 76.0
+    },
+    {
+     "category": "brand-slate",
+     "at_s": 146.0
+    }
+   ]
+  },
+  {
+   "id": "5Kh6SvVIZ0Q",
+   "title": "Why I Love Working at Equifax: Culture, Purpose, and Data",
+   "date": "2026-05-04",
+   "duration_s": 137,
+   "url": "https://www.youtube.com/watch?v=5Kh6SvVIZ0Q",
+   "source_sha256": "c0fb5211a1ea15ce4b1a4efc16a4278b04dccd73394b1d8d5f270aa897b5db50",
+   "native_fps": 30.0,
+   "analysis_fps": 30.0,
+   "detected_shots": 30,
+   "candidate_boundaries_s": [
+    3.067,
+    5.5,
+    8.9,
+    11.933,
+    15.667,
+    23.3,
+    28.633,
+    40.333,
+    44.7,
+    48.4,
+    52.367,
+    56.133,
+    63.333,
+    64.733,
+    70.5,
+    73.633,
+    77.367,
+    85.5,
+    87.367,
+    94.7,
+    96.367,
+    100.7,
+    104.033,
+    108.6,
+    117.1,
+    119.867,
+    125.7,
+    128.1,
+    131.333
+   ],
+   "observations": [
+    {
+     "category": "type-title",
+     "at_s": 2.0
+    },
+    {
+     "category": "question-card",
+     "at_s": 14.0
+    },
+    {
+     "category": "speaker-shot",
+     "at_s": 38.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 136.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 136.0
+    }
+   ]
+  },
+  {
+   "id": "V3kt_D_idio",
+   "title": "From Idea to Asset: How a Patent Comes to Life at Equifax",
+   "date": "2026-04-22",
+   "duration_s": 185,
+   "url": "https://www.youtube.com/watch?v=V3kt_D_idio",
+   "source_sha256": "32146d63613bb6d73c0c159c0e9cf73f769963b7cef3e36258c96a261ce078cf",
+   "native_fps": 23.976023976023978,
+   "analysis_fps": 23.976023976023978,
+   "detected_shots": 11,
+   "candidate_boundaries_s": [
+    28.737,
+    41.166,
+    48.924,
+    58.6,
+    74.783,
+    88.171,
+    101.351,
+    135.844,
+    145.729,
+    166.291
+   ],
+   "observations": [
+    {
+     "category": "speaker-id",
+     "at_s": 2.0
+    },
+    {
+     "category": "speaker-shot",
+     "at_s": 18.0
+    }
+   ]
+  },
+  {
+   "id": "HzNHRIDKgfw",
+   "title": "Benefits of the Equifax Cloud",
+   "date": "2026-04-06",
+   "duration_s": 101,
+   "url": "https://www.youtube.com/watch?v=HzNHRIDKgfw",
+   "source_sha256": "999ffa592827aa4f2fdc2887d210366d41f07a323b0d9b699b44583b35e5d7cb",
+   "native_fps": 30.0,
+   "analysis_fps": 30.0,
+   "detected_shots": 11,
+   "candidate_boundaries_s": [
+    1.7,
+    15.6,
+    20.0,
+    22.733,
+    26.567,
+    32.367,
+    33.367,
+    88.8,
+    91.567,
+    95.867
+   ],
+   "observations": [
+    {
+     "category": "concept-diagram",
+     "at_s": 10.0
+    },
+    {
+     "category": "context-footage",
+     "at_s": 28.0
+    },
+    {
+     "category": "concept-diagram",
+     "at_s": 53.0
+    },
+    {
+     "category": "brand-slate",
+     "at_s": 100.0
+    }
+   ]
+  },
+  {
+   "id": "6dyG23BPcPQ",
+   "title": "Enhance decisioning & lending with Consumer Affordability View by Equifax",
+   "date": "2026-03-27",
+   "duration_s": 80,
+   "url": "https://www.youtube.com/watch?v=6dyG23BPcPQ",
+   "source_sha256": "9f6bfd9bcdec27fbcbbffdfa6de5f29fc0ccea3762c2b58d06f80ad69ab7b0d3",
+   "native_fps": 29.97002997002997,
+   "analysis_fps": 29.97002997002997,
+   "detected_shots": 11,
+   "candidate_boundaries_s": [
+    11.311,
+    22.022,
+    30.297,
+    37.938,
+    51.685,
+    63.297,
+    66.033,
+    67.668,
+    69.937,
+    74.408
+   ],
+   "observations": [
+    {
+     "category": "icon-card",
+     "at_s": 2.0
+    },
+    {
+     "category": "concept-diagram",
+     "at_s": 8.0
+    },
+    {
+     "category": "editorial-split",
+     "at_s": 22.0
+    },
+    {
+     "category": "circle-callout",
+     "at_s": 58.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 79.0
+    }
+   ]
+  },
+  {
+   "id": "LOGPBe0rkag",
+   "title": "Auto Market Trends: Affordability, EVs & What’s Next",
+   "date": "2026-03-26",
+   "duration_s": 2647,
+   "url": "https://www.youtube.com/watch?v=LOGPBe0rkag",
+   "source_sha256": "89a8dc12faf76c3f758293ff968a1590df9eb7e8119c03019e340f1f23646934",
+   "native_fps": 24.0,
+   "analysis_fps": 4.0,
+   "detected_shots": 50,
+   "candidate_boundaries_s": [
+    15.25,
+    44.0,
+    51.25,
+    66.75,
+    77.0,
+    77.25,
+    201.75,
+    226.75,
+    244.0,
+    291.25,
+    307.0,
+    368.5,
+    391.25,
+    602.25,
+    651.0,
+    698.25,
+    719.25,
+    914.75,
+    988.25,
+    1089.5,
+    1101.75,
+    1153.75,
+    1193.0,
+    1303.25,
+    1355.75,
+    1516.75,
+    1531.0,
+    1550.25,
+    1605.25,
+    1623.5,
+    1650.5,
+    1679.5,
+    1771.0,
+    1782.5,
+    1840.5,
+    1860.0,
+    2026.0,
+    2041.25,
+    2069.75,
+    2096.75,
+    2304.5,
+    2328.75,
+    2366.5,
+    2378.5,
+    2400.5,
+    2415.0,
+    2523.5,
+    2611.5,
+    2612.75
+   ],
+   "observations": [
+    {
+     "category": "guest-grid",
+     "at_s": 260.0
+    },
+    {
+     "category": "speaker-shot",
+     "at_s": 740.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 2640.0
+    }
+   ]
+  },
+  {
+   "id": "YNdie_9ilkI",
+   "title": "Turning Career Risks into Real Growth",
+   "date": "2026-03-25",
+   "duration_s": 137,
+   "url": "https://www.youtube.com/watch?v=YNdie_9ilkI",
+   "source_sha256": "944d787b88bef721a452bfcfc74e68d6a4ee1a39b19d72581780482a53f83826",
+   "native_fps": 29.97002997002997,
+   "analysis_fps": 29.97002997002997,
+   "detected_shots": 8,
+   "candidate_boundaries_s": [
+    10.444,
+    16.416,
+    20.02,
+    58.492,
+    61.995,
+    128.128,
+    131.365
+   ],
+   "observations": [
+    {
+     "category": "speaker-id",
+     "at_s": 14.0
+    },
+    {
+     "category": "speaker-shot",
+     "at_s": 38.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 136.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 136.0
+    }
+   ]
+  },
+  {
+   "id": "K9Hy2z9CeXo",
+   "title": "The Culture of Innovation: Developing AI Skills to Reshape the Future",
+   "date": "2026-03-23",
+   "duration_s": 124,
+   "url": "https://www.youtube.com/watch?v=K9Hy2z9CeXo",
+   "source_sha256": "f95883ed3f158195070a5bda1ae687d85596e61013bc9e7925d9df4e6e159995",
+   "native_fps": 23.976023976023978,
+   "analysis_fps": 23.976023976023978,
+   "detected_shots": 31,
+   "candidate_boundaries_s": [
+    6.59,
+    9.593,
+    12.554,
+    15.015,
+    19.77,
+    20.729,
+    23.19,
+    26.151,
+    29.696,
+    33.659,
+    36.036,
+    42.668,
+    45.17,
+    49.049,
+    52.219,
+    56.014,
+    58.433,
+    63.981,
+    68.694,
+    75.867,
+    81.623,
+    84.293,
+    92.217,
+    97.306,
+    99.474,
+    102.311,
+    106.273,
+    108.483,
+    115.615,
+    118.827
+   ],
+   "observations": [
+    {
+     "category": "speaker-shot",
+     "at_s": 0.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 122.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 122.0
+    }
+   ]
+  },
+  {
+   "id": "tXTS4lYxNVY",
+   "title": "The Power of Adaptability: Navigating Global Career Growth",
+   "date": "2026-03-19",
+   "duration_s": 108,
+   "url": "https://www.youtube.com/watch?v=tXTS4lYxNVY",
+   "source_sha256": "9b39bf6f3f2eabef551859a2b01dc26217a2e989449bc6ddc5f28a37f5293b41",
+   "native_fps": 23.976023976023978,
+   "analysis_fps": 23.976023976023978,
+   "detected_shots": 24,
+   "candidate_boundaries_s": [
+    1.21,
+    3.128,
+    4.838,
+    8.383,
+    11.97,
+    15.098,
+    19.436,
+    23.941,
+    29.738,
+    35.535,
+    41.124,
+    45.462,
+    48.215,
+    55.889,
+    58.85,
+    63.313,
+    69.82,
+    74.533,
+    80.789,
+    84.459,
+    95.971,
+    98.765,
+    101.977
+   ],
+   "observations": [
+    {
+     "category": "speaker-id",
+     "at_s": 2.0
+    },
+    {
+     "category": "speaker-shot",
+     "at_s": 11.0
+    },
+    {
+     "category": "editorial-split",
+     "at_s": 79.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 107.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 107.0
+    }
+   ]
+  },
+  {
+   "id": "-EiZnHImWdc",
+   "title": "Wired for Growth: Life and Innovation at Equifax",
+   "date": "2026-03-19",
+   "duration_s": 104,
+   "url": "https://www.youtube.com/watch?v=-EiZnHImWdc",
+   "source_sha256": "6132d80e06ad5967118789efa9ede881f3d9e5031ea2c6bebd375beeda55b94f",
+   "native_fps": 29.97,
+   "analysis_fps": 29.97,
+   "detected_shots": 22,
+   "candidate_boundaries_s": [
+    3.036,
+    4.171,
+    5.005,
+    5.939,
+    9.476,
+    11.278,
+    18.318,
+    24.124,
+    34.968,
+    38.505,
+    42.976,
+    48.916,
+    52.653,
+    59.126,
+    65.365,
+    71.338,
+    78.712,
+    83.584,
+    89.256,
+    95.629,
+    98.866
+   ],
+   "observations": [
+    {
+     "category": "type-title",
+     "at_s": 2.0
+    },
+    {
+     "category": "speaker-shot",
+     "at_s": 10.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 103.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 103.0
+    }
+   ]
+  },
+  {
+   "id": "okS4WiLlE20",
+   "title": "Takeaways from the 2025 Equifax Security Annual Report",
+   "date": "2026-03-18",
+   "duration_s": 107,
+   "url": "https://www.youtube.com/watch?v=okS4WiLlE20",
+   "source_sha256": "2d2a7c26ebdf9cee5d54d0579081dc266dcf30cacfc28e6829918e1d4047c3f9",
+   "native_fps": 23.976023976023978,
+   "analysis_fps": 23.976023976023978,
+   "detected_shots": 12,
+   "candidate_boundaries_s": [
+    21.605,
+    28.362,
+    34.284,
+    41.541,
+    46.546,
+    59.268,
+    65.857,
+    75.242,
+    80.163,
+    86.628,
+    102.019
+   ],
+   "observations": [
+    {
+     "category": "speaker-id",
+     "at_s": 2.0
+    },
+    {
+     "category": "speaker-shot",
+     "at_s": 30.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 106.0
+    }
+   ]
+  },
+  {
+   "id": "oXXY6IQ3K7g",
+   "title": "Advancing Security in an AI Age",
+   "date": "2026-03-18",
+   "duration_s": 118,
+   "url": "https://www.youtube.com/watch?v=oXXY6IQ3K7g",
+   "source_sha256": "9d203b1f02090261cb3ed7971839f02cd111193cdb9773f6a9c65f2330e425b8",
+   "native_fps": 23.976023976023978,
+   "analysis_fps": 23.976023976023978,
+   "detected_shots": 12,
+   "candidate_boundaries_s": [
+    4.213,
+    18.644,
+    35.452,
+    42.334,
+    43.961,
+    47.756,
+    56.39,
+    67.234,
+    76.451,
+    94.928,
+    113.572
+   ],
+   "observations": [
+    {
+     "category": "speaker-id",
+     "at_s": 2.0
+    },
+    {
+     "category": "speaker-shot",
+     "at_s": 33.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 117.0
+    }
+   ]
+  },
+  {
+   "id": "VMjXpnEW1dw",
+   "title": "Security as the Accelerator: How We Securely Shipped 180+ New Products in 2025",
+   "date": "2026-03-18",
+   "duration_s": 96,
+   "url": "https://www.youtube.com/watch?v=VMjXpnEW1dw",
+   "source_sha256": "1fdce27a04829259e00346c863f1ef9b0b27afbfbebc8ed51805a786c2873c6d",
+   "native_fps": 23.976023976023978,
+   "analysis_fps": 23.976023976023978,
+   "detected_shots": 9,
+   "candidate_boundaries_s": [
+    8.3,
+    20.062,
+    25.734,
+    48.715,
+    58.016,
+    68.318,
+    77.744,
+    91.258
+   ],
+   "observations": [
+    {
+     "category": "speaker-id",
+     "at_s": 2.0
+    },
+    {
+     "category": "speaker-shot",
+     "at_s": 27.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 95.0
+    }
+   ]
+  },
+  {
+   "id": "l31p1kDcMQw",
+   "title": "Shaping the Future of Security Through Co-Innovation with Vendors",
+   "date": "2026-03-18",
+   "duration_s": 65,
+   "url": "https://www.youtube.com/watch?v=l31p1kDcMQw",
+   "source_sha256": "9a6553613a348c3eabb5e18623149411083e5abd90494199b4a83aa374947b99",
+   "native_fps": 23.976023976023978,
+   "analysis_fps": 23.976023976023978,
+   "detected_shots": 8,
+   "candidate_boundaries_s": [
+    12.429,
+    18.602,
+    27.444,
+    34.451,
+    43.126,
+    48.632,
+    60.894
+   ],
+   "observations": [
+    {
+     "category": "speaker-id",
+     "at_s": 2.0
+    },
+    {
+     "category": "speaker-shot",
+     "at_s": 18.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 64.0
+    }
+   ]
+  },
+  {
+   "id": "p2y6xFqv35Y",
+   "title": "How Can I Check Credit Scores?",
+   "date": "2026-03-17",
+   "duration_s": 61,
+   "url": "https://www.youtube.com/watch?v=p2y6xFqv35Y",
+   "source_sha256": "8b7fa67cb5b27665600a7f6e55ace45e42f56f9a6b6385d6a4ee00e8aed3a0f7",
+   "native_fps": 30.0,
+   "analysis_fps": 30.0,
+   "detected_shots": 10,
+   "candidate_boundaries_s": [
+    8.867,
+    13.9,
+    20.933,
+    25.9,
+    29.9,
+    34.9,
+    39.9,
+    50.9,
+    57.833
+   ],
+   "observations": [
+    {
+     "category": "question-card",
+     "at_s": 2.0
+    },
+    {
+     "category": "icon-card",
+     "at_s": 6.0
+    },
+    {
+     "category": "circle-callout",
+     "at_s": 32.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 56.0
+    },
+    {
+     "category": "brand-slate",
+     "at_s": 60.0
+    }
+   ]
+  },
+  {
+   "id": "G6DBU4iel5Q",
+   "title": "TriMerge vs. Single Credit Reports: What’s at Stake?",
+   "date": "2026-03-12",
+   "duration_s": 1961,
+   "url": "https://www.youtube.com/watch?v=G6DBU4iel5Q",
+   "source_sha256": "44ba319b19299ccdccfa4378e9d54145c140f32911cac11e623537f547c03d5f",
+   "native_fps": 29.97002997002997,
+   "analysis_fps": 4.0,
+   "detected_shots": 38,
+   "candidate_boundaries_s": [
+    15.5,
+    28.5,
+    39.0,
+    44.75,
+    97.5,
+    223.0,
+    340.5,
+    365.5,
+    463.5,
+    512.75,
+    551.5,
+    561.5,
+    581.25,
+    615.5,
+    717.25,
+    756.5,
+    851.75,
+    875.75,
+    974.5,
+    981.25,
+    1008.25,
+    1042.25,
+    1196.25,
+    1219.5,
+    1357.25,
+    1387.25,
+    1482.0,
+    1529.25,
+    1581.0,
+    1592.25,
+    1653.0,
+    1691.5,
+    1763.25,
+    1781.25,
+    1785.5,
+    1907.5,
+    1925.75
+   ],
+   "observations": [
+    {
+     "category": "guest-grid",
+     "at_s": 200.0
+    },
+    {
+     "category": "speaker-shot",
+     "at_s": 550.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 1960.0
+    }
+   ]
+  },
+  {
+   "id": "HMTmnd1_pgY",
+   "title": "Culture at Equifax",
+   "date": "2026-02-12",
+   "duration_s": 102,
+   "url": "https://www.youtube.com/watch?v=HMTmnd1_pgY",
+   "source_sha256": "da6f37c66165a821330bc719335a0850fa45ef7af7a75957a8200a00bf33e3d0",
+   "native_fps": 29.97,
+   "analysis_fps": 29.97,
+   "detected_shots": 38,
+   "candidate_boundaries_s": [
+    3.07,
+    5.205,
+    8.141,
+    9.109,
+    10.444,
+    12.279,
+    14.248,
+    17.384,
+    20.988,
+    24.925,
+    27.528,
+    29.63,
+    33.066,
+    34.501,
+    39.506,
+    44.745,
+    45.812,
+    48.582,
+    49.65,
+    51.818,
+    53.921,
+    55.088,
+    56.957,
+    59.159,
+    61.695,
+    63.931,
+    66.567,
+    69.57,
+    72.94,
+    75.475,
+    78.412,
+    80.781,
+    82.216,
+    85.552,
+    86.854,
+    93.06,
+    96.163
+   ],
+   "observations": [
+    {
+     "category": "type-title",
+     "at_s": 2.0
+    },
+    {
+     "category": "context-footage",
+     "at_s": 10.0
+    },
+    {
+     "category": "speaker-id",
+     "at_s": 29.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 101.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 101.0
+    }
+   ]
+  },
+  {
+   "id": "H8_BSoDj6rc",
+   "title": "A Lender’s Case for VantageScore",
+   "date": "2026-02-06",
+   "duration_s": 1575,
+   "url": "https://www.youtube.com/watch?v=H8_BSoDj6rc",
+   "source_sha256": "4fe00d61d23d55415697c43c6c67805c1abf2eead220a1db35a9d39a1f6001db",
+   "native_fps": 23.976023976023978,
+   "analysis_fps": 4.0,
+   "detected_shots": 54,
+   "candidate_boundaries_s": [
+    15.25,
+    55.75,
+    59.0,
+    72.75,
+    101.25,
+    115.25,
+    122.0,
+    164.75,
+    183.0,
+    268.0,
+    294.25,
+    299.0,
+    304.75,
+    366.25,
+    394.25,
+    402.25,
+    418.25,
+    484.75,
+    532.75,
+    551.0,
+    591.75,
+    644.75,
+    659.25,
+    661.25,
+    678.25,
+    694.0,
+    725.5,
+    751.75,
+    792.25,
+    793.25,
+    811.75,
+    819.5,
+    861.5,
+    934.25,
+    991.75,
+    997.25,
+    1045.25,
+    1065.25,
+    1093.75,
+    1097.5,
+    1115.5,
+    1141.75,
+    1180.75,
+    1214.75,
+    1239.0,
+    1249.75,
+    1252.25,
+    1259.0,
+    1263.5,
+    1358.75,
+    1362.0,
+    1525.75,
+    1539.75
+   ],
+   "observations": [
+    {
+     "category": "guest-grid",
+     "at_s": 160.0
+    },
+    {
+     "category": "speaker-shot",
+     "at_s": 440.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 1570.0
+    }
+   ]
+  },
+  {
+   "id": "CvMkzRCOtMM",
+   "title": "E3 - Excellence, Effectiveness, and Efficiency",
+   "date": "2026-02-05",
+   "duration_s": 147,
+   "url": "https://www.youtube.com/watch?v=CvMkzRCOtMM",
+   "source_sha256": "506473263ec7002a64bc90a16f6d79c75c951a5a0be3499c5ecb8107924e2fc8",
+   "native_fps": 29.97002997002997,
+   "analysis_fps": 29.97002997002997,
+   "detected_shots": 12,
+   "candidate_boundaries_s": [
+    13.714,
+    21.655,
+    44.978,
+    52.119,
+    68.869,
+    82.082,
+    82.716,
+    101.368,
+    105.973,
+    132.632,
+    133.033
+   ],
+   "observations": [
+    {
+     "category": "brand-slate",
+     "at_s": 2.0
+    },
+    {
+     "category": "icon-card",
+     "at_s": 42.0
+    },
+    {
+     "category": "type-title",
+     "at_s": 108.0
+    },
+    {
+     "category": "brand-slate",
+     "at_s": 146.0
+    }
+   ]
+  },
+  {
+   "id": "t8E5GGzG-6U",
+   "title": "What Does it Mean to Power Your Possible?",
+   "date": "2026-01-15",
+   "duration_s": 72,
+   "url": "https://www.youtube.com/watch?v=t8E5GGzG-6U",
+   "source_sha256": "af988c8db78d309cdf07ef92a1d34365f28bd399190338bd1443407a7f8410c2",
+   "native_fps": 29.97,
+   "analysis_fps": 29.97,
+   "detected_shots": 20,
+   "candidate_boundaries_s": [
+    3.07,
+    4.338,
+    6.24,
+    7.908,
+    10.143,
+    12.079,
+    12.98,
+    17.718,
+    25.926,
+    28.095,
+    29.997,
+    34.201,
+    37.171,
+    39.873,
+    44.278,
+    51.018,
+    58.125,
+    63.363,
+    66.567
+   ],
+   "observations": [
+    {
+     "category": "type-title",
+     "at_s": 2.0
+    },
+    {
+     "category": "speaker-shot",
+     "at_s": 7.0
+    },
+    {
+     "category": "speaker-id",
+     "at_s": 37.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 71.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 71.0
+    }
+   ]
+  },
+  {
+   "id": "NsiJxXS1q1c",
+   "title": "Clearing the Down Payment Hurdle: DPA’s Role in Unlocking Homeownership",
+   "date": "2026-01-07",
+   "duration_s": 1658,
+   "url": "https://www.youtube.com/watch?v=NsiJxXS1q1c",
+   "source_sha256": "515810158800a06cd5c93d5e37ed36b92ba2d183524bb3448e8e95be7f694ca6",
+   "native_fps": 23.976023976023978,
+   "analysis_fps": 4.0,
+   "detected_shots": 117,
+   "candidate_boundaries_s": [
+    15.25,
+    22.0,
+    29.75,
+    46.75,
+    52.25,
+    58.25,
+    60.75,
+    67.25,
+    69.25,
+    72.0,
+    75.25,
+    76.25,
+    94.25,
+    95.75,
+    124.25,
+    126.75,
+    131.25,
+    166.0,
+    167.25,
+    186.5,
+    197.5,
+    233.0,
+    236.25,
+    241.25,
+    243.5,
+    257.5,
+    273.5,
+    283.25,
+    321.5,
+    360.75,
+    363.5,
+    383.25,
+    394.0,
+    401.0,
+    404.5,
+    406.25,
+    416.5,
+    420.5,
+    423.0,
+    435.25,
+    479.25,
+    490.5,
+    516.25,
+    539.5,
+    567.0,
+    574.25,
+    614.0,
+    621.75,
+    635.25,
+    637.0,
+    642.25,
+    644.0,
+    664.75,
+    688.25,
+    696.25,
+    733.5,
+    744.0,
+    749.75,
+    764.25,
+    767.0,
+    778.5,
+    779.75,
+    825.0,
+    827.75,
+    849.25,
+    851.5,
+    871.0,
+    896.5,
+    902.0,
+    903.75,
+    978.0,
+    992.0,
+    1021.25,
+    1023.0,
+    1026.75,
+    1029.5,
+    1030.5,
+    1031.25,
+    1054.0,
+    1055.75,
+    1065.5,
+    1067.25,
+    1075.25,
+    1080.25,
+    1091.25,
+    1119.0,
+    1128.25,
+    1154.0,
+    1155.25,
+    1181.0,
+    1182.5,
+    1207.75,
+    1213.75,
+    1235.0,
+    1239.75,
+    1254.0,
+    1268.75,
+    1270.25,
+    1321.5,
+    1352.75,
+    1401.25,
+    1419.5,
+    1430.0,
+    1442.0,
+    1443.75,
+    1446.0,
+    1471.0,
+    1497.0,
+    1506.25,
+    1507.5,
+    1518.75,
+    1563.5,
+    1567.25,
+    1568.75,
+    1574.0,
+    1623.5
+   ],
+   "observations": [
+    {
+     "category": "speaker-shot",
+     "at_s": 170.0
+    },
+    {
+     "category": "brand-slate",
+     "at_s": 1650.0
+    }
+   ]
+  },
+  {
+   "id": "CR_MG0DvxhY",
+   "title": "Naughty or Nice? 2025 Economic Recap & 2026 Resolutions",
+   "date": "2025-12-18",
+   "duration_s": 2929,
+   "url": "https://www.youtube.com/watch?v=CR_MG0DvxhY",
+   "source_sha256": "1454070b08b9ab8624e3d6bd2feccc74bfa2ae7ac2f9a1398939641114875982",
+   "native_fps": 29.97002997002997,
+   "analysis_fps": 4.0,
+   "detected_shots": 4,
+   "candidate_boundaries_s": [
+    354.5,
+    494.0,
+    2928.25
+   ],
+   "observations": [
+    {
+     "category": "guest-grid",
+     "at_s": 0.0
+    }
+   ]
+  },
+  {
+   "id": "mJV_hwd11UU",
+   "title": "Driving Efficiency and Resilience in the Mortgage Industry",
+   "date": "2025-12-09",
+   "duration_s": 1193,
+   "url": "https://www.youtube.com/watch?v=mJV_hwd11UU",
+   "source_sha256": "ed78ad25e056a45d4ea619d182d960516443f1593f06f513e0ab3336240ae6a5",
+   "native_fps": 23.976023976023978,
+   "analysis_fps": 4.0,
+   "detected_shots": 78,
+   "candidate_boundaries_s": [
+    15.25,
+    23.5,
+    32.0,
+    43.5,
+    48.75,
+    50.0,
+    52.0,
+    60.75,
+    88.0,
+    107.25,
+    131.75,
+    134.75,
+    143.75,
+    155.75,
+    161.5,
+    193.75,
+    196.25,
+    208.75,
+    218.75,
+    239.0,
+    241.25,
+    286.75,
+    304.75,
+    354.25,
+    367.5,
+    375.0,
+    388.5,
+    424.25,
+    440.25,
+    448.5,
+    483.5,
+    498.0,
+    505.0,
+    536.0,
+    537.25,
+    546.0,
+    554.5,
+    568.75,
+    570.5,
+    608.25,
+    618.0,
+    630.25,
+    635.25,
+    655.0,
+    658.25,
+    659.5,
+    678.0,
+    680.0,
+    698.5,
+    701.0,
+    713.5,
+    748.0,
+    754.25,
+    755.75,
+    781.75,
+    798.0,
+    856.75,
+    859.0,
+    865.75,
+    884.0,
+    908.75,
+    936.75,
+    969.75,
+    979.5,
+    1013.25,
+    1014.75,
+    1026.5,
+    1040.25,
+    1058.5,
+    1065.5,
+    1085.75,
+    1098.5,
+    1127.0,
+    1132.25,
+    1157.75,
+    1158.0,
+    1159.25
+   ],
+   "observations": [
+    {
+     "category": "speaker-shot",
+     "at_s": 120.0
+    },
+    {
+     "category": "event-panel",
+     "at_s": 870.0
+    },
+    {
+     "category": "brand-slate",
+     "at_s": 1190.0
+    }
+   ]
+  },
+  {
+   "id": "Fzkudwie_7g",
+   "title": "From Army Veteran to President of Equifax Workforce Solutions",
+   "date": "2025-12-08",
+   "duration_s": 88,
+   "url": "https://www.youtube.com/watch?v=Fzkudwie_7g",
+   "source_sha256": "b35432112b1e939eb4196bc118eca3b147cbf6827211a75b8c3dab75f83810d3",
+   "native_fps": 23.976023976023978,
+   "analysis_fps": 23.976023976023978,
+   "detected_shots": 22,
+   "candidate_boundaries_s": [
+    0.626,
+    1.501,
+    2.419,
+    10.928,
+    14.681,
+    21.438,
+    23.899,
+    25.067,
+    31.907,
+    33.075,
+    36.203,
+    39.289,
+    47.256,
+    51.176,
+    57.474,
+    70.696,
+    75.575,
+    78.12,
+    78.996,
+    79.496,
+    82.207
+   ],
+   "observations": [
+    {
+     "category": "speaker-shot",
+     "at_s": 0.0
+    },
+    {
+     "category": "type-title",
+     "at_s": 80.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 87.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 87.0
+    }
+   ]
+  },
+  {
+   "id": "pfRB5VcY1Us",
+   "title": "The Real Cost of Credit Reports: Data, Competition, and Policy Implications",
+   "date": "2025-12-02",
+   "duration_s": 2658,
+   "url": "https://www.youtube.com/watch?v=pfRB5VcY1Us",
+   "source_sha256": "5bdef58ba7ea3e734f65c8334e75fade1b37237899b001e391c9e2589df1679b",
+   "native_fps": 23.976023976023978,
+   "analysis_fps": 4.0,
+   "detected_shots": 137,
+   "candidate_boundaries_s": [
+    15.25,
+    39.75,
+    59.5,
+    68.25,
+    76.0,
+    104.0,
+    135.0,
+    163.0,
+    185.25,
+    220.75,
+    278.0,
+    308.25,
+    321.75,
+    350.5,
+    369.0,
+    382.75,
+    384.75,
+    405.5,
+    424.75,
+    473.75,
+    504.5,
+    557.25,
+    568.75,
+    584.25,
+    607.0,
+    624.5,
+    658.0,
+    661.25,
+    672.0,
+    681.25,
+    683.0,
+    688.25,
+    716.25,
+    726.75,
+    747.75,
+    750.75,
+    772.0,
+    798.0,
+    851.25,
+    881.25,
+    952.75,
+    992.75,
+    1028.5,
+    1063.5,
+    1082.25,
+    1084.75,
+    1086.5,
+    1091.25,
+    1097.5,
+    1116.25,
+    1159.25,
+    1199.5,
+    1218.25,
+    1235.5,
+    1254.75,
+    1273.0,
+    1289.0,
+    1290.75,
+    1336.5,
+    1368.25,
+    1414.0,
+    1415.75,
+    1448.0,
+    1456.0,
+    1478.75,
+    1514.5,
+    1526.25,
+    1562.5,
+    1580.25,
+    1596.75,
+    1599.25,
+    1625.5,
+    1639.75,
+    1653.5,
+    1658.0,
+    1660.0,
+    1677.5,
+    1710.25,
+    1738.0,
+    1748.5,
+    1750.5,
+    1759.5,
+    1762.25,
+    1764.75,
+    1775.75,
+    1787.5,
+    1811.75,
+    1831.75,
+    1861.25,
+    1881.25,
+    1932.0,
+    1938.5,
+    1940.0,
+    1959.75,
+    1968.5,
+    1970.5,
+    1996.25,
+    1998.0,
+    2056.5,
+    2058.75,
+    2079.5,
+    2095.0,
+    2120.0,
+    2123.25,
+    2126.5,
+    2134.0,
+    2136.0,
+    2165.0,
+    2184.5,
+    2197.5,
+    2201.75,
+    2222.25,
+    2253.25,
+    2270.25,
+    2312.0,
+    2339.25,
+    2352.25,
+    2353.5,
+    2379.0,
+    2397.75,
+    2408.25,
+    2421.0,
+    2440.25,
+    2475.75,
+    2501.25,
+    2521.0,
+    2523.0,
+    2543.75,
+    2561.0,
+    2572.0,
+    2575.25,
+    2593.0,
+    2596.25,
+    2598.5,
+    2607.5,
+    2623.0
+   ],
+   "observations": [
+    {
+     "category": "speaker-shot",
+     "at_s": 270.0
+    },
+    {
+     "category": "event-panel",
+     "at_s": 2420.0
+    },
+    {
+     "category": "brand-slate",
+     "at_s": 2650.0
+    }
+   ]
+  },
+  {
+   "id": "hSLuJRz4gVE",
+   "title": "From Intern to Data Science Innovator",
+   "date": "2025-11-24",
+   "duration_s": 118,
+   "url": "https://www.youtube.com/watch?v=hSLuJRz4gVE",
+   "source_sha256": "0c93902f0113071090a78a4243f2fda1dcc212b2045bb8dd3a84f832a12047f0",
+   "native_fps": 23.976023976023978,
+   "analysis_fps": 23.976023976023978,
+   "detected_shots": 28,
+   "candidate_boundaries_s": [
+    1.585,
+    4.004,
+    7.216,
+    8.842,
+    12.054,
+    20.103,
+    25.609,
+    31.615,
+    39.748,
+    41.875,
+    46.713,
+    50.801,
+    53.512,
+    60.477,
+    64.523,
+    67.276,
+    78.245,
+    85.419,
+    90.132,
+    92.301,
+    94.344,
+    98.765,
+    100.559,
+    102.728,
+    104.688,
+    108.734,
+    111.945
+   ],
+   "observations": [
+    {
+     "category": "speaker-id",
+     "at_s": 2.0
+    },
+    {
+     "category": "question-card",
+     "at_s": 61.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 117.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 117.0
+    }
+   ]
+  },
+  {
+   "id": "K8hXbQG6-6U",
+   "title": "The Equifax Foundation: Our Commitment",
+   "date": "2025-11-21",
+   "duration_s": 15,
+   "url": "https://www.youtube.com/watch?v=K8hXbQG6-6U",
+   "source_sha256": "ffb3938baa50da7c0c6d3390a96d64daf5ae612fe01398e7fb977214afe74b71",
+   "native_fps": 29.97002997002997,
+   "analysis_fps": 29.97002997002997,
+   "detected_shots": 2,
+   "candidate_boundaries_s": [
+    11.612
+   ],
+   "observations": [
+    {
+     "category": "concept-diagram",
+     "at_s": 8.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 14.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 14.0
+    }
+   ]
+  },
+  {
+   "id": "L2eRtiHRI70",
+   "title": "The Credit File Contradiction: Why is Each Different?",
+   "date": "2025-11-19",
+   "duration_s": 1600,
+   "url": "https://www.youtube.com/watch?v=L2eRtiHRI70",
+   "source_sha256": "ba576cb2737bbe5974944f1355d88ea8671d80e4a2bc3a44cc80d9ace617ca72",
+   "native_fps": 23.976023976023978,
+   "analysis_fps": 4.0,
+   "detected_shots": 113,
+   "candidate_boundaries_s": [
+    15.25,
+    42.5,
+    52.5,
+    75.25,
+    96.5,
+    112.25,
+    114.75,
+    117.0,
+    118.25,
+    124.75,
+    126.25,
+    135.75,
+    165.25,
+    167.5,
+    221.25,
+    235.5,
+    243.0,
+    278.0,
+    279.25,
+    299.75,
+    319.0,
+    338.5,
+    363.0,
+    365.0,
+    368.0,
+    401.75,
+    456.5,
+    471.5,
+    498.75,
+    502.0,
+    504.5,
+    510.5,
+    511.75,
+    538.0,
+    570.25,
+    599.0,
+    607.0,
+    608.5,
+    615.0,
+    630.25,
+    653.5,
+    663.5,
+    674.0,
+    677.75,
+    682.0,
+    719.75,
+    770.75,
+    783.75,
+    793.0,
+    794.5,
+    825.75,
+    840.0,
+    846.0,
+    847.25,
+    872.25,
+    873.5,
+    885.5,
+    892.5,
+    913.0,
+    944.25,
+    973.25,
+    974.75,
+    991.0,
+    1004.75,
+    1021.5,
+    1023.0,
+    1036.25,
+    1076.75,
+    1097.0,
+    1129.0,
+    1134.75,
+    1136.25,
+    1145.75,
+    1147.0,
+    1149.5,
+    1163.5,
+    1221.5,
+    1235.5,
+    1256.25,
+    1270.75,
+    1272.25,
+    1282.25,
+    1301.75,
+    1318.5,
+    1319.75,
+    1362.25,
+    1376.25,
+    1387.75,
+    1394.0,
+    1395.25,
+    1415.75,
+    1421.5,
+    1437.5,
+    1440.75,
+    1442.5,
+    1443.75,
+    1452.5,
+    1453.5,
+    1458.5,
+    1469.75,
+    1477.5,
+    1481.5,
+    1483.0,
+    1496.5,
+    1508.5,
+    1526.25,
+    1550.25,
+    1557.75,
+    1559.75,
+    1561.5,
+    1564.5,
+    1564.75
+   ],
+   "observations": [
+    {
+     "category": "event-panel",
+     "at_s": 830.0
+    },
+    {
+     "category": "brand-slate",
+     "at_s": 1590.0
+    }
+   ]
+  },
+  {
+   "id": "URTYWHah9O8",
+   "title": "Audience Targeting Based on Financial Capacity",
+   "date": "2025-11-18",
+   "duration_s": 52,
+   "url": "https://www.youtube.com/watch?v=URTYWHah9O8",
+   "source_sha256": "4a366f1d01c36918eafdaccd688a299fdc3d153a9f97a0a4f82ada9bfa64fadc",
+   "native_fps": 25.0,
+   "analysis_fps": 25.0,
+   "detected_shots": 4,
+   "candidate_boundaries_s": [
+    1.04,
+    2.12,
+    49.04
+   ],
+   "observations": [
+    {
+     "category": "slide-pip",
+     "at_s": 5.0
+    },
+    {
+     "category": "concept-diagram",
+     "at_s": 5.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 51.0
+    }
+   ]
+  },
+  {
+   "id": "b3NjcYnZVLo",
+   "title": "The Power of Direct Measured Data",
+   "date": "2025-11-18",
+   "duration_s": 56,
+   "url": "https://www.youtube.com/watch?v=b3NjcYnZVLo",
+   "source_sha256": "643cf0169b33a15b4cbe0a135d0e131a48c8fd5d33877344eaf6185350fe9766",
+   "native_fps": 25.0,
+   "analysis_fps": 25.0,
+   "detected_shots": 3,
+   "candidate_boundaries_s": [
+    0.88,
+    53.28
+   ],
+   "observations": [
+    {
+     "category": "metric-callout",
+     "at_s": 2.0
+    },
+    {
+     "category": "slide-pip",
+     "at_s": 6.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 55.0
+    }
+   ]
+  },
+  {
+   "id": "1PNQVuFd62g",
+   "title": "Comprar vs. Alquilar una Vivienda",
+   "date": "2025-11-17",
+   "duration_s": 150,
+   "url": "https://www.youtube.com/watch?v=1PNQVuFd62g",
+   "source_sha256": "08eda6632437bea8d9e40bec38de44ada2397f7d8951a512acef9d4836cdc826",
+   "native_fps": 24.0,
+   "analysis_fps": 24.0,
+   "detected_shots": 12,
+   "candidate_boundaries_s": [
+    16.625,
+    34.75,
+    53.25,
+    74.667,
+    86.583,
+    96.167,
+    109.0,
+    125.458,
+    138.0,
+    144.25,
+    146.917
+   ],
+   "observations": [
+    {
+     "category": "speaker-shot",
+     "at_s": 0.0
+    },
+    {
+     "category": "editorial-split",
+     "at_s": 16.0
+    },
+    {
+     "category": "icon-card",
+     "at_s": 42.0
+    }
+   ]
+  },
+  {
+   "id": "nbAPflepcMA",
+   "title": "Mortgage Industry Evolution: Data, Transparency, & the Future of Lending",
+   "date": "2025-11-06",
+   "duration_s": 1904,
+   "url": "https://www.youtube.com/watch?v=nbAPflepcMA",
+   "source_sha256": "81d84f6d3d5fdbb95311237262efe2a0f297a4eec4ba70e6383d16072901ab5b",
+   "native_fps": 23.976023976023978,
+   "analysis_fps": 4.0,
+   "detected_shots": 129,
+   "candidate_boundaries_s": [
+    15.25,
+    22.25,
+    28.25,
+    31.75,
+    52.0,
+    54.5,
+    61.5,
+    72.0,
+    73.0,
+    81.25,
+    105.0,
+    129.25,
+    139.25,
+    145.0,
+    147.0,
+    154.25,
+    163.25,
+    164.5,
+    187.5,
+    202.0,
+    255.5,
+    299.25,
+    306.0,
+    307.5,
+    328.5,
+    334.75,
+    337.25,
+    343.75,
+    357.75,
+    359.5,
+    379.25,
+    412.75,
+    428.0,
+    429.25,
+    439.0,
+    445.75,
+    461.25,
+    501.0,
+    520.0,
+    523.25,
+    566.75,
+    581.0,
+    591.0,
+    611.5,
+    638.25,
+    640.0,
+    681.0,
+    720.5,
+    728.0,
+    729.5,
+    741.0,
+    760.5,
+    795.75,
+    810.0,
+    843.0,
+    864.5,
+    865.5,
+    878.25,
+    915.5,
+    936.25,
+    941.75,
+    943.0,
+    944.5,
+    957.25,
+    972.25,
+    973.5,
+    1005.5,
+    1019.75,
+    1040.25,
+    1046.25,
+    1060.0,
+    1092.25,
+    1115.75,
+    1116.75,
+    1148.25,
+    1149.75,
+    1157.0,
+    1159.5,
+    1160.75,
+    1165.75,
+    1178.25,
+    1184.75,
+    1227.0,
+    1231.5,
+    1233.0,
+    1241.25,
+    1258.5,
+    1262.25,
+    1264.0,
+    1269.25,
+    1282.25,
+    1330.5,
+    1335.25,
+    1381.0,
+    1398.75,
+    1399.75,
+    1417.5,
+    1436.25,
+    1452.5,
+    1453.75,
+    1485.5,
+    1514.25,
+    1527.5,
+    1540.25,
+    1543.0,
+    1544.5,
+    1571.75,
+    1591.0,
+    1624.0,
+    1647.25,
+    1655.75,
+    1660.75,
+    1662.25,
+    1667.5,
+    1695.25,
+    1720.5,
+    1721.75,
+    1732.0,
+    1744.75,
+    1764.25,
+    1780.75,
+    1801.75,
+    1824.75,
+    1834.25,
+    1842.5,
+    1844.25,
+    1854.5,
+    1869.0
+   ],
+   "observations": [
+    {
+     "category": "event-panel",
+     "at_s": 190.0
+    },
+    {
+     "category": "speaker-shot",
+     "at_s": 530.0
+    },
+    {
+     "category": "brand-slate",
+     "at_s": 1900.0
+    }
+   ]
+  },
+  {
+   "id": "YgN5DwHQCEI",
+   "title": "How Credit Score Competition Is Reshaping the Mortgage Market",
+   "date": "2025-11-04",
+   "duration_s": 1131,
+   "url": "https://www.youtube.com/watch?v=YgN5DwHQCEI",
+   "source_sha256": "95c14ec323df01174a6f692be49d969f8fdb17a9d8e78acfa8c3cb2a8591b8bb",
+   "native_fps": 23.976023976023978,
+   "analysis_fps": 4.0,
+   "detected_shots": 95,
+   "candidate_boundaries_s": [
+    15.25,
+    34.75,
+    54.25,
+    75.0,
+    86.25,
+    119.75,
+    128.0,
+    155.0,
+    166.0,
+    175.0,
+    194.25,
+    212.25,
+    227.25,
+    244.75,
+    254.25,
+    261.5,
+    272.25,
+    282.25,
+    283.75,
+    298.75,
+    321.0,
+    332.5,
+    345.5,
+    359.75,
+    384.75,
+    394.75,
+    408.0,
+    435.25,
+    453.0,
+    467.75,
+    490.75,
+    504.25,
+    514.5,
+    521.0,
+    529.25,
+    538.0,
+    548.25,
+    549.75,
+    560.75,
+    576.0,
+    588.75,
+    590.25,
+    619.0,
+    650.0,
+    652.0,
+    653.0,
+    690.5,
+    695.0,
+    712.25,
+    717.25,
+    718.5,
+    729.5,
+    743.5,
+    749.25,
+    750.0,
+    753.25,
+    770.75,
+    774.75,
+    775.75,
+    785.75,
+    810.75,
+    822.75,
+    827.5,
+    828.5,
+    848.5,
+    862.75,
+    873.5,
+    877.5,
+    895.5,
+    915.5,
+    926.25,
+    929.5,
+    930.5,
+    942.5,
+    948.25,
+    955.75,
+    961.25,
+    962.75,
+    981.0,
+    985.5,
+    1000.75,
+    1028.0,
+    1040.25,
+    1052.25,
+    1053.5,
+    1058.0,
+    1065.25,
+    1068.75,
+    1069.5,
+    1078.0,
+    1079.5,
+    1088.5,
+    1089.75,
+    1130.75
+   ],
+   "observations": [
+    {
+     "category": "speaker-shot",
+     "at_s": 110.0
+    },
+    {
+     "category": "brand-slate",
+     "at_s": 1130.0
+    }
+   ]
+  },
+  {
+   "id": "SdE4-5IL0RM",
+   "title": "MBA Annual25 Day 2: Tri-Bureau, Triggers & Tooling Up",
+   "date": "2025-10-29",
+   "duration_s": 974,
+   "url": "https://www.youtube.com/watch?v=SdE4-5IL0RM",
+   "source_sha256": "a4a978fd4f25c3d20216dfd3aed6d11aca549452314a99fdd716a23f2b6c0a7a",
+   "native_fps": 23.976023976023978,
+   "analysis_fps": 4.0,
+   "detected_shots": 45,
+   "candidate_boundaries_s": [
+    15.25,
+    64.75,
+    87.5,
+    110.0,
+    131.5,
+    151.5,
+    192.0,
+    245.25,
+    264.75,
+    282.25,
+    292.5,
+    310.0,
+    369.0,
+    400.5,
+    430.75,
+    453.0,
+    469.75,
+    501.75,
+    526.5,
+    539.5,
+    550.5,
+    556.25,
+    574.0,
+    588.5,
+    614.5,
+    649.25,
+    673.25,
+    684.5,
+    703.5,
+    733.0,
+    742.25,
+    749.5,
+    788.5,
+    802.75,
+    830.5,
+    860.25,
+    863.0,
+    872.0,
+    892.25,
+    894.0,
+    905.75,
+    930.5,
+    930.75,
+    973.0
+   ],
+   "observations": [
+    {
+     "category": "event-panel",
+     "at_s": 100.0
+    },
+    {
+     "category": "speaker-shot",
+     "at_s": 890.0
+    },
+    {
+     "category": "brand-slate",
+     "at_s": 970.0
+    }
+   ]
+  },
+  {
+   "id": "yLl3bXOz0qw",
+   "title": "MBA Annual25 Day 1: Data, Innovation & the Future of Mortgage Lending",
+   "date": "2025-10-29",
+   "duration_s": 1284,
+   "url": "https://www.youtube.com/watch?v=yLl3bXOz0qw",
+   "source_sha256": "01897d15b87eba7df18410ef298eab83c6a15dbcf924276dd5dce595a0b9cfee",
+   "native_fps": 23.976023976023978,
+   "analysis_fps": 4.0,
+   "detected_shots": 54,
+   "candidate_boundaries_s": [
+    15.25,
+    98.0,
+    106.5,
+    129.25,
+    130.75,
+    154.0,
+    165.5,
+    187.75,
+    201.75,
+    228.0,
+    242.0,
+    285.75,
+    295.0,
+    346.25,
+    371.0,
+    386.75,
+    401.25,
+    405.0,
+    468.25,
+    487.0,
+    507.75,
+    534.5,
+    555.75,
+    587.25,
+    610.0,
+    630.25,
+    669.5,
+    692.0,
+    702.25,
+    718.25,
+    754.75,
+    764.75,
+    775.75,
+    791.25,
+    828.5,
+    847.75,
+    894.75,
+    953.25,
+    964.5,
+    997.5,
+    1036.75,
+    1063.25,
+    1064.75,
+    1085.75,
+    1106.75,
+    1120.5,
+    1167.0,
+    1190.0,
+    1201.5,
+    1203.5,
+    1227.25,
+    1241.25,
+    1283.75
+   ],
+   "observations": [
+    {
+     "category": "event-panel",
+     "at_s": 360.0
+    },
+    {
+     "category": "brand-slate",
+     "at_s": 1280.0
+    }
+   ]
+  },
+  {
+   "id": "o5qNAh1i0LM",
+   "title": "Will Checking Your Credit Hurt Your Credit Scores?",
+   "date": "2025-10-29",
+   "duration_s": 51,
+   "url": "https://www.youtube.com/watch?v=o5qNAh1i0LM",
+   "source_sha256": "22115128b7aefc0f2984e3ed9d17192264ceed6eff9f4609a227c16d5dfa6cc1",
+   "native_fps": 29.97002997002997,
+   "analysis_fps": 29.97002997002997,
+   "detected_shots": 10,
+   "candidate_boundaries_s": [
+    3.904,
+    8.442,
+    14.414,
+    20.42,
+    23.924,
+    32.933,
+    37.404,
+    42.276,
+    46.68
+   ],
+   "observations": [
+    {
+     "category": "question-card",
+     "at_s": 2.0
+    },
+    {
+     "category": "icon-card",
+     "at_s": 5.0
+    },
+    {
+     "category": "caption-overlay",
+     "at_s": 14.0
+    },
+    {
+     "category": "brand-slate",
+     "at_s": 50.0
+    }
+   ]
+  },
+  {
+   "id": "h5JFRBj4e6w",
+   "title": "Tres consejos para quienes compran una vivienda por primera vez",
+   "date": "2025-10-27",
+   "duration_s": 155,
+   "url": "https://www.youtube.com/watch?v=h5JFRBj4e6w",
+   "source_sha256": "9dffcddda39601e6b297fa175f9cb4459451a959bd742d08c1043128e03cc0c2",
+   "native_fps": 24.0,
+   "analysis_fps": 24.0,
+   "detected_shots": 11,
+   "candidate_boundaries_s": [
+    10.0,
+    16.542,
+    28.542,
+    42.292,
+    61.542,
+    85.292,
+    107.958,
+    120.917,
+    137.833,
+    151.708
+   ],
+   "observations": [
+    {
+     "category": "speaker-shot",
+     "at_s": 0.0
+    },
+    {
+     "category": "editorial-split",
+     "at_s": 16.0
+    },
+    {
+     "category": "metric-callout",
+     "at_s": 80.0
+    },
+    {
+     "category": "type-title",
+     "at_s": 154.0
+    }
+   ]
+  },
+  {
+   "id": "YuiAHjRovtY",
+   "title": "Making an Impact: The Equifax Foundation & Junior Achievement",
+   "date": "2025-10-14",
+   "duration_s": 202,
+   "url": "https://www.youtube.com/watch?v=YuiAHjRovtY",
+   "source_sha256": "0ab5811b6a4f7a0e26ab912b34e23c3efc3c56fb38d06df93c649f5c0f28ce6b",
+   "native_fps": 23.976023976023978,
+   "analysis_fps": 23.976023976023978,
+   "detected_shots": 49,
+   "candidate_boundaries_s": [
+    1.96,
+    3.629,
+    4.671,
+    5.422,
+    10.636,
+    16.683,
+    19.186,
+    19.561,
+    20.145,
+    21.563,
+    23.982,
+    28.57,
+    32.574,
+    40.249,
+    54.179,
+    57.14,
+    60.894,
+    66.108,
+    69.486,
+    72.155,
+    73.824,
+    79.496,
+    82.541,
+    86.587,
+    90.299,
+    94.761,
+    99.516,
+    103.061,
+    105.439,
+    111.57,
+    119.703,
+    125.5,
+    130.589,
+    132.883,
+    136.887,
+    139.723,
+    145.896,
+    151.985,
+    155.614,
+    158.867,
+    161.787,
+    170.754,
+    176.676,
+    179.721,
+    182.599,
+    185.227,
+    194.778,
+    197.572
+   ],
+   "observations": [
+    {
+     "category": "context-footage",
+     "at_s": 0.0
+    },
+    {
+     "category": "speaker-shot",
+     "at_s": 106.0
+    }
+   ]
+  },
+  {
+   "id": "LEpZu8PK7OY",
+   "title": "Market Pulse Index: A Holistic View of Consumer and Market Health",
+   "date": "2025-10-14",
+   "duration_s": 2116,
+   "url": "https://www.youtube.com/watch?v=LEpZu8PK7OY",
+   "source_sha256": "92c295337c27e1d677f3e622db184f82f17dde746c70c26c2652649e6fe5f0e9",
+   "native_fps": 25.0,
+   "analysis_fps": 4.0,
+   "detected_shots": 7,
+   "candidate_boundaries_s": [
+    0.5,
+    23.75,
+    33.5,
+    171.75,
+    1375.25,
+    2115.75
+   ],
+   "observations": [
+    {
+     "category": "type-title",
+     "at_s": 0.0
+    },
+    {
+     "category": "guest-grid",
+     "at_s": 210.0
+    }
+   ]
+  },
+  {
+   "id": "gE54Zm3rvGo",
+   "title": "Global Mobility at Equifax",
+   "date": "2025-10-13",
+   "duration_s": 76,
+   "url": "https://www.youtube.com/watch?v=gE54Zm3rvGo",
+   "source_sha256": "ab49605d97a82ab68483593415d251cc431d24494e98da2b3bbfa0e6918e9994",
+   "native_fps": 24.0,
+   "analysis_fps": 24.0,
+   "detected_shots": 15,
+   "candidate_boundaries_s": [
+    1.917,
+    4.917,
+    8.208,
+    11.417,
+    14.542,
+    19.708,
+    25.833,
+    31.167,
+    42.583,
+    45.792,
+    54.958,
+    63.208,
+    66.917,
+    70.167
+   ],
+   "observations": [
+    {
+     "category": "speaker-id",
+     "at_s": 2.0
+    },
+    {
+     "category": "speaker-shot",
+     "at_s": 8.0
+    },
+    {
+     "category": "type-title",
+     "at_s": 69.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 75.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 75.0
+    }
+   ]
+  },
+  {
+   "id": "mv3QMEO6o9s",
+   "title": "Is It Okay to Check Your Credit Score?",
+   "date": "2025-10-01",
+   "duration_s": 77,
+   "url": "https://www.youtube.com/watch?v=mv3QMEO6o9s",
+   "source_sha256": "05107a5cd3b5812c57e0f663dfa83ad219f8dc528a0da8ce8a26883be8378170",
+   "native_fps": 29.97002997002997,
+   "analysis_fps": 29.97002997002997,
+   "detected_shots": 10,
+   "candidate_boundaries_s": [
+    3.871,
+    13.981,
+    17.885,
+    26.059,
+    29.296,
+    40.874,
+    45.779,
+    66.166,
+    71.672
+   ],
+   "observations": [
+    {
+     "category": "question-card",
+     "at_s": 2.0
+    },
+    {
+     "category": "icon-card",
+     "at_s": 40.0
+    },
+    {
+     "category": "brand-slate",
+     "at_s": 76.0
+    }
+   ]
+  },
+  {
+   "id": "PIOmqMbncN8",
+   "title": "What Lenders Need to Know About a Fast-Changing Regulatory Landscape",
+   "date": "2025-09-19",
+   "duration_s": 2045,
+   "url": "https://www.youtube.com/watch?v=PIOmqMbncN8",
+   "source_sha256": "9d9a31274e62e811d65d9eee28261e22e5b751465d2d05f95f5f210f562823cb",
+   "native_fps": 29.97002997002997,
+   "analysis_fps": 4.0,
+   "detected_shots": 8,
+   "candidate_boundaries_s": [
+    0.5,
+    43.25,
+    43.5,
+    43.75,
+    191.0,
+    2044.25,
+    2044.5
+   ],
+   "observations": [
+    {
+     "category": "type-title",
+     "at_s": 0.0
+    },
+    {
+     "category": "guest-grid",
+     "at_s": 200.0
+    }
+   ]
+  },
+  {
+   "id": "bmfLvf9X3lg",
+   "title": "Top Career Advice with VP of Network Solutions at Equifax",
+   "date": "2025-09-18",
+   "duration_s": 89,
+   "url": "https://www.youtube.com/watch?v=bmfLvf9X3lg",
+   "source_sha256": "8d827f7290d4de596f4b5605a0c0bab91d9842f92813d024ebeadd31ec02d81a",
+   "native_fps": 24.0,
+   "analysis_fps": 24.0,
+   "detected_shots": 21,
+   "candidate_boundaries_s": [
+    4.083,
+    13.208,
+    17.708,
+    21.708,
+    26.083,
+    29.042,
+    31.417,
+    38.917,
+    44.667,
+    50.208,
+    53.833,
+    56.167,
+    59.708,
+    63.042,
+    69.583,
+    71.0,
+    74.5,
+    77.708,
+    79.917,
+    83.167
+   ],
+   "observations": [
+    {
+     "category": "speaker-id",
+     "at_s": 2.0
+    },
+    {
+     "category": "speaker-shot",
+     "at_s": 9.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 88.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 88.0
+    }
+   ]
+  },
+  {
+   "id": "UC_s1sOf1Hw",
+   "title": "Working on the Network Solutions Team at Equifax",
+   "date": "2025-09-16",
+   "duration_s": 105,
+   "url": "https://www.youtube.com/watch?v=UC_s1sOf1Hw",
+   "source_sha256": "6dbf1bd1572d164bded94da55175f201501d0e1e1c20a3c6716f3dc7d662a145",
+   "native_fps": 24.0,
+   "analysis_fps": 24.0,
+   "detected_shots": 19,
+   "candidate_boundaries_s": [
+    11.375,
+    12.333,
+    19.917,
+    30.917,
+    33.958,
+    40.042,
+    44.417,
+    49.417,
+    50.833,
+    53.167,
+    55.958,
+    61.083,
+    66.333,
+    71.125,
+    73.875,
+    87.75,
+    96.167,
+    99.417
+   ],
+   "observations": [
+    {
+     "category": "speaker-shot",
+     "at_s": 0.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 104.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 104.0
+    }
+   ]
+  },
+  {
+   "id": "V2fH9dnbm6g",
+   "title": "Running with Purpose",
+   "date": "2025-09-15",
+   "duration_s": 233,
+   "url": "https://www.youtube.com/watch?v=V2fH9dnbm6g",
+   "source_sha256": "eccbd57f218fae62f8faa18bb0a688211771ebc4e2a4085149250ca85d514a4c",
+   "native_fps": 23.976023976023978,
+   "analysis_fps": 23.976023976023978,
+   "detected_shots": 38,
+   "candidate_boundaries_s": [
+    4.63,
+    9.76,
+    11.929,
+    13.889,
+    15.515,
+    22.731,
+    25.984,
+    33.45,
+    35.118,
+    47.631,
+    57.349,
+    70.195,
+    76.994,
+    84.584,
+    90.674,
+    111.194,
+    117.826,
+    123.123,
+    127.794,
+    132.758,
+    136.595,
+    144.061,
+    146.188,
+    148.523,
+    150.192,
+    158.658,
+    166.083,
+    170.212,
+    174.466,
+    178.553,
+    182.599,
+    189.564,
+    200.492,
+    209.626,
+    220.512,
+    223.765,
+    226.977
+   ],
+   "observations": [
+    {
+     "category": "type-title",
+     "at_s": 0.0
+    },
+    {
+     "category": "speaker-shot",
+     "at_s": 24.0
+    },
+    {
+     "category": "context-footage",
+     "at_s": 170.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 232.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 232.0
+    }
+   ]
+  },
+  {
+   "id": "MJ_UKtNCPlQ",
+   "title": "¿Debería tener varias tarjetas de crédito?",
+   "date": "2025-09-12",
+   "duration_s": 118,
+   "url": "https://www.youtube.com/watch?v=MJ_UKtNCPlQ",
+   "source_sha256": "ee9c9d1a6e3ec574c8acde201217f3a2cac253bcfc67da25ea6d40ccb669e974",
+   "native_fps": 24.0,
+   "analysis_fps": 24.0,
+   "detected_shots": 12,
+   "candidate_boundaries_s": [
+    3.292,
+    25.208,
+    31.833,
+    41.792,
+    53.917,
+    65.5,
+    71.792,
+    100.458,
+    106.042,
+    112.75,
+    115.417
+   ],
+   "observations": [
+    {
+     "category": "speaker-shot",
+     "at_s": 0.0
+    },
+    {
+     "category": "icon-card",
+     "at_s": 33.0
+    },
+    {
+     "category": "editorial-split",
+     "at_s": 61.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 107.0
+    }
+   ]
+  },
+  {
+   "id": "ULxWuSy7iMI",
+   "title": "Transforming Data into Transparent Intelligence",
+   "date": "2025-09-11",
+   "duration_s": 108,
+   "url": "https://www.youtube.com/watch?v=ULxWuSy7iMI",
+   "source_sha256": "82b21ebadc578dc56548258a5f5ada1655b9f6a061ec5338c1d34bb675b4c417",
+   "native_fps": 24.0,
+   "analysis_fps": 24.0,
+   "detected_shots": 34,
+   "candidate_boundaries_s": [
+    9.0,
+    12.625,
+    14.25,
+    20.333,
+    24.708,
+    26.792,
+    28.875,
+    30.417,
+    35.083,
+    39.083,
+    40.792,
+    42.042,
+    44.208,
+    46.083,
+    48.167,
+    58.458,
+    60.167,
+    62.125,
+    65.583,
+    68.417,
+    71.0,
+    83.375,
+    84.792,
+    86.042,
+    88.208,
+    91.75,
+    92.583,
+    93.375,
+    94.458,
+    95.583,
+    97.417,
+    99.417,
+    103.292
+   ],
+   "observations": [
+    {
+     "category": "speaker-id",
+     "at_s": 2.0
+    },
+    {
+     "category": "product-view",
+     "at_s": 30.0
+    },
+    {
+     "category": "circle-callout",
+     "at_s": 98.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 107.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 107.0
+    }
+   ]
+  },
+  {
+   "id": "G2VXHLFCU4Q",
+   "title": "What’s on Lenders’ Minds in 2025? Insights from Equifax Advisors",
+   "date": "2025-08-29",
+   "duration_s": 2382,
+   "url": "https://www.youtube.com/watch?v=G2VXHLFCU4Q",
+   "source_sha256": "c3c744fc0e006d9fb146df389f36c1fc146bed1ef86fe6ca83a4acd337ed4792",
+   "native_fps": 29.97002997002997,
+   "analysis_fps": 4.0,
+   "detected_shots": 7,
+   "candidate_boundaries_s": [
+    0.75,
+    1.0,
+    106.75,
+    225.0,
+    2381.0,
+    2381.25
+   ],
+   "observations": [
+    {
+     "category": "guest-grid",
+     "at_s": 240.0
+    }
+   ]
+  },
+  {
+   "id": "5tOPcX52B6s",
+   "title": "Introducing Optimal Path™ From Equifax",
+   "date": "2025-08-25",
+   "duration_s": 107,
+   "url": "https://www.youtube.com/watch?v=5tOPcX52B6s",
+   "source_sha256": "39ca8ef4e7ebc92e294d8ff2e5712bb57c3777075233152234404b8d0f3431d3",
+   "native_fps": 30.0,
+   "analysis_fps": 30.0,
+   "detected_shots": 13,
+   "candidate_boundaries_s": [
+    0.367,
+    16.533,
+    26.267,
+    34.8,
+    41.267,
+    66.867,
+    70.533,
+    75.9,
+    82.533,
+    88.033,
+    93.167,
+    97.633
+   ],
+   "observations": [
+    {
+     "category": "editorial-split",
+     "at_s": 2.0
+    },
+    {
+     "category": "type-title",
+     "at_s": 30.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 106.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 106.0
+    }
+   ]
+  },
+  {
+   "id": "V1ulRIooOaU",
+   "title": "The Internship Experience at Equifax",
+   "date": "2025-08-20",
+   "duration_s": 60,
+   "url": "https://www.youtube.com/watch?v=V1ulRIooOaU",
+   "source_sha256": "87391579fca005ef13f0b2679f058b73c6f8d1414845d44591a91b250a14dedc",
+   "native_fps": 29.97002997002997,
+   "analysis_fps": 29.97002997002997,
+   "detected_shots": 10,
+   "candidate_boundaries_s": [
+    2.202,
+    5.205,
+    8.308,
+    10.878,
+    15.449,
+    25.459,
+    39.506,
+    52.352,
+    55.589
+   ],
+   "observations": [
+    {
+     "category": "caption-overlay",
+     "at_s": 2.0
+    },
+    {
+     "category": "speaker-id",
+     "at_s": 17.0
+    },
+    {
+     "category": "type-title",
+     "at_s": 55.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 59.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 59.0
+    }
+   ]
+  },
+  {
+   "id": "6ibJcANE2C4",
+   "title": "Working in Tech at Equifax with Jamil Farshchi",
+   "date": "2025-08-19",
+   "duration_s": 65,
+   "url": "https://www.youtube.com/watch?v=6ibJcANE2C4",
+   "source_sha256": "e61d060bad1e02f484393eb86ff1bc84d482904ecdc4161d5caab8ec545a9a18",
+   "native_fps": 23.976023976023978,
+   "analysis_fps": 23.976023976023978,
+   "detected_shots": 16,
+   "candidate_boundaries_s": [
+    3.045,
+    7.633,
+    16.767,
+    20.145,
+    21.563,
+    23.482,
+    24.524,
+    30.614,
+    35.285,
+    40.332,
+    43.377,
+    47.214,
+    52.177,
+    56.807,
+    60.018
+   ],
+   "observations": [
+    {
+     "category": "type-title",
+     "at_s": 2.0
+    },
+    {
+     "category": "question-card",
+     "at_s": 6.0
+    },
+    {
+     "category": "context-footage",
+     "at_s": 34.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 64.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 64.0
+    }
+   ]
+  },
+  {
+   "id": "NTBDGH4c1vQ",
+   "title": "Where Your Credit Data Comes From & Who Calculates Your Credit Score",
+   "date": "2025-08-19",
+   "duration_s": 206,
+   "url": "https://www.youtube.com/watch?v=NTBDGH4c1vQ",
+   "source_sha256": "492f136f1186b5577148d4e3d60b9c94a49cf9ad3361d97961f522a6da993bc3",
+   "native_fps": 24.0,
+   "analysis_fps": 24.0,
+   "detected_shots": 11,
+   "candidate_boundaries_s": [
+    14.333,
+    38.75,
+    72.458,
+    92.333,
+    115.583,
+    130.833,
+    141.125,
+    185.875,
+    202.75,
+    205.708
+   ],
+   "observations": [
+    {
+     "category": "speaker-shot",
+     "at_s": 0.0
+    },
+    {
+     "category": "icon-card",
+     "at_s": 20.0
+    },
+    {
+     "category": "editorial-split",
+     "at_s": 108.0
+    },
+    {
+     "category": "type-title",
+     "at_s": 204.0
+    }
+   ]
+  },
+  {
+   "id": "yp9kNLTOK08",
+   "title": "Consumer Wealth Trends: What Financial Marketers Need to Know",
+   "date": "2025-07-31",
+   "duration_s": 1534,
+   "url": "https://www.youtube.com/watch?v=yp9kNLTOK08",
+   "source_sha256": "396ea916c21cbec4bf3d4ac8434ab36639f402e4bab77da9d8d9fecc1314b3df",
+   "native_fps": 29.97002997002997,
+   "analysis_fps": 4.0,
+   "detected_shots": 6,
+   "candidate_boundaries_s": [
+    0.75,
+    58.75,
+    194.75,
+    1532.75,
+    1533.0
+   ],
+   "observations": [
+    {
+     "category": "type-title",
+     "at_s": 0.0
+    },
+    {
+     "category": "speaker-shot",
+     "at_s": 150.0
+    },
+    {
+     "category": "guest-grid",
+     "at_s": 430.0
+    }
+   ]
+  },
+  {
+   "id": "UrZT8JljMeA",
+   "title": "Buying vs. Renting a Home",
+   "date": "2025-07-29",
+   "duration_s": 137,
+   "url": "https://www.youtube.com/watch?v=UrZT8JljMeA",
+   "source_sha256": "d631d082a1d640a0733230ca48200124e056dff478ebef0a55bf3a08f5f48ad4",
+   "native_fps": 24.0,
+   "analysis_fps": 24.0,
+   "detected_shots": 11,
+   "candidate_boundaries_s": [
+    15.417,
+    33.5,
+    48.833,
+    67.25,
+    78.125,
+    87.167,
+    98.25,
+    111.75,
+    131.542,
+    134.167
+   ],
+   "observations": [
+    {
+     "category": "speaker-shot",
+     "at_s": 0.0
+    },
+    {
+     "category": "editorial-split",
+     "at_s": 14.0
+    },
+    {
+     "category": "icon-card",
+     "at_s": 38.0
+    }
+   ]
+  },
+  {
+   "id": "4xDm1Ezmou4",
+   "title": "What the Latest Economic Signals Reveal About U.S. Consumers",
+   "date": "2025-07-24",
+   "duration_s": 2247,
+   "url": "https://www.youtube.com/watch?v=4xDm1Ezmou4",
+   "source_sha256": "a265de56aa7fac553b8c0c255e23eda08ae3d28713f1f36b2fa1cd735c56e8ca",
+   "native_fps": 29.97002997002997,
+   "analysis_fps": 4.0,
+   "detected_shots": 5,
+   "candidate_boundaries_s": [
+    1.0,
+    1.25,
+    2246.25,
+    2246.5
+   ],
+   "observations": [
+    {
+     "category": "type-title",
+     "at_s": 0.0
+    },
+    {
+     "category": "guest-grid",
+     "at_s": 220.0
+    }
+   ]
+  },
+  {
+   "id": "oCrskwZxSqg",
+   "title": "Building Safer Communities with Impactful Technology",
+   "date": "2025-07-15",
+   "duration_s": 139,
+   "url": "https://www.youtube.com/watch?v=oCrskwZxSqg",
+   "source_sha256": "b2db1a8e9380cccf647bea74d7d8f1aad6000eeb1256561acc803a9f13fa51ba",
+   "native_fps": 24.0,
+   "analysis_fps": 24.0,
+   "detected_shots": 18,
+   "candidate_boundaries_s": [
+    6.833,
+    13.167,
+    29.375,
+    31.5,
+    36.667,
+    44.25,
+    48.667,
+    79.542,
+    83.958,
+    96.5,
+    98.542,
+    100.833,
+    103.125,
+    108.167,
+    113.5,
+    131.083,
+    134.083
+   ],
+   "observations": [
+    {
+     "category": "speaker-id",
+     "at_s": 2.0
+    },
+    {
+     "category": "brand-slate",
+     "at_s": 14.0
+    },
+    {
+     "category": "context-footage",
+     "at_s": 102.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 138.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 138.0
+    }
+   ]
+  },
+  {
+   "id": "qS3CPbnzEH0",
+   "title": "Equifax 2025 Investor Day Recap: The New EFX and post-Cloud Growth",
+   "date": "2025-06-27",
+   "duration_s": 164,
+   "url": "https://www.youtube.com/watch?v=qS3CPbnzEH0",
+   "source_sha256": "28dce6b2fafe4bb4013023b492e6242ff9f3ecde86da8767d1d08021cbe234f5",
+   "native_fps": 29.97002997002997,
+   "analysis_fps": 29.97002997002997,
+   "detected_shots": 31,
+   "candidate_boundaries_s": [
+    4.438,
+    7.808,
+    10.978,
+    11.979,
+    31.398,
+    35.702,
+    41.742,
+    46.213,
+    49.75,
+    51.184,
+    59.226,
+    62.829,
+    69.469,
+    79.046,
+    87.487,
+    93.694,
+    103.837,
+    110.277,
+    114.147,
+    119.62,
+    122.389,
+    124.024,
+    127.661,
+    132.432,
+    144.845,
+    148.949,
+    149.583,
+    150.917,
+    154.054,
+    160.46
+   ],
+   "observations": [
+    {
+     "category": "speaker-id",
+     "at_s": 16.0
+    },
+    {
+     "category": "slide-pip",
+     "at_s": 46.0
+    },
+    {
+     "category": "chart-focus",
+     "at_s": 46.0
+    },
+    {
+     "category": "caption-overlay",
+     "at_s": 86.0
+    },
+    {
+     "category": "context-footage",
+     "at_s": 150.0
+    },
+    {
+     "category": "type-title",
+     "at_s": 162.0
+    }
+   ]
+  },
+  {
+   "id": "Ek01DloFOR8",
+   "title": "Uncover More Possibilities with Equifax Amplify AI",
+   "date": "2025-06-19",
+   "duration_s": 102,
+   "url": "https://www.youtube.com/watch?v=Ek01DloFOR8",
+   "source_sha256": "9b73771781684735fa2181884ff3fcdec6b1f2a1ed70c6ad399bf19878bca1a7",
+   "native_fps": 24.0,
+   "analysis_fps": 24.0,
+   "detected_shots": 4,
+   "candidate_boundaries_s": [
+    10.417,
+    10.75,
+    13.0
+   ],
+   "observations": [
+    {
+     "category": "concept-diagram",
+     "at_s": 29.0
+    },
+    {
+     "category": "brand-slate",
+     "at_s": 101.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 101.0
+    }
+   ]
+  },
+  {
+   "id": "8j1xSEy6fs4",
+   "title": "A Midyear Check on the U.S. Economy with Moody’s Analytics",
+   "date": "2025-06-12",
+   "duration_s": 727,
+   "url": "https://www.youtube.com/watch?v=8j1xSEy6fs4",
+   "source_sha256": "81dd2e1ae257201e3b1230311e43f57ca98f1ab693b831fd3e173c630773e558",
+   "native_fps": 29.97002997002997,
+   "analysis_fps": 4.0,
+   "detected_shots": 5,
+   "candidate_boundaries_s": [
+    0.5,
+    692.0,
+    725.75,
+    726.0
+   ],
+   "observations": [
+    {
+     "category": "type-title",
+     "at_s": 0.0
+    },
+    {
+     "category": "guest-grid",
+     "at_s": 75.0
+    },
+    {
+     "category": "speaker-shot",
+     "at_s": 725.0
+    }
+   ]
+  },
+  {
+   "id": "E6aaA2QvOsE",
+   "title": "Overcoming Imposter Syndrome in Tech with Sheria Bess",
+   "date": "2025-06-05",
+   "duration_s": 243,
+   "url": "https://www.youtube.com/watch?v=E6aaA2QvOsE",
+   "source_sha256": "5bb6979da695871d955163a823f3f6656b97db0970421187c08fc1f924eab92b",
+   "native_fps": 23.976023976023978,
+   "analysis_fps": 23.976023976023978,
+   "detected_shots": 33,
+   "candidate_boundaries_s": [
+    10.427,
+    14.097,
+    17.1,
+    28.528,
+    36.703,
+    41.041,
+    57.599,
+    62.646,
+    69.861,
+    82.291,
+    84.418,
+    90.507,
+    96.555,
+    109.985,
+    116.825,
+    122.914,
+    132.966,
+    139.973,
+    140.724,
+    146.813,
+    153.111,
+    158.45,
+    160.619,
+    173.006,
+    182.682,
+    188.563,
+    195.487,
+    202.536,
+    225.725,
+    229.938,
+    235.735,
+    238.989
+   ],
+   "observations": [
+    {
+     "category": "speaker-id",
+     "at_s": 2.0
+    },
+    {
+     "category": "editorial-split",
+     "at_s": 24.0
+    },
+    {
+     "category": "type-title",
+     "at_s": 68.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 242.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 242.0
+    }
+   ]
+  },
+  {
+   "id": "EKyOd6oZ0bU",
+   "title": "Self-Care Tips from Equifax Wellbeing Champions",
+   "date": "2025-05-27",
+   "duration_s": 106,
+   "url": "https://www.youtube.com/watch?v=EKyOd6oZ0bU",
+   "source_sha256": "562b117a58a6abfc4a80f927d283efbdfd5f90cfab4da5f1e0dc539b6b2a86a7",
+   "native_fps": 24.0,
+   "analysis_fps": 24.0,
+   "detected_shots": 21,
+   "candidate_boundaries_s": [
+    1.75,
+    3.0,
+    4.125,
+    8.833,
+    15.667,
+    20.25,
+    24.958,
+    26.875,
+    32.625,
+    38.917,
+    42.958,
+    56.292,
+    64.625,
+    68.0,
+    73.667,
+    85.0,
+    91.958,
+    96.083,
+    99.333,
+    104.875
+   ],
+   "observations": [
+    {
+     "category": "speaker-shot",
+     "at_s": 0.0
+    },
+    {
+     "category": "type-title",
+     "at_s": 11.0
+    }
+   ]
+  },
+  {
+   "id": "RMqTRxlcudU",
+   "title": "Market Pulse Episode 53: How Small Businesses and Consumers are Responding to Economic Uncertainty",
+   "date": "2025-05-23",
+   "duration_s": 2088,
+   "url": "https://www.youtube.com/watch?v=RMqTRxlcudU",
+   "source_sha256": "a1754ab4f2173b0e4fba1f1c469bc5f02cb8fa1e0c3b244d147d463cd931bc83",
+   "native_fps": 29.97002997002997,
+   "analysis_fps": 4.0,
+   "detected_shots": 7,
+   "candidate_boundaries_s": [
+    0.5,
+    58.75,
+    197.25,
+    336.75,
+    2086.75,
+    2087.0
+   ],
+   "observations": [
+    {
+     "category": "type-title",
+     "at_s": 0.0
+    },
+    {
+     "category": "guest-grid",
+     "at_s": 210.0
+    }
+   ]
+  },
+  {
+   "id": "jN_dbZDA0xI",
+   "title": "How to Ace Your Sales Interview at Equifax: Insider Tips from a Hiring Manager",
+   "date": "2025-05-14",
+   "duration_s": 116,
+   "url": "https://www.youtube.com/watch?v=jN_dbZDA0xI",
+   "source_sha256": "e8cd666acd73cbf7c1ac6f9351a234c123d86af0bc3c8816f227dcde79cb2f38",
+   "native_fps": 24.0,
+   "analysis_fps": 24.0,
+   "detected_shots": 35,
+   "candidate_boundaries_s": [
+    1.292,
+    4.167,
+    6.583,
+    8.167,
+    9.917,
+    17.042,
+    21.833,
+    25.958,
+    33.75,
+    40.125,
+    42.75,
+    45.125,
+    46.667,
+    51.5,
+    56.083,
+    59.708,
+    60.875,
+    62.167,
+    66.667,
+    76.917,
+    79.667,
+    80.75,
+    83.208,
+    85.0,
+    88.083,
+    89.875,
+    91.083,
+    93.042,
+    94.292,
+    97.167,
+    99.375,
+    101.375,
+    107.625,
+    110.875
+   ],
+   "observations": [
+    {
+     "category": "speaker-id",
+     "at_s": 2.0
+    },
+    {
+     "category": "insight-band",
+     "at_s": 12.0
+    },
+    {
+     "category": "editorial-split",
+     "at_s": 106.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 115.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 115.0
+    }
+   ]
+  },
+  {
+   "id": "l9bXcLw2u44",
+   "title": "How Often Should I Check My Credit Reports?",
+   "date": "2025-05-08",
+   "duration_s": 156,
+   "url": "https://www.youtube.com/watch?v=l9bXcLw2u44",
+   "source_sha256": "7d3fce720c819d8800d0082e870a6a1ad38df022333601292469a63214f4775b",
+   "native_fps": 24.0,
+   "analysis_fps": 24.0,
+   "detected_shots": 16,
+   "candidate_boundaries_s": [
+    7.667,
+    19.0,
+    27.5,
+    46.042,
+    57.708,
+    68.375,
+    75.75,
+    90.167,
+    100.625,
+    111.333,
+    118.625,
+    125.25,
+    138.708,
+    150.458,
+    153.042
+   ],
+   "observations": [
+    {
+     "category": "speaker-shot",
+     "at_s": 0.0
+    },
+    {
+     "category": "editorial-split",
+     "at_s": 16.0
+    },
+    {
+     "category": "icon-card",
+     "at_s": 82.0
+    }
+   ]
+  },
+  {
+   "id": "-5uugHYemh0",
+   "title": "Equifax Values",
+   "date": "2025-05-06",
+   "duration_s": 188,
+   "url": "https://www.youtube.com/watch?v=-5uugHYemh0",
+   "source_sha256": "e749494c4df9c16a0d66023fcdac3db2ef7abd849286b9e7d6062c42eeac1fb6",
+   "native_fps": 23.976023976023978,
+   "analysis_fps": 23.976023976023978,
+   "detected_shots": 75,
+   "candidate_boundaries_s": [
+    1.96,
+    3.295,
+    7.716,
+    11.47,
+    15.307,
+    17.351,
+    17.935,
+    22.231,
+    24.608,
+    25.901,
+    28.612,
+    31.156,
+    33.533,
+    37.037,
+    38.747,
+    40.457,
+    42.125,
+    43.335,
+    45.462,
+    47.005,
+    49.758,
+    51.134,
+    53.637,
+    55.722,
+    61.019,
+    62.104,
+    64.564,
+    66.441,
+    69.111,
+    70.946,
+    73.824,
+    76.118,
+    81.665,
+    83.25,
+    86.67,
+    88.922,
+    92.968,
+    95.387,
+    98.098,
+    100.1,
+    102.561,
+    104.396,
+    107.983,
+    111.57,
+    112.821,
+    114.781,
+    116.616,
+    120.12,
+    127.002,
+    129.796,
+    131.715,
+    133.675,
+    135.552,
+    138.43,
+    140.641,
+    143.602,
+    145.896,
+    148.148,
+    150.275,
+    152.652,
+    156.365,
+    159.701,
+    165.707,
+    168.043,
+    169.878,
+    170.837,
+    171.546,
+    173.382,
+    176.426,
+    178.053,
+    179.471,
+    180.972,
+    182.099,
+    183.517
+   ],
+   "observations": [
+    {
+     "category": "brand-slate",
+     "at_s": 2.0
+    },
+    {
+     "category": "context-footage",
+     "at_s": 18.0
+    },
+    {
+     "category": "caption-overlay",
+     "at_s": 138.0
+    }
+   ]
+  },
+  {
+   "id": "tmoBx6gViFI",
+   "title": "Mastering the Elevator Pitch: Your Professional Highlight Reel",
+   "date": "2025-04-29",
+   "duration_s": 199,
+   "url": "https://www.youtube.com/watch?v=tmoBx6gViFI",
+   "source_sha256": "d71af101acfc97f0d3d830ed8250efe1bcd04f3219eeffe127b0c26cb667aa92",
+   "native_fps": 24.0,
+   "analysis_fps": 24.0,
+   "detected_shots": 50,
+   "candidate_boundaries_s": [
+    1.875,
+    3.583,
+    5.375,
+    7.917,
+    9.625,
+    11.042,
+    12.292,
+    14.542,
+    17.333,
+    19.0,
+    21.208,
+    21.667,
+    24.125,
+    36.75,
+    40.792,
+    41.333,
+    44.708,
+    47.958,
+    51.75,
+    61.875,
+    63.125,
+    64.833,
+    65.958,
+    68.875,
+    73.25,
+    74.708,
+    76.208,
+    80.75,
+    84.292,
+    86.917,
+    91.5,
+    95.5,
+    98.375,
+    103.417,
+    106.0,
+    107.333,
+    109.042,
+    110.75,
+    112.458,
+    113.042,
+    117.625,
+    119.333,
+    119.875,
+    123.917,
+    159.833,
+    165.917,
+    179.417,
+    190.5,
+    193.75
+   ],
+   "observations": [
+    {
+     "category": "speaker-shot",
+     "at_s": 20.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 198.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 198.0
+    }
+   ]
+  },
+  {
+   "id": "kXqstKanuDQ",
+   "title": "The Equifax Foundation: Helping Build Financial Opportunity",
+   "date": "2025-04-25",
+   "duration_s": 15,
+   "url": "https://www.youtube.com/watch?v=kXqstKanuDQ",
+   "source_sha256": "2608650e5d8b11ddbf1da39d5f4ed3b3789824c8a8507ec2613c3cf116eac508",
+   "native_fps": 29.97002997002997,
+   "analysis_fps": 29.97002997002997,
+   "detected_shots": 1,
+   "candidate_boundaries_s": [],
+   "observations": [
+    {
+     "category": "circular-composition",
+     "at_s": 0.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 14.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 14.0
+    }
+   ]
+  },
+  {
+   "id": "3bkAMaY_OlY",
+   "title": "A Shifting Economic Landscape: Consumer Sentiment, Tariffs, and Risk Mitigation",
+   "date": "2025-04-24",
+   "duration_s": 1949,
+   "url": "https://www.youtube.com/watch?v=3bkAMaY_OlY",
+   "source_sha256": "b16c5a8f43bab163c18159df2393235ead7ebf2397a75bacd2710b807de51354",
+   "native_fps": 29.97002997002997,
+   "analysis_fps": 4.0,
+   "detected_shots": 5,
+   "candidate_boundaries_s": [
+    197.5,
+    261.25,
+    1947.25,
+    1947.5
+   ],
+   "observations": [
+    {
+     "category": "type-title",
+     "at_s": 0.0
+    },
+    {
+     "category": "guest-grid",
+     "at_s": 190.0
+    }
+   ]
+  },
+  {
+   "id": "sZDy0r8NiYM",
+   "title": "3 Career Lessons that will Fast-Track your Growth",
+   "date": "2025-04-23",
+   "duration_s": 114,
+   "url": "https://www.youtube.com/watch?v=sZDy0r8NiYM",
+   "source_sha256": "c44d109cc9fd95326e53b53e3a403cbc81e60f5d410f33faec8621fb72717f10",
+   "native_fps": 23.976023976023978,
+   "analysis_fps": 23.976023976023978,
+   "detected_shots": 13,
+   "candidate_boundaries_s": [
+    2.502,
+    9.092,
+    12.596,
+    28.07,
+    33.533,
+    34.243,
+    37.037,
+    44.461,
+    61.728,
+    71.029,
+    104.688,
+    107.899
+   ],
+   "observations": [
+    {
+     "category": "speaker-shot",
+     "at_s": 32.0
+    },
+    {
+     "category": "question-card",
+     "at_s": 11.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 113.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 113.0
+    }
+   ]
+  },
+  {
+   "id": "AnWfqw7GExg",
+   "title": "Making an Impact: Expanding Financial Opportunity",
+   "date": "2025-02-28",
+   "duration_s": 86,
+   "url": "https://www.youtube.com/watch?v=AnWfqw7GExg",
+   "source_sha256": "badb3efff773184bb66a32d08ca3ccc72e304b8f5a74f64f34503da3c0da982c",
+   "native_fps": 24.0,
+   "analysis_fps": 24.0,
+   "detected_shots": 24,
+   "candidate_boundaries_s": [
+    0.833,
+    2.375,
+    7.625,
+    9.542,
+    14.0,
+    17.0,
+    20.792,
+    27.25,
+    30.542,
+    34.0,
+    36.75,
+    39.542,
+    41.875,
+    48.958,
+    52.0,
+    59.125,
+    63.875,
+    67.042,
+    69.708,
+    71.917,
+    73.667,
+    76.708,
+    80.25
+   ],
+   "observations": [
+    {
+     "category": "brand-slate",
+     "at_s": 0.0
+    },
+    {
+     "category": "speaker-shot",
+     "at_s": 9.0
+    },
+    {
+     "category": "caption-overlay",
+     "at_s": 45.0
+    },
+    {
+     "category": "context-footage",
+     "at_s": 63.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 85.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 85.0
+    }
+   ]
+  },
+  {
+   "id": "gqnls1rue9o",
+   "title": "Innovating with Data Science and EFX.AI",
+   "date": "2025-02-27",
+   "duration_s": 78,
+   "url": "https://www.youtube.com/watch?v=gqnls1rue9o",
+   "source_sha256": "4165e36a903ca2c8cc9d8eb09602f9277ee4bc7b95b03d2b2a93de0f3b85781e",
+   "native_fps": 24.0,
+   "analysis_fps": 24.0,
+   "detected_shots": 29,
+   "candidate_boundaries_s": [
+    0.833,
+    2.458,
+    8.125,
+    10.542,
+    12.458,
+    14.417,
+    16.667,
+    19.042,
+    21.542,
+    23.667,
+    25.708,
+    28.167,
+    30.333,
+    32.292,
+    34.833,
+    37.667,
+    39.792,
+    44.333,
+    46.292,
+    48.417,
+    50.667,
+    55.875,
+    58.083,
+    60.208,
+    61.917,
+    63.833,
+    66.417,
+    72.417
+   ],
+   "observations": [
+    {
+     "category": "brand-slate",
+     "at_s": 0.0
+    },
+    {
+     "category": "speaker-shot",
+     "at_s": 8.0
+    },
+    {
+     "category": "context-footage",
+     "at_s": 22.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 77.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 77.0
+    }
+   ]
+  },
+  {
+   "id": "Hd6uD-G4ZA4",
+   "title": "6 Important Steps to Take if Your Identity is Stolen",
+   "date": "2025-02-25",
+   "duration_s": 147,
+   "url": "https://www.youtube.com/watch?v=Hd6uD-G4ZA4",
+   "source_sha256": "4cafd08041506678480230704df4526130d0a581c38913879f8478374c1893c1",
+   "native_fps": 23.976023976023978,
+   "analysis_fps": 23.976023976023978,
+   "detected_shots": 15,
+   "candidate_boundaries_s": [
+    0.334,
+    11.094,
+    28.57,
+    50.717,
+    57.975,
+    66.942,
+    75.284,
+    92.175,
+    98.015,
+    114.031,
+    121.204,
+    129.921,
+    142.768,
+    145.354
+   ],
+   "observations": [
+    {
+     "category": "speaker-shot",
+     "at_s": 2.0
+    },
+    {
+     "category": "icon-card",
+     "at_s": 42.0
+    },
+    {
+     "category": "editorial-split",
+     "at_s": 108.0
+    }
+   ]
+  },
+  {
+   "id": "N8D4QA2eqm4",
+   "title": "Market Pulse Podcast Episode 51: Economic Outlook 2025: Inflation, Jobs, and Market Trends",
+   "date": "2025-02-13",
+   "duration_s": 1422,
+   "url": "https://www.youtube.com/watch?v=N8D4QA2eqm4",
+   "source_sha256": "95d2815274e564c856dc5297ff50e375abf604bbfe7feb0994c00a09e8f5d0df",
+   "native_fps": 29.97002997002997,
+   "analysis_fps": 4.0,
+   "detected_shots": 3,
+   "candidate_boundaries_s": [
+    1.5,
+    1420.75
+   ],
+   "observations": [
+    {
+     "category": "type-title",
+     "at_s": 0.0
+    },
+    {
+     "category": "guest-grid",
+     "at_s": 140.0
+    }
+   ]
+  },
+  {
+   "id": "qVLONkB84Sk",
+   "title": "Navigating 2025: Key Economic Themes",
+   "date": "2025-01-23",
+   "duration_s": 1962,
+   "url": "https://www.youtube.com/watch?v=qVLONkB84Sk",
+   "source_sha256": "11534d1aba7c533b0010aea4232402926fa4d2a892ee54868623b615cfd960e9",
+   "native_fps": 29.97002997002997,
+   "analysis_fps": 4.0,
+   "detected_shots": 6,
+   "candidate_boundaries_s": [
+    1.0,
+    1.25,
+    79.75,
+    206.25,
+    1960.5
+   ],
+   "observations": [
+    {
+     "category": "type-title",
+     "at_s": 0.0
+    },
+    {
+     "category": "speaker-shot",
+     "at_s": 200.0
+    },
+    {
+     "category": "guest-grid",
+     "at_s": 550.0
+    }
+   ]
+  },
+  {
+   "id": "rvHb5yf27Q0",
+   "title": "Celebrating One Year of Excellence | PEC Pune Anniversary",
+   "date": "2025-01-14",
+   "duration_s": 71,
+   "url": "https://www.youtube.com/watch?v=rvHb5yf27Q0",
+   "source_sha256": "fe0a63a546ad5bfda5a84d9c735d468a3b719d9ecd0104009eb03e6bb3b8417a",
+   "native_fps": 29.97002997002997,
+   "analysis_fps": 29.97002997002997,
+   "detected_shots": 45,
+   "candidate_boundaries_s": [
+    0.501,
+    1.702,
+    6.373,
+    9.042,
+    9.877,
+    10.644,
+    11.445,
+    13.28,
+    14.882,
+    16.383,
+    17.951,
+    19.453,
+    21.188,
+    22.823,
+    23.657,
+    24.491,
+    25.993,
+    27.227,
+    27.895,
+    29.329,
+    31.398,
+    32.966,
+    34.568,
+    36.069,
+    36.837,
+    38.472,
+    40.04,
+    41.642,
+    43.277,
+    45.579,
+    47.08,
+    48.916,
+    52.052,
+    53.754,
+    55.455,
+    57.157,
+    57.424,
+    58.792,
+    59.359,
+    61.094,
+    61.328,
+    61.862,
+    63.697,
+    65.999
+   ],
+   "observations": [
+    {
+     "category": "context-footage",
+     "at_s": 7.0
+    },
+    {
+     "category": "event-panel",
+     "at_s": 20.0
+    },
+    {
+     "category": "type-title",
+     "at_s": 65.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 70.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 70.0
+    }
+   ]
+  },
+  {
+   "id": "bD5wy15x7rs",
+   "title": "Celebrating One Year of Innovation | PEC Trivandrum Anniversary",
+   "date": "2025-01-14",
+   "duration_s": 65,
+   "url": "https://www.youtube.com/watch?v=bD5wy15x7rs",
+   "source_sha256": "190b450971fd63164262a929aaf5c8211f50a9990f13b3ebddbb1463abcd967c",
+   "native_fps": 30.0,
+   "analysis_fps": 30.0,
+   "detected_shots": 51,
+   "candidate_boundaries_s": [
+    2.733,
+    4.667,
+    5.0,
+    6.333,
+    7.1,
+    7.5,
+    7.7,
+    8.467,
+    9.267,
+    10.6,
+    12.167,
+    13.6,
+    14.867,
+    16.467,
+    18.267,
+    19.3,
+    19.667,
+    21.267,
+    22.5,
+    23.0,
+    24.0,
+    24.533,
+    24.967,
+    27.267,
+    28.367,
+    29.5,
+    29.867,
+    30.267,
+    31.167,
+    33.1,
+    34.333,
+    35.467,
+    36.533,
+    38.667,
+    40.067,
+    40.667,
+    40.9,
+    41.033,
+    41.4,
+    41.533,
+    42.167,
+    43.167,
+    44.2,
+    45.5,
+    46.4,
+    46.967,
+    50.267,
+    51.3,
+    55.9,
+    59.133
+   ],
+   "observations": [
+    {
+     "category": "event-panel",
+     "at_s": 18.0
+    },
+    {
+     "category": "context-footage",
+     "at_s": 34.0
+    },
+    {
+     "category": "type-title",
+     "at_s": 59.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 64.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 64.0
+    }
+   ]
+  },
+  {
+   "id": "kiDFzX3Z_0I",
+   "title": "Alternative to Imperative: Deliver on Business Priorities with Data, Expertise, and AI",
+   "date": "2025-01-14",
+   "duration_s": 141,
+   "url": "https://www.youtube.com/watch?v=kiDFzX3Z_0I",
+   "source_sha256": "618277487501ac5286ed9046d5e2083fbe72ddf2975dcd10061d21b8d30b9978",
+   "native_fps": 23.976023976023978,
+   "analysis_fps": 23.976023976023978,
+   "detected_shots": 13,
+   "candidate_boundaries_s": [
+    2.961,
+    6.423,
+    24.441,
+    39.122,
+    57.349,
+    68.527,
+    79.997,
+    81.54,
+    96.805,
+    114.406,
+    117.2,
+    133.842
+   ],
+   "observations": [
+    {
+     "category": "context-footage",
+     "at_s": 0.0
+    },
+    {
+     "category": "circular-composition",
+     "at_s": 40.0
+    },
+    {
+     "category": "editorial-split",
+     "at_s": 74.0
+    },
+    {
+     "category": "icon-card",
+     "at_s": 102.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 140.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 140.0
+    }
+   ]
+  },
+  {
+   "id": "v4m8RA6m5b8",
+   "title": "Formas de reducir la deuda",
+   "date": "2025-01-14",
+   "duration_s": 168,
+   "url": "https://www.youtube.com/watch?v=v4m8RA6m5b8",
+   "source_sha256": "fd6bd48cc1ee445813fe1b22104c2f6f43449c978342b5c021215a516ba5d23b",
+   "native_fps": 23.976023976023978,
+   "analysis_fps": 23.976023976023978,
+   "detected_shots": 15,
+   "candidate_boundaries_s": [
+    0.417,
+    13.639,
+    25.275,
+    38.038,
+    51.093,
+    67.776,
+    77.869,
+    90.215,
+    109.026,
+    115.782,
+    135.344,
+    149.649,
+    163.747,
+    166.458
+   ],
+   "observations": [
+    {
+     "category": "speaker-shot",
+     "at_s": 2.0
+    },
+    {
+     "category": "icon-card",
+     "at_s": 48.0
+    },
+    {
+     "category": "editorial-split",
+     "at_s": 122.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 152.0
+    },
+    {
+     "category": "type-title",
+     "at_s": 166.0
+    }
+   ]
+  },
+  {
+   "id": "QA0KQGjDBu4",
+   "title": "2024 in Review: Economic Insights and Predictions for 2025",
+   "date": "2025-01-07",
+   "duration_s": 1995,
+   "url": "https://www.youtube.com/watch?v=QA0KQGjDBu4",
+   "source_sha256": "8f25e730532669dcdbe9f5d4a167eca7e01d05c559091eee8c17b9dda2fbfd5f",
+   "native_fps": 25.0,
+   "analysis_fps": 4.0,
+   "detected_shots": 5,
+   "candidate_boundaries_s": [
+    2.0,
+    233.75,
+    381.25,
+    1993.5
+   ],
+   "observations": [
+    {
+     "category": "guest-grid",
+     "at_s": 200.0
+    }
+   ]
+  },
+  {
+   "id": "dYZGEOahWSo",
+   "title": "On Leaning in with Courage and Career Growth",
+   "date": "2025-01-06",
+   "duration_s": 146,
+   "url": "https://www.youtube.com/watch?v=dYZGEOahWSo",
+   "source_sha256": "c780be959b7a550c1936f25f80081f2bf6fc443cd404f9893a44bb874bc5cf13",
+   "native_fps": 23.976023976023978,
+   "analysis_fps": 23.976023976023978,
+   "detected_shots": 36,
+   "candidate_boundaries_s": [
+    6.256,
+    13.597,
+    19.269,
+    23.523,
+    28.654,
+    32.532,
+    36.954,
+    39.164,
+    39.831,
+    43.126,
+    47.005,
+    49.299,
+    50.676,
+    52.177,
+    59.226,
+    65.315,
+    67.901,
+    73.24,
+    78.829,
+    84.626,
+    98.307,
+    102.644,
+    109.359,
+    114.156,
+    116.199,
+    118.118,
+    120.329,
+    122.873,
+    126.251,
+    127.919,
+    132.049,
+    134.009,
+    135.761,
+    138.722,
+    141.933
+   ],
+   "observations": [
+    {
+     "category": "speaker-shot",
+     "at_s": 0.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 144.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 144.0
+    }
+   ]
+  },
+  {
+   "id": "uifWtzz_fqE",
+   "title": "5 hábitos nancieros saludables para el próximo año",
+   "date": "2024-12-19",
+   "duration_s": 155,
+   "url": "https://www.youtube.com/watch?v=uifWtzz_fqE",
+   "source_sha256": "c24bc5d8f262dfbed5923dd3cd3ea4330fa8d940dfabc907f041fb0b6eeacd4b",
+   "native_fps": 23.976023976023978,
+   "analysis_fps": 23.976023976023978,
+   "detected_shots": 12,
+   "candidate_boundaries_s": [
+    13.764,
+    43.919,
+    64.731,
+    78.078,
+    95.22,
+    108.692,
+    117.993,
+    131.048,
+    141.141,
+    150.65,
+    153.236
+   ],
+   "observations": [
+    {
+     "category": "speaker-shot",
+     "at_s": 0.0
+    },
+    {
+     "category": "editorial-split",
+     "at_s": 16.0
+    },
+    {
+     "category": "icon-card",
+     "at_s": 114.0
+    }
+   ]
+  },
+  {
+   "id": "71DLJCPcM58",
+   "title": "The Work Number Explained",
+   "date": "2024-12-06",
+   "duration_s": 115,
+   "url": "https://www.youtube.com/watch?v=71DLJCPcM58",
+   "source_sha256": "16e7ddf38f0cee0ad19c81ddf1075c6d4d6a77488e58c44629742c9179e52322",
+   "native_fps": 24.0,
+   "analysis_fps": 24.0,
+   "detected_shots": 11,
+   "candidate_boundaries_s": [
+    9.708,
+    23.542,
+    30.208,
+    36.708,
+    49.875,
+    62.292,
+    71.958,
+    95.333,
+    110.25,
+    112.833
+   ],
+   "observations": [
+    {
+     "category": "speaker-shot",
+     "at_s": 2.0
+    },
+    {
+     "category": "editorial-split",
+     "at_s": 12.0
+    }
+   ]
+  },
+  {
+   "id": "ubLgdK6dizk",
+   "title": "Top 3 Facts About The Work Number",
+   "date": "2024-12-06",
+   "duration_s": 137,
+   "url": "https://www.youtube.com/watch?v=ubLgdK6dizk",
+   "source_sha256": "806ab122cd5d6992a3673de709da2d1427c1b848a3c5634c6b45a9d2755e37e6",
+   "native_fps": 24.0,
+   "analysis_fps": 24.0,
+   "detected_shots": 14,
+   "candidate_boundaries_s": [
+    10.958,
+    20.5,
+    39.333,
+    58.042,
+    65.083,
+    74.333,
+    86.333,
+    93.458,
+    102.542,
+    111.542,
+    119.75,
+    130.917,
+    133.542
+   ],
+   "observations": [
+    {
+     "category": "speaker-shot",
+     "at_s": 0.0
+    },
+    {
+     "category": "editorial-split",
+     "at_s": 38.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 124.0
+    }
+   ]
+  },
+  {
+   "id": "jiztfivfGNU",
+   "title": "The Work Number: How Can I Manage My Employment Information",
+   "date": "2024-12-06",
+   "duration_s": 117,
+   "url": "https://www.youtube.com/watch?v=jiztfivfGNU",
+   "source_sha256": "3f89795f5858d49869c1b660f999c53445da839da1e3f91732fe0ebb1b01a5d6",
+   "native_fps": 24.0,
+   "analysis_fps": 24.0,
+   "detected_shots": 11,
+   "candidate_boundaries_s": [
+    12.042,
+    21.75,
+    37.25,
+    45.5,
+    67.167,
+    76.458,
+    91.042,
+    101.917,
+    113.042,
+    115.625
+   ],
+   "observations": [
+    {
+     "category": "speaker-shot",
+     "at_s": 0.0
+    },
+    {
+     "category": "question-card",
+     "at_s": 12.0
+    },
+    {
+     "category": "editorial-split",
+     "at_s": 12.0
+    },
+    {
+     "category": "icon-card",
+     "at_s": 33.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 106.0
+    }
+   ]
+  },
+  {
+   "id": "A3w0-GWxCD0",
+   "title": "Resume Red Flags: What Recruiters Say to Avoid",
+   "date": "2024-12-03",
+   "duration_s": 227,
+   "url": "https://www.youtube.com/watch?v=A3w0-GWxCD0",
+   "source_sha256": "6d2f1d1b99a890b12f5f6bc59ca6b973f5b5599aa8d24f3e269c24f385a4b593",
+   "native_fps": 23.976023976023978,
+   "analysis_fps": 23.976023976023978,
+   "detected_shots": 46,
+   "candidate_boundaries_s": [
+    7.841,
+    9.551,
+    9.885,
+    13.847,
+    16.725,
+    20.979,
+    23.357,
+    29.571,
+    35.369,
+    39.831,
+    42.709,
+    51.885,
+    54.763,
+    56.89,
+    60.352,
+    65.816,
+    72.364,
+    76.41,
+    78.954,
+    87.421,
+    100.892,
+    106.648,
+    109.276,
+    115.949,
+    120.579,
+    122.581,
+    125.042,
+    129.88,
+    132.758,
+    134.676,
+    142.601,
+    146.271,
+    152.569,
+    159.034,
+    163.997,
+    168.126,
+    171.546,
+    176.551,
+    182.766,
+    193.819,
+    197.114,
+    201.701,
+    210.127,
+    217.717,
+    220.929
+   ],
+   "observations": [
+    {
+     "category": "type-title",
+     "at_s": 2.0
+    },
+    {
+     "category": "context-footage",
+     "at_s": 22.0
+    },
+    {
+     "category": "speaker-shot",
+     "at_s": 64.0
+    },
+    {
+     "category": "speaker-id",
+     "at_s": 118.0
+    },
+    {
+     "category": "disc-endcard",
+     "at_s": 226.0
+    },
+    {
+     "category": "cta-card",
+     "at_s": 226.0
+    }
+   ]
+  }
+ ]
+}
