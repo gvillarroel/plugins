@@ -299,26 +299,6 @@ Create and edit narrated explainers with measured attention, source-based charts
 - [video](../plugins/line-world/skills/video/SKILL.md)
 - [video-style-reverse-engineering](../plugins/line-world/skills/video-style-reverse-engineering/SKILL.md)
 
-## line-world-video
-
-Create clean explanatory videos with sourced object photographs, restrained image treatments, original-paper tours, D3/Mermaid diagrams, semantic focus and editable timing. Includes whole-film review and a Google Vids narration and delivery adapter.
-
-| Client | Install command |
-| --- | --- |
-| Codex | `codex plugin add line-world-video@plugins` |
-| Claude Code | `claude plugin install line-world-video@plugins` |
-| GitHub Copilot CLI | `copilot plugin install line-world-video@plugins` |
-| Pi (skills) | `pi install ./plugins/line-world-video` |
-
-**Skills**
-
-- [line-world-d3](../plugins/line-world-video/skills/line-world-d3/SKILL.md)
-- [line-world-google-vids](../plugins/line-world-video/skills/line-world-google-vids/SKILL.md)
-- [line-world-hyperframes](../plugins/line-world-video/skills/line-world-hyperframes/SKILL.md)
-- [line-world-icons](../plugins/line-world-video/skills/line-world-icons/SKILL.md)
-- [line-world-mermaid](../plugins/line-world-video/skills/line-world-mermaid/SKILL.md)
-- [line-world-video](../plugins/line-world-video/skills/line-world-video/SKILL.md)
-
 ## local-pdf
 
 Create, inspect and visually verify PDFs with the workstation PDF workflow.
