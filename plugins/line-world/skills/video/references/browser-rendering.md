@@ -20,6 +20,14 @@ It must render solely from the supplied time and return the active scene, elemen
 6. Review muted playback and interaction midpoints; repair the contract or producer artifact, then rebuild and rerender.
 7. Validate the final stream with `check_video_artifact.py`.
 
+When you pass `--expect-duration`, the output, quality, and artifact checks use
+the video stream's reported duration and also check the file duration. This
+catches an early picture cut even if the audio reaches the planned end. If the
+format omits the stream duration, the checks can use a WebM or Matroska track's
+end timestamp and start time. A duration expectation fails when track metadata
+cannot establish the video duration.
+Embedded cover art does not count as a video stream.
+
 Use Slidev recording only for a deck-first source. Route SVG-only Manim rendering to `manim-svg-video` and consume its MP4 plus manifest only if broader composition follows. A mixed SVG/GIF/HTML scene should normally use the browser compositor.
 
 ## Planning-only scene review

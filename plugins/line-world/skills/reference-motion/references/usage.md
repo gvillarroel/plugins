@@ -19,7 +19,7 @@ uv run --script scripts/generate_motion.py verify assets/ejemplo.json mi-proyect
 uv run --script scripts/generate_motion.py audit-library mi-proyecto/biblioteca.qa.json --sheet mi-proyecto/biblioteca.jpg
 ```
 
-`init` crea un ejemplo para cualquiera de los 33 identificadores de la galería. Edita sus propiedades para generar otro gráfico con el mismo diseño. La exportación PNG guarda el estado de lectura de la última escena. La exportación MP4 incluye la secuencia completa y requiere FFmpeg y FFprobe en el PATH. Para el navegador, el generador usa Chromium de Playwright y en Windows también puede usar Edge instalado. Puedes elegir Chrome añadiendo `--browser chrome` **antes** del subcomando. En un equipo con uv y sin navegador compatible, instala Chromium con `uvx --from playwright==1.61.0 playwright install chromium`.
+`init` crea un ejemplo para cualquiera de los identificadores de la galería. Edita sus propiedades para generar otro gráfico con el mismo diseño. La exportación PNG guarda el estado de lectura de la última escena. La exportación MP4 incluye la secuencia completa y requiere FFmpeg y FFprobe en el PATH. Para el navegador, el generador usa Chromium de Playwright y en Windows también puede usar Edge instalado. Puedes elegir Chrome añadiendo `--browser chrome` **antes** del subcomando. En un equipo con uv y sin navegador compatible, instala Chromium con `uvx --from playwright==1.61.0 playwright install chromium`.
 
 | Campo de la receta | Uso |
 | --- | --- |
@@ -30,6 +30,51 @@ uv run --script scripts/generate_motion.py audit-library mi-proyecto/biblioteca.
 | `handoff` | Marca la relación editorial con la escena anterior. Usa `section` para abrir una sección, `comparison` para introducir otra vista que se va a comparar o `detail` para entrar en un detalle. |
 | `transition_policy` | Política del proyecto. El modo predeterminado `occasional` reserva los movimientos para uniones motivadas. `{"mode":"cuts-only"}` utiliza cortes en toda la pieza. |
 | `assets` | Mapa a medios locales. En la escena usa el ID, por ejemplo `"media":"plano"`. Las rutas se resuelven junto a la receta. Se admiten PNG, JPEG, WebP, MP4 y WebM. |
+
+### Diagramas de estructura y ejecución
+
+Las composiciones conservan la identidad de las figuras durante su transformación. Están diseñadas para un cuadro horizontal 16:9. Para una entrega vertical, redistribuye los grupos y vuelve a comprobar los rótulos al tamaño final. Elige la relación que quieres explicar. La última columna indica el orden de las etiquetas que el dibujo recibe en `props.labels`.
+
+| Artefacto | Qué sigue la mirada | Etiquetas de ejemplo en orden |
+| --- | --- | --- |
+| `field-packing` | Los campos de una estructura se corresponden con grupos de bytes en una retícula. | Posición, Edad, Velocidad, Color |
+| `layer-preview` | Las capas se incorporan a la pila y sus efectos se acumulan en la vista lateral. | Cámara, Sombras, Luz, Acabado |
+| `isometric-layers` | Las piezas de una pila se separan en perspectiva y se relacionan con un zócalo lateral. | Cámara, Malla, Instancias, Luz, Acabado |
+| `module-transfer` | Un módulo viaja desde el inventario hacia el destino. Su hueco permite seguir reconociendo el lugar de origen. | Destino, Cámara, Malla, Luz, Acabado |
+| `vertex-remap` | Los mismos vértices pasan de una retícula UV a la geometría de un árbol. | Vértices, Superficie |
+| `pass-strip` | Las etapas de renderizado se despliegan en una tira. Cada paso corresponde al código y a la imagen del mismo visor. | Sombra, Escena, Brillo, Acabado |
+| `command-lanes` | Las llamadas de una columna de código corresponden a carriles de ejecución. Sus intervalos se miden desde un borde derecho común. | Sombra, Escena, Brillo, Salida |
+| `import-footprint` | Una retícula de 212 celdas representa los 212 kB de una importación completa. Dentro de esa retícula se destaca por turno la huella de cada módulo del ejemplo, de 39, 34 y 18 kB. | Iluminación, Instancias, Cámaras |
+| `shared-host` | La escena central mantiene su identidad entre dos adaptadores. | Web, Escena, Móvil |
+| `split-clock` | Dos pistas muestran cómo la interfaz y el cálculo avanzan a ritmos distintos frente a las señales de sincronización vertical. | Interfaz, Cálculo |
+
+En `import-footprint` puedes sustituir la medida del ejemplo con `props.footprint`. Usa `total` para el número de celdas (entre 1 y 240), `unit` para el valor de una celda (hasta 12 caracteres) y `groups` para tres listas de índices contando desde cero. El grupo de cada etiqueta puede estar vacío. Una celda compartida se incluye una vez en cada grupo al que pertenece. Por ejemplo, `{"total":12,"unit":"unidades","groups":[[0,1,2,3],[2,3,4],[]]}` destaca cuatro celdas para la primera etiqueta y tres para la segunda. Las dos comparten las celdas 2 y 3. La tercera etiqueta tiene una huella de cero unidades.
+
+Genera una receta con `uv run --script scripts/generate_motion.py init module-transfer traslado.json`. Sustituye sus etiquetas y ajusta `duration` en segundos. El valor inicial es 5. El campo `hold` de la escena reserva una pausa adicional con la composición final estable.
+
+En `module-transfer`, `highlightIndex` elige la fila del inventario contando desde cero. El valor inicial es 1, correspondiente a «Cámara». Al llegar a su destino, la fila muestra entre uno y tres nombres en cada columna. `inputs` contiene las entradas y `outputs` contiene las salidas. Esta receta dedica seis segundos al traslado y cuatro a leer el resultado.
+
+```json
+{
+  "version": 1,
+  "scenes": [{
+    "id": "insertar-modulo",
+    "artifact": "module-transfer",
+    "props": {
+      "labels": ["Destino", "Cámara", "Malla", "Luz", "Acabado"],
+      "duration": 6,
+      "highlightIndex": 1,
+      "inputs": ["root", "tamaño", "objetivo"],
+      "outputs": ["vista", "proyección"]
+    },
+    "hold": 4
+  }]
+}
+```
+
+El generador y la galería cargan el dibujo automáticamente. Para invocarlo directamente desde Canvas, incluye [motion.js](../assets/motion.js) y [diagram-motion.js](../assets/diagram-motion.js) antes de llamar a `LineWorldMotion.artifact(ctx, id, seconds, props, options)`. Mover el reloj hacia atrás recupera la pose de ese instante.
+
+Para las nueve composiciones de sistemas, carga también [systems-motion.js](../assets/systems-motion.js). Puedes editar los centros de una red, el sentido de los mensajes, los índices consultados o la cantidad de fichas según la pregunta. El [estudio de ByteByteGo](bytebytego-study.md) describe los parámetros y enlaza las veinte precomposiciones.
 
 ### Fotografías y tomas en movimiento
 
@@ -57,7 +102,7 @@ En una serie amplia, `data-chart` reparte las barras en grupos de dos o tres. `d
 
 En `dashboard-stack`, las tarjetas numéricas que comparten `unit` comparten escala y conservan sus celdas mientras entran las barras. Las unidades distintas forman grupos independientes. Un archivo gráfico aportado conserva su escala de origen. Para `chart-focus`, `props.box` localiza la región de interés y `props.padding` añade margen en fracciones de la altura del lienzo. El valor inicial, 0,055, deja espacio para la cifra y la categoría; usa 0 cuando el rectángulo de entrada ya incluya el margen necesario.
 
-El generador comprueba la estructura, las series y los tiempos. Empieza cada artefacto medio segundo dentro de su entrada para que ya haya contenido al pasarle el cuadro. Mide encuadre, contraste y solapamiento del texto en los estados de lectura. Comprueba la altura de tinta a 390 px de ancho en la llamada de cierre y en la categoría y cifra seleccionadas de una gráfica. Con `focusHold`, vuelve a medir la posición de esas etiquetas durante la entrada. El informe registra los fotogramas inspeccionados.
+El generador comprueba la estructura, las series y los tiempos. Los diagramas de estructura y ejecución y las comparaciones con `focusHold` parten de su pose inicial. Los otros elementos avanzan medio segundo en su entrada para que ya haya contenido al pasarles el cuadro. El generador mide encuadre, contraste y solapamiento del texto en los estados de lectura. Comprueba la altura de tinta a 390 px de ancho en la llamada de cierre y en la categoría y cifra seleccionadas de una gráfica. Con `focusHold`, vuelve a medir la posición de esas etiquetas durante la entrada. El informe registra los fotogramas inspeccionados.
 
 Al exportar un MP4, se comprueba la paleta de las imágenes que entran al codificador. Después se decodifica el archivo y se cotejan el reloj, el número de imágenes y el contenido **de cada fotograma** con el estado dibujado para ese instante. El cotejo visual usa imágenes reducidas, error medio de color y error local por zona, con tolerancia a la compresión. La exportación reemplaza el destino cuando pasa las comprobaciones. El subcomando `verify` repite la comparación sobre un MP4 existente. Revisa además el significado del montaje y la lectura a su tamaño de uso.
 

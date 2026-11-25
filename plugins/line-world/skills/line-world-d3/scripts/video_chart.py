@@ -72,6 +72,8 @@ def check_data(raw):
         if "focus" in raw and raw["focus"] not in ids:
             raise ValueError("The focus must be a known entity ID.")
     elif kind == "time-series":
+        if "revealObservations" in raw and not isinstance(raw["revealObservations"], bool):
+            raise ValueError("revealObservations must be true or false.")
         if "id" in raw:
             identifier(raw["id"])
         rows = raw.get("observations")

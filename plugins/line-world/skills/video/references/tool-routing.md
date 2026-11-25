@@ -23,6 +23,7 @@ Do not accept screenshots of vector diagrams when the SVG is available. Do not a
 
 | Need | Producer | Preferred handoff |
 | --- | --- | --- |
+| Explain a relationship through a source-backed composition applied to new records | `reference-motion` | Editable recipe and verified MP4, or the transfer directions and column bindings for the assigned specialist |
 | Custom data geometry, topology, simulation, linked states | `d3` | Inline-safe SVG or deterministic HTML with ports |
 | Conventional chart and chart grammar | `echarts-animated-svg` | Static SVG plus animated SVG and replay/state metadata |
 | UML, architecture, deployment, cloud notation | `plantuml-colorset-renderer` | SVG plus source and render report |
@@ -37,6 +38,7 @@ Do not accept screenshots of vector diagrams when the SVG is available. Do not a
 ## Routing decisions
 
 1. Choose by semantic responsibility, not by the easiest available renderer.
+   For an original data or concept brief, use the [composition transfer guide](../../reference-motion/references/transferir-composicion.md) when assigning the shot. Carry the source entity IDs, stable anchor, event that drives each change and final reading hold into the handoff. For an opaque rendered clip, inspect these inside the producer's footage and preserve them through placement and cuts.
 2. Give each asset exactly one producer owner.
 3. Require a producer report before marking an asset ready.
 4. Preserve the producer output unchanged under `artifacts/`; apply crop, scale, ID namespacing, and composition in the video renderer.

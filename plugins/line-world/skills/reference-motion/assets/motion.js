@@ -10,8 +10,11 @@
   const theme = {paper:"#ffffff", light:"#ffffff", ink:"#333e48", accent:"#9e1b32",
     muted:"#696969", neutral:"#b5b5b5", quiet:"#e7e7e7", line:"#cfcfcf", font:"Arial, sans-serif"};
   const transitions = ["cut", "dissolve", "tint-bridge", "iris-fill", "iris-close", "shutter-close", "step-blocks", "band-pass", "push-down", "push-left"];
+  const diagrams = Object.freeze(["field-packing", "layer-preview", "isometric-layers", "module-transfer",
+    "vertex-remap", "command-lanes", "shared-host", "split-clock", "pass-strip", "import-footprint",
+    "ring-handoff", "bit-probe", "message-ladder", "detail-callout", "radix-ladder", "token-gate", "resolution-fan", "queue-router", "staged-network", "interval-refinement", "trajectory-trace"]);
   const artifacts = ["speaker-id", "question-card", "caption-overlay", "editorial-split", "slide-pip", "insight-band", "dashboard-stack", "icon-card", "disc-endcard", "chart-focus", "corner-card", "orbital-caption", "numbered-step", "keypoint-list", "chart-ring",
-    "guest-grid", "type-title", "cta-card", "brand-slate", "metric-callout", "concept-diagram", "circle-window", "data-chart"];
+    "guest-grid", "type-title", "cta-card", "brand-slate", "metric-callout", "concept-diagram", "circle-window", "data-chart", ...diagrams];
   const isolated = new WeakMap();
 
   function saved(ctx, draw) {
@@ -254,6 +257,11 @@
     if (!Number.isFinite(time)) throw new TypeError("time must be finite");
     if (time < 0) return;
     const w=options.width || ctx.canvas.width, h=options.height || ctx.canvas.height, c=resolveTheme(ctx,options);
+    if (diagrams.includes(id)) {
+      if (!globalThis.LineWorldDiagrams) throw new Error("Load diagram-motion.js before drawing " + id);
+      saved(ctx, () => globalThis.LineWorldDiagrams.draw(ctx,id,time,props,{width:w,height:h,theme:c}));
+      return;
+    }
     const reference=options.mode==="reference";
     const paint=(value,fallback)=>solidPaint(ctx,value,fallback);
     const title=props.title || "", detail=props.detail || "", mid={align:"center",font:c.font};
@@ -671,5 +679,5 @@
       }
     });
   }
-  globalThis.LineWorldMotion = Object.freeze({transition,artifact,media:inBox,chart,percentageLabel,resolveTheme,transitions:Object.freeze(transitions),artifacts:Object.freeze(artifacts),theme:Object.freeze(theme)});
+  globalThis.LineWorldMotion = Object.freeze({transition,artifact,media:inBox,chart,percentageLabel,resolveTheme,diagrams,transitions:Object.freeze(transitions),artifacts:Object.freeze(artifacts),theme:Object.freeze(theme)});
 })();

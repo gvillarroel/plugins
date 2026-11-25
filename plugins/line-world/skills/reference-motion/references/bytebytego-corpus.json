@@ -1,0 +1,1184 @@
+{
+  "playlist": "https://www.youtube.com/playlist?list=PLCRMIe5FDPseVvwzRiCQBmNOVUIZSSkP8",
+  "title": "System Design Interview",
+  "pin": "a124acd4a02b3a9b72b9e7dedca5d1bfcda2a7b8",
+  "analyzed_count": 20,
+  "duration_s": 8800.0,
+  "decoded_frames": 220000,
+  "candidate_shots": 191,
+  "overview_samples": 480,
+  "videos": [
+    {
+      "index": 1,
+      "video_id": "M4lR_Va97cQ",
+      "video_title": "FAANG System Design Interview: Design A Location Based Service (Yelp, Google Places)",
+      "url": "https://www.youtube.com/watch?v=M4lR_Va97cQ&t=406s",
+      "duration_s": 1480.04,
+      "fps": 25,
+      "decoded_frames": 37001,
+      "candidate_shots": 15,
+      "sha256": "10c40b32268250e90440be141095d1eddf4c584651e00d2ddd24eb8068880c93",
+      "source_s": [
+        406,
+        425
+      ],
+      "name": "Del balanceador a las réplicas",
+      "scene": "video-01-staged-network",
+      "artifact": "staged-network",
+      "anchor": "Usuario centrado en la parte alta. Las rutas siguen a los servicios durante el reajuste vertical. La fila de datos conserva el orden réplicas → primaria.",
+      "observations": [
+        "406–410 s: bajo el usuario centrado se forma el balanceador, seguido de una diagonal hacia el servicio inferior izquierdo.",
+        "413–419 s: la rama derecha añade el servicio de negocios; debajo, aparecen tres cilindros de réplica, el clúster y la primaria.",
+        "419–425 s: las aristas de replicación regresan de la primaria a las réplicas; el foco pasa al balanceador."
+      ],
+      "landmarks": [
+        [
+          0,
+          406
+        ],
+        [
+          0.15,
+          408
+        ],
+        [
+          0.32,
+          412
+        ],
+        [
+          0.55,
+          416
+        ],
+        [
+          0.7,
+          419
+        ],
+        [
+          0.87,
+          423
+        ],
+        [
+          1,
+          425
+        ]
+      ],
+      "adaptation": "El sistema se abre desde el usuario hacia dos servicios. Tres lecturas y una escritura ocupan la fila inferior.",
+      "visual_review": "El cotejo mostró que la primera versión dejaba el balanceador abajo demasiado poco tiempo. Se ajustó su recorrido ascendente y se llevó el rótulo del clúster bajo los cilindros, como en la referencia.",
+      "related": [
+        "07 reutiliza el servicio de proximidad en una sección posterior y en el pasaje emulado explica una estrella de chat."
+      ]
+    },
+    {
+      "index": 2,
+      "video_id": "UF9Iqmg94tk",
+      "video_title": "Consistent Hashing | Algorithms You Should Know #1",
+      "url": "https://www.youtube.com/watch?v=UF9Iqmg94tk&t=243s",
+      "duration_s": 483.6,
+      "fps": 25,
+      "decoded_frames": 12090,
+      "candidate_shots": 4,
+      "sha256": "469b7ec377bc35b368ef54cca842ae966904380cb9ded1760bc9181d556b085e",
+      "source_s": [
+        243,
+        253
+      ],
+      "name": "Un nodo entra en el anillo",
+      "scene": "video-02-ring-handoff",
+      "artifact": "ring-handoff",
+      "anchor": "Anillo inmóvil, K0 en la corona superior y antiguo sucesor al noreste. Solo se mueve el marcador nuevo y se dibujan sus dos relaciones.",
+      "observations": [
+        "243–244 s: cuatro servidores y cuatro claves alternan sobre el anillo. Aparece un quinto servidor en la lista de la izquierda.",
+        "246–247 s: el nuevo marcador parte de la lista y aterriza en el arco superior, entre K0 y su antiguo sucesor.",
+        "249–252 s: aparecen un arco corto exterior y una ruta punteada interior al servidor anterior, que recibe una cruz. Las demás posiciones permanecen fijas."
+      ],
+      "landmarks": [
+        [
+          0,
+          243
+        ],
+        [
+          0.14,
+          244
+        ],
+        [
+          0.27,
+          246
+        ],
+        [
+          0.41,
+          247
+        ],
+        [
+          0.58,
+          249.3
+        ],
+        [
+          0.78,
+          251
+        ],
+        [
+          0.89,
+          251.52
+        ],
+        [
+          1,
+          253
+        ]
+      ],
+      "adaptation": "La nueva marca viaja desde la lista hasta el hueco entre una clave y su responsable anterior. Solo cambia esa asignación.",
+      "visual_review": "Se cotejaron las poses previas, la llegada y la cancelación. El nodo E termina entre K0 y A, y las otras tres asociaciones de la leyenda siguen idénticas.",
+      "related": [
+        "03 también conserva posiciones que no participan del cambio; allí son índices lineales y pueden compartirse entre varias claves."
+      ]
+    },
+    {
+      "index": 3,
+      "video_id": "V3pzxngeLqw",
+      "video_title": "Bloom Filters | Algorithms You Should Know #2 | Real-world Examples",
+      "url": "https://www.youtube.com/watch?v=V3pzxngeLqw&t=228s",
+      "duration_s": 339.24,
+      "fps": 25,
+      "decoded_frames": 8481,
+      "candidate_shots": 2,
+      "sha256": "df1690a1740e11896354f203f62436234e0ea260234b29a0f170b21b53706edb",
+      "source_s": [
+        228,
+        268
+      ],
+      "name": "Dos escrituras y una consulta",
+      "scene": "video-03-bit-probe",
+      "artifact": "bit-probe",
+      "anchor": "Una fila de diez celdas numeradas conserva sus centros. Dos entradas encima y una consulta debajo comparten los mismos índices.",
+      "observations": [
+        "228–233 s: diez celdas se mantienen en una fila; tres curvas salen del primer texto y se activan los índices 1, 3 y 4.",
+        "242–249 s: la segunda entrada alcanza 0, 4 y 8. El índice 4 es compartido y sigue valiendo uno.",
+        "264–268 s: las líneas punteadas suben desde la consulta hacia 1, 3 y 4. Cerca de 279 s se muestra además otra consulta con un índice vacío."
+      ],
+      "landmarks": [
+        [
+          0,
+          228
+        ],
+        [
+          0.03,
+          229.5
+        ],
+        [
+          0.24,
+          233
+        ],
+        [
+          0.32,
+          242
+        ],
+        [
+          0.53,
+          246
+        ],
+        [
+          0.645,
+          264
+        ],
+        [
+          0.85,
+          267
+        ],
+        [
+          1,
+          268
+        ]
+      ],
+      "adaptation": "Los arcos superiores escriben bits. La consulta inferior alcanza tres bits ya activos, incluido el que compartieron las dos escrituras.",
+      "visual_review": "La primera iteración aún mostraba ceros cuando la fuente ya tenía un bit activo. Se anticipó la llegada de los arcos y se comprobó que una consulta positiva y otra negativa conservan el contenido.",
+      "related": [
+        "02 también ancla los datos y concentra el cambio en unos pocos destinos. Aquí cada entrada tiene varios destinos."
+      ]
+    },
+    {
+      "index": 4,
+      "video_id": "UC5xf8FbdJc",
+      "video_title": "Back-Of-The-Envelope Estimation / Capacity Planning",
+      "url": "https://www.youtube.com/watch?v=UC5xf8FbdJc&t=47s",
+      "duration_s": 511.16,
+      "fps": 25,
+      "decoded_frames": 12779,
+      "candidate_shots": 2,
+      "sha256": "265c887b14d3e22a6b96737f6bd2111ec5f72069191fc55b98778a96966f4999",
+      "source_s": [
+        47,
+        55.5
+      ],
+      "name": "De la carga total al tamaño de la flota",
+      "scene": "video-04-staged-network",
+      "artifact": "staged-network",
+      "anchor": "Servicio y capacidad unitaria quedan en la mitad izquierda; el nuevo balanceador es la bisagra del abanico hacia la columna derecha.",
+      "observations": [
+        "47 s: el servicio web recibe varias flechas a la izquierda; un único servidor con su capacidad ocupa la columna siguiente.",
+        "49–52 s: surge un balanceador en la mitad derecha y sus primeras ramas diagonales revelan servidores.",
+        "53–55 s: se completa la columna de servidores y queda visible el cociente de un millón de peticiones por segundo entre diez mil por servidor."
+      ],
+      "landmarks": [
+        [
+          0,
+          47
+        ],
+        [
+          0.08,
+          48.5
+        ],
+        [
+          0.28,
+          50
+        ],
+        [
+          0.55,
+          52
+        ],
+        [
+          0.77,
+          53.4
+        ],
+        [
+          0.92,
+          54
+        ],
+        [
+          1,
+          55.5
+        ]
+      ],
+      "adaptation": "Se mantiene la comparación de demanda y capacidad unitaria. A su derecha, las ramas anuncian los servidores de la flota y desembocan en la división.",
+      "visual_review": "El cotejo conserva la comparación demandada a la izquierda, la apertura del abanico a la derecha y el cálculo tras completar la flota.",
+      "related": [
+        "01 abre una jerarquía por funciones y 04 despliega varias instancias con la misma función."
+      ]
+    },
+    {
+      "index": 5,
+      "video_id": "7AMRfNKwuYo",
+      "video_title": "How Does Live Streaming Platform Work? (YouTube live, Twitch, TikTok Live)",
+      "url": "https://www.youtube.com/watch?v=7AMRfNKwuYo&t=149s",
+      "duration_s": 324.72,
+      "fps": 25,
+      "decoded_frames": 8118,
+      "candidate_shots": 2,
+      "sha256": "644cba1e123b2c2a26cf14964f245aefc505b87d865a7745b112574d8b7b88c4",
+      "source_s": [
+        149,
+        166.5
+      ],
+      "name": "Cuatro versiones de una emisión",
+      "scene": "video-05-staged-network",
+      "artifact": "staged-network",
+      "anchor": "La cadena captura → entrada → transcodificación → empaquetado permanece arriba. Cada versión de abajo y su pantalla comparten coordenada horizontal incluso al desplazarse.",
+      "observations": [
+        "149–152 s: la captura y las tres etapas superiores ya están presentes; una flecha cae desde la transcodificación.",
+        "153–158 s: se ensancha el contenedor inferior; incorpora variantes y, por debajo, sus dispositivos de izquierda a derecha.",
+        "161–165 s: las cuatro resoluciones y cuatro pantallas terminan alineadas en dos filas."
+      ],
+      "landmarks": [
+        [
+          0,
+          149
+        ],
+        [
+          0.14,
+          152
+        ],
+        [
+          0.27,
+          154.5
+        ],
+        [
+          0.47,
+          157
+        ],
+        [
+          0.67,
+          159.5
+        ],
+        [
+          0.84,
+          161.8
+        ],
+        [
+          0.95,
+          165
+        ],
+        [
+          1,
+          166.5
+        ]
+      ],
+      "adaptation": "La cadena superior permanece en pantalla; debajo se forma una fila de resoluciones y cada archivo se asocia con un dispositivo.",
+      "visual_review": "La primera versión fijaba la resolución inicial en la columna izquierda. Tras compararla con la fuente, se centró y se desplazaron juntos archivo y pantalla al aparecer más versiones.",
+      "related": [
+        "06 también agrega elementos en horizontal; 05 añade una relación vertical de archivo a destino."
+      ]
+    },
+    {
+      "index": 6,
+      "video_id": "EyMRZpgJUuc",
+      "video_title": "Why Is System Design Interview Important?",
+      "url": "https://www.youtube.com/watch?v=EyMRZpgJUuc&t=13s",
+      "duration_s": 173.36,
+      "fps": 25,
+      "decoded_frames": 4334,
+      "candidate_shots": 5,
+      "sha256": "8b742ae3e9bedc0e7073bc6321053c30b0c76ecf7dc8b3a5a50e919b7a31df11",
+      "source_s": [
+        13,
+        18.6
+      ],
+      "name": "Tres rondas, tres tarjetas",
+      "scene": "video-06-staged-network",
+      "artifact": "staged-network",
+      "anchor": "Tres tarjetas de igual jerarquía se alinean por arriba y por abajo. La cuenta de cada ronda permanece anclada al centro de su tarjeta.",
+      "observations": [
+        "13.2–13.8 s: la primera tarjeta de código aparece bajo el encabezado; el ejemplo se escribe dentro.",
+        "14.4–15.6 s: se despliega una tarjeta de diseño y se dibujan pequeños nodos y enlaces.",
+        "15.6–16.2 s: aparece la ronda conductual con un interlocutor y una burbuja. A 18 s siguen las tres tarjetas, con el recuento bajo cada una."
+      ],
+      "landmarks": [
+        [
+          0,
+          13
+        ],
+        [
+          0.23,
+          14
+        ],
+        [
+          0.46,
+          15
+        ],
+        [
+          0.63,
+          15.64
+        ],
+        [
+          0.83,
+          16.2
+        ],
+        [
+          1,
+          18.6
+        ]
+      ],
+      "adaptation": "Entran tres tarjetas de igual rango. Código, diseño y conducta tienen un ejemplo dentro de la tarjeta y el número de rondas debajo.",
+      "visual_review": "Se comprobaron las entradas del primer panel, la bifurcación del segundo y la formación de los tres pies alineados, sin líneas entre tarjetas.",
+      "related": [
+        "05 también construye de izquierda a derecha. En 06 los paneles tienen el mismo rango y no existe un flujo entre ellos."
+      ]
+    },
+    {
+      "index": 7,
+      "video_id": "i7twT3x5yv8",
+      "video_title": "System Design Interview: A Step-By-Step Guide",
+      "url": "https://www.youtube.com/watch?v=i7twT3x5yv8&t=286s",
+      "duration_s": 593.32,
+      "fps": 25,
+      "decoded_frames": 14833,
+      "candidate_shots": 13,
+      "sha256": "abda3205f0853c2e0d1f424ac35918a4c6224a9ec3da677db2ee75cb3833b362",
+      "source_s": [
+        286.2,
+        293.6
+      ],
+      "name": "El servidor incorpora tres clientes",
+      "scene": "video-07-staged-network",
+      "artifact": "staged-network",
+      "anchor": "Servidor fijo a la derecha. Tres clientes a la izquierda forman una columna; el cliente superior conserva líneas distintas para ida y vuelta.",
+      "observations": [
+        "286–288.8 s: el servidor aparece a la derecha; una línea se traza hacia el primer cliente y después otra vuelve al servidor.",
+        "290 s: una segunda conexión horizontal alcanza al cliente intermedio; empieza la diagonal inferior.",
+        "291.2–293.7 s: los tres clientes forman una columna, el servidor conserva su posición y la primera fila tiene ida y vuelta."
+      ],
+      "landmarks": [
+        [
+          0,
+          286.2
+        ],
+        [
+          0.18,
+          287.5
+        ],
+        [
+          0.34,
+          288.7
+        ],
+        [
+          0.51,
+          290
+        ],
+        [
+          0.72,
+          291.25
+        ],
+        [
+          1,
+          293.6
+        ]
+      ],
+      "adaptation": "Las flechas salen de un servidor fijo. El primer cliente también envía una respuesta; los dos siguientes ocupan su propia altura.",
+      "visual_review": "Se cotejó que el primer enlace salga del servidor y que la vuelta tenga un recorrido propio. Las dos filas inferiores llegan después y permanecen.",
+      "related": [
+        "01 también usa un nodo de distribución. 09 separa los turnos entre dos participantes en un eje temporal vertical."
+      ]
+    },
+    {
+      "index": 8,
+      "video_id": "4rLW7zg21gI",
+      "video_title": "FANG Interview Question | Process vs Thread",
+      "url": "https://www.youtube.com/watch?v=4rLW7zg21gI&t=107s",
+      "duration_s": 230.36,
+      "fps": 25,
+      "decoded_frames": 5759,
+      "candidate_shots": 6,
+      "sha256": "ac923222173b20101f4760e5ed37bc965b2f071ca72e82ab6b171aa0a38ee625",
+      "source_s": [
+        107.08,
+        116.45
+      ],
+      "name": "Tres hilos comparten el heap",
+      "scene": "video-08-staged-network",
+      "artifact": "staged-network",
+      "anchor": "Los marcos de los tres hilos y el heap se trasladan como hijos de un proceso. Registros y pila permanecen en su columna.",
+      "observations": [
+        "106.6–108 s: tres marcos hermanos se dibujan dentro de un proceso común. Cada hilo encierra registros arriba y una pila debajo.",
+        "109–111 s: el conjunto se mueve a la derecha para introducir a la izquierda una llave y la explicación del espacio de direcciones.",
+        "112–115.8 s: se señala primero el proceso y luego la banda de heap. Los registros y pilas permanecen dentro de sus hilos."
+      ],
+      "landmarks": [
+        [
+          0,
+          107.08
+        ],
+        [
+          0.12,
+          107.55
+        ],
+        [
+          0.24,
+          108.6
+        ],
+        [
+          0.36,
+          109.9
+        ],
+        [
+          0.59,
+          112
+        ],
+        [
+          0.68,
+          112.9
+        ],
+        [
+          0.8,
+          114.44
+        ],
+        [
+          0.93,
+          115.75
+        ],
+        [
+          1,
+          116.45
+        ]
+      ],
+      "adaptation": "Los registros y la pila se repiten dentro de cada hilo. Una banda común cruza el proceso por debajo de los tres y recibe el énfasis final.",
+      "visual_review": "La primera versión abría sobre un cuadro vacío. Se adelantó la presencia de los marcos, se trasladó el conjunto al entrar el texto y se verificó el intervalo en que el heap gana y pierde el énfasis.",
+      "related": [
+        "05 también usa contención y filas alineadas. Aquí la banda pertenece al proceso completo, mientras que las pilas pertenecen a hilos individuales."
+      ]
+    },
+    {
+      "index": 9,
+      "video_id": "j9QmMEWmcfo",
+      "video_title": "SSL, TLS, HTTPS Explained",
+      "url": "https://www.youtube.com/watch?v=j9QmMEWmcfo&t=70s",
+      "duration_s": 353.8,
+      "fps": 25,
+      "decoded_frames": 8845,
+      "candidate_shots": 2,
+      "sha256": "e99f45b35a7f9fcb9be67b453f46f11bf8455237161744a5d36aa1e26dfd2c68",
+      "source_s": [
+        70,
+        77.1
+      ],
+      "name": "Tres mensajes entre cliente y servidor",
+      "scene": "video-09-message-ladder",
+      "artifact": "message-ladder",
+      "anchor": "Dos columnas fijas identifican emisor y receptor. Cada nuevo mensaje ocupa una fila inferior y se lee en el sentido de la punta.",
+      "observations": [
+        "70–72 s: cliente y servidor ocupan dos columnas; debajo se inicia la primera flecha de izquierda a derecha.",
+        "74 s: la segunda flecha vuelve al emisor e indica SYN + ACK; la primera conserva su fila.",
+        "76–77 s: ACK completa el intercambio hacia la derecha. Más adelante se añade debajo la etapa de certificado."
+      ],
+      "landmarks": [
+        [
+          0,
+          70
+        ],
+        [
+          0.067,
+          71.1
+        ],
+        [
+          0.28,
+          72.6
+        ],
+        [
+          0.34,
+          73.2
+        ],
+        [
+          0.6,
+          74.35
+        ],
+        [
+          0.64,
+          74.72
+        ],
+        [
+          0.885,
+          76
+        ],
+        [
+          1,
+          77.1
+        ]
+      ],
+      "adaptation": "Cada mensaje ocupa su propia fila. La segunda flecha invierte el sentido y las anteriores permanecen visibles.",
+      "visual_review": "Se cotejaron tres turnos y el retorno de la segunda flecha. Se ajustó el hueco detrás de cada etiqueta al ancho de su mensaje para conservar la continuidad visible del eje.",
+      "related": [
+        "07 presenta conexiones de varios clientes; 09 usa una fila para cada turno entre los mismos participantes."
+      ]
+    },
+    {
+      "index": 10,
+      "video_id": "AlkDbnbv7dk",
+      "video_title": "What happens when you type a URL into your browser?",
+      "url": "https://www.youtube.com/watch?v=AlkDbnbv7dk&t=31s",
+      "duration_s": 320.0,
+      "fps": 25,
+      "decoded_frames": 8000,
+      "candidate_shots": 1,
+      "sha256": "c14e1c5b5af5418a1221a7df7ce654222203aa838416b913cfbdd83b2deb21d6",
+      "source_s": [
+        31.5,
+        90
+      ],
+      "name": "Una dirección, cuatro partes",
+      "scene": "video-10-detail-callout",
+      "artifact": "detail-callout",
+      "anchor": "Una línea une la acción del navegador con el ángulo inferior izquierdo de la ampliación. Las cuatro etiquetas siguen los centros de sus segmentos durante el retorno.",
+      "observations": [
+        "31–35 s: el usuario, el texto de la acción y el navegador ocupan el lado izquierdo. El detalle se abre al otro extremo de una línea diagonal.",
+        "38–72 s: el panel ampliado presenta la dirección en cuatro segmentos adyacentes, con guías verticales que se añaden de izquierda a derecha.",
+        "86–90 s: el panel se retrae hacia la esquina superior derecha; quedan en pantalla el detalle, la línea y el navegador."
+      ],
+      "landmarks": [
+        [
+          0,
+          31.5
+        ],
+        [
+          0.05,
+          34
+        ],
+        [
+          0.195,
+          38
+        ],
+        [
+          0.28,
+          40
+        ],
+        [
+          0.46,
+          60
+        ],
+        [
+          0.6,
+          68
+        ],
+        [
+          0.71,
+          72
+        ],
+        [
+          0.815,
+          86
+        ],
+        [
+          0.955,
+          89
+        ],
+        [
+          1,
+          90
+        ]
+      ],
+      "adaptation": "Una llamada unida al navegador se amplía; cuatro segmentos reciben guías y nombres. El panel vuelve a la composición general.",
+      "visual_review": "Se cotejaron el acercamiento, dos etiquetas parciales y el regreso. Se separó verticalmente la figura del rótulo de origen y se comprobó que los cuatro segmentos vuelven unidos.",
+      "related": [
+        "08 rotula partes del todo mediante contención; 10 desplaza la cámara y mantiene un vínculo explícito con el elemento de origen."
+      ]
+    },
+    {
+      "index": 11,
+      "video_id": "xbgzl2maQUU",
+      "video_title": "Algorithms You Should Know Before System Design Interviews",
+      "url": "https://www.youtube.com/watch?v=xbgzl2maQUU&t=212s",
+      "duration_s": 414.08,
+      "fps": 25,
+      "decoded_frames": 10352,
+      "candidate_shots": 6,
+      "sha256": "bfae15c6fef1b22b648fc136dac5fc54692f36d8bbe03706a59c24d6fa49f41a",
+      "source_s": [
+        212.92,
+        219.0
+      ],
+      "name": "Prefijos que comparten ramas",
+      "scene": "video-11-staged-network",
+      "artifact": "staged-network",
+      "anchor": "La raíz sube desde el centro hasta la cuarta parte superior para ceder espacio a hojas de profundidades desiguales.",
+      "observations": [
+        "La raíz precede a dos ramas. La rama izquierda enlaza con un prefijo común y acaba en dos palabras. La derecha se bifurca una fila antes y conserva una terminal en la tercera fila.",
+        "En 215.52 s están apareciendo los dos nodos intermedios. En 217.00 s está la primera palabra terminal de la derecha. En 218.48 s se ven las cuatro palabras."
+      ],
+      "landmarks": [
+        [
+          0,
+          212.92
+        ],
+        [
+          0.23,
+          214.52
+        ],
+        [
+          0.48,
+          215.8
+        ],
+        [
+          0.8,
+          218.48
+        ],
+        [
+          1,
+          219
+        ]
+      ],
+      "adaptation": "La réplica usa sal, san, mar y mi para conservar la estructura de prefijos con palabras castellanas. Omite el presentador.",
+      "visual_review": "La primera versión mostraba la raíz fija y demasiado alta al comienzo. Se amplió el pasaje hasta 212,92 s y se animó la raíz desde el centro hacia el cuarto superior. Los niveles siguientes también suben al abrirse las bifurcaciones, con los conectores sujetos a sus nodos. Las cuatro palabras castellanas conservan las cuatro rutas y las profundidades de la fuente."
+    },
+    {
+      "index": 12,
+      "video_id": "f6zXyq4VPP8",
+      "video_title": "Top 5 Most Used Architecture Patterns",
+      "url": "https://www.youtube.com/watch?v=f6zXyq4VPP8&t=85s",
+      "duration_s": 352.64,
+      "fps": 25,
+      "decoded_frames": 8816,
+      "candidate_shots": 9,
+      "sha256": "37e127adefa24a10287d95081e12b956a8944a8d24a53b292fe4055eb30e27ee",
+      "source_s": [
+        85.92,
+        93.4
+      ],
+      "name": "Tres productores y tres consumidores",
+      "scene": "video-12-staged-network",
+      "artifact": "staged-network",
+      "anchor": "Tres filas a cada lado de un corredor horizontal y un solo bus en la columna central.",
+      "observations": [
+        "El primer productor aparece por la izquierda y un trazo oblicuo alcanza el intermediario. Los tres productores ya tienen una conexión a los 89 s.",
+        "Los consumidores llegan por orden descendente entre 89 y 92 s. El intermediario permanece centrado mientras la red se abre por ambos lados."
+      ],
+      "landmarks": [
+        [
+          0,
+          85.92
+        ],
+        [
+          0.25,
+          87.45
+        ],
+        [
+          0.46,
+          89.0
+        ],
+        [
+          0.7,
+          90.6
+        ],
+        [
+          0.87,
+          92
+        ],
+        [
+          1,
+          93.4
+        ]
+      ],
+      "adaptation": "Los rótulos identifican ámbitos ilustrativos y el bus se reduce a una caja. El tramo reproduce la formación de la red.",
+      "visual_review": "Se corrigió el fotograma inicial vacío. El primer productor ya está presente cuando comienza el pasaje. Ambas filas de la comparación acaban con tres entradas, un bus central y tres salidas, reveladas de arriba abajo."
+    },
+    {
+      "index": 13,
+      "video_id": "o-k7h2G3Gco",
+      "video_title": "How to Crack Any System Design Interview",
+      "url": "https://www.youtube.com/watch?v=o-k7h2G3Gco&t=420s",
+      "duration_s": 498.32,
+      "fps": 25,
+      "decoded_frames": 12458,
+      "candidate_shots": 27,
+      "sha256": "b974b45a4a76e7e37b59ba6c6a47aecc1667b3906d93aef740d6f8ca02a92d69",
+      "source_s": [
+        420.0,
+        434.4
+      ],
+      "name": "Hitos que se van resolviendo",
+      "scene": "video-13-staged-network",
+      "artifact": "staged-network",
+      "anchor": "Un eje fijo ocupa el centro. La alternancia deja sitio a las seis etiquetas sin modificar su orden temporal.",
+      "observations": [
+        "A los 420 s se ve el eje horizontal. La punta avanza de izquierda a derecha. Al cruzar cada marca, crecen tallos cortos y rótulos, intercalados por encima y por debajo.",
+        "Los primeros dos rótulos se leen a 425.6 s. A 431.2 s se ve el sexto. El extremo y los seis hitos permanecen visibles al final."
+      ],
+      "landmarks": [
+        [
+          0,
+          420
+        ],
+        [
+          0.19,
+          424.5
+        ],
+        [
+          0.31,
+          425.7
+        ],
+        [
+          0.52,
+          428.4
+        ],
+        [
+          0.73,
+          431.2
+        ],
+        [
+          0.9,
+          433.0
+        ],
+        [
+          1,
+          434.4
+        ]
+      ],
+      "adaptation": "Seis decisiones de diseño sustituyen el rótulo repetido del original. Un punto animado y las marcas activas indican el avance por el eje.",
+      "visual_review": "Las seis marcas conservan su orden en el eje y las etiquetas siguen la alternancia superior e inferior. El original colorea un tramo creciente del eje. La réplica usa un punto viajero y conserva cada hito atravesado en rojo."
+    },
+    {
+      "index": 14,
+      "video_id": "wAMc7NyL4tQ",
+      "video_title": "Our Recommended Materials For Cracking Your Next Tech Interview",
+      "url": "https://www.youtube.com/watch?v=wAMc7NyL4tQ&t=24s",
+      "duration_s": 197.96,
+      "fps": 25,
+      "decoded_frames": 4949,
+      "candidate_shots": 17,
+      "sha256": "b4c1993cdc60be210b38318953a4227e1f5e7dac7e641923c9e7d9d7bcf734f1",
+      "source_s": [
+        24.0,
+        29.48
+      ],
+      "name": "Una categoría y tres recursos",
+      "scene": "video-14-staged-network",
+      "artifact": "staged-network",
+      "anchor": "El padre se sitúa sobre el hijo central y las dos salidas laterales comparten la altura del codo.",
+      "observations": [
+        "Tras pasar del tablero de categorías a una vista de detalle, una sola caja ocupa el centro superior.",
+        "Un conector baja, se divide en tres y alcanza tres recursos alineados. Los primeros dos iconos se perciben a 25.52 s; el tercero se completa aproximadamente a 27 s."
+      ],
+      "landmarks": [
+        [
+          0,
+          24
+        ],
+        [
+          0.16,
+          24.96
+        ],
+        [
+          0.35,
+          25.68
+        ],
+        [
+          0.53,
+          26.56
+        ],
+        [
+          0.71,
+          27.44
+        ],
+        [
+          1,
+          29.48
+        ]
+      ],
+      "adaptation": "Tres páginas editables sustituyen dos marcas comerciales y la portada de un libro. Conservan su distribución y orden.",
+      "visual_review": "Se conserva el tronco central y el reparto entre tres columnas a la misma altura. Tres páginas editables reemplazan los logotipos y la cubierta ilustrada."
+    },
+    {
+      "index": 15,
+      "video_id": "HHUi8F_qAXM",
+      "video_title": "How Does a URL Shortener Work?",
+      "url": "https://www.youtube.com/watch?v=HHUi8F_qAXM&t=194s",
+      "duration_s": 403.92,
+      "fps": 25,
+      "decoded_frames": 10098,
+      "candidate_shots": 13,
+      "sha256": "1ac2a6567f777bfbe72d1f520d118f19b77392d2c2c737a56520cbe1d38ba9f2",
+      "source_s": [
+        194.4,
+        221.3
+      ],
+      "name": "División sucesiva y lectura inversa",
+      "scene": "video-15-radix-ladder",
+      "artifact": "radix-ladder",
+      "anchor": "El andamiaje de divisiones está fijo a la izquierda. Un residuo atraviesa la fila y se lee la lista de abajo arriba para formar la salida a la derecha.",
+      "observations": [
+        "La columna izquierda calcula 11157 ÷ 62, luego 179 ÷ 62 y por último 2 ÷ 62. La columna central conserva los residuos 59, 55 y 2.",
+        "La representación del último residuo llega primero al extremo derecho. Entre 215.6 y 215.8 s aparece 2, después T y finalmente X (visible a 219.6 s). El código final es 2TX."
+      ],
+      "landmarks": [
+        [
+          0,
+          194.4
+        ],
+        [
+          0.17,
+          200.9
+        ],
+        [
+          0.34,
+          204.8
+        ],
+        [
+          0.51,
+          208.8
+        ],
+        [
+          0.66,
+          214
+        ],
+        [
+          0.755,
+          215.8
+        ],
+        [
+          0.83,
+          217.9
+        ],
+        [
+          0.925,
+          219.6
+        ],
+        [
+          1,
+          221.3
+        ]
+      ],
+      "adaptation": "El número y el alfabeto conservan la operación de la muestra. El destino se abrevia a un código y el reloj comprime el razonamiento.",
+      "visual_review": "Se añadió un acento al dividendo y al residuo en curso. La comparación preserva las tres divisiones descendentes y la propagación ascendente de los tres símbolos. Se verificó el resultado 2TX con la interpretación del alfabeto que usa la fuente."
+    },
+    {
+      "index": 16,
+      "video_id": "Dwt8R0KPu7k",
+      "video_title": "How Key value Stores Work (Redis, DynamoDB, Memcached)?",
+      "url": "https://www.youtube.com/watch?v=Dwt8R0KPu7k&t=54s",
+      "duration_s": 359.76,
+      "fps": 25,
+      "decoded_frames": 8994,
+      "candidate_shots": 11,
+      "sha256": "049979faf1d6ab6bf6107bb57ed3cd31d5237bd14d39bda67b1d670637bebdfb",
+      "source_s": [
+        54.64,
+        64.8
+      ],
+      "name": "Una clave selecciona un solo nodo",
+      "scene": "video-16-staged-network",
+      "artifact": "staged-network",
+      "anchor": "La fila y el servicio se desplazan juntos hacia la derecha para hacer sitio a la clave que entra por la izquierda. El cableado sigue a cada componente.",
+      "observations": [
+        "Los cuatro almacenes y la bifurcación ya ocupan el encuadre. La clave cruza una función de hash en la mitad superior. Aparece la operación 99 % 4 = 3.",
+        "El destino 3, el cuarto cilindro desde la izquierda, se ilumina al final entre 63 y 64.2 s. Durante la lectura se mantiene visible el conjunto completo."
+      ],
+      "landmarks": [
+        [
+          0,
+          54.64
+        ],
+        [
+          0.2,
+          55.6
+        ],
+        [
+          0.38,
+          57.1
+        ],
+        [
+          0.75,
+          62.7
+        ],
+        [
+          0.89,
+          63.9
+        ],
+        [
+          1,
+          64.8
+        ]
+      ],
+      "adaptation": "La réplica amplía el texto del cálculo y conserva el cuarto destino seleccionado. El cambio posterior a cinco nodos queda fuera del pasaje.",
+      "visual_review": "El original desplaza el conjunto de almacenes hacia la derecha para dejar pasar el cálculo. Se corrigieron las posiciones del servicio, la fórmula y la fila de cilindros. Ahora los cinco nodos y sus uniones se mueven juntos. El índice 3 se destaca en la cuarta posición."
+    },
+    {
+      "index": 17,
+      "video_id": "jWRW2xGMqSw",
+      "video_title": "System Design: Design YouTube",
+      "url": "https://www.youtube.com/watch?v=jWRW2xGMqSw&t=157s",
+      "duration_s": 432.48,
+      "fps": 25,
+      "decoded_frames": 10812,
+      "candidate_shots": 15,
+      "sha256": "cdfe3507afc56cd79b9779f84849b2c4b66d204f625647341bcad6872ba31b31",
+      "source_s": [
+        157.8,
+        165.8
+      ],
+      "name": "Un original, siete resoluciones",
+      "scene": "video-17-resolution-fan",
+      "artifact": "resolution-fan",
+      "anchor": "La alineación final de las esquinas inferiores izquierdas y las bandas escalonadas mantienen visibles los siete rótulos.",
+      "observations": [
+        "Una fuente de vídeo permanece a la izquierda mientras siete trayectorias alcanzan las esquinas superiores izquierdas de siete paneles. Los formatos se incorporan de mayor a menor.",
+        "Cada panel crece en ancho y alto desde su propia esquina superior izquierda y termina en la misma línea inferior. A 158.4 s aún crece el primero, a 159.4 s el segundo y a 164.4 s el último."
+      ],
+      "landmarks": [
+        [
+          0,
+          157.8
+        ],
+        [
+          0.1,
+          158.8
+        ],
+        [
+          0.23,
+          159.8
+        ],
+        [
+          0.34,
+          160.8
+        ],
+        [
+          0.45,
+          161.8
+        ],
+        [
+          0.56,
+          162.8
+        ],
+        [
+          0.68,
+          163.8
+        ],
+        [
+          0.79,
+          164.8
+        ],
+        [
+          1,
+          165.8
+        ]
+      ],
+      "adaptation": "Los tamaños son ordinales y se escogen para poder leer las bandas. El diseño conserva los siete paneles y sus siete conexiones individuales.",
+      "visual_review": "El primer intento revelaba cada panel solo en anchura. La inspección a 0,2 s mostró un crecimiento simultáneo en altura. En la versión final cada formato crece desde su esquina superior izquierda y el borde inferior queda alineado al asentarse."
+    },
+    {
+      "index": 18,
+      "video_id": "okrR1KXNLtA",
+      "video_title": "FAANG System Design Interview: Design A Chat System (WhatsApp, Facebook Messenger, Discord, Slack)",
+      "url": "https://www.youtube.com/watch?v=okrR1KXNLtA&t=338s",
+      "duration_s": 524.72,
+      "fps": 25,
+      "decoded_frames": 13118,
+      "candidate_shots": 11,
+      "sha256": "4fc84405ce4410eea90ff1f124f443f52b2858296f1f6cc5f15844d86a7a7488",
+      "source_s": [
+        338.64,
+        342.0
+      ],
+      "name": "Un mensaje, muchos destinatarios",
+      "scene": "video-18-staged-network",
+      "artifact": "staged-network",
+      "anchor": "El servidor comparte altura con el emisor y el segundo receptor. La última salida desciende casi en vertical.",
+      "observations": [
+        "El emisor y un mensaje ocupan la izquierda. A los 339.6 s ya entra el servidor en la misma fila. Aparece un abanico de rutas con varios ángulos desde ese servidor.",
+        "Se distinguen los usuarios 2 a 5 en la columna de la derecha y el 100 en el extremo inferior. La animación condensa la multitud de receptores intermedios antes del cambio de escena a 342.24 s."
+      ],
+      "landmarks": [
+        [
+          0,
+          338.64
+        ],
+        [
+          0.27,
+          339.4
+        ],
+        [
+          0.4,
+          339.84
+        ],
+        [
+          0.6,
+          340.56
+        ],
+        [
+          0.83,
+          341.52
+        ],
+        [
+          1,
+          342.0
+        ]
+      ],
+      "adaptation": "Cinco usuarios representativos y puntos suspensivos conservan la escala del grupo. Las confirmaciones individuales se omiten.",
+      "visual_review": "Se elevó el eje emisor–servidor y se cambió el orden de los receptores superiores a 3, 2, tal como aparecen en el vídeo. Cinco integrantes visibles y una elipsis representan el grupo completo. El original además marca confirmaciones individuales y condensa los usuarios intermedios."
+    },
+    {
+      "index": 19,
+      "video_id": "YXkOdWBwqaA",
+      "video_title": "Rate Limiter System Design: Token Bucket, Leaky Bucket, Scaling",
+      "url": "https://www.youtube.com/watch?v=YXkOdWBwqaA&t=200s",
+      "duration_s": 465.56,
+      "fps": 25,
+      "decoded_frames": 11639,
+      "candidate_shots": 12,
+      "sha256": "5b2cf2964074b38510a10d74b8fda39a5f11b77930ddec3669f12f2bac766996",
+      "source_s": [
+        200.0,
+        208.5
+      ],
+      "name": "Una ficha admite la primera solicitud",
+      "scene": "video-19-token-gate",
+      "artifact": "token-gate",
+      "anchor": "El mismo punto de decisión bifurca la trayectoria según el saldo disponible. Cada solicitud admitida consume una sola ficha.",
+      "observations": [
+        "Primero se identifica el cubo y después aparece la alimentación desde arriba. La bandeja de entrada queda a la izquierda, el rombo bajo el cubo y las dos salidas a la derecha y debajo.",
+        "La primera cápsula alcanza el centro a 205.04 s y sale a la derecha cerca de 206.00 s. La segunda pasa por el mismo centro a 207.28 s, cae y cambia de tono alrededor de 207.92 s."
+      ],
+      "landmarks": [
+        [
+          0,
+          200
+        ],
+        [
+          0.18,
+          202
+        ],
+        [
+          0.43,
+          204.4
+        ],
+        [
+          0.58,
+          205.04
+        ],
+        [
+          0.68,
+          206
+        ],
+        [
+          0.79,
+          207.28
+        ],
+        [
+          0.9,
+          207.92
+        ],
+        [
+          1,
+          208.5
+        ]
+      ],
+      "adaptation": "Se siguen las dos solicitudes que la escena original resuelve. Se omiten las tres que siguen en espera y se representa explícitamente el saldo.",
+      "visual_review": "Se reconstruyó el primer desplazamiento del cubo hacia abajo al entrar la recarga y el segundo hacia arriba al entrar el sistema completo. La recarga se dibuja ahora con una flecha gruesa, y el borde elíptico distingue el cubo del rombo. Ambas solicitudes pasan por el mismo punto antes de salir por lados distintos."
+    },
+    {
+      "index": 20,
+      "video_id": "6u25GckPhLU",
+      "video_title": "Design a Web Crawler: FAANG Interview Question",
+      "url": "https://www.youtube.com/watch?v=6u25GckPhLU&t=170s",
+      "duration_s": 340.96,
+      "fps": 25,
+      "decoded_frames": 8524,
+      "candidate_shots": 18,
+      "sha256": "a04996c382b9bcc2a8128ed09485e71250c2384c51c50170270b35b876a424b4",
+      "source_s": [
+        170.12,
+        191.52
+      ],
+      "name": "Tres colas de prioridad ante un selector",
+      "scene": "video-20-queue-router",
+      "artifact": "queue-router",
+      "anchor": "La misma columna de tres colas está entre una bifurcación de entrada y una convergencia de salida.",
+      "observations": [
+        "Un priorizador aislado abre primero la rama superior. De 171.36 a 172.12 s se acumulan las primeras tarjetas. Siguen las colas intermedia e inferior hasta disponer de tres pilas en una columna.",
+        "El conjunto deja espacio a las entradas a la izquierda y tres criterios transitorios cerca de la cola superior. Al desaparecer esos criterios, las tres salidas alcanzan un selector a la derecha entre 188.16 y 189.92 s."
+      ],
+      "landmarks": [
+        [
+          0,
+          170.12
+        ],
+        [
+          0.11,
+          171.88
+        ],
+        [
+          0.22,
+          173.6
+        ],
+        [
+          0.31,
+          177.12
+        ],
+        [
+          0.48,
+          180.6
+        ],
+        [
+          0.61,
+          183.3
+        ],
+        [
+          0.78,
+          187.6
+        ],
+        [
+          0.875,
+          189.4
+        ],
+        [
+          1,
+          191.52
+        ]
+      ],
+      "adaptation": "Las cinco tarjetas por pila ilustran que hay una cola sin cuantificar trabajo. Los criterios se adaptan al castellano. El pasaje termina antes del segundo conjunto de colas por host.",
+      "visual_review": "Se bajaron el eje horizontal y las tres colas para que coincidan con el encuadre. Los criterios aparecen a la derecha de la cola superior y ceden ese lugar cuando aparece el selector. El conteo de tarjetas es ilustrativo."
+    }
+  ]
+}

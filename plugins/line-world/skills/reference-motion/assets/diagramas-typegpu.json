@@ -1,0 +1,157 @@
+{
+  "version": 1,
+  "width": 1280,
+  "height": 720,
+  "fps": 24,
+  "transition_policy": {
+    "mode": "cuts-only"
+  },
+  "scenes": [
+    {
+      "id": "field-packing",
+      "artifact": "field-packing",
+      "props": {
+        "labels": [
+          "Posición",
+          "Edad",
+          "Velocidad",
+          "Color"
+        ],
+        "duration": 5.75
+      },
+      "hold": 2.5
+    },
+    {
+      "id": "layer-preview",
+      "artifact": "layer-preview",
+      "props": {
+        "labels": [
+          "Cámara",
+          "Sombras",
+          "Luz",
+          "Acabado"
+        ],
+        "duration": 7.5
+      },
+      "hold": 2.5
+    },
+    {
+      "id": "isometric-layers",
+      "artifact": "isometric-layers",
+      "props": {
+        "labels": [
+          "Cámara",
+          "Malla",
+          "Instancias",
+          "Luz",
+          "Acabado"
+        ],
+        "duration": 5.0
+      },
+      "hold": 2.5
+    },
+    {
+      "id": "pass-strip",
+      "artifact": "pass-strip",
+      "props": {
+        "labels": [
+          "Sombra",
+          "Escena",
+          "Brillo",
+          "Acabado"
+        ],
+        "duration": 7.5
+      },
+      "hold": 2.5
+    },
+    {
+      "id": "module-transfer",
+      "artifact": "module-transfer",
+      "props": {
+        "labels": [
+          "Destino",
+          "Cámara",
+          "Malla",
+          "Luz",
+          "Acabado"
+        ],
+        "duration": 5.5,
+        "highlightIndex": 1,
+        "inputs": [
+          "root",
+          "tamaño",
+          "objetivo"
+        ],
+        "outputs": [
+          "vista",
+          "proyección"
+        ]
+      },
+      "hold": 4
+    },
+    {
+      "id": "vertex-remap",
+      "artifact": "vertex-remap",
+      "props": {
+        "labels": [
+          "Vértices",
+          "Superficie"
+        ],
+        "duration": 6.5
+      },
+      "hold": 2.5
+    },
+    {
+      "id": "import-footprint",
+      "artifact": "import-footprint",
+      "props": {
+        "labels": [
+          "Iluminación",
+          "Instancias",
+          "Cámaras"
+        ],
+        "duration": 6.5
+      },
+      "hold": 2.5
+    },
+    {
+      "id": "command-lanes",
+      "artifact": "command-lanes",
+      "props": {
+        "labels": [
+          "Sombra",
+          "Escena",
+          "Brillo",
+          "Salida"
+        ],
+        "duration": 7.0
+      },
+      "hold": 2.5
+    },
+    {
+      "id": "shared-host",
+      "artifact": "shared-host",
+      "props": {
+        "labels": [
+          "Web",
+          "Escena",
+          "Móvil"
+        ],
+        "duration": 6.25
+      },
+      "hold": 2.5
+    },
+    {
+      "id": "split-clock",
+      "artifact": "split-clock",
+      "props": {
+        "labels": [
+          "Interfaz",
+          "Cálculo"
+        ],
+        "duration": 5.5
+      },
+      "hold": 2.5
+    }
+  ]
+}

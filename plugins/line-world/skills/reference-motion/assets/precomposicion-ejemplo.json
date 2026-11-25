@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "width": 1280,
+  "height": 720,
+  "fps": 24,
+  "scenes": [
+    {
+      "id": "edicion-del-articulo",
+      "artifact": "module-transfer",
+      "props": {
+        "labels": ["Encargo", "Redacción", "Edición", "Maquetación", "Publicación"],
+        "highlightIndex": 2,
+        "inputs": ["Borrador", "Guía de estilo"],
+        "outputs": ["Texto revisado"],
+        "duration": 6
+      },
+      "hold": 4
+    }
+  ]
+}

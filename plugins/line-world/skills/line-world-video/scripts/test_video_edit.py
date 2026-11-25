@@ -4,7 +4,7 @@
 # dependencies = []
 # ///
 """Exercise semantic edits, transactions, style validation and dependency-aware reuse."""
-import copy,json,subprocess,sys,tempfile,unittest
+import copy,json,os,subprocess,sys,tempfile,unittest
 from pathlib import Path
 from unittest.mock import patch
 import video_edit as edit
@@ -117,5 +117,53 @@ class EditingTests(unittest.TestCase):
    with self.assertRaises(ValueError):edit.input_path(self.root,name)
    self.assertEqual(edit.input_path(self.root,p),p)
   finally:other.unlink()
+
+ def test_report_cannot_overwrite_patch_receipts_or_renderer_inputs(self):
+  self.write('patch with spaces.json',self.op('scenes[id=b].clipSeconds',9))
+  (self.root/'figure.svg').write_text('<svg/>',encoding='utf-8')
+  registry=edit.read(self.root/edit.META)
+  registry['sceneInputs']={'a':['figure.svg']}
+  self.write(edit.META,registry)
+  self.write('receipts.json',[self.receipt('a')])
+  before=self.snapshots()
+  cases=[('plan','--patch','patch with spaces.json','patch with spaces.json'),
+         ('apply','--patch','patch with spaces.json','figure.svg'),
+         ('record','--receipts','receipts.json','receipts.json')]
+  for command,option,source,report in cases:
+   with self.subTest(command=command):
+    result=subprocess.run([sys.executable,str(Path(edit.__file__)),command,
+                           '--project',str(self.root),option,source,
+                           '--report',str(self.root/report)],capture_output=True,text=True)
+    self.assertEqual(result.returncode,2,result.stdout+result.stderr)
+    self.assertIn('A report cannot replace',result.stdout)
+    self.assertEqual(self.snapshots(),before)
+
+ def test_setup_report_cannot_overwrite_custom_story_or_cues(self):
+  folder=self.root/'proyecto nuevo'
+  folder.mkdir()
+  story=folder/'historia.json'
+  cues=folder/'marcas.json'
+  story.write_bytes(edit.encode(self.story))
+  cues.write_bytes(edit.encode(self.cues))
+  before=self.snapshots()
+  for report in [story,cues]:
+   with self.subTest(report=report):
+    result=subprocess.run([sys.executable,str(Path(edit.__file__)),'setup',
+                           '--project',str(folder),'--story',story.name,
+                           '--cues',cues.name,'--report',str(report)],
+                          capture_output=True,text=True)
+    self.assertEqual(result.returncode,2,result.stdout+result.stderr)
+    self.assertIn('A report cannot replace',result.stdout)
+    self.assertEqual(self.snapshots(),before)
+
+ def test_inspect_emits_utf8_json_when_stdout_is_redirected(self):
+  label='Revisión técnica'
+  self.story['scenes'][0]['script']=label
+  self.write('story.json',self.story)
+  result=subprocess.run([sys.executable,str(Path(edit.__file__)),'inspect',
+                         '--project',str(self.root),'--path','scenes[id=a].script'],
+                        env={**os.environ,'PYTHONIOENCODING':'ascii'},capture_output=True)
+  self.assertEqual(result.returncode,0,result.stderr)
+  self.assertEqual(json.loads(result.stdout.decode('utf-8'))['value'],label)
 
 if __name__=='__main__':unittest.main()

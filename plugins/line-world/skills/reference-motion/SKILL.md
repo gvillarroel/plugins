@@ -1,11 +1,25 @@
 ---
 name: reference-motion
-description: Analyze a video or a dated channel corpus with rea-video, connect observed transitions and graphic elements to source timestamps, and reuse their mechanics as editable Line World components.
+description: Choose an explanatory animation for supplied data or a concept, precompose an editable diagram on a shared clock, or study a reference video with rea-video and reuse its source-linked motion in Line World.
 ---
 
 # Reference motion
 
-Use this skill when the brief names reference videos and asks to reuse their editing or graphics in a new film. It contributes a source-linked motion library to `line-world-video`. For editorial reference discovery and channel-relative performance comparisons, use the companion `video-style-reverse-engineering` skill.
+Use this skill when choosing explanatory motion, building a reusable diagram, or adapting the graphics in a reference film. For editorial reference discovery and channel-relative performance comparisons, use the companion `video-style-reverse-engineering` skill.
+
+## Choose and precompose a diagram
+
+For mathematical, physical or geometric briefs, consult the [3Blue1Brown study](references/3blue1brown.md). The selector retrieves observed poses from the channel's two-year corpus. Use `interval-refinement` for nested numerical bounds and `trajectory-trace` for timed positions with a linked height graph. Both render from the supplied values and accept narration cues. For geometric proofs, parameter fields or invariants, the direction report supplies the source poses, the element to keep stable and the geometry the specialist must construct.
+
+When the explanation has a voice track, choose which pose belongs to each important mention. Distinguish arrival on screen, complete label, movement, result and renewed attention to an existing entity. Use the [pose and narration study](references/poses-y-menciones.md) and preserve measured word or phrase timing in the production request.
+
+For ordinary new briefs, use the [transfer workflow](references/transferir-composicion.md) before drawing. It binds the viewer's question to the supplied records or concepts, retrieves comparable actions from forty observed passages, and produces editable geometry or a specialist handoff. Use it without waiting for the requester to name a study or a template. Preserve the reference's useful spatial or temporal relationship while using the new entities, quantities, units and reading time.
+
+Start with what the viewer should be able to compare, follow or explain. When the movement is open, use the [animation selector](references/elegir-animacion.md) with the actual brief and available data. Give the proposed representation, what moves, what stays fixed and why that helps the viewer. Respect an animation the user has already selected. If two readings are plausible, describe the distinction and use the surrounding brief to resolve it when possible.
+
+For an unfamiliar domain, identify the moving entity, the relationship and the evidence in the user's own terms. If a free-text query misses a clear relationship, select its explicit `--intent` from `--list-intents` and keep the original brief and data in the call. Distinguish an example that illustrates a mechanism from a drawing driven by the user's measured values.
+
+Use the [precomposition guide](references/precomponer-diagramas.md) to build the selected relation as a timed unit. It includes a runnable example with editable content and a reading hold. Each component takes a local time from its parent. The same instant should restore the same pose after seeking backwards.
 
 ## Use the motion library
 
@@ -18,9 +32,15 @@ uv run --script scripts/generate_motion.py render assets/ejemplo.json /path/to/f
 uv run --script scripts/generate_motion.py verify assets/ejemplo.json /path/to/film/comparison.mp4
 ```
 
-Use `init` for any of the 23 graphics or 10 transitions in the [gallery](assets/demo.html). For a sequence create one ordered scene list. Assign the handoff to its destination. Hold the data or image long enough to read it. Use exact colorset1 paints, stable identities and a single forward change for each editorial purpose. Preserve a link to the [source observations](references/patterns.json) when reusing a measured mechanism.
+Use `init` for any graphic or transition in the [gallery](assets/demo.html). For a sequence create one ordered scene list. Assign the handoff to its destination. Hold the data or image long enough to read it. Use exact colorset1 paints, stable identities and a single forward change for each editorial purpose. Preserve a link to the [source observations](references/patterns.json) when reusing a measured mechanism.
+
+For a structural explanation, pick a diagram by the relation the viewer needs to follow. Use `field-packing` for fields and their occupied cells, `layer-preview` to link each layer to a cumulative result, or `isometric-layers` to separate members of a stack towards a side base. Carry a selected module from inventory into use and reveal its named inputs and outputs with `module-transfer`. Follow the same vertices from grid to surface with `vertex-remap`. Use `pass-strip` for the render passes of a single viewport and `command-lanes` for individual calls and their GPU intervals. With `import-footprint`, keep the full import on screen and highlight the cells occupied by each module in turn. Choose `shared-host` for one scene between two hosts or `split-clock` for independent schedules with a common display cadence. Set each diagram's labels in semantic order and use `duration` for the complete move. The diagram starts in its source pose on frame zero. [Diagram recipes and examples](references/usage.md#diagramas-de-estructura-y-ejecución)
 
 For a percentage, `chart-ring` holds the stated value while the arc and its marker trace the corresponding share. A series of bars grows in groups of up to three, separated by a quarter-second pause. Run `python scripts/test_chart_attention.py` after changing the drawing or timing of either chart.
+
+The [TypeGPU Kit study](references/typegpu-study.md) links ten diagram mechanisms to frames in the source film. Render the [editable ten-scene recipe](assets/diagramas-typegpu.json) to see their geometry and timing together. Each scene also works on its own through `init`.
+
+For a system design brief, use the [ByteByteGo study](references/bytebytego-study.md). Its twenty [editable scenes](assets/diagramas-bytebytego.json) include request routing, membership, message order, state changes and decompositions. Match the viewer's question to the mechanism. Use a staged layout when the entities, positions and order of revelation come from the user's own system. Find the original passage and its observed landmarks in the [source index](references/bytebytego-corpus.json).
 
 For occasional transitions keep ordinary joins as cuts. In longer edits mark a meaningful destination with `handoff` (`section`, `comparison` or `detail`). Read the exported `transition_audit` for the chosen effect, its reason and source-frame interval. One-scene graphics can develop in place. For a comparison, `data-chart.focusHold` keeps the selected value, bar and category fixed as context appears. For an end card, `detailScale` adjusts the size of the final action. [Recipe fields and pacing](references/usage.md)
 

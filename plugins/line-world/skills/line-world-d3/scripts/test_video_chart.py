@@ -111,6 +111,23 @@ class VideoChartTest(unittest.TestCase):
         self.assertEqual(layout["values"],[None,0,None,None,None])
         self.assertEqual(page.evaluate("snapshot().value"),None)
 
+    def test_progressive_dates_keep_the_peak_and_missing_mark_on_their_own_dates(self):
+        data=timeline([3, None, 8, 5, 4])
+        data["revealObservations"]=True
+        page=self.render(data)
+        first_date="2024-02-01"
+        visible=lambda: page.locator("#timeline [data-date]:visible").evaluate_all(
+            "nodes=>nodes.map(n=>n.dataset.date).sort()")
+        self.assertEqual(page.evaluate("renderAt(0).value"),3)
+        self.assertEqual(visible(),[first_date])
+        self.assertEqual(page.evaluate("renderAt(1).value"),None)
+        self.assertEqual(visible(),[first_date,"2024-02-02"])
+        self.assertEqual(page.locator(".last-value").text_content(),"Sin dato")
+        self.assertEqual(page.evaluate("renderAt(8).value"),4)
+        self.assertEqual(visible(),[row["date"] for row in data["observations"]])
+        self.assertEqual(page.evaluate("renderAt(0).value"),3)
+        self.assertEqual(visible(),[first_date])
+
     def test_observed_value_and_date_keep_six_pixels_between_their_actual_boxes(self):
         for width,height in ((390,844),(1280,720)):
             page=self.render(timeline([-2.5,-1.2,None,4.8,3.4]),width,height)
@@ -126,7 +143,8 @@ class VideoChartTest(unittest.TestCase):
             self.assertGreaterEqual(page.evaluate(measure),5.95)
 
     def test_does_not_coerce_bad_input(self):
-        cases=[comparison([2,True]),comparison([2,float("nan")]),timeline([None]*5)]
+        cases=[comparison([2,True]),comparison([2,float("nan")]),timeline([None]*5),
+               {**timeline([1]*5),"revealObservations":"true"}]
         same=timeline([1]*5);same["observations"][1]["date"]="2024-02-01";cases.append(same)
         absent=timeline([1]*5);del absent["observations"][0]["value"];cases.append(absent)
         for spec in cases:

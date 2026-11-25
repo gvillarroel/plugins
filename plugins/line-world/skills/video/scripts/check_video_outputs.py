@@ -14,6 +14,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+from video_probe import duration_seconds, video_duration
+
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Check exact video workflow outputs for existence, JSON pass flags, and literal anchors.")
@@ -127,11 +129,9 @@ def probe_video(video: Path) -> dict[str, object]:
             "-v",
             "error",
             "-select_streams",
-            "v:0",
+            "V:0",  # Exclude attached cover art.
             "-show_entries",
-            "stream=width,height,r_frame_rate,duration",
-            "-show_entries",
-            "format=duration",
+            "stream=width,height,r_frame_rate,duration,start_time:stream_tags=DURATION:format=duration",
             "-of",
             "json",
             str(video),
@@ -163,7 +163,7 @@ def check_video_expectations(paths: list[Path], args: argparse.Namespace, findin
     }
     if all(value is None for value in expectations.values()):
         return {}
-    videos = [path for path in paths if path.suffix.lower() in {".mp4", ".webm", ".mov", ".m4v"}]
+    videos = [path for path in paths if path.suffix.lower() in {".mp4", ".webm", ".mkv", ".mov", ".m4v"}]
     if not videos:
         add_finding(findings, "missing-video-for-expectations", "video", "No video path was supplied for media expectation checks.")
         return {"expectations": expectations, "checked": None}
@@ -175,16 +175,26 @@ def check_video_expectations(paths: list[Path], args: argparse.Namespace, findin
         return {"expectations": expectations, "checked": video.as_posix()}
     stream = (data.get("streams") or [{}])[0]
     fmt = data.get("format") if isinstance(data.get("format"), dict) else {}
-    actual_duration = float(fmt.get("duration") or stream.get("duration") or 0)
+    if not stream:
+        add_finding(findings, "missing-video-stream", video, "No video stream found.")
+        return {"expectations": expectations, "checked": video.as_posix()}
+    container_duration = duration_seconds(fmt.get("duration"))
+    actual_duration = video_duration(stream)
     actual_fps = rational_to_float(stream.get("r_frame_rate"))
     actual = {
         "duration": actual_duration,
+        "containerDuration": container_duration,
         "fps": actual_fps,
         "width": stream.get("width"),
         "height": stream.get("height"),
     }
-    if args.expect_duration is not None and abs(actual_duration - args.expect_duration) > 0.5:
-        add_finding(findings, "duration-mismatch", video, f"Expected about {args.expect_duration}s, got {actual_duration:.3f}s.")
+    if args.expect_duration is not None:
+        if actual_duration is None:
+            add_finding(findings, "duration-unavailable", video, "Video duration was unavailable.")
+        elif abs(actual_duration - args.expect_duration) > 0.5:
+            add_finding(findings, "duration-mismatch", video, f"Expected about {args.expect_duration}s of video, got {actual_duration:.3f}s.")
+        elif container_duration is not None and abs(container_duration - args.expect_duration) > 0.5:
+            add_finding(findings, "container-duration-mismatch", video, f"Expected a file about {args.expect_duration}s long, got {container_duration:.3f}s.")
     if args.expect_fps is not None and (actual_fps is None or abs(actual_fps - args.expect_fps) > 0.2):
         add_finding(findings, "fps-mismatch", video, f"Expected about {args.expect_fps} fps, got {actual_fps}.")
     if args.expect_width is not None and actual["width"] != args.expect_width:

@@ -30,8 +30,8 @@
     "Add the bounded video table/comparison builder and browser exporter."
   ],
   "chartFiles": {
-    "scripts/video_chart.py": "9eb02b74f62b55c1ab08407201c27cf625ac763112b123a371fb55e646c53e70",
-    "assets/templates/video-chart.html": "9bd9f13c4e9c25a81991a31439b17e2e2a0922ea15a7dbc1885e03b9a4d0628e",
+    "scripts/video_chart.py": "a181b2fe9ebab244075fba953a604e5b6df7d48924c7e27b64a04fe33a499e38",
+    "assets/templates/video-chart.html": "f2f90e880822e57d6fb901ff1739206e6b4227834304eaad7bf44ff1c3483787",
     "scripts/video_chart_audit.js": "102e099a96c2efe28272c294980e506a99ca377169782f7f383b97585726361f",
     "scripts/video_chart_motion_audit.js": "f1d2ba4cc8397faaf0811fb721d5baf23bd707f03e7fd6cd742158f9cb74f664"
   }

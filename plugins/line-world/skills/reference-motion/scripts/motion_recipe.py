@@ -4,8 +4,35 @@ import math
 import re
 from pathlib import Path
 
+from systems_recipe import validate_system
+from narration_poses import validate_clock
+
+
+DIAGRAM_LABEL_COUNTS = {
+    "field-packing": 4, "layer-preview": 4, "isometric-layers": 5, "module-transfer": 5,
+    "vertex-remap": 2, "command-lanes": 4, "shared-host": 3, "split-clock": 2,
+    "pass-strip": 4, "import-footprint": 3,
+    "ring-handoff": 5, "bit-probe": 3, "message-ladder": 2, "detail-callout": 4, "radix-ladder": 3, "token-gate": 4, "resolution-fan": 8, "queue-router": 5,
+}
+
+
+DIAGRAM_KINDS = set(DIAGRAM_LABEL_COUNTS) | {"staged-network", "interval-refinement", "trajectory-trace"}
+
 
 FIELDS = {
+    **dict.fromkeys(DIAGRAM_LABEL_COUNTS, "labels duration"),
+    "ring-handoff": "labels duration keyLabel",
+    "bit-probe": "labels duration bits",
+    "message-ladder": "labels duration exchanges",
+    "detail-callout": "labels duration parts focusLabel",
+    "radix-ladder": "labels duration value base",
+    "token-gate": "labels duration tokens requests",
+    "queue-router": "labels duration inputLabel criteria",
+    "staged-network": "duration nodes edges",
+    "interval-refinement": "duration title unit intervals",
+    "trajectory-trace": "duration title unit timeUnit samples",
+    "module-transfer": "labels duration highlightIndex inputs outputs",
+    "import-footprint": "labels duration footprint",
     "speaker-id": "title detail side background", "question-card": "title background", "caption-overlay": "title media position",
     "editorial-split": "title detail media share", "slide-pip": "slide media box presenter faceBox",
     "insight-band": "title detail kicker media side", "dashboard-stack": "cards beat",
@@ -30,7 +57,7 @@ def number(value, minimum=0):
 
 def words(value):
     if isinstance(value, dict):
-        visible={"title","detail","kicker","value","values","label","labels","cta","unit","items","text","number","name","presenter","nodes","cards","guests"}
+        visible={"title","detail","kicker","value","values","label","labels","cta","unit","items","text","number","name","presenter","nodes","cards","guests","inputs","outputs","edges","keyLabel","inputLabel","focusLabel","exchanges","parts","criteria","intervals"}
         return sum(words(v) for k,v in value.items() if k in visible)
     if isinstance(value, list):
         return sum(words(v) for v in value)
@@ -41,7 +68,11 @@ def words(value):
 
 def check_props(kind, p, assets):
     require(isinstance(p,dict), "props debe ser un objeto JSON")
-    require(set(p) <= set(FIELDS[kind].split()), f"{kind}: propiedad desconocida {set(p)-set(FIELDS[kind].split())}")
+    allowed=set(FIELDS[kind].split())
+    if kind in DIAGRAM_KINDS: allowed.add("poseClock")
+    if kind=="staged-network": allowed.add("poseFocus")
+    if kind in ("staged-network","message-ladder"): allowed.add("poseLabels")
+    require(set(p) <= allowed, f"{kind}: propiedad desconocida {set(p)-allowed}")
     string_fields = {"title","detail","label","kicker","unit","cta","presenter"}
     for k in string_fields & p.keys():
         require(isinstance(p[k], str), f"{kind}.{k} debe ser texto")
@@ -108,6 +139,72 @@ def check_props(kind, p, assets):
                     "focusHold requiere highlightIndex y al menos 1,5 s para leer el dato destacado")
     if kind == "concept-diagram":
         require(isinstance(p.get("nodes"),list) and len(p["nodes"])>0 and all(isinstance(n,str) and n.strip() for n in p["nodes"]), "Cada nodo debe tener nombre")
+    if kind in DIAGRAM_LABEL_COUNTS:
+        labels = p.get("labels")
+        count = DIAGRAM_LABEL_COUNTS[kind]
+        require(isinstance(labels, list) and len(labels) == count
+                and all(isinstance(label, str) and label.strip() for label in labels),
+                f"{kind}: se requieren {count} etiquetas de texto en labels")
+    validate_system(kind, p)
+    validate_clock(p, kind)
+    if kind == "trajectory-trace":
+        samples = p.get("samples")
+        require(isinstance(samples, list) and 2 <= len(samples) <= 400,
+                "La trayectoria necesita entre 2 y 400 muestras.")
+        require(all(isinstance(p.get(k), str) and p[k].strip() for k in ("unit", "timeUnit")),
+                "Indica una unidad espacial y una unidad temporal.")
+        for sample in samples:
+            require(isinstance(sample, dict) and set(sample) == {"t", "x", "y"} and
+                    all(number(v, -math.inf) and abs(v) <= 1e12 for v in sample.values()),
+                    "Cada muestra necesita t, x e y finitos dentro de ±10¹².")
+        require(all(a["t"] < b["t"] for a, b in zip(samples, samples[1:])),
+                "Cada muestra necesita un instante distinto en orden creciente.")
+    if kind == "interval-refinement":
+        intervals = p.get("intervals")
+        require(isinstance(intervals, list) and 2 <= len(intervals) <= 7,
+                "Se necesitan entre dos y siete intervalos ordenados.")
+        require(bool(p.get("unit", "").strip()), "Indica la unidad común de los intervalos.")
+        previous = direction = None
+        for interval in intervals:
+            require(isinstance(interval, dict) and set(interval) == {"label", "low", "high"},
+                    "Cada intervalo necesita label, low y high.")
+            low, high = interval["low"], interval["high"]
+            require(isinstance(interval["label"], str) and interval["label"].strip(),
+                    "Cada intervalo necesita un nombre.")
+            require(number(low, -math.inf) and number(high, -math.inf) and low < high and math.isfinite(high-low),
+                    "Los extremos del intervalo deben ser finitos y crecientes.")
+            if previous:
+                a, b = previous
+                narrower = a <= low and high <= b
+                wider = low <= a and b <= high
+                require(narrower != wider, "Cada intervalo debe contener al anterior o estar contenido en él y tener otra amplitud.")
+                step = "in" if narrower else "out"
+                require(direction in (None, step), "Mantén el sentido de la ampliación dentro del mismo plano.")
+                direction = step
+            previous = low, high
+    if kind == "module-transfer":
+        index = p.get("highlightIndex", 1)
+        require(type(index) is int and 0 <= index < len(p["labels"]),
+                "module-transfer.highlightIndex debe indicar una fila del inventario")
+        for field in ("inputs", "outputs"):
+            if field in p:
+                ports = p[field]
+                require(isinstance(ports, list) and 1 <= len(ports) <= 3
+                        and all(isinstance(port, str) and port.strip() for port in ports),
+                        f"module-transfer.{field} requiere entre uno y tres nombres de puerto")
+    if kind == "import-footprint" and "footprint" in p:
+        footprint = p["footprint"]
+        require(isinstance(footprint, dict) and set(footprint) == {"total", "unit", "groups"},
+                "import-footprint.footprint requiere total, unit y groups")
+        total, unit, groups = (footprint[key] for key in ("total", "unit", "groups"))
+        require(type(total) is int and 1 <= total <= 240, "footprint.total debe ser un entero entre 1 y 240")
+        require(isinstance(unit, str) and bool(unit.strip()) and len(unit) <= 12,
+                "footprint.unit requiere entre uno y doce caracteres")
+        require(isinstance(groups, list) and len(groups) == 3, "footprint.groups requiere tres listas")
+        for cells in groups:
+            require(isinstance(cells, list) and all(type(i) is int and 0 <= i < total for i in cells)
+                    and len(set(cells)) == len(cells),
+                    "Cada lista de footprint.groups debe contener índices de celda válidos y únicos")
     if kind == "keypoint-list":
         items=p.get("items")
         require(isinstance(items,list) and len(items)>0 and all(isinstance(s,str) and s.strip() or isinstance(s,dict) and set(s)<={"text","accent"} and isinstance(s.get("text"),str) and s["text"].strip() for s in items), "Lista sin viñetas legibles")
@@ -140,6 +237,8 @@ BAR_GROUP_PAUSE = .25
 
 
 def reveal_time(kind, p):
+    if kind in DIAGRAM_KINDS:
+        return p.get("duration", 5)
     if kind=="keypoint-list":
         return (max(p["starts"]) if "starts" in p else (len(p["items"])-1)*p.get("beat",1.5))+.7
     if kind=="dashboard-stack":
@@ -349,6 +448,9 @@ def compile_recipe(spec, defaults, transitions, builtin_media=()):
         kind=s.get("artifact")
         require(isinstance(kind,str) and kind in defaults and kind in FIELDS,f"{sid}: artefacto desconocido")
         props=s.get("props",defaults[kind])
+        if kind == "module-transfer" and isinstance(props, dict):
+            port_defaults = {key: defaults[kind][key] for key in ("inputs", "outputs", "highlightIndex")}
+            props = {**port_defaults, **props}
         check_props(kind,props,set(assets)|set(builtin_media))
         signature=json.dumps([kind,props],sort_keys=True,ensure_ascii=False)
         require(not signatures or signature!=signatures[-1],f"{sid}: escena duplicada consecutiva")

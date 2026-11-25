@@ -120,13 +120,20 @@ def compile_brief(brief,size):
     direction.require(all("{"+v+"}" in lines[0] for v in ("a","b")),"La primera frase debe emplear {a} y {b} para tomar las cifras de los datos.")
     voice=[expand(s,units[0],binding,spoken=True,percentage_points=percent) for s in lines]
     takeaway=expand(text(brief.get("takeaway",default_title),"takeaway"),unit,binding,percentage_points=percent)
-    credit=("Datos simulados · " if source["type"]=="simulated" else "Fuente · ")+detail
+    if source["type"] == "simulated":
+        credit = detail if re.match(r"Datos simulados\b", detail, re.IGNORECASE) else "Datos simulados · " + detail
+    else:
+        credit = "Fuente · " + detail
     common={"kind":"compare","labels":labels,"unit":unit,"values":quantities,"focusRow":2,"oneLineValues":True}
     visual={"version":1,"fps":FPS,"size":size,"source":source,"sourceCaption":credit,
         "anchor":{"label":text(brief.get("subjectLabel","Comparación"),"subjectLabel"),"value":subject},"scenes":[
         {**common,"id":"medidas","title":title,"idea":voice[0],"cue":0,"move":FPS,"hold":FPS,
          "timing":{"sentence":0,"moveSeconds":1.25}},
         {**common,"id":"lectura","title":takeaway,"idea":voice[1],"readingOnly":True,"cue":0,"move":0,"hold":FPS}]}
+    if size[0] < size[1]:
+        visual["layout"] = "stacked-comparison"
+        if "subjectLabel" not in brief:
+            visual["anchor"]["showLabel"] = False
     return visual,voice
 
 
@@ -351,6 +358,7 @@ def validate_brief(brief_file, kind):
         "format": kind,
         "size": visual["size"],
         "source": brief["source"],
+        "sourceCaption": visual["sourceCaption"],
         "scenes": scenes,
     }
 
@@ -426,6 +434,8 @@ def build(brief_file,out,kind,model=None,browser=None,replace=False,reserve_mib=
 
 
 if __name__=="__main__":
+    if not sys.stdout.isatty():
+        sys.stdout.reconfigure(encoding="utf-8")
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument("brief",type=Path)
     action = p.add_mutually_exclusive_group(required=True)

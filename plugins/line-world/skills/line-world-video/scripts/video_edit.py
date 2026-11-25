@@ -5,7 +5,7 @@
 # ///
 """Inspect, patch and cache project-owned video data with compact deterministic reports."""
 from __future__ import annotations
-import argparse,copy,hashlib,json,math,os,re,tempfile
+import argparse,copy,hashlib,json,math,os,re,sys,tempfile
 from pathlib import Path
 
 SKILL=Path(__file__).resolve().parent.parent
@@ -270,23 +270,35 @@ def record(root,receipts):
   state['scenes'][sid]={**by_id[sid],'narrationSha256':baseline,'artifact':str(artifact.relative_to(root)),'artifactSha256':sha(artifact),'firstPose':receipt.get('firstPose'),'lastPose':receipt.get('lastPose'),'upstreamPoseSha256':signature(prior.get('lastPose')) if prior else None}
  transaction({state_path:encode(state)});return {'ok':True,'recorded':len(receipts),**status(root)}
 def main():
+ sys.stdout.reconfigure(encoding='utf-8')
  parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('command',choices=['setup','inspect','plan','apply','restore','status','record','theme']);parser.add_argument('--project',type=Path,required=True);parser.add_argument('--story',default='story.json');parser.add_argument('--cues');parser.add_argument('--file',default='story');parser.add_argument('--path');parser.add_argument('--patch',type=Path);parser.add_argument('--revision');parser.add_argument('--receipts',type=Path);parser.add_argument('--details',action='store_true');parser.add_argument('--report',type=Path);args=parser.parse_args();root=args.project.resolve()
  try:
   if (SKILL/'SKILL.md').is_file() and root.is_relative_to(SKILL):raise ValueError('Keep the skill bundle read-only.')
   report_path=inside(root,args.report.resolve()) if args.report else None
   protected=[inside(root,v) for v in ['story.json','theme.json','theme.css',META]]
-  if inside(root,META).is_file():protected.extend(inside(root,v) for v in config(root)['files'].values())
+  if inside(root,META).is_file():
+   registry=config(root)
+   inputs=[*registry['files'].values(),*registry.get('sharedInputs',[])]
+   for paths in registry.get('sceneInputs',{}).values():inputs.extend(paths)
+   protected.extend(inside(root,v) for v in inputs)
+  if args.command=='setup':
+   protected.append(inside(root,args.story))
+   if args.cues:protected.append(inside(root,args.cues))
+  command_input=None
+  if args.command in ['plan','apply'] and args.patch:command_input=input_path(root,args.patch)
+  if args.command=='record' and args.receipts:command_input=input_path(root,args.receipts)
+  if command_input:protected.append(command_input)
   if report_path and (report_path in protected or report_path.is_relative_to(inside(root,'.line-world'))):raise ValueError('A report cannot replace editable inputs or metadata.')
   if args.command=='setup':result=setup(root,args.story,args.cues)
   elif args.command=='inspect':result=inspect(root,args.file,args.path)
   elif args.command in ['plan','apply']:
    if not args.patch:raise ValueError('Provide --patch changes.json.')
-   result=apply(root,read(input_path(root,args.patch)),args.command=='plan')
+   result=apply(root,read(command_input),args.command=='plan')
   elif args.command=='restore':result=restore(root,args.revision or '')
   elif args.command=='status':result=status(root,args.details)
   elif args.command=='record':
    if not args.receipts:raise ValueError('Provide --receipts render-receipts.json.')
-   result=record(root,read(input_path(root,args.receipts)))
+   result=record(root,read(command_input))
   else:
    c=config(root);transaction({inside(root,'theme.css'):theme_css(read(inside(root,c['files']['theme']))).encode()});result={'ok':True,'css':'theme.css'}
   if args.report:

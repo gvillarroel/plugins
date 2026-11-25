@@ -21,6 +21,8 @@ from typing import Any
 
 from PIL import Image, ImageStat
 
+from video_probe import duration_seconds, video_duration
+
 
 def sha256_file(path: Path | None) -> str | None:
     if path is None or not path.is_file():
@@ -124,7 +126,8 @@ def run_ffprobe(video: Path) -> dict[str, Any]:
         "-v",
         "error",
         "-show_entries",
-        "format=duration,size:stream=index,codec_type,codec_name,width,height,avg_frame_rate,duration",
+        "format=duration,size:stream=index,codec_type,codec_name,width,height,avg_frame_rate,duration,start_time"
+        ":stream_disposition=attached_pic:stream_tags=DURATION",
         "-of",
         "json",
         str(video),
@@ -321,7 +324,10 @@ def validate(args: argparse.Namespace) -> dict[str, Any]:
         }
 
     streams = probe.get("streams", [])
-    video_streams = [stream for stream in streams if stream.get("codec_type") == "video"]
+    video_streams = [
+        stream for stream in streams
+        if stream.get("codec_type") == "video" and not stream.get("disposition", {}).get("attached_pic")
+    ]
     audio_streams = [stream for stream in streams if stream.get("codec_type") == "audio"]
     if not video_streams:
         failures.append("no video stream found")
@@ -384,9 +390,8 @@ def validate(args: argparse.Namespace) -> dict[str, Any]:
     width = video_stream.get("width")
     height = video_stream.get("height")
     fps = parse_fps(video_stream.get("avg_frame_rate"))
-    duration = parse_float(probe.get("format", {}).get("duration"))
-    if duration is None:
-        duration = parse_float(video_stream.get("duration"))
+    container_duration = duration_seconds(probe.get("format", {}).get("duration"))
+    duration = video_duration(video_stream)
     size = parse_float(probe.get("format", {}).get("size"))
 
     if args.expect_width is not None and width != args.expect_width:
@@ -402,11 +407,17 @@ def validate(args: argparse.Namespace) -> dict[str, Any]:
         if duration is None:
             failures.append("expected duration but duration was unavailable")
         elif abs(duration - args.expect_duration) > args.duration_tolerance:
-            failures.append(f"expected duration {args.expect_duration}s, got {duration:.3f}s")
+            failures.append(f"expected video duration {args.expect_duration}s, got {duration:.3f}s")
+        elif container_duration is not None and abs(container_duration - args.expect_duration) > args.duration_tolerance:
+            failures.append(f"expected container duration {args.expect_duration}s, got {container_duration:.3f}s")
+    if args.expect_duration is None and duration is None and (args.min_duration is not None or args.max_duration is not None):
+        failures.append("expected duration but video stream duration was unavailable")
     if args.min_duration is not None and duration is not None and duration < args.min_duration:
         failures.append(f"expected duration >= {args.min_duration}s, got {duration:.3f}s")
-    if args.max_duration is not None and duration is not None and duration > args.max_duration:
-        failures.append(f"expected duration <= {args.max_duration}s, got {duration:.3f}s")
+    if args.max_duration is not None:
+        longest_duration = max((value for value in (duration, container_duration) if value is not None), default=None)
+        if longest_duration is not None and longest_duration > args.max_duration:
+            failures.append(f"expected duration <= {args.max_duration}s, got {longest_duration:.3f}s")
 
     if args.contact_sheet:
         contact_sheet = validate_contact_sheet(
@@ -485,6 +496,7 @@ def validate(args: argparse.Namespace) -> dict[str, Any]:
             "height": height,
             "fps": fps,
             "durationSeconds": duration,
+            "containerDurationSeconds": container_duration,
             "sizeBytes": int(size) if size is not None else None,
         },
         "reports": reports,

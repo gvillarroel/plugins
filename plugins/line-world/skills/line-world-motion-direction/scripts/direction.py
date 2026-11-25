@@ -35,6 +35,7 @@ PAPER, INK, RED, GRAY, RULE = (
     ROLES[k] for k in ("surface", "ink", "primary", "muted", "line")
 )
 KINDS = {"transfer", "trace", "compare"}
+STACKED_BAR_HEIGHTS = (0.42, 0.565)
 
 
 def require(check, message):
@@ -70,6 +71,7 @@ def read(path):
         all(text(spec["anchor"].get(k)) for k in ("label", "value")),
         "anchor requires label and value",
     )
+    require(type(spec["anchor"].get("showLabel", True)) is bool, "anchor.showLabel must be true or false")
     require(
         isinstance(spec.get("scenes"), list) and bool(spec["scenes"]),
         "scenes must be a nonempty list",
@@ -195,7 +197,7 @@ def json_decimal(token):
 
 _UNIT_FORMS = (
     ("euro","euros"),("dólar","dólares"),("céntimo","céntimos"),("centavo","centavos"),
-    ("segundo","segundos"),("minuto","minutos"),("hora","horas"),("día","días"),
+    ("milisegundo","milisegundos"),("segundo","segundos"),("minuto","minutos"),("hora","horas"),("día","días"),
     ("metro","metros"),("kilómetro","kilómetros"),("centímetro","centímetros"),
     ("litro","litros"),("mililitro","mililitros"),("gramo","gramos"),("kilogramo","kilogramos"),
     ("grado","grados"),("grado Celsius","grados Celsius"),("unidad","unidades"),
@@ -309,7 +311,17 @@ def frame(spec, scene, index):
     image = Image.new("RGB", (w, h), PAPER)
     d = ImageDraw.Draw(image)
     title_px = round(36 * scale)
-    if portrait:
+    stacked = spec.get("layout") == "stacked-comparison" and w < h and scene["kind"] == "compare"
+    if stacked:
+        left, right = pad, w - pad
+        anchor_box = (pad, 0, right, round(h * 0.135))
+        subject = spec["anchor"]["value"]
+        if spec["anchor"].get("showLabel", True):
+            subject = spec["anchor"]["label"] + " · " + subject
+        label(d, (left, h * 0.075), subject, 25 * scale, right - left, ROLES["secondaryHighlight"], max_lines=3)
+        title_y, title_px = h * 0.215, round(49 * scale)
+        top, bottom = (h * fraction for fraction in STACKED_BAR_HEIGHTS)
+    elif portrait:
         anchor_box = (pad, pad, w - pad, round(h * 0.21))
         ax, ay = pad, pad + 15 * scale
         label(d, (ax, ay), spec["anchor"]["label"], 22 * scale, w * 0.43, ROLES["secondaryHighlight"])
@@ -439,16 +451,28 @@ def frame(spec, scene, index):
         low = min(0, *values, *initial)
         high = max(0, *values, *initial)
         span = high - low or 1
-        bar_left = left + width * 0.29
-        usable = width * (0.49 if scene.get("oneLineValues") else 0.56)
+        if stacked:
+            bar_left, usable = left, width
+            value_width = width * 0.45
+        else:
+            bar_left = left + width * 0.29
+            usable = width * (0.49 if scene.get("oneLineValues") else 0.56)
+            value_width = width * (0.205 if scene.get("oneLineValues") else 0.14)
         zero_x = bar_left - low * usable / span
         if low < 0:
-            d.line((zero_x,top-height*.02,zero_x,bottom-height*.03),fill=INK,width=line)
-            image.info["zeroLabelBox"] = label(d,(zero_x,top-20*scale),"0",22*scale,usable,anchor="mm")
+            if stacked:
+                for y in (top, bottom):
+                    d.line((zero_x,y-12*scale,zero_x,y+12*scale),fill=INK,width=line)
+            else:
+                d.line((zero_x,top-height*.02,zero_x,bottom-height*.03),fill=INK,width=line)
+            zero_label_y = bottom + 29 * scale if stacked else top - 20 * scale
+            image.info["zeroLabelBox"] = label(d,(zero_x,zero_label_y),"0",22*scale,usable,anchor="mm")
         image.info["comparisonRows"] = []
         for i, (word, v, paint) in enumerate(zip(labels, values, (GRAY, RED))):
-            y = top + height * (0.18 + 0.61 * i)
-            name_box = label(d, (left, y), word, 22 * scale, width * 0.26)
+            y = (top, bottom)[i] if stacked else top + height * (0.18 + 0.61 * i)
+            label_y = y - 48 * scale if stacked else y
+            name_box = label(d, (left, label_y), word, (27 if stacked else 22) * scale,
+                             width * (0.50 if stacked else 0.26), max_lines=2 if stacked else 3)
             rect(d, (bar_left, y - 5 * scale, bar_left + usable, y + 5 * scale), RULE)
             a = layer(f"barra {i + 1}")
             live = initial[i] + (v - initial[i]) * p
@@ -478,18 +502,19 @@ def frame(spec, scene, index):
                 a if small or "fromValues" in scene else d,
                 (
                     right - min(8 * scale, width * 0.025) * (1 - p) if small else right,
-                    y,
+                    label_y,
                 ),
                 printed,
-                22 * scale,
-                width * (0.205 if scene.get("oneLineValues") else 0.14),
+                (40 if stacked else 22) * scale,
+                value_width,
                 anchor="rm",
                 max_lines=1 if scene.get("oneLineValues") else 3,
             )
             image.info["comparisonRows"].append({"label":word,"displayed":printed,"color":paint,
                 "labelBox":name_box,"valueBox":value_box,"zero":zero_x,"end":end,"y":y})
     if spec.get("sourceCaption"):
-        image.info["sourceBox"]=label(d,(left,h*.925),spec["sourceCaption"],19*scale,width,ROLES["secondaryHighlight"],max_lines=2)
+        credit_y = h * (0.67 if stacked else 0.925)
+        image.info["sourceBox"]=label(d,(left,credit_y),spec["sourceCaption"],19*scale,width,ROLES["secondaryHighlight"],max_lines=2)
     if "note" in scene:
         temporary = Image.new("RGBA", (w, h))
         note_draw = ImageDraw.Draw(temporary)

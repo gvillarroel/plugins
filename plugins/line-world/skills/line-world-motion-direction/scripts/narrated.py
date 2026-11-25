@@ -14,7 +14,7 @@ from shutil import which
 import subprocess
 from tempfile import NamedTemporaryFile
 
-from direction import SKILLS, frame, read, require
+from direction import SKILLS, STACKED_BAR_HEIGHTS, frame, read, require
 
 
 def write(path, data):
@@ -101,6 +101,10 @@ def score(spec, timeline, total, positions):
         top, bottom = 0.42, 0.70
     centers = [top + (bottom - top) * f for f in (0.18, 0.79)]
     area = 0.09 if w / h < 1.25 else 0.12
+    if spec.get("layout") == "stacked-comparison" and w < h:
+        # Each row includes its name and reading immediately above the full-width rail.
+        centers = [y - 0.024 for y in STACKED_BAR_HEIGHTS]
+        area = 0.12
     tracks = {
         f"fila{i + 1}": {
             "box": [

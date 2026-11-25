@@ -37,6 +37,7 @@ Read [solid-surfaces.md](references/solid-surfaces.md) for solid-first category 
 ## Choose assets for each moment
 
 Before authoring scene geometry, read [asset-direction.md](references/asset-direction.md).
+For new data or concepts, use the plugin's [composition transfer guide](../reference-motion/references/transferir-composicion.md) to choose the spatial relationship and event order. Bind the moving object, fixed reference and arrival to the actual entities and events in the local brief. A shared parent transform keeps a moving group and its labels together. Preserve a common origin or axis when a measured comparison depends on it. Use the decoded intermediate state to check that the interaction still reads after the assets are composed.
 Inspect the available installed skill descriptions, select by the relationship
 being explained, and read the selected skill's actual `SKILL.md`. Follow its
 generation and validation workflow. Do not assume a skill is installed or invoke

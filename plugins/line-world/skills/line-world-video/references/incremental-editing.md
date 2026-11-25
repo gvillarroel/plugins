@@ -40,8 +40,11 @@ uv run --script <skill-root>/scripts/video_edit.py apply --project film --patch 
 
 `plan` is read-only. `apply` validates the complete candidate, checks cue budgets,
 writes atomically with rollback, compiles theme CSS and saves an undo revision.
-Patch/receipt paths resolve from the working directory, or from the project
-when absent there. Conflicting existing paths require an explicit path.
+Patch and render receipt input paths resolve from the working directory, or
+from the project when absent there. Conflicting existing paths require an
+explicit path. Supply a distinct `--report` path inside the project. Relative
+report paths resolve from the working directory. The editor writes its JSON
+output and report files in UTF-8.
 Unchanged edits preserve files and modification times. Optional
 `expectedSha256: {"cues":"<inspection hash>"}` rejects intervening edits.
 Use `restore --project film --revision <revision>` for an exact-byte undo; a

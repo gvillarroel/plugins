@@ -1,0 +1,2686 @@
+{
+  "version": 1,
+  "width": 1280,
+  "height": 720,
+  "fps": 24,
+  "transition_policy": {
+    "mode": "cuts-only"
+  },
+  "scenes": [
+    {
+      "id": "video-01-staged-network",
+      "artifact": "staged-network",
+      "props": {
+        "duration": 6.8,
+        "nodes": [
+          {
+            "id": "user",
+            "label": "Persona",
+            "x": 0.5,
+            "y": 0.18,
+            "w": 0.13,
+            "h": 0.11,
+            "shape": "person"
+          },
+          {
+            "id": "lb",
+            "label": "Balanceador",
+            "x": 0.5,
+            "y": 0.33,
+            "w": 0.203,
+            "h": 0.074,
+            "shape": "box",
+            "enter": [
+              0.02,
+              0.14
+            ],
+            "active": [
+              0.91,
+              1
+            ],
+            "moveFrom": [
+              0.5,
+              0.42,
+              0.15,
+              0.63
+            ]
+          },
+          {
+            "id": "local",
+            "label": "Búsqueda local",
+            "x": 0.32,
+            "y": 0.495,
+            "w": 0.206,
+            "h": 0.078,
+            "shape": "box",
+            "enter": [
+              0.2,
+              0.31
+            ],
+            "moveFrom": [
+              0.26,
+              0.59,
+              0.31,
+              0.64
+            ]
+          },
+          {
+            "id": "business",
+            "label": "Negocios",
+            "x": 0.72,
+            "y": 0.495,
+            "w": 0.174,
+            "h": 0.078,
+            "shape": "box",
+            "enter": [
+              0.27,
+              0.38
+            ],
+            "moveFrom": [
+              0.735,
+              0.59,
+              0.34,
+              0.64
+            ]
+          },
+          {
+            "id": "cluster",
+            "label": "",
+            "x": 0.52,
+            "y": 0.787,
+            "w": 0.73,
+            "h": 0.318,
+            "shape": "group",
+            "enter": [
+              0.49,
+              0.65
+            ]
+          },
+          {
+            "id": "clusterLabel",
+            "label": "Clúster de datos",
+            "x": 0.52,
+            "y": 0.923,
+            "w": 0.25,
+            "h": 0.055,
+            "shape": "text",
+            "enter": [
+              0.58,
+              0.67
+            ],
+            "fontSize": 16
+          },
+          {
+            "id": "r1",
+            "label": "Réplica 1",
+            "x": 0.27,
+            "y": 0.79,
+            "w": 0.116,
+            "h": 0.114,
+            "shape": "database",
+            "enter": [
+              0.44,
+              0.55
+            ]
+          },
+          {
+            "id": "r2",
+            "label": "Réplica 2",
+            "x": 0.435,
+            "y": 0.79,
+            "w": 0.116,
+            "h": 0.114,
+            "shape": "database",
+            "enter": [
+              0.52,
+              0.62
+            ]
+          },
+          {
+            "id": "r3",
+            "label": "Réplica 3",
+            "x": 0.589,
+            "y": 0.79,
+            "w": 0.116,
+            "h": 0.114,
+            "shape": "database",
+            "enter": [
+              0.58,
+              0.68
+            ]
+          },
+          {
+            "id": "primary",
+            "label": "Primaria",
+            "x": 0.757,
+            "y": 0.79,
+            "w": 0.116,
+            "h": 0.114,
+            "shape": "database",
+            "enter": [
+              0.645,
+              0.735
+            ],
+            "active": [
+              0.74,
+              0.88
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "from": "user",
+            "to": "lb",
+            "enter": [
+              0,
+              0.08
+            ]
+          },
+          {
+            "from": "lb",
+            "to": "local",
+            "enter": [
+              0.12,
+              0.23
+            ]
+          },
+          {
+            "from": "lb",
+            "to": "business",
+            "enter": [
+              0.23,
+              0.33
+            ]
+          },
+          {
+            "from": "local",
+            "to": "r1",
+            "enter": [
+              0.36,
+              0.49
+            ]
+          },
+          {
+            "from": "local",
+            "to": "r2",
+            "enter": [
+              0.43,
+              0.57
+            ]
+          },
+          {
+            "from": "local",
+            "to": "r3",
+            "enter": [
+              0.49,
+              0.64
+            ]
+          },
+          {
+            "from": "business",
+            "to": "primary",
+            "enter": [
+              0.55,
+              0.69
+            ]
+          },
+          {
+            "from": "primary",
+            "to": "r3",
+            "enter": [
+              0.72,
+              0.79
+            ],
+            "via": [
+              [
+                0.684,
+                0.74
+              ]
+            ]
+          },
+          {
+            "from": "primary",
+            "to": "r2",
+            "enter": [
+              0.76,
+              0.83
+            ],
+            "via": [
+              [
+                0.62,
+                0.872
+              ],
+              [
+                0.49,
+                0.872
+              ]
+            ]
+          },
+          {
+            "from": "primary",
+            "to": "r1",
+            "enter": [
+              0.79,
+              0.86
+            ],
+            "via": [
+              [
+                0.68,
+                0.895
+              ],
+              [
+                0.315,
+                0.895
+              ]
+            ]
+          }
+        ]
+      },
+      "hold": 5.0
+    },
+    {
+      "id": "video-02-ring-handoff",
+      "artifact": "ring-handoff",
+      "props": {
+        "duration": 6.3,
+        "labels": [
+          "Norte",
+          "Este",
+          "Sur",
+          "Oeste",
+          "Nuevo"
+        ],
+        "keyLabel": "K0"
+      },
+      "hold": 2.5
+    },
+    {
+      "id": "video-03-bit-probe",
+      "artifact": "bit-probe",
+      "props": {
+        "duration": 7,
+        "labels": [
+          "Lino",
+          "Nube",
+          "Lino"
+        ],
+        "bits": {
+          "size": 10,
+          "groups": [
+            [
+              1,
+              3,
+              4
+            ],
+            [
+              0,
+              4,
+              8
+            ],
+            [
+              1,
+              3,
+              4
+            ]
+          ]
+        }
+      },
+      "hold": 2.5
+    },
+    {
+      "id": "video-04-staged-network",
+      "artifact": "staged-network",
+      "props": {
+        "duration": 6,
+        "nodes": [
+          {
+            "id": "demand",
+            "label": "Demanda",
+            "x": 0.11,
+            "y": 0.47,
+            "w": 0.135,
+            "h": 0.115,
+            "shape": "text"
+          },
+          {
+            "id": "web",
+            "label": "Servicio\nweb",
+            "x": 0.275,
+            "y": 0.47,
+            "w": 0.125,
+            "h": 0.245,
+            "shape": "box"
+          },
+          {
+            "id": "capacity",
+            "label": "Servidor",
+            "x": 0.465,
+            "y": 0.47,
+            "w": 0.128,
+            "h": 0.16,
+            "shape": "server"
+          },
+          {
+            "id": "demandValue",
+            "label": "1 M req/s",
+            "x": 0.12,
+            "y": 0.65,
+            "w": 0.16,
+            "h": 0.075,
+            "shape": "text"
+          },
+          {
+            "id": "capacityValue",
+            "label": "10 k req/s",
+            "x": 0.466,
+            "y": 0.65,
+            "w": 0.167,
+            "h": 0.075,
+            "shape": "text"
+          },
+          {
+            "id": "lb",
+            "label": "Balanceo",
+            "x": 0.675,
+            "y": 0.47,
+            "w": 0.127,
+            "h": 0.153,
+            "shape": "circle",
+            "enter": [
+              0.06,
+              0.26
+            ]
+          },
+          {
+            "id": "pool",
+            "label": "Flota",
+            "x": 0.874,
+            "y": 0.48,
+            "w": 0.177,
+            "h": 0.628,
+            "shape": "group",
+            "enter": [
+              0.36,
+              0.59
+            ]
+          },
+          {
+            "id": "s1",
+            "label": "S1",
+            "x": 0.874,
+            "y": 0.303,
+            "w": 0.104,
+            "h": 0.1,
+            "shape": "server",
+            "enter": [
+              0.36,
+              0.52
+            ]
+          },
+          {
+            "id": "s2",
+            "label": "S2",
+            "x": 0.874,
+            "y": 0.49,
+            "w": 0.104,
+            "h": 0.1,
+            "shape": "server",
+            "enter": [
+              0.48,
+              0.64
+            ]
+          },
+          {
+            "id": "sN",
+            "label": "S100",
+            "x": 0.874,
+            "y": 0.68,
+            "w": 0.104,
+            "h": 0.1,
+            "shape": "server",
+            "enter": [
+              0.61,
+              0.76
+            ]
+          },
+          {
+            "id": "result",
+            "label": "1 000 000 ÷ 10 000 = 100 servidores",
+            "x": 0.636,
+            "y": 0.852,
+            "w": 0.586,
+            "h": 0.086,
+            "shape": "text",
+            "enter": [
+              0.72,
+              0.91
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "from": "demand",
+            "to": "web",
+            "via": [
+              [
+                0.186,
+                0.387
+              ]
+            ]
+          },
+          {
+            "from": "demand",
+            "to": "web"
+          },
+          {
+            "from": "demand",
+            "to": "web",
+            "via": [
+              [
+                0.184,
+                0.55
+              ]
+            ]
+          },
+          {
+            "from": "lb",
+            "to": "s1",
+            "enter": [
+              0.23,
+              0.44
+            ]
+          },
+          {
+            "from": "lb",
+            "to": "s2",
+            "enter": [
+              0.35,
+              0.59
+            ]
+          },
+          {
+            "from": "lb",
+            "to": "sN",
+            "enter": [
+              0.48,
+              0.7
+            ]
+          }
+        ]
+      },
+      "hold": 8.0
+    },
+    {
+      "id": "video-05-staged-network",
+      "artifact": "staged-network",
+      "props": {
+        "duration": 6.8,
+        "nodes": [
+          {
+            "id": "capture",
+            "label": "Captura",
+            "x": 0.5,
+            "y": 0.108,
+            "w": 0.136,
+            "h": 0.1,
+            "shape": "page"
+          },
+          {
+            "id": "platform",
+            "label": "Plataforma",
+            "x": 0.5,
+            "y": 0.372,
+            "w": 0.777,
+            "h": 0.248,
+            "shape": "group"
+          },
+          {
+            "id": "pop",
+            "label": "Entrada",
+            "x": 0.242,
+            "y": 0.391,
+            "w": 0.162,
+            "h": 0.088,
+            "shape": "server"
+          },
+          {
+            "id": "encode",
+            "label": "Transcodificar",
+            "x": 0.5,
+            "y": 0.391,
+            "w": 0.197,
+            "h": 0.088,
+            "shape": "box"
+          },
+          {
+            "id": "pack",
+            "label": "Empaquetar",
+            "x": 0.756,
+            "y": 0.391,
+            "w": 0.186,
+            "h": 0.088,
+            "shape": "box"
+          },
+          {
+            "id": "formats",
+            "label": "Versiones",
+            "x": 0.5,
+            "y": 0.661,
+            "w": 0.855,
+            "h": 0.195,
+            "shape": "group",
+            "enter": [
+              0.13,
+              0.24
+            ]
+          },
+          {
+            "id": "f0",
+            "label": "1080p",
+            "x": 0.226,
+            "y": 0.68,
+            "w": 0.133,
+            "h": 0.085,
+            "shape": "page",
+            "enter": [
+              0.14,
+              0.245
+            ],
+            "moveFrom": [
+              0.5,
+              0.68,
+              0.275,
+              0.79
+            ]
+          },
+          {
+            "id": "d0",
+            "label": "Monitor",
+            "x": 0.226,
+            "y": 0.861,
+            "w": 0.135,
+            "h": 0.084,
+            "shape": "box",
+            "enter": [
+              0.26,
+              0.37
+            ],
+            "moveFrom": [
+              0.5,
+              0.861,
+              0.275,
+              0.79
+            ]
+          },
+          {
+            "id": "f1",
+            "label": "720p",
+            "x": 0.40800000000000003,
+            "y": 0.68,
+            "w": 0.133,
+            "h": 0.085,
+            "shape": "page",
+            "enter": [
+              0.318,
+              0.423
+            ],
+            "moveFrom": [
+              0.605,
+              0.68,
+              0.445,
+              0.79
+            ]
+          },
+          {
+            "id": "d1",
+            "label": "Portátil",
+            "x": 0.40800000000000003,
+            "y": 0.861,
+            "w": 0.135,
+            "h": 0.084,
+            "shape": "box",
+            "enter": [
+              0.438,
+              0.548
+            ],
+            "moveFrom": [
+              0.605,
+              0.861,
+              0.445,
+              0.79
+            ]
+          },
+          {
+            "id": "f2",
+            "label": "480p",
+            "x": 0.59,
+            "y": 0.68,
+            "w": 0.133,
+            "h": 0.085,
+            "shape": "page",
+            "enter": [
+              0.496,
+              0.601
+            ],
+            "moveFrom": [
+              0.698,
+              0.68,
+              0.615,
+              0.79
+            ]
+          },
+          {
+            "id": "d2",
+            "label": "Tableta",
+            "x": 0.59,
+            "y": 0.861,
+            "w": 0.135,
+            "h": 0.084,
+            "shape": "box",
+            "enter": [
+              0.616,
+              0.726
+            ],
+            "moveFrom": [
+              0.698,
+              0.861,
+              0.615,
+              0.79
+            ]
+          },
+          {
+            "id": "f3",
+            "label": "240p",
+            "x": 0.772,
+            "y": 0.68,
+            "w": 0.133,
+            "h": 0.085,
+            "shape": "page",
+            "enter": [
+              0.674,
+              0.779
+            ],
+            "moveFrom": [
+              0.772,
+              0.68,
+              0.7,
+              0.79
+            ]
+          },
+          {
+            "id": "d3",
+            "label": "Móvil",
+            "x": 0.772,
+            "y": 0.861,
+            "w": 0.135,
+            "h": 0.084,
+            "shape": "box",
+            "enter": [
+              0.794,
+              0.904
+            ],
+            "moveFrom": [
+              0.772,
+              0.861,
+              0.7,
+              0.79
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "from": "capture",
+            "to": "pop",
+            "via": [
+              [
+                0.355,
+                0.203
+              ],
+              [
+                0.242,
+                0.253
+              ]
+            ]
+          },
+          {
+            "from": "pop",
+            "to": "encode"
+          },
+          {
+            "from": "encode",
+            "to": "pack"
+          },
+          {
+            "from": "encode",
+            "to": "formats",
+            "enter": [
+              0.04,
+              0.14
+            ]
+          },
+          {
+            "from": "f0",
+            "to": "d0",
+            "enter": [
+              0.215,
+              0.295
+            ]
+          },
+          {
+            "from": "f1",
+            "to": "d1",
+            "enter": [
+              0.393,
+              0.473
+            ]
+          },
+          {
+            "from": "f2",
+            "to": "d2",
+            "enter": [
+              0.571,
+              0.651
+            ]
+          },
+          {
+            "from": "f3",
+            "to": "d3",
+            "enter": [
+              0.749,
+              0.829
+            ]
+          }
+        ]
+      },
+      "hold": 4.7
+    },
+    {
+      "id": "video-06-staged-network",
+      "artifact": "staged-network",
+      "props": {
+        "duration": 5.5,
+        "nodes": [
+          {
+            "id": "heading",
+            "label": "Rondas de entrevista",
+            "x": 0.5,
+            "y": 0.23,
+            "w": 0.7,
+            "h": 0.105,
+            "shape": "text"
+          },
+          {
+            "id": "card0",
+            "label": "Código",
+            "x": 0.208,
+            "y": 0.52,
+            "w": 0.26,
+            "h": 0.352,
+            "shape": "group",
+            "enter": [
+              0.035,
+              0.125
+            ]
+          },
+          {
+            "id": "foot0",
+            "label": "1–3 rondas",
+            "x": 0.208,
+            "y": 0.757,
+            "w": 0.2,
+            "h": 0.071,
+            "shape": "text",
+            "enter": [
+              0.185,
+              0.265
+            ]
+          },
+          {
+            "id": "code",
+            "label": "id = 1\nnombre = \"Luz\"",
+            "x": 0.208,
+            "y": 0.54,
+            "w": 0.213,
+            "h": 0.155,
+            "shape": "page",
+            "enter": [
+              0.12,
+              0.22
+            ],
+            "fontSize": 19
+          },
+          {
+            "id": "card1",
+            "label": "Diseño",
+            "x": 0.499,
+            "y": 0.52,
+            "w": 0.26,
+            "h": 0.352,
+            "shape": "group",
+            "enter": [
+              0.32899999999999996,
+              0.41899999999999993
+            ]
+          },
+          {
+            "id": "foot1",
+            "label": "1–2 rondas",
+            "x": 0.499,
+            "y": 0.757,
+            "w": 0.2,
+            "h": 0.071,
+            "shape": "text",
+            "enter": [
+              0.479,
+              0.5589999999999999
+            ]
+          },
+          {
+            "id": "root",
+            "label": "A",
+            "x": 0.499,
+            "y": 0.466,
+            "w": 0.063,
+            "h": 0.074,
+            "shape": "circle",
+            "enter": [
+              0.4,
+              0.46
+            ]
+          },
+          {
+            "id": "left",
+            "label": "B",
+            "x": 0.433,
+            "y": 0.594,
+            "w": 0.059,
+            "h": 0.07,
+            "shape": "circle",
+            "enter": [
+              0.45,
+              0.51
+            ]
+          },
+          {
+            "id": "right",
+            "label": "C",
+            "x": 0.565,
+            "y": 0.594,
+            "w": 0.059,
+            "h": 0.07,
+            "shape": "circle",
+            "enter": [
+              0.49,
+              0.56
+            ]
+          },
+          {
+            "id": "card2",
+            "label": "Conducta",
+            "x": 0.7899999999999999,
+            "y": 0.52,
+            "w": 0.26,
+            "h": 0.352,
+            "shape": "group",
+            "enter": [
+              0.623,
+              0.713
+            ]
+          },
+          {
+            "id": "foot2",
+            "label": "1 ronda",
+            "x": 0.7899999999999999,
+            "y": 0.757,
+            "w": 0.2,
+            "h": 0.071,
+            "shape": "text",
+            "enter": [
+              0.773,
+              0.853
+            ]
+          },
+          {
+            "id": "speech",
+            "label": "Historia",
+            "x": 0.7549999999999999,
+            "y": 0.487,
+            "w": 0.13,
+            "h": 0.078,
+            "shape": "box",
+            "enter": [
+              0.68,
+              0.76
+            ]
+          },
+          {
+            "id": "person",
+            "label": "",
+            "x": 0.835,
+            "y": 0.616,
+            "w": 0.1,
+            "h": 0.087,
+            "shape": "person",
+            "enter": [
+              0.72,
+              0.8
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "from": "root",
+            "to": "left",
+            "enter": [
+              0.42,
+              0.49
+            ]
+          },
+          {
+            "from": "root",
+            "to": "right",
+            "enter": [
+              0.46,
+              0.53
+            ]
+          },
+          {
+            "from": "speech",
+            "to": "person",
+            "directed": false,
+            "enter": [
+              0.71,
+              0.76
+            ]
+          }
+        ]
+      },
+      "hold": 7.4
+    },
+    {
+      "id": "video-07-staged-network",
+      "artifact": "staged-network",
+      "props": {
+        "duration": 5.8,
+        "nodes": [
+          {
+            "id": "server",
+            "label": "Servidor de chat",
+            "x": 0.715,
+            "y": 0.5,
+            "w": 0.222,
+            "h": 0.175,
+            "shape": "server"
+          },
+          {
+            "id": "c1",
+            "label": "Cliente 1",
+            "x": 0.281,
+            "y": 0.28,
+            "w": 0.145,
+            "h": 0.13,
+            "shape": "person",
+            "enter": [
+              0.23,
+              0.34
+            ]
+          },
+          {
+            "id": "c2",
+            "label": "Cliente 2",
+            "x": 0.281,
+            "y": 0.5,
+            "w": 0.145,
+            "h": 0.13,
+            "shape": "person",
+            "enter": [
+              0.44,
+              0.55
+            ]
+          },
+          {
+            "id": "c3",
+            "label": "Cliente 3",
+            "x": 0.281,
+            "y": 0.72,
+            "w": 0.145,
+            "h": 0.13,
+            "shape": "person",
+            "enter": [
+              0.64,
+              0.75
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "from": "server",
+            "to": "c1",
+            "enter": [
+              0.02,
+              0.24
+            ],
+            "via": [
+              [
+                0.475,
+                0.36
+              ]
+            ]
+          },
+          {
+            "from": "c1",
+            "to": "server",
+            "enter": [
+              0.25,
+              0.41
+            ],
+            "via": [
+              [
+                0.49,
+                0.398
+              ],
+              [
+                0.58,
+                0.451
+              ]
+            ]
+          },
+          {
+            "from": "server",
+            "to": "c2",
+            "enter": [
+              0.34,
+              0.5
+            ]
+          },
+          {
+            "from": "server",
+            "to": "c3",
+            "enter": [
+              0.51,
+              0.7
+            ]
+          }
+        ]
+      },
+      "hold": 3.0
+    },
+    {
+      "id": "video-08-staged-network",
+      "artifact": "staged-network",
+      "props": {
+        "duration": 6,
+        "nodes": [
+          {
+            "id": "process",
+            "label": "Proceso",
+            "x": 0.595,
+            "y": 0.5,
+            "w": 0.687,
+            "h": 0.728,
+            "shape": "group",
+            "active": [
+              0.6,
+              0.68
+            ],
+            "moveFrom": [
+              0.5,
+              0.5,
+              0.24,
+              0.37
+            ]
+          },
+          {
+            "id": "memory",
+            "label": "Espacio de memoria\ncompartido",
+            "x": 0.134,
+            "y": 0.49,
+            "w": 0.198,
+            "h": 0.135,
+            "shape": "text",
+            "enter": [
+              0.24,
+              0.36
+            ]
+          },
+          {
+            "id": "heap",
+            "label": "Heap compartido",
+            "x": 0.595,
+            "y": 0.736,
+            "w": 0.606,
+            "h": 0.084,
+            "shape": "box",
+            "enter": [
+              0.05,
+              0.15
+            ],
+            "active": [
+              0.76,
+              0.9
+            ],
+            "moveFrom": [
+              0.5,
+              0.736,
+              0.24,
+              0.37
+            ]
+          },
+          {
+            "id": "t0",
+            "label": "Hilo 1",
+            "x": 0.392,
+            "y": 0.438,
+            "w": 0.185,
+            "h": 0.414,
+            "shape": "group",
+            "moveFrom": [
+              0.29700000000000004,
+              0.438,
+              0.24,
+              0.37
+            ]
+          },
+          {
+            "id": "reg0",
+            "label": "Registros",
+            "x": 0.392,
+            "y": 0.387,
+            "w": 0.141,
+            "h": 0.081,
+            "shape": "box",
+            "enter": [
+              0,
+              0.13
+            ],
+            "fontSize": 18,
+            "moveFrom": [
+              0.29700000000000004,
+              0.387,
+              0.24,
+              0.37
+            ]
+          },
+          {
+            "id": "stack0",
+            "label": "Pila",
+            "x": 0.392,
+            "y": 0.531,
+            "w": 0.141,
+            "h": 0.15,
+            "shape": "box",
+            "enter": [
+              0,
+              0.155
+            ],
+            "moveFrom": [
+              0.29700000000000004,
+              0.531,
+              0.24,
+              0.37
+            ]
+          },
+          {
+            "id": "t1",
+            "label": "Hilo 2",
+            "x": 0.595,
+            "y": 0.438,
+            "w": 0.185,
+            "h": 0.414,
+            "shape": "group",
+            "moveFrom": [
+              0.5,
+              0.438,
+              0.24,
+              0.37
+            ]
+          },
+          {
+            "id": "reg1",
+            "label": "Registros",
+            "x": 0.595,
+            "y": 0.387,
+            "w": 0.141,
+            "h": 0.081,
+            "shape": "box",
+            "enter": [
+              0,
+              0.13
+            ],
+            "fontSize": 18,
+            "moveFrom": [
+              0.5,
+              0.387,
+              0.24,
+              0.37
+            ]
+          },
+          {
+            "id": "stack1",
+            "label": "Pila",
+            "x": 0.595,
+            "y": 0.531,
+            "w": 0.141,
+            "h": 0.15,
+            "shape": "box",
+            "enter": [
+              0,
+              0.155
+            ],
+            "moveFrom": [
+              0.5,
+              0.531,
+              0.24,
+              0.37
+            ]
+          },
+          {
+            "id": "t2",
+            "label": "Hilo 3",
+            "x": 0.798,
+            "y": 0.438,
+            "w": 0.185,
+            "h": 0.414,
+            "shape": "group",
+            "moveFrom": [
+              0.7030000000000001,
+              0.438,
+              0.24,
+              0.37
+            ]
+          },
+          {
+            "id": "reg2",
+            "label": "Registros",
+            "x": 0.798,
+            "y": 0.387,
+            "w": 0.141,
+            "h": 0.081,
+            "shape": "box",
+            "enter": [
+              0,
+              0.13
+            ],
+            "fontSize": 18,
+            "moveFrom": [
+              0.7030000000000001,
+              0.387,
+              0.24,
+              0.37
+            ]
+          },
+          {
+            "id": "stack2",
+            "label": "Pila",
+            "x": 0.798,
+            "y": 0.531,
+            "w": 0.141,
+            "h": 0.15,
+            "shape": "box",
+            "enter": [
+              0,
+              0.155
+            ],
+            "moveFrom": [
+              0.7030000000000001,
+              0.531,
+              0.24,
+              0.37
+            ]
+          }
+        ],
+        "edges": []
+      },
+      "hold": 6.4
+    },
+    {
+      "id": "video-09-message-ladder",
+      "artifact": "message-ladder",
+      "props": {
+        "duration": 5.8,
+        "labels": [
+          "Cliente",
+          "Servidor"
+        ],
+        "exchanges": [
+          {
+            "from": 0,
+            "label": "SYN"
+          },
+          {
+            "from": 1,
+            "label": "SYN + ACK"
+          },
+          {
+            "from": 0,
+            "label": "ACK"
+          }
+        ]
+      },
+      "hold": 2.5
+    },
+    {
+      "id": "video-10-detail-callout",
+      "artifact": "detail-callout",
+      "props": {
+        "duration": 7,
+        "labels": [
+          "Esquema",
+          "Dominio",
+          "Ruta",
+          "Recurso"
+        ],
+        "parts": [
+          "https://",
+          "ejemplo.net",
+          "/archivo/",
+          "plano"
+        ],
+        "focusLabel": "Dirección"
+      },
+      "hold": 3.0
+    },
+    {
+      "id": "video-11-staged-network",
+      "artifact": "staged-network",
+      "props": {
+        "duration": 6,
+        "nodes": [
+          {
+            "id": "root",
+            "label": "Raíz",
+            "x": 0.5,
+            "y": 0.28,
+            "w": 0.115,
+            "h": 0.061,
+            "shape": "box",
+            "moveFrom": [
+              0.5,
+              0.5,
+              0,
+              0.62
+            ]
+          },
+          {
+            "id": "s",
+            "label": "s",
+            "x": 0.417,
+            "y": 0.45,
+            "w": 0.045,
+            "h": 0.072,
+            "shape": "circle",
+            "enter": [
+              0.15,
+              0.24
+            ],
+            "moveFrom": [
+              0.417,
+              0.545,
+              0.15,
+              0.65
+            ]
+          },
+          {
+            "id": "m",
+            "label": "m",
+            "x": 0.583,
+            "y": 0.45,
+            "w": 0.045,
+            "h": 0.072,
+            "shape": "circle",
+            "enter": [
+              0.16,
+              0.25
+            ],
+            "moveFrom": [
+              0.583,
+              0.545,
+              0.16,
+              0.65
+            ]
+          },
+          {
+            "id": "sa",
+            "label": "sa",
+            "x": 0.385,
+            "y": 0.59,
+            "w": 0.045,
+            "h": 0.072,
+            "shape": "circle",
+            "enter": [
+              0.4,
+              0.49
+            ],
+            "moveFrom": [
+              0.385,
+              0.64,
+              0.4,
+              0.65
+            ]
+          },
+          {
+            "id": "ma",
+            "label": "ma",
+            "x": 0.55,
+            "y": 0.59,
+            "w": 0.045,
+            "h": 0.072,
+            "shape": "circle",
+            "enter": [
+              0.41,
+              0.5
+            ],
+            "moveFrom": [
+              0.55,
+              0.64,
+              0.41,
+              0.65
+            ]
+          },
+          {
+            "id": "mi",
+            "label": "mi",
+            "x": 0.635,
+            "y": 0.59,
+            "w": 0.045,
+            "h": 0.072,
+            "shape": "circle",
+            "enter": [
+              0.42,
+              0.51
+            ],
+            "moveFrom": [
+              0.635,
+              0.64,
+              0.42,
+              0.65
+            ]
+          },
+          {
+            "id": "sal",
+            "label": "sal",
+            "x": 0.335,
+            "y": 0.735,
+            "w": 0.045,
+            "h": 0.072,
+            "shape": "circle",
+            "enter": [
+              0.66,
+              0.75
+            ]
+          },
+          {
+            "id": "san",
+            "label": "san",
+            "x": 0.448,
+            "y": 0.735,
+            "w": 0.045,
+            "h": 0.072,
+            "shape": "circle",
+            "enter": [
+              0.67,
+              0.76
+            ]
+          },
+          {
+            "id": "mar",
+            "label": "mar",
+            "x": 0.525,
+            "y": 0.735,
+            "w": 0.045,
+            "h": 0.072,
+            "shape": "circle",
+            "enter": [
+              0.68,
+              0.77
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "from": "root",
+            "to": "s",
+            "enter": [
+              0.05,
+              0.175
+            ]
+          },
+          {
+            "from": "root",
+            "to": "m",
+            "enter": [
+              0.06,
+              0.185
+            ]
+          },
+          {
+            "from": "s",
+            "to": "sa",
+            "enter": [
+              0.3,
+              0.425
+            ]
+          },
+          {
+            "from": "m",
+            "to": "ma",
+            "enter": [
+              0.31,
+              0.435
+            ]
+          },
+          {
+            "from": "m",
+            "to": "mi",
+            "enter": [
+              0.32,
+              0.445
+            ]
+          },
+          {
+            "from": "sa",
+            "to": "sal",
+            "enter": [
+              0.56,
+              0.685
+            ]
+          },
+          {
+            "from": "sa",
+            "to": "san",
+            "enter": [
+              0.57,
+              0.695
+            ]
+          },
+          {
+            "from": "ma",
+            "to": "mar",
+            "enter": [
+              0.58,
+              0.705
+            ]
+          }
+        ]
+      },
+      "hold": 3.0
+    },
+    {
+      "id": "video-12-staged-network",
+      "artifact": "staged-network",
+      "props": {
+        "duration": 6,
+        "nodes": [
+          {
+            "id": "broker",
+            "label": "Bus de eventos",
+            "x": 0.5,
+            "y": 0.49,
+            "w": 0.17,
+            "h": 0.105,
+            "shape": "box",
+            "enter": [
+              0.12,
+              0.26
+            ]
+          },
+          {
+            "id": "p0",
+            "label": "Pedidos",
+            "x": 0.265,
+            "y": 0.35,
+            "w": 0.142,
+            "h": 0.068,
+            "shape": "box"
+          },
+          {
+            "id": "c0",
+            "label": "Contabilidad",
+            "x": 0.735,
+            "y": 0.35,
+            "w": 0.142,
+            "h": 0.068,
+            "shape": "box",
+            "enter": [
+              0.559,
+              0.64
+            ]
+          },
+          {
+            "id": "p1",
+            "label": "Pagos",
+            "x": 0.265,
+            "y": 0.49,
+            "w": 0.142,
+            "h": 0.068,
+            "shape": "box",
+            "enter": [
+              0.137,
+              0.209
+            ]
+          },
+          {
+            "id": "c1",
+            "label": "Envíos",
+            "x": 0.735,
+            "y": 0.49,
+            "w": 0.142,
+            "h": 0.068,
+            "shape": "box",
+            "enter": [
+              0.682,
+              0.763
+            ]
+          },
+          {
+            "id": "p2",
+            "label": "Stock",
+            "x": 0.265,
+            "y": 0.63,
+            "w": 0.142,
+            "h": 0.068,
+            "shape": "box",
+            "enter": [
+              0.254,
+              0.326
+            ]
+          },
+          {
+            "id": "c2",
+            "label": "Avisos",
+            "x": 0.735,
+            "y": 0.63,
+            "w": 0.142,
+            "h": 0.068,
+            "shape": "box",
+            "enter": [
+              0.805,
+              0.886
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "from": "p0",
+            "to": "broker",
+            "enter": [
+              0.067,
+              0.175
+            ]
+          },
+          {
+            "from": "broker",
+            "to": "c0",
+            "enter": [
+              0.5,
+              0.608
+            ]
+          },
+          {
+            "from": "p1",
+            "to": "broker",
+            "enter": [
+              0.184,
+              0.292
+            ]
+          },
+          {
+            "from": "broker",
+            "to": "c1",
+            "enter": [
+              0.623,
+              0.731
+            ]
+          },
+          {
+            "from": "p2",
+            "to": "broker",
+            "enter": [
+              0.301,
+              0.409
+            ]
+          },
+          {
+            "from": "broker",
+            "to": "c2",
+            "enter": [
+              0.746,
+              0.854
+            ]
+          }
+        ]
+      },
+      "hold": 3.0
+    },
+    {
+      "id": "video-13-staged-network",
+      "artifact": "staged-network",
+      "props": {
+        "duration": 6.5,
+        "nodes": [
+          {
+            "id": "start",
+            "label": "",
+            "x": 0.175,
+            "y": 0.505,
+            "w": 0.014,
+            "h": 0.026,
+            "shape": "circle"
+          },
+          {
+            "id": "end",
+            "label": "",
+            "x": 0.78,
+            "y": 0.505,
+            "w": 0.014,
+            "h": 0.026,
+            "shape": "circle"
+          },
+          {
+            "id": "m1",
+            "label": "",
+            "x": 0.245,
+            "y": 0.505,
+            "w": 0.012,
+            "h": 0.022,
+            "shape": "circle",
+            "active": [
+              0.19,
+              1
+            ]
+          },
+          {
+            "id": "t1",
+            "label": "Datos",
+            "x": 0.245,
+            "y": 0.39,
+            "w": 0.107,
+            "h": 0.043,
+            "shape": "text",
+            "enter": [
+              0.236,
+              0.291
+            ]
+          },
+          {
+            "id": "m2",
+            "label": "",
+            "x": 0.33,
+            "y": 0.505,
+            "w": 0.012,
+            "h": 0.022,
+            "shape": "circle",
+            "active": [
+              0.296,
+              1
+            ]
+          },
+          {
+            "id": "t2",
+            "label": "Volumen",
+            "x": 0.33,
+            "y": 0.62,
+            "w": 0.107,
+            "h": 0.043,
+            "shape": "text",
+            "enter": [
+              0.342,
+              0.397
+            ]
+          },
+          {
+            "id": "m3",
+            "label": "",
+            "x": 0.415,
+            "y": 0.505,
+            "w": 0.012,
+            "h": 0.022,
+            "shape": "circle",
+            "active": [
+              0.402,
+              1
+            ]
+          },
+          {
+            "id": "t3",
+            "label": "Latencia",
+            "x": 0.415,
+            "y": 0.39,
+            "w": 0.107,
+            "h": 0.043,
+            "shape": "text",
+            "enter": [
+              0.448,
+              0.503
+            ]
+          },
+          {
+            "id": "m4",
+            "label": "",
+            "x": 0.5,
+            "y": 0.505,
+            "w": 0.012,
+            "h": 0.022,
+            "shape": "circle",
+            "active": [
+              0.508,
+              1
+            ]
+          },
+          {
+            "id": "t4",
+            "label": "Modelo",
+            "x": 0.5,
+            "y": 0.62,
+            "w": 0.107,
+            "h": 0.043,
+            "shape": "text",
+            "enter": [
+              0.554,
+              0.609
+            ]
+          },
+          {
+            "id": "m5",
+            "label": "",
+            "x": 0.585,
+            "y": 0.505,
+            "w": 0.012,
+            "h": 0.022,
+            "shape": "circle",
+            "active": [
+              0.614,
+              1
+            ]
+          },
+          {
+            "id": "t5",
+            "label": "Escala",
+            "x": 0.585,
+            "y": 0.39,
+            "w": 0.107,
+            "h": 0.043,
+            "shape": "text",
+            "enter": [
+              0.66,
+              0.715
+            ]
+          },
+          {
+            "id": "m6",
+            "label": "",
+            "x": 0.67,
+            "y": 0.505,
+            "w": 0.012,
+            "h": 0.022,
+            "shape": "circle",
+            "active": [
+              0.72,
+              1
+            ]
+          },
+          {
+            "id": "t6",
+            "label": "Coste",
+            "x": 0.67,
+            "y": 0.62,
+            "w": 0.107,
+            "h": 0.043,
+            "shape": "text",
+            "enter": [
+              0.766,
+              0.821
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "from": "start",
+            "to": "end"
+          },
+          {
+            "from": "m1",
+            "to": "t1",
+            "enter": [
+              0.19,
+              0.255
+            ]
+          },
+          {
+            "from": "start",
+            "to": "m1",
+            "token": [
+              0.075,
+              0.19
+            ],
+            "enter": [
+              0.075,
+              0.19
+            ]
+          },
+          {
+            "from": "m2",
+            "to": "t2",
+            "enter": [
+              0.296,
+              0.361
+            ]
+          },
+          {
+            "from": "m1",
+            "to": "m2",
+            "token": [
+              0.181,
+              0.296
+            ],
+            "enter": [
+              0.181,
+              0.296
+            ]
+          },
+          {
+            "from": "m3",
+            "to": "t3",
+            "enter": [
+              0.402,
+              0.467
+            ]
+          },
+          {
+            "from": "m2",
+            "to": "m3",
+            "token": [
+              0.287,
+              0.402
+            ],
+            "enter": [
+              0.287,
+              0.402
+            ]
+          },
+          {
+            "from": "m4",
+            "to": "t4",
+            "enter": [
+              0.508,
+              0.573
+            ]
+          },
+          {
+            "from": "m3",
+            "to": "m4",
+            "token": [
+              0.393,
+              0.508
+            ],
+            "enter": [
+              0.393,
+              0.508
+            ]
+          },
+          {
+            "from": "m5",
+            "to": "t5",
+            "enter": [
+              0.614,
+              0.679
+            ]
+          },
+          {
+            "from": "m4",
+            "to": "m5",
+            "token": [
+              0.499,
+              0.614
+            ],
+            "enter": [
+              0.499,
+              0.614
+            ]
+          },
+          {
+            "from": "m6",
+            "to": "t6",
+            "enter": [
+              0.72,
+              0.785
+            ]
+          },
+          {
+            "from": "m5",
+            "to": "m6",
+            "token": [
+              0.605,
+              0.72
+            ],
+            "enter": [
+              0.605,
+              0.72
+            ]
+          },
+          {
+            "from": "m6",
+            "to": "end",
+            "token": [
+              0.815,
+              0.9
+            ],
+            "enter": [
+              0.815,
+              0.9
+            ]
+          }
+        ]
+      },
+      "hold": 2.5
+    },
+    {
+      "id": "video-14-staged-network",
+      "artifact": "staged-network",
+      "props": {
+        "duration": 6,
+        "nodes": [
+          {
+            "id": "topic",
+            "label": "Programación",
+            "x": 0.5,
+            "y": 0.29,
+            "w": 0.19,
+            "h": 0.078,
+            "shape": "box"
+          },
+          {
+            "id": "r0",
+            "label": "Ejercicios",
+            "x": 0.35,
+            "y": 0.59,
+            "w": 0.128,
+            "h": 0.115,
+            "shape": "page",
+            "enter": [
+              0.252,
+              0.355
+            ]
+          },
+          {
+            "id": "r1",
+            "label": "Retos",
+            "x": 0.5,
+            "y": 0.59,
+            "w": 0.128,
+            "h": 0.115,
+            "shape": "page",
+            "enter": [
+              0.312,
+              0.415
+            ]
+          },
+          {
+            "id": "r2",
+            "label": "Lecturas",
+            "x": 0.65,
+            "y": 0.59,
+            "w": 0.128,
+            "h": 0.115,
+            "shape": "page",
+            "enter": [
+              0.372,
+              0.475
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "from": "topic",
+            "to": "r0",
+            "via": [
+              [
+                0.5,
+                0.4
+              ],
+              [
+                0.35,
+                0.4
+              ]
+            ],
+            "enter": [
+              0.08,
+              0.268
+            ]
+          },
+          {
+            "from": "topic",
+            "to": "r1",
+            "via": [
+              [
+                0.5,
+                0.4
+              ],
+              [
+                0.5,
+                0.4
+              ]
+            ],
+            "enter": [
+              0.14,
+              0.328
+            ]
+          },
+          {
+            "from": "topic",
+            "to": "r2",
+            "via": [
+              [
+                0.5,
+                0.4
+              ],
+              [
+                0.65,
+                0.4
+              ]
+            ],
+            "enter": [
+              0.2,
+              0.388
+            ]
+          }
+        ]
+      },
+      "hold": 2.5
+    },
+    {
+      "id": "video-15-radix-ladder",
+      "artifact": "radix-ladder",
+      "props": {
+        "duration": 7.4,
+        "labels": [
+          "División",
+          "Residuo",
+          "Código"
+        ],
+        "base": 62,
+        "value": 11157
+      },
+      "hold": 2.5
+    },
+    {
+      "id": "video-16-staged-network",
+      "artifact": "staged-network",
+      "props": {
+        "duration": 6,
+        "nodes": [
+          {
+            "id": "app",
+            "label": "Servicio",
+            "x": 0.6,
+            "y": 0.29,
+            "w": 0.12,
+            "h": 0.12,
+            "shape": "server",
+            "moveFrom": [
+              0.51,
+              0.29,
+              0,
+              0.36
+            ]
+          },
+          {
+            "id": "key",
+            "label": "Clave del pedido",
+            "x": 0.244,
+            "y": 0.432,
+            "w": 0.155,
+            "h": 0.06,
+            "shape": "text",
+            "moveFrom": [
+              0.321,
+              0.432,
+              0,
+              0.36
+            ]
+          },
+          {
+            "id": "hash",
+            "label": "Hash",
+            "x": 0.418,
+            "y": 0.432,
+            "w": 0.071,
+            "h": 0.063,
+            "shape": "box",
+            "enter": [
+              0.08,
+              0.2
+            ]
+          },
+          {
+            "id": "formula",
+            "label": "99 % 4 = 3",
+            "x": 0.529,
+            "y": 0.432,
+            "w": 0.126,
+            "h": 0.058,
+            "shape": "text",
+            "enter": [
+              0.23,
+              0.36
+            ]
+          },
+          {
+            "id": "fork",
+            "label": "",
+            "x": 0.6,
+            "y": 0.505,
+            "w": 0.002,
+            "h": 0.002,
+            "shape": "circle",
+            "moveFrom": [
+              0.51,
+              0.505,
+              0,
+              0.36
+            ]
+          },
+          {
+            "id": "db0",
+            "label": "Nodo 0",
+            "x": 0.42,
+            "y": 0.735,
+            "w": 0.095,
+            "h": 0.15,
+            "shape": "database",
+            "moveFrom": [
+              0.32999999999999996,
+              0.735,
+              0,
+              0.36
+            ]
+          },
+          {
+            "id": "j0",
+            "label": "",
+            "x": 0.42,
+            "y": 0.505,
+            "w": 0.002,
+            "h": 0.002,
+            "shape": "circle",
+            "moveFrom": [
+              0.32999999999999996,
+              0.505,
+              0,
+              0.36
+            ]
+          },
+          {
+            "id": "db1",
+            "label": "Nodo 1",
+            "x": 0.545,
+            "y": 0.735,
+            "w": 0.095,
+            "h": 0.15,
+            "shape": "database",
+            "moveFrom": [
+              0.45500000000000007,
+              0.735,
+              0,
+              0.36
+            ]
+          },
+          {
+            "id": "j1",
+            "label": "",
+            "x": 0.545,
+            "y": 0.505,
+            "w": 0.002,
+            "h": 0.002,
+            "shape": "circle",
+            "moveFrom": [
+              0.45500000000000007,
+              0.505,
+              0,
+              0.36
+            ]
+          },
+          {
+            "id": "db2",
+            "label": "Nodo 2",
+            "x": 0.67,
+            "y": 0.735,
+            "w": 0.095,
+            "h": 0.15,
+            "shape": "database",
+            "moveFrom": [
+              0.5800000000000001,
+              0.735,
+              0,
+              0.36
+            ]
+          },
+          {
+            "id": "j2",
+            "label": "",
+            "x": 0.67,
+            "y": 0.505,
+            "w": 0.002,
+            "h": 0.002,
+            "shape": "circle",
+            "moveFrom": [
+              0.5800000000000001,
+              0.505,
+              0,
+              0.36
+            ]
+          },
+          {
+            "id": "db3",
+            "label": "Nodo 3",
+            "x": 0.795,
+            "y": 0.735,
+            "w": 0.095,
+            "h": 0.15,
+            "shape": "database",
+            "active": [
+              0.815,
+              1
+            ],
+            "moveFrom": [
+              0.7050000000000001,
+              0.735,
+              0,
+              0.36
+            ]
+          },
+          {
+            "id": "j3",
+            "label": "",
+            "x": 0.795,
+            "y": 0.505,
+            "w": 0.002,
+            "h": 0.002,
+            "shape": "circle",
+            "moveFrom": [
+              0.7050000000000001,
+              0.505,
+              0,
+              0.36
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "from": "key",
+            "to": "hash",
+            "enter": [
+              0.02,
+              0.19
+            ]
+          },
+          {
+            "from": "hash",
+            "to": "formula",
+            "enter": [
+              0.17,
+              0.34
+            ]
+          },
+          {
+            "from": "app",
+            "to": "fork",
+            "directed": false
+          },
+          {
+            "from": "fork",
+            "to": "j0",
+            "directed": false
+          },
+          {
+            "from": "j0",
+            "to": "db0"
+          },
+          {
+            "from": "fork",
+            "to": "j1",
+            "directed": false
+          },
+          {
+            "from": "j1",
+            "to": "db1"
+          },
+          {
+            "from": "fork",
+            "to": "j2",
+            "directed": false
+          },
+          {
+            "from": "j2",
+            "to": "db2"
+          },
+          {
+            "from": "fork",
+            "to": "j3",
+            "directed": false
+          },
+          {
+            "from": "j3",
+            "to": "db3"
+          }
+        ]
+      },
+      "hold": 6.0
+    },
+    {
+      "id": "video-17-resolution-fan",
+      "artifact": "resolution-fan",
+      "props": {
+        "duration": 6.2,
+        "labels": [
+          "Original",
+          "2160p · 4K",
+          "1440p",
+          "1080p",
+          "720p",
+          "480p",
+          "360p",
+          "240p"
+        ]
+      },
+      "hold": 3.4
+    },
+    {
+      "id": "video-18-staged-network",
+      "artifact": "staged-network",
+      "props": {
+        "duration": 5.5,
+        "nodes": [
+          {
+            "id": "sender",
+            "label": "Emisor",
+            "x": 0.19,
+            "y": 0.335,
+            "w": 0.095,
+            "h": 0.122,
+            "shape": "person"
+          },
+          {
+            "id": "hub",
+            "label": "Servidor",
+            "x": 0.44,
+            "y": 0.335,
+            "w": 0.102,
+            "h": 0.121,
+            "shape": "server",
+            "enter": [
+              0.25,
+              0.4
+            ]
+          },
+          {
+            "id": "u0",
+            "label": "Receptor 3",
+            "x": 0.785,
+            "y": 0.15,
+            "w": 0.143,
+            "h": 0.097,
+            "shape": "person",
+            "enter": [
+              0.46,
+              0.57
+            ]
+          },
+          {
+            "id": "u1",
+            "label": "Receptor 2",
+            "x": 0.75,
+            "y": 0.335,
+            "w": 0.143,
+            "h": 0.097,
+            "shape": "person",
+            "enter": [
+              0.5,
+              0.61
+            ]
+          },
+          {
+            "id": "u2",
+            "label": "Receptor 4",
+            "x": 0.81,
+            "y": 0.54,
+            "w": 0.143,
+            "h": 0.097,
+            "shape": "person",
+            "enter": [
+              0.54,
+              0.65
+            ]
+          },
+          {
+            "id": "u3",
+            "label": "Receptor 5",
+            "x": 0.765,
+            "y": 0.69,
+            "w": 0.143,
+            "h": 0.097,
+            "shape": "person",
+            "enter": [
+              0.58,
+              0.69
+            ]
+          },
+          {
+            "id": "u4",
+            "label": "Receptor 100",
+            "x": 0.615,
+            "y": 0.862,
+            "w": 0.143,
+            "h": 0.097,
+            "shape": "person",
+            "enter": [
+              0.71,
+              0.82
+            ]
+          },
+          {
+            "id": "more",
+            "label": "···",
+            "x": 0.695,
+            "y": 0.793,
+            "w": 0.059,
+            "h": 0.055,
+            "shape": "text",
+            "enter": [
+              0.77,
+              0.85
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "from": "sender",
+            "to": "hub",
+            "enter": [
+              0.04,
+              0.275
+            ]
+          },
+          {
+            "from": "hub",
+            "to": "u0",
+            "enter": [
+              0.37,
+              0.53
+            ]
+          },
+          {
+            "from": "hub",
+            "to": "u1",
+            "enter": [
+              0.41,
+              0.57
+            ]
+          },
+          {
+            "from": "hub",
+            "to": "u2",
+            "enter": [
+              0.45,
+              0.61
+            ]
+          },
+          {
+            "from": "hub",
+            "to": "u3",
+            "enter": [
+              0.49,
+              0.65
+            ]
+          },
+          {
+            "from": "hub",
+            "to": "u4",
+            "enter": [
+              0.62,
+              0.78
+            ]
+          }
+        ]
+      },
+      "hold": 4.4
+    },
+    {
+      "id": "video-19-token-gate",
+      "artifact": "token-gate",
+      "props": {
+        "duration": 6.4,
+        "labels": [
+          "Solicitudes",
+          "Recarga",
+          "Admitidas",
+          "Descartadas"
+        ],
+        "tokens": 1,
+        "requests": 2
+      },
+      "hold": 2.5
+    },
+    {
+      "id": "video-20-queue-router",
+      "artifact": "queue-router",
+      "props": {
+        "duration": 7.3,
+        "labels": [
+          "Prioridad",
+          "Alta",
+          "Media",
+          "Baja",
+          "Selector"
+        ],
+        "inputLabel": "URLs de entrada",
+        "criteria": [
+          "Popularidad",
+          "Actualización",
+          "Rango"
+        ]
+      },
+      "hold": 3.7
+    }
+  ]
+}

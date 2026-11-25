@@ -1,0 +1,3726 @@
+{
+  "channel": "3Blue1Brown",
+  "channel_url": "https://www.youtube.com/@3blue1brown",
+  "window": {
+    "from": "2024-11-25",
+    "to": "2026-11-25",
+    "inclusive": true
+  },
+  "inventory": {
+    "videos": 23,
+    "shorts": 37,
+    "streams": 0
+  },
+  "scope": "Dos pasajes por video largo y uno por Short. Los segundos se refieren a la publicación original.",
+  "passages": [
+    {
+      "key": "IQqtsm-bBRU@690",
+      "video_id": "IQqtsm-bBRU",
+      "title": "This open problem taught me what topology is",
+      "published": "2024-12-24",
+      "format": "videos",
+      "source_s": [
+        690,
+        730
+      ],
+      "url": "https://www.youtube.com/watch?v=IQqtsm-bBRU&t=690s",
+      "family": "linked-views",
+      "poses": {
+        "before": "Una curva cerrada ocupa la izquierda y una escala horizontal la derecha.",
+        "change": "Se marcan posiciones sobre la curva y aparecen sus coordenadas en una cuadrícula contigua.",
+        "after": "La marca del gráfico cambia de lugar cuando cambia la selección en la curva."
+      },
+      "anchor": "La silueta de la curva conserva posición y forma.",
+      "method": "storyboard",
+      "sheet_sha256": "aef20e40d06cc57277301d32859fe7e236c0c82f40d874d6effa28b11855ceb4",
+      "speech": {
+        "term": "pair of points",
+        "mention_s": [
+          706.509,
+          710.658
+        ],
+        "precision": "published-caption-block",
+        "caption_sha256": "c26f083704f9f487da05e6e1228ea1a86a0d627801157b48a628bc690acd5e98"
+      },
+      "cadence_s": 10.0,
+      "source_manifest_sha256": "7d831e67cbd85e585700859f62fdd4f52fd1ac084b60e0fe7a31ff65a5c57cc1",
+      "decoded": {
+        "pts_s": [
+          705.466667,
+          712.433333
+        ],
+        "sha256": "3258a02a8e12bd250a31e36f532bda7b37b8eb364083ff7298ca46def4d67fe5",
+        "frames": 210,
+        "fps": 30.0
+      }
+    },
+    {
+      "key": "IQqtsm-bBRU@990",
+      "video_id": "IQqtsm-bBRU",
+      "title": "This open problem taught me what topology is",
+      "published": "2024-12-24",
+      "format": "videos",
+      "source_s": [
+        990,
+        1030
+      ],
+      "url": "https://www.youtube.com/watch?v=IQqtsm-bBRU&t=990s",
+      "family": "parameter-surface",
+      "poses": {
+        "before": "Una curva, un toro y una región triangular se presentan como vistas pequeñas.",
+        "change": "Una superficie translúcida se levanta sobre la curva dibujada en la base.",
+        "after": "Una composición con flechas reúne el objeto de partida y la superficie resultante."
+      },
+      "anchor": "La curva basal permite reconocer la construcción entre las vistas.",
+      "method": "storyboard",
+      "sheet_sha256": "aef20e40d06cc57277301d32859fe7e236c0c82f40d874d6effa28b11855ceb4",
+      "speech": {
+        "term": "surface in 3D space",
+        "mention_s": [
+          1029.156,
+          1032.42
+        ],
+        "precision": "published-caption-block",
+        "caption_sha256": "c26f083704f9f487da05e6e1228ea1a86a0d627801157b48a628bc690acd5e98"
+      },
+      "cadence_s": 10.0,
+      "source_manifest_sha256": "7d831e67cbd85e585700859f62fdd4f52fd1ac084b60e0fe7a31ff65a5c57cc1",
+      "decoded": {
+        "pts_s": [
+          1009.3,
+          1016.266667
+        ],
+        "sha256": "5c45a6ab29fe879d65460c680426a172867ba3ea35175683caf6a8934f8b8899",
+        "frames": 210,
+        "fps": 30.0
+      }
+    },
+    {
+      "key": "YdOXS_9_P4U@720",
+      "video_id": "YdOXS_9_P4U",
+      "title": "Terence Tao on the cosmic distance ladder",
+      "published": "2025-02-08",
+      "format": "videos",
+      "source_s": [
+        720,
+        760
+      ],
+      "url": "https://www.youtube.com/watch?v=YdOXS_9_P4U&t=720s",
+      "family": "geometric-measure",
+      "poses": {
+        "before": "Un diagrama oscuro contiene una órbita a la izquierda y un cuerpo luminoso a la derecha.",
+        "change": "Un arco acotado y una llave blanca hacen visible la separación; un plano más abierto repone el recorrido orbital.",
+        "after": "La llave abarca dos posiciones y la órbita ofrece una escala de lectura."
+      },
+      "anchor": "El cuerpo luminoso y la órbita son las referencias que reaparecen.",
+      "method": "storyboard",
+      "sheet_sha256": "f919a57b2d75f2a0c1c572ee9910212fb9857a18a848f7e4946b101b7d02d295",
+      "speech": {
+        "term": "scale",
+        "mention_s": [
+          737.25,
+          737.59
+        ],
+        "precision": "acoustic-asr-estimate",
+        "acoustic": {
+          "term": "scale",
+          "start_s": 737.25,
+          "end_s": 737.59,
+          "precision": "acoustic-asr-estimate",
+          "model": "faster-whisper-base",
+          "audio_sha256": "8e51e50358a4bcbacbcd50fff377ad3452b99f28dc04635a4182daccbbe26465",
+          "file": "first/YdOXS_9_P4U.voice1.flac"
+        }
+      },
+      "cadence_s": 10.0,
+      "source_manifest_sha256": "aa179157813e7151d45483df7ec5110eb2838e43ae018aa1a1a9dbbcd128493b",
+      "decoded": {
+        "pts_s": [
+          739.266667,
+          744.0
+        ],
+        "sha256": "b75177321dda6933335460e0c9148d145d290e91b8d5fa0c2041ee35f4c1467e",
+        "frames": 143,
+        "fps": 30.0
+      }
+    },
+    {
+      "key": "YdOXS_9_P4U@420",
+      "video_id": "YdOXS_9_P4U",
+      "title": "Terence Tao on the cosmic distance ladder",
+      "published": "2025-02-08",
+      "format": "videos",
+      "source_s": [
+        420,
+        450
+      ],
+      "url": "https://www.youtube.com/watch?v=YdOXS_9_P4U&t=420s",
+      "family": "scale-transition",
+      "poses": {
+        "before": "La superficie esférica de la Tierra ocupa una parte del cuadro.",
+        "change": "El disco terrestre gana tamaño y la escena pasa al mapa regional.",
+        "after": "Dos rótulos de color quedan sobre posiciones separadas en el mismo mapa."
+      },
+      "anchor": "La región geográfica relaciona el globo con el mapa.",
+      "method": "storyboard",
+      "sheet_sha256": "f919a57b2d75f2a0c1c572ee9910212fb9857a18a848f7e4946b101b7d02d295",
+      "speech": {
+        "term": "distance",
+        "mention_s": [
+          441.277,
+          441.597
+        ],
+        "precision": "acoustic-asr-estimate",
+        "acoustic": {
+          "term": "distance",
+          "start_s": 441.277,
+          "end_s": 441.597,
+          "precision": "acoustic-asr-estimate",
+          "model": "faster-whisper-base",
+          "audio_sha256": "3e066a9a4e3983d639a010d62e06b4f459a8274b19e10ef32a4e1efd31784b8c",
+          "file": "first/YdOXS_9_P4U.voice2.flac"
+        }
+      },
+      "cadence_s": 10.0,
+      "source_manifest_sha256": "aa179157813e7151d45483df7ec5110eb2838e43ae018aa1a1a9dbbcd128493b",
+      "decoded": {
+        "pts_s": [
+          432.9,
+          436.733333
+        ],
+        "sha256": "31fa3907d959854ad7f01bcb0e89bb52fb5f97ab4652a8f8580223c13d320657",
+        "frames": 116,
+        "fps": 30.0
+      }
+    },
+    {
+      "key": "hFMaT9oRbs4@920",
+      "video_id": "hFMaT9oRbs4",
+      "title": "Terence Tao continuing history’s cleverest cosmological measurements",
+      "published": "2025-02-23",
+      "format": "videos",
+      "source_s": [
+        920,
+        950
+      ],
+      "url": "https://www.youtube.com/watch?v=hFMaT9oRbs4&t=920s",
+      "family": "linked-views",
+      "poses": {
+        "before": "Se distingue un campo de estrellas en un fondo oscuro.",
+        "change": "Aparece una franja ordenada por color; después las marcas forman dos agrupaciones sobre el plano color–magnitud.",
+        "after": "Los rótulos de los ejes y las ramas hacen legible la separación de poblaciones."
+      },
+      "anchor": "El tono de los puntos sirve de clave común entre distribuciones.",
+      "method": "storyboard",
+      "sheet_sha256": "112f70320815b349cb3d63eac7a684320757fc3306e553cb0f5a8464c623aa56",
+      "speech": {
+        "term": "absolute brightness",
+        "mention_s": [
+          933.64,
+          937.389
+        ],
+        "precision": "published-caption-block",
+        "caption_sha256": "09ab88f8b717fb1d1f8f68ec6e622ff45ecafe952324d767ed8660c7f2d02d8f",
+        "acoustic": {
+          "term": "brightness",
+          "start_s": 936.581,
+          "end_s": 936.961,
+          "precision": "acoustic-asr-estimate",
+          "model": "faster-whisper-base",
+          "audio_sha256": "3ed651b4926aad231ba2c591ef515bbbbddc21675f8eb34741e4364a70739e2f",
+          "file": "first/hFMaT9oRbs4.voice1.flac"
+        }
+      },
+      "cadence_s": 10.0,
+      "source_manifest_sha256": "981a8e9c4fc6da41be8605de19e0b205439683250266978108d410444710113c",
+      "decoded": {
+        "pts_s": [
+          933.866667,
+          937.333333
+        ],
+        "sha256": "4450391e93065b6430ab7759cd39c41df09616537aec5cddf24861ced89cf80e",
+        "frames": 105,
+        "fps": 30.0
+      }
+    },
+    {
+      "key": "hFMaT9oRbs4@670",
+      "video_id": "hFMaT9oRbs4",
+      "title": "Terence Tao continuing history’s cleverest cosmological measurements",
+      "published": "2025-02-23",
+      "format": "videos",
+      "source_s": [
+        670,
+        690
+      ],
+      "url": "https://www.youtube.com/watch?v=hFMaT9oRbs4&t=670s",
+      "family": "geometric-measure",
+      "poses": {
+        "before": "Dos visuales blancas parten de una órbita y convergen en un vértice lejano.",
+        "change": "Un segmento interior de color señala el ángulo pequeño en la punta del triángulo.",
+        "after": "La anotación angular queda junto al vértice con la base todavía visible."
+      },
+      "anchor": "La órbita y las dos rectas exteriores mantienen la escala.",
+      "method": "storyboard",
+      "sheet_sha256": "112f70320815b349cb3d63eac7a684320757fc3306e553cb0f5a8464c623aa56",
+      "speech": {
+        "term": "This angle",
+        "mention_s": [
+          686.86,
+          689.798
+        ],
+        "precision": "published-caption-block",
+        "caption_sha256": "09ab88f8b717fb1d1f8f68ec6e622ff45ecafe952324d767ed8660c7f2d02d8f"
+      },
+      "cadence_s": 10.0,
+      "source_manifest_sha256": "981a8e9c4fc6da41be8605de19e0b205439683250266978108d410444710113c",
+      "decoded": {
+        "pts_s": [
+          677.8,
+          684.766667
+        ],
+        "sha256": "fd8c77a7be0c0f67ce719555c92b0bd065fecf8c17c1c1ca96ab8d923fb116a8",
+        "frames": 210,
+        "fps": 30.0
+      }
+    },
+    {
+      "key": "6dTyOl1fmDo@380",
+      "video_id": "6dTyOl1fmDo",
+      "title": "Why colliding blocks compute pi",
+      "published": "2025-03-13",
+      "format": "videos",
+      "source_s": [
+        380,
+        410
+      ],
+      "url": "https://www.youtube.com/watch?v=6dTyOl1fmDo&t=380s",
+      "family": "linked-views",
+      "poses": {
+        "before": "Los bloques y la pared descansan en la franja inferior y las expresiones en la superior.",
+        "change": "Se añade una cuadrícula de velocidades junto a la escena física y cambia el estado de los bloques.",
+        "after": "La marca del gráfico se puede leer junto a las posiciones físicas y las fórmulas."
+      },
+      "anchor": "El suelo y la pared mantienen el origen físico.",
+      "method": "storyboard",
+      "sheet_sha256": "0bdf3b1b60ee92ab575ed3e611a11203860f31e47b4770d2c3782f3cb50b510e",
+      "speech": {
+        "term": "coordinate plane",
+        "mention_s": [
+          382.837,
+          385.752
+        ],
+        "precision": "published-caption-block",
+        "caption_sha256": "772beaca3a879c3414b85f98cd088a363bc8a8ae65d8fdf14709bf494e65165d"
+      },
+      "cadence_s": 10.0,
+      "source_manifest_sha256": "ab9fdb1dd4180dcb8509d67ffe90c60c6031eff1a9d3d5fc29435dda60fc47d0",
+      "decoded": {
+        "pts_s": [
+          394.666667,
+          399.966667
+        ],
+        "sha256": "38322199ef857c532e9525b8af22857487692d2cd9216d4813efdaf0e2747ea4",
+        "frames": 160,
+        "fps": 30.0
+      }
+    },
+    {
+      "key": "6dTyOl1fmDo@1230",
+      "video_id": "6dTyOl1fmDo",
+      "title": "Why colliding blocks compute pi",
+      "published": "2025-03-13",
+      "format": "videos",
+      "source_s": [
+        1230,
+        1260
+      ],
+      "url": "https://www.youtube.com/watch?v=6dTyOl1fmDo&t=1230s",
+      "family": "scale-transition",
+      "poses": {
+        "before": "Un sector pequeño se dibuja junto a los ejes.",
+        "change": "Se completa una circunferencia y se señala un ángulo estrecho con referencias de color.",
+        "after": "Un acercamiento ocupa el cuadro con el tramo del arco y la dirección de su radio."
+      },
+      "anchor": "El eje y los trazos coloreados identifican el mismo ángulo.",
+      "method": "storyboard",
+      "sheet_sha256": "0bdf3b1b60ee92ab575ed3e611a11203860f31e47b4770d2c3782f3cb50b510e",
+      "speech": {
+        "term": "arc",
+        "mention_s": [
+          1247.688,
+          1251.887
+        ],
+        "precision": "published-caption-block",
+        "caption_sha256": "772beaca3a879c3414b85f98cd088a363bc8a8ae65d8fdf14709bf494e65165d"
+      },
+      "cadence_s": 10.0,
+      "source_manifest_sha256": "ab9fdb1dd4180dcb8509d67ffe90c60c6031eff1a9d3d5fc29435dda60fc47d0",
+      "decoded": {
+        "pts_s": [
+          1242.666667,
+          1247.966667
+        ],
+        "sha256": "74d7a8dda207a04bdc61d44de0d886d34d26464b3964cb423b5362bc07a82c7b",
+        "frames": 160,
+        "fps": 30.0
+      }
+    },
+    {
+      "key": "RQWpF2Gb-gU@930",
+      "video_id": "RQWpF2Gb-gU",
+      "title": "But what is quantum computing?  (Grover's Algorithm)",
+      "published": "2025-04-30",
+      "format": "videos",
+      "source_s": [
+        930,
+        950
+      ],
+      "url": "https://www.youtube.com/watch?v=RQWpF2Gb-gU&t=930s",
+      "family": "linked-views",
+      "poses": {
+        "before": "Un vector parte del origen, acompañado por una expresión y barras de dos colores.",
+        "change": "Se anotan las direcciones de base junto a la flecha y después se escribe su suma ponderada.",
+        "after": "Un mismo vector se puede leer como flecha geométrica y como combinación de dos términos."
+      },
+      "anchor": "La orientación de la flecha, su origen y la cuadrícula persisten al cambiar la notación.",
+      "method": "storyboard",
+      "sheet_sha256": "f4ecbdb98736b47a457749c787f30a0f7d8231116df2a66ed6b3891035f0f876",
+      "speech": {
+        "term": "weighted sum",
+        "mention_s": [
+          945.446,
+          948.88
+        ],
+        "precision": "published-caption-block",
+        "caption_sha256": "35b0303968016a3c0c44d88305ab6d6e8e6e7eef952b3fc5640d8b0d06e4148f"
+      },
+      "cadence_s": 10.0,
+      "source_manifest_sha256": "d35b0cdf03a44de9052982717e258cacadc08f9e308b83173a987621fd3df3a7",
+      "decoded": {
+        "pts_s": [
+          938.7,
+          945.333333
+        ],
+        "sha256": "0fa58e249ddf00f54b7ad057af06e33f78c24f72e4c377ba10802729ef12ef1c",
+        "frames": 200,
+        "fps": 30.0
+      }
+    },
+    {
+      "key": "RQWpF2Gb-gU@1360",
+      "video_id": "RQWpF2Gb-gU",
+      "title": "But what is quantum computing?  (Grover's Algorithm)",
+      "published": "2025-04-30",
+      "format": "videos",
+      "source_s": [
+        1360,
+        1400
+      ],
+      "url": "https://www.youtube.com/watch?v=RQWpF2Gb-gU&t=1360s",
+      "family": "coordinate-projection",
+      "poses": {
+        "before": "Una flecha ocupa el interior de una cuadrícula espacial.",
+        "change": "La vista cambia de orientación y se presentan al lado sus direcciones de referencia.",
+        "after": "El vector se puede contrastar con una vista plana colocada a su derecha."
+      },
+      "anchor": "Los orígenes y las direcciones coloreadas relacionan las vistas.",
+      "method": "storyboard",
+      "sheet_sha256": "f4ecbdb98736b47a457749c787f30a0f7d8231116df2a66ed6b3891035f0f876",
+      "speech": {
+        "term": "two-dimensional slice",
+        "mention_s": [
+          1369.52,
+          1373.04
+        ],
+        "precision": "published-caption-block",
+        "caption_sha256": "35b0303968016a3c0c44d88305ab6d6e8e6e7eef952b3fc5640d8b0d06e4148f"
+      },
+      "cadence_s": 10.0,
+      "source_manifest_sha256": "d35b0cdf03a44de9052982717e258cacadc08f9e308b83173a987621fd3df3a7",
+      "decoded": {
+        "pts_s": [
+          1376.266667,
+          1383.166667
+        ],
+        "sha256": "e97e11eb1161f2d4bd8ed7197bbe708404a4fe16fdeaed971d985c7ed8edb0cd",
+        "frames": 208,
+        "fps": 30.0
+      }
+    },
+    {
+      "key": "Dlsa9EBKDGI@590",
+      "video_id": "Dlsa9EBKDGI",
+      "title": "Where my explanation of Grover’s algorithm failed",
+      "published": "2025-05-04",
+      "format": "videos",
+      "source_s": [
+        590,
+        630
+      ],
+      "url": "https://www.youtube.com/watch?v=Dlsa9EBKDGI&t=590s",
+      "family": "linked-views",
+      "poses": {
+        "before": "Un circuito y la notación de un estado quedan a la izquierda de un vector sobre una cuadrícula.",
+        "change": "Se introduce un término adicional en la notación y cambia la dirección de la flecha.",
+        "after": "La notación y la orientación final quedan juntas para inspección."
+      },
+      "anchor": "El enrejado y el punto de aplicación de la flecha permanecen.",
+      "method": "storyboard",
+      "sheet_sha256": "8ee9e5faefb64d94efc84a5582493cb6b0cfe97a1411dc1d2e94f636090c8395",
+      "speech": {
+        "term": "flipping around the x-axis",
+        "mention_s": [
+          620.851,
+          624.37
+        ],
+        "precision": "published-caption-block",
+        "caption_sha256": "529e89dfce75f08aa88813aaf23e3dfcf7a6c956192dfb57d39e31ffb085fe9f"
+      },
+      "cadence_s": 10.0,
+      "source_manifest_sha256": "aa6cfd250146edff539762eb3d1fee48cd7015a2045edc6ca391465f707d7f01",
+      "decoded": {
+        "pts_s": [
+          605.066667,
+          612.033333
+        ],
+        "sha256": "2089493274898b93a6825e8ff6dcc592188e07deb529477290cfff789583a399",
+        "frames": 210,
+        "fps": 30.0
+      }
+    },
+    {
+      "key": "Dlsa9EBKDGI@250",
+      "video_id": "Dlsa9EBKDGI",
+      "title": "Where my explanation of Grover’s algorithm failed",
+      "published": "2025-05-04",
+      "format": "videos",
+      "source_s": [
+        250,
+        280
+      ],
+      "url": "https://www.youtube.com/watch?v=Dlsa9EBKDGI&t=250s",
+      "family": "enumerate-states",
+      "poses": {
+        "before": "Cuatro etiquetas forman una columna a la izquierda de un dibujo con ejes.",
+        "change": "Se resaltan direcciones a la derecha y la columna pasa a enumerar un conjunto mayor de etiquetas.",
+        "after": "El listado compacto se contrasta con las pocas direcciones dibujadas en el plano."
+      },
+      "anchor": "La convención de etiquetas a la izquierda se mantiene.",
+      "method": "storyboard",
+      "sheet_sha256": "8ee9e5faefb64d94efc84a5582493cb6b0cfe97a1411dc1d2e94f636090c8395",
+      "speech": {
+        "term": "coordinate direction",
+        "mention_s": [
+          274.98,
+          278.538
+        ],
+        "precision": "published-caption-block",
+        "caption_sha256": "529e89dfce75f08aa88813aaf23e3dfcf7a6c956192dfb57d39e31ffb085fe9f"
+      },
+      "cadence_s": 10.0,
+      "source_manifest_sha256": "aa6cfd250146edff539762eb3d1fee48cd7015a2045edc6ca391465f707d7f01",
+      "decoded": {
+        "pts_s": [
+          260.5,
+          267.466667
+        ],
+        "sha256": "a4187cc1e1d2693de67349e318de8084dae3a73beb2459c0091d5418e94eca3e",
+        "frames": 210,
+        "fps": 30.0
+      }
+    },
+    {
+      "key": "iv-5mZ_9CPY@530",
+      "video_id": "iv-5mZ_9CPY",
+      "title": "But how do AI images and videos actually work? | Guest video by Welch Labs",
+      "published": "2025-07-25",
+      "format": "videos",
+      "source_s": [
+        530,
+        560
+      ],
+      "url": "https://www.youtube.com/watch?v=iv-5mZ_9CPY&t=530s",
+      "family": "process-stages",
+      "poses": {
+        "before": "Una tira de tarjetas enlaza imágenes con distinta cantidad de ruido.",
+        "change": "Entra una mano, se añaden módulos bajo la tira y se amplía la parte central.",
+        "after": "En una vista más abierta encajan la serie de ejemplos y los módulos de procesamiento."
+      },
+      "anchor": "El orden horizontal de los estados permanece al recorrer la explicación.",
+      "method": "storyboard",
+      "sheet_sha256": "1c8fc672d852657dbe94f1c91af4df3843bc042c11353eef05db517c6865c259",
+      "speech": {
+        "term": "reverse this process",
+        "mention_s": [
+          533.94,
+          536.84
+        ],
+        "precision": "published-caption-block",
+        "caption_sha256": "7c77ca5ff893c8c44051a259598c95f8cda5d95744d8201ddf57965f921370e5"
+      },
+      "cadence_s": 10.0,
+      "source_manifest_sha256": "0b414884adb01e0b0b2c846d05a8293b32284fbb8a87402aa525860d755a5618",
+      "decoded": {
+        "pts_s": [
+          540.8,
+          545.966667
+        ],
+        "sha256": "8161e58ad48218d891d981f63f2d39bf6e9d2457916c43df44edf794d076a5c9",
+        "frames": 156,
+        "fps": 30.0
+      }
+    },
+    {
+      "key": "iv-5mZ_9CPY@940",
+      "video_id": "iv-5mZ_9CPY",
+      "title": "But how do AI images and videos actually work? | Guest video by Welch Labs",
+      "published": "2025-07-25",
+      "format": "videos",
+      "source_s": [
+        940,
+        980
+      ],
+      "url": "https://www.youtube.com/watch?v=iv-5mZ_9CPY&t=940s",
+      "family": "vector-field",
+      "poses": {
+        "before": "Dos extremos están unidos por una dirección sobre un plano oscuro.",
+        "change": "Los trazos puntuales dan paso a un campo con indicaciones locales alrededor de una trayectoria.",
+        "after": "La nubosidad de puntos se reconoce sobre el campo de direcciones."
+      },
+      "anchor": "El plano cartesiano y la dirección local permiten seguir el cambio de representación.",
+      "method": "storyboard",
+      "sheet_sha256": "1c8fc672d852657dbe94f1c91af4df3843bc042c11353eef05db517c6865c259",
+      "speech": {
+        "term": "score function",
+        "mention_s": [
+          965.28,
+          969.235
+        ],
+        "precision": "published-caption-block",
+        "caption_sha256": "7c77ca5ff893c8c44051a259598c95f8cda5d95744d8201ddf57965f921370e5"
+      },
+      "cadence_s": 10.0,
+      "source_manifest_sha256": "0b414884adb01e0b0b2c846d05a8293b32284fbb8a87402aa525860d755a5618",
+      "decoded": {
+        "pts_s": [
+          956.8,
+          961.966667
+        ],
+        "sha256": "26c97874e93af26e585ddd867f5a24121a952695c794c1a12fad5a5d681ac383",
+        "frames": 156,
+        "fps": 30.0
+      }
+    },
+    {
+      "key": "4NlrfOl0l8U@355",
+      "video_id": "4NlrfOl0l8U",
+      "title": "The AI that solved IMO Geometry Problems | Guest video by @Aleph 0",
+      "published": "2025-08-17",
+      "format": "videos",
+      "source_s": [
+        355,
+        365
+      ],
+      "url": "https://www.youtube.com/watch?v=4NlrfOl0l8U&t=355s",
+      "family": "process-stages",
+      "poses": {
+        "before": "Un fondo oscuro deja espacio para exponer dos mecanismos.",
+        "change": "Se presenta un bloque azul dedicado a la deducción y después otro a su derecha para el razonamiento algebraico.",
+        "after": "Ambos módulos quedan a la misma altura con sus funciones debajo."
+      },
+      "anchor": "La fila horizontal y la línea de base del texto sostienen la comparación.",
+      "method": "storyboard",
+      "sheet_sha256": "2bb047824c813c01b7e4e74c9b0e5fd6b77f7d7e18c69bd3b53cba25fc10c674",
+      "speech": {
+        "term": "Algebraic reasoning",
+        "mention_s": [
+          361.38,
+          365.78
+        ],
+        "precision": "published-caption-block",
+        "caption_sha256": "1b70ef2dc5a2437770b48b5a8dbc2b82ff8b817f46faf2669806a8c829bd5791",
+        "acoustic": {
+          "term": "Algebraic",
+          "start_s": 361.28,
+          "end_s": 361.76,
+          "precision": "acoustic-asr-estimate",
+          "model": "faster-whisper-base",
+          "audio_sha256": "4855c314ded90d976568867768438e6194c54dce44600df0b1d3d0090406a723",
+          "file": "first/4NlrfOl0l8U.voice1.flac"
+        }
+      },
+      "cadence_s": 5.0,
+      "source_manifest_sha256": "67b9eea99f96cae07896eece39aed6e10a40d38c2f1fe5f4256b28be7da08ff4",
+      "decoded": {
+        "pts_s": [
+          357.333333,
+          362.633333
+        ],
+        "sha256": "bce676c286234d57119cad668aec98c88a2aba0b3e15e3db32356f81570d6b9b",
+        "frames": 160,
+        "fps": 30.0,
+        "observations": {
+          "entrance": {
+            "0.05": {
+              "prev_frame_s": 361.5,
+              "threshold_frame_s": 361.533333,
+              "progress": 0.08171
+            },
+            "0.5": {
+              "prev_frame_s": 362.1,
+              "threshold_frame_s": 362.133333,
+              "progress": 0.5212
+            },
+            "0.98": {
+              "prev_frame_s": 362.333333,
+              "threshold_frame_s": 362.366667,
+              "progress": 0.99563
+            }
+          }
+        }
+      }
+    },
+    {
+      "key": "4NlrfOl0l8U@640",
+      "video_id": "4NlrfOl0l8U",
+      "title": "The AI that solved IMO Geometry Problems | Guest video by @Aleph 0",
+      "published": "2025-08-17",
+      "format": "videos",
+      "source_s": [
+        640,
+        655
+      ],
+      "url": "https://www.youtube.com/watch?v=4NlrfOl0l8U&t=640s",
+      "family": "constructed-proof",
+      "poses": {
+        "before": "Un triángulo y las notas de sus ángulos ocupan la parte superior de la hoja.",
+        "change": "La mano agrega una premisa en el espacio inferior y remite con el dedo al dibujo.",
+        "after": "El lector puede recorrer la frase y volver al triángulo que la justifica."
+      },
+      "anchor": "El contorno, los vértices y la página conservan posición.",
+      "method": "storyboard",
+      "sheet_sha256": "2bb047824c813c01b7e4e74c9b0e5fd6b77f7d7e18c69bd3b53cba25fc10c674",
+      "speech": {
+        "term": "sum of the angles",
+        "mention_s": [
+          646.34,
+          649.76
+        ],
+        "precision": "published-caption-block",
+        "caption_sha256": "1b70ef2dc5a2437770b48b5a8dbc2b82ff8b817f46faf2669806a8c829bd5791"
+      },
+      "cadence_s": 5.0,
+      "source_manifest_sha256": "67b9eea99f96cae07896eece39aed6e10a40d38c2f1fe5f4256b28be7da08ff4",
+      "decoded": {
+        "pts_s": [
+          645.333333,
+          650.633333
+        ],
+        "sha256": "9a101cb4e8fcaa90299cf0203a31bfdad7f0012df5a315de0ea7d13bc7dba630",
+        "frames": 160,
+        "fps": 30.0
+      }
+    },
+    {
+      "key": "itRV2jEtV8Q@170",
+      "video_id": "itRV2jEtV8Q",
+      "title": "Simulating and understanding phase change | Guest video by Vilas Winstein",
+      "published": "2025-08-28",
+      "format": "videos",
+      "source_s": [
+        170,
+        220
+      ],
+      "url": "https://www.youtube.com/watch?v=itRV2jEtV8Q&t=170s",
+      "family": "parameter-field",
+      "poses": {
+        "before": "Un mapa de fases muestra las regiones a izquierda y una explicación a derecha.",
+        "change": "La textura de una simulación ocupa el cuadro. Un mapa pequeño continúa en la esquina mientras cambian las regiones de color.",
+        "after": "Al final domina un color y el recuadro sitúa el estado en el parámetro."
+      },
+      "anchor": "La posición del mapa pequeño enlaza las configuraciones a gran escala.",
+      "method": "storyboard",
+      "sheet_sha256": "7dfeacd2f6f193d06f7ebd0bfd7889ab199972c14cfc25db12a2bb6bc2c487e7",
+      "speech": {
+        "term": "control panel",
+        "mention_s": [
+          188.83,
+          192.713
+        ],
+        "precision": "published-caption-block",
+        "caption_sha256": "11803e3d4b5157b03aac754d46b6e980d56f2483389e130bc9c0c7394e3471d0"
+      },
+      "cadence_s": 10.0,
+      "source_manifest_sha256": "74c7580f9b8e6e67d7aef7b63a5364d1f856bce8000c795921c3b1a1090bcf22",
+      "decoded": {
+        "pts_s": [
+          191.766667,
+          197.733333
+        ],
+        "sha256": "0c478d65fea069df87fbaa5f3b6235521355f496f082ace9ba5ea09ac248896b",
+        "frames": 180,
+        "fps": 30.0
+      }
+    },
+    {
+      "key": "itRV2jEtV8Q@1040",
+      "video_id": "itRV2jEtV8Q",
+      "title": "Simulating and understanding phase change | Guest video by Vilas Winstein",
+      "published": "2025-08-28",
+      "format": "videos",
+      "source_s": [
+        1040,
+        1080
+      ],
+      "url": "https://www.youtube.com/watch?v=itRV2jEtV8Q&t=1040s",
+      "family": "conserved-total",
+      "poses": {
+        "before": "Dos compartimentos contiguos llevan las etiquetas de energía y una línea superior expresa el total fijo.",
+        "change": "El sombreado de los compartimentos cambia y se añaden anotaciones que distinguen las configuraciones.",
+        "after": "La comparación de ambos compartimentos sigue presente cuando se introduce la interpretación."
+      },
+      "anchor": "El contorno común y la división central conservan la identidad del par.",
+      "method": "storyboard",
+      "sheet_sha256": "7dfeacd2f6f193d06f7ebd0bfd7889ab199972c14cfc25db12a2bb6bc2c487e7",
+      "speech": {
+        "term": "equilibrium",
+        "mention_s": [
+          1050.671,
+          1053.911
+        ],
+        "precision": "published-caption-block",
+        "caption_sha256": "11803e3d4b5157b03aac754d46b6e980d56f2483389e130bc9c0c7394e3471d0"
+      },
+      "cadence_s": 10.0,
+      "source_manifest_sha256": "74c7580f9b8e6e67d7aef7b63a5364d1f856bce8000c795921c3b1a1090bcf22",
+      "decoded": {
+        "pts_s": [
+          1055.433333,
+          1061.4
+        ],
+        "sha256": "e68b5a4d6a57faf28ceaa02c5332f5480eae2efab1a9e292c27deb262d26cd15",
+        "frames": 180,
+        "fps": 30.0
+      }
+    },
+    {
+      "key": "_BrFKp-U8GI@750",
+      "video_id": "_BrFKp-U8GI",
+      "title": "Exploration & Epiphany | Guest video by Paul Dancstep",
+      "published": "2025-09-07",
+      "format": "videos",
+      "source_s": [
+        750,
+        790
+      ],
+      "url": "https://www.youtube.com/watch?v=_BrFKp-U8GI&t=750s",
+      "family": "scale-transition",
+      "poses": {
+        "before": "Una serie de figuras se extiende por la parte baja de una pared.",
+        "change": "La cámara se alinea con el corredor y lleva las figuras a un punto de fuga distante.",
+        "after": "Una estructura lineal cercana adquiere volumen en el primer plano."
+      },
+      "anchor": "La pared y su punto de fuga conectan la repetición con el objeto individual.",
+      "method": "storyboard",
+      "sheet_sha256": "5aebeffe8e49226656c67bee9655e2a911dd087b36f8a3f0b6f8e228ebfad193",
+      "speech": {
+        "term": "very long hallway",
+        "mention_s": [
+          762.77,
+          766.29
+        ],
+        "precision": "published-caption-block",
+        "caption_sha256": "1b15ca1d686b434e0a77a711b624c79a878861d7a31876397486f2005111283b"
+      },
+      "cadence_s": 10.0,
+      "source_manifest_sha256": "8931d1546b4ef0e673200149b2c3c6dce6193656f2501191bcf03d7e27ec1a2d",
+      "decoded": {
+        "pts_s": [
+          769.266667,
+          774.2
+        ],
+        "sha256": "93a37b870ed86b278b13c021883a0e8dadd8c0de919b76488fd691f6db814cb3",
+        "frames": 149,
+        "fps": 30.0
+      }
+    },
+    {
+      "key": "_BrFKp-U8GI@2500",
+      "video_id": "_BrFKp-U8GI",
+      "title": "Exploration & Epiphany | Guest video by Paul Dancstep",
+      "published": "2025-09-07",
+      "format": "videos",
+      "source_s": [
+        2500,
+        2530
+      ],
+      "url": "https://www.youtube.com/watch?v=_BrFKp-U8GI&t=2500s",
+      "family": "enumerate-states",
+      "poses": {
+        "before": "Una figura aislada aparece junto a un rótulo de eje.",
+        "change": "Aparecen varias versiones alrededor del mismo eje y una expresión cuantifica el conjunto.",
+        "after": "Una colección compacta reúne las variantes como familia."
+      },
+      "anchor": "La orientación del eje identifica qué elecciones se están comparando.",
+      "method": "storyboard",
+      "sheet_sha256": "5aebeffe8e49226656c67bee9655e2a911dd087b36f8a3f0b6f8e228ebfad193",
+      "speech": {
+        "term": "six independent choices",
+        "mention_s": [
+          2513.77,
+          2518.71
+        ],
+        "precision": "published-caption-block",
+        "caption_sha256": "1b15ca1d686b434e0a77a711b624c79a878861d7a31876397486f2005111283b"
+      },
+      "cadence_s": 10.0,
+      "source_manifest_sha256": "8931d1546b4ef0e673200149b2c3c6dce6193656f2501191bcf03d7e27ec1a2d",
+      "decoded": {
+        "pts_s": [
+          2514.366667,
+          2520.066667
+        ],
+        "sha256": "340a1ad57244637880612b9903979e7257dea976afc74eb7bd48ae89ff9ae821",
+        "frames": 172,
+        "fps": 30.0
+      }
+    },
+    {
+      "key": "M-MgQC6z3VU@1240",
+      "video_id": "M-MgQC6z3VU",
+      "title": "What was Euclid really doing? | Guest video by Ben Syversen",
+      "published": "2025-09-18",
+      "format": "videos",
+      "source_s": [
+        1240,
+        1270
+      ],
+      "url": "https://www.youtube.com/watch?v=M-MgQC6z3VU&t=1240s",
+      "family": "constructed-proof",
+      "poses": {
+        "before": "El quinto postulado encabeza un dibujo de rectas con dos marcas angulares.",
+        "change": "Las rectas se prolongan a la derecha; se conserva el cruce con la transversal.",
+        "after": "Se puede seguir desde la región de los ángulos hasta la intersección o prolongación de las rectas."
+      },
+      "anchor": "El título, la hoja y la transversal permanecen en su lugar.",
+      "method": "storyboard",
+      "sheet_sha256": "9a119fd4c7dd73998182d5365480b7142cfb83d7efac0f865dc2ece75f93bb51",
+      "speech": {
+        "term": "two lines",
+        "mention_s": [
+          1257.25,
+          1262.45
+        ],
+        "precision": "published-caption-block",
+        "caption_sha256": "32f1670abe924b29d8a529d113fd8d3e52246325294ee0d7eec213aa7c651e0c"
+      },
+      "cadence_s": 10.0,
+      "source_manifest_sha256": "966090c5e63253f7eeccef0327d5d3facefa04c49ceaf220bed7defc2053b66c",
+      "decoded": {
+        "pts_s": [
+          1249.633333,
+          1256.6
+        ],
+        "sha256": "426f516640c1b0a43f68fc3e4356abb306a876e0da8c60c9686cd5bea76c98e1",
+        "frames": 210,
+        "fps": 30.0
+      }
+    },
+    {
+      "key": "M-MgQC6z3VU@1600",
+      "video_id": "M-MgQC6z3VU",
+      "title": "What was Euclid really doing? | Guest video by Ben Syversen",
+      "published": "2025-09-18",
+      "format": "videos",
+      "source_s": [
+        1600,
+        1640
+      ],
+      "url": "https://www.youtube.com/watch?v=M-MgQC6z3VU&t=1600s",
+      "family": "enumerate-states",
+      "poses": {
+        "before": "Dos retratos históricos ocupan posiciones vecinas sobre papel.",
+        "change": "La composición pasa a un fondo estrellado en el que aparecen más retratos y se distingue uno con un halo rojizo.",
+        "after": "La fila de retratos conserva la relación de sucesión mientras cambia el foco."
+      },
+      "anchor": "El orden horizontal de los retratos funciona como guía.",
+      "method": "storyboard",
+      "sheet_sha256": "9a119fd4c7dd73998182d5365480b7142cfb83d7efac0f865dc2ece75f93bb51",
+      "speech": {
+        "term": "hidden mistakes",
+        "mention_s": [
+          1627.51,
+          1629.67
+        ],
+        "precision": "published-caption-block",
+        "caption_sha256": "32f1670abe924b29d8a529d113fd8d3e52246325294ee0d7eec213aa7c651e0c"
+      },
+      "cadence_s": 10.0,
+      "source_manifest_sha256": "966090c5e63253f7eeccef0327d5d3facefa04c49ceaf220bed7defc2053b66c",
+      "decoded": {
+        "pts_s": [
+          1616.733333,
+          1623.7
+        ],
+        "sha256": "e6b84fdb8ed1c0e3eb4a9b5f1996b9926fdf242ccf4100acd99345beec50c84b",
+        "frames": 210,
+        "fps": 30.0
+      }
+    },
+    {
+      "key": "-j8PzkZ70Lg@700",
+      "video_id": "-j8PzkZ70Lg",
+      "title": "The Physics of Euler's Formula | Laplace Transform Prelude",
+      "published": "2025-10-05",
+      "format": "videos",
+      "source_s": [
+        700,
+        720
+      ],
+      "url": "https://www.youtube.com/watch?v=-j8PzkZ70Lg&t=700s",
+      "family": "state-and-trace",
+      "poses": {
+        "before": "Un bloque turquesa termina un muelle horizontal; arriba comienza la traza temporal.",
+        "change": "Cambia la posición del bloque sobre la guía y la traza se prolonga hacia la derecha.",
+        "after": "Varias oscilaciones de amplitud decreciente se pueden leer sobre el mismo eje temporal."
+      },
+      "anchor": "El apoyo izquierdo, la guía del bloque y los ejes de la traza se mantienen.",
+      "method": "storyboard",
+      "sheet_sha256": "96e542a9ea5ba3a436f85dbd0c080b308672cfa8434f970766e36f88d4e71148",
+      "speech": {
+        "term": "amplitude",
+        "mention_s": [
+          716.762,
+          719.35
+        ],
+        "precision": "published-caption-block",
+        "caption_sha256": "a40ded94712898a08eac123642594165c11c4eba35acdd82fb1d5b2da2691ca1",
+        "acoustic": {
+          "term": "amplitude",
+          "start_s": 716.681,
+          "end_s": 717.081,
+          "precision": "acoustic-asr-estimate",
+          "model": "faster-whisper-base",
+          "audio_sha256": "8c2efe902cf69179952853832ac840b4780980fb48ac886190230c256765c8cb",
+          "file": "first/-j8PzkZ70Lg.voice1.flac"
+        }
+      },
+      "cadence_s": 10.0,
+      "source_manifest_sha256": "d30d0c759f38d86797d70eca8460a06956eb657f77d028ad63bc0a1c18c06cb9",
+      "decoded": {
+        "pts_s": [
+          708.233333,
+          714.533333
+        ],
+        "sha256": "261f92f132a3d91c3f93f7bf1483db77771623a174dff7b0e98c69529cbfa285",
+        "frames": 190,
+        "fps": 30.0
+      }
+    },
+    {
+      "key": "-j8PzkZ70Lg@730",
+      "video_id": "-j8PzkZ70Lg",
+      "title": "The Physics of Euler's Formula | Laplace Transform Prelude",
+      "published": "2025-10-05",
+      "format": "videos",
+      "source_s": [
+        730,
+        750
+      ],
+      "url": "https://www.youtube.com/watch?v=-j8PzkZ70Lg&t=730s",
+      "family": "parameter-grid",
+      "poses": {
+        "before": "Un recuadro contiene una oscilación concreta y el valor de un parámetro.",
+        "change": "Aparecen variantes en una fila y después en más filas.",
+        "after": "Una matriz permite comparar varias formas de respuesta conservando la escala local de lectura."
+      },
+      "anchor": "Los recuadros alineados y el sentido del tiempo hacen comparables las curvas.",
+      "method": "storyboard",
+      "sheet_sha256": "96e542a9ea5ba3a436f85dbd0c080b308672cfa8434f970766e36f88d4e71148",
+      "speech": {
+        "term": "different initial positions",
+        "mention_s": [
+          730.55,
+          733.662
+        ],
+        "precision": "published-caption-block",
+        "caption_sha256": "a40ded94712898a08eac123642594165c11c4eba35acdd82fb1d5b2da2691ca1"
+      },
+      "cadence_s": 10.0,
+      "source_manifest_sha256": "d30d0c759f38d86797d70eca8460a06956eb657f77d028ad63bc0a1c18c06cb9",
+      "decoded": {
+        "pts_s": [
+          738.833333,
+          745.733333
+        ],
+        "sha256": "545d2e2e09e2df37108032c7c35a2927a7c3534b2f0f8b1938913feca09ef510",
+        "frames": 208,
+        "fps": 30.0
+      }
+    },
+    {
+      "key": "j0wJBEZdwLs@490",
+      "video_id": "j0wJBEZdwLs",
+      "title": "But what is a Laplace Transform?",
+      "published": "2025-10-12",
+      "format": "videos",
+      "source_s": [
+        490,
+        540
+      ],
+      "url": "https://www.youtube.com/watch?v=j0wJBEZdwLs&t=490s",
+      "family": "parameter-surface",
+      "poses": {
+        "before": "Una marca se sitúa sobre un plano cuadriculado junto a una expresión.",
+        "change": "Una pequeña vista encuadra el plano y se presenta después una superficie con picos sobre una base de color.",
+        "after": "La altura de la superficie y sus extremos se pueden leer junto a la expresión."
+      },
+      "anchor": "La base bidimensional enlaza punto, plano y superficie.",
+      "method": "storyboard",
+      "sheet_sha256": "810dc995bd05ba5654f19afea76a2ea324a8c5fe25da5126e2aa6e1cb545db09",
+      "speech": {
+        "term": "spikes",
+        "mention_s": [
+          514.896,
+          519.58
+        ],
+        "precision": "published-caption-block",
+        "caption_sha256": "4d78cc605a085803816e23d339b8d419e14c2a1a893a5679c01a9733a45315d8"
+      },
+      "cadence_s": 10.0,
+      "source_manifest_sha256": "3feeedbf3f8c073fbfd4b9e5b79782ae4ff6e516a8fc26a22d383263ac3eff59",
+      "decoded": {
+        "pts_s": [
+          514.6,
+          520.833333
+        ],
+        "sha256": "327a95661c37099f509f75f37d3e37e9fac2c75b5dd844813c9c9dd6c756ecf1",
+        "frames": 188,
+        "fps": 30.0
+      }
+    },
+    {
+      "key": "j0wJBEZdwLs@1280",
+      "video_id": "j0wJBEZdwLs",
+      "title": "But what is a Laplace Transform?",
+      "published": "2025-10-12",
+      "format": "videos",
+      "source_s": [
+        1280,
+        1300
+      ],
+      "url": "https://www.youtube.com/watch?v=j0wJBEZdwLs&t=1280s",
+      "family": "domain-extension",
+      "poses": {
+        "before": "Una curva rotulada ocupa el centro del gráfico.",
+        "change": "Un trazo de otro color prolonga la curva hacia ambos lados y se distingue el contacto en la región central.",
+        "after": "Dos extensiones muestran cómo una función puede coincidir dentro del dominio inicial y diferir fuera de él."
+      },
+      "anchor": "Los ejes y el segmento original conservan posición.",
+      "method": "storyboard",
+      "sheet_sha256": "810dc995bd05ba5654f19afea76a2ea324a8c5fe25da5126e2aa6e1cb545db09",
+      "speech": {
+        "term": "bigger domain",
+        "mention_s": [
+          1286.396,
+          1290.76
+        ],
+        "precision": "published-caption-block",
+        "caption_sha256": "4d78cc605a085803816e23d339b8d419e14c2a1a893a5679c01a9733a45315d8"
+      },
+      "cadence_s": 10.0,
+      "source_manifest_sha256": "3feeedbf3f8c073fbfd4b9e5b79782ae4ff6e516a8fc26a22d383263ac3eff59",
+      "decoded": {
+        "pts_s": [
+          1284.166667,
+          1291.133333
+        ],
+        "sha256": "a9696c0b5d43cd6ea3074df11a6a63d2ef5267eac004a2bb725620963ec1b371",
+        "frames": 210,
+        "fps": 30.0
+      }
+    },
+    {
+      "key": "FE-hM1kRK4Y@320",
+      "video_id": "FE-hM1kRK4Y",
+      "title": "Why Laplace transforms are so useful",
+      "published": "2025-11-05",
+      "format": "videos",
+      "source_s": [
+        320,
+        350
+      ],
+      "url": "https://www.youtube.com/watch?v=FE-hM1kRK4Y&t=320s",
+      "family": "commuting-paths",
+      "poses": {
+        "before": "Cuatro expresiones ocupan los vértices de un cuadrado con flechas de operación.",
+        "change": "El foco se desplaza a la esquina inferior derecha donde aparece un término enmarcado.",
+        "after": "Una anotación lateral identifica la condición inicial y mantiene a la vista los dos caminos."
+      },
+      "anchor": "La posición de los cuatro vértices fija la comparación.",
+      "method": "storyboard",
+      "sheet_sha256": "7392ecad7fdbb721d035797c191f806cdae9a58461c2d202cf2cd3f7725d1734",
+      "speech": {
+        "term": "initial conditions",
+        "mention_s": [
+          345.735,
+          349.0
+        ],
+        "precision": "published-caption-block",
+        "caption_sha256": "a98be75351729c00f67de1c0f51c5201f0e059662f29fcaaf2dfb36509399d4b"
+      },
+      "cadence_s": 10.0,
+      "source_manifest_sha256": "eb07954545036bc8beeaa9bbc4f72d40f492abb1877c918d2f845d9debd6457a",
+      "decoded": {
+        "pts_s": [
+          334.966667,
+          341.933333
+        ],
+        "sha256": "fe3f41e0d5d1f398388c4b3c028a0d67940c00a82ebf0fd8ede9084131cbd120",
+        "frames": 210,
+        "fps": 30.0
+      }
+    },
+    {
+      "key": "FE-hM1kRK4Y@850",
+      "video_id": "FE-hM1kRK4Y",
+      "title": "Why Laplace transforms are so useful",
+      "published": "2025-11-05",
+      "format": "videos",
+      "source_s": [
+        850,
+        880
+      ],
+      "url": "https://www.youtube.com/watch?v=FE-hM1kRK4Y&t=850s",
+      "family": "state-and-trace",
+      "poses": {
+        "before": "Una masa al final de un muelle aparece bajo un gráfico oscilante.",
+        "change": "Se hace visible una banda sobre las oscilaciones; luego las dos curvas se distinguen sobre los mismos ejes.",
+        "after": "El gráfico convive con un mapa de color a su derecha."
+      },
+      "anchor": "El eje horizontal permite seguir la evolución antes de comparar el segundo dominio.",
+      "method": "storyboard",
+      "sheet_sha256": "7392ecad7fdbb721d035797c191f806cdae9a58461c2d202cf2cd3f7725d1734",
+      "speech": {
+        "term": "two different components",
+        "mention_s": [
+          866.074,
+          868.66
+        ],
+        "precision": "published-caption-block",
+        "caption_sha256": "a98be75351729c00f67de1c0f51c5201f0e059662f29fcaaf2dfb36509399d4b"
+      },
+      "cadence_s": 10.0,
+      "source_manifest_sha256": "eb07954545036bc8beeaa9bbc4f72d40f492abb1877c918d2f845d9debd6457a",
+      "decoded": {
+        "pts_s": [
+          863.133333,
+          869.366667
+        ],
+        "sha256": "5e2a70e297fa1cac15881783de781a823036603385eedbd05513b6e2914ef268",
+        "frames": 188,
+        "fps": 30.0
+      }
+    },
+    {
+      "key": "qbsb9DpdZ6s@1",
+      "video_id": "qbsb9DpdZ6s",
+      "title": "How nearly-perfect compression is possible | Information theory, part 3",
+      "published": "2026-11-17",
+      "format": "videos",
+      "source_s": [
+        1,
+        9
+      ],
+      "url": "https://www.youtube.com/watch?v=qbsb9DpdZ6s&t=1s",
+      "family": "interval-refinement",
+      "poses": {
+        "before": "El eje completo de 0 a 1 contiene particiones contiguas. Encima se ven el texto que se va codificando y los primeros bits.",
+        "change": "Al segundo 2 la escala ya muestra decimales próximos a 0,748. Al segundo 3 aparecen divisiones dentro de la región elegida y al 5 se distingue otra fila.",
+        "after": "Al segundo 9 varias filas se leen a la vez. Las guías verticales delimitan la región donde prosigue la selección."
+      },
+      "anchor": "Eje horizontal, extremos de cada selección y prefijo escrito sobre la composición.",
+      "method": "Fotogramas decodificados por FFmpeg desde el AVC original de YouTube, con PTS originales y SHA-256 de los fragmentos.",
+      "sheet_sha256": "1b176d8c43c541a4418c3e1d09114c10585133fdb930e9b11bb56d66353e7135",
+      "speech": {
+        "term": "compress",
+        "source": "published-caption-block",
+        "mention_s": [
+          2.233,
+          4.573
+        ],
+        "relation": "La frase explica la finalidad mientras el eje ya está ampliado y aparece la fila interior."
+      },
+      "use": "Para una secuencia de decisiones o proporciones condicionadas, amplía la subdivisión elegida, mantén visibles los padres y actualiza el prefijo elegido.",
+      "source_samples_s": [
+        1.0,
+        2.0,
+        3.0,
+        5.0,
+        9.0
+      ],
+      "source_manifest_sha256": "b6e7bc3fc21e064a15abcf6a46d4089de0cb1c71c022ec07ec3407512091c4a0"
+    },
+    {
+      "key": "qbsb9DpdZ6s@620",
+      "video_id": "qbsb9DpdZ6s",
+      "title": "How nearly-perfect compression is possible | Information theory, part 3",
+      "published": "2026-11-17",
+      "format": "videos",
+      "source_s": [
+        620,
+        640
+      ],
+      "url": "https://www.youtube.com/watch?v=qbsb9DpdZ6s&t=620s",
+      "family": "interval-refinement",
+      "poses": {
+        "before": "La selección correspondiente a la palabra está ampliada hasta llenar casi todo el ancho, con una llave debajo y un valor señalado arriba.",
+        "change": "Al retroceder una capa, el eje incluye palabras vecinas con el mismo prefijo. A 630 s se ve «mate».",
+        "after": "A 640 s aparece «main» y el intervalo visible abarca alternativas que comparten un prefijo más corto."
+      },
+      "anchor": "Regla numérica, filas anidadas y puntero sobre la misma composición.",
+      "method": "Fotogramas decodificados del AVC original con sus PTS y SHA-256 por fragmento, junto con poses de contexto del storyboard oficial.",
+      "sheet_sha256": "cd20ba29a7e91a8ea17cda8df1f7a9167ee30df0edd008ef8726c50c4409b095",
+      "speech": {
+        "term": "zooming",
+        "source": "ASR-word-estimate",
+        "mention_s": [
+          627.58,
+          627.84
+        ],
+        "asr_probability": 0.989,
+        "relation": "El término se refiere al cambio de escala. El segundo gesto verbalizado tiene su propio marcador.",
+        "model": "Systran/faster-whisper-base@ebe41f70d5b6dfa9166e2c581c45c9c0cfc57b66",
+        "audio_sha256": "a927faeace480451f7c95e9e060d05de9567c46f7fd275e6a1c4aee941756ebd",
+        "source_caption": {
+          "term": "zooming out",
+          "source": "published-caption-block-starts",
+          "block_start_s": [
+            627.6,
+            633.9
+          ],
+          "relation": "Dos bloques sucesivos indican el retroceso de una capa y otro retroceso mayor. Son inicios del texto publicado, redondeados a décimas. Con imágenes a diez segundos no se puede medir el desfase de la palabra."
+        },
+        "repeat_mention_s": [
+          633.66,
+          634.18
+        ]
+      },
+      "use": "Retrocede un nivel cuando la explicación pasa de una hoja específica a las alternativas con el mismo prefijo.",
+      "source_samples_s": [
+        625.0,
+        626.5,
+        627.5,
+        628.0,
+        628.5,
+        629.0,
+        632.0,
+        633.5,
+        634.0,
+        634.5,
+        635.5,
+        637.0
+      ],
+      "detail": "A 627,50 s persiste «math». A 628,00 s empieza a leerse «mate» y a 628,50 s se distingue completa. Las capas se abren a ambos lados bajo la regla.",
+      "context_samples_s": [
+        620.0,
+        630.0,
+        640.0
+      ],
+      "source_manifest_sha256": "1f0c247b7766bfdbcc365154d5609b2fb46caca8bb7fa17ecc523bd72031b923"
+    },
+    {
+      "key": "GlYgs6v2YfU@12",
+      "video_id": "GlYgs6v2YfU",
+      "title": "Visualizing ML's favorite loss function | Information theory, part 2",
+      "published": "2026-07-16",
+      "format": "videos",
+      "source_s": [
+        12,
+        19
+      ],
+      "url": "https://www.youtube.com/watch?v=GlYgs6v2YfU&t=12s",
+      "family": "cluster-by-attribute",
+      "poses": {
+        "before": "Todavía se distingue el símbolo de compresión, la flecha y documentos que empiezan a ocupar el fondo.",
+        "change": "Los iconos de documentos ocupan la pantalla. Aparecen juntos en pequeños grupos.",
+        "after": "Una llave y una bandera bajo cada conjunto identifican visualmente su idioma."
+      },
+      "anchor": "Documentos individuales reconocibles y un espacio común para reagruparlos.",
+      "method": "Fotogramas decodificados por FFmpeg desde el AVC original de YouTube, con PTS originales y SHA-256 de los fragmentos.",
+      "sheet_sha256": "f1a52e74cce3d0a79b5ced9deafb259016ffeccf9d879769f9539499a1017bf4",
+      "speech": {
+        "term": "cluster",
+        "source": "published-caption-block",
+        "mention_s": [
+          14.622,
+          17.46
+        ],
+        "relation": "La voz presenta la agrupación. La pose a 15 s ya muestra documentos y la de 19 s revela las banderas."
+      },
+      "use": "Cuando objetos ya presentados se clasifican por un atributo, conserva sus marcas, agrúpalas espacialmente y nombra el grupo después.",
+      "source_samples_s": [
+        12.0,
+        15.0,
+        19.0
+      ],
+      "source_manifest_sha256": "a9cf28afa49aec2cec7b3eef00db694f0da4d96f496044c7b7c2f4b5b1206661"
+    },
+    {
+      "key": "GlYgs6v2YfU@1620",
+      "video_id": "GlYgs6v2YfU",
+      "title": "Visualizing ML's favorite loss function | Information theory, part 2",
+      "published": "2026-07-16",
+      "format": "videos",
+      "source_s": [
+        1620,
+        1650
+      ],
+      "url": "https://www.youtube.com/watch?v=GlYgs6v2YfU&t=1620s",
+      "family": "linked-distributions",
+      "poses": {
+        "before": "Una misma frase ocupa el centro superior. De ella salen dos flechas hacia dos listas de predicciones.",
+        "change": "Al cambiar la frase, las dos listas actualizan palabras y barras. Las opciones ocupan posiciones comparables.",
+        "after": "La ecuación de pérdida aparece entre las listas cuando ya se pueden comparar."
+      },
+      "anchor": "Entrada común arriba, dos columnas debajo con las mismas categorías.",
+      "method": "Fotogramas decodificados del AVC original con sus PTS y SHA-256 por fragmento, junto con poses de contexto del storyboard oficial.",
+      "sheet_sha256": "dfdd7dbe0899c5177d8ec6b6038f5471566197892afa1e8b084a7a62e6bb340b",
+      "speech": {
+        "term": "loss",
+        "source": "ASR-word-estimate",
+        "mention_s": [
+          1641.68,
+          1641.94
+        ],
+        "asr_probability": 0.992,
+        "relation": "Se nombran la pérdida y las dos distribuciones mientras los modelos siguen visibles.",
+        "model": "Systran/faster-whisper-base@ebe41f70d5b6dfa9166e2c581c45c9c0cfc57b66",
+        "audio_sha256": "a91b1db455a6253bcbf9195c91ebc176e1ced898a639dc8d050819237ea749a5"
+      },
+      "use": "Muestra primero el desacuerdo entre distribuciones que responden a la misma entrada. Reserva la fórmula para explicar cómo resumirlo.",
+      "source_samples_s": [
+        1620.0,
+        1622.0,
+        1625.0,
+        1628.0,
+        1630.0,
+        1634.0,
+        1640.0,
+        1650.0
+      ],
+      "detail": "A 1628 s se ven dos listas para el mismo prefijo. A 1630 s se enmarca una lista, a 1640 s quedan enmarcadas ambas y a 1650 s la fórmula ocupa el espacio entre ellas.",
+      "context_samples_s": [
+        1620.0,
+        1630.0,
+        1640.0,
+        1650.0
+      ],
+      "source_manifest_sha256": "f0ed734367c58634bf81cf8ee385ee67f86cff7572cb29e6a766abde4551beeb"
+    },
+    {
+      "key": "l6DKRf-fAAM@1",
+      "video_id": "l6DKRf-fAAM",
+      "title": "Shannon's dream: The limit of compressibility | Information theory, part 1",
+      "published": "2026-06-07",
+      "format": "videos",
+      "source_s": [
+        1,
+        9
+      ],
+      "url": "https://www.youtube.com/watch?v=l6DKRf-fAAM&t=1s",
+      "family": "flow-through-meter",
+      "poses": {
+        "before": "Un conversor fijo tiene texto y bits a sus lados. El indicador superior marca 8,0 bits por carácter.",
+        "change": "La corriente de caracteres y bits avanza por la caja, mientras el número y la aguja descienden.",
+        "after": "Un indicador de límite aparece junto al dial. A los 9 s el valor mostrado es 3,4."
+      },
+      "anchor": "Caja de conversión y dial en el centro. La posición separa entrada de salida.",
+      "method": "Fotogramas decodificados por FFmpeg desde el AVC original de YouTube, con PTS originales y SHA-256 de los fragmentos.",
+      "sheet_sha256": "8b0737974f43fccfe21f061a674d017e63b1843200e14a419bff3684994d39f0",
+      "speech": {
+        "term": "limit",
+        "source": "ASR-word-estimate",
+        "mention_s": [
+          7.62,
+          8.16
+        ],
+        "asr_probability": 0.997,
+        "relation": "La anotación roja del límite ya está presente en el fotograma de 7 s antes de que el modelo acústico sitúe la palabra.",
+        "model": "Systran/faster-whisper-base@ebe41f70d5b6dfa9166e2c581c45c9c0cfc57b66",
+        "audio_sha256": "afc7bcd8953edc8d0d40016ab13b845d23d44829f88e4030550179a199cdfebe"
+      },
+      "use": "Para comparar tasas de un flujo, fija el instrumento y haz variar la lectura mientras las unidades lo atraviesan.",
+      "source_samples_s": [
+        1.0,
+        2.0,
+        3.5,
+        5.0,
+        7.0,
+        9.0
+      ],
+      "source_manifest_sha256": "0acd0dd33efab2924b271651422e3534fb8afd5b3a2abe00c5648327ff1f8c96"
+    },
+    {
+      "key": "l6DKRf-fAAM@1500",
+      "video_id": "l6DKRf-fAAM",
+      "title": "Shannon's dream: The limit of compressibility | Information theory, part 1",
+      "published": "2026-06-07",
+      "format": "videos",
+      "source_s": [
+        1500,
+        1570
+      ],
+      "url": "https://www.youtube.com/watch?v=l6DKRf-fAAM&t=1500s",
+      "family": "weighted-area",
+      "poses": {
+        "before": "La suma de cuatro términos aparece sobre piezas con anchos diferentes. Debajo se ven las correspondientes probabilidades.",
+        "change": "Aparece un eje de información y se rehace la suma con rectángulos de tamaños distintos. Al variar la distribución cambian anchos y alturas.",
+        "after": "La fórmula de información media queda ligada al área de la silueta amarilla, dibujada también en miniatura junto al término de área."
+      },
+      "anchor": "Línea de base y ejes cuantitativos. El ancho representa probabilidad y la altura representa información.",
+      "method": "Fotogramas decodificados del AVC original con sus PTS y SHA-256 por fragmento, junto con poses de contexto del storyboard oficial.",
+      "sheet_sha256": "caccb06d99a0c2426672531eebfd49f24c90389578c2311869e524817696adc7",
+      "speech": {
+        "term": "generalize",
+        "source": "ASR-word-estimate",
+        "mention_s": [
+          1514.76,
+          1515.32
+        ],
+        "asr_probability": 0.983,
+        "relation": "La invitación a generalizar precede al paso desde cuatro símbolos concretos a rectángulos variables.",
+        "model": "Systran/faster-whisper-base@ebe41f70d5b6dfa9166e2c581c45c9c0cfc57b66",
+        "audio_sha256": "eec704ef30cfbf3a7c660b99c7106bd11b77dd7de509de8d1f59afb70600bf21"
+      },
+      "use": "Para explicar una media ponderada, asigna pesos al ancho y medidas a la altura antes de identificar la suma de áreas.",
+      "source_samples_s": [
+        1506.0,
+        1509.0,
+        1511.0,
+        1513.0,
+        1516.0,
+        1519.0,
+        1521.0,
+        1523.0,
+        1526.0
+      ],
+      "detail": "A 1511 s se aísla el código de tres bits. A 1516 s regresan los cuatro símbolos; a 1519 s empieza el conjunto general de rectángulos y a 1521 s ocupa todo el eje.",
+      "context_samples_s": [
+        1500.0,
+        1510.0,
+        1520.0,
+        1530.0,
+        1540.0,
+        1550.0,
+        1560.0,
+        1570.0
+      ],
+      "source_manifest_sha256": "19d076ad7c426253f88571f6133635040e9bb653c13d998d3275bb88df611b94"
+    },
+    {
+      "key": "Nbwv5wHQoj0@12",
+      "video_id": "Nbwv5wHQoj0",
+      "title": "The last IMO problem AI could not solve",
+      "published": "2026-09-18",
+      "format": "videos",
+      "source_s": [
+        12,
+        19
+      ],
+      "url": "https://www.youtube.com/watch?v=Nbwv5wHQoj0&t=12s",
+      "family": "ordered-list-to-rank",
+      "poses": {
+        "before": "Seis problemas forman dos grupos correspondientes a dos días.",
+        "change": "El sexto cambia a un color de acento mientras los otros cinco conservan el suyo.",
+        "after": "Los seis se ordenan en una columna con barras de puntuaciones perfectas. El problema 6 conserva el acento y registra cinco."
+      },
+      "anchor": "Identidad, número y color del problema 6 a través del cambio de composición.",
+      "method": "Fotogramas decodificados por FFmpeg desde el AVC original de YouTube, con PTS originales y SHA-256 de los fragmentos.",
+      "sheet_sha256": "2c2dd8a04920f1acbbbca4ddf1c94134a1d809443844668c64d3b74d7ece5d7c",
+      "speech": {
+        "term": "six",
+        "source": "automatic-caption-block",
+        "mention_s": [
+          13.92,
+          17.68
+        ],
+        "relation": "La pose de 15 s ya diferencia el sexto problema dentro del bloque subtitulado sobre su dificultad."
+      },
+      "use": "Si una entidad es excepcional, selecciónala dentro del conjunto original y conserva el mismo acento cuando muestres los valores.",
+      "source_samples_s": [
+        12.0,
+        15.0,
+        19.0
+      ],
+      "source_manifest_sha256": "0be2c8589e0d1d83f926a7dab9ea38cbc9089e0d7e5cc26701b7017cfb60a222"
+    },
+    {
+      "key": "Nbwv5wHQoj0@750",
+      "video_id": "Nbwv5wHQoj0",
+      "title": "The last IMO problem AI could not solve",
+      "published": "2026-09-18",
+      "format": "videos",
+      "source_s": [
+        750,
+        800
+      ],
+      "url": "https://www.youtube.com/watch?v=Nbwv5wHQoj0&t=750s",
+      "family": "isolate-contact-rule",
+      "poses": {
+        "before": "Dos recubrimientos cuadrados se comparan con cifras de piezas diferentes.",
+        "change": "Se aísla un rectángulo con marcas en sus lados. Luego se ven más piezas con marcas equivalentes y se acercan tres piezas.",
+        "after": "El encuentro entre los tres rectángulos queda ampliado y aparece una línea vertical discontinua que distingue la alineación."
+      },
+      "anchor": "La pieza central y las marcas de borde permiten reconocer la propiedad que se conserva.",
+      "method": "Fotogramas decodificados del AVC original con sus PTS y SHA-256 por fragmento, junto con poses de contexto del storyboard oficial.",
+      "sheet_sha256": "28077eb7489e2e7c42f385f3bfa49828a10ff508f4abd22f8403229b9487e056",
+      "speech": {
+        "term": "focus",
+        "source": "ASR-word-estimate",
+        "mention_s": [
+          776.86,
+          777.1
+        ],
+        "asr_probability": 0.998,
+        "relation": "Al pedir que se atienda a una pieza, las vecinas ya empiezan a perder contraste.",
+        "model": "Systran/faster-whisper-base@ebe41f70d5b6dfa9166e2c581c45c9c0cfc57b66",
+        "audio_sha256": "c3009a66f3fce22e68fa1ecc48f0b0c209a3e191e52566bf93ca8afb8f33cbda"
+      },
+      "use": "Para explicar una restricción de contacto, sal de la configuración completa, comprueba un caso local y mantén visibles sus bordes.",
+      "source_samples_s": [
+        761.0,
+        764.0,
+        767.0,
+        770.0,
+        773.0,
+        776.0,
+        779.0,
+        782.0,
+        785.0
+      ],
+      "detail": "A 767 s se leen marcas en cinco rectángulos. A 776 s quedan atenuados cuatro y a 779 s queda una pieza central. A 782 s ya se han colocado otras dos junto a su lado derecho.",
+      "context_samples_s": [
+        750.0,
+        760.0,
+        770.0,
+        780.0,
+        790.0,
+        800.0
+      ],
+      "source_manifest_sha256": "0ebe169b14cc6bc5a418987d8a45b2e2ac3fa5a5a676baab904c35cfca13599e"
+    },
+    {
+      "key": "BHdbsHFs2P0@3.5",
+      "video_id": "BHdbsHFs2P0",
+      "title": "Why you can't comb a hairy ball, and why we care",
+      "published": "2026-01-31",
+      "format": "videos",
+      "source_s": [
+        3.5,
+        15
+      ],
+      "url": "https://www.youtube.com/watch?v=BHdbsHFs2P0&t=3s",
+      "family": "physical-to-field",
+      "poses": {
+        "before": "Un plano cenital muestra el cabello real en la coronilla de un bebé.",
+        "change": "El encuadre se acerca al remolino. A 9 s el fondo se oscurece y aparecen curvas que siguen la dirección del cabello.",
+        "after": "La figura pasa a ser una esfera cubierta de trazos. El título queda sobre la esfera y el campo cambia de orientación."
+      },
+      "anchor": "Centro del remolino y continuidad de las direcciones locales.",
+      "method": "Fotogramas decodificados por FFmpeg desde el AVC original de YouTube, con PTS originales y SHA-256 de los fragmentos.",
+      "sheet_sha256": "bcb8ea086780339ac8961483e762650dd9908905f70258f3245dd0a3f1c0173f",
+      "speech": {
+        "term": "swirl",
+        "source": "ASR-word-estimate",
+        "mention_s": [
+          4.48,
+          4.84
+        ],
+        "asr_probability": 0.908,
+        "relation": "Al mencionar el remolino, el encuadre ya se está acercando al cuero cabelludo. Los trazos superpuestos aparecen después.",
+        "model": "Systran/faster-whisper-base@ebe41f70d5b6dfa9166e2c581c45c9c0cfc57b66",
+        "audio_sha256": "dfbce313d70a05f92ad013f2da8eb69f39c598b917e89cc85049c391608693ae"
+      },
+      "use": "Para pasar de un objeto real a un campo, conserva el detalle espacial que se quiere explicar mientras aparecen sus trazos.",
+      "source_samples_s": [
+        3.5,
+        5.0,
+        7.0,
+        9.0,
+        12.0,
+        15.0
+      ],
+      "source_manifest_sha256": "0fd5f014041eac5449f8dbfcdcd3bc1800fabe9760ca216a885bd1a74fc4911c"
+    },
+    {
+      "key": "BHdbsHFs2P0@1070",
+      "video_id": "BHdbsHFs2P0",
+      "title": "Why you can't comb a hairy ball, and why we care",
+      "published": "2026-01-31",
+      "format": "videos",
+      "source_s": [
+        1070,
+        1120
+      ],
+      "url": "https://www.youtube.com/watch?v=BHdbsHFs2P0&t=1070s",
+      "family": "local-basis-to-field",
+      "poses": {
+        "before": "Una superficie esférica tiene retícula, coordenadas y un punto marcado.",
+        "change": "Primero se destaca una dirección sobre el paralelo y luego otra sobre el meridiano. Aparece una mano al lado de los vectores.",
+        "after": "El encuadre abarca la esfera completa con flechas en muchos puntos y aún se reconoce el pequeño sistema de referencia local."
+      },
+      "anchor": "Punto marcado, colores de las direcciones y retícula.",
+      "method": "Fotogramas decodificados del AVC original con sus PTS y SHA-256 por fragmento, junto con poses de contexto del storyboard oficial.",
+      "sheet_sha256": "fbda65ac5434590ce9bf49b834c0387b388418a3e6af382a7237e6e83b974f6c",
+      "speech": {
+        "term": "vector",
+        "source": "ASR-word-estimate",
+        "mention_s": [
+          1089.44,
+          1089.88
+        ],
+        "asr_probability": 0.999,
+        "relation": "Es la segunda mención de vector en este recorte. La flecha roja ya tiene punta en la muestra a 1089 s.",
+        "model": "Systran/faster-whisper-base@ebe41f70d5b6dfa9166e2c581c45c9c0cfc57b66",
+        "audio_sha256": "0ddc2b3f799789b821e724d28b31b4e40a3a40f37d74fab6da718faea7932d38"
+      },
+      "use": "Para introducir un campo global, construye las direcciones en un solo punto y conserva ese caso al abrir el encuadre.",
+      "source_samples_s": [
+        1082.0,
+        1084.0,
+        1087.0,
+        1089.0,
+        1091.0,
+        1093.0,
+        1095.0,
+        1097.0,
+        1099.0
+      ],
+      "detail": "En 1084 s solo aparece la flecha verde. A 1087 s se ve el recorrido rojo y a 1089 s la flecha roja ya está formada junto a la verde.",
+      "context_samples_s": [
+        1070.0,
+        1080.0,
+        1090.0,
+        1100.0,
+        1110.0,
+        1120.0
+      ],
+      "source_manifest_sha256": "0a22a99aabafdd41b795e1a203e3604d5994298e8650718135f7b6de94520b03"
+    },
+    {
+      "key": "ldxFjLJ3rVY@1",
+      "video_id": "ldxFjLJ3rVY",
+      "title": "How (and why) to take a logarithm of an image",
+      "published": "2026-03-22",
+      "format": "videos",
+      "source_s": [
+        1,
+        19
+      ],
+      "url": "https://www.youtube.com/watch?v=ldxFjLJ3rVY&t=1s",
+      "family": "linked-transform-views",
+      "poses": {
+        "before": "Se ven un editor y la vista previa, donde dos versiones de una imagen aparecen unidas por una flecha.",
+        "change": "La vista previa incorpora copias, un plano complejo y la interpretación de transformaciones distintas. La salida va ocupando más pantalla.",
+        "after": "La composición reúne el plano, la tira de imágenes y dos resultados conectados por flechas."
+      },
+      "anchor": "Repetición de la misma escena gráfica en entrada y salida.",
+      "method": "Fotogramas decodificados por FFmpeg desde el AVC original de YouTube, con PTS originales y SHA-256 de los fragmentos.",
+      "sheet_sha256": "d870201c1bdb675afc56516ec0872864ccf0e7b6e4590e6ce71b2c8ac805bbc5",
+      "speech": {
+        "term": "alive on screen",
+        "source": "published-caption-block",
+        "mention_s": [
+          11.313,
+          14.08
+        ],
+        "relation": "La narración describe el proceso de animar mientras permanece abierta la vista previa. Es una correspondencia conceptual."
+      },
+      "use": "Cuando se describe una transformación compuesta, conserva visible una imagen reconocible en los estados intermedios.",
+      "source_samples_s": [
+        1.0,
+        2.0,
+        3.5,
+        5.0,
+        7.0,
+        9.0,
+        12.0,
+        15.0,
+        19.0
+      ],
+      "source_manifest_sha256": "6475d78fad4ab4591b7d8d41a30395165fcbbffb9651cedbb6ef29d54bef0e62"
+    },
+    {
+      "key": "ldxFjLJ3rVY@1670",
+      "video_id": "ldxFjLJ3rVY",
+      "title": "How (and why) to take a logarithm of an image",
+      "published": "2026-03-22",
+      "format": "videos",
+      "source_s": [
+        1670,
+        1700
+      ],
+      "url": "https://www.youtube.com/watch?v=ldxFjLJ3rVY&t=1670s",
+      "family": "linked-transform-views",
+      "poses": {
+        "before": "A la izquierda se ve una tira de motivos. A la derecha el mismo mundo visual aparece en una región circular. Dos flechas indican transformaciones inversas.",
+        "change": "Al cambiar la escala de la vista se hacen visibles repeticiones de la tira. A la derecha sigue identificándose la escena circular.",
+        "after": "La tira llena varias filas y columnas. La anotación de 2π y las flechas mantienen la correspondencia con el disco."
+      },
+      "anchor": "Motivo que se repite, anotación de período y direcciones entre los dos espacios.",
+      "method": "Fotogramas decodificados del AVC original con sus PTS y SHA-256 por fragmento, junto con poses de contexto del storyboard oficial.",
+      "sheet_sha256": "522bcd42b8aead5ec8ef9b386d831867e891e8530372587c6518eedf31fc2ad5",
+      "speech": {
+        "term": "repeat",
+        "source": "ASR-word-estimate",
+        "mention_s": [
+          1686.08,
+          1686.76
+        ],
+        "asr_probability": 0.984,
+        "relation": "La voz pide repetir en dirección vertical durante la transición.",
+        "model": "Systran/faster-whisper-base@ebe41f70d5b6dfa9166e2c581c45c9c0cfc57b66",
+        "audio_sha256": "13b860c231d84540e5df700693a5e8b3ed2921fccb584f90d61c7c482cacfdd1"
+      },
+      "use": "Para representar una transformación con periodicidad, empareja una ventana en cada espacio y conserva un motivo que se pueda reconocer en ambas.",
+      "source_samples_s": [
+        1674.0,
+        1676.0,
+        1678.0,
+        1680.0,
+        1682.0,
+        1684.0,
+        1686.0,
+        1688.0,
+        1690.0
+      ],
+      "detail": "En 1684 s la tira conserva una sola banda vertical. En 1686 s una flecha curvada remarca la imagen circular; en 1690 s se ve la nueva repetición en la tira.",
+      "context_samples_s": [
+        1670.0,
+        1680.0,
+        1690.0,
+        1700.0
+      ],
+      "source_manifest_sha256": "f2f73fc99da3e678554e873164fae19cd7c442f98592e9572d072c23c6a3cf0e"
+    },
+    {
+      "key": "fsLh-NYhOoU@1",
+      "video_id": "fsLh-NYhOoU",
+      "title": "The most beautiful formula not enough people understand",
+      "published": "2026-02-27",
+      "format": "videos",
+      "source_s": [
+        1,
+        19
+      ],
+      "url": "https://www.youtube.com/watch?v=fsLh-NYhOoU&t=1s",
+      "family": "lecture-to-shared-axes",
+      "poses": {
+        "before": "Una esfera dibujada gira sobre un título que presenta el tema de dimensión alta.",
+        "change": "Se corta al ponente y después al público.",
+        "after": "Aparecen ejes numéricos con espacio libre para el primer objeto y una vista pequeña del ponente en el extremo superior derecho."
+      },
+      "anchor": "Jerarquía estable de la pantalla compartida una vez iniciada la explicación.",
+      "method": "Fotogramas decodificados por FFmpeg desde el AVC original de YouTube, con PTS originales y SHA-256 de los fragmentos.",
+      "sheet_sha256": "63451b351f76bc5d18abda245d21964e63f6f1dfbd41b3be47a3e83704775d5b",
+      "speech": {
+        "term": "today",
+        "source": "ASR-word-estimate",
+        "mention_s": [
+          15.18,
+          15.4
+        ],
+        "asr_probability": 0.991,
+        "relation": "Esta transición presenta la charla. La palabra marca el paso del saludo a la exposición y no identifica una figura.",
+        "model": "Systran/faster-whisper-base@ebe41f70d5b6dfa9166e2c581c45c9c0cfc57b66",
+        "audio_sha256": "51868144d6d35c8b4533215d719f2f1f7081e6b140ae8435a80097d323ae7494"
+      },
+      "use": "Al pasar de una charla a una demostración, reserva el área principal al gráfico y una región pequeña al hablante.",
+      "source_samples_s": [
+        1.0,
+        2.0,
+        3.5,
+        5.0,
+        7.0,
+        9.0,
+        12.0,
+        15.0,
+        19.0
+      ],
+      "source_manifest_sha256": "98bed0c473b68a6ec6358b387ff3e81df4978506a0f20a0a5fe064a75d02c679"
+    },
+    {
+      "key": "fsLh-NYhOoU@1540",
+      "video_id": "fsLh-NYhOoU",
+      "title": "The most beautiful formula not enough people understand",
+      "published": "2026-02-27",
+      "format": "videos",
+      "source_s": [
+        1540,
+        1580
+      ],
+      "url": "https://www.youtube.com/watch?v=fsLh-NYhOoU&t=1540s",
+      "family": "dimension-table",
+      "poses": {
+        "before": "Una esfera y un cilindro flanquean un signo igual. El enunciado pregunta por dimensiones superiores.",
+        "change": "La composición pasa a una tabla por dimensión. Se destacan celdas y, debajo, aparece un cilindro.",
+        "after": "El cilindro se representa mediante un rectángulo junto al producto de un círculo por un segmento. La tabla permanece arriba."
+      },
+      "anchor": "La columna seleccionada y la posición debajo de ella reservada a la demostración geométrica.",
+      "method": "Fotogramas decodificados del AVC original con sus PTS y SHA-256 por fragmento, junto con poses de contexto del storyboard oficial.",
+      "sheet_sha256": "43d062518bbfffc6ab3c1a8f5d88e38c6a1a4606d2029d53eb0605be92c9eb07",
+      "speech": {
+        "term": "cylinder",
+        "source": "ASR-word-estimate",
+        "mention_s": [
+          1568.9,
+          1569.24
+        ],
+        "asr_probability": 0.989,
+        "relation": "La voz identifica el cilindro mientras aún se ve en su forma cerrada, antes del despliegue que aclara la relación.",
+        "model": "Systran/faster-whisper-base@ebe41f70d5b6dfa9166e2c581c45c9c0cfc57b66",
+        "audio_sha256": "e7ee40870d581ea692373dfd68b67bf0193c1ddde531c7c710ee6488fd5214dc"
+      },
+      "use": "Cuando una tabla generaliza una familia, ancla cada caso geométrico bajo la celda que justifica.",
+      "source_samples_s": [
+        1557.0,
+        1559.0,
+        1561.0,
+        1565.0,
+        1568.0,
+        1571.0,
+        1574.0,
+        1577.0,
+        1580.0
+      ],
+      "detail": "En 1565 y 1568 s hay un cilindro bajo la tabla. A 1571 s la superficie se está abriendo y a 1574 s es un rectángulo. A 1577 s se ve el producto a su lado.",
+      "context_samples_s": [
+        1540.0,
+        1550.0,
+        1560.0,
+        1570.0,
+        1580.0
+      ],
+      "source_manifest_sha256": "f8d72cf86441e5997c78e01ab79c32550434e274e1c46e9e11ab1183a7f91174"
+    },
+    {
+      "key": "LKrwhjOI8Nc@9",
+      "video_id": "LKrwhjOI8Nc",
+      "title": "There's never been a better time to go into math",
+      "published": "2026-10-16",
+      "format": "videos",
+      "source_s": [
+        9,
+        19
+      ],
+      "url": "https://www.youtube.com/watch?v=LKrwhjOI8Nc&t=9s",
+      "family": "accumulating-examples",
+      "poses": {
+        "before": "El narrador sigue en pantalla, gesticulando.",
+        "change": "La imagen pasa a comentarios sobre fondo oscuro. A los 12 s son pocos y a los 15 s ya llenan gran parte de la composición.",
+        "after": "Dos comentarios de la derecha se ven iluminados y legibles sobre el conjunto más tenue."
+      },
+      "anchor": "Paneles de comentario con forma constante y contraste selectivo.",
+      "method": "Fotogramas decodificados por FFmpeg desde el AVC original de YouTube, con PTS originales y SHA-256 de los fragmentos.",
+      "sheet_sha256": "4fead7eec4ed1b5cf4bb97a0a2f148c5ea51078d97cc08228cbdae84386888ae",
+      "speech": {
+        "term": "PhD students",
+        "source": "published-caption-block",
+        "mention_s": [
+          14.2,
+          16.652
+        ],
+        "relation": "La voz caracteriza a quienes comentan mientras los ejemplos ocupan la pantalla. La frase describe el conjunto."
+      },
+      "use": "Para presentar un conjunto cualitativo, muestra primero su volumen y después ilumina ejemplos que el público pueda leer.",
+      "source_samples_s": [
+        9.0,
+        12.0,
+        15.0,
+        19.0
+      ],
+      "source_manifest_sha256": "8a16f6dcfcd0f2e00f2cabf8f76c7e66e680a1f092f4458ded831928e650228d"
+    },
+    {
+      "key": "LKrwhjOI8Nc@1970",
+      "video_id": "LKrwhjOI8Nc",
+      "title": "There's never been a better time to go into math",
+      "published": "2026-10-16",
+      "format": "videos",
+      "source_s": [
+        1970,
+        2020
+      ],
+      "url": "https://www.youtube.com/watch?v=LKrwhjOI8Nc&t=1970s",
+      "family": "focus-path-in-map",
+      "poses": {
+        "before": "Un icono y una flecha muestran una relación aislada.",
+        "change": "Al pasar al mapa de tres columnas, unas curvas luminosas conectan un origen con varias fuentes de financiación. Al volver al mapa, cambian el origen y los destinos destacados.",
+        "after": "El plano general permite volver a leer las categorías de actividad, valor y financiación."
+      },
+      "anchor": "Columnas y etiquetas permanecen en la misma estructura cuando cambia el recorrido de atención.",
+      "method": "Fotogramas decodificados del AVC original con sus PTS y SHA-256 por fragmento, junto con poses de contexto del storyboard oficial.",
+      "sheet_sha256": "5109980ddf1cafd6fef01dd356ea87950567181c1daa5115a2e8d0d47133bec0",
+      "speech": {
+        "term": "private",
+        "source": "ASR-word-estimate",
+        "mention_s": [
+          1970.92,
+          1971.28
+        ],
+        "asr_probability": 0.994,
+        "relation": "La mención a financiación privada corresponde al icono ya visible y después reaparece dentro del mapa.",
+        "model": "Systran/faster-whisper-base@ebe41f70d5b6dfa9166e2c581c45c9c0cfc57b66",
+        "audio_sha256": "2d78094c8b133a31dc403f726e3d0e994a9490e6d263d185ba70150ea980d326"
+      },
+      "use": "Para una explicación de argumentos, conserva el mapa y activa las conexiones del argumento en curso.",
+      "source_samples_s": [
+        1972.0,
+        1975.0,
+        1978.0,
+        1981.0
+      ],
+      "detail": "A 1969 s un icono de financiación privada tiene una flecha y signos de dinero. A 1975 s se mantiene la dirección sin los signos. A 1981 s figuran las ramas hacia las tres fuentes dentro del mapa.",
+      "context_samples_s": [
+        1970.0,
+        1980.0,
+        1990.0,
+        2000.0,
+        2010.0,
+        2020.0
+      ],
+      "source_manifest_sha256": "fd3d6488ff7547bb53ba00b0c9ba114f7b447c1a63c1691d1e8283920cffe1cf"
+    },
+    {
+      "key": "zqzk43bSdDI@12",
+      "video_id": "zqzk43bSdDI",
+      "title": "We've been asking: “What if AI solved the Riemann Hypothesis?”",
+      "published": "2026-11-21",
+      "format": "videos",
+      "source_s": [
+        12,
+        19
+      ],
+      "url": "https://www.youtube.com/watch?v=zqzk43bSdDI&t=12s",
+      "family": "timeline-speaker",
+      "poses": {
+        "before": "Una línea temporal aparece en el borde inferior con marcas de meses.",
+        "change": "Un retrato recortado y el nombre del primer entrevistado se superponen al fondo negro.",
+        "after": "Se corta a la conversación grabada. En la parte inferior permanece la línea temporal con la fecha situada bajo el hablante."
+      },
+      "anchor": "La línea temporal se mantiene al pasar del nombre a la grabación.",
+      "method": "Fotogramas decodificados por FFmpeg desde el AVC original de YouTube, con PTS originales y SHA-256 de los fragmentos.",
+      "sheet_sha256": "4a92f80a88ed7f23ebeb2867fc70a813bd12c8e13396bacc68a99a568fcf24cf",
+      "speech": {
+        "term": "sense of humor",
+        "source": "published-caption-block",
+        "mention_s": [
+          14.374,
+          17.147
+        ],
+        "relation": "El primer bloque subtitulado de la respuesta coincide con el paso de la presentación al entrevistado. Es contexto, no una etiqueta de diagrama."
+      },
+      "use": "Cuando varias voces responden en fechas distintas, fija el eje temporal y reserva el centro al protagonista.",
+      "source_samples_s": [
+        12.0,
+        15.0,
+        19.0
+      ],
+      "source_manifest_sha256": "92b9d0402b1c6e3ad39c600be01c7678c92a2f04b72ededffccbf31b27c443d9"
+    },
+    {
+      "key": "zqzk43bSdDI@505",
+      "video_id": "zqzk43bSdDI",
+      "title": "We've been asking: “What if AI solved the Riemann Hypothesis?”",
+      "published": "2026-11-21",
+      "format": "videos",
+      "source_s": [
+        505,
+        515
+      ],
+      "url": "https://www.youtube.com/watch?v=zqzk43bSdDI&t=505s",
+      "family": "timeline-speaker",
+      "poses": {
+        "before": "Termina una intervención con su fecha en el borde inferior.",
+        "change": "Una cartela con retrato recortado introduce a Alex Kontorovich.",
+        "after": "El nuevo participante habla en un plano más amplio mientras el eje sigue señalando la fecha de su intervención."
+      },
+      "anchor": "Regla temporal inferior y lugar del nombre respecto del retrato.",
+      "method": "Fotogramas decodificados del AVC original con sus PTS y SHA-256 por fragmento, junto con poses de contexto del storyboard oficial.",
+      "sheet_sha256": "07a01c1d6546bcd0ebdff758d47f9d62d7dd065b9c78ba38c9388ffc05adf240",
+      "speech": {
+        "term": "proof",
+        "source": "ASR-word-estimate",
+        "mention_s": [
+          511.38,
+          511.76
+        ],
+        "asr_probability": 0.997,
+        "relation": "La voz habla de una prueba durante la cartela. El término designa el tema de la conversación. La cartela identifica a la persona.",
+        "model": "Systran/faster-whisper-base@ebe41f70d5b6dfa9166e2c581c45c9c0cfc57b66",
+        "audio_sha256": "8f44b842535f23a4db53f4d2358cc14c1eb78b7b9fd7f1774386d0f9eb928a9c"
+      },
+      "use": "En un montaje de testimonios, deja que identidad y fecha cambien en capas distintas, conservando la lectura del tiempo.",
+      "source_samples_s": [
+        505.0,
+        507.0,
+        508.0,
+        509.0,
+        510.0,
+        511.0,
+        512.0,
+        513.0,
+        515.0
+      ],
+      "detail": "El plano del primer participante dura hasta por lo menos 508 s. El nombre del siguiente empieza a aparecer a 509 s, es plenamente legible a 510 s y el plano de entrevista se ve a 515 s.",
+      "context_samples_s": [
+        505.0,
+        510.0,
+        515.0
+      ],
+      "source_manifest_sha256": "38d4f3d4d3f22b5dad7bd20827d9333d624c67c63b210c46ffe37d48caab20db"
+    },
+    {
+      "key": "0IZcjWtWmDA@40",
+      "video_id": "0IZcjWtWmDA",
+      "title": "Encoding the encyclopedia on a rod",
+      "published": "2026-11-17",
+      "format": "shorts",
+      "source_s": [
+        40,
+        60
+      ],
+      "url": "https://www.youtube.com/watch?v=0IZcjWtWmDA&t=40s",
+      "family": "linked-views",
+      "poses": {
+        "before": "La vara está bajo una tabla de signos, delante del personaje.",
+        "change": "Una hilera de cifras ocupa el lugar de la tabla. El personaje y la vara aún se reconocen.",
+        "after": "La mano señala una posición de la larga hilera de cifras."
+      },
+      "anchor": "El gesto mantiene el vínculo entre un objeto físico y el número que lo describe.",
+      "method": "youtube-playback-storyboard",
+      "sheet_sha256": "c5310cd4caa524aaa9d95146ae1ccd49d3ed8b7e5df2f25487efe1d7b004febd",
+      "speech": {
+        "basis": "caption-block",
+        "term": "digits",
+        "track": "subtitles/en",
+        "caption_window_s": [
+          48.516,
+          50.459
+        ],
+        "word_start_s": null,
+        "visual_evidence": {
+          "basis": "unverified",
+          "note": "La muestra establece el orden visual. La palabra pronunciada no tiene una marca confirmada en este pasaje."
+        },
+        "note": "El subtítulo permite situar el término dentro de esta frase."
+      },
+      "source_samples_s": [
+        40,
+        48,
+        60
+      ],
+      "cadence_s": 2.0,
+      "use": "Al cambiar una pieza por su representación simbólica, conserva el objeto y dirige la atención al lugar que cambia."
+    },
+    {
+      "key": "V_uq3v6xK-4@5",
+      "video_id": "V_uq3v6xK-4",
+      "title": "The Sphere Intersection Puzzle",
+      "published": "2026-10-25",
+      "format": "shorts",
+      "source_s": [
+        5,
+        12
+      ],
+      "url": "https://www.youtube.com/watch?v=V_uq3v6xK-4&t=5s",
+      "family": "geometric-construction",
+      "poses": {
+        "before": "Dos esferas opacas comparten el encuadre.",
+        "change": "En el cruce aparece una zona rojiza y el contorno exterior todavía es sólido.",
+        "after": "Las dos superficies se dibujan como mallas y la intersección permanece opaca."
+      },
+      "anchor": "La transparencia de los dos conjuntos permite aislar su parte común.",
+      "method": "youtube-playback-storyboard",
+      "sheet_sha256": "dfd2016318b0e0814da8445ad7221298a236afd36ac083fd36441d74afcf1fd8",
+      "speech": {
+        "basis": "acoustic-ctc",
+        "term": "volume",
+        "track": "subtitles/en",
+        "caption_window_s": [
+          8.55,
+          11.3
+        ],
+        "word_start_s": null,
+        "visual_evidence": {
+          "basis": "burned-in-text",
+          "note": "Las dos esferas llevan una indicación numérica en la primera pose general. El énfasis rojo se observa al despejar las superficies."
+        },
+        "note": "Las esferas continúan azules durante «intersect» (picos CTC de 7,76 a 8,24 s). La lente ya es claramente rojiza a 9,267 s y sigue coloreada durante «volume» y «intersection».",
+        "acoustic_character_peaks_s": [
+          9.76,
+          10.2
+        ],
+        "other_terms": [
+          {
+            "term": "intersect",
+            "acoustic_character_peaks_s": [
+              7.76,
+              8.24
+            ]
+          },
+          {
+            "term": "intersection",
+            "acoustic_character_peaks_s": [
+              10.9,
+              11.48
+            ]
+          }
+        ],
+        "observed_event": "Lente claramente rojiza en dos mallas.",
+        "visual_bounds_s": [
+          9.0,
+          9.267
+        ],
+        "decoded_sheet_sha256": "1a353bfbd7b0e7a74fe5a0bcb933c2c264473c09d80e673a9fe11d71cafe2fa9"
+      },
+      "source_samples_s": [
+        5,
+        9,
+        12
+      ],
+      "cadence_s": 1.0,
+      "use": "Enseña los conjuntos enteros y luego baja su opacidad dejando lleno el solapamiento."
+    },
+    {
+      "key": "ausLKMojXaY@5",
+      "video_id": "ausLKMojXaY",
+      "title": "The Phone Number puzzle",
+      "published": "2026-09-25",
+      "format": "shorts",
+      "source_s": [
+        5,
+        11
+      ],
+      "url": "https://www.youtube.com/watch?v=ausLKMojXaY&t=5s",
+      "family": "linked-views",
+      "poses": {
+        "before": "Un número azul encabeza una multiplicación y el producto amarillo aparece bajo la línea.",
+        "change": "Se modifica el factor de la segunda fila y el resultado ocupa más dígitos.",
+        "after": "El producto adopta una pauta de ceros y unos manteniendo el mismo borde de alineación."
+      },
+      "anchor": "El dato estable, la variable y su consecuencia se distinguen por fila y por color.",
+      "method": "youtube-playback-storyboard",
+      "sheet_sha256": "f2a4b8902f2e9e739939b8bda09cb112d81b58b2f15e6822e91c5b9a0bacfd9c",
+      "speech": {
+        "basis": "caption-block",
+        "term": "zeros",
+        "track": "subtitles/en",
+        "caption_window_s": [
+          9.503,
+          11.8
+        ],
+        "word_start_s": null,
+        "visual_evidence": {
+          "basis": "burned-in-text",
+          "note": "El factor y su producto son inscripciones de la operación. El texto no permite localizar la palabra pronunciada."
+        },
+        "note": "El subtítulo permite situar el término dentro de esta frase."
+      },
+      "source_samples_s": [
+        5,
+        8,
+        11
+      ],
+      "cadence_s": 1.0,
+      "use": "Al demostrar una búsqueda numérica, fija el operando y la línea de resultado y actualiza solo los valores que dependen del ensayo."
+    },
+    {
+      "key": "bRQEWPA832A@24",
+      "video_id": "bRQEWPA832A",
+      "title": "The last IMO problem AI could not solve",
+      "published": "2026-09-18",
+      "format": "shorts",
+      "source_s": [
+        24,
+        36
+      ],
+      "url": "https://www.youtube.com/watch?v=bRQEWPA832A&t=24s",
+      "family": "compare-alternatives",
+      "poses": {
+        "before": "Cuatro medallas ocupan un recuadro sobre la línea de tiempo.",
+        "change": "Se muestra una fila por problema, con cinco filas verdes y una roja.",
+        "after": "El mismo listado recibe una columna de barras de longitud desigual."
+      },
+      "anchor": "Una cifra global se despliega en casos y cada caso admite después una magnitud.",
+      "method": "youtube-playback-storyboard",
+      "sheet_sha256": "4b41f11349b21c1a01fe1bf3e1e9e4ed0dd7564d8aaa21ff6f1991783aeab667",
+      "speech": {
+        "basis": "asr-word-start",
+        "term": "question",
+        "track": "automatic_captions/en-orig",
+        "caption_window_s": [
+          25.24,
+          28.64
+        ],
+        "word_start_s": 25.24,
+        "visual_evidence": {
+          "basis": "burned-in-text",
+          "note": "Los nombres de los problemas se mantienen al añadir las barras."
+        },
+        "note": "La pista automática estima el inicio de palabra."
+      },
+      "source_samples_s": [
+        24,
+        27,
+        36
+      ],
+      "cadence_s": 1.0,
+      "use": "Mantén el orden de las categorías al incorporar la segunda medida y conserva una columna para sus nombres."
+    },
+    {
+      "key": "rYyJm1tD3d0@40",
+      "video_id": "rYyJm1tD3d0",
+      "title": "The jumping pegs puzzle",
+      "published": "2026-08-18",
+      "format": "shorts",
+      "source_s": [
+        40,
+        44
+      ],
+      "url": "https://www.youtube.com/watch?v=rYyJm1tD3d0&t=40s",
+      "family": "geometric-construction",
+      "poses": {
+        "before": "El cuadrilátero verde señala las posiciones de partida en la trama de orificios.",
+        "change": "Un arco amarillo conecta posiciones de clavijas por encima del tablero.",
+        "after": "El arco ha desaparecido y se distingue la configuración de llegada sobre la misma trama."
+      },
+      "anchor": "El arco temporal explica el salto entre dos configuraciones discretas.",
+      "method": "youtube-playback-storyboard",
+      "sheet_sha256": "a1efd34a7a7f03b8b703dc3cac82501a733cc4b638ec9e45ccc3f4667740700e",
+      "speech": {
+        "basis": "caption-block",
+        "term": "moves",
+        "track": "subtitles/en",
+        "caption_window_s": [
+          44.697,
+          46.84
+        ],
+        "word_start_s": null,
+        "visual_evidence": {
+          "basis": "unverified",
+          "note": "La muestra establece el orden visual. La palabra pronunciada no tiene una marca confirmada en este pasaje."
+        },
+        "note": "El subtítulo permite situar el término dentro de esta frase."
+      },
+      "source_samples_s": [
+        40,
+        42,
+        44
+      ],
+      "cadence_s": 1.0,
+      "use": "Dibuja la trayectoria solo durante el cambio y conserva las marcas del origen al mostrar el resultado."
+    },
+    {
+      "key": "6XPlmCDNLNc@15",
+      "video_id": "6XPlmCDNLNc",
+      "title": "The 64 sugar cubes puzzle",
+      "published": "2026-07-24",
+      "format": "shorts",
+      "source_s": [
+        15,
+        29
+      ],
+      "url": "https://www.youtube.com/watch?v=6XPlmCDNLNc&t=15s",
+      "family": "pose-invariant",
+      "poses": {
+        "before": "La agrupación cúbica enseña tres caras con tres colores.",
+        "change": "Las piezas turquesa siguen saturadas y los demás cubitos quedan oscuros y traslúcidos.",
+        "after": "La vista frontal deja leer el recorrido turquesa dentro del volumen tenue."
+      },
+      "anchor": "Una categoría de piezas se vuelve legible conservando la silueta del conjunto.",
+      "method": "youtube-playback-storyboard",
+      "sheet_sha256": "1f6df27fefa2497589c62a3ddd88c9a621d88f810cf0fe1859da26d2c151a46d",
+      "speech": {
+        "basis": "caption-block",
+        "term": "color",
+        "track": "subtitles/en",
+        "caption_window_s": [
+          18.018,
+          21.633
+        ],
+        "word_start_s": null,
+        "visual_evidence": {
+          "basis": "unverified",
+          "note": "La muestra establece el orden visual. La palabra pronunciada no tiene una marca confirmada en este pasaje."
+        },
+        "note": "El subtítulo permite situar el término dentro de esta frase."
+      },
+      "source_samples_s": [
+        15,
+        20,
+        29
+      ],
+      "cadence_s": 1.0,
+      "use": "Si importa dónde está un subconjunto dentro del todo, reduce el contraste del contexto y muestra una vista que separe sus partes."
+    },
+    {
+      "key": "wGffBCfrAsE@52",
+      "video_id": "wGffBCfrAsE",
+      "title": "100 random chords, how many intersections?",
+      "published": "2026-06-16",
+      "format": "shorts",
+      "source_s": [
+        52,
+        62
+      ],
+      "url": "https://www.youtube.com/watch?v=wGffBCfrAsE&t=52s",
+      "family": "geometric-construction",
+      "poses": {
+        "before": "Se distinguen marcas en el perímetro de un círculo vacío.",
+        "change": "Unas pocas cuerdas unen las marcas bajo la pregunta sobre las intersecciones.",
+        "after": "Se acumulan las cuerdas y puntos cálidos ocupan gran parte del interior del mismo círculo."
+      },
+      "anchor": "El espectador ve un caso contable antes de la configuración densa.",
+      "method": "youtube-playback-storyboard",
+      "sheet_sha256": "3b24eb807b265bc107e36573f508b1737dbae195e4aeef9019dcbe7215d4e949",
+      "speech": {
+        "basis": "asr-word-start",
+        "term": "intersection",
+        "track": "automatic_captions/en-orig",
+        "caption_window_s": [
+          54.88,
+          58.72
+        ],
+        "word_start_s": 55.28,
+        "visual_evidence": {
+          "basis": "burned-in-text",
+          "note": "La pregunta escrita sobre el número de intersecciones aparece encima del círculo ya en la muestra de 55 s y sigue en 62 s."
+        },
+        "note": "La pista automática estima el inicio de palabra."
+      },
+      "source_samples_s": [
+        52,
+        55,
+        62
+      ],
+      "cadence_s": 1.0,
+      "use": "Al mostrar muchas relaciones, ilustra cómo se construye una y conserva el contorno al aumentar el número."
+    },
+    {
+      "key": "-7etvZSBxlk@16",
+      "video_id": "-7etvZSBxlk",
+      "title": "Measuring the entropy of English",
+      "published": "2026-06-12",
+      "format": "shorts",
+      "source_s": [
+        16,
+        26
+      ],
+      "url": "https://www.youtube.com/watch?v=-7etvZSBxlk&t=16s",
+      "family": "linked-views",
+      "poses": {
+        "before": "Una secuencia de caracteres recorre la banda superior de un retrato.",
+        "change": "Esa banda pasa a contener palabras individuales esparcidas alrededor de la cabeza.",
+        "after": "Sobre el mismo retrato aparece un pequeño gráfico de barras azules de alturas diferentes."
+      },
+      "anchor": "Una zona de lectura fija admite sucesivos niveles de descripción sin desplazar el ancla.",
+      "method": "youtube-playback-storyboard",
+      "sheet_sha256": "9a221a7a0568b39aaf98798dfc5da3ce11313538b8a32114a3d9589133f742c0",
+      "speech": {
+        "basis": "caption-block",
+        "term": "table",
+        "track": "subtitles/en",
+        "caption_window_s": [
+          22.709,
+          24.88
+        ],
+        "word_start_s": null,
+        "visual_evidence": {
+          "basis": "unverified",
+          "note": "La muestra establece el orden visual. La palabra pronunciada no tiene una marca confirmada en este pasaje."
+        },
+        "note": "El subtítulo permite situar el término dentro de esta frase."
+      },
+      "source_samples_s": [
+        16,
+        22,
+        26
+      ],
+      "cadence_s": 2.0,
+      "use": "Reserva un área para la persona o el objeto de referencia y otra para pasar de símbolos concretos a una distribución."
+    },
+    {
+      "key": "7L_eTem1SQ4@19",
+      "video_id": "7L_eTem1SQ4",
+      "title": "What's the perfect encoding? How do you know?",
+      "published": "2026-06-10",
+      "format": "shorts",
+      "source_s": [
+        19,
+        29
+      ],
+      "url": "https://www.youtube.com/watch?v=7L_eTem1SQ4&t=19s",
+      "family": "model-to-measure",
+      "poses": {
+        "before": "Cuatro flechas amarillas parten de un punto central.",
+        "change": "Dos fracciones ya etiquetan las direcciones superior e inferior y se ve una franja en la base.",
+        "after": "Cada una de las cuatro direcciones tiene una fracción junto a su punta."
+      },
+      "anchor": "Las posibilidades ocupan posiciones fijas antes de recibir una magnitud.",
+      "method": "youtube-playback-storyboard",
+      "sheet_sha256": "ecf22fc76e89e59fc58f430daddf95e133809ad71cc246653bfd0a3b2d7a6805",
+      "speech": {
+        "basis": "asr-word-start",
+        "term": "quarter",
+        "track": "automatic_captions/en-orig",
+        "caption_window_s": [
+          22.96,
+          28.36
+        ],
+        "word_start_s": 23.08,
+        "visual_evidence": {
+          "basis": "burned-in-text",
+          "note": "Las fracciones escritas se agregan en posiciones distinguibles. Son rótulos internos del diagrama."
+        },
+        "note": "La pista automática estima el inicio de palabra."
+      },
+      "source_samples_s": [
+        19,
+        24,
+        29
+      ],
+      "cadence_s": 1.0,
+      "use": "Para explicar alternativas ponderadas, revela primero las direcciones y sitúa luego cada peso junto al extremo correspondiente."
+    },
+    {
+      "key": "ZHXt0-_gSj4@22",
+      "video_id": "ZHXt0-_gSj4",
+      "title": "Tie random ends: How many loops?",
+      "published": "2026-05-21",
+      "format": "shorts",
+      "source_s": [
+        22,
+        28
+      ],
+      "url": "https://www.youtube.com/watch?v=ZHXt0-_gSj4&t=22s",
+      "family": "pose-invariant",
+      "poses": {
+        "before": "Una caja de alambre contiene líneas rojas y extremos claros.",
+        "change": "La caja ocupa más encuadre y deja distinguir un grupo central de extremos.",
+        "after": "Un lazo cerrado se distingue junto a los cabos que aún quedan abiertos."
+      },
+      "anchor": "El acercamiento transforma una población poco legible en una conexión que se puede seguir.",
+      "method": "youtube-playback-storyboard",
+      "sheet_sha256": "cbdc49e905c0ccc75111685baab1d19666785b7df7a198bcd093f27c0cddfd8f",
+      "speech": {
+        "basis": "asr-word-start",
+        "term": "loop",
+        "track": "automatic_captions/en-orig",
+        "caption_window_s": [
+          24.8,
+          28.56
+        ],
+        "word_start_s": 25.92,
+        "visual_evidence": {
+          "basis": "unverified",
+          "note": "La muestra establece el orden visual. La palabra pronunciada no tiene una marca confirmada en este pasaje."
+        },
+        "note": "La pista automática estima el inicio de palabra."
+      },
+      "source_samples_s": [
+        22,
+        25,
+        28
+      ],
+      "cadence_s": 1.0,
+      "use": "Establece el contenedor y acerca un caso concreto hasta que se pueda ver qué dos extremos están conectados."
+    },
+    {
+      "key": "QLu_ZsRc_G0@3",
+      "video_id": "QLu_ZsRc_G0",
+      "title": "Covering 10 points, a surprisingly tricky puzzle.",
+      "published": "2026-04-16",
+      "format": "shorts",
+      "source_s": [
+        3,
+        10
+      ],
+      "url": "https://www.youtube.com/watch?v=QLu_ZsRc_G0&t=3s",
+      "family": "geometric-construction",
+      "poses": {
+        "before": "Diez puntos rosados ocupan el encuadre.",
+        "change": "Tres discos traslúcidos cubren ya algunos puntos. Los puntos todavía se distinguen.",
+        "after": "Los discos se reparten hasta cubrir el conjunto y una pequeña marca señala el radio de uno de ellos."
+      },
+      "anchor": "Los puntos son la referencia persistente y los discos son la operación que se aplica sobre ellos.",
+      "method": "youtube-playback-storyboard",
+      "sheet_sha256": "36a8e26f0f6dce4ca0dee6c4bcdd2e393632004a214f8de7cf8fbf2e273e1db7",
+      "speech": {
+        "basis": "asr-word-start",
+        "term": "cover",
+        "track": "automatic_captions/en-orig",
+        "caption_window_s": [
+          5.24,
+          9.48
+        ],
+        "word_start_s": 5.48,
+        "visual_evidence": {
+          "basis": "unverified",
+          "note": "La muestra establece el orden visual. La palabra pronunciada no tiene una marca confirmada en este pasaje."
+        },
+        "note": "La pista automática estima el inicio de palabra."
+      },
+      "source_samples_s": [
+        3,
+        6,
+        10
+      ],
+      "cadence_s": 1.0,
+      "use": "Cuando se prueba una cobertura, conserva todos los objetivos y permite ver a través de las áreas que se superponen."
+    },
+    {
+      "key": "Y7ImxZ_YhJk@64",
+      "video_id": "Y7ImxZ_YhJk",
+      "title": "Escher's most mind-bending piece",
+      "published": "2026-03-27",
+      "format": "shorts",
+      "source_s": [
+        64,
+        80
+      ],
+      "url": "https://www.youtube.com/watch?v=Y7ImxZ_YhJk&t=64s",
+      "family": "pose-invariant",
+      "poses": {
+        "before": "Se presenta el grabado, con un vacío claro cerca del centro.",
+        "change": "Una parte del dibujo se atenúa y un círculo fino destaca ese lugar.",
+        "after": "Otra porción del trazado reaparece alrededor del mismo círculo de referencia."
+      },
+      "anchor": "El pequeño círculo sostiene la orientación mientras cambia la cantidad de detalle.",
+      "method": "youtube-playback-storyboard",
+      "sheet_sha256": "d59d2b37fc0586a00f638e22f7bd4e4360e96cb4cff782273f487264c0fb0d59",
+      "speech": {
+        "basis": "asr-word-start",
+        "term": "above",
+        "track": "automatic_captions/en-orig",
+        "caption_window_s": [
+          68.56,
+          71.52
+        ],
+        "word_start_s": 69.72,
+        "visual_evidence": {
+          "basis": "unverified",
+          "note": "La muestra establece el orden visual. La palabra pronunciada no tiene una marca confirmada en este pasaje."
+        },
+        "note": "La pista automática estima el inicio de palabra."
+      },
+      "source_samples_s": [
+        64,
+        70,
+        80
+      ],
+      "cadence_s": 1.0,
+      "use": "Fija una referencia espacial reconocible para que el espectador se oriente al atenuar y reconstruir un dibujo complejo."
+    },
+    {
+      "key": "4h5BEALuh44@13",
+      "video_id": "4h5BEALuh44",
+      "title": "The subset sum puzzle",
+      "published": "2026-03-25",
+      "format": "shorts",
+      "source_s": [
+        13,
+        21
+      ],
+      "url": "https://www.youtube.com/watch?v=4h5BEALuh44&t=13s",
+      "family": "linked-views",
+      "poses": {
+        "before": "Dos números de una cuadrícula se muestran enmarcados en azul.",
+        "change": "Encima de la cuadrícula aparecen dos parejas de números y una flecha que enlaza ambas expresiones.",
+        "after": "Un total de 102 se lee encima y las celdas de origen siguen enmarcadas en sus dos colores."
+      },
+      "anchor": "Los colores y las posiciones delimitan dos subconjuntos que conducen al mismo total.",
+      "method": "youtube-playback-storyboard",
+      "sheet_sha256": "90e1b908fdd9d3565abb7c6910f4ae390baac2f6301321fc24bb8c8e9e9184a4",
+      "speech": {
+        "basis": "acoustic-ctc",
+        "term": "pairs",
+        "track": "automatic_captions/en-orig",
+        "caption_window_s": [
+          18.44,
+          22.64
+        ],
+        "word_start_s": 19.2,
+        "visual_evidence": {
+          "basis": "burned-in-text",
+          "note": "El número 102 se ve a los 21 s por encima de las dos expresiones."
+        },
+        "note": "Las dos sumas ya están escritas durante «pairs». El total 102 aparece por encima antes de que empiece a decirse el número. Los picos CTC abarcan las palabras «a hundred and two».",
+        "acoustic_character_peaks_s": [
+          19.26,
+          19.48
+        ],
+        "other_terms": [
+          {
+            "term": "102",
+            "asr_word_start_s": 21.04,
+            "acoustic_character_peaks_s": [
+              21.16,
+              21.74
+            ]
+          }
+        ],
+        "observed_event": "El total 102 empieza a leerse sobre las sumas.",
+        "visual_bounds_s": [
+          20.5,
+          20.767
+        ],
+        "decoded_sheet_sha256": "818a96b43a4643f9c522df6d1bc4571d66ee345ec7f9ea9d1116b4332aabb20d"
+      },
+      "source_samples_s": [
+        13,
+        17,
+        21
+      ],
+      "cadence_s": 1.0,
+      "use": "Vincula los términos de una operación con sus celdas de origen hasta que se lea el resultado común."
+    },
+    {
+      "key": "Qoes9bTJtn0@32",
+      "video_id": "Qoes9bTJtn0",
+      "title": "Bacteria Grid Puzzle Solution",
+      "published": "2026-03-21",
+      "format": "shorts",
+      "source_s": [
+        32,
+        48
+      ],
+      "url": "https://www.youtube.com/watch?v=Qoes9bTJtn0&t=32s",
+      "family": "linked-views",
+      "poses": {
+        "before": "Dos fichas flanquean una celda indicada en la cuadrícula. El contador marca un movimiento.",
+        "change": "Se ven más fichas y celdas marcadas mientras el contador llega a siete.",
+        "after": "La formación llena una región mayor y el contador ya tiene dos cifras."
+      },
+      "anchor": "Un contador externo resume la evolución de un proceso discreto sobre una trama fija.",
+      "method": "youtube-playback-storyboard",
+      "sheet_sha256": "e2504ee570ffa6288f1a735261d451114c071a40e9f73ea6eddaa0c665699f5a",
+      "speech": {
+        "basis": "asr-word-start",
+        "term": "moves",
+        "track": "automatic_captions/en-orig",
+        "caption_window_s": [
+          35.64,
+          38.88
+        ],
+        "word_start_s": 35.88,
+        "visual_evidence": {
+          "basis": "burned-in-text",
+          "note": "El contador de movimientos aparece bajo la cuadrícula en los tres estados."
+        },
+        "note": "La pista automática estima el inicio de palabra."
+      },
+      "source_samples_s": [
+        32,
+        38,
+        48
+      ],
+      "cadence_s": 2.0,
+      "use": "Fija el origen y la escala de la cuadrícula. Coloca el número de pasos fuera del área que recorren las piezas."
+    },
+    {
+      "key": "d0ai33oqqDE@39",
+      "video_id": "d0ai33oqqDE",
+      "title": "The lattice bacteria puzzle",
+      "published": "2026-02-17",
+      "format": "shorts",
+      "source_s": [
+        39,
+        52
+      ],
+      "url": "https://www.youtube.com/watch?v=d0ai33oqqDE&t=39s",
+      "family": "geometric-construction",
+      "poses": {
+        "before": "Una cuadrícula con cuatro esquinas rotuladas contiene una ficha junto al origen.",
+        "change": "Se ven varias fichas en la región y una pregunta escrita sobre el tablero.",
+        "after": "La caja toma un relleno cálido que sigue permitiendo localizar las fichas dentro y fuera."
+      },
+      "anchor": "La frontera del problema se distingue de la población que cambia sobre ella.",
+      "method": "youtube-playback-storyboard",
+      "sheet_sha256": "c2b6d354f7930fdcba46d865fece53c182f839373a0a2cc89bf59c28588f97f2",
+      "speech": {
+        "basis": "asr-word-start",
+        "term": "moves",
+        "track": "automatic_captions/en-orig",
+        "caption_window_s": [
+          41.04,
+          46.36
+        ],
+        "word_start_s": 42.24,
+        "visual_evidence": {
+          "basis": "burned-in-text",
+          "note": "La pregunta impresa es visible a los 44 s y sigue sobre el tablero coloreado."
+        },
+        "note": "La pista automática estima el inicio de palabra."
+      },
+      "source_samples_s": [
+        39,
+        44,
+        52
+      ],
+      "cadence_s": 1.0,
+      "use": "Marca la zona objetivo con un fondo traslúcido y conserva sus esquinas de referencia al mover las fichas."
+    },
+    {
+      "key": "7gG91SZwBoE@56",
+      "video_id": "7gG91SZwBoE",
+      "title": "Solution to the ladybug clock puzzle",
+      "published": "2026-02-16",
+      "format": "shorts",
+      "source_s": [
+        56,
+        68
+      ],
+      "url": "https://www.youtube.com/watch?v=7gG91SZwBoE&t=56s",
+      "family": "compare-alternatives",
+      "poses": {
+        "before": "Un único reloj se sitúa en la parte alta.",
+        "change": "Debajo se colocan dos relojes con igual orientación y una flecha los conecta con el primero.",
+        "after": "Una nueva flecha conduce a un cuarto reloj inferior."
+      },
+      "anchor": "Mantener la misma esfera de reloj permite comparar configuraciones a ambos lados de una bifurcación.",
+      "method": "youtube-playback-storyboard",
+      "sheet_sha256": "ff35715f3ad69c5a0c66cdf37ae7a9fce6097c5cef8c3b6e1d4f9e02c88c31a7",
+      "speech": {
+        "basis": "asr-word-start",
+        "term": "neighbors",
+        "track": "automatic_captions/en-orig",
+        "caption_window_s": [
+          60.76,
+          64.96
+        ],
+        "word_start_s": 60.76,
+        "visual_evidence": {
+          "basis": "burned-in-text",
+          "note": "La palabra impresa que acompaña la bifurcación aparece entre los relojes."
+        },
+        "note": "La pista automática estima el inicio de palabra."
+      },
+      "source_samples_s": [
+        56,
+        60,
+        68
+      ],
+      "cadence_s": 2.0,
+      "use": "Reutiliza la orientación y la escala del objeto al abrir alternativas y reserva espacio para su consecuencia."
+    },
+    {
+      "key": "t3jZ2xGOvYg@27",
+      "video_id": "t3jZ2xGOvYg",
+      "title": "The ladybug clock puzzle",
+      "published": "2026-01-16",
+      "format": "shorts",
+      "source_s": [
+        27,
+        32
+      ],
+      "url": "https://www.youtube.com/watch?v=t3jZ2xGOvYg&t=27s",
+      "family": "compare-alternatives",
+      "poses": {
+        "before": "Un reloj y una ficha ocupan casi todo el ancho.",
+        "change": "La misma vista incorpora arriba la pregunta escrita sobre el último número.",
+        "after": "Cuatro relojes más pequeños comparten el encuadre bajo la misma pregunta."
+      },
+      "anchor": "Del ensayo único se pasa a cuatro realizaciones comparables con la pregunta todavía visible.",
+      "method": "youtube-playback-storyboard",
+      "sheet_sha256": "a38275e0a434ca28f26fbe7c2baeafd2eb406e2cc3d4771aa6e54c69c4b3be4b",
+      "speech": {
+        "basis": "caption-block",
+        "term": "probability",
+        "track": "subtitles/en",
+        "caption_window_s": [
+          26.72,
+          29.928
+        ],
+        "word_start_s": null,
+        "visual_evidence": {
+          "basis": "burned-in-text",
+          "note": "La pregunta se ve a los 30 s, antes de la primera muestra con cuatro relojes a los 32 s."
+        },
+        "note": "El subtítulo permite situar el término dentro de esta frase."
+      },
+      "source_samples_s": [
+        27,
+        30,
+        32
+      ],
+      "cadence_s": 1.0,
+      "use": "Introduce primero una ejecución y conserva la geometría al multiplicar las copias para comparar recorridos."
+    },
+    {
+      "key": "bnjKwiUg-kw@79",
+      "video_id": "bnjKwiUg-kw",
+      "title": "The dynamics of e^(πi)",
+      "published": "2025-10-12",
+      "format": "shorts",
+      "source_s": [
+        79,
+        93
+      ],
+      "url": "https://www.youtube.com/watch?v=bnjKwiUg-kw&t=79s",
+      "family": "linked-views",
+      "poses": {
+        "before": "En la zona inferior de la fórmula se ve un pequeño par de direcciones perpendiculares.",
+        "change": "El plano complejo ocupa más espacio y el subtítulo impreso menciona una rotación de 90 grados.",
+        "after": "Una circunferencia y segmentos orientados se leen sobre el mismo plano cuadriculado."
+      },
+      "anchor": "La dirección local se reconoce primero y luego se ve la trayectoria asociada.",
+      "method": "youtube-playback-storyboard",
+      "sheet_sha256": "c8686c2295204e42a9dc3682a56e44ddad5911cca9aa7a6785ceeab8d92ddc3a",
+      "speech": {
+        "basis": "caption-block",
+        "term": "motion",
+        "track": "automatic_captions/en",
+        "caption_window_s": [
+          82.08,
+          83.749
+        ],
+        "word_start_s": null,
+        "visual_evidence": {
+          "basis": "burned-in-text",
+          "note": "En la muestra de 86 s, el subtítulo sobreimpreso nombra la rotación de 90 grados cuando la figura ya muestra los ejes. Es una coincidencia gráfica, sin medida acústica."
+        },
+        "note": "El subtítulo permite situar el término dentro de esta frase."
+      },
+      "source_samples_s": [
+        79,
+        86,
+        93
+      ],
+      "cadence_s": 1.0,
+      "use": "Al pasar de una regla de movimiento a su trayectoria, muestra el vector sobre ejes fijos antes de dibujar la curva."
+    },
+    {
+      "key": "1lZpowy21Gc@0",
+      "video_id": "1lZpowy21Gc",
+      "title": "Incomplete open cubes",
+      "published": "2025-09-07",
+      "format": "shorts",
+      "source_s": [
+        0,
+        12
+      ],
+      "url": "https://www.youtube.com/watch?v=1lZpowy21Gc&t=0s",
+      "family": "pose-invariant",
+      "poses": {
+        "before": "Un armazón blanco dibuja las doce aristas de un cubo sobre la mesa.",
+        "change": "Una figura con aristas ausentes mantiene la escala y la perspectiva aproximada del modelo.",
+        "after": "Se muestra otra configuración abierta en el mismo encuadre y con el mismo material."
+      },
+      "anchor": "Se pueden comparar siluetas parciales porque la escala, el material y la referencia cúbica persisten.",
+      "method": "youtube-playback-storyboard",
+      "sheet_sha256": "61972d6efb1c99cbbcb20efa1bba841950790cf214f25c5e85f126944240b76e",
+      "speech": {
+        "basis": "caption-block",
+        "term": "edges",
+        "track": "subtitles/en",
+        "caption_window_s": [
+          2.88,
+          5.759
+        ],
+        "word_start_s": null,
+        "visual_evidence": {
+          "basis": "unverified",
+          "note": "La muestra establece el orden visual. La palabra pronunciada no tiene una marca confirmada en este pasaje."
+        },
+        "note": "El subtítulo permite situar el término dentro de esta frase."
+      },
+      "source_samples_s": [
+        0,
+        5,
+        12
+      ],
+      "cadence_s": 1.0,
+      "use": "Muestra primero la estructura conocida y usa una presentación constante para comparar lo que conserva cada variante."
+    },
+    {
+      "key": "j5h9dBtWZXM@64",
+      "video_id": "j5h9dBtWZXM",
+      "title": "How AI connects text and images",
+      "published": "2025-08-21",
+      "format": "shorts",
+      "source_s": [
+        64,
+        92
+      ],
+      "url": "https://www.youtube.com/watch?v=j5h9dBtWZXM&t=64s",
+      "family": "linked-views",
+      "poses": {
+        "before": "Una foto queda junto a un eje y una flecha oblicua.",
+        "change": "Una segunda foto acompaña una segunda dirección y se cierra el triángulo de vectores.",
+        "after": "La figura sigue arriba mientras debajo aparecen palabras con puntuaciones."
+      },
+      "anchor": "La identidad de las fotos une el plano geométrico y la lectura numérica.",
+      "method": "youtube-playback-storyboard",
+      "sheet_sha256": "2cde6505c10e51636c2facd05b55bfbba79ca57283853f833cb6903cec35d48f",
+      "speech": {
+        "basis": "asr-word-start",
+        "term": "vector",
+        "track": "automatic_captions/en-orig",
+        "caption_window_s": [
+          70.799,
+          74.32
+        ],
+        "word_start_s": 71.76,
+        "visual_evidence": {
+          "basis": "unverified",
+          "note": "La hoja permite contrastar las poses. La entrada exacta de la palabra requiere audio alineado."
+        },
+        "note": "La pista automática estima el inicio de palabra."
+      },
+      "source_samples_s": [
+        64,
+        73,
+        92
+      ],
+      "cadence_s": 1.0,
+      "use": "Mantén las muestras junto a sus puntos y añade la tabla cuando ya se pueda identificar el desplazamiento."
+    },
+    {
+      "key": "XX8mjBXBqz8@36",
+      "video_id": "XX8mjBXBqz8",
+      "title": "Testing your intuition for quantum computing",
+      "published": "2025-04-30",
+      "format": "shorts",
+      "source_s": [
+        36,
+        73
+      ],
+      "url": "https://www.youtube.com/watch?v=XX8mjBXBqz8&t=36s",
+      "family": "compare-alternatives",
+      "poses": {
+        "before": "Cuatro respuestas ocupan filas bajo una pregunta.",
+        "change": "Una gráfica ocupa la parte inferior mientras las opciones quedan arriba.",
+        "after": "Tras un intermedio, se ven juntas varias curvas de crecimiento y las cuatro alternativas."
+      },
+      "anchor": "Una opción escrita adquiere significado al compararla en los mismos ejes.",
+      "method": "youtube-playback-storyboard",
+      "sheet_sha256": "c5e69c647ee0c4e4cc183c708d0aaf76fd5b32a64435527e3d4498eb481a4ea8",
+      "speech": {
+        "basis": "caption-block",
+        "term": "options",
+        "track": "subtitles/en",
+        "caption_window_s": [
+          51.26,
+          56.608
+        ],
+        "word_start_s": null,
+        "visual_evidence": {
+          "basis": "unverified",
+          "note": "La hoja permite contrastar las poses. La entrada exacta de la palabra requiere audio alineado."
+        },
+        "note": "El subtítulo permite situar el término dentro de esta frase."
+      },
+      "source_samples_s": [
+        36,
+        55,
+        73
+      ],
+      "cadence_s": 1.0,
+      "use": "Reserva el mismo eje y cero para cada hipótesis y conserva arriba los nombres que se están contrastando."
+    },
+    {
+      "key": "aQwEJKWATlE@28",
+      "video_id": "aQwEJKWATlE",
+      "title": "How to measure nearby galaxies",
+      "published": "2025-04-20",
+      "format": "shorts",
+      "source_s": [
+        28,
+        39
+      ],
+      "url": "https://www.youtube.com/watch?v=aQwEJKWATlE&t=28s",
+      "family": "pose-invariant",
+      "poses": {
+        "before": "Una estrella cálida ocupa el centro.",
+        "change": "Un disco más pequeño y claro ocupa ese mismo lugar.",
+        "after": "Vuelve el disco grande y cálido en el mismo encuadre."
+      },
+      "anchor": "El centro de la estrella permite comparar sus estados visibles.",
+      "method": "youtube-playback-storyboard",
+      "sheet_sha256": "b4c6aa5145edeeaea65c3212d7eb6d44f8ad14d2aa4c3abb0930921f3dd3a9d1",
+      "speech": {
+        "basis": "asr-word-start",
+        "term": "brightness",
+        "track": "automatic_captions/en-orig",
+        "caption_window_s": [
+          31.519,
+          35.68
+        ],
+        "word_start_s": 32.399,
+        "visual_evidence": {
+          "basis": "burned-in-text",
+          "term": "brightness",
+          "note": "En la muestra intermedia se lee «brightness» bajo el disco claro."
+        },
+        "note": "La pista automática estima el inicio de palabra."
+      },
+      "source_samples_s": [
+        28,
+        33,
+        39
+      ],
+      "cadence_s": 1.0,
+      "use": "Sujeta el centro de un objeto que varía y deja que el ojo compare tamaño y luminosidad."
+    },
+    {
+      "key": "aw-8BhCilj0@76",
+      "video_id": "aw-8BhCilj0",
+      "title": "Measuring the distance to Venus without radar",
+      "published": "2025-04-08",
+      "format": "shorts",
+      "source_s": [
+        76,
+        102
+      ],
+      "url": "https://www.youtube.com/watch?v=aw-8BhCilj0&t=76s",
+      "family": "compare-alternatives",
+      "poses": {
+        "before": "Un disco solar contiene un punto y el título del tránsito.",
+        "change": "Dos discos con la misma orientación se apilan y llevan recorridos horizontales.",
+        "after": "Cada vista presenta una anotación en el interior."
+      },
+      "anchor": "La silueta común hace comparable la observación desde dos lugares.",
+      "method": "youtube-playback-storyboard",
+      "sheet_sha256": "b9439e90a9ac6e2ad8305faad47b5a292ff38d689e2927a0c40d81f602e38812",
+      "speech": {
+        "basis": "asr-word-start",
+        "term": "difference",
+        "track": "automatic_captions/en-orig",
+        "caption_window_s": [
+          91.04,
+          95.04
+        ],
+        "word_start_s": 91.92,
+        "visual_evidence": {
+          "basis": "unverified",
+          "note": "La hoja permite contrastar las poses. La entrada exacta de la palabra requiere audio alineado."
+        },
+        "note": "La pista automática estima el inicio de palabra."
+      },
+      "source_samples_s": [
+        76,
+        90,
+        102
+      ],
+      "cadence_s": 2.0,
+      "use": "Duplica la misma proyección con igual escala y distingue el trayecto de cada observador."
+    },
+    {
+      "key": "M6LUPYsjods@66",
+      "video_id": "M6LUPYsjods",
+      "title": "Measuring the speed of light using Jupiter's moons",
+      "published": "2025-04-07",
+      "format": "shorts",
+      "source_s": [
+        66,
+        84
+      ],
+      "url": "https://www.youtube.com/watch?v=M6LUPYsjods&t=66s",
+      "family": "model-to-measure",
+      "poses": {
+        "before": "Un esquema orbital acompaña un contador con minutos y segundos.",
+        "change": "Se intercala una línea de tiempo con personajes y fechas.",
+        "after": "Regresa el esquema con otro valor en el contador y magnitudes físicas por encima."
+      },
+      "anchor": "El reencuadre histórico separa dos lecturas del modelo.",
+      "method": "youtube-playback-storyboard",
+      "sheet_sha256": "fa33f60a1b3300d6eb92a7df9f5106812c030083fcecb359579d3bc1c841ed11",
+      "speech": {
+        "basis": "asr-word-start",
+        "term": "speed",
+        "track": "automatic_captions/en-orig",
+        "caption_window_s": [
+          76.64,
+          79.92
+        ],
+        "word_start_s": 78.4,
+        "visual_evidence": {
+          "basis": "unverified",
+          "note": "La hoja permite contrastar las poses. La entrada exacta de la palabra requiere audio alineado."
+        },
+        "note": "La pista automática estima el inicio de palabra."
+      },
+      "source_samples_s": [
+        66,
+        75,
+        84
+      ],
+      "cadence_s": 1.0,
+      "use": "Si vuelves a un cálculo tras un paréntesis, restituye la misma geometría y posición del valor para reconocerlo."
+    },
+    {
+      "key": "mHya9J9pkq4@20",
+      "video_id": "mHya9J9pkq4",
+      "title": "The tragic tale of Guillaume Le Gentil",
+      "published": "2025-03-27",
+      "format": "shorts",
+      "source_s": [
+        20,
+        34
+      ],
+      "url": "https://www.youtube.com/watch?v=mHya9J9pkq4&t=20s",
+      "family": "event-timeline",
+      "poses": {
+        "before": "El evento celeste ocupa la parte superior y una fecha está marcada en la recta inferior.",
+        "change": "El evento vuelve a aparecer encima de la misma cronología.",
+        "after": "Un arco enlaza una fecha con otra a lo largo de la recta."
+      },
+      "anchor": "Un fenómeno recurrente se vincula con la espera entre dos fechas.",
+      "method": "youtube-playback-storyboard",
+      "sheet_sha256": "64459dbf3d58d68aedceef9cafbd6357ed5cfdbdc6c4ad62a393493fa55a40c8",
+      "speech": {
+        "basis": "asr-word-start",
+        "term": "transit",
+        "track": "automatic_captions/en-orig",
+        "caption_window_s": [
+          29.359,
+          32.88
+        ],
+        "word_start_s": 29.359,
+        "visual_evidence": {
+          "basis": "unverified",
+          "note": "La hoja permite contrastar las poses. La entrada exacta de la palabra requiere audio alineado."
+        },
+        "note": "La pista automática estima el inicio de palabra."
+      },
+      "source_samples_s": [
+        20,
+        29,
+        34
+      ],
+      "cadence_s": 1.0,
+      "use": "Mantén visibles el fenómeno y su reloj y recorre la separación entre eventos cuando la espera sea la magnitud de interés."
+    },
+    {
+      "key": "C8baNzpnZ7o@17",
+      "video_id": "C8baNzpnZ7o",
+      "title": "Zooming out by powers of 10",
+      "published": "2025-03-26",
+      "format": "shorts",
+      "source_s": [
+        17,
+        35
+      ],
+      "url": "https://www.youtube.com/watch?v=C8baNzpnZ7o&t=17s",
+      "family": "scale-ladder",
+      "poses": {
+        "before": "El Sol tiene tamaño visible rodeado de órbitas, con una escala abajo a la izquierda.",
+        "change": "El motivo central se reduce hasta verse como un punto. La regla sigue en la esquina.",
+        "after": "Aparecen estrellas alrededor del punto y la regla indica otra extensión."
+      },
+      "anchor": "La regla proporciona continuidad cuando se pierde el contorno reconocible del objeto.",
+      "method": "youtube-playback-storyboard",
+      "sheet_sha256": "f81c9e22b08a35d2cf64634ba36f51760ea736811b5efa2a2954bb22e6b4756d",
+      "speech": {
+        "basis": "asr-word-start",
+        "term": "powers",
+        "track": "automatic_captions/en-orig",
+        "caption_window_s": [
+          29.24,
+          33.12
+        ],
+        "word_start_s": 29.56,
+        "visual_evidence": {
+          "basis": "unverified",
+          "note": "La hoja permite contrastar las poses. La entrada exacta de la palabra requiere audio alineado."
+        },
+        "note": "La pista automática estima el inicio de palabra."
+      },
+      "source_samples_s": [
+        17,
+        26,
+        35
+      ],
+      "cadence_s": 1.0,
+      "use": "Conserva una regla con unidad en el mismo lugar al atravesar varios órdenes de magnitud."
+    },
+    {
+      "key": "TZAC0WFemvE@5",
+      "video_id": "TZAC0WFemvE",
+      "title": "When being beautifully wrong leads to discovery",
+      "published": "2025-02-28",
+      "format": "shorts",
+      "source_s": [
+        5,
+        27
+      ],
+      "url": "https://www.youtube.com/watch?v=TZAC0WFemvE&t=5s",
+      "family": "geometric-construction",
+      "poses": {
+        "before": "Las órbitas rodean un centro y aparecen pequeños sólidos de referencia.",
+        "change": "Un sólido transparente se superpone a las órbitas alrededor del mismo centro.",
+        "after": "Se ve una caja exterior que contiene una geometría anterior."
+      },
+      "anchor": "Se ensaya una hipótesis geométrica conservando el sistema al que se ajusta.",
+      "method": "youtube-playback-storyboard",
+      "sheet_sha256": "bc041db2d1213b39083f4f1d5dd355e2cbd61d1999d628b95886e5df56c523b2",
+      "speech": {
+        "basis": "asr-word-start",
+        "term": "icosahedron",
+        "track": "automatic_captions/en-orig",
+        "caption_window_s": [
+          10.4,
+          14.839
+        ],
+        "word_start_s": 11.44,
+        "visual_evidence": {
+          "basis": "unverified",
+          "note": "La hoja permite contrastar las poses. La entrada exacta de la palabra requiere audio alineado."
+        },
+        "note": "La pista automática estima el inicio de palabra."
+      },
+      "source_samples_s": [
+        5,
+        11,
+        27
+      ],
+      "cadence_s": 1.0,
+      "use": "Deja el fenómeno a la vista al superponer, una por vez, las restricciones del modelo."
+    },
+    {
+      "key": "YP1mMXRCnaI@19",
+      "video_id": "YP1mMXRCnaI",
+      "title": "Why the ancient Greeks rejected heliocentrism",
+      "published": "2025-02-27",
+      "format": "shorts",
+      "source_s": [
+        19,
+        38
+      ],
+      "url": "https://www.youtube.com/watch?v=YP1mMXRCnaI&t=19s",
+      "family": "linked-views",
+      "poses": {
+        "before": "Un cuerpo ocupa el centro de un campo de estrellas.",
+        "change": "Aparece un observador a un lado y el campo queda encajado en un volumen.",
+        "after": "El volumen y sus estrellas ocupan más espacio en el plano."
+      },
+      "anchor": "El marco hace explícito desde dónde se mira la escena.",
+      "method": "youtube-playback-storyboard",
+      "sheet_sha256": "0f67abd899d1908fda1cbc082efbfd07b38e93f2240080b1acb870a10031aee9",
+      "speech": {
+        "basis": "asr-word-start",
+        "term": "observer",
+        "track": "automatic_captions/en-orig",
+        "caption_window_s": [
+          27.8,
+          32.48
+        ],
+        "word_start_s": 28.8,
+        "visual_evidence": {
+          "basis": "unverified",
+          "note": "La hoja permite contrastar las poses. La entrada exacta de la palabra requiere audio alineado."
+        },
+        "note": "La pista automática estima el inicio de palabra."
+      },
+      "source_samples_s": [
+        19,
+        29,
+        38
+      ],
+      "cadence_s": 1.0,
+      "use": "Identifica primero al observador y el objeto. Conserva una referencia común al presentar su vista."
+    },
+    {
+      "key": "gzbFNnTCkqQ@25",
+      "video_id": "gzbFNnTCkqQ",
+      "title": "How to estimate the distance to the sun",
+      "published": "2025-02-26",
+      "format": "shorts",
+      "source_s": [
+        25,
+        41
+      ],
+      "url": "https://www.youtube.com/watch?v=gzbFNnTCkqQ&t=25s",
+      "family": "geometric-construction",
+      "poses": {
+        "before": "Un punto central y un cuerpo pequeño se relacionan con un arco orbital.",
+        "change": "El punto situado sobre el arco recibe una anotación.",
+        "after": "Aparecen segmentos perpendiculares y el marcador de ángulo recto."
+      },
+      "anchor": "El diagrama deriva una restricción geométrica de una configuración concreta.",
+      "method": "youtube-playback-storyboard",
+      "sheet_sha256": "4312d84e18fbfad1b62cfd9a82e21c4a5421b8ddd3c1ec044377b306ed45e3b8",
+      "speech": {
+        "basis": "asr-word-start",
+        "term": "moon",
+        "track": "automatic_captions/en-orig",
+        "caption_window_s": [
+          29.679,
+          34.64
+        ],
+        "word_start_s": 31.96,
+        "visual_evidence": {
+          "basis": "burned-in-text",
+          "term": "right angle",
+          "note": "El fotograma de 41 s muestra el marcador a la vez que se lee «right angle»."
+        },
+        "note": "La pista automática estima el inicio de palabra."
+      },
+      "source_samples_s": [
+        25,
+        33,
+        41
+      ],
+      "cadence_s": 1.0,
+      "use": "Sitúa los cuerpos antes de añadir las líneas auxiliares y marca el lugar exacto donde se cumple la condición."
+    },
+    {
+      "key": "drmphB3rdHY@5",
+      "video_id": "drmphB3rdHY",
+      "title": "How Aristarchus deduced the distance to the moon",
+      "published": "2025-02-25",
+      "format": "shorts",
+      "source_s": [
+        5,
+        24
+      ],
+      "url": "https://www.youtube.com/watch?v=drmphB3rdHY&t=5s",
+      "family": "model-to-measure",
+      "poses": {
+        "before": "La Tierra aparece con una llave sin magnitud numérica visible.",
+        "change": "La llave que abarca su diámetro aparece con símbolo y valor.",
+        "after": "Después de un intermedio, una llave acompaña una duración en horas en la demostración."
+      },
+      "anchor": "La misma convención de llave identifica qué extensión representa cada valor.",
+      "method": "youtube-playback-storyboard",
+      "sheet_sha256": "a6f0316157fc0216f87956c5fe35baafb9a36df77abf236db9c38e04dcf61105",
+      "speech": {
+        "basis": "asr-word-start",
+        "term": "earth",
+        "track": "automatic_captions/en-orig",
+        "caption_window_s": [
+          7.919,
+          10.48
+        ],
+        "word_start_s": 8.32,
+        "visual_evidence": {
+          "basis": "unverified",
+          "note": "La hoja permite contrastar las poses. La entrada exacta de la palabra requiere audio alineado."
+        },
+        "note": "La pista automática estima el inicio de palabra."
+      },
+      "source_samples_s": [
+        5,
+        9,
+        24
+      ],
+      "cadence_s": 1.0,
+      "use": "Vincula cada cantidad con el tramo medido y conserva su unidad al pasar de distancia a tiempo."
+    },
+    {
+      "key": "9s0srZneJ38@46",
+      "video_id": "9s0srZneJ38",
+      "title": "How Earth's size was computed by Eratosthenes",
+      "published": "2025-02-12",
+      "format": "shorts",
+      "source_s": [
+        46,
+        104
+      ],
+      "url": "https://www.youtube.com/watch?v=9s0srZneJ38&t=46s",
+      "family": "geometric-construction",
+      "poses": {
+        "before": "Rayos paralelos llegan a una esfera parcialmente iluminada.",
+        "change": "Los rayos se extienden sobre una esfera con segmentos trazados.",
+        "after": "Las ubicaciones terrestres quedan rotuladas junto a las líneas de medida."
+      },
+      "anchor": "Las líneas y los lugares explican de dónde sale el ángulo de la medición.",
+      "method": "youtube-playback-storyboard",
+      "sheet_sha256": "c9a22797199512e16d5ad8496357f6cc2a3288208ee8b96c525a096784bda004",
+      "speech": {
+        "basis": "asr-word-start",
+        "term": "axis",
+        "track": "automatic_captions/en-orig",
+        "caption_window_s": [
+          65.68,
+          71.04
+        ],
+        "word_start_s": 67.32,
+        "visual_evidence": {
+          "basis": "unverified",
+          "note": "La hoja permite contrastar las poses. La entrada exacta de la palabra requiere audio alineado."
+        },
+        "note": "La pista automática estima el inicio de palabra."
+      },
+      "source_samples_s": [
+        46,
+        68,
+        104
+      ],
+      "cadence_s": 2.0,
+      "use": "Mantén el globo como ancla, superpón los rayos y nombra los lugares al usarlos en la comparación."
+    },
+    {
+      "key": "uT4-WVa-YfU@22",
+      "video_id": "uT4-WVa-YfU",
+      "title": "Measuring the earth with Terence Tao",
+      "published": "2025-02-08",
+      "format": "shorts",
+      "source_s": [
+        22,
+        44
+      ],
+      "url": "https://www.youtube.com/watch?v=uT4-WVa-YfU&t=22s",
+      "family": "model-to-measure",
+      "poses": {
+        "before": "Un triángulo y un ángulo aparecen en el borde de un globo.",
+        "change": "Los lados se distinguen con segmentos y etiquetas de radio y altura.",
+        "after": "Una igualdad se lee arriba, mientras el triángulo rotulado sigue debajo."
+      },
+      "anchor": "La igualdad tiene referentes espaciales que el espectador puede señalar.",
+      "method": "youtube-playback-storyboard",
+      "sheet_sha256": "d63a2714d3ff1462e67c8810dc78ad437f9b797aa126719db6be2bb7319ff354",
+      "speech": {
+        "basis": "asr-word-start",
+        "term": "radius",
+        "track": "automatic_captions/en-orig",
+        "caption_window_s": [
+          27.199,
+          31.039
+        ],
+        "word_start_s": 28.84,
+        "visual_evidence": {
+          "basis": "unverified",
+          "note": "La hoja permite contrastar las poses. La entrada exacta de la palabra requiere audio alineado."
+        },
+        "note": "La pista automática estima el inicio de palabra."
+      },
+      "source_samples_s": [
+        22,
+        29,
+        44
+      ],
+      "cadence_s": 1.0,
+      "use": "Mantén el dibujo con sus variables al introducir la ecuación que las relaciona."
+    },
+    {
+      "key": "K-pGGb0f3tc@12",
+      "video_id": "K-pGGb0f3tc",
+      "title": "The topology of two-note chords",
+      "published": "2025-01-30",
+      "format": "shorts",
+      "source_s": [
+        12,
+        66
+      ],
+      "url": "https://www.youtube.com/watch?v=K-pGGb0f3tc&t=12s",
+      "family": "linked-views",
+      "poses": {
+        "before": "Dos teclas resaltadas se corresponden con los extremos de una cuerda en un círculo.",
+        "change": "El círculo queda arriba y una lectura cuadrada con ejes ocupa abajo.",
+        "after": "Una forma toroidal sustituye al círculo sobre el dominio cuadrado."
+      },
+      "anchor": "Un mismo par de parámetros se examina en sucesivas representaciones.",
+      "method": "youtube-playback-storyboard",
+      "sheet_sha256": "7b8aac06f694eb4b6988cb666243e5e81983e6741976d6a671d6ca1cb205c226",
+      "speech": {
+        "basis": "asr-word-start",
+        "term": "glue",
+        "track": "automatic_captions/en-orig",
+        "caption_window_s": [
+          44.96,
+          49.32
+        ],
+        "word_start_s": 46.52,
+        "visual_evidence": {
+          "basis": "unverified",
+          "note": "La hoja permite contrastar las poses. La entrada exacta de la palabra requiere audio alineado."
+        },
+        "note": "La pista automática estima el inicio de palabra."
+      },
+      "source_samples_s": [
+        12,
+        44,
+        66
+      ],
+      "cadence_s": 2.0,
+      "use": "Reserva una vista para los parámetros y otra para la geometría. Conserva un marcador identificable cuando cambie la representación."
+    },
+    {
+      "key": "0TdBP9m4R74@32",
+      "video_id": "0TdBP9m4R74",
+      "title": "The barber pole optical mystery",
+      "published": "2025-01-06",
+      "format": "shorts",
+      "source_s": [
+        32,
+        66
+      ],
+      "url": "https://www.youtube.com/watch?v=0TdBP9m4R74&t=32s",
+      "family": "compare-alternatives",
+      "poses": {
+        "before": "Un trazo ondulado atraviesa un tubo en perspectiva.",
+        "change": "Dos ejemplos con la misma orientación se apilan y se observan sus ondas.",
+        "after": "El montaje vuelve al tubo físico iluminado con varios colores."
+      },
+      "anchor": "La orientación repetida permite cotejar frecuencias antes de volver a la demostración.",
+      "method": "youtube-playback-storyboard",
+      "sheet_sha256": "eff0173ca4c81b0e121d121ca6daa23962998ccc5ce1b4f3834dd5a5d5ac85a5",
+      "speech": {
+        "basis": "asr-word-start",
+        "term": "frequency",
+        "track": "automatic_captions/en-orig",
+        "caption_window_s": [
+          45.719,
+          50.84
+        ],
+        "word_start_s": 47.719,
+        "visual_evidence": {
+          "basis": "unverified",
+          "note": "La hoja permite contrastar las poses. La entrada exacta de la palabra requiere audio alineado."
+        },
+        "note": "La pista automática estima el inicio de palabra."
+      },
+      "source_samples_s": [
+        32,
+        48,
+        66
+      ],
+      "cadence_s": 2.0,
+      "use": "Compara dos condiciones con el mismo encuadre y conserva una vista del fenómeno al que se refieren."
+    },
+    {
+      "key": "zxOK2vKVfQM@5",
+      "video_id": "zxOK2vKVfQM",
+      "title": "Monge's Theorem",
+      "published": "2024-12-29",
+      "format": "shorts",
+      "source_s": [
+        5,
+        26
+      ],
+      "url": "https://www.youtube.com/watch?v=zxOK2vKVfQM&t=5s",
+      "family": "geometric-construction",
+      "poses": {
+        "before": "Se ven círculos de distinto tamaño sobre el mismo fondo.",
+        "change": "La figura incorpora rectas que pasan junto a pares de círculos.",
+        "after": "La red de rectas e intersecciones permanece sobre los círculos."
+      },
+      "anchor": "Las formas iniciales siguen disponibles para reconstruir qué pareja generó cada intersección.",
+      "method": "youtube-playback-storyboard",
+      "sheet_sha256": "f8f9d9e18aa54774205d3c814df18c41b4b731e87303f91e8171518cee352eaa",
+      "speech": {
+        "basis": "asr-word-start",
+        "term": "tangent",
+        "track": "automatic_captions/en-orig",
+        "caption_window_s": [
+          12.719,
+          17.72
+        ],
+        "word_start_s": 12.719,
+        "visual_evidence": {
+          "basis": "unverified",
+          "note": "La hoja permite contrastar las poses. La entrada exacta de la palabra requiere audio alineado."
+        },
+        "note": "La pista automática estima el inicio de palabra."
+      },
+      "source_samples_s": [
+        5,
+        16,
+        26
+      ],
+      "cadence_s": 1.0,
+      "use": "Traza cada construcción encima de sus objetos de origen y destaca la relación final una vez visibles los puntos."
+    },
+    {
+      "key": "DgMhayP2NPU@39",
+      "video_id": "DgMhayP2NPU",
+      "title": "Thinking through double slits",
+      "published": "2024-12-26",
+      "format": "shorts",
+      "source_s": [
+        39,
+        59
+      ],
+      "url": "https://www.youtube.com/watch?v=DgMhayP2NPU&t=39s",
+      "family": "linked-views",
+      "poses": {
+        "before": "Dos fuentes y sus frentes de onda se distinguen frente a la pantalla.",
+        "change": "La vista cercana separa trazos ondulados en un recorrido horizontal.",
+        "after": "Dos ondas con desplazamientos opuestos quedan superpuestas en el acercamiento."
+      },
+      "anchor": "El detalle de dos ondas explica una zona del patrón compuesto.",
+      "method": "youtube-playback-storyboard",
+      "sheet_sha256": "b03f5adba27ea6b972d3571060984fba3c24f85c9740b7f830bb276192b00b25",
+      "speech": {
+        "basis": "asr-word-start",
+        "term": "interference",
+        "track": "automatic_captions/en-orig",
+        "caption_window_s": [
+          45.96,
+          50.36
+        ],
+        "word_start_s": 46.879,
+        "visual_evidence": {
+          "basis": "burned-in-text",
+          "term": "cancel out",
+          "note": "La muestra de 59 s muestra las ondas y el texto «cancel out»."
+        },
+        "note": "La pista automática estima el inicio de palabra."
+      },
+      "source_samples_s": [
+        39,
+        49,
+        59
+      ],
+      "cadence_s": 1.0,
+      "use": "Aísla una posición del patrón y muestra allí la relación de fase de sus componentes."
+    },
+    {
+      "key": "LuVUnd0C07U@0",
+      "video_id": "LuVUnd0C07U",
+      "title": "The inscribed square problem",
+      "published": "2024-12-24",
+      "format": "shorts",
+      "source_s": [
+        0,
+        21
+      ],
+      "url": "https://www.youtube.com/watch?v=LuVUnd0C07U&t=0s",
+      "family": "pose-invariant",
+      "poses": {
+        "before": "Un cuadrado se inscribe en un contorno irregular.",
+        "change": "Aparece otro contorno con un cuadrado de distinta escala bajo la pregunta.",
+        "after": "Un tercer contorno envuelve otro cuadrado y la pregunta se conserva."
+      },
+      "anchor": "Los ejemplos varían la curva y permiten comprobar la misma condición geométrica.",
+      "method": "youtube-playback-storyboard",
+      "sheet_sha256": "48c9df87084aec978e993a49ad9db6cccf6e873d3c8612675a95a4be489d2bec",
+      "speech": {
+        "basis": "asr-word-start",
+        "term": "loop",
+        "track": "automatic_captions/en-orig",
+        "caption_window_s": [
+          17.16,
+          21.88
+        ],
+        "word_start_s": 17.16,
+        "visual_evidence": {
+          "basis": "unverified",
+          "note": "La hoja permite contrastar las poses. La entrada exacta de la palabra requiere audio alineado."
+        },
+        "note": "La pista automática estima el inicio de palabra."
+      },
+      "source_samples_s": [
+        0,
+        16,
+        21
+      ],
+      "cadence_s": 1.0,
+      "use": "Cambia la figura de partida conservando el criterio visible que deben cumplir todos los ejemplos."
+    }
+  ]
+}

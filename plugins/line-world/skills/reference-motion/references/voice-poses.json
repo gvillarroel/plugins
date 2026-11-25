@@ -1,0 +1,2192 @@
+{
+  "schema": 1,
+  "source": "https://www.youtube.com/playlist?list=PLCRMIe5FDPseVvwzRiCQBmNOVUIZSSkP8",
+  "scope": "Un término seleccionado por pasaje; dos pasajes por video. already_visible indica presencia antes del gesto medido.",
+  "fps": 25,
+  "clock": "Segundos absolutos del video original. Los intervalos visuales acotan poses con fotogramas decodificados. Un intervalo de mención conserva el bloque completo publicado.",
+  "speech_methods": {
+    "asr-word-start": "Inicio del token según subtítulos automáticos ingleses de YouTube.",
+    "caption-ctc-corroborated": "Inicio acústico estimado por alineación CTC del subtítulo publicado con coincidencia en la decodificación libre del mismo modelo.",
+    "caption-block": "Inicio y fin del bloque publicado que contiene el término."
+  },
+  "observations": [
+    {
+      "index": 1,
+      "video_id": "M4lR_Va97cQ",
+      "passage_index": 0,
+      "source_s": [
+        406,
+        425
+      ],
+      "term": "load balancer",
+      "mention_s": [
+        422.88,
+        424.903
+      ],
+      "role": "entidad ya rotulada; énfasis",
+      "primary_event": "emphasis",
+      "poses": {
+        "before": "El balanceador ya ocupa la posición inmediatamente bajo la persona.",
+        "change": "Su fondo pasa de blanco a cian mientras los dos servicios quedan fijos.",
+        "after": "El nombre sigue en el mismo sitio, con la caja resaltada."
+      },
+      "already_visible": true,
+      "semantic_match": "direct",
+      "note": "Se registra la mención de presentación del componente. La aparición ocurrió unos diecisiete segundos antes, fuera del comienzo del pasaje indexado.",
+      "name": "Del balanceador a las réplicas",
+      "relation": "hierarchy",
+      "url": "https://www.youtube.com/watch?v=M4lR_Va97cQ&t=422s",
+      "mention_precision": "caption-block",
+      "events": {
+        "appearance": [
+          405.8,
+          405.88
+        ],
+        "readable": [
+          407.16,
+          407.32
+        ],
+        "emphasis": [
+          423.8,
+          424.2
+        ]
+      },
+      "frames": {
+        "appearance": [
+          10145,
+          10147
+        ],
+        "readable": [
+          10179,
+          10183
+        ],
+        "emphasis": [
+          10595,
+          10605
+        ]
+      },
+      "source_sha256": "10c40b32268250e90440be141095d1eddf4c584651e00d2ddd24eb8068880c93",
+      "caption_sha256": "5841690e2ff8b341c22454b972ccc1444e891250a1a3d3f0af3b8fdbe309dc69",
+      "caption_window_s": [
+        422.88,
+        424.903
+      ]
+    },
+    {
+      "index": 1,
+      "video_id": "M4lR_Va97cQ",
+      "passage_index": 1,
+      "source_s": [
+        1085.0,
+        1094.48
+      ],
+      "term": "quadrants",
+      "mention_s": 1090.28,
+      "role": "estructura que se descompone",
+      "primary_event": "readable",
+      "poses": {
+        "before": "Hay una región simple con el total y una flecha que conduce a la derecha.",
+        "change": "La segunda región se abre; se traza la cruz y entran por orden los cuatro rótulos.",
+        "after": "Cuatro cuadrantes con cantidades caben dentro del mismo borde."
+      },
+      "already_visible": false,
+      "semantic_match": "direct",
+      "note": "La aparición se refiere al dibujo de la segunda región y la lectura a sus cuatro rótulos completos.",
+      "name": "Subdividir una región conservando el conjunto",
+      "relation": "recursive-spatial-partition",
+      "url": "https://www.youtube.com/watch?v=M4lR_Va97cQ&t=1089s",
+      "mention_precision": "caption-ctc-corroborated",
+      "events": {
+        "appearance": [
+          1086.48,
+          1086.6
+        ],
+        "action": [
+          1086.72,
+          1087.28
+        ],
+        "readable": [
+          1089.44,
+          1089.52
+        ]
+      },
+      "frames": {
+        "appearance": [
+          27162,
+          27165
+        ],
+        "action": [
+          27168,
+          27182
+        ],
+        "readable": [
+          27236,
+          27238
+        ]
+      },
+      "source_sha256": "10c40b32268250e90440be141095d1eddf4c584651e00d2ddd24eb8068880c93",
+      "caption_sha256": "5841690e2ff8b341c22454b972ccc1444e891250a1a3d3f0af3b8fdbe309dc69",
+      "caption_window_s": [
+        1087.6,
+        1090.72
+      ]
+    },
+    {
+      "index": 2,
+      "video_id": "UF9Iqmg94tk",
+      "passage_index": 0,
+      "source_s": [
+        243,
+        253
+      ],
+      "term": "S4",
+      "mention_s": 244.079,
+      "role": "entidad que entra y luego se desplaza",
+      "primary_event": "appearance",
+      "poses": {
+        "before": "Una columna contiene cuatro servidores. El punto de destino del quinto queda vacío.",
+        "change": "Una quinta tarjeta aparece a la izquierda. De ella sale el marcador verde S4 y recorre el anillo.",
+        "after": "La tarjeta permanece en la lista y el marcador alcanza su posición entre K0 y S0."
+      },
+      "already_visible": false,
+      "semantic_match": "direct",
+      "note": "Al nombrar S4 ya está la tarjeta; su llegada al anillo es un evento posterior. La narración dice también «new server» antes del nombre.",
+      "name": "Un nodo entra en el anillo",
+      "relation": "ring-handoff",
+      "url": "https://www.youtube.com/watch?v=UF9Iqmg94tk&t=243s",
+      "mention_precision": "asr-word-start",
+      "events": {
+        "appearance": [
+          243.04,
+          243.12
+        ],
+        "action": [
+          245.04,
+          245.36
+        ],
+        "arrival": [
+          246.92,
+          247.24
+        ]
+      },
+      "frames": {
+        "appearance": [
+          6076,
+          6078
+        ],
+        "action": [
+          6126,
+          6134
+        ],
+        "arrival": [
+          6173,
+          6181
+        ]
+      },
+      "source_sha256": "469b7ec377bc35b368ef54cca842ae966904380cb9ded1760bc9181d556b085e",
+      "caption_sha256": "bb9e83a02794f401e7cc278e2f2310eafda8814363ae4cd6229d54a37c2eb46d"
+    },
+    {
+      "index": 2,
+      "video_id": "UF9Iqmg94tk",
+      "passage_index": 1,
+      "source_s": [
+        125.0,
+        135.0
+      ],
+      "term": "redistributed",
+      "mention_s": 129.44,
+      "role": "redistribución de piezas existentes",
+      "primary_event": "action",
+      "poses": {
+        "before": "Las claves ya tienen color, inventario y posición en los servidores.",
+        "change": "La primera pieza violeta abandona su celda antes de redistribuirse las demás.",
+        "after": "Al terminar, cambió la distribución entre servidores activos; el inventario superior persiste."
+      },
+      "already_visible": true,
+      "semantic_match": "direct",
+      "note": "La llegada corresponde a la última pieza visible de esta secuencia. El verbo describe el grupo completo.",
+      "name": "Seguir la identidad de piezas que cambian de destino",
+      "relation": "item-reassignment",
+      "url": "https://www.youtube.com/watch?v=UF9Iqmg94tk&t=128s",
+      "mention_precision": "asr-word-start",
+      "events": {
+        "action": [
+          128.84,
+          128.92
+        ],
+        "arrival": [
+          133.4,
+          133.68
+        ]
+      },
+      "frames": {
+        "action": [
+          3221,
+          3223
+        ],
+        "arrival": [
+          3335,
+          3342
+        ]
+      },
+      "source_sha256": "469b7ec377bc35b368ef54cca842ae966904380cb9ded1760bc9181d556b085e",
+      "caption_sha256": "bb9e83a02794f401e7cc278e2f2310eafda8814363ae4cd6229d54a37c2eb46d"
+    },
+    {
+      "index": 3,
+      "video_id": "V3pzxngeLqw",
+      "passage_index": 0,
+      "source_s": [
+        228,
+        268
+      ],
+      "term": "potato",
+      "mention_s": 241.74,
+      "role": "nueva entrada identificable",
+      "primary_event": "readable",
+      "poses": {
+        "before": "Sobre el conjunto de bits solo aparece el primer alimento.",
+        "change": "La primera letra del nuevo alimento y una curva amarilla comienzan a trazarse.",
+        "after": "El segundo nombre es legible y sus conexiones continúan hacia las casillas."
+      },
+      "already_visible": false,
+      "semantic_match": "direct",
+      "note": "Aparición y lectura del rótulo. La punta de su primera flecha se distingue ya a los 242,12 s.",
+      "name": "Dos escrituras y una consulta",
+      "relation": "bit-probe",
+      "url": "https://www.youtube.com/watch?v=V3pzxngeLqw&t=241s",
+      "mention_precision": "caption-ctc-corroborated",
+      "events": {
+        "appearance": [
+          242.2,
+          242.24
+        ],
+        "readable": [
+          242.56,
+          242.6
+        ]
+      },
+      "frames": {
+        "appearance": [
+          6055,
+          6056
+        ],
+        "readable": [
+          6064,
+          6065
+        ]
+      },
+      "source_sha256": "df1690a1740e11896354f203f62436234e0ea260234b29a0f170b21b53706edb",
+      "caption_sha256": "f0a70f724e458e6ba73a8e06735d3ba2e13cd4c9a9e95070bc9092c2d8107778",
+      "caption_window_s": [
+        240.88,
+        244.0
+      ]
+    },
+    {
+      "index": 3,
+      "video_id": "V3pzxngeLqw",
+      "passage_index": 1,
+      "source_s": [
+        65.0,
+        74.6
+      ],
+      "term": "less memory",
+      "mention_s": 71.58,
+      "role": "criterio permanente que gana atención",
+      "primary_event": "emphasis",
+      "poses": {
+        "before": "El texto Less memory ya está a la izquierda en blanco mientras la balanza favorece el criterio derecho.",
+        "change": "La viga bascula y el texto izquierdo pasa a rojo y crece.",
+        "after": "La bandeja izquierda queda abajo y el texto resaltado conserva su identidad."
+      },
+      "already_visible": true,
+      "semantic_match": "direct",
+      "note": "El estado anterior acredita presencia previa del rótulo; no se fecha una entrada que precedía al muestreo.",
+      "name": "Cambiar el criterio que recibe atención",
+      "relation": "qualitative-tradeoff",
+      "url": "https://www.youtube.com/watch?v=V3pzxngeLqw&t=69s",
+      "mention_precision": "caption-ctc-corroborated",
+      "events": {
+        "action": [
+          69.52,
+          69.72
+        ],
+        "emphasis": [
+          69.76,
+          69.84
+        ]
+      },
+      "frames": {
+        "action": [
+          1738,
+          1743
+        ],
+        "emphasis": [
+          1744,
+          1746
+        ]
+      },
+      "source_sha256": "df1690a1740e11896354f203f62436234e0ea260234b29a0f170b21b53706edb",
+      "caption_sha256": "f0a70f724e458e6ba73a8e06735d3ba2e13cd4c9a9e95070bc9092c2d8107778",
+      "caption_window_s": [
+        69.84,
+        73.52
+      ]
+    },
+    {
+      "index": 4,
+      "video_id": "UC5xf8FbdJc",
+      "passage_index": 0,
+      "source_s": [
+        47,
+        55.5
+      ],
+      "term": "load balancing",
+      "mention_s": 53.12,
+      "role": "entidad anticipada",
+      "primary_event": "appearance",
+      "poses": {
+        "before": "Las columnas de demanda y servidor individual ya son visibles. La zona del balanceador está vacía.",
+        "change": "Se dibujan el símbolo y el rótulo Load balancer, a la derecha del servidor.",
+        "after": "De la caja salen las conexiones hacia el grupo de servidores."
+      },
+      "already_visible": false,
+      "semantic_match": "direct",
+      "note": "La mención designa la función load balancing, representada por la figura etiquetada Load balancer.",
+      "name": "De la carga total al tamaño de la flota",
+      "relation": "fan-out",
+      "url": "https://www.youtube.com/watch?v=UC5xf8FbdJc&t=48s",
+      "mention_precision": "asr-word-start",
+      "events": {
+        "appearance": [
+          48.64,
+          48.68
+        ],
+        "action": [
+          49.6,
+          49.72
+        ],
+        "readable": [
+          49.44,
+          49.48
+        ]
+      },
+      "frames": {
+        "appearance": [
+          1216,
+          1217
+        ],
+        "action": [
+          1240,
+          1243
+        ],
+        "readable": [
+          1236,
+          1237
+        ]
+      },
+      "source_sha256": "265c887b14d3e22a6b96737f6bd2111ec5f72069191fc55b98778a96966f4999",
+      "caption_sha256": "539de402dfc3d73456eaac24599592a98c907bb362ad122e46f828dd46029a2e"
+    },
+    {
+      "index": 4,
+      "video_id": "UC5xf8FbdJc",
+      "passage_index": 1,
+      "source_s": [
+        131.0,
+        144.0
+      ],
+      "term": "peaks",
+      "mention_s": 134.76,
+      "role": "valor que sobresale de una serie",
+      "primary_event": "readable",
+      "poses": {
+        "before": "Dos valores bajos ya se descubren sobre la retícula fija.",
+        "change": "El punto de la tercera posición emerge, sube por encima de los dos últimos y forma un pico.",
+        "after": "El vértice queda a su altura mientras sigue apareciendo la parte posterior de la serie."
+      },
+      "already_visible": false,
+      "semantic_match": "direct",
+      "note": "Se toma la primera mención de peaks del bloque, no la posterior formulación sobre tráfico máximo. Readable indica máximo local identificable.",
+      "name": "Revelar el pico y conservar su contexto",
+      "relation": "time-series-reveal",
+      "url": "https://www.youtube.com/watch?v=UC5xf8FbdJc&t=133s",
+      "mention_precision": "asr-word-start",
+      "events": {
+        "appearance": [
+          133.0,
+          133.04
+        ],
+        "readable": [
+          133.04,
+          133.12
+        ],
+        "arrival": [
+          133.24,
+          133.52
+        ]
+      },
+      "frames": {
+        "appearance": [
+          3325,
+          3326
+        ],
+        "readable": [
+          3326,
+          3328
+        ],
+        "arrival": [
+          3331,
+          3338
+        ]
+      },
+      "source_sha256": "265c887b14d3e22a6b96737f6bd2111ec5f72069191fc55b98778a96966f4999",
+      "caption_sha256": "539de402dfc3d73456eaac24599592a98c907bb362ad122e46f828dd46029a2e"
+    },
+    {
+      "index": 5,
+      "video_id": "7AMRfNKwuYo",
+      "passage_index": 0,
+      "source_s": [
+        149,
+        166.5
+      ],
+      "term": "different qualities",
+      "mention_s": 153.62,
+      "role": "variantes que hacen visible un contraste",
+      "primary_event": "readable",
+      "poses": {
+        "before": "Bajo el procesador se lee la primera resolución en su contenedor.",
+        "change": "La fila gana otra versión. La primera imagen y su pantalla se recentran para hacer sitio.",
+        "after": "Se pueden leer dos resoluciones simultáneamente y después se añaden otras dos."
+      },
+      "already_visible": false,
+      "semantic_match": "direct",
+      "note": "Se mide la segunda variante: con ella empieza a verse la diferencia entre calidades. El archivo de la primera ya estaba presente.",
+      "name": "Cuatro versiones de una emisión",
+      "relation": "fan-out",
+      "url": "https://www.youtube.com/watch?v=7AMRfNKwuYo&t=153s",
+      "mention_precision": "caption-ctc-corroborated",
+      "events": {
+        "appearance": [
+          153.8,
+          154.08
+        ],
+        "readable": [
+          154.36,
+          154.72
+        ]
+      },
+      "frames": {
+        "appearance": [
+          3845,
+          3852
+        ],
+        "readable": [
+          3859,
+          3868
+        ]
+      },
+      "source_sha256": "644cba1e123b2c2a26cf14964f245aefc505b87d865a7745b112574d8b7b88c4",
+      "caption_sha256": "b4ed6ad8217eaf88deebc6b4bc55d0826c05dc17d50b89722fa74b9b8d65b038",
+      "caption_window_s": [
+        153.0,
+        155.76
+      ]
+    },
+    {
+      "index": 5,
+      "video_id": "7AMRfNKwuYo",
+      "passage_index": 1,
+      "source_s": [
+        193.36,
+        199.2
+      ],
+      "term": "video segments",
+      "mention_s": 194.62,
+      "role": "unidades de una secuencia",
+      "primary_event": "appearance",
+      "poses": {
+        "before": "Una flecha desciende desde el procesador, con el espacio inferior todavía vacío.",
+        "change": "Se empieza a escribir Segment 1 y a dibujar sus divisiones internas.",
+        "after": "El rótulo Segment 1 se completa y más segmentos pasan a formar una fila ordenada."
+      },
+      "already_visible": false,
+      "semantic_match": "direct",
+      "note": "Se usa la primera mención «video segments». La etiqueta de la operación «segmentation» ocurre en un bloque posterior.",
+      "name": "Separar una salida continua en unidades consecutivas",
+      "relation": "ordered-segmentation",
+      "url": "https://www.youtube.com/watch?v=7AMRfNKwuYo&t=194s",
+      "mention_precision": "caption-ctc-corroborated",
+      "events": {
+        "appearance": [
+          194.4,
+          194.48
+        ],
+        "readable": [
+          195.32,
+          195.4
+        ]
+      },
+      "frames": {
+        "appearance": [
+          4860,
+          4862
+        ],
+        "readable": [
+          4883,
+          4885
+        ]
+      },
+      "source_sha256": "644cba1e123b2c2a26cf14964f245aefc505b87d865a7745b112574d8b7b88c4",
+      "caption_sha256": "b4ed6ad8217eaf88deebc6b4bc55d0826c05dc17d50b89722fa74b9b8d65b038",
+      "caption_window_s": [
+        191.88,
+        197.04
+      ]
+    },
+    {
+      "index": 6,
+      "video_id": "EyMRZpgJUuc",
+      "passage_index": 0,
+      "source_s": [
+        13,
+        18.6
+      ],
+      "term": "System design interviews",
+      "mention_s": 12.24,
+      "role": "ejemplo específico dentro de la explicación",
+      "primary_event": "appearance",
+      "poses": {
+        "before": "La primera tarjeta de programación ya se está construyendo.",
+        "change": "La tarjeta central de System Design entra de izquierda a derecha y se dibujan nodos dentro.",
+        "after": "Su encabezado se lee junto a las otras dos rondas."
+      },
+      "already_visible": false,
+      "semantic_match": "direct",
+      "note": "Se mide la tarjeta central de entrevista, no el título inicial del video que contiene palabras similares.",
+      "name": "Tres rondas, tres tarjetas",
+      "relation": "ordered-cards",
+      "url": "https://www.youtube.com/watch?v=EyMRZpgJUuc&t=12s",
+      "mention_precision": "caption-ctc-corroborated",
+      "events": {
+        "appearance": [
+          14.2,
+          14.36
+        ],
+        "readable": [
+          14.68,
+          14.84
+        ]
+      },
+      "frames": {
+        "appearance": [
+          355,
+          359
+        ],
+        "readable": [
+          367,
+          371
+        ]
+      },
+      "source_sha256": "8b742ae3e9bedc0e7073bc6321053c30b0c76ecf7dc8b3a5a50e919b7a31df11",
+      "caption_sha256": "8237ca02da9eea7870c2a61db7665de91eb3fea33beb9d49be5659d8c2f6e5c5",
+      "caption_window_s": [
+        12.12,
+        16.56
+      ]
+    },
+    {
+      "index": 6,
+      "video_id": "EyMRZpgJUuc",
+      "passage_index": 1,
+      "source_s": [
+        58.4,
+        61.6
+      ],
+      "term": "compensation",
+      "mention_s": 60.3,
+      "role": "magnitud expresada mediante barras",
+      "primary_event": "action",
+      "poses": {
+        "before": "El plano anterior cede a una retícula con escala monetaria y niveles en posiciones fijas.",
+        "change": "La primera barra gana altura desde su lugar y las siguientes aparecen por turnos.",
+        "after": "Las cinco barras y sus partes conservan el orden y la escala."
+      },
+      "already_visible": false,
+      "semantic_match": "concept-illustration",
+      "note": "Se mide la primera marca de datos de remuneración y no el primer signo de dólar del eje, que aparece antes.",
+      "name": "Comparar totales y aportes de varias categorías",
+      "relation": "stacked-category-comparison",
+      "url": "https://www.youtube.com/watch?v=EyMRZpgJUuc&t=58s",
+      "mention_precision": "caption-ctc-corroborated",
+      "events": {
+        "appearance": [
+          58.68,
+          58.72
+        ],
+        "action": [
+          58.68,
+          58.72
+        ]
+      },
+      "frames": {
+        "appearance": [
+          1467,
+          1468
+        ],
+        "action": [
+          1467,
+          1468
+        ]
+      },
+      "source_sha256": "8b742ae3e9bedc0e7073bc6321053c30b0c76ecf7dc8b3a5a50e919b7a31df11",
+      "caption_sha256": "8237ca02da9eea7870c2a61db7665de91eb3fea33beb9d49be5659d8c2f6e5c5",
+      "caption_window_s": [
+        58.56,
+        61.68
+      ]
+    },
+    {
+      "index": 7,
+      "video_id": "i7twT3x5yv8",
+      "passage_index": 0,
+      "source_s": [
+        286.2,
+        293.6
+      ],
+      "term": "two-way communication",
+      "mention_s": [
+        287.58,
+        292.44
+      ],
+      "role": "dirección de intercambio",
+      "primary_event": "readable",
+      "poses": {
+        "before": "La primera flecha sale del servidor hacia la posición del cliente.",
+        "change": "Una segunda flecha crece en sentido contrario hacia el mismo servidor.",
+        "after": "Queda un par de conexiones opuestas visibles, una por sentido."
+      },
+      "already_visible": false,
+      "semantic_match": "direct",
+      "note": "Se mide la flecha de retorno que convierte un enlace unidireccional en una relación de ida y vuelta.",
+      "name": "El servidor incorpora tres clientes",
+      "relation": "fan-in",
+      "url": "https://www.youtube.com/watch?v=i7twT3x5yv8&t=287s",
+      "mention_precision": "caption-block",
+      "events": {
+        "appearance": [
+          287.56,
+          287.68
+        ],
+        "action": [
+          287.56,
+          287.68
+        ],
+        "readable": [
+          288.52,
+          288.64
+        ]
+      },
+      "frames": {
+        "appearance": [
+          7189,
+          7192
+        ],
+        "action": [
+          7189,
+          7192
+        ],
+        "readable": [
+          7213,
+          7216
+        ]
+      },
+      "source_sha256": "abda3205f0853c2e0d1f424ac35918a4c6224a9ec3da677db2ee75cb3833b362",
+      "caption_sha256": "25b4b378913d79f63467f5081e181dfe6950264e542d8672d476e4189e714bdc",
+      "caption_window_s": [
+        287.58,
+        292.44
+      ]
+    },
+    {
+      "index": 7,
+      "video_id": "i7twT3x5yv8",
+      "passage_index": 1,
+      "source_s": [
+        99.92,
+        103.08
+      ],
+      "term": "open-ended",
+      "mention_s": 102.26,
+      "role": "metáfora conceptual",
+      "primary_event": "appearance",
+      "poses": {
+        "before": "La tarjeta anterior se retira y queda un origen.",
+        "change": "Varias ramas alternativas empiezan a extenderse, antes de que se trace una trayectoria preferente.",
+        "after": "Una ruta de color atraviesa las opciones que se mantienen visibles."
+      },
+      "already_visible": false,
+      "semantic_match": "concept-illustration",
+      "note": "La voz caracteriza una pregunta abierta; no nombra literalmente ramas ni camino elegido. Solo la aparición de alternativas ilustra directamente la expresión. El trazo y la llegada posteriores son contexto, no una segunda mención.",
+      "name": "Mostrar una ruta dentro del espacio de posibilidades",
+      "relation": "selected-route",
+      "url": "https://www.youtube.com/watch?v=i7twT3x5yv8&t=99s",
+      "mention_precision": "caption-ctc-corroborated",
+      "events": {
+        "appearance": [
+          99.76,
+          100.0
+        ],
+        "action": [
+          100.8,
+          101.2
+        ],
+        "arrival": [
+          102.6,
+          102.8
+        ]
+      },
+      "frames": {
+        "appearance": [
+          2494,
+          2500
+        ],
+        "action": [
+          2520,
+          2530
+        ],
+        "arrival": [
+          2565,
+          2570
+        ]
+      },
+      "source_sha256": "abda3205f0853c2e0d1f424ac35918a4c6224a9ec3da677db2ee75cb3833b362",
+      "caption_sha256": "25b4b378913d79f63467f5081e181dfe6950264e542d8672d476e4189e714bdc",
+      "caption_window_s": [
+        100.2,
+        103.02
+      ]
+    },
+    {
+      "index": 8,
+      "video_id": "4rLW7zg21gI",
+      "passage_index": 0,
+      "source_s": [
+        107.08,
+        116.45
+      ],
+      "term": "memory address space",
+      "mention_s": 109.08,
+      "role": "detalle contextual unido a un grupo ya presente",
+      "primary_event": "readable",
+      "poses": {
+        "before": "Tres columnas de hilos existen en un marco de proceso común. El espacio lateral de anotación está libre.",
+        "change": "El grupo se desplaza y la anotación Shared memory address space entra a la izquierda con una llave.",
+        "after": "El texto queda completo y la llave lo vincula al conjunto de los hilos."
+      },
+      "already_visible": false,
+      "semantic_match": "direct",
+      "note": "La presencia previa atañe al proceso y los hilos; la entidad medida es el rótulo y no la banda de heap.",
+      "name": "Tres hilos comparten el heap",
+      "relation": "group-members",
+      "url": "https://www.youtube.com/watch?v=4rLW7zg21gI&t=109s",
+      "mention_precision": "caption-ctc-corroborated",
+      "events": {
+        "appearance": [
+          108.72,
+          108.8
+        ],
+        "readable": [
+          110.08,
+          110.16
+        ]
+      },
+      "frames": {
+        "appearance": [
+          2718,
+          2720
+        ],
+        "readable": [
+          2752,
+          2754
+        ]
+      },
+      "source_sha256": "ac923222173b20101f4760e5ed37bc965b2f071ca72e82ab6b171aa0a38ee625",
+      "caption_sha256": "2f9736ab23844ec7bbe50d75ea2cc43dbc765dd4a015bc6394c615cf4401809e",
+      "caption_window_s": [
+        106.98,
+        110.22
+      ]
+    },
+    {
+      "index": 8,
+      "video_id": "4rLW7zg21gI",
+      "passage_index": 1,
+      "source_s": [
+        130.0,
+        135.0
+      ],
+      "term": "context switch",
+      "mention_s": [
+        128.4,
+        133.98
+      ],
+      "role": "nombre del cambio de turno",
+      "primary_event": "appearance",
+      "poses": {
+        "before": "Se extienden los carriles de actividad y el primero ya lleva una flecha vertical.",
+        "change": "Aparece el texto rojo Context switching overhead al costado del intervalo entre los carriles.",
+        "after": "El rótulo se completa antes de la siguiente flecha vertical en el otro carril."
+      },
+      "already_visible": false,
+      "semantic_match": "concept-illustration",
+      "note": "La voz habla del cambio de contexto y el rótulo señala su coste. La relación es explicativa, sin voz que pronuncie «overhead» en este bloque.",
+      "name": "Conservar el dueño del turno mientras cambia la actividad",
+      "relation": "lane-handoff",
+      "url": "https://www.youtube.com/watch?v=4rLW7zg21gI&t=128s",
+      "mention_precision": "caption-block",
+      "events": {
+        "appearance": [
+          130.84,
+          130.88
+        ],
+        "readable": [
+          131.76,
+          131.84
+        ]
+      },
+      "frames": {
+        "appearance": [
+          3271,
+          3272
+        ],
+        "readable": [
+          3294,
+          3296
+        ]
+      },
+      "source_sha256": "ac923222173b20101f4760e5ed37bc965b2f071ca72e82ab6b171aa0a38ee625",
+      "caption_sha256": "2f9736ab23844ec7bbe50d75ea2cc43dbc765dd4a015bc6394c615cf4401809e",
+      "caption_window_s": [
+        128.4,
+        133.98
+      ]
+    },
+    {
+      "index": 9,
+      "video_id": "j9QmMEWmcfo",
+      "passage_index": 0,
+      "source_s": [
+        70,
+        77.1
+      ],
+      "term": "TCP",
+      "mention_s": 76.92,
+      "role": "etiqueta de fase anticipada",
+      "primary_event": "readable",
+      "poses": {
+        "before": "Cliente y servidor conservan sus columnas. El espacio a la izquierda del primer intercambio está libre.",
+        "change": "Se dibuja el recuadro de la primera fase y aparece TCP Handshake. Después se trazan las tres flechas.",
+        "after": "El rótulo ya es legible cuando la narración nombra TCP connection."
+      },
+      "already_visible": false,
+      "semantic_match": "direct",
+      "note": "Las tres flechas representan mensajes individuales. Aquí la correspondencia verbal es con la fase TCP en su conjunto.",
+      "name": "Tres mensajes entre cliente y servidor",
+      "relation": "exchange",
+      "url": "https://www.youtube.com/watch?v=j9QmMEWmcfo&t=70s",
+      "mention_precision": "asr-word-start",
+      "events": {
+        "appearance": [
+          70.12,
+          70.28
+        ],
+        "readable": [
+          70.92,
+          71.0
+        ]
+      },
+      "frames": {
+        "appearance": [
+          1753,
+          1757
+        ],
+        "readable": [
+          1773,
+          1775
+        ]
+      },
+      "source_sha256": "e99f45b35a7f9fcb9be67b453f46f11bf8455237161744a5d36aa1e26dfd2c68",
+      "caption_sha256": "93c0f9054b0a67c5b565d729ae5d10ff010d79a093896f4ae716b8136abd6f06"
+    },
+    {
+      "index": 9,
+      "video_id": "j9QmMEWmcfo",
+      "passage_index": 1,
+      "source_s": [
+        197.4,
+        212.8
+      ],
+      "term": "decrypts",
+      "mention_s": 211.08,
+      "role": "operación ilustrada por dos estados",
+      "primary_event": "action",
+      "poses": {
+        "before": "El intercambio central está visible. La zona del panel de descifrado a la derecha está vacía.",
+        "change": "Primero se dibuja el bloque rojo; la flecha llega al bloque amarillo del resultado.",
+        "after": "La pareja y el sentido de la transformación se reconocen juntos."
+      },
+      "already_visible": false,
+      "semantic_match": "direct",
+      "note": "Se mide el panel derecho que representa el verbo decrypts. El símbolo de clave privada se agrega después de la pareja de estados.",
+      "name": "Relacionar la operación de ida con la de vuelta",
+      "relation": "mirrored-transformation",
+      "url": "https://www.youtube.com/watch?v=j9QmMEWmcfo&t=209s",
+      "mention_precision": "asr-word-start",
+      "events": {
+        "appearance": [
+          208.8,
+          209.0
+        ],
+        "action": [
+          209.4,
+          209.6
+        ],
+        "readable": [
+          210.8,
+          211.0
+        ]
+      },
+      "frames": {
+        "appearance": [
+          5220,
+          5225
+        ],
+        "action": [
+          5235,
+          5240
+        ],
+        "readable": [
+          5270,
+          5275
+        ]
+      },
+      "source_sha256": "e99f45b35a7f9fcb9be67b453f46f11bf8455237161744a5d36aa1e26dfd2c68",
+      "caption_sha256": "93c0f9054b0a67c5b565d729ae5d10ff010d79a093896f4ae716b8136abd6f06"
+    },
+    {
+      "index": 10,
+      "video_id": "AlkDbnbv7dk",
+      "passage_index": 0,
+      "source_s": [
+        31.5,
+        90
+      ],
+      "term": "domain",
+      "mention_s": 59.78,
+      "role": "rótulo que asigna un rol a un fragmento",
+      "primary_event": "readable",
+      "poses": {
+        "before": "El fragmento example.com ya ocupa su posición, sin el rótulo Domain debajo.",
+        "change": "Se destaca el fragmento y aparece Domain bajo su guía vertical.",
+        "after": "La palabra Domain y el fragmento quedan alineados."
+      },
+      "already_visible": false,
+      "semantic_match": "direct",
+      "note": "El fragmento de la URL precedía a la mención. Se mide la etiqueta funcional Domain, que sí es nueva.",
+      "name": "Una dirección, cuatro partes",
+      "relation": "detail-callout",
+      "url": "https://www.youtube.com/watch?v=AlkDbnbv7dk&t=58s",
+      "mention_precision": "caption-ctc-corroborated",
+      "events": {
+        "appearance": [
+          58.44,
+          58.52
+        ],
+        "readable": [
+          58.52,
+          58.68
+        ],
+        "emphasis": [
+          58.36,
+          58.52
+        ]
+      },
+      "frames": {
+        "appearance": [
+          1461,
+          1463
+        ],
+        "readable": [
+          1463,
+          1467
+        ],
+        "emphasis": [
+          1459,
+          1463
+        ]
+      },
+      "source_sha256": "c14e1c5b5af5418a1221a7df7ce654222203aa838416b913cfbdd83b2deb21d6",
+      "caption_sha256": "3bdb89112c465e74c3a0b482f9369431f96ac749af1cb1f46b398f4024b1a5e4",
+      "caption_window_s": [
+        54.88,
+        63.36
+      ]
+    },
+    {
+      "index": 10,
+      "video_id": "AlkDbnbv7dk",
+      "passage_index": 1,
+      "source_s": [
+        271.8,
+        293.4
+      ],
+      "term": "renders",
+      "mention_s": 277.44,
+      "role": "resultado que aparece en una figura existente",
+      "primary_event": "appearance",
+      "poses": {
+        "before": "El navegador ya existe en la vista general. Su interior aún está vacío.",
+        "change": "La cámara entra y se escribe la frase dentro de la misma ventana verde.",
+        "after": "El resultado completo permanece en la ventana al terminar el acercamiento."
+      },
+      "already_visible": false,
+      "semantic_match": "direct",
+      "note": "Dentro de la ventana se lee Browser renders HTTP content. Se coteja la acción de renderizar, compartida con la frase de la narración sobre HTML.",
+      "name": "Acercarse al resultado y devolverlo a su posición en el mapa",
+      "relation": "context-focus-return",
+      "url": "https://www.youtube.com/watch?v=AlkDbnbv7dk&t=274s",
+      "mention_precision": "caption-ctc-corroborated",
+      "events": {
+        "appearance": [
+          274.96,
+          275.24
+        ],
+        "readable": [
+          276.92,
+          277.2
+        ]
+      },
+      "frames": {
+        "appearance": [
+          6874,
+          6881
+        ],
+        "readable": [
+          6923,
+          6930
+        ]
+      },
+      "source_sha256": "c14e1c5b5af5418a1221a7df7ce654222203aa838416b913cfbdd83b2deb21d6",
+      "caption_sha256": "3bdb89112c465e74c3a0b482f9369431f96ac749af1cb1f46b398f4024b1a5e4",
+      "caption_window_s": [
+        274.64,
+        279.04
+      ]
+    },
+    {
+      "index": 11,
+      "video_id": "xbgzl2maQUU",
+      "passage_index": 0,
+      "source_s": [
+        212.92,
+        219.0
+      ],
+      "term": "tries",
+      "mention_s": 213.16,
+      "role": "reintroducción del diagrama",
+      "primary_event": "appearance",
+      "poses": {
+        "before": "Estructura anterior con muchos nodos.",
+        "change": "Un corte devuelve la figura a una sola raíz; después crecen sus dos ramas.",
+        "after": "El rótulo Root Node y las dos ramas hacen reconocible la nueva construcción."
+      },
+      "already_visible": false,
+      "semantic_match": "concept-illustration",
+      "note": "La palabra nombra la estructura general. La pose medida corresponde a su reconstrucción tras el corte; la estructura anterior ya estaba en pantalla.",
+      "name": "Prefijos que comparten ramas",
+      "relation": "hierarchy",
+      "url": "https://www.youtube.com/watch?v=xbgzl2maQUU&t=212s",
+      "mention_precision": "caption-ctc-corroborated",
+      "events": {
+        "appearance": [
+          212.52,
+          212.56
+        ],
+        "action": [
+          213.04,
+          213.24
+        ],
+        "readable": [
+          213.04,
+          213.24
+        ]
+      },
+      "frames": {
+        "appearance": [
+          5313,
+          5314
+        ],
+        "action": [
+          5326,
+          5331
+        ],
+        "readable": [
+          5326,
+          5331
+        ]
+      },
+      "source_sha256": "bfae15c6fef1b22b648fc136dac5fc54692f36d8bbe03706a59c24d6fa49f41a",
+      "caption_sha256": "97e8aff268cb34ca09bbd4c22994bbedddda238ceec5abff60374ca50740b63c",
+      "caption_window_s": [
+        211.86,
+        216.24
+      ]
+    },
+    {
+      "index": 11,
+      "video_id": "xbgzl2maQUU",
+      "passage_index": 1,
+      "source_s": [
+        108.0,
+        114.0
+      ],
+      "term": "subdividing",
+      "mention_s": 113.24,
+      "role": "subdivisión espacial",
+      "primary_event": "action",
+      "poses": {
+        "before": "Un mapa tiene cuatro cuadrantes con dos dígitos.",
+        "change": "Del cuadrante superior se desprende una vista con códigos adicionales.",
+        "after": "Se ven cuatro celdas finas junto al mapa grueso y el vínculo entre ambos."
+      },
+      "already_visible": true,
+      "semantic_match": "direct",
+      "note": "La medición corresponde a la copia subdividida y a la lectura conjunta de sus cuatro códigos. La voz explica la subdivisión recursiva.",
+      "name": "Subdividir una superficie sin perder la referencia al conjunto",
+      "relation": "context-detail",
+      "url": "https://www.youtube.com/watch?v=xbgzl2maQUU&t=109s",
+      "mention_precision": "caption-ctc-corroborated",
+      "events": {
+        "action": [
+          109.4,
+          109.52
+        ],
+        "readable": [
+          110,
+          110.4
+        ]
+      },
+      "frames": {
+        "action": [
+          2735,
+          2738
+        ],
+        "readable": [
+          2750,
+          2760
+        ]
+      },
+      "source_sha256": "bfae15c6fef1b22b648fc136dac5fc54692f36d8bbe03706a59c24d6fa49f41a",
+      "caption_sha256": "97e8aff268cb34ca09bbd4c22994bbedddda238ceec5abff60374ca50740b63c",
+      "caption_window_s": [
+        110.94,
+        116.64
+      ]
+    },
+    {
+      "index": 12,
+      "video_id": "f6zXyq4VPP8",
+      "passage_index": 0,
+      "source_s": [
+        85.92,
+        93.4
+      ],
+      "term": "production",
+      "mention_s": 89.66,
+      "role": "lado emisor de una relación",
+      "primary_event": "readable",
+      "poses": {
+        "before": "El plano anterior muestra tres capas superpuestas.",
+        "change": "La primera caja azul entra en el lado izquierdo y se escribe Event Producer.",
+        "after": "El productor y su enlace se conservan cuando se incorporan las otras cajas."
+      },
+      "already_visible": false,
+      "semantic_match": "concept-illustration",
+      "note": "Production designa la actividad que realiza el bloque Event Producer; la animación dispone los participantes antes de enumerar producción y consumo.",
+      "name": "Tres productores y tres consumidores",
+      "relation": "broadcast-bus",
+      "url": "https://www.youtube.com/watch?v=f6zXyq4VPP8&t=86s",
+      "mention_precision": "caption-ctc-corroborated",
+      "events": {
+        "appearance": [
+          85.6,
+          85.64
+        ],
+        "action": [
+          86.24,
+          86.56
+        ],
+        "readable": [
+          86.36,
+          86.56
+        ]
+      },
+      "frames": {
+        "appearance": [
+          2140,
+          2141
+        ],
+        "action": [
+          2156,
+          2164
+        ],
+        "readable": [
+          2159,
+          2164
+        ]
+      },
+      "source_sha256": "37e127adefa24a10287d95081e12b956a8944a8d24a53b292fe4055eb30e27ee",
+      "caption_sha256": "5c6a46cb55a9984643a3fa93dd277d693c322c817d517270151a56de4d5b3c38",
+      "caption_window_s": [
+        87.78,
+        91.02
+      ]
+    },
+    {
+      "index": 12,
+      "video_id": "f6zXyq4VPP8",
+      "passage_index": 1,
+      "source_s": [
+        48.8,
+        55
+      ],
+      "term": "Model-View-Presenter",
+      "mention_s": [
+        47.1,
+        52.74
+      ],
+      "role": "encuadre conceptual",
+      "primary_event": "readable",
+      "poses": {
+        "before": "El gráfico anterior todavía habla de arquitectura en capas.",
+        "change": "Aparecen la primera banda y el título MVP Pattern.",
+        "after": "El título queda fijo mientras se completan las bandas interiores."
+      },
+      "already_visible": false,
+      "semantic_match": "direct",
+      "note": "El término expandido se asocia a la sigla MVP. El inicio del título está en el margen anterior al pasaje de detalle; se inspeccionó en el archivo completo.",
+      "name": "Revelar primero un nivel y luego las piezas que lo integran",
+      "relation": "containment",
+      "url": "https://www.youtube.com/watch?v=f6zXyq4VPP8&t=47s",
+      "mention_precision": "caption-block",
+      "events": {
+        "appearance": [
+          47.28,
+          47.36
+        ],
+        "action": [
+          47.28,
+          47.36
+        ],
+        "readable": [
+          48.0,
+          48.16
+        ]
+      },
+      "frames": {
+        "appearance": [
+          1182,
+          1184
+        ],
+        "action": [
+          1182,
+          1184
+        ],
+        "readable": [
+          1200,
+          1204
+        ]
+      },
+      "source_sha256": "37e127adefa24a10287d95081e12b956a8944a8d24a53b292fe4055eb30e27ee",
+      "caption_sha256": "5c6a46cb55a9984643a3fa93dd277d693c322c817d517270151a56de4d5b3c38",
+      "caption_window_s": [
+        47.1,
+        52.74
+      ]
+    },
+    {
+      "index": 13,
+      "video_id": "o-k7h2G3Gco",
+      "passage_index": 0,
+      "source_s": [
+        420.0,
+        434.4
+      ],
+      "term": "resolve",
+      "mention_s": 423.52,
+      "role": "hito resuelto",
+      "primary_event": "action",
+      "poses": {
+        "before": "Una marca vacía espera sobre la recta.",
+        "change": "La punta de avance atraviesa esa marca. Nace un tallo vertical y se escribe el resultado.",
+        "after": "El primer hito conserva el rótulo Resolved! y el recorrido continúa hacia la derecha."
+      },
+      "already_visible": true,
+      "semantic_match": "direct",
+      "note": "Se mide el primer tallo de resolución en una marca ya existente. La voz emplea el verbo resolve y el gráfico muestra Resolved!",
+      "name": "Hitos que se van resolviendo",
+      "relation": "sequence",
+      "url": "https://www.youtube.com/watch?v=o-k7h2G3Gco&t=423s",
+      "mention_precision": "caption-ctc-corroborated",
+      "events": {
+        "action": [
+          423.96,
+          424.08
+        ],
+        "readable": [
+          424.6,
+          424.8
+        ]
+      },
+      "frames": {
+        "action": [
+          10599,
+          10602
+        ],
+        "readable": [
+          10615,
+          10620
+        ]
+      },
+      "source_sha256": "b974b45a4a76e7e37b59ba6c6a47aecc1667b3906d93aef740d6f8ca02a92d69",
+      "caption_sha256": "7e4052cbdec722d1def65d2f5b12d44cee1199c8b5097d973ef5d666acb900d4",
+      "caption_window_s": [
+        421.8,
+        424.8
+      ]
+    },
+    {
+      "index": 13,
+      "video_id": "o-k7h2G3Gco",
+      "passage_index": 1,
+      "source_s": [
+        252.32,
+        258.6
+      ],
+      "term": "different approaches",
+      "mention_s": 252.72,
+      "role": "alternativa emparejada",
+      "primary_event": "appearance",
+      "poses": {
+        "before": "La primera opción ocupa el centro con cliente y tres destinos.",
+        "change": "El gráfico se desplaza a la izquierda y entran el encabezado y el cliente de una segunda opción.",
+        "after": "Ambas alternativas quedan lado a lado y se puede identificar GraphQL API en la segunda."
+      },
+      "already_visible": false,
+      "semantic_match": "concept-illustration",
+      "note": "La expresión plural introduce la comparación. El segundo panel hace visible la diferencia; al leer el nombre del segundo sistema, sus extremos inferiores aún se completan.",
+      "name": "Comparar dos soluciones con los mismos extremos y distinto interior",
+      "relation": "paired-comparison",
+      "url": "https://www.youtube.com/watch?v=o-k7h2G3Gco&t=252s",
+      "mention_precision": "caption-ctc-corroborated",
+      "events": {
+        "appearance": [
+          254.52,
+          254.6
+        ],
+        "action": [
+          254.52,
+          254.6
+        ],
+        "readable": [
+          255.16,
+          255.32
+        ]
+      },
+      "frames": {
+        "appearance": [
+          6363,
+          6365
+        ],
+        "action": [
+          6363,
+          6365
+        ],
+        "readable": [
+          6379,
+          6383
+        ]
+      },
+      "source_sha256": "b974b45a4a76e7e37b59ba6c6a47aecc1667b3906d93aef740d6f8ca02a92d69",
+      "caption_sha256": "7e4052cbdec722d1def65d2f5b12d44cee1199c8b5097d973ef5d666acb900d4",
+      "caption_window_s": [
+        251.22,
+        254.46
+      ]
+    },
+    {
+      "index": 14,
+      "video_id": "wAMc7NyL4tQ",
+      "passage_index": 0,
+      "source_s": [
+        24.0,
+        29.48
+      ],
+      "term": "Leetcode",
+      "mention_s": [
+        25.6,
+        29.28
+      ],
+      "role": "recurso identificado",
+      "primary_event": "readable",
+      "poses": {
+        "before": "El título Coding ya está arriba; el extremo izquierdo del conector está vacío.",
+        "change": "El primer recurso se arma bajo la rama izquierda.",
+        "after": "El logo y el nombre Leetcode se leen y persisten al entrar otros recursos."
+      },
+      "already_visible": false,
+      "semantic_match": "direct",
+      "note": "La voz pronuncia el nombre específico en la siguiente frase. El inicio se refiere al recurso, no a la rama que lo precede.",
+      "name": "Una categoría y tres recursos",
+      "relation": "hierarchy",
+      "url": "https://www.youtube.com/watch?v=wAMc7NyL4tQ&t=25s",
+      "mention_precision": "caption-block",
+      "events": {
+        "appearance": [
+          25.12,
+          25.2
+        ],
+        "action": [
+          25.12,
+          25.2
+        ],
+        "readable": [
+          25.48,
+          25.68
+        ]
+      },
+      "frames": {
+        "appearance": [
+          628,
+          630
+        ],
+        "action": [
+          628,
+          630
+        ],
+        "readable": [
+          637,
+          642
+        ]
+      },
+      "source_sha256": "b4c1993cdc60be210b38318953a4227e1f5e7dac7e641923c9e7d9d7bcf734f1",
+      "caption_sha256": "2988282b0dbe8e386a345a7ee85a37b6df3e5b578b83c637359251b8e7a71f56",
+      "caption_window_s": [
+        25.6,
+        29.28
+      ]
+    },
+    {
+      "index": 14,
+      "video_id": "wAMc7NyL4tQ",
+      "passage_index": 1,
+      "source_s": [
+        122.04,
+        126.12
+      ],
+      "term": "Results",
+      "mention_s": 130.3,
+      "role": "última tarjeta de una lista",
+      "primary_event": "readable",
+      "poses": {
+        "before": "Tres tarjetas ocupan la fila.",
+        "change": "Una tarjeta verde R crece a la derecha; se revelan la palabra Result y la explicación.",
+        "after": "Las cuatro letras permanecen juntas mientras la voz enumera los términos del acrónimo."
+      },
+      "already_visible": false,
+      "semantic_match": "direct",
+      "note": "Se compara con el término Results de la enumeración, posterior al pasaje, y no con la mención anterior del acrónimo STAR.",
+      "name": "Construir una secuencia textual con tarjetas de igual jerarquía",
+      "relation": "ordered-cards",
+      "url": "https://www.youtube.com/watch?v=wAMc7NyL4tQ&t=125s",
+      "mention_precision": "caption-ctc-corroborated",
+      "events": {
+        "appearance": [
+          124.68,
+          124.72
+        ],
+        "action": [
+          124.68,
+          124.72
+        ],
+        "readable": [
+          125.08,
+          125.24
+        ]
+      },
+      "frames": {
+        "appearance": [
+          3117,
+          3118
+        ],
+        "action": [
+          3117,
+          3118
+        ],
+        "readable": [
+          3127,
+          3131
+        ]
+      },
+      "source_sha256": "b4c1993cdc60be210b38318953a4227e1f5e7dac7e641923c9e7d9d7bcf734f1",
+      "caption_sha256": "2988282b0dbe8e386a345a7ee85a37b6df3e5b578b83c637359251b8e7a71f56",
+      "caption_window_s": [
+        126.0,
+        132.24
+      ]
+    },
+    {
+      "index": 15,
+      "video_id": "HHUi8F_qAXM",
+      "passage_index": 0,
+      "source_s": [
+        194.4,
+        221.3
+      ],
+      "term": "x",
+      "mention_s": 219.6,
+      "role": "completar un resultado",
+      "primary_event": "readable",
+      "poses": {
+        "before": "El destino contiene 2T y puntos suspensivos.",
+        "change": "Entra X al final del resultado.",
+        "after": "2TX queda legible en el destino de la derecha."
+      },
+      "already_visible": false,
+      "semantic_match": "direct",
+      "note": "Se mide la X de la salida final, no el símbolo que aparece en la columna de equivalencias.",
+      "name": "División sucesiva y lectura inversa",
+      "relation": "radix-ladder",
+      "url": "https://www.youtube.com/watch?v=HHUi8F_qAXM&t=219s",
+      "mention_precision": "asr-word-start",
+      "events": {
+        "appearance": [
+          219.24,
+          219.28
+        ],
+        "action": [
+          219.24,
+          219.28
+        ],
+        "readable": [
+          219.24,
+          219.28
+        ]
+      },
+      "frames": {
+        "appearance": [
+          5481,
+          5482
+        ],
+        "action": [
+          5481,
+          5482
+        ],
+        "readable": [
+          5481,
+          5482
+        ]
+      },
+      "source_sha256": "1ac2a6567f777bfbe72d1f520d118f19b77392d2c2c737a56520cbe1d38ba9f2",
+      "caption_sha256": "61996605c706cb8a4d5911ea6600b1ae1906793b66cc54e32c6bfe0a5d99e63d",
+      "observed_hold": {
+        "source_s": [
+          219.28,
+          221.32
+        ],
+        "minimum_s": 2.04,
+        "cropped_target": true,
+        "frames": 52
+      }
+    },
+    {
+      "index": 15,
+      "video_id": "HHUi8F_qAXM",
+      "passage_index": 1,
+      "source_s": [
+        91,
+        113
+      ],
+      "term": "seven",
+      "mention_s": 113.2,
+      "role": "énfasis sobre una fila",
+      "primary_event": "emphasis",
+      "poses": {
+        "before": "La séptima fila y su cifra ya son legibles con el mismo fondo que sus vecinas.",
+        "change": "Solo esa fila se tiñe mientras se anuncia la elección final.",
+        "after": "El color vuelve a bajar tras destacar la fila sin desplazar el resto."
+      },
+      "already_visible": true,
+      "semantic_match": "direct",
+      "note": "La séptima fila estaba presente desde alrededor de 105 s; se mide la entrada del tono de la confirmación final. El primer seven de 103.92 s introduce otro gesto.",
+      "name": "Añadir filas exactas hasta que una satisface la pregunta",
+      "relation": "progressive-table",
+      "url": "https://www.youtube.com/watch?v=HHUi8F_qAXM&t=112s",
+      "mention_precision": "asr-word-start",
+      "events": {
+        "emphasis": [
+          112.92,
+          112.96
+        ]
+      },
+      "frames": {
+        "emphasis": [
+          2823,
+          2824
+        ]
+      },
+      "source_sha256": "1ac2a6567f777bfbe72d1f520d118f19b77392d2c2c737a56520cbe1d38ba9f2",
+      "caption_sha256": "61996605c706cb8a4d5911ea6600b1ae1906793b66cc54e32c6bfe0a5d99e63d"
+    },
+    {
+      "index": 16,
+      "video_id": "Dwt8R0KPu7k",
+      "passage_index": 0,
+      "source_s": [
+        54.64,
+        64.8
+      ],
+      "term": "server",
+      "mention_s": 63.04,
+      "role": "selección de un nodo existente",
+      "primary_event": "emphasis",
+      "poses": {
+        "before": "Cuatro almacenes comparten la misma apariencia.",
+        "change": "El borde del cuarto almacén se ilumina.",
+        "after": "Los cuatro nombres y la fórmula siguen visibles con el cuarto resaltado."
+      },
+      "already_visible": true,
+      "semantic_match": "direct",
+      "note": "La voz dice pick a server. La selección visual resuelve cuál de los cuatro recibe el foco.",
+      "name": "Una clave selecciona un solo nodo",
+      "relation": "selected-route",
+      "url": "https://www.youtube.com/watch?v=Dwt8R0KPu7k&t=63s",
+      "mention_precision": "asr-word-start",
+      "events": {
+        "emphasis": [
+          63.04,
+          63.16
+        ]
+      },
+      "frames": {
+        "emphasis": [
+          1576,
+          1579
+        ]
+      },
+      "source_sha256": "049979faf1d6ab6bf6107bb57ed3cd31d5237bd14d39bda67b1d670637bebdfb",
+      "caption_sha256": "6d917109900ec4269dc1b5ce53c4994519339665897c5dfb963c291cc06dc701"
+    },
+    {
+      "index": 16,
+      "video_id": "Dwt8R0KPu7k",
+      "passage_index": 1,
+      "source_s": [
+        247,
+        264
+      ],
+      "term": "merge",
+      "mention_s": 264.64,
+      "role": "resultado combinado",
+      "primary_event": "readable",
+      "poses": {
+        "before": "Hay dos versiones con trayectorias previas.",
+        "change": "Aparece debajo la nueva fila Merge y se escribe su operación.",
+        "after": "La fila persiste con las dos procedencias y un resaltado interior."
+      },
+      "already_visible": false,
+      "semantic_match": "direct",
+      "note": "Se compara el rótulo Merge con el verbo explícito de la frase siguiente (264.64 s, 0.64 s fuera del pasaje). El nombre se lee antes de completarse toda la expresión.",
+      "name": "Seguir dos versiones hasta una operación común",
+      "relation": "merge-lineage",
+      "url": "https://www.youtube.com/watch?v=Dwt8R0KPu7k&t=259s",
+      "mention_precision": "asr-word-start",
+      "events": {
+        "appearance": [
+          259.16,
+          259.36
+        ],
+        "action": [
+          259.16,
+          259.36
+        ],
+        "readable": [
+          259.56,
+          259.72
+        ]
+      },
+      "frames": {
+        "appearance": [
+          6479,
+          6484
+        ],
+        "action": [
+          6479,
+          6484
+        ],
+        "readable": [
+          6489,
+          6493
+        ]
+      },
+      "source_sha256": "049979faf1d6ab6bf6107bb57ed3cd31d5237bd14d39bda67b1d670637bebdfb",
+      "caption_sha256": "6d917109900ec4269dc1b5ce53c4994519339665897c5dfb963c291cc06dc701"
+    },
+    {
+      "index": 17,
+      "video_id": "jWRW2xGMqSw",
+      "passage_index": 0,
+      "source_s": [
+        157.8,
+        165.8
+      ],
+      "term": "2160p",
+      "mention_s": 164.24,
+      "role": "primera variante identificada",
+      "primary_event": "readable",
+      "poses": {
+        "before": "La fuente queda a la izquierda y la primera línea alcanza un área vacía.",
+        "change": "Crece el primer panel morado con el número 2160p.",
+        "after": "El rótulo queda en la franja superior, legible mientras se incorporan las otras resoluciones."
+      },
+      "already_visible": false,
+      "semantic_match": "direct",
+      "note": "Corresponde al valor específico 2160p. La voz ya había hablado de muchas versiones y dice resolutions a 163.36 s; la comparación no atribuye un anticipo de seis segundos al concepto general.",
+      "name": "Un original, siete resoluciones",
+      "relation": "resolution-fan",
+      "url": "https://www.youtube.com/watch?v=jWRW2xGMqSw&t=158s",
+      "mention_precision": "asr-word-start",
+      "events": {
+        "appearance": [
+          158.12,
+          158.16
+        ],
+        "action": [
+          158.12,
+          158.16
+        ],
+        "readable": [
+          158.2,
+          158.36
+        ]
+      },
+      "frames": {
+        "appearance": [
+          3953,
+          3954
+        ],
+        "action": [
+          3953,
+          3954
+        ],
+        "readable": [
+          3955,
+          3959
+        ]
+      },
+      "source_sha256": "cdfe3507afc56cd79b9779f84849b2c4b66d204f625647341bcad6872ba31b31",
+      "caption_sha256": "4e8a77596363316800362521318de466f1325ea03bd713645ef13ea7c97bfa7a"
+    },
+    {
+      "index": 17,
+      "video_id": "jWRW2xGMqSw",
+      "passage_index": 1,
+      "source_s": [
+        222,
+        233.4
+      ],
+      "term": "key frames",
+      "mention_s": 224.32,
+      "role": "marcas de frontera",
+      "primary_event": "appearance",
+      "poses": {
+        "before": "Dos filas de bloques conservan su disposición continua.",
+        "change": "Se coloca una línea vertical que atraviesa ambas hileras en la primera frontera.",
+        "after": "La marca y el rótulo keyframe permanecen al entrar marcas equivalentes."
+      },
+      "already_visible": false,
+      "semantic_match": "direct",
+      "note": "La medida corresponde a la primera frontera y su palabra keyframe dentro de la explicación plural «key frames». Las otras tres marcas aparecen después en sucesión.",
+      "name": "Marcar fronteras antes de separar los grupos",
+      "relation": "partition-sequence",
+      "url": "https://www.youtube.com/watch?v=jWRW2xGMqSw&t=221s",
+      "mention_precision": "asr-word-start",
+      "events": {
+        "appearance": [
+          221.96,
+          222.0
+        ],
+        "action": [
+          221.96,
+          222.0
+        ],
+        "readable": [
+          222.32,
+          222.44
+        ]
+      },
+      "frames": {
+        "appearance": [
+          5549,
+          5550
+        ],
+        "action": [
+          5549,
+          5550
+        ],
+        "readable": [
+          5558,
+          5561
+        ]
+      },
+      "source_sha256": "cdfe3507afc56cd79b9779f84849b2c4b66d204f625647341bcad6872ba31b31",
+      "caption_sha256": "4e8a77596363316800362521318de466f1325ea03bd713645ef13ea7c97bfa7a"
+    },
+    {
+      "index": 18,
+      "video_id": "okrR1KXNLtA",
+      "passage_index": 0,
+      "source_s": [
+        338.64,
+        342.0
+      ],
+      "term": "100",
+      "mention_s": 340.72,
+      "role": "destino numerado en una multitud",
+      "primary_event": "readable",
+      "poses": {
+        "before": "El abanico se abre y varios usuarios intermedios se superponen al bajar.",
+        "change": "La multitud se comprime y se distingue el destino de número 100.",
+        "after": "User 100 permanece en el extremo inferior con una elipsis hacia los vecinos."
+      },
+      "already_visible": false,
+      "semantic_match": "concept-illustration",
+      "note": "Se acota el primer User 100 identificable. Los iconos que todavía se solapan son indeterminados; 100 no equivale al primer icono de usuario.",
+      "name": "Un mensaje, muchos destinatarios",
+      "relation": "fan-out",
+      "url": "https://www.youtube.com/watch?v=okrR1KXNLtA&t=340s",
+      "mention_precision": "asr-word-start",
+      "events": {
+        "appearance": [
+          341.4,
+          341.48
+        ],
+        "readable": [
+          341.4,
+          341.48
+        ]
+      },
+      "frames": {
+        "appearance": [
+          8535,
+          8537
+        ],
+        "readable": [
+          8535,
+          8537
+        ]
+      },
+      "source_sha256": "4fc84405ce4410eea90ff1f124f443f52b2858296f1f6cc5f15844d86a7a7488",
+      "caption_sha256": "50d72dc6eec839176ded573c04e1b5ea20cb45b18da12bab5bd4f3d145d5d32c"
+    },
+    {
+      "index": 18,
+      "video_id": "okrR1KXNLtA",
+      "passage_index": 1,
+      "source_s": [
+        382,
+        391
+      ],
+      "term": "ping",
+      "mention_s": 384.4,
+      "role": "objeto que viaja entre extremos",
+      "primary_event": "action",
+      "poses": {
+        "before": "El cliente, servidor y enlace ya están dibujados.",
+        "change": "Aparece el globo rojo llamado ping en el emisor. Tras dejarlo leer, empieza a moverse sobre el enlace.",
+        "after": "El globo llega junto al servidor y el movimiento puede repetirse sin alterar las posiciones de los dos extremos."
+      },
+      "already_visible": false,
+      "semantic_match": "direct",
+      "note": "La presencia del globo y el inicio de su viaje son gestos distintos; el reloj que aparece sobre el cliente ilustra la periodicidad.",
+      "name": "Distinguir un aviso periódico del estado que queda registrado",
+      "relation": "repeated-event",
+      "url": "https://www.youtube.com/watch?v=okrR1KXNLtA&t=384s",
+      "mention_precision": "asr-word-start",
+      "events": {
+        "appearance": [
+          383.04,
+          383.12
+        ],
+        "action": [
+          384.12,
+          384.36
+        ],
+        "readable": [
+          383.28,
+          383.44
+        ]
+      },
+      "frames": {
+        "appearance": [
+          9576,
+          9578
+        ],
+        "action": [
+          9603,
+          9609
+        ],
+        "readable": [
+          9582,
+          9586
+        ]
+      },
+      "source_sha256": "4fc84405ce4410eea90ff1f124f443f52b2858296f1f6cc5f15844d86a7a7488",
+      "caption_sha256": "50d72dc6eec839176ded573c04e1b5ea20cb45b18da12bab5bd4f3d145d5d32c"
+    },
+    {
+      "index": 19,
+      "video_id": "YXkOdWBwqaA",
+      "passage_index": 0,
+      "source_s": [
+        200.0,
+        208.5
+      ],
+      "term": "reject",
+      "mention_s": 207.68,
+      "role": "decisión y descarte",
+      "primary_event": "action",
+      "poses": {
+        "before": "La segunda solicitud ya está en el punto de decisión.",
+        "change": "La cápsula gira hacia la salida inferior, llega al recuadro y pierde su color.",
+        "after": "La cápsula gris permanece en el destino de descarte."
+      },
+      "already_visible": true,
+      "semantic_match": "direct",
+      "note": "La acción mide el primer desplazamiento vertical. El énfasis mide el cambio de cian a gris al alcanzar la salida.",
+      "name": "Una ficha admite la primera solicitud",
+      "relation": "token-gate",
+      "url": "https://www.youtube.com/watch?v=YXkOdWBwqaA&t=207s",
+      "mention_precision": "asr-word-start",
+      "events": {
+        "action": [
+          207.24,
+          207.32
+        ],
+        "emphasis": [
+          207.64,
+          207.76
+        ]
+      },
+      "frames": {
+        "action": [
+          5181,
+          5183
+        ],
+        "emphasis": [
+          5191,
+          5194
+        ]
+      },
+      "source_sha256": "5b2cf2964074b38510a10d74b8fda39a5f11b77930ddec3669f12f2bac766996",
+      "caption_sha256": "113ea63656e9bf51cb1172cc898b8e4c3dcced626456442aa6f25c0c86be1ba7",
+      "observed_hold": {
+        "source_s": [
+          208.04,
+          208.48
+        ],
+        "minimum_s": 0.44,
+        "cropped_target": true,
+        "frames": 12
+      }
+    },
+    {
+      "index": 19,
+      "video_id": "YXkOdWBwqaA",
+      "passage_index": 1,
+      "source_s": [
+        76,
+        84
+      ],
+      "term": "request",
+      "mention_s": 76.64,
+      "role": "primera unidad de una pila",
+      "primary_event": "appearance",
+      "poses": {
+        "before": "La primera ventana temporal tiene el eje y el contador.",
+        "change": "Aparece la cápsula amarilla que representa la primera solicitud.",
+        "after": "La cifra 1 permanece en la primera cápsula mientras se añaden las siguientes."
+      },
+      "already_visible": false,
+      "semantic_match": "concept-illustration",
+      "note": "Each request explica la unidad repetida. El primer elemento concreto ilustra esa categoría y no representa una solicitud pronunciada por su número.",
+      "name": "Relacionar eventos discretos, contador y umbral por intervalo",
+      "relation": "count-threshold",
+      "url": "https://www.youtube.com/watch?v=YXkOdWBwqaA&t=75s",
+      "mention_precision": "asr-word-start",
+      "events": {
+        "appearance": [
+          75.6,
+          75.76
+        ],
+        "action": [
+          75.6,
+          75.76
+        ],
+        "readable": [
+          75.6,
+          75.76
+        ]
+      },
+      "frames": {
+        "appearance": [
+          1890,
+          1894
+        ],
+        "action": [
+          1890,
+          1894
+        ],
+        "readable": [
+          1890,
+          1894
+        ]
+      },
+      "source_sha256": "5b2cf2964074b38510a10d74b8fda39a5f11b77930ddec3669f12f2bac766996",
+      "caption_sha256": "113ea63656e9bf51cb1172cc898b8e4c3dcced626456442aa6f25c0c86be1ba7"
+    },
+    {
+      "index": 20,
+      "video_id": "6u25GckPhLU",
+      "passage_index": 0,
+      "source_s": [
+        170.12,
+        191.52
+      ],
+      "term": "prioritizer",
+      "mention_s": 179.04,
+      "role": "ancla presentada antes de su nombre",
+      "primary_event": "readable",
+      "poses": {
+        "before": "El plano anterior contiene otro diagrama.",
+        "change": "Un corte coloca la nueva caja cian y se escribe Prioritizer.",
+        "after": "El priorizador sigue visible mientras entran las tres colas y la entrada de elementos."
+      },
+      "already_visible": false,
+      "semantic_match": "direct",
+      "note": "La entrada aparece 0.84 s antes del inicio de la muestra montada; se comprobó en el original. Entre la entrada y el nombre, la voz explica que se añade una capa que decide prioridades.",
+      "name": "Tres colas de prioridad ante un selector",
+      "relation": "queue-router",
+      "url": "https://www.youtube.com/watch?v=6u25GckPhLU&t=169s",
+      "mention_precision": "asr-word-start",
+      "events": {
+        "appearance": [
+          169.24,
+          169.28
+        ],
+        "action": [
+          169.24,
+          169.28
+        ],
+        "readable": [
+          169.92,
+          170.0
+        ]
+      },
+      "frames": {
+        "appearance": [
+          4231,
+          4232
+        ],
+        "action": [
+          4231,
+          4232
+        ],
+        "readable": [
+          4248,
+          4250
+        ]
+      },
+      "source_sha256": "a04996c382b9bcc2a8128ed09485e71250c2384c51c50170270b35b876a424b4",
+      "caption_sha256": "44454b0a38035d59d2f82871dbc0f2222d29152acbc13de35889b790d3ba5b0a"
+    },
+    {
+      "index": 20,
+      "video_id": "6u25GckPhLU",
+      "passage_index": 1,
+      "source_s": [
+        220,
+        229.6
+      ],
+      "term": "content",
+      "mention_s": 221.96,
+      "role": "segundo criterio de dos",
+      "primary_event": "readable",
+      "poses": {
+        "before": "El primer encabezado amarillo URL Seen ya ocupa la izquierda.",
+        "change": "Aparece un segundo encabezado y se revela Content Seen.",
+        "after": "Ambos encabezados permanecen fijos al incorporarse sus ejemplos."
+      },
+      "already_visible": false,
+      "semantic_match": "direct",
+      "note": "Se compara Content Seen con su primera mención en la enumeración, no con la repetición a 227.96 s. La entrada se midió antes del inicio redondeado del pasaje.",
+      "name": "Distinguir dos criterios aplicados al mismo problema",
+      "relation": "paired-criteria",
+      "url": "https://www.youtube.com/watch?v=6u25GckPhLU&t=220s",
+      "mention_precision": "asr-word-start",
+      "events": {
+        "appearance": [
+          219.72,
+          219.76
+        ],
+        "action": [
+          219.72,
+          219.76
+        ],
+        "readable": [
+          220.32,
+          220.4
+        ]
+      },
+      "frames": {
+        "appearance": [
+          5493,
+          5494
+        ],
+        "action": [
+          5493,
+          5494
+        ],
+        "readable": [
+          5508,
+          5510
+        ]
+      },
+      "source_sha256": "a04996c382b9bcc2a8128ed09485e71250c2384c51c50170270b35b876a424b4",
+      "caption_sha256": "44454b0a38035d59d2f82871dbc0f2222d29152acbc13de35889b790d3ba5b0a",
+      "observed_hold": {
+        "source_s": [
+          220.4,
+          222.2
+        ],
+        "minimum_s": 1.8,
+        "cropped_target": true,
+        "frames": 46
+      }
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 from pathlib import Path
 import json
+import random
 import subprocess
 import sys
 import tempfile
@@ -7,6 +8,7 @@ import unittest
 from unittest.mock import patch
 
 import brief_to_video as brief
+import audit_comparisons
 import narrated
 
 
@@ -14,6 +16,37 @@ EXAMPLES=Path(__file__).resolve().parents[1]/"assets"
 
 
 class BriefTests(unittest.TestCase):
+    def test_phone_comparison_keeps_values_above_full_width_bars_and_space_for_captions(self):
+        sample = brief.load(EXAMPLES / "recorrido-brief.json")
+        visual, _ = brief.compile_brief(sample, [390, 844])
+        im, _, _ = brief.direction.frame(visual, visual["scenes"][1], 0)
+        first, second = im.info["comparisonRows"]
+        self.assertGreaterEqual(first["end"] - first["zero"], im.width * .85)
+        self.assertAlmostEqual((second["end"] - second["zero"]) / (first["end"] - first["zero"]), 12 / 18)
+        for row in (first, second):
+            name, value = row["labelBox"], row["valueBox"]
+            self.assertLess(name[2], value[0])
+            self.assertGreaterEqual(value[3] - value[1], 20)
+            self.assertLess(max(name[3], value[3]) + 10, row["y"])
+        self.assertLess(first["y"], second["labelBox"][1])
+        self.assertLess(second["y"], im.info["sourceBox"][1])
+        self.assertLess(im.info["sourceBox"][3], im.height * .72)
+
+        horizontal, _ = brief.compile_brief(sample, [960, 540])
+        self.assertNotIn("layout", horizontal)
+
+    def test_phone_header_preserves_an_explicit_subject_label(self):
+        sample = brief.load(EXAMPLES / "recorrido-brief.json")
+        del sample["subjectLabel"]
+        def header(source):
+            visual, _ = brief.compile_brief(source, [390, 844])
+            return brief.direction.frame(visual, visual["scenes"][0], 0)[2]
+        implicit = header(sample)
+        explicit = header({**sample, "subjectLabel": "Comparación"})
+        self.assertNotEqual(implicit, explicit)
+        self.assertNotEqual(explicit, header({**sample, "subjectLabel": "Destino"}))
+        self.assertNotEqual(implicit, header({**sample, "subject": "Otro recorrido"}))
+
     def test_data_only_brief_derives_direction_and_percentage_points(self):
         sample = brief.load(EXAMPLES / "tasa-brief.json")
         for kind in brief.SIZES:
@@ -60,11 +93,12 @@ class BriefTests(unittest.TestCase):
             sample.write_bytes((EXAMPLES / "jarras-brief.json").read_bytes())
             run = subprocess.run(
                 [sys.executable, "-B", brief.__file__, str(sample), "--validate-only", "--format", "vertical"],
-                capture_output=True, env={**brief.os.environ, "PATH": "", "PYTHONIOENCODING": "utf-8"},
+                capture_output=True, env={**brief.os.environ, "PATH": "", "PYTHONIOENCODING": "cp1252"},
                 check=True,
             )
-            result = json.loads(run.stdout)
+            result = json.loads(run.stdout.decode("utf-8"))
             self.assertEqual(result["size"], [390, 844])
+            self.assertEqual(result["sourceCaption"], "Datos simulados · Volúmenes de ejemplo")
             self.assertIn("1,2 litros", result["scenes"][0]["speech"])
             self.assertEqual(" ".join(" ".join(result["scenes"][0]["captionBlocks"]).split()),result["scenes"][0]["speech"])
             self.assertEqual(result["scenes"][1]["title"], "La jarra grande tiene 0,6 L más")
@@ -109,6 +143,7 @@ class BriefTests(unittest.TestCase):
             (1, 2, "euros", "euros", ["1 euro", "2 euros"], "1 euro más"),
             (1, 2, "litro", "litro", ["1 litro", "2 litros"], "1 litro más"),
             (2, 1, "min", "minutos", ["2 min", "1 min"], "1 minuto menos"),
+            (2, 1, "ms", "milisegundos", ["2 ms", "1 ms"], "1 milisegundo menos"),
             (-1, -2, "°C", "grados Celsius", ["-1 °C", "-2 °C"], "1 grado Celsius menos"),
             (3.001, 3.002, "%", "por ciento", ["3,001 %", "3,002 %"], "0,001 puntos porcentuales más"),
             (-.005, -.004, "°C", "grados Celsius", ["-0,005 °C", "-0,004 °C"], "0,001 grados Celsius más"),
@@ -128,6 +163,27 @@ class BriefTests(unittest.TestCase):
                     singular = brief.direction.unit_for(1, voice_unit)
                     wrapped = brief.caption_blocks("La medida fue 1 " + singular + " en total.", 16, units)
                     self.assertTrue(any("1 " + singular in line for block in wrapped for line in block.splitlines()))
+
+    def test_simulation_credit_uses_the_source_detail_once(self):
+        sample = brief.load(EXAMPLES / "recorrido-brief.json")
+        for detail, expected in (
+            ("Datos simulados", "Datos simulados"),
+            ("Datos simulados del viaje", "Datos simulados del viaje"),
+            ("Recorridos de ejemplo", "Datos simulados · Recorridos de ejemplo"),
+        ):
+            with self.subTest(detail=detail):
+                sample["source"]["detail"] = detail
+                visual, _ = brief.compile_brief(sample, brief.SIZES["vertical"])
+                self.assertEqual(visual["sourceCaption"], expected)
+
+    def test_audit_accepts_a_difference_of_one_in_both_layouts(self):
+        sample = audit_comparisons.sample(random.Random(12), 0)
+        sample["spokenUnit"] = "centímetros"
+        for row, value in zip(sample["measures"], (1.59, 0.59)):
+            row.update(value=value, unit="cm")
+        for kind in brief.SIZES:
+            with self.subTest(layout=kind):
+                self.assertLessEqual(audit_comparisons.inspect(sample, kind), 2)
 
     def test_decimal_tokens_cannot_turn_distinct_measurements_into_an_equal_pair(self):
         raw = json.dumps(brief.load(EXAMPLES / "tasa-brief.json"), ensure_ascii=False)

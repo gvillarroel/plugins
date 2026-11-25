@@ -26,6 +26,8 @@ EXAMPLES = (
 )
 CASES = ("ganancia", "pérdida", "ambos negativos", "cruce ascendente", "cruce descendente",
          "iguales", "dos ceros", "desde cero", "hasta cero", "escalas dispares")
+SINGULAR = {"grados Celsius": "grado Celsius", "metros": "metro", "euros": "euro",
+            "centímetros": "centímetro", "milisegundos": "milisegundo"}
 
 
 def sample(rng, index):
@@ -54,8 +56,10 @@ def inspect(brief, kind):
     values = [Decimal(str(row["value"])) for row in brief["measures"]]
     low, high = min(0, *values), max(0, *values)
     span = high - low or 1
-    expected_gap = number(abs(values[1] - values[0])) + " " + brief["spokenUnit"]
-    if expected_gap not in voice[1] or voice[0].count("menos ") != sum(value < 0 for value in values):
+    gap = abs(values[1] - values[0])
+    unit = brief["spokenUnit"]
+    expected_gap = f"{number(gap)} {SINGULAR[unit] if gap == 1 else unit}"
+    if voice[1] != f"La diferencia entre ambos es {expected_gap}." or voice[0].count("menos ") != sum(value < 0 for value in values):
         raise ValueError("La locución cambia el signo o la diferencia.")
     wrap = 32 if kind == "vertical" else 42
     for phrase in voice:
@@ -69,7 +73,10 @@ def inspect(brief, kind):
     reference = np.asarray(before)
     rails = []
     for y, row in zip(scanlines, rows):
-        start, stop = row["labelBox"][2], row["valueBox"][0]
+        if visual.get("layout") == "stacked-comparison":
+            start, stop = 0, reference.shape[1]
+        else:
+            start, stop = row["labelBox"][2], row["valueBox"][0]
         run = bounds(np.all(reference[y, start:stop] == getrgb(RULE), axis=1))
         rails.append((run[0] + start, run[1] + start) if run else None)
     if not all(rails):

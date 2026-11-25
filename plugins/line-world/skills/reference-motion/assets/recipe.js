@@ -19,7 +19,7 @@
     if (Array.isArray(value)) value.forEach(addLabels);
     else if (value && typeof value === "object") {
       for (const [key,v] of Object.entries(value)) {
-        if (["title","detail","label","labels","cta","kicker","text","name","items","nodes","cards","guests","value","number"].includes(key)) addLabels(v);
+        if (["title","detail","label","labels","cta","kicker","text","name","items","nodes","cards","guests","value","number","inputs","outputs","edges","keyLabel","focusLabel","inputLabel","exchanges","parts","criteria"].includes(key)) addLabels(v);
       }
     } else if (typeof value === "string" || typeof value === "number")
       String(value).split("\n").forEach(v=>labels.add(v));
@@ -114,8 +114,9 @@
   const lead = .5;
   const mediaOverlays=new Set(["caption-overlay","speaker-id","question-card","insight-band","orbital-caption","guest-grid"]);
   const hasFocusWindow=scene=>scene.artifact==="data-chart" && scene.props.focusHold>0;
-  const waitsForJoin=scene=>mediaOverlays.has(scene.artifact) || hasFocusWindow(scene);
-  const timeOrigin=scene=>hasFocusWindow(scene)?0:lead;
+  const startsAtZero=scene=>engine.diagrams.includes(scene.artifact) || hasFocusWindow(scene);
+  const waitsForJoin=scene=>mediaOverlays.has(scene.artifact) || startsAtZero(scene);
+  const timeOrigin=scene=>startsAtZero(scene)?0:lead;
   function paint(g, w, h, scene, time, deferLabels=false) {
     g.save();
     try {
@@ -144,7 +145,7 @@
         (prev.artifact==="speaker-id" || prev.artifact==="guest-grid");
       const from=(g,w,h)=>paint(g,w,h,prev,timeOrigin(prev)+prev.reveal/plan.fps,hidePreviousNames);
       const defer=s.bridge>1 && waitsForJoin(s);
-      const intro=hasFocusWindow(s)?0:timeOrigin(s)+Math.min(s.reveal,local)/plan.fps;
+      const intro=startsAtZero(s)?0:timeOrigin(s)+Math.min(s.reveal,local)/plan.fps;
       const to=(g,w,h)=>paint(g,w,h,s,intro,defer);
       const progress=s.bridge===1?1:local/(s.bridge-1);
       engine.transition(ctx,s.transition,progress,from,to,{mode:"solid"});

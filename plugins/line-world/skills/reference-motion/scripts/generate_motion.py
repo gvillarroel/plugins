@@ -24,7 +24,7 @@ from motion_recipe import asset_descriptor, compile_recipe, require
 from verify_movie import verify_movie
 
 ROOT=Path(__file__).resolve().parents[1]
-SCRIPTS=("motion.js","demo-art.js","presets.js","recipe.js")
+SCRIPTS=("motion.js","diagram-motion.js","systems-motion.js","demo-art.js","presets.js","recipe.js")
 MIME={".png":"image/png",".jpg":"image/jpeg",".jpeg":"image/jpeg",".webp":"image/webp"}
 
 
@@ -54,6 +54,11 @@ def setup(browser):
 def example(key,defaults,transitions):
     def scene(k): return {"id":k,"artifact":k,"props":defaults[k]}
     if key in defaults: return {"version":1,"scenes":[scene(key)]}
+    if key.startswith("video-"):
+        study=json.loads((ROOT/"assets/diagramas-bytebytego.json").read_text(encoding="utf-8"))
+        match=next((item for item in study["scenes"] if item["id"]==key),None)
+        require(match is not None,"Escena de estudio desconocida: "+key)
+        return {**study,"scenes":[match]}
     require(key in transitions,"Patrón desconocido: "+key)
     a,b=scene("editorial-split"),scene("insight-band")
     b["transition"]={"id":key,"reason":"Pasar de la vista del andén a su ubicación en la red."}
@@ -284,6 +289,8 @@ def main():
     cli=argparse.ArgumentParser(description=__doc__)
     cli.add_argument("--browser",choices=["msedge","chrome","chromium"],default=os.getenv("MOTION_BROWSER"))
     commands=cli.add_subparsers(dest="command",required=True)
+    from adapt_motion import add_arguments, run as adapt_request
+    add_arguments(commands.add_parser("adapt",help="componer a partir de los datos de un brief nuevo"))
     init=commands.add_parser("init",help="crear una receta editable a partir de un patrón")
     init.add_argument("pattern");init.add_argument("recipe",type=Path)
     for name in ["check","render","verify"]:
@@ -293,6 +300,10 @@ def main():
     all_cmd=commands.add_parser("audit-library",help="validar todos los elementos y transiciones de la versión instalada")
     all_cmd.add_argument("report",type=Path);all_cmd.add_argument("--sheet",type=Path)
     args=cli.parse_args()
+    if args.command=="adapt":
+        try: adapt_request(args)
+        except (ValueError,OSError) as e: cli.exit(2,str(e)+"\n")
+        return
     with sync_playwright() as runtime:
         browser=launch(runtime,args.browser)
         try:

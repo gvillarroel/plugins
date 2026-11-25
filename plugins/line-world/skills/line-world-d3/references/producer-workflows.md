@@ -26,6 +26,8 @@ is missing. An irregular interval between two supplied values simply joins those
 observations. The headline shows the value on the final calendar date, including
 its missing status. Supply `locale` for the numeric and date labels.
 
+Use `"revealObservations": true` to tell the story chronologically. The axes and positions are fixed from frame zero. Each point or missing mark appears when the cursor reaches its date, and the value and date above the plot follow the latest revealed record. The complete series stays visible through the last 35 percent of the clip. The ordinary `line_world.py from-brief` route uses this mode for a time-series binding.
+
 ```json
 {"kind":"time-series","id":"air","title":"Temperatura exterior","unit":"°C",
  "duration":8,"locale":"es-ES","observations":[

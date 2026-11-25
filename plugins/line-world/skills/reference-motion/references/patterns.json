@@ -12,6 +12,42 @@
   },
   "patterns": [
     {
+      "id": "interval-refinement",
+      "kind": "artifact",
+      "label": "Intervalos anidados",
+      "duration_s": 7,
+      "mechanism": "Resalta un subintervalo dentro de su padre y amplíalo hasta que quepa el paso siguiente. Una regla superior conserva el dominio de partida.",
+      "sources": [
+        {
+          "video_id": "qbsb9DpdZ6s",
+          "video_title": "How nearly-perfect compression is possible | Information theory, part 3",
+          "start_s": 610,
+          "end_s": 620,
+          "url": "https://www.youtube.com/watch?v=qbsb9DpdZ6s&t=610s",
+          "observation": "En las muestras de 610 y 620 s cambia la anchura en pantalla del intervalo marcado para la misma secuencia de letras. Las franjas de los prefijos siguen apiladas. La regla global fija del componente es una decisión de adaptación."
+        }
+      ],
+      "evidence": "Muestras temporizadas del reproductor de 3Blue1Brown. El tiempo de reproducción del componente se adapta a los datos nuevos."
+    },
+    {
+      "id": "trajectory-trace",
+      "kind": "artifact",
+      "label": "Trayectoria y gráfica sincronizadas",
+      "duration_s": 7,
+      "mechanism": "Dos vistas comparten muestras y reloj. El móvil ocupa una posición en un plano mientras la gráfica registra su altura en ese instante.",
+      "sources": [
+        {
+          "video_id": "-j8PzkZ70Lg",
+          "video_title": "The Physics of Euler's Formula | Laplace Transform Prelude",
+          "start_s": 700,
+          "end_s": 720,
+          "url": "https://www.youtube.com/watch?v=-j8PzkZ70Lg&t=700s",
+          "observation": "A 700, 710 y 720 s el bloque y su muelle comparten el encuadre con una traza temporal que se prolonga por arriba. El ejemplo nuevo usa una proyección vertical contigua para relacionar el punto y la traza."
+        }
+      ],
+      "evidence": "Muestras temporizadas del reproductor de 3Blue1Brown. El tiempo de reproducción del componente se adapta a los datos nuevos."
+    },
+    {
       "id": "cut",
       "kind": "transition",
       "label": "Corte de cámara",
@@ -734,6 +770,660 @@
       },
       "timing_note": "Interpolar las alturas desde cero durante 0,55 s y mantener visibles los valores definitivos.",
       "evidence": "Composición observada en imagen fija. La animación es una decisión de diseño."
+    },
+    {
+      "id": "field-packing",
+      "kind": "artifact",
+      "label": "Campos y memoria",
+      "duration_s": 5.75,
+      "mechanism": "Las copias salen de cada campo y aterrizan bajo la vista de resultado. Quedan cuatro celdas de relleno al final de cada una de las dos últimas filas.",
+      "sources": [
+        {
+          "video_id": "S64kbVjlbpU",
+          "video_title": "Introducing: TypeGPU Kit - Type-safe building blocks for WebGPU apps",
+          "start_s": 35.469,
+          "end_s": 42.743,
+          "url": "https://www.youtube.com/watch?v=S64kbVjlbpU&t=35s",
+          "observation": "Las copias salen de cada campo y aterrizan bajo la vista de resultado. Quedan cuatro celdas de relleno al final de cada una de las dos últimas filas."
+        }
+      ],
+      "geometry": {
+        "declaracion_inicial_x": [
+          0.17,
+          0.83
+        ],
+        "declaracion_final_xywh": [
+          0.05,
+          0.2,
+          0.47,
+          0.4
+        ],
+        "resultado_xywh": [
+          0.54,
+          0.2,
+          0.41,
+          0.4
+        ],
+        "rejilla": [
+          16,
+          3
+        ],
+        "ocupacion_por_campo": [
+          12,
+          4,
+          12,
+          12
+        ]
+      },
+      "timing_note": "La declaración se compacta antes del vuelo. La vista de partículas se activa después de completar el empaquetado.",
+      "evidence": "Fotogramas decodificados del original. Coordenadas aproximadas y normalizadas al cuadro completo."
+    },
+    {
+      "id": "layer-preview",
+      "kind": "artifact",
+      "label": "Capas y vista previa",
+      "duration_s": 7.5,
+      "mechanism": "La cabecera sube, las capas ocupan el hueco desde abajo y la imagen lateral conserva el mismo encuadre mientras cambia el resultado.",
+      "sources": [
+        {
+          "video_id": "S64kbVjlbpU",
+          "video_title": "Introducing: TypeGPU Kit - Type-safe building blocks for WebGPU apps",
+          "start_s": 78.712,
+          "end_s": 99.299,
+          "url": "https://www.youtube.com/watch?v=S64kbVjlbpU&t=78s",
+          "observation": "La cabecera sube, las capas ocupan el hueco desde abajo y la imagen lateral conserva el mismo encuadre mientras cambia el resultado."
+        },
+        {
+          "video_id": "S64kbVjlbpU",
+          "video_title": "Introducing: TypeGPU Kit - Type-safe building blocks for WebGPU apps",
+          "start_s": 135.402,
+          "end_s": 153.186,
+          "url": "https://www.youtube.com/watch?v=S64kbVjlbpU&t=135s",
+          "observation": "La cubierta deja al descubierto los cuatro módulos y la vista se ilumina."
+        }
+      ],
+      "geometry": {
+        "base_final_x": [
+          0.18,
+          0.48
+        ],
+        "interfaz_y": 0.66,
+        "cabecera_y": [
+          0.57,
+          0.14
+        ],
+        "resultado_xywh": [
+          0.5,
+          0.23,
+          0.45,
+          0.45
+        ]
+      },
+      "timing_note": "El estudio reúne las dos apariciones de la pila y usa un pabellón geométrico propio para distinguir cámara, sombra, luz y acabado.",
+      "evidence": "Fotogramas decodificados del original. Coordenadas aproximadas y normalizadas al cuadro completo."
+    },
+    {
+      "id": "isometric-layers",
+      "kind": "artifact",
+      "label": "Extracción isométrica",
+      "duration_s": 5.0,
+      "mechanism": "La pila se desplaza a la izquierda y abre sitio a una base. Solo sale el bloque superior. Conserva sus caras y su rótulo durante el traslado.",
+      "sources": [
+        {
+          "video_id": "S64kbVjlbpU",
+          "video_title": "Introducing: TypeGPU Kit - Type-safe building blocks for WebGPU apps",
+          "start_s": 153.5,
+          "end_s": 157.5,
+          "url": "https://www.youtube.com/watch?v=S64kbVjlbpU&t=153s",
+          "observation": "La pila se desplaza a la izquierda y abre sitio a una base. Solo sale el bloque superior. Conserva sus caras y su rótulo durante el traslado."
+        }
+      ],
+      "geometry": {
+        "pila_centro_x_154": 0.5,
+        "pila_centro_x_156": 0.23,
+        "base_centro_xy_156": [
+          0.65,
+          0.68
+        ],
+        "capas_fuente": 7,
+        "capas_ejemplo": 5
+      },
+      "timing_note": "Se abren dos zonas antes del traslado. La pieza aterriza con los ejes de la base. El arco de vuelo y los cinco estratos son decisiones del ejemplo.",
+      "evidence": "Fotogramas decodificados del original. Coordenadas aproximadas y normalizadas al cuadro completo."
+    },
+    {
+      "id": "pass-strip",
+      "kind": "artifact",
+      "label": "Un fotograma, un envío",
+      "duration_s": 7.5,
+      "mechanism": "La imagen superior conserva su encuadre. Debajo, cada llamada encendida añade una etapa a la misma tira, desde el encoder hasta un único envío.",
+      "sources": [
+        {
+          "video_id": "S64kbVjlbpU",
+          "video_title": "Introducing: TypeGPU Kit - Type-safe building blocks for WebGPU apps",
+          "start_s": 167.3,
+          "end_s": 193.0,
+          "url": "https://www.youtube.com/watch?v=S64kbVjlbpU&t=167s",
+          "observation": "La imagen superior conserva su encuadre. Debajo, cada llamada encendida añade una etapa a la misma tira, desde el encoder hasta un único envío."
+        }
+      ],
+      "geometry": {
+        "visor_xywh": [
+          0.05,
+          0.08,
+          0.9,
+          0.47
+        ],
+        "tira_xywh": [
+          0.05,
+          0.48,
+          0.9,
+          0.08
+        ],
+        "codigo_xywh": [
+          0.05,
+          0.58,
+          0.9,
+          0.34
+        ]
+      },
+      "timing_note": "La escena se ilumina antes de que la atención baje a la tira. El ejemplo dibuja su propia galería de arcos, conserva cuatro pases y termina con un solo submit.",
+      "evidence": "Fotogramas decodificados del original. Coordenadas aproximadas y normalizadas al cuadro completo."
+    },
+    {
+      "id": "module-transfer",
+      "kind": "artifact",
+      "label": "Módulo y hueco de origen",
+      "duration_s": 5.5,
+      "mechanism": "Una fila viaja desde el inventario al panel de detalle. Su lugar de origen sigue visible. Al llegar se despliegan sus entradas y salidas.",
+      "sources": [
+        {
+          "video_id": "S64kbVjlbpU",
+          "video_title": "Introducing: TypeGPU Kit - Type-safe building blocks for WebGPU apps",
+          "start_s": 220.0,
+          "end_s": 226.0,
+          "url": "https://www.youtube.com/watch?v=S64kbVjlbpU&t=220s",
+          "observation": "Una fila viaja desde el inventario al panel de detalle. Su lugar de origen sigue visible. Al llegar se despliegan sus entradas y salidas."
+        },
+        {
+          "video_id": "S64kbVjlbpU",
+          "video_title": "Introducing: TypeGPU Kit - Type-safe building blocks for WebGPU apps",
+          "start_s": 230.4,
+          "end_s": 234.5,
+          "url": "https://www.youtube.com/watch?v=S64kbVjlbpU&t=230s",
+          "observation": "La fila bloom reaparece en el bloque de uso de la izquierda y deja libre su posición de origen."
+        }
+      ],
+      "geometry": {
+        "inspector_xywh": [
+          0.05,
+          0.09,
+          0.45,
+          0.64
+        ],
+        "inventario_xywh": [
+          0.54,
+          0.09,
+          0.38,
+          0.64
+        ],
+        "origen_camara_fila": 2,
+        "filas_fuente": 8,
+        "filas_ejemplo": 5
+      },
+      "timing_note": "Se conserva la segunda fila y se dibujan dos grupos de detalle tras su llegada. La referencia repite el traslado con otro módulo.",
+      "evidence": "Fotogramas decodificados del original. Coordenadas aproximadas y normalizadas al cuadro completo."
+    },
+    {
+      "id": "vertex-remap",
+      "kind": "artifact",
+      "label": "De retícula a superficie",
+      "duration_s": 6.5,
+      "mechanism": "Las filas de una retícula viajan de abajo arriba hasta formar un árbol de puntos. Luego se tejen los triángulos sobre los puntos ya colocados.",
+      "sources": [
+        {
+          "video_id": "S64kbVjlbpU",
+          "video_title": "Introducing: TypeGPU Kit - Type-safe building blocks for WebGPU apps",
+          "start_s": 246.8,
+          "end_s": 255.2,
+          "url": "https://www.youtube.com/watch?v=S64kbVjlbpU&t=246s",
+          "observation": "Las filas de una retícula viajan de abajo arriba hasta formar un árbol de puntos. Luego se tejen los triángulos sobre los puntos ya colocados."
+        }
+      ],
+      "geometry": {
+        "reticula_xywh": [
+          0.29,
+          0.14,
+          0.16,
+          0.32
+        ],
+        "arbol_xywh": [
+          0.65,
+          0.13,
+          0.09,
+          0.34
+        ],
+        "vertices": 375,
+        "triangulos": 672
+      },
+      "timing_note": "La reconstrucción conserva 375 muestras y 672 triángulos. Usa una superficie radial original y mantiene la cuadrícula vacía como origen visible.",
+      "evidence": "Fotogramas decodificados del original. Coordenadas aproximadas y normalizadas al cuadro completo."
+    },
+    {
+      "id": "import-footprint",
+      "kind": "artifact",
+      "label": "Huella de los módulos",
+      "duration_s": 6.5,
+      "mechanism": "Una cuadrícula representa el paquete completo. Al seleccionar cada módulo se destaca su parte dentro del mismo total, sin recolocar las demás celdas.",
+      "sources": [
+        {
+          "video_id": "S64kbVjlbpU",
+          "video_title": "Introducing: TypeGPU Kit - Type-safe building blocks for WebGPU apps",
+          "start_s": 288.0,
+          "end_s": 294.1,
+          "url": "https://www.youtube.com/watch?v=S64kbVjlbpU&t=288s",
+          "observation": "Una cuadrícula representa el paquete completo. Al seleccionar cada módulo se destaca su parte dentro del mismo total, sin recolocar las demás celdas."
+        }
+      ],
+      "geometry": {
+        "total_kB_en_la_referencia": 212,
+        "columnas": 24,
+        "celdas_ultima_fila": 20,
+        "celdas_resaltadas": [
+          39,
+          34,
+          18
+        ]
+      },
+      "timing_note": "Las celdas representan kilobytes del ejemplo del video. La suma de los subconjuntos no expresa el tamaño del paquete, ya que pueden solaparse.",
+      "evidence": "Fotogramas decodificados del original. Coordenadas aproximadas y normalizadas al cuadro completo."
+    },
+    {
+      "id": "command-lanes",
+      "kind": "artifact",
+      "label": "Llamadas y carriles GPU",
+      "duration_s": 7.0,
+      "mechanism": "Una llamada emite operaciones por una banda. Al abrir el plano se reconoce en el tercer carril. La variante de la segunda llamada cambia la longitud de una sola barra.",
+      "sources": [
+        {
+          "video_id": "S64kbVjlbpU",
+          "video_title": "Introducing: TypeGPU Kit - Type-safe building blocks for WebGPU apps",
+          "start_s": 306.5,
+          "end_s": 317.5,
+          "url": "https://www.youtube.com/watch?v=S64kbVjlbpU&t=306s",
+          "observation": "Una llamada emite operaciones por una banda. Al abrir el plano se reconoce en el tercer carril. La variante de la segunda llamada cambia la longitud de una sola barra."
+        }
+      ],
+      "geometry": {
+        "llamada_xywh": [
+          0.05,
+          0.28,
+          0.4,
+          0.42
+        ],
+        "bus_xywh": [
+          0.92,
+          0.27,
+          0.03,
+          0.51
+        ],
+        "longitudes_relativas": [
+          0.19,
+          0.94,
+          0.38,
+          0.28
+        ],
+        "segunda_barra_variante": 0.67
+      },
+      "timing_note": "Los paquetes viajan hacia la GPU. Las barras crecen desde el borde derecho común. Las longitudes son proporciones de la imagen, sin unidad de rendimiento.",
+      "evidence": "Fotogramas decodificados del original. Coordenadas aproximadas y normalizadas al cuadro completo."
+    },
+    {
+      "id": "shared-host",
+      "kind": "artifact",
+      "label": "Una escena, dos entornos",
+      "duration_s": 6.25,
+      "mechanism": "Los entornos de los extremos se conectan a los mismos dos puertos de la escena. El conjunto se repliega en un esquema ramificado que conserva las dos relaciones.",
+      "sources": [
+        {
+          "video_id": "S64kbVjlbpU",
+          "video_title": "Introducing: TypeGPU Kit - Type-safe building blocks for WebGPU apps",
+          "start_s": 341.6,
+          "end_s": 355.1,
+          "url": "https://www.youtube.com/watch?v=S64kbVjlbpU&t=341s",
+          "observation": "Los entornos de los extremos se conectan a los mismos dos puertos de la escena. El conjunto se repliega en un esquema ramificado que conserva las dos relaciones."
+        }
+      ],
+      "geometry": {
+        "escena_inicial_xywh": [
+          0.38,
+          0.23,
+          0.24,
+          0.54
+        ],
+        "escena_entre_adaptadores_xywh": [
+          0.45,
+          0.37,
+          0.1,
+          0.27
+        ],
+        "adaptadores_x": [
+          0.05,
+          0.58
+        ],
+        "escena_superior_xy": [
+          0.5,
+          0.41
+        ]
+      },
+      "timing_note": "El ejemplo reúne los dos adaptadores en una disposición simétrica y abre las ramas hacia abajo. Los nombres de los puertos siguen siendo root y surface.",
+      "evidence": "Fotogramas decodificados del original. Coordenadas aproximadas y normalizadas al cuadro completo."
+    },
+    {
+      "id": "split-clock",
+      "kind": "artifact",
+      "label": "Dos relojes, cadencia común",
+      "duration_s": 5.5,
+      "mechanism": "Ocho tareas mantienen la cadencia de la interfaz. Una tarea inferior se alarga hasta el siguiente turno y ocupa el lugar del quinto despacho.",
+      "sources": [
+        {
+          "video_id": "S64kbVjlbpU",
+          "video_title": "Introducing: TypeGPU Kit - Type-safe building blocks for WebGPU apps",
+          "start_s": 360,
+          "end_s": 367.2,
+          "url": "https://www.youtube.com/watch?v=S64kbVjlbpU&t=360s",
+          "observation": "Ocho tareas mantienen la cadencia de la interfaz. Una tarea inferior se alarga hasta el siguiente turno y ocupa el lugar del quinto despacho."
+        }
+      ],
+      "geometry": {
+        "pista_superior_xywh": [
+          0.2,
+          0.36,
+          0.75,
+          0.15
+        ],
+        "pista_inferior_xywh": [
+          0.2,
+          0.59,
+          0.75,
+          0.15
+        ],
+        "paso_x": 0.087,
+        "ancho_normal": 0.041,
+        "ancho_largo": 0.128
+      },
+      "timing_note": "El inicio de la cuarta tarea queda fijo, la quinta conexión inferior desaparece y las columnas posteriores conservan su posición.",
+      "evidence": "Fotogramas decodificados del original. Coordenadas aproximadas y normalizadas al cuadro completo."
+    },
+    {
+      "id": "staged-network",
+      "kind": "artifact",
+      "label": "Arquitectura por etapas",
+      "duration_s": 6,
+      "mechanism": "Fija las posiciones que sostienen la explicación y revela las figuras, conexiones o recorridos en el orden en que se necesitan.",
+      "sources": [
+        {
+          "video_id": "M4lR_Va97cQ",
+          "video_title": "FAANG System Design Interview: Design A Location Based Service (Yelp, Google Places)",
+          "start_s": 406,
+          "end_s": 425,
+          "url": "https://www.youtube.com/watch?v=M4lR_Va97cQ&t=406s",
+          "observation": "406–410 s: bajo el usuario centrado se forma el balanceador, seguido de una diagonal hacia el servicio inferior izquierdo. 413–419 s: la rama derecha añade el servicio de negocios; debajo, aparecen tres cilindros de réplica, el clúster y la primaria. 419–425 s: las aristas de replicación regresan de la primaria a las réplicas; el foco pasa al balanceador."
+        },
+        {
+          "video_id": "UC5xf8FbdJc",
+          "video_title": "Back-Of-The-Envelope Estimation / Capacity Planning",
+          "start_s": 47,
+          "end_s": 55.5,
+          "url": "https://www.youtube.com/watch?v=UC5xf8FbdJc&t=47s",
+          "observation": "47 s: el servicio web recibe varias flechas a la izquierda; un único servidor con su capacidad ocupa la columna siguiente. 49–52 s: surge un balanceador en la mitad derecha y sus primeras ramas diagonales revelan servidores. 53–55 s: se completa la columna de servidores y queda visible el cociente de un millón de peticiones por segundo entre diez mil por servidor."
+        },
+        {
+          "video_id": "7AMRfNKwuYo",
+          "video_title": "How Does Live Streaming Platform Work? (YouTube live, Twitch, TikTok Live)",
+          "start_s": 149,
+          "end_s": 166.5,
+          "url": "https://www.youtube.com/watch?v=7AMRfNKwuYo&t=149s",
+          "observation": "149–152 s: la captura y las tres etapas superiores ya están presentes; una flecha cae desde la transcodificación. 153–158 s: se ensancha el contenedor inferior; incorpora variantes y, por debajo, sus dispositivos de izquierda a derecha. 161–165 s: las cuatro resoluciones y cuatro pantallas terminan alineadas en dos filas."
+        },
+        {
+          "video_id": "EyMRZpgJUuc",
+          "video_title": "Why Is System Design Interview Important?",
+          "start_s": 13,
+          "end_s": 18.6,
+          "url": "https://www.youtube.com/watch?v=EyMRZpgJUuc&t=13s",
+          "observation": "13.2–13.8 s: la primera tarjeta de código aparece bajo el encabezado; el ejemplo se escribe dentro. 14.4–15.6 s: se despliega una tarjeta de diseño y se dibujan pequeños nodos y enlaces. 15.6–16.2 s: aparece la ronda conductual con un interlocutor y una burbuja. A 18 s siguen las tres tarjetas, con el recuento bajo cada una."
+        },
+        {
+          "video_id": "i7twT3x5yv8",
+          "video_title": "System Design Interview: A Step-By-Step Guide",
+          "start_s": 286.2,
+          "end_s": 293.6,
+          "url": "https://www.youtube.com/watch?v=i7twT3x5yv8&t=286s",
+          "observation": "286–288.8 s: el servidor aparece a la derecha; una línea se traza hacia el primer cliente y después otra vuelve al servidor. 290 s: una segunda conexión horizontal alcanza al cliente intermedio; empieza la diagonal inferior. 291.2–293.7 s: los tres clientes forman una columna, el servidor conserva su posición y la primera fila tiene ida y vuelta."
+        },
+        {
+          "video_id": "4rLW7zg21gI",
+          "video_title": "FANG Interview Question | Process vs Thread",
+          "start_s": 107.08,
+          "end_s": 116.45,
+          "url": "https://www.youtube.com/watch?v=4rLW7zg21gI&t=107s",
+          "observation": "106.6–108 s: tres marcos hermanos se dibujan dentro de un proceso común. Cada hilo encierra registros arriba y una pila debajo. 109–111 s: el conjunto se mueve a la derecha para introducir a la izquierda una llave y la explicación del espacio de direcciones. 112–115.8 s: se señala primero el proceso y luego la banda de heap. Los registros y pilas permanecen dentro de sus hilos."
+        },
+        {
+          "video_id": "xbgzl2maQUU",
+          "video_title": "Algorithms You Should Know Before System Design Interviews",
+          "start_s": 212.92,
+          "end_s": 219.0,
+          "url": "https://www.youtube.com/watch?v=xbgzl2maQUU&t=212s",
+          "observation": "La raíz precede a dos ramas. La rama izquierda enlaza con un prefijo común y acaba en dos palabras. La derecha se bifurca una fila antes y conserva una terminal en la tercera fila. En 215.52 s están apareciendo los dos nodos intermedios. En 217.00 s está la primera palabra terminal de la derecha. En 218.48 s se ven las cuatro palabras."
+        },
+        {
+          "video_id": "f6zXyq4VPP8",
+          "video_title": "Top 5 Most Used Architecture Patterns",
+          "start_s": 85.92,
+          "end_s": 93.4,
+          "url": "https://www.youtube.com/watch?v=f6zXyq4VPP8&t=85s",
+          "observation": "El primer productor aparece por la izquierda y un trazo oblicuo alcanza el intermediario. Los tres productores ya tienen una conexión a los 89 s. Los consumidores llegan por orden descendente entre 89 y 92 s. El intermediario permanece centrado mientras la red se abre por ambos lados."
+        },
+        {
+          "video_id": "o-k7h2G3Gco",
+          "video_title": "How to Crack Any System Design Interview",
+          "start_s": 420.0,
+          "end_s": 434.4,
+          "url": "https://www.youtube.com/watch?v=o-k7h2G3Gco&t=420s",
+          "observation": "A los 420 s se ve el eje horizontal. La punta avanza de izquierda a derecha. Al cruzar cada marca, crecen tallos cortos y rótulos, intercalados por encima y por debajo. Los primeros dos rótulos se leen a 425.6 s. A 431.2 s se ve el sexto. El extremo y los seis hitos permanecen visibles al final."
+        },
+        {
+          "video_id": "wAMc7NyL4tQ",
+          "video_title": "Our Recommended Materials For Cracking Your Next Tech Interview",
+          "start_s": 24.0,
+          "end_s": 29.48,
+          "url": "https://www.youtube.com/watch?v=wAMc7NyL4tQ&t=24s",
+          "observation": "Tras pasar del tablero de categorías a una vista de detalle, una sola caja ocupa el centro superior. Un conector baja, se divide en tres y alcanza tres recursos alineados. Los primeros dos iconos se perciben a 25.52 s; el tercero se completa aproximadamente a 27 s."
+        },
+        {
+          "video_id": "Dwt8R0KPu7k",
+          "video_title": "How Key value Stores Work (Redis, DynamoDB, Memcached)?",
+          "start_s": 54.64,
+          "end_s": 64.8,
+          "url": "https://www.youtube.com/watch?v=Dwt8R0KPu7k&t=54s",
+          "observation": "Los cuatro almacenes y la bifurcación ya ocupan el encuadre. La clave cruza una función de hash en la mitad superior. Aparece la operación 99 % 4 = 3. El destino 3, el cuarto cilindro desde la izquierda, se ilumina al final entre 63 y 64.2 s. Durante la lectura se mantiene visible el conjunto completo."
+        },
+        {
+          "video_id": "okrR1KXNLtA",
+          "video_title": "FAANG System Design Interview: Design A Chat System (WhatsApp, Facebook Messenger, Discord, Slack)",
+          "start_s": 338.64,
+          "end_s": 342.0,
+          "url": "https://www.youtube.com/watch?v=okrR1KXNLtA&t=338s",
+          "observation": "El emisor y un mensaje ocupan la izquierda. A los 339.6 s ya entra el servidor en la misma fila. Aparece un abanico de rutas con varios ángulos desde ese servidor. Se distinguen los usuarios 2 a 5 en la columna de la derecha y el 100 en el extremo inferior. La animación condensa la multitud de receptores intermedios antes del cambio de escena a 342.24 s."
+        }
+      ],
+      "evidence": "Pasajes examinados en fotogramas originales. Las poses y sus correspondencias están en bytebytego-corpus.json."
+    },
+    {
+      "id": "ring-handoff",
+      "kind": "artifact",
+      "label": "Reasignación local en un anillo",
+      "duration_s": 6,
+      "mechanism": "Inserta un nodo y cambia la asociación de la clave afectada. Usa el resto del anillo y la lista de claves como referencias fijas.",
+      "sources": [
+        {
+          "video_id": "UF9Iqmg94tk",
+          "video_title": "Consistent Hashing | Algorithms You Should Know #1",
+          "start_s": 243,
+          "end_s": 253,
+          "url": "https://www.youtube.com/watch?v=UF9Iqmg94tk&t=243s",
+          "observation": "243–244 s: cuatro servidores y cuatro claves alternan sobre el anillo. Aparece un quinto servidor en la lista de la izquierda. 246–247 s: el nuevo marcador parte de la lista y aterriza en el arco superior, entre K0 y su antiguo sucesor. 249–252 s: aparecen un arco corto exterior y una ruta punteada interior al servidor anterior, que recibe una cruz. Las demás posiciones permanecen fijas."
+        }
+      ],
+      "evidence": "Pasajes examinados en fotogramas originales. Las poses y sus correspondencias están en bytebytego-corpus.json."
+    },
+    {
+      "id": "bit-probe",
+      "kind": "artifact",
+      "label": "Escritura y consulta de bits",
+      "duration_s": 6,
+      "mechanism": "Acumula dos escrituras por índice. La tercera entidad consulta esas posiciones y muestra si alguna queda a cero.",
+      "sources": [
+        {
+          "video_id": "V3pzxngeLqw",
+          "video_title": "Bloom Filters | Algorithms You Should Know #2 | Real-world Examples",
+          "start_s": 228,
+          "end_s": 268,
+          "url": "https://www.youtube.com/watch?v=V3pzxngeLqw&t=228s",
+          "observation": "228–233 s: diez celdas se mantienen en una fila; tres curvas salen del primer texto y se activan los índices 1, 3 y 4. 242–249 s: la segunda entrada alcanza 0, 4 y 8. El índice 4 es compartido y sigue valiendo uno. 264–268 s: las líneas punteadas suben desde la consulta hacia 1, 3 y 4. Cerca de 279 s se muestra además otra consulta con un índice vacío."
+        }
+      ],
+      "evidence": "Pasajes examinados en fotogramas originales. Las poses y sus correspondencias están en bytebytego-corpus.json."
+    },
+    {
+      "id": "message-ladder",
+      "kind": "artifact",
+      "label": "Mensajes entre dos participantes",
+      "duration_s": 6,
+      "mechanism": "Mantén dos participantes arriba y escribe los mensajes en filas sucesivas. La dirección de cada flecha identifica al emisor.",
+      "sources": [
+        {
+          "video_id": "j9QmMEWmcfo",
+          "video_title": "SSL, TLS, HTTPS Explained",
+          "start_s": 70,
+          "end_s": 77.1,
+          "url": "https://www.youtube.com/watch?v=j9QmMEWmcfo&t=70s",
+          "observation": "70–72 s: cliente y servidor ocupan dos columnas; debajo se inicia la primera flecha de izquierda a derecha. 74 s: la segunda flecha vuelve al emisor e indica SYN + ACK; la primera conserva su fila. 76–77 s: ACK completa el intercambio hacia la derecha. Más adelante se añade debajo la etapa de certificado."
+        }
+      ],
+      "evidence": "Pasajes examinados en fotogramas originales. Las poses y sus correspondencias están en bytebytego-corpus.json."
+    },
+    {
+      "id": "detail-callout",
+      "kind": "artifact",
+      "label": "Ampliación y despiece",
+      "duration_s": 6,
+      "mechanism": "Conserva el contexto general mientras amplías un elemento y alineas las explicaciones con sus fragmentos.",
+      "sources": [
+        {
+          "video_id": "AlkDbnbv7dk",
+          "video_title": "What happens when you type a URL into your browser?",
+          "start_s": 31.5,
+          "end_s": 90,
+          "url": "https://www.youtube.com/watch?v=AlkDbnbv7dk&t=31s",
+          "observation": "31–35 s: el usuario, el texto de la acción y el navegador ocupan el lado izquierdo. El detalle se abre al otro extremo de una línea diagonal. 38–72 s: el panel ampliado presenta la dirección en cuatro segmentos adyacentes, con guías verticales que se añaden de izquierda a derecha. 86–90 s: el panel se retrae hacia la esquina superior derecha; quedan en pantalla el detalle, la línea y el navegador."
+        }
+      ],
+      "evidence": "Pasajes examinados en fotogramas originales. Las poses y sus correspondencias están en bytebytego-corpus.json."
+    },
+    {
+      "id": "radix-ladder",
+      "kind": "artifact",
+      "label": "División sucesiva y lectura inversa",
+      "duration_s": 6,
+      "mechanism": "Muestra el cociente y el residuo de cada división. Lee los residuos de abajo arriba para formar el código.",
+      "sources": [
+        {
+          "video_id": "HHUi8F_qAXM",
+          "video_title": "How Does a URL Shortener Work?",
+          "start_s": 194.4,
+          "end_s": 221.3,
+          "url": "https://www.youtube.com/watch?v=HHUi8F_qAXM&t=194s",
+          "observation": "La columna izquierda calcula 11157 ÷ 62, luego 179 ÷ 62 y por último 2 ÷ 62. La columna central conserva los residuos 59, 55 y 2. La representación del último residuo llega primero al extremo derecho. Entre 215.6 y 215.8 s aparece 2, después T y finalmente X (visible a 219.6 s). El código final es 2TX."
+        }
+      ],
+      "evidence": "Pasajes examinados en fotogramas originales. Las poses y sus correspondencias están en bytebytego-corpus.json."
+    },
+    {
+      "id": "token-gate",
+      "kind": "artifact",
+      "label": "Admisión con cupo",
+      "duration_s": 6,
+      "mechanism": "Conserva el punto de decisión. Cada solicitud consume una ficha disponible o toma la salida de descarte.",
+      "sources": [
+        {
+          "video_id": "YXkOdWBwqaA",
+          "video_title": "Rate Limiter System Design: Token Bucket, Leaky Bucket, Scaling",
+          "start_s": 200.0,
+          "end_s": 208.5,
+          "url": "https://www.youtube.com/watch?v=YXkOdWBwqaA&t=200s",
+          "observation": "Primero se identifica el cubo y después aparece la alimentación desde arriba. La bandeja de entrada queda a la izquierda, el rombo bajo el cubo y las dos salidas a la derecha y debajo. La primera cápsula alcanza el centro a 205.04 s y sale a la derecha cerca de 206.00 s. La segunda pasa por el mismo centro a 207.28 s, cae y cambia de tono alrededor de 207.92 s."
+        }
+      ],
+      "evidence": "Pasajes examinados en fotogramas originales. Las poses y sus correspondencias están en bytebytego-corpus.json."
+    },
+    {
+      "id": "resolution-fan",
+      "kind": "artifact",
+      "label": "Variantes con esquina común",
+      "duration_s": 6,
+      "mechanism": "Conecta una fuente con cada versión. Superpón los rectángulos con la misma esquina inferior y deja visible el nombre de cada versión.",
+      "sources": [
+        {
+          "video_id": "jWRW2xGMqSw",
+          "video_title": "System Design: Design YouTube",
+          "start_s": 157.8,
+          "end_s": 165.8,
+          "url": "https://www.youtube.com/watch?v=jWRW2xGMqSw&t=157s",
+          "observation": "Una fuente de vídeo permanece a la izquierda mientras siete trayectorias alcanzan las esquinas superiores izquierdas de siete paneles. Los formatos se incorporan de mayor a menor. Cada panel crece en ancho y alto desde su propia esquina superior izquierda y termina en la misma línea inferior. A 158.4 s aún crece el primero, a 159.4 s el segundo y a 164.4 s el último."
+        }
+      ],
+      "evidence": "Pasajes examinados en fotogramas originales. Las poses y sus correspondencias están en bytebytego-corpus.json."
+    },
+    {
+      "id": "queue-router",
+      "kind": "artifact",
+      "label": "Distribución y selección de colas",
+      "duration_s": 6,
+      "mechanism": "Una entrada se ramifica hacia tres colas. Las tres conservan su posición cuando se incorpora el selector de salida.",
+      "sources": [
+        {
+          "video_id": "6u25GckPhLU",
+          "video_title": "Design a Web Crawler: FAANG Interview Question",
+          "start_s": 170.12,
+          "end_s": 191.52,
+          "url": "https://www.youtube.com/watch?v=6u25GckPhLU&t=170s",
+          "observation": "Un priorizador aislado abre primero la rama superior. De 171.36 a 172.12 s se acumulan las primeras tarjetas. Siguen las colas intermedia e inferior hasta disponer de tres pilas en una columna. El conjunto deja espacio a las entradas a la izquierda y tres criterios transitorios cerca de la cola superior. Al desaparecer esos criterios, las tres salidas alcanzan un selector a la derecha entre 188.16 y 189.92 s."
+        }
+      ],
+      "evidence": "Pasajes examinados en fotogramas originales. Las poses y sus correspondencias están en bytebytego-corpus.json."
+    }
+  ],
+  "additional_studies": [
+    {
+      "title": "Introducing: TypeGPU Kit - Type-safe building blocks for WebGPU apps",
+      "channel": "Software Mansion",
+      "video_id": "S64kbVjlbpU",
+      "fps": "30000/1001",
+      "frames": 13735,
+      "method": "rea-video + decoded original frames",
+      "pin": "a124acd4a02b3a9b72b9e7dedca5d1bfcda2a7b8"
+    },
+    {
+      "title": "System Design Interview",
+      "channel": "ByteByteGo",
+      "playlist": "https://www.youtube.com/playlist?list=PLCRMIe5FDPseVvwzRiCQBmNOVUIZSSkP8",
+      "videos": 20,
+      "decoded_frames": 220000,
+      "method": "rea-video + fotogramas originales y correspondencias por escena",
+      "pin": "a124acd4a02b3a9b72b9e7dedca5d1bfcda2a7b8"
     }
   ]
 }

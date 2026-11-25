@@ -43,6 +43,7 @@
   let active="",group="transitions",seconds=0,running=false,request=0,clockOrigin=0,poster=false;
 
   function timing(id) {
+    if(engine.diagrams.includes(id)) return {duration:presets.defaults(id).duration+finalRead,delay:0,rate:1};
     if(kindOf(id)==="artifacts") return {duration:extendedHolds[id]||8,delay:.6,rate:.8};
     const reading=$("pace").value!=="source";
     const move=id==="cut"?0:reading?transitionDuration[id]:referenceById.get(id).duration_s;

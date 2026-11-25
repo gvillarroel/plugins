@@ -25,9 +25,11 @@ uv run --script /ruta/al/plugin/skills/line-world-motion-direction/scripts/brief
 uv run --script /ruta/al/plugin/skills/line-world-motion-direction/scripts/brief_to_video.py /ruta/al/brief.json --out /ruta/a/entrega --format vertical
 ```
 
-El primer comando comprueba unidades, fuentes, sustitución de cifras y composición para el tamaño elegido. Devuelve el título, las palabras que se oirán y los saltos de línea previstos para cada subtítulo en `captionBlocks`. Los tiempos los fija después la locución. Puedes comprobar la lectura antes de sintetizar la voz o abrir un navegador.
+El primer comando comprueba unidades, fuentes, sustitución de cifras y composición para el tamaño elegido. Devuelve el crédito visible en `sourceCaption`, el título, las palabras que se oirán y los saltos de línea previstos para cada subtítulo en `captionBlocks`. Puedes guardar este JSON en UTF-8 con una redirección. Los tiempos los fija después la locución.
 
 El formato vertical tiene 390 × 844 píxeles y el horizontal, 960 × 540. Ambos usan 24 fps. `uv` resuelve las dependencias de Python del productor. También puedes ejecutarlo con un Python 3.11 o posterior que tenga instalados Pillow, NumPy, Playwright y PyAV. Para exportar, instala FFmpeg y FFprobe en PATH. Usa un navegador Chromium de Playwright o selecciona Edge instalado mediante `--browser msedge`. Si necesitas instalar Chromium, ejecuta `uv run --with "playwright>=1.51,<2" python -m playwright install chromium`.
+
+En vertical, el encabezado muestra el sujeto y cualquier `subjectLabel` escrito por el autor. Cada barra ocupa una fila con el nombre y la cifra encima. La procedencia queda bajo las dos filas y el tramo inferior se reserva para los subtítulos que dibuje el reproductor. El tamaño y los saltos finales de los subtítulos dependen de ese reproductor.
 
 Piper busca la voz mexicana `es_MX-claude-high` en su caché. La primera síntesis descarga y verifica los archivos que falten. Un modelo personalizado se indica con `--model /ruta/voz.onnx` y su fichero contiguo `.onnx.json`. Para trabajar sin conexión, prepara las dependencias y la voz y pasa `--offline` al productor y a `uv run`. Con dos grabaciones WAV, el productor usa directamente las tomas.
 

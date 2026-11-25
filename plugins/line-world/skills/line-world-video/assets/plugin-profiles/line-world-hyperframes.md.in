@@ -11,6 +11,7 @@ assembly, camera and export, while specialist copies own their actual assets.
 1. Define one project-owned story with dimensions, fps, data status, units,
    scene partitions, durations, focus IDs and palette reason. Allocate complete
    frame sections and reading holds before animating.
+   For data or concept scenes, use the [composition transfer guide](../reference-motion/references/transferir-composicion.md) to select a relation from the brief. Carry the producer's anchor and event order into this clock. With an imported rendered scene, keep its anchor in frame and align the moment of change with the spoken cue. A reading hold starts after the receiving entity or value is visible.
 2. Compose real D3 groups, native Mermaid SVG and licensed icons. Keep a stable
    identity map and data model across representations. Namespace imported SVG
    IDs, styles, markers and ARIA targets. Keep the wider world persistent.

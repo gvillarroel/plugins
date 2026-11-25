@@ -14,6 +14,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+from video_probe import duration_seconds, video_duration
+
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Review an MP4 for basic deterministic video quality gates.")
@@ -63,11 +65,10 @@ def ffprobe(video: Path) -> dict[str, object]:
             "-v",
             "error",
             "-select_streams",
-            "v:0",
+            "V:0",  # Exclude attached cover art.
             "-show_entries",
-            "stream=width,height,r_frame_rate,avg_frame_rate,nb_frames,duration",
-            "-show_entries",
-            "format=duration,size",
+            "stream=width,height,r_frame_rate,avg_frame_rate,nb_frames,duration,start_time"
+            ":stream_tags=DURATION:format=duration,size",
             "-of",
             "json",
             str(video),
@@ -82,7 +83,7 @@ def ffmpeg_filter_text(video: Path, filter_arg: str) -> str:
     exe = shutil.which("ffmpeg")
     if not exe:
         return ""
-    result = run_command([exe, "-hide_banner", "-i", str(video), "-vf", filter_arg, "-an", "-f", "null", "-"])
+    result = run_command([exe, "-hide_banner", "-i", str(video), "-map", "0:V:0", "-vf", filter_arg, "-an", "-f", "null", "-"])
     return result.stderr or ""
 
 
@@ -96,7 +97,7 @@ def parse_black_events(text: str) -> list[dict[str, float]]:
     return events
 
 
-def parse_freeze_events(text: str, video_duration: float) -> list[dict[str, float]]:
+def parse_freeze_events(text: str, video_duration: float | None) -> list[dict[str, float]]:
     events: list[dict[str, float]] = []
     current: dict[str, float] | None = None
     for line in text.splitlines():
@@ -113,8 +114,9 @@ def parse_freeze_events(text: str, video_duration: float) -> list[dict[str, floa
             events.append(current)
             current = None
     if current is not None:
-        current["end"] = video_duration
-        current["duration"] = max(0.0, video_duration - current["start"])
+        if video_duration is not None:
+            current["end"] = video_duration
+            current["duration"] = max(0.0, video_duration - current["start"])
         events.append(current)
     return events
 
@@ -123,21 +125,27 @@ def collect_metrics(video: Path, args: argparse.Namespace) -> dict[str, object]:
     probe = ffprobe(video)
     stream = (probe.get("streams") or [{}])[0] if isinstance(probe.get("streams"), list) else {}
     fmt = probe.get("format") if isinstance(probe.get("format"), dict) else {}
-    duration = float(fmt.get("duration") or stream.get("duration") or 0)
+    container_duration = duration_seconds(fmt.get("duration"))
+    duration = video_duration(stream)
     fps = parse_rate(str(stream.get("avg_frame_rate") or stream.get("r_frame_rate") or ""))
     size = int(fmt.get("size") or video.stat().st_size)
-    black_events = parse_black_events(ffmpeg_filter_text(video, f"blackdetect=d={args.black_duration}:pix_th=0.10"))
-    freeze_events = parse_freeze_events(
-        ffmpeg_filter_text(video, f"freezedetect=n={args.freeze_noise}:d={args.freeze_duration}"),
-        duration,
-    )
+    black_events = []
+    freeze_events = []
+    if stream:
+        black_events = parse_black_events(ffmpeg_filter_text(video, f"blackdetect=d={args.black_duration}:pix_th=0.10"))
+        freeze_events = parse_freeze_events(
+            ffmpeg_filter_text(video, f"freezedetect=n={args.freeze_noise}:d={args.freeze_duration}"),
+            duration,
+        )
     return {
         "path": video.as_posix(),
         "exists": video.exists(),
+        "hasVideoStream": bool(stream),
         "sizeBytes": size,
         "width": stream.get("width"),
         "height": stream.get("height"),
         "durationSeconds": duration,
+        "containerDurationSeconds": container_duration,
         "fps": fps,
         "frameRateRaw": stream.get("r_frame_rate"),
         "frameCount": stream.get("nb_frames"),
@@ -155,6 +163,9 @@ def build_findings(metrics: dict[str, object], args: argparse.Namespace) -> list
     if not metrics["exists"]:
         add("missing-video", "error", "Video file does not exist.")
         return findings
+    if not metrics["hasVideoStream"]:
+        add("missing-video-stream", "error", "No video stream found.")
+        return findings
     if int(metrics["sizeBytes"]) < args.min_size_bytes:
         add("small-file", "error", f"Video is smaller than {args.min_size_bytes} bytes.")
     if args.expect_width is not None and metrics["width"] != args.expect_width:
@@ -162,9 +173,16 @@ def build_findings(metrics: dict[str, object], args: argparse.Namespace) -> list
     if args.expect_height is not None and metrics["height"] != args.expect_height:
         add("height", "error", f"Expected height {args.expect_height}, got {metrics['height']}.")
     if args.expect_duration is not None:
-        delta = abs(float(metrics["durationSeconds"]) - args.expect_duration)
-        if delta > args.duration_tolerance:
-            add("duration", "error", f"Expected duration {args.expect_duration}s +/- {args.duration_tolerance}s, got {metrics['durationSeconds']}s.")
+        for key, label, code in (
+            ("durationSeconds", "video", "duration"),
+            ("containerDurationSeconds", "container", "container-duration"),
+        ):
+            actual = metrics[key]
+            if actual is None:
+                if key == "durationSeconds":
+                    add(code, "error", "Video duration was unavailable.")
+            elif abs(actual - args.expect_duration) > args.duration_tolerance:
+                add(code, "error", f"Expected {label} duration {args.expect_duration}s +/- {args.duration_tolerance}s, got {actual}s.")
     if args.expect_fps is not None and metrics["fps"] is not None:
         if abs(float(metrics["fps"]) - args.expect_fps) > 0.05:
             add("fps", "error", f"Expected fps {args.expect_fps}, got {metrics['fps']}.")

@@ -1,0 +1,1497 @@
+{
+  "playlist": "https://www.youtube.com/playlist?list=PLCRMIe5FDPseVvwzRiCQBmNOVUIZSSkP8",
+  "rea_video_revision": "a124acd4a02b3a9b72b9e7dedca5d1bfcda2a7b8",
+  "videos": [
+    {
+      "index": 1,
+      "video_id": "M4lR_Va97cQ",
+      "title": "FAANG System Design Interview: Design A Location Based Service (Yelp, Google Places)",
+      "url": "https://www.youtube.com/watch?v=M4lR_Va97cQ",
+      "original_sha256": "10c40b32268250e90440be141095d1eddf4c584651e00d2ddd24eb8068880c93",
+      "passages": [
+        {
+          "name": "Del balanceador a las réplicas",
+          "artifact": "staged-network",
+          "source_s": [
+            406,
+            425
+          ],
+          "anchor": "Usuario centrado en la parte alta. Las rutas siguen a los servicios durante el reajuste vertical. La fila de datos conserva el orden réplicas → primaria.",
+          "observations": [
+            "406–410 s: bajo el usuario centrado se forma el balanceador, seguido de una diagonal hacia el servicio inferior izquierdo.",
+            "413–419 s: la rama derecha añade el servicio de negocios; debajo, aparecen tres cilindros de réplica, el clúster y la primaria.",
+            "419–425 s: las aristas de replicación regresan de la primaria a las réplicas; el foco pasa al balanceador."
+          ],
+          "url": "https://www.youtube.com/watch?v=M4lR_Va97cQ&t=406s",
+          "relation": "hierarchy",
+          "scene_id": "video-01-staged-network",
+          "transfer": "Sitúa el punto de entrada y abre los destinos por nivel. Presenta los extremos antes de seguir una conexión. Cuando aparezca otra fila, desplaza juntos los miembros que deban conservar su relación.",
+          "limitation": "Dibuja únicamente las conexiones y los sentidos que figuren en los datos.",
+          "data_roles": [
+            "entidad de entrada",
+            "servicios o destinos por nivel",
+            "aristas y sentidos"
+          ]
+        },
+        {
+          "name": "Subdividir una región conservando el conjunto",
+          "relation": "recursive-spatial-partition",
+          "source_s": [
+            1085.0,
+            1094.48
+          ],
+          "anchor": "La misma región cuadrada ocupa tres posiciones consecutivas sobre una línea horizontal. La lectura de los cuadrantes conserva la orientación en las tres vistas.",
+          "observations": [
+            "1085,00–1088,48 s. Aparece el primer cuadrado con su total. Una flecha abre el segundo cuadrado, se dibuja la cruz divisoria y entran los nombres de los cuatro cuadrantes.",
+            "1090,00–1094,48 s. Se abre una tercera vista. Mantiene la división anterior y subdivide únicamente el cuadrante superior derecho. El total original sigue legible debajo mientras se completan las etiquetas locales."
+          ],
+          "transfer": "Usa dos o más vistas del mismo territorio o superficie. Conserva orientación y proporción. En cada vista añade solo el nivel de detalle nuevo y relaciona sus celdas con la región madre. Funciona con parcelas, imágenes por teselas o cuadrículas jerárquicas.",
+          "limitation": "El área de los cuadrantes representa espacio. Para una composición por cantidades, construir las áreas a partir de los valores y conservar el denominador.",
+          "samples_s": [
+            1085.0,
+            1086.48,
+            1088.48,
+            1090.0,
+            1091.52,
+            1093.0,
+            1094.48
+          ],
+          "sample_frames": [
+            27125,
+            27162,
+            27212,
+            27250,
+            27288,
+            27325,
+            27362
+          ],
+          "data_roles": [
+            "región o contorno común",
+            "celda madre",
+            "subceldas con coordenadas",
+            "medida y unidad opcionales"
+          ],
+          "url": "https://www.youtube.com/watch?v=M4lR_Va97cQ&t=1085s"
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "video_id": "UF9Iqmg94tk",
+      "title": "Consistent Hashing | Algorithms You Should Know #1",
+      "url": "https://www.youtube.com/watch?v=UF9Iqmg94tk",
+      "original_sha256": "469b7ec377bc35b368ef54cca842ae966904380cb9ded1760bc9181d556b085e",
+      "passages": [
+        {
+          "name": "Un nodo entra en el anillo",
+          "artifact": "ring-handoff",
+          "source_s": [
+            243,
+            253
+          ],
+          "anchor": "Anillo inmóvil, K0 en la corona superior y antiguo sucesor al noreste. Solo se mueve el marcador nuevo y se dibujan sus dos relaciones.",
+          "observations": [
+            "243–244 s: cuatro servidores y cuatro claves alternan sobre el anillo. Aparece un quinto servidor en la lista de la izquierda.",
+            "246–247 s: el nuevo marcador parte de la lista y aterriza en el arco superior, entre K0 y su antiguo sucesor.",
+            "249–252 s: aparecen un arco corto exterior y una ruta punteada interior al servidor anterior, que recibe una cruz. Las demás posiciones permanecen fijas."
+          ],
+          "url": "https://www.youtube.com/watch?v=UF9Iqmg94tk&t=243s",
+          "relation": "ring-handoff",
+          "scene_id": "video-02-ring-handoff",
+          "transfer": "Conserva la disposición circular y las identidades al insertar un nuevo miembro. Desvía únicamente la asociación afectada y deja un instante ambas correspondencias para localizar el cambio.",
+          "limitation": "Esta disposición exige un orden circular real. Para asignaciones arbitrarias funcionan mejor recipientes alineados.",
+          "data_roles": [
+            "orden circular",
+            "miembro que entra o sale",
+            "clave y dueño anterior y posterior"
+          ]
+        },
+        {
+          "name": "Seguir la identidad de piezas que cambian de destino",
+          "relation": "item-reassignment",
+          "source_s": [
+            125.0,
+            135.0
+          ],
+          "anchor": "El inventario superior de ocho piezas y el orden de cuatro recipientes permanecen reconocibles. La plaza anulada conserva una cruz como referencia.",
+          "observations": [
+            "125,00–128,00 s. La cruz ocupa el segundo recipiente. Las piezas conservan colores distintos tanto en el inventario como en los recipientes.",
+            "129,00–133,00 s. Varias piezas de color aparecen entre sus posiciones de partida y llegada. A 130,00 s la pieza violeta está en el recipiente derecho y la verde alcanza el izquierdo. A 133,00 s todavía hay una pieza en tránsito.",
+            "135,00 s. El inventario sigue completo y la distribución final entre los tres recipientes activos se puede leer a la vez."
+          ],
+          "transfer": "Cuando el dato contiene la asignación anterior y la posterior, conserva una marca y un identificador por entidad. Traslada solo las que cambian de destino y deja visible el lugar que se cerró o perdió capacidad. Sirve para transferir pedidos entre muelles o personas entre equipos.",
+          "limitation": "Los totales agregados por grupo permiten mostrar cambio de cantidades. El viaje individual requiere correspondencias reales entre entidades.",
+          "samples_s": [
+            125.0,
+            127.0,
+            128.0,
+            129.0,
+            130.0,
+            131.0,
+            133.0,
+            135.0
+          ],
+          "sample_frames": [
+            3125,
+            3175,
+            3200,
+            3225,
+            3250,
+            3275,
+            3325,
+            3375
+          ],
+          "data_roles": [
+            "id estable de entidad",
+            "contenedor anterior",
+            "contenedor siguiente",
+            "orden de contenedores"
+          ],
+          "url": "https://www.youtube.com/watch?v=UF9Iqmg94tk&t=125s"
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "video_id": "V3pzxngeLqw",
+      "title": "Bloom Filters | Algorithms You Should Know #2 | Real-world Examples",
+      "url": "https://www.youtube.com/watch?v=V3pzxngeLqw",
+      "original_sha256": "df1690a1740e11896354f203f62436234e0ea260234b29a0f170b21b53706edb",
+      "passages": [
+        {
+          "name": "Dos escrituras y una consulta",
+          "artifact": "bit-probe",
+          "source_s": [
+            228,
+            268
+          ],
+          "anchor": "Una fila de diez celdas numeradas conserva sus centros. Dos entradas encima y una consulta debajo comparten los mismos índices.",
+          "observations": [
+            "228–233 s: diez celdas se mantienen en una fila; tres curvas salen del primer texto y se activan los índices 1, 3 y 4.",
+            "242–249 s: la segunda entrada alcanza 0, 4 y 8. El índice 4 es compartido y sigue valiendo uno.",
+            "264–268 s: las líneas punteadas suben desde la consulta hacia 1, 3 y 4. Cerca de 279 s se muestra además otra consulta con un índice vacío."
+          ],
+          "url": "https://www.youtube.com/watch?v=V3pzxngeLqw&t=228s",
+          "relation": "bit-probe",
+          "scene_id": "video-03-bit-probe",
+          "transfer": "Conserva los índices de la fila. Anima primero las escrituras, conserva su unión y consulta después las posiciones correspondientes sin modificar los valores.",
+          "limitation": "Para un filtro probabilístico, todos los bits activos permiten una coincidencia posible. No equivalen a pertenencia confirmada.",
+          "data_roles": [
+            "tamaño de la fila de bits",
+            "índices de escritura",
+            "índices de la consulta"
+          ]
+        },
+        {
+          "name": "Cambiar el criterio que recibe atención",
+          "relation": "qualitative-tradeoff",
+          "source_s": [
+            65.0,
+            74.6
+          ],
+          "anchor": "El pivote y los dos platillos se reconocen durante todo el gesto. Cada símbolo permanece unido a su platillo.",
+          "observations": [
+            "65,00–68,80 s. El travesaño pasa por la horizontal y baja hacia la derecha. El texto que corresponde al platillo derecho se agranda y gana color.",
+            "70,48–73,20 s. La inclinación se invierte. Baja el platillo izquierdo y el énfasis tipográfico pasa a su rótulo. A 74,60 s ambos rótulos recuperan una intensidad similar."
+          ],
+          "transfer": "Para explicar dos prioridades contrapuestas, reserva un lado para cada criterio. Desplaza los dos en sentidos opuestos alrededor de una referencia común y refuerza el criterio mencionado con el rótulo. Mantén visibles los dos términos al comparar.",
+          "limitation": "La fuente ilustra una disyuntiva cualitativa. El ángulo no mide una razón o probabilidad; las ponderaciones numéricas exigen una codificación a escala.",
+          "samples_s": [
+            65.0,
+            66.2,
+            67.6,
+            68.8,
+            70.48,
+            71.52,
+            73.2,
+            74.6
+          ],
+          "sample_frames": [
+            1625,
+            1655,
+            1690,
+            1720,
+            1762,
+            1788,
+            1830,
+            1865
+          ],
+          "data_roles": [
+            "par de criterios contrapuestos",
+            "término enfatizado por turno",
+            "orden de exposición"
+          ],
+          "url": "https://www.youtube.com/watch?v=V3pzxngeLqw&t=65s"
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "video_id": "UC5xf8FbdJc",
+      "title": "Back-Of-The-Envelope Estimation / Capacity Planning",
+      "url": "https://www.youtube.com/watch?v=UC5xf8FbdJc",
+      "original_sha256": "265c887b14d3e22a6b96737f6bd2111ec5f72069191fc55b98778a96966f4999",
+      "passages": [
+        {
+          "name": "De la carga total al tamaño de la flota",
+          "artifact": "staged-network",
+          "source_s": [
+            47,
+            55.5
+          ],
+          "anchor": "Servicio y capacidad unitaria quedan en la mitad izquierda; el nuevo balanceador es la bisagra del abanico hacia la columna derecha.",
+          "observations": [
+            "47 s: el servicio web recibe varias flechas a la izquierda; un único servidor con su capacidad ocupa la columna siguiente.",
+            "49–52 s: surge un balanceador en la mitad derecha y sus primeras ramas diagonales revelan servidores.",
+            "53–55 s: se completa la columna de servidores y queda visible el cociente de un millón de peticiones por segundo entre diez mil por servidor."
+          ],
+          "url": "https://www.youtube.com/watch?v=UC5xf8FbdJc&t=47s",
+          "relation": "fan-out",
+          "scene_id": "video-04-staged-network",
+          "transfer": "Presenta la carga total y la capacidad de una unidad con sus unidades. Relaciona la demanda con las unidades necesarias y conserva ambos números hasta que se lea el resultado.",
+          "limitation": "El cociente y su redondeo deben corresponder al modelo del usuario. Representa la incertidumbre si se trata de una estimación.",
+          "data_roles": [
+            "demanda total con unidad",
+            "capacidad de cada unidad",
+            "período de referencia"
+          ]
+        },
+        {
+          "name": "Revelar el pico y conservar su contexto",
+          "relation": "time-series-reveal",
+          "source_s": [
+            131.0,
+            144.0
+          ],
+          "anchor": "Una retícula vertical ya establecida conserva las posiciones de las muestras. La base del área y el valor del pico siguen en su sitio mientras avanza la lectura.",
+          "observations": [
+            "131,00–133,60 s. La retícula precede a las marcas de datos. Un frente avanza de izquierda a derecha y descubre los primeros puntos, después un máximo que contrasta con los anteriores.",
+            "135,40–141,00 s. Se revelan las observaciones posteriores sobre la misma escala. El pico y los primeros puntos quedan visibles. A 144,00 s se mantiene la serie completa."
+          ],
+          "transfer": "Para explicar cuándo sucedió un pico o cómo siguió una medida después, coloca desde el inicio el dominio temporal completo y la escala vertical. Revela en orden cronológico los valores observados, fija los puntos que ya entraron y reserva una pausa para comparar el máximo con el resto.",
+          "limitation": "La rejilla del original es ilustrativa. Usa los intervalos temporales y el dominio vertical de los datos reales, conserva los huecos y usa un área solo con una línea de base significativa.",
+          "samples_s": [
+            131.0,
+            132.6,
+            133.6,
+            135.4,
+            138.0,
+            141.0,
+            144.0
+          ],
+          "sample_frames": [
+            3275,
+            3315,
+            3340,
+            3385,
+            3450,
+            3525,
+            3600
+          ],
+          "data_roles": [
+            "fecha o instante ordenable",
+            "medida con unidad",
+            "dominio temporal",
+            "faltantes explícitos"
+          ],
+          "url": "https://www.youtube.com/watch?v=UC5xf8FbdJc&t=131s"
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "video_id": "7AMRfNKwuYo",
+      "title": "How Does Live Streaming Platform Work? (YouTube live, Twitch, TikTok Live)",
+      "url": "https://www.youtube.com/watch?v=7AMRfNKwuYo",
+      "original_sha256": "644cba1e123b2c2a26cf14964f245aefc505b87d865a7745b112574d8b7b88c4",
+      "passages": [
+        {
+          "name": "Cuatro versiones de una emisión",
+          "artifact": "staged-network",
+          "source_s": [
+            149,
+            166.5
+          ],
+          "anchor": "La cadena captura → entrada → transcodificación → empaquetado permanece arriba. Cada versión de abajo y su pantalla comparten coordenada horizontal incluso al desplazarse.",
+          "observations": [
+            "149–152 s: la captura y las tres etapas superiores ya están presentes; una flecha cae desde la transcodificación.",
+            "153–158 s: se ensancha el contenedor inferior; incorpora variantes y, por debajo, sus dispositivos de izquierda a derecha.",
+            "161–165 s: las cuatro resoluciones y cuatro pantallas terminan alineadas en dos filas."
+          ],
+          "url": "https://www.youtube.com/watch?v=7AMRfNKwuYo&t=149s",
+          "relation": "fan-out",
+          "scene_id": "video-05-staged-network",
+          "transfer": "Ancla el origen. Abre una columna por variante y conserva el enlace con su destinatario durante los reajustes de posición. Añade cada pareja sobre la misma línea de lectura.",
+          "limitation": "Cada pareja requiere una correspondencia observada. La geometría de las tarjetas no representa capacidad ni magnitud.",
+          "data_roles": [
+            "fuente",
+            "versiones de salida",
+            "destinatario real de cada versión"
+          ]
+        },
+        {
+          "name": "Separar una salida continua en unidades consecutivas",
+          "relation": "ordered-segmentation",
+          "source_s": [
+            193.36,
+            199.2
+          ],
+          "anchor": "La etapa activa permanece en el centro de la cadena superior. Una flecha que baja desde ella vincula la etapa con toda la tira de segmentos.",
+          "observations": [
+            "193,36–195,60 s. El panel de procesamiento ya está dibujado. De su etapa central sale la flecha y aparece el primer segmento numerado bajo el origen.",
+            "196,40–199,20 s. Se incorpora el segundo, el tercero y el cuarto por la derecha. La fila menudea desplazamientos a la izquierda para mantenerse bajo el origen. La numeración y las separaciones permiten conservar el orden."
+          ],
+          "transfer": "Para dividir una grabación, un cronograma o un lote en tramos ordenados, mantén el origen visible y añade los segmentos por el extremo de lectura. Recoloca la familia junta cuando crezca para que siga alineada con el origen y conserva las identidades ya visibles.",
+          "limitation": "Las tiras de la fuente tienen anchos ilustrativos. Si se comparan duraciones o longitudes, el ancho debe reflejar las mediciones reales.",
+          "samples_s": [
+            193.36,
+            194.2,
+            194.8,
+            195.6,
+            196.4,
+            197.2,
+            198.0,
+            199.2
+          ],
+          "sample_frames": [
+            4834,
+            4855,
+            4870,
+            4890,
+            4910,
+            4930,
+            4950,
+            4980
+          ],
+          "data_roles": [
+            "fuente o etapa de origen",
+            "segmentos en orden",
+            "etiqueta o intervalo de cada uno"
+          ],
+          "url": "https://www.youtube.com/watch?v=7AMRfNKwuYo&t=193s"
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "video_id": "EyMRZpgJUuc",
+      "title": "Why Is System Design Interview Important?",
+      "url": "https://www.youtube.com/watch?v=EyMRZpgJUuc",
+      "original_sha256": "8b742ae3e9bedc0e7073bc6321053c30b0c76ecf7dc8b3a5a50e919b7a31df11",
+      "passages": [
+        {
+          "name": "Tres rondas, tres tarjetas",
+          "artifact": "staged-network",
+          "source_s": [
+            13,
+            18.6
+          ],
+          "anchor": "Tres tarjetas de igual jerarquía se alinean por arriba y por abajo. La cuenta de cada ronda permanece anclada al centro de su tarjeta.",
+          "observations": [
+            "13.2–13.8 s: la primera tarjeta de código aparece bajo el encabezado; el ejemplo se escribe dentro.",
+            "14.4–15.6 s: se despliega una tarjeta de diseño y se dibujan pequeños nodos y enlaces.",
+            "15.6–16.2 s: aparece la ronda conductual con un interlocutor y una burbuja. A 18 s siguen las tres tarjetas, con el recuento bajo cada una."
+          ],
+          "url": "https://www.youtube.com/watch?v=EyMRZpgJUuc&t=13s",
+          "relation": "ordered-cards",
+          "scene_id": "video-06-staged-network",
+          "transfer": "Para rondas comparables, reserva una franja común y presenta una tarjeta por ronda. Mantén sus títulos y notas a la misma altura y conserva las tarjetas anteriores para compararlas.",
+          "limitation": "Para interpretar las tarjetas como secuencia hace falta un orden real. Los paneles paralelos pueden mostrar alternativas sin sugerir que una causa a otra.",
+          "data_roles": [
+            "rondas",
+            "nombre y contenido de cada una",
+            "orden mostrado"
+          ]
+        },
+        {
+          "name": "Comparar totales y aportes de varias categorías",
+          "relation": "stacked-category-comparison",
+          "source_s": [
+            58.4,
+            61.6
+          ],
+          "anchor": "Las cinco columnas se apoyan en el mismo cero. Tres componentes conservan su color, orden de apilado y correspondencia con la leyenda.",
+          "observations": [
+            "58,40–59,24 s. Aparecen las líneas de referencia y la primera columna. Los siguientes niveles entran con retraso de izquierda a derecha sobre las mismas posiciones categóricas.",
+            "59,68–61,60 s. Las cinco categorías ya ocupan sus plazas y las últimas alcanzan su altura final. El orden de los tres componentes se mantiene en todas las columnas."
+          ],
+          "transfer": "Cuando hay varias categorías con componentes aditivos y una unidad común, apila por categoría sobre un mismo cero. Introduce las categorías por turnos en el orden editorial y conserva la codificación del componente. Al terminar, permite comparar la altura total y la contribución de cada segmento.",
+          "limitation": "Los importes de la referencia son ilustrativos para el nuevo trabajo. Calcula las alturas desde los valores suministrados. Usa barras alineadas por componente si interesa comparar con precisión los segmentos interiores.",
+          "samples_s": [
+            58.4,
+            58.8,
+            59.24,
+            59.68,
+            60.08,
+            60.68,
+            61.6
+          ],
+          "sample_frames": [
+            1460,
+            1470,
+            1481,
+            1492,
+            1502,
+            1517,
+            1540
+          ],
+          "data_roles": [
+            "categoría",
+            "componente común",
+            "valor aditivo",
+            "unidad y misma base temporal"
+          ],
+          "url": "https://www.youtube.com/watch?v=EyMRZpgJUuc&t=58s"
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "video_id": "i7twT3x5yv8",
+      "title": "System Design Interview: A Step-By-Step Guide",
+      "url": "https://www.youtube.com/watch?v=i7twT3x5yv8",
+      "original_sha256": "abda3205f0853c2e0d1f424ac35918a4c6224a9ec3da677db2ee75cb3833b362",
+      "passages": [
+        {
+          "name": "El servidor incorpora tres clientes",
+          "artifact": "staged-network",
+          "source_s": [
+            286.2,
+            293.6
+          ],
+          "anchor": "Servidor fijo a la derecha. Tres clientes a la izquierda forman una columna; el cliente superior conserva líneas distintas para ida y vuelta.",
+          "observations": [
+            "286–288.8 s: el servidor aparece a la derecha; una línea se traza hacia el primer cliente y después otra vuelve al servidor.",
+            "290 s: una segunda conexión horizontal alcanza al cliente intermedio; empieza la diagonal inferior.",
+            "291.2–293.7 s: los tres clientes forman una columna, el servidor conserva su posición y la primera fila tiene ida y vuelta."
+          ],
+          "url": "https://www.youtube.com/watch?v=i7twT3x5yv8&t=286s",
+          "relation": "fan-in",
+          "scene_id": "video-07-staged-network",
+          "transfer": "Reserva una posición estable para el destino compartido, añade los orígenes en un orden legible y enlázalos sin variar su identidad. Si existe un retorno, dibuja su sentido por separado.",
+          "limitation": "Los recorridos de ida y vuelta requieren evidencia propia. En una confluencia unidireccional dibuja solo los aportes al destino.",
+          "data_roles": [
+            "orígenes",
+            "destino compartido",
+            "enlaces y dirección"
+          ]
+        },
+        {
+          "name": "Mostrar una ruta dentro del espacio de posibilidades",
+          "relation": "selected-route",
+          "source_s": [
+            99.92,
+            103.08
+          ],
+          "anchor": "El inicio se conserva a la izquierda. El límite de llegada está marcado mediante una vertical a la derecha. El eje inferior mantiene la relación entre el abanico y el tiempo.",
+          "observations": [
+            "99,92–101,24 s. Se extienden múltiples ramificaciones desde el origen hacia el mismo límite. La distancia horizontal disponible se lee bajo el abanico.",
+            "101,76–103,08 s. Una ruta continua de color distinto atraviesa las alternativas ya dibujadas y se marca su extremo. Permanecen visibles los otros ramales."
+          ],
+          "transfer": "Para explicar una ruta elegida entre itinerarios o decisiones, establece primero el conjunto de alternativas. Después recorre una sola ruta sin cambiar la topología ni las posiciones. Termina con un indicador inequívoco de destino.",
+          "limitation": "La dispersión vertical del original no codifica probabilidad. Si los datos solo contienen la ruta elegida, evita añadir desvíos que parezcan alternativas documentadas.",
+          "samples_s": [
+            99.92,
+            100.32,
+            100.76,
+            101.24,
+            101.76,
+            102.36,
+            103.08
+          ],
+          "sample_frames": [
+            2498,
+            2508,
+            2519,
+            2531,
+            2544,
+            2559,
+            2577
+          ],
+          "data_roles": [
+            "ramas permitidas",
+            "origen",
+            "ruta elegida como lista ordenada de aristas",
+            "destino"
+          ],
+          "url": "https://www.youtube.com/watch?v=i7twT3x5yv8&t=99s"
+        }
+      ]
+    },
+    {
+      "index": 8,
+      "video_id": "4rLW7zg21gI",
+      "title": "FANG Interview Question | Process vs Thread",
+      "url": "https://www.youtube.com/watch?v=4rLW7zg21gI",
+      "original_sha256": "ac923222173b20101f4760e5ed37bc965b2f071ca72e82ab6b171aa0a38ee625",
+      "passages": [
+        {
+          "name": "Tres hilos comparten el heap",
+          "artifact": "staged-network",
+          "source_s": [
+            107.08,
+            116.45
+          ],
+          "anchor": "Los marcos de los tres hilos y el heap se trasladan como hijos de un proceso. Registros y pila permanecen en su columna.",
+          "observations": [
+            "106.6–108 s: tres marcos hermanos se dibujan dentro de un proceso común. Cada hilo encierra registros arriba y una pila debajo.",
+            "109–111 s: el conjunto se mueve a la derecha para introducir a la izquierda una llave y la explicación del espacio de direcciones.",
+            "112–115.8 s: se señala primero el proceso y luego la banda de heap. Los registros y pilas permanecen dentro de sus hilos."
+          ],
+          "url": "https://www.youtube.com/watch?v=4rLW7zg21gI&t=107s",
+          "relation": "group-members",
+          "scene_id": "video-08-staged-network",
+          "transfer": "Agrupa los miembros en un mismo marco y conserva sus columnas. Representa el recurso compartido una sola vez en una banda común. Destácalo cuando se explique qué pertenece a todos.",
+          "limitation": "Distingue un recurso común de varios recursos equivalentes. Solo un identificador compartido justifica una única entidad en el dibujo.",
+          "data_roles": [
+            "grupo",
+            "identificadores de miembros",
+            "recurso común identificado"
+          ]
+        },
+        {
+          "name": "Conservar el dueño del turno mientras cambia la actividad",
+          "relation": "lane-handoff",
+          "source_s": [
+            130.0,
+            135.0
+          ],
+          "anchor": "Dos procesos conservan sus columnas a izquierda y derecha. Los instantes de interrupción se sitúan en filas comunes y los descensos de color se leen bajo su actor.",
+          "observations": [
+            "130,00–131,48 s. Se dibujan las guías horizontales. La primera marca vertical desciende bajo el proceso de la izquierda, y en la banda intermedia entra la explicación del cambio.",
+            "132,20–135,00 s. El siguiente tramo vertical se extiende bajo el proceso derecho y la anotación se repite más abajo. El último tramo vuelve a la columna izquierda. Las filas anteriores quedan visibles."
+          ],
+          "transfer": "Para enseñar relevos entre personas, equipos o procesos, asigna una columna fija a cada actor y una fila a cada evento. Extiende la actividad bajo quien toma el turno y reserva un espacio entre eventos para el motivo del relevo.",
+          "limitation": "Cuando solo se conoce el orden, usa escalones ordinales. Para comparar duración o tiempo inactivo hacen falta tiempos registrados y una escala temporal visible.",
+          "samples_s": [
+            130.0,
+            130.8,
+            131.48,
+            132.2,
+            133.0,
+            134.0,
+            135.0
+          ],
+          "sample_frames": [
+            3250,
+            3270,
+            3287,
+            3305,
+            3325,
+            3350,
+            3375
+          ],
+          "data_roles": [
+            "actor",
+            "evento ordenado",
+            "actor siguiente",
+            "motivo o estado de transición opcional"
+          ],
+          "url": "https://www.youtube.com/watch?v=4rLW7zg21gI&t=130s"
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "video_id": "j9QmMEWmcfo",
+      "title": "SSL, TLS, HTTPS Explained",
+      "url": "https://www.youtube.com/watch?v=j9QmMEWmcfo",
+      "original_sha256": "e99f45b35a7f9fcb9be67b453f46f11bf8455237161744a5d36aa1e26dfd2c68",
+      "passages": [
+        {
+          "name": "Tres mensajes entre cliente y servidor",
+          "artifact": "message-ladder",
+          "source_s": [
+            70,
+            77.1
+          ],
+          "anchor": "Dos columnas fijas identifican emisor y receptor. Cada nuevo mensaje ocupa una fila inferior y se lee en el sentido de la punta.",
+          "observations": [
+            "70–72 s: cliente y servidor ocupan dos columnas; debajo se inicia la primera flecha de izquierda a derecha.",
+            "74 s: la segunda flecha vuelve al emisor e indica SYN + ACK; la primera conserva su fila.",
+            "76–77 s: ACK completa el intercambio hacia la derecha. Más adelante se añade debajo la etapa de certificado."
+          ],
+          "url": "https://www.youtube.com/watch?v=j9QmMEWmcfo&t=70s",
+          "relation": "exchange",
+          "scene_id": "video-09-message-ladder",
+          "transfer": "Mantén fijas las columnas de los participantes y añade una fila por mensaje. Traza la flecha desde quien lo envía y deja un hueco ajustado a su rótulo.",
+          "limitation": "La distancia vertical expresa orden. Para medir tiempos entre mensajes usa marcas temporales reales y una escala visible.",
+          "data_roles": [
+            "participantes",
+            "orden de eventos",
+            "emisor y mensaje por fila"
+          ]
+        },
+        {
+          "name": "Relacionar la operación de ida con la de vuelta",
+          "relation": "mirrored-transformation",
+          "source_s": [
+            197.4,
+            212.8
+          ],
+          "anchor": "Un intercambio de dos columnas ocupa el centro. Los dos paneles laterales se alinean con la misma etapa. Los colores identifican los estados de la misma entidad en ambos lados.",
+          "observations": [
+            "197,40–200,20 s. Un panel punteado aparece a la izquierda del intercambio. Dentro de él un bloque amarillo se relaciona con otro rojo. El esquema central sigue reconocible.",
+            "202,60–207,40 s. Un indicio local acompaña la relación entre los estados. El panel izquierdo conserva la pareja y su orden.",
+            "210,20–212,80 s. Un segundo panel aparece a la derecha del intercambio. Repite las dos identidades en el orden opuesto, con el rojo a la entrada y el amarillo a la salida."
+          ],
+          "transfer": "Para comparar codificación y decodificación, conversión y reconversión, o estados de envío y recepción, ancla ambos paneles a la misma etapa. Repite el mismo símbolo para el estado que comparten y conserva en el segundo panel el orden real de la transformación de retorno.",
+          "limitation": "Representa una operación inversa solo cuando la relación de los datos lo permita. En conversiones con pérdidas, etiqueta explícitamente el estado recuperado.",
+          "samples_s": [
+            197.4,
+            198.8,
+            200.2,
+            202.6,
+            204.0,
+            207.4,
+            210.2,
+            212.8
+          ],
+          "sample_frames": [
+            4935,
+            4970,
+            5005,
+            5065,
+            5100,
+            5185,
+            5255,
+            5320
+          ],
+          "data_roles": [
+            "estado inicial",
+            "estado transmitido",
+            "estado recuperado",
+            "etapa común"
+          ],
+          "url": "https://www.youtube.com/watch?v=j9QmMEWmcfo&t=197s"
+        }
+      ]
+    },
+    {
+      "index": 10,
+      "video_id": "AlkDbnbv7dk",
+      "title": "What happens when you type a URL into your browser?",
+      "url": "https://www.youtube.com/watch?v=AlkDbnbv7dk",
+      "original_sha256": "c14e1c5b5af5418a1221a7df7ce654222203aa838416b913cfbdd83b2deb21d6",
+      "passages": [
+        {
+          "name": "Una dirección, cuatro partes",
+          "artifact": "detail-callout",
+          "source_s": [
+            31.5,
+            90
+          ],
+          "anchor": "Una línea une la acción del navegador con el ángulo inferior izquierdo de la ampliación. Las cuatro etiquetas siguen los centros de sus segmentos durante el retorno.",
+          "observations": [
+            "31–35 s: el usuario, el texto de la acción y el navegador ocupan el lado izquierdo. El detalle se abre al otro extremo de una línea diagonal.",
+            "38–72 s: el panel ampliado presenta la dirección en cuatro segmentos adyacentes, con guías verticales que se añaden de izquierda a derecha.",
+            "86–90 s: el panel se retrae hacia la esquina superior derecha; quedan en pantalla el detalle, la línea y el navegador."
+          ],
+          "url": "https://www.youtube.com/watch?v=AlkDbnbv7dk&t=31s",
+          "relation": "detail-callout",
+          "scene_id": "video-10-detail-callout",
+          "transfer": "Saca una copia ampliada de la expresión y conserva su conexión con el origen. Alinea cada fragmento con su explicación y devuelve la vista al conjunto si importa su procedencia.",
+          "limitation": "Las divisiones deben seguir el significado de la expresión. Respeta el orden original de los fragmentos.",
+          "data_roles": [
+            "expresión original",
+            "fragmentos en orden",
+            "explicación de cada fragmento"
+          ]
+        },
+        {
+          "name": "Acercarse al resultado y devolverlo a su posición en el mapa",
+          "relation": "context-focus-return",
+          "source_s": [
+            271.8,
+            293.4
+          ],
+          "anchor": "La ventana verde central mantiene su identidad, su número de paso y su relación con las conexiones vecinas durante el acercamiento y el retorno.",
+          "observations": [
+            "271,80–274,80 s. El mapa general ya incluye el navegador, servicios periféricos y las flechas numeradas. Las etiquetas que llegan al nodo principal se pueden ubicar en contexto.",
+            "275,80–277,60 s. El encuadre entra hasta el navegador y se escribe el resultado final dentro de la misma ventana. Varias conexiones permanecen reconocibles alrededor.",
+            "291,00–293,40 s. La cámara vuelve al mapa completo y la etiqueta del resultado sigue dentro de la ventana original."
+          ],
+          "transfer": "Si un mapa complejo culmina en un resultado local, conserva el objeto durante el acercamiento y deja leer el resultado en el propio nodo. Regresa al conjunto manteniendo la nueva marca cuando la conclusión dependa de saber dónde ocurrió.",
+          "limitation": "Conviene una única aproximación justificada. Si todos los valores deben compararse al mismo tiempo, conserva el encuadre y usa énfasis local.",
+          "samples_s": [
+            271.8,
+            272.8,
+            273.8,
+            274.8,
+            275.8,
+            277.6,
+            291.0,
+            293.4
+          ],
+          "sample_frames": [
+            6795,
+            6820,
+            6845,
+            6870,
+            6895,
+            6940,
+            7275,
+            7335
+          ],
+          "data_roles": [
+            "objeto o nodo de destino",
+            "mapa o contexto",
+            "resultado local",
+            "conexiones vecinas"
+          ],
+          "url": "https://www.youtube.com/watch?v=AlkDbnbv7dk&t=271s"
+        }
+      ]
+    },
+    {
+      "index": 11,
+      "video_id": "xbgzl2maQUU",
+      "title": "Algorithms You Should Know Before System Design Interviews",
+      "url": "https://www.youtube.com/watch?v=xbgzl2maQUU",
+      "original_sha256": "bfae15c6fef1b22b648fc136dac5fc54692f36d8bbe03706a59c24d6fa49f41a",
+      "passages": [
+        {
+          "name": "Prefijos que comparten ramas",
+          "artifact": "staged-network",
+          "source_s": [
+            212.92,
+            219.0
+          ],
+          "anchor": "La raíz sube desde el centro hasta la cuarta parte superior para ceder espacio a hojas de profundidades desiguales.",
+          "observations": [
+            "La raíz precede a dos ramas. La rama izquierda enlaza con un prefijo común y acaba en dos palabras. La derecha se bifurca una fila antes y conserva una terminal en la tercera fila.",
+            "En 215.52 s están apareciendo los dos nodos intermedios. En 217.00 s está la primera palabra terminal de la derecha. En 218.48 s se ven las cuatro palabras."
+          ],
+          "url": "https://www.youtube.com/watch?v=xbgzl2maQUU&t=212s",
+          "relation": "hierarchy",
+          "scene_id": "video-11-staged-network",
+          "transfer": "Presenta la raíz, abre las primeras ramas y revela después cada nivel. Mantén juntas las ramas que comparten un ancestro. Si el conjunto crece, mueve los conectores con sus nodos.",
+          "limitation": "Solo las relaciones padre–hijo identificadas justifican un árbol. Las relaciones con varios padres requieren otra disposición.",
+          "data_roles": [
+            "nodos",
+            "relaciones padre e hijo",
+            "identificador de raíz"
+          ]
+        },
+        {
+          "name": "Subdividir una superficie sin perder la referencia al conjunto",
+          "relation": "context-detail",
+          "source_s": [
+            108.0,
+            114.0
+          ],
+          "anchor": "El mapa pequeño conserva la división gruesa y la orientación del mapa que se amplía.",
+          "observations": [
+            "A 108,80 s, cuatro códigos ocupan cuatro cuadrantes de un único mapa centrado. A 110 s se distinguen dos copias que se separan lateralmente.",
+            "Entre 111 y 114 s la copia izquierda crece y muestra más celdas. La derecha sigue mostrando cuatro cuadrantes y una línea señala la correspondencia entre las dos vistas."
+          ],
+          "transfer": "Para zonas con un identificador de región y otro de subregión, conserva un mapa índice, abre al lado la subdivisión real y enlaza la región madre con su detalle. En una colección puede usarse la misma composición con una miniatura y un detalle identificado.",
+          "limitation": "Mantén la orientación y las correspondencias reales. El tamaño de la ampliación sirve para leer y requiere una escala explícita si se van a comparar distancias o áreas.",
+          "samples_s": [
+            108.0,
+            108.8,
+            109.4,
+            110.0,
+            111.0,
+            111.8,
+            112.8,
+            114.0
+          ],
+          "sample_frames": [
+            2700,
+            2720,
+            2735,
+            2750,
+            2775,
+            2795,
+            2820,
+            2850
+          ],
+          "data_roles": [
+            "región madre",
+            "subregiones con identificador",
+            "correspondencia entre mapa y detalle"
+          ],
+          "url": "https://www.youtube.com/watch?v=xbgzl2maQUU&t=108s"
+        }
+      ]
+    },
+    {
+      "index": 12,
+      "video_id": "f6zXyq4VPP8",
+      "title": "Top 5 Most Used Architecture Patterns",
+      "url": "https://www.youtube.com/watch?v=f6zXyq4VPP8",
+      "original_sha256": "37e127adefa24a10287d95081e12b956a8944a8d24a53b292fe4055eb30e27ee",
+      "passages": [
+        {
+          "name": "Tres productores y tres consumidores",
+          "artifact": "staged-network",
+          "source_s": [
+            85.92,
+            93.4
+          ],
+          "anchor": "Tres filas a cada lado de un corredor horizontal y un solo bus en la columna central.",
+          "observations": [
+            "El primer productor aparece por la izquierda y un trazo oblicuo alcanza el intermediario. Los tres productores ya tienen una conexión a los 89 s.",
+            "Los consumidores llegan por orden descendente entre 89 y 92 s. El intermediario permanece centrado mientras la red se abre por ambos lados."
+          ],
+          "url": "https://www.youtube.com/watch?v=f6zXyq4VPP8&t=85s",
+          "relation": "broadcast-bus",
+          "scene_id": "video-12-staged-network",
+          "transfer": "Conserva un canal intermedio entre ambos grupos. Conecta primero los emisores al canal y después el canal con los receptores. Deja legibles las dos funciones del intermediario.",
+          "limitation": "El canal requiere una entidad real en los datos. Una conexión directa debe conservar su trazado directo.",
+          "data_roles": [
+            "emisores",
+            "canal intermediario",
+            "receptores y sus conexiones"
+          ]
+        },
+        {
+          "name": "Revelar primero un nivel y luego las piezas que lo integran",
+          "relation": "containment",
+          "source_s": [
+            48.8,
+            55
+          ],
+          "anchor": "Tres bandas centradas guardan el orden vertical. Los enlaces se apoyan en las piezas interiores de cada banda.",
+          "observations": [
+            "A 48,80 s se lee una pieza en la primera banda. A 50 s hay dos piezas conectadas y debajo acaba de aparecer una banda vacía.",
+            "A 51,60 s el segundo contenedor ya tiene contenido y aparece el tercero. Entre 52,40 y 55 s el último se completa, con dos miembros y sus enlaces a otras bandas."
+          ],
+          "transfer": "Agrupa por departamento, nivel de servicio o fase usando un campo de pertenencia. Muestra la etiqueta del grupo antes de sus elementos. Traza el enlace cuando el espectador pueda identificar los extremos.",
+          "limitation": "El orden vertical debe proceder de los niveles reales. Las conexiones representan dependencias identificadas y no se deducen de la sola pertenencia.",
+          "samples_s": [
+            48.8,
+            49.4,
+            50.0,
+            50.8,
+            51.6,
+            52.4,
+            53.2,
+            54.0,
+            55.0
+          ],
+          "sample_frames": [
+            1220,
+            1235,
+            1250,
+            1270,
+            1290,
+            1310,
+            1330,
+            1350,
+            1375
+          ],
+          "data_roles": [
+            "grupos",
+            "elementos",
+            "pertenencia de cada elemento"
+          ],
+          "url": "https://www.youtube.com/watch?v=f6zXyq4VPP8&t=48s"
+        }
+      ]
+    },
+    {
+      "index": 13,
+      "video_id": "o-k7h2G3Gco",
+      "title": "How to Crack Any System Design Interview",
+      "url": "https://www.youtube.com/watch?v=o-k7h2G3Gco",
+      "original_sha256": "b974b45a4a76e7e37b59ba6c6a47aecc1667b3906d93aef740d6f8ca02a92d69",
+      "passages": [
+        {
+          "name": "Hitos que se van resolviendo",
+          "artifact": "staged-network",
+          "source_s": [
+            420.0,
+            434.4
+          ],
+          "anchor": "Un eje fijo ocupa el centro. La alternancia deja sitio a las seis etiquetas sin modificar su orden temporal.",
+          "observations": [
+            "A los 420 s se ve el eje horizontal. La punta avanza de izquierda a derecha. Al cruzar cada marca, crecen tallos cortos y rótulos, intercalados por encima y por debajo.",
+            "Los primeros dos rótulos se leen a 425.6 s. A 431.2 s se ve el sexto. El extremo y los seis hitos permanecen visibles al final."
+          ],
+          "url": "https://www.youtube.com/watch?v=o-k7h2G3Gco&t=420s",
+          "relation": "sequence",
+          "scene_id": "video-13-staged-network",
+          "transfer": "Sitúa los hitos en el orden observado sobre una línea compartida. Resuelve o destaca uno por turno y conserva una indicación de los que ya se completaron.",
+          "limitation": "Sin fechas, el espaciado expresa orden. Con fechas observadas, usa una escala temporal proporcionada.",
+          "data_roles": [
+            "hito",
+            "orden o fecha",
+            "estado de cumplimiento"
+          ]
+        },
+        {
+          "name": "Comparar dos soluciones con los mismos extremos y distinto interior",
+          "relation": "paired-comparison",
+          "source_s": [
+            252.32,
+            258.6
+          ],
+          "anchor": "En ambas alternativas el cliente ocupa la fila superior y los tres destinos la inferior. La diferencia se concentra en las filas intermedias.",
+          "observations": [
+            "De 252,32 a 254,80 s se completa la primera alternativa, desde el cliente hacia tres rutas y sus tres destinos.",
+            "Entre 254,80 y 257,40 s la primera composición deja espacio a la derecha y permanece a la vista. La segunda recibe su cliente, un acceso común y los tres destinos. A 258,60 s se pueden comparar a la misma altura."
+          ],
+          "transfer": "Al comparar dos maneras de entregar pedidos o tramitar solicitudes, empareja entidades equivalentes y conserva su fila. Termina primero una variante. Introduce la otra a su lado y lleva el acento al punto donde cambia el recorrido.",
+          "limitation": "Empareja solo entidades que cumplan la misma función. Las longitudes y los pasos dibujados no aportan por sí mismos mediciones de coste o velocidad.",
+          "samples_s": [
+            252.32,
+            253.0,
+            254.0,
+            254.8,
+            255.8,
+            256.6,
+            257.4,
+            258.6
+          ],
+          "sample_frames": [
+            6308,
+            6325,
+            6350,
+            6370,
+            6395,
+            6415,
+            6435,
+            6465
+          ],
+          "data_roles": [
+            "las dos alternativas",
+            "entidades o etapas equivalentes",
+            "paso en que difieren"
+          ],
+          "url": "https://www.youtube.com/watch?v=o-k7h2G3Gco&t=252s"
+        }
+      ]
+    },
+    {
+      "index": 14,
+      "video_id": "wAMc7NyL4tQ",
+      "title": "Our Recommended Materials For Cracking Your Next Tech Interview",
+      "url": "https://www.youtube.com/watch?v=wAMc7NyL4tQ",
+      "original_sha256": "b4c1993cdc60be210b38318953a4227e1f5e7dac7e641923c9e7d9d7bcf734f1",
+      "passages": [
+        {
+          "name": "Una categoría y tres recursos",
+          "artifact": "staged-network",
+          "source_s": [
+            24.0,
+            29.48
+          ],
+          "anchor": "El padre se sitúa sobre el hijo central y las dos salidas laterales comparten la altura del codo.",
+          "observations": [
+            "Tras pasar del tablero de categorías a una vista de detalle, una sola caja ocupa el centro superior.",
+            "Un conector baja, se divide en tres y alcanza tres recursos alineados. Los primeros dos iconos se perciben a 25.52 s; el tercero se completa aproximadamente a 27 s."
+          ],
+          "url": "https://www.youtube.com/watch?v=wAMc7NyL4tQ&t=24s",
+          "relation": "hierarchy",
+          "scene_id": "video-14-staged-network",
+          "transfer": "Fija la categoría madre y reparte sus ejemplos en una fila inferior. Conserva sus posiciones y nombres cuando introduzcas los vínculos de pertenencia.",
+          "limitation": "Una fila de ejemplos muestra pertenencia. Para cuantificar el reparto se necesita una medida común.",
+          "data_roles": [
+            "categoría madre",
+            "ejemplos",
+            "identificador de pertenencia"
+          ]
+        },
+        {
+          "name": "Construir una secuencia textual con tarjetas de igual jerarquía",
+          "relation": "ordered-cards",
+          "source_s": [
+            122.04,
+            126.12
+          ],
+          "anchor": "Las cuatro tarjetas comparten borde superior y mantienen la misma posición relativa del título y del texto.",
+          "observations": [
+            "A 122,04 s aparece la primera tarjeta centrada. Entre 123,12 y 124,28 s se añaden la segunda y la tercera por la derecha, mientras el conjunto se recoloca.",
+            "A 124,88 s la cuarta tarjeta aún está creciendo hacia abajo. A 126,12 s se pueden leer los cuatro términos juntos y en su orden original."
+          ],
+          "transfer": "Para una secuencia corta que tenga orden, nombre y explicación breve por etapa, revela cada tarjeta desde el mismo borde y conserva las anteriores. Usa alturas iguales una vez que el texto quede completo.",
+          "limitation": "Las tarjetas expresan la misma jerarquía editorial. Si el dato relevante es duración, cantidad o importancia, hace falta otra marca que codifique esa medida.",
+          "samples_s": [
+            122.04,
+            122.64,
+            123.12,
+            123.72,
+            124.28,
+            124.88,
+            125.48,
+            126.12
+          ],
+          "sample_frames": [
+            3051,
+            3066,
+            3078,
+            3093,
+            3107,
+            3122,
+            3137,
+            3153
+          ],
+          "data_roles": [
+            "etapas en orden",
+            "título",
+            "explicación breve de cada etapa"
+          ],
+          "url": "https://www.youtube.com/watch?v=wAMc7NyL4tQ&t=122s"
+        }
+      ]
+    },
+    {
+      "index": 15,
+      "video_id": "HHUi8F_qAXM",
+      "title": "How Does a URL Shortener Work?",
+      "url": "https://www.youtube.com/watch?v=HHUi8F_qAXM",
+      "original_sha256": "1ac2a6567f777bfbe72d1f520d118f19b77392d2c2c737a56520cbe1d38ba9f2",
+      "passages": [
+        {
+          "name": "División sucesiva y lectura inversa",
+          "artifact": "radix-ladder",
+          "source_s": [
+            194.4,
+            221.3
+          ],
+          "anchor": "El andamiaje de divisiones está fijo a la izquierda. Un residuo atraviesa la fila y se lee la lista de abajo arriba para formar la salida a la derecha.",
+          "observations": [
+            "La columna izquierda calcula 11157 ÷ 62, luego 179 ÷ 62 y por último 2 ÷ 62. La columna central conserva los residuos 59, 55 y 2.",
+            "La representación del último residuo llega primero al extremo derecho. Entre 215.6 y 215.8 s aparece 2, después T y finalmente X (visible a 219.6 s). El código final es 2TX."
+          ],
+          "url": "https://www.youtube.com/watch?v=HHUi8F_qAXM&t=194s",
+          "relation": "radix-ladder",
+          "scene_id": "video-15-radix-ladder",
+          "transfer": "Escribe las divisiones en orden y conserva el residuo de cada fila. Recorre los residuos en el orden necesario para obtener los símbolos y reúne la salida en una única posición estable.",
+          "limitation": "Calcula cada valor a partir del entero, base y alfabeto de entrada. Para otros algoritmos valida la dirección de lectura.",
+          "data_roles": [
+            "entero de entrada",
+            "base",
+            "alfabeto de símbolos"
+          ]
+        },
+        {
+          "name": "Añadir filas exactas hasta que una satisface la pregunta",
+          "relation": "progressive-table",
+          "source_s": [
+            91,
+            113
+          ],
+          "anchor": "Se mantienen el orden de las columnas, sus bordes horizontales y la alineación de los valores durante la expansión de la tabla.",
+          "observations": [
+            "A 91 s la tabla muestra encabezado y una fila. A 95 s contiene dos, y a 99 s se completa la tercera. El conjunto se recentra verticalmente al crecer.",
+            "Entre 104 y 106 s terminan de aparecer las siete filas. Tras sostener la tabla completa, hacia 113 s se perfila la última fila con otro color."
+          ],
+          "transfer": "Para límites de capacidad, precios escalonados o tamaños de muestra, ordena las filas por el campo pertinente. Escribe las cifras reales, añade las filas en ese orden y destaca la primera que cumpla el criterio solicitado.",
+          "limitation": "La fuente resalta la fila final de su ejemplo. En otros datos la fila elegida puede ser otra o ninguna. Todas las filas tienen igual altura aunque sus números difieran.",
+          "samples_s": [
+            91.0,
+            92.0,
+            95.0,
+            99.0,
+            102.0,
+            104.0,
+            106.0,
+            109.0,
+            113.0
+          ],
+          "sample_frames": [
+            2275,
+            2300,
+            2375,
+            2475,
+            2550,
+            2600,
+            2650,
+            2725,
+            2825
+          ],
+          "data_roles": [
+            "filas ordenadas",
+            "valor y unidad",
+            "umbral o condición de selección"
+          ],
+          "url": "https://www.youtube.com/watch?v=HHUi8F_qAXM&t=91s"
+        }
+      ]
+    },
+    {
+      "index": 16,
+      "video_id": "Dwt8R0KPu7k",
+      "title": "How Key value Stores Work (Redis, DynamoDB, Memcached)?",
+      "url": "https://www.youtube.com/watch?v=Dwt8R0KPu7k",
+      "original_sha256": "049979faf1d6ab6bf6107bb57ed3cd31d5237bd14d39bda67b1d670637bebdfb",
+      "passages": [
+        {
+          "name": "Una clave selecciona un solo nodo",
+          "artifact": "staged-network",
+          "source_s": [
+            54.64,
+            64.8
+          ],
+          "anchor": "La fila y el servicio se desplazan juntos hacia la derecha para hacer sitio a la clave que entra por la izquierda. El cableado sigue a cada componente.",
+          "observations": [
+            "Los cuatro almacenes y la bifurcación ya ocupan el encuadre. La clave cruza una función de hash en la mitad superior. Aparece la operación 99 % 4 = 3.",
+            "El destino 3, el cuarto cilindro desde la izquierda, se ilumina al final entre 63 y 64.2 s. Durante la lectura se mantiene visible el conjunto completo."
+          ],
+          "url": "https://www.youtube.com/watch?v=Dwt8R0KPu7k&t=54s",
+          "relation": "selected-route",
+          "scene_id": "video-16-staged-network",
+          "transfer": "Conserva todas las alternativas visibles mientras una clave entra y determina un destino. Mueve juntas las alternativas si hace falta sitio para el cálculo. Destaca únicamente el destino resultante.",
+          "limitation": "La elección debe proceder de la correspondencia o regla suministrada. Mantén visibles como ejemplos aquellas decisiones que carezcan de datos.",
+          "data_roles": [
+            "clave",
+            "alternativas posibles",
+            "regla o correspondencia de destino"
+          ]
+        },
+        {
+          "name": "Seguir dos versiones hasta una operación común",
+          "relation": "merge-lineage",
+          "source_s": [
+            247,
+            264
+          ],
+          "anchor": "Los dos emisores conservan su orden izquierda-derecha. Las etiquetas de versiones permanecen junto al participante que las recibe, y la combinación aparece en una fila inferior.",
+          "observations": [
+            "A 249 s se ve una primera versión en el participante izquierdo. A 251 s una línea hacia el segundo transporta una etiqueta y a 255 s se distinguen dos entradas bajo el participante derecho.",
+            "Entre 257 y 259 s se añade un recorrido en el sentido inverso. A 261 s aparece la fila de combinación. A 264 s se resaltan dentro de esa misma fila las dos etiquetas de procedencia."
+          ],
+          "transfer": "Para reconciliar dos ediciones de un documento o dos registros de una operación, conserva los identificadores originales junto a cada lado. Lleva ambos a la fila de resultado y destaca cada valor al mencionarlo.",
+          "limitation": "El valor combinado depende de la regla de conciliación. Si la decisión todavía está abierta, conserva las versiones y rotula la decisión pendiente.",
+          "samples_s": [
+            247.0,
+            249.0,
+            251.0,
+            253.0,
+            255.0,
+            257.0,
+            259.0,
+            261.0,
+            264.0
+          ],
+          "sample_frames": [
+            6175,
+            6225,
+            6275,
+            6325,
+            6375,
+            6425,
+            6475,
+            6525,
+            6600
+          ],
+          "data_roles": [
+            "identificadores de las versiones",
+            "origen de cada cambio",
+            "resultado de la conciliación"
+          ],
+          "url": "https://www.youtube.com/watch?v=Dwt8R0KPu7k&t=247s"
+        }
+      ]
+    },
+    {
+      "index": 17,
+      "video_id": "jWRW2xGMqSw",
+      "title": "System Design: Design YouTube",
+      "url": "https://www.youtube.com/watch?v=jWRW2xGMqSw",
+      "original_sha256": "cdfe3507afc56cd79b9779f84849b2c4b66d204f625647341bcad6872ba31b31",
+      "passages": [
+        {
+          "name": "Un original, siete resoluciones",
+          "artifact": "resolution-fan",
+          "source_s": [
+            157.8,
+            165.8
+          ],
+          "anchor": "La alineación final de las esquinas inferiores izquierdas y las bandas escalonadas mantienen visibles los siete rótulos.",
+          "observations": [
+            "Una fuente de vídeo permanece a la izquierda mientras siete trayectorias alcanzan las esquinas superiores izquierdas de siete paneles. Los formatos se incorporan de mayor a menor.",
+            "Cada panel crece en ancho y alto desde su propia esquina superior izquierda y termina en la misma línea inferior. A 158.4 s aún crece el primero, a 159.4 s el segundo y a 164.4 s el último."
+          ],
+          "url": "https://www.youtube.com/watch?v=jWRW2xGMqSw&t=157s",
+          "relation": "resolution-fan",
+          "scene_id": "video-17-resolution-fan",
+          "transfer": "Fija la fuente y revela cada versión con su conexión. Alinea los rectángulos por una misma esquina para que el orden sea comparable y el nombre de cada versión siga visible.",
+          "limitation": "Las dimensiones del ejemplo son ordinales. Un encargo sobre tamaño real exige escalar anchura y altura desde las medidas.",
+          "data_roles": [
+            "original",
+            "variantes ordenadas",
+            "resolución o dimensión de cada versión"
+          ]
+        },
+        {
+          "name": "Marcar fronteras antes de separar los grupos",
+          "relation": "partition-sequence",
+          "source_s": [
+            222,
+            233.4
+          ],
+          "anchor": "Dos hileras horizontales permanecen alineadas. Una marca de frontera atraviesa ambas a la misma altura de su eje de lectura.",
+          "observations": [
+            "Entre 223 y 225,60 s se forman cuatro divisiones verticales identificadas en 2, 6, 12 y 22. Las filas de pequeños bloques siguen continuas mientras aparecen las marcas.",
+            "Entre 228,40 y 233,40 s se colorean los tramos y se abren huecos entre ellos. Las dos hileras se separan en los mismos sitios y se conserva el orden de los bloques."
+          ],
+          "transfer": "Con índices ordenados de una serie y fronteras de episodio o lote, traza primero las fronteras validadas. Luego separa juntas las pistas que comparten esas fronteras. Mantén la identificación de los grupos al introducir espacio.",
+          "limitation": "Una separación editorial agrega hueco visual. Conserva los valores de los límites y usa un eje continuo si el espectador tiene que medir tiempo o distancia exactos.",
+          "samples_s": [
+            222.0,
+            223.0,
+            224.0,
+            225.6,
+            227.0,
+            228.4,
+            230.0,
+            232.0,
+            233.4
+          ],
+          "sample_frames": [
+            5550,
+            5575,
+            5600,
+            5640,
+            5675,
+            5710,
+            5750,
+            5800,
+            5835
+          ],
+          "data_roles": [
+            "pistas ordenadas",
+            "índices o marcas de tiempo",
+            "fronteras comunes a las pistas"
+          ],
+          "url": "https://www.youtube.com/watch?v=jWRW2xGMqSw&t=222s"
+        }
+      ]
+    },
+    {
+      "index": 18,
+      "video_id": "okrR1KXNLtA",
+      "title": "FAANG System Design Interview: Design A Chat System (WhatsApp, Facebook Messenger, Discord, Slack)",
+      "url": "https://www.youtube.com/watch?v=okrR1KXNLtA",
+      "original_sha256": "4fc84405ce4410eea90ff1f124f443f52b2858296f1f6cc5f15844d86a7a7488",
+      "passages": [
+        {
+          "name": "Un mensaje, muchos destinatarios",
+          "artifact": "staged-network",
+          "source_s": [
+            338.64,
+            342.0
+          ],
+          "anchor": "El servidor comparte altura con el emisor y el segundo receptor. La última salida desciende casi en vertical.",
+          "observations": [
+            "El emisor y un mensaje ocupan la izquierda. A los 339.6 s ya entra el servidor en la misma fila. Aparece un abanico de rutas con varios ángulos desde ese servidor.",
+            "Se distinguen los usuarios 2 a 5 en la columna de la derecha y el 100 en el extremo inferior. La animación condensa la multitud de receptores intermedios antes del cambio de escena a 342.24 s."
+          ],
+          "url": "https://www.youtube.com/watch?v=okrR1KXNLtA&t=338s",
+          "relation": "fan-out",
+          "scene_id": "video-18-staged-network",
+          "transfer": "Presenta el emisor y el intermediario documentado, después abre las conexiones a los destinatarios de uno en uno. Conserva el origen y la trayectoria común mientras se incorporan los destinos.",
+          "limitation": "Solo deben dibujarse destinatarios presentes en los datos. Si se resume una lista con puntos suspensivos, identifica el total real.",
+          "data_roles": [
+            "emisor",
+            "destinatarios concretos",
+            "conexiones documentadas"
+          ]
+        },
+        {
+          "name": "Distinguir un aviso periódico del estado que queda registrado",
+          "relation": "repeated-event",
+          "source_s": [
+            382,
+            391
+          ],
+          "anchor": "El participante está a la izquierda y el receptor a la derecha. La marca periódica recorre el enlace. El registro se lee junto al receptor.",
+          "observations": [
+            "A 382 s ya existe la conexión. Entre 384 y 387 s, aparece un reloj rotulado y un globo «ping» avanza de izquierda a derecha.",
+            "A 388 s el globo ya ha vuelto al lado emisor para otro recorrido. Entre 389 y 391 s se mantiene visible junto al receptor el usuario y el tiempo del último aviso."
+          ],
+          "transfer": "Para entregas periódicas de un sensor, comprobaciones de disponibilidad o avisos de llegada, distingue visualmente el evento en tránsito de la última observación confirmada. Ancla el sello de tiempo al destinatario.",
+          "limitation": "El reloj de 30 s de la fuente está comprimido en el montaje. Para comunicar cadencia o latencia medidas, conserva los tiempos de los datos y publica la escala temporal.",
+          "samples_s": [
+            382.0,
+            383.0,
+            384.0,
+            385.0,
+            386.0,
+            387.0,
+            388.0,
+            389.0,
+            390.0,
+            391.0
+          ],
+          "sample_frames": [
+            9550,
+            9575,
+            9600,
+            9625,
+            9650,
+            9675,
+            9700,
+            9725,
+            9750,
+            9775
+          ],
+          "data_roles": [
+            "evento periódico",
+            "instante o intervalo observado",
+            "último estado confirmado"
+          ],
+          "url": "https://www.youtube.com/watch?v=okrR1KXNLtA&t=382s"
+        }
+      ]
+    },
+    {
+      "index": 19,
+      "video_id": "YXkOdWBwqaA",
+      "title": "Rate Limiter System Design: Token Bucket, Leaky Bucket, Scaling",
+      "url": "https://www.youtube.com/watch?v=YXkOdWBwqaA",
+      "original_sha256": "5b2cf2964074b38510a10d74b8fda39a5f11b77930ddec3669f12f2bac766996",
+      "passages": [
+        {
+          "name": "Una ficha admite la primera solicitud",
+          "artifact": "token-gate",
+          "source_s": [
+            200.0,
+            208.5
+          ],
+          "anchor": "El mismo punto de decisión bifurca la trayectoria según el saldo disponible. Cada solicitud admitida consume una sola ficha.",
+          "observations": [
+            "Primero se identifica el cubo y después aparece la alimentación desde arriba. La bandeja de entrada queda a la izquierda, el rombo bajo el cubo y las dos salidas a la derecha y debajo.",
+            "La primera cápsula alcanza el centro a 205.04 s y sale a la derecha cerca de 206.00 s. La segunda pasa por el mismo centro a 207.28 s, cae y cambia de tono alrededor de 207.92 s."
+          ],
+          "url": "https://www.youtube.com/watch?v=YXkOdWBwqaA&t=200s",
+          "relation": "token-gate",
+          "scene_id": "video-19-token-gate",
+          "transfer": "Mantén el punto de decisión fijo. Haz llegar cada solicitud, actualiza el saldo visible cuando se admite y separa la salida de rechazo cuando se agota el cupo.",
+          "limitation": "El saldo inicial, las entradas y las salidas deben coincidir con la secuencia o el modelo que el usuario suministra.",
+          "data_roles": [
+            "capacidad inicial",
+            "solicitudes ordenadas",
+            "consumo o reposición por evento"
+          ]
+        },
+        {
+          "name": "Relacionar eventos discretos, contador y umbral por intervalo",
+          "relation": "count-threshold",
+          "source_s": [
+            76,
+            84
+          ],
+          "anchor": "Los eventos se apilan sobre su intervalo temporal. La leyenda y el contador ocupan una columna lateral estable.",
+          "observations": [
+            "A 76 s aparece la primera solicitud y a 77,20 s ya se leen tres solicitudes en la primera ventana. En 80,80 s comienza una segunda pila mientras la primera permanece visible.",
+            "Entre 81,68 y 82,72 s la segunda pila salta de los primeros números al entorno del umbral, marcado en 100. A 84 s se leen 101, 102 y 103 en el grupo superior y un contador de 103 a la derecha."
+          ],
+          "transfer": "Para cuotas, aforos o plazas, crea una columna por ventana observada, conserva el límite y actualiza el contador al recibir cada evento. Codifica cada estado con una etiqueta o leyenda y señala las omisiones si comprimes una lista extensa.",
+          "limitation": "La fuente usa puntos suspensivos en una pila larga. Al omitir elementos, la altura deja de representar el total exacto. Conserva la cifra o usa una barra a escala cuando se comparen volúmenes.",
+          "samples_s": [
+            76.0,
+            77.2,
+            78.8,
+            80.0,
+            80.8,
+            81.2,
+            81.68,
+            82.0,
+            82.72,
+            83.2,
+            84.0
+          ],
+          "sample_frames": [
+            1900,
+            1930,
+            1970,
+            2000,
+            2020,
+            2030,
+            2042,
+            2050,
+            2068,
+            2080,
+            2100
+          ],
+          "data_roles": [
+            "eventos con tiempo",
+            "ventanas de conteo",
+            "límite y unidad"
+          ],
+          "url": "https://www.youtube.com/watch?v=YXkOdWBwqaA&t=76s"
+        }
+      ]
+    },
+    {
+      "index": 20,
+      "video_id": "6u25GckPhLU",
+      "title": "Design a Web Crawler: FAANG Interview Question",
+      "url": "https://www.youtube.com/watch?v=6u25GckPhLU",
+      "original_sha256": "a04996c382b9bcc2a8128ed09485e71250c2384c51c50170270b35b876a424b4",
+      "passages": [
+        {
+          "name": "Tres colas de prioridad ante un selector",
+          "artifact": "queue-router",
+          "source_s": [
+            170.12,
+            191.52
+          ],
+          "anchor": "La misma columna de tres colas está entre una bifurcación de entrada y una convergencia de salida.",
+          "observations": [
+            "Un priorizador aislado abre primero la rama superior. De 171.36 a 172.12 s se acumulan las primeras tarjetas. Siguen las colas intermedia e inferior hasta disponer de tres pilas en una columna.",
+            "El conjunto deja espacio a las entradas a la izquierda y tres criterios transitorios cerca de la cola superior. Al desaparecer esos criterios, las tres salidas alcanzan un selector a la derecha entre 188.16 y 189.92 s."
+          ],
+          "url": "https://www.youtube.com/watch?v=6u25GckPhLU&t=170s",
+          "relation": "queue-router",
+          "scene_id": "video-20-queue-router",
+          "transfer": "Sitúa un clasificador antes de las colas y el selector de salida después. Revela primero dónde espera cada clase. Introduce el selector al explicar cómo se decide lo siguiente.",
+          "limitation": "Las pilas ilustrativas indican clases. Para comparar longitudes de cola o tiempos de espera usa sus medidas reales.",
+          "data_roles": [
+            "trabajos",
+            "clases de prioridad",
+            "regla de selección"
+          ]
+        },
+        {
+          "name": "Distinguir dos criterios aplicados al mismo problema",
+          "relation": "paired-criteria",
+          "source_s": [
+            220,
+            229.6
+          ],
+          "anchor": "Los encabezados de las dos columnas permanecen alineados y separados. Cada columna tiene su propio ejemplo y operación debajo.",
+          "observations": [
+            "A 221,20 s se leen los dos encabezados sobre un espacio todavía vacío. Entre 223,60 y 224,80 s aparecen los símbolos y las entradas que corresponden a cada columna.",
+            "A 226,40 s se repite una dirección en la izquierda. A 229,60 s la lista ha quedado reducida a dos direcciones, mientras en la derecha permanecen a la vista las páginas y el signo de resumen."
+          ],
+          "transfer": "Para comparar igualdad por identificador e igualdad por contenido, coloca el criterio arriba y una muestra de entrada y su operación debajo. Mantén simultáneamente visibles ambos criterios al mostrar qué se agrupa en cada caso.",
+          "limitation": "Las agrupaciones proceden de los campos o reglas de equivalencia del usuario. El dibujo original de documentos junto al signo de resumen no permite inferir una tasa cuantificada de coincidencias.",
+          "samples_s": [
+            220.0,
+            221.2,
+            222.0,
+            222.8,
+            223.6,
+            224.8,
+            226.4,
+            228.0,
+            229.6
+          ],
+          "sample_frames": [
+            5500,
+            5530,
+            5550,
+            5570,
+            5590,
+            5620,
+            5660,
+            5700,
+            5740
+          ],
+          "data_roles": [
+            "identificador de cada entidad",
+            "contenido observable",
+            "criterios de igualdad"
+          ],
+          "url": "https://www.youtube.com/watch?v=6u25GckPhLU&t=220s"
+        }
+      ]
+    }
+  ]
+}

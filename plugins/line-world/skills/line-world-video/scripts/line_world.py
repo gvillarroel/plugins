@@ -10,10 +10,13 @@ import argparse
 import copy
 import json
 import math
+import os
 import re
 import shutil
+import subprocess
 import sys
 import hashlib
+import tempfile
 from pathlib import Path
 from atlas_story import DEFAULT_ATLAS, coverage, validate_atlas
 from attention_contract import DEFAULT_ATTENTION, validate_attention
@@ -85,8 +88,16 @@ def validate(raw):
     if len(lengths) != 1:
         raise ValueError("All histories must have the same observation count.")
     copy_values = story.get("copy", {})
-    for key in DEFAULT["copy"]:
-        if not isinstance(copy_values.get(key), str) or not copy_values[key].strip():
+    if not isinstance(copy_values, dict):
+        raise ValueError("copy must be an object.")
+    optional_copy = {
+        "before": "Before", "after": "After", "synthetic": "illustrative",
+        "observe": "Observe", "select": "Select", "relate": "Relate",
+        "compare": "Compare", "explain": "Explain",
+    }
+    story["copy"] = {**optional_copy, **copy_values}
+    for key in (*DEFAULT["copy"], *optional_copy):
+        if not isinstance(story["copy"].get(key), str) or not story["copy"][key].strip():
             raise ValueError(f"copy.{key} must be a nonempty string.")
     presentation = story.setdefault("presentation", {})
     if not isinstance(presentation, dict):
@@ -217,9 +228,77 @@ def build(project):
     return {"ok": True, "project": str(project), "duration": story["duration"], "frameCount": round(story["duration"] * story["fps"]), "palette": story["palette"]}
 
 
+def from_brief(request, project):
+    """Turn a viewer question and its records into a specialist handoff or a verified movie."""
+    request = request.resolve(strict=True)
+    producer = SKILL.parent / "reference-motion" / "scripts"
+    adapter = producer / "adapt_motion.py"
+    if not adapter.is_file():
+        raise ValueError("Run from-brief from the installed line-world plugin so its reference-motion producer is available.")
+    project.mkdir(parents=True, exist_ok=True)
+    direction, recipe, movie, qa = "direction.json", "scene.json", "scene.mp4", "scene.qa.json"
+    def check_destinations(names):
+        occupied = [name for name in names if (project / name).exists()]
+        if occupied:
+            raise ValueError("Choose an output directory with unused scene paths: " + ", ".join(occupied))
+    check_destinations([direction])
+    with tempfile.TemporaryDirectory(dir=project, prefix=".line-world-") as temporary:
+        stage = Path(temporary)
+        def run(command):
+            process = subprocess.run(command, cwd=stage, capture_output=True,
+                                     env={**os.environ, "PYTHONIOENCODING": "utf-8"})
+            if process.returncode:
+                diagnostic = (process.stderr or process.stdout).decode("utf-8", errors="replace").strip()
+                raise ValueError(diagnostic or f"Producer exited with code {process.returncode}")
+        run([sys.executable, str(adapter), str(request), "--out", recipe, "--report", direction])
+        report = json.loads((stage / direction).read_text(encoding="utf-8-sig"))
+        status = report["status"]
+        if status not in {"recipe", "specialist", "static", "needs-input"}:
+            raise ValueError(f"Unknown adaptation status: {status}")
+        outputs = [direction]
+        cue_status=report.get("narration",{}).get("status")
+        if status == "recipe" and cue_status!="handoff":
+            outputs.extend([recipe, movie, qa])
+            check_destinations(outputs)
+            run(["uv", "run", "--script", str(producer / "generate_motion.py"),
+                 "render", recipe, movie, "--report", qa])
+            if cue_status=="bound":
+                voice=json.loads(request.read_text(encoding="utf-8-sig"))["narration"]
+                if voice.get("audio"):
+                    from narration_track import attach
+                    attach(stage/movie,stage/qa,voice,request.parent)
+        elif status == "specialist" and cue_status!="handoff" and report.get("producer") == "line-world-d3" and report.get("d3_chart"):
+            outputs.extend(["data.json", "scene.html", "d3.min.js", "D3-LICENSE.txt",
+                            "scene.svg", "scene.png", movie, qa])
+            check_destinations(outputs)
+            chart = ["uv", "run", "--script", str(SKILL.parent / "line-world-d3/scripts/video_chart.py")]
+            chart_input = dict(report["d3_chart"])
+            if chart_input.get("kind") == "time-series":
+                chart_input.setdefault("revealObservations", True)
+            write_json(stage / "chart-input.json", chart_input)
+            run([*chart, "build", "--data", "chart-input.json", "--project", "."])
+            run([*chart, "export", "--project", ".", "--width", "1280", "--height", "720",
+                 "--svg", "scene.svg", "--screenshot", "scene.png", "--mp4", movie, "--receipt", qa])
+        published = []
+        try:
+            for name in outputs:
+                target = project / name
+                with (stage / name).open("rb") as source, target.open("xb") as dest:
+                    published.append(target)
+                    shutil.copyfileobj(source, dest)
+        except BaseException:
+            for target in published:
+                target.unlink()
+            raise
+    return {"status": status, "producer": report.get("producer"), "direction": str(project / direction),
+            "movie": str(project / movie) if movie in outputs else None,
+            "outputs": [str(path) for path in published]}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command", choices=("init", "build", "validate", "update"))
+    parser.add_argument("command", choices=("init", "build", "validate", "update", "from-brief"))
+    parser.add_argument("request", nargs="?", type=Path, help="from-brief input with the viewer question and source data.")
     parser.add_argument("--project", type=Path, required=True)
     parser.add_argument("--story", type=Path)
     parser.add_argument("--patch", type=Path, help="JSON merge patch for update; arrays replace complete arrays.")
@@ -227,6 +306,13 @@ def main():
     args = parser.parse_args()
     project = args.project.resolve()
     try:
+        if args.command == "from-brief":
+            if not args.request:
+                raise ValueError("from-brief requires the input request JSON.")
+            print(json.dumps(from_brief(args.request, project), ensure_ascii=False))
+            return 0
+        if args.request:
+            raise ValueError("The positional input request belongs to from-brief.")
         if args.command=='update':
             if not args.patch:raise ValueError('update requires --patch.')
             print(json.dumps(update(project,json.loads(args.patch.read_text(encoding='utf-8-sig'))),ensure_ascii=False));return 0

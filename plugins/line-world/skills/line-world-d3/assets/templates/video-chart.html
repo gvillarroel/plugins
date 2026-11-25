@@ -217,7 +217,10 @@ function drawTimeline(g,{h,pad,right,top,mobile,scale,tiny,body}) {
     });
     text(g,pad,chartBottom+70*scale,"×  "+missing,tiny,{color:palette.muted});
   }
-  const reveal=Math.max(.01,Math.min(2.2,data.duration/3));
+  const progressive=data.revealObservations===true;
+  const reveal=progressive ? data.duration*.65 : Math.min(2.2,data.duration/3);
+  const datedMarks=plot.selectAll(".observation,.missing");
+  let presented=-1;
   const dateRail=rule(plot,left,chartBottom+2*scale,left,chartBottom+2*scale,palette.muted,2*scale)
     .attr("data-motion-track","date-progress");
   const cursor=plot.append("path").attr("data-motion-track","date-cursor").attr("fill",palette.red)
@@ -225,14 +228,22 @@ function drawTimeline(g,{h,pad,right,top,mobile,scale,tiny,body}) {
   paint=t=>{
     const u=Math.min(1,t/reveal), eased=u*u*(3-2*u), pos=left+(right-left)*eased;
     const current=x.invert(pos), i=Math.max(0,d3.bisector(d=>d.utc).right(obs,current)-1);
+    if(progressive && i!==presented){
+      const record=obs[i];
+      datedMarks.attr("visibility",function(){return this.dataset.date<=record.date ? null : "hidden";});
+      value.attr("font-size",valueSize).text(fmt(record.value));
+      fitTitle(value,right-pad,valueSize,body);
+      date.text(fullDate.format(record.utc));
+      presented=i;
+    }
     const drawing=obs[i].value!==null && obs[i+1]?.value!=null;
     const previous=values[d3.bisector(d=>d.utc).right(values,current)-1];
     const traceX=drawing||u===1?pos:previous?x(previous.utc):left;
     clip.attr("width",6*scale+(traceX-left)+(u===1?6*scale:0));
     dateRail.attr("x2",pos);
     cursor.attr("transform",`translate(${pos} ${chartBottom+9*scale})`);
-    return {selectedId:data.id||"series",value:last.value,holdSeconds:data.duration-reveal,
-      guideRadius:0,reveal:eased,lastObservedDate:lastValue.date,focusPoint:[pos,chartBottom],
+    return {selectedId:data.id||"series",value:progressive?obs[i].value:last.value,holdSeconds:data.duration-reveal,
+      guideRadius:0,reveal:eased,lastObservedDate:progressive ? (previous?.date??null) : lastValue.date,focusPoint:[pos,chartBottom],
       phase:t<reveal?"emphasis":"reading", tracks:[
         {id:"series-trace",target:data.id||"series",active:t<reveal&&drawing,progress:(traceX-left)/(right-left)},
         {id:"date-progress",target:data.id||"series",active:t<reveal,progress:eased},

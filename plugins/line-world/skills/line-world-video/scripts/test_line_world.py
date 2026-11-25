@@ -15,6 +15,20 @@ from atlas_story import DEFAULT_ATLAS, partition_check, validate_atlas, coverage
 
 
 class StoryContract(unittest.TestCase):
+    def test_linked_starter_localizes_comparison_copy(self):
+        self.assertEqual(validate(DEFAULT)["copy"]["before"], "Before")
+        raw = copy.deepcopy(DEFAULT)
+        labels = {
+            "before": "Antes", "after": "Después", "synthetic": "datos sintéticos",
+            "observe": "Observar", "select": "Elegir", "relate": "Relacionar",
+            "compare": "Comparar", "explain": "Explicar",
+        }
+        raw["copy"].update(labels)
+        self.assertEqual({key: validate(raw)["copy"][key] for key in labels}, labels)
+        raw["copy"]["after"] = ""
+        with self.assertRaisesRegex(ValueError, "copy.after"):
+            validate(raw)
+
     def test_video_palettes_put_red_first_and_black_last(self):
         palettes=json.loads((Path(__file__).resolve().parent.parent/'assets/palettes/video-colors.json').read_text())
         for palette in palettes['colorsets'].values():

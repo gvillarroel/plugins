@@ -5,7 +5,13 @@ description: Direct an explanatory Line World sequence around one persistent sub
 
 # Dirección de movimiento
 
+Para una demostración matemática identifica qué relación debe reconocer el espectador en la pose final. El [estudio de 3Blue1Brown](../reference-motion/references/3blue1brown.md) vincula ejemplos observados con composiciones para magnitudes, construcciones e invariantes. En un plano con voz, elige si la frase presenta el problema, nombra la operación o interpreta el resultado.
+
+En planos con voz, contrasta la pose anterior a una mención, el gesto que la acompaña y el resultado legible. Usa marcas de la voz de destino y consulta los [40 pasajes con poses y menciones medidas](../reference-motion/references/poses-y-menciones.md) para elegir entre anticipar una figura, seguir un verbo o volver a destacar un elemento existente.
+
 Escribe qué debe entender el espectador al final y elige el sujeto al que seguirá. En este productor el sujeto permanece identificado en la misma posición durante toda la secuencia. La composición reserva la otra zona de pantalla para demostrar el cambio.
+
+Para dirigir datos nuevos, consulta la [guía de transferencia de composición](../reference-motion/references/transferir-composicion.md). Por ejemplo, si una pieza pasa entre dos estaciones, conserva la identidad de la pieza en el trayecto y mueve el estado de la estación receptora cuando llega. Si el dato es la duración de cada traslado, conserva las estaciones como referencia y representa las duraciones en una escala común. Adapta `cue`, `move` y `hold` al recorrido y al tiempo de lectura de este plano. Comprueba en el fotograma intermedio qué entidad se puede seguir.
 
 Para explicar dos medidas con voz en español, empieza por el [brief de comparación](references/brief-to-video.md). El productor convierte los datos en barras a escala, valida las unidades y muestra el guion definitivo con `--validate-only`. La misma entrada genera el vídeo horizontal o vertical.
 
