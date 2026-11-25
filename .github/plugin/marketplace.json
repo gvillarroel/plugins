@@ -1,5 +1,5 @@
 {
-  "name": "plugins",
+  "name": "gvillarroel-plugins",
   "owner": {
     "name": "gvillarroel"
   },
@@ -17,7 +17,7 @@
       "name": "agent-utilities",
       "source": "./plugins/agent-utilities",
       "description": "Discover plugins, coordinate multi-source research and refactor complex methods.",
-      "version": "1.0.2"
+      "version": "1.0.3"
     },
     {
       "name": "cloud-operations",

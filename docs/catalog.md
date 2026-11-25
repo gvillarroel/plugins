@@ -1,4 +1,4 @@
-# Plugin catalog
+# gvillarroel-plugins plugin catalog
 
 Register the marketplace once in your client using the [installation guide](../README.md#install-from-github). Run Pi commands from the root of a local clone. Each skill link opens the version shipped by that plugin.
 
@@ -8,7 +8,7 @@ Manage a declarative user bench, current-folder profiles, disposable subagents, 
 
 | Client | Install command |
 | --- | --- |
-| GitHub Copilot CLI | `copilot plugin install agent-foundry@plugins` |
+| GitHub Copilot CLI | `copilot plugin install agent-foundry@gvillarroel-plugins` |
 
 **Skills**
 
@@ -20,9 +20,9 @@ Discover plugins, coordinate multi-source research and refactor complex methods.
 
 | Client | Install command |
 | --- | --- |
-| Codex | `codex plugin add agent-utilities@plugins` |
-| Claude Code | `claude plugin install agent-utilities@plugins` |
-| GitHub Copilot CLI | `copilot plugin install agent-utilities@plugins` |
+| Codex | `codex plugin add agent-utilities@gvillarroel-plugins` |
+| Claude Code | `claude plugin install agent-utilities@gvillarroel-plugins` |
+| GitHub Copilot CLI | `copilot plugin install agent-utilities@gvillarroel-plugins` |
 | Pi (skills) | `pi install ./plugins/agent-utilities` |
 
 **Skills**
@@ -37,9 +37,9 @@ Work with GCS user access, Google Cloud SKU pricing and evaluation datasets for 
 
 | Client | Install command |
 | --- | --- |
-| Codex | `codex plugin add cloud-operations@plugins` |
-| Claude Code | `claude plugin install cloud-operations@plugins` |
-| GitHub Copilot CLI | `copilot plugin install cloud-operations@plugins` |
+| Codex | `codex plugin add cloud-operations@gvillarroel-plugins` |
+| Claude Code | `claude plugin install cloud-operations@gvillarroel-plugins` |
+| GitHub Copilot CLI | `copilot plugin install cloud-operations@gvillarroel-plugins` |
 | Pi (skills) | `pi install ./plugins/cloud-operations` |
 
 **Skills**
@@ -54,9 +54,9 @@ Prepare Markdown for Confluence and round-trip pages with their attachments and 
 
 | Client | Install command |
 | --- | --- |
-| Codex | `codex plugin add confluence-publishing@plugins` |
-| Claude Code | `claude plugin install confluence-publishing@plugins` |
-| GitHub Copilot CLI | `copilot plugin install confluence-publishing@plugins` |
+| Codex | `codex plugin add confluence-publishing@gvillarroel-plugins` |
+| Claude Code | `claude plugin install confluence-publishing@gvillarroel-plugins` |
+| GitHub Copilot CLI | `copilot plugin install confluence-publishing@gvillarroel-plugins` |
 | Pi (skills) | `pi install ./plugins/confluence-publishing` |
 
 **Skills**
@@ -70,9 +70,9 @@ Plan, generate and evaluate synthetic tabular datasets, build simulations and te
 
 | Client | Install command |
 | --- | --- |
-| Codex | `codex plugin add data-simulation@plugins` |
-| Claude Code | `claude plugin install data-simulation@plugins` |
-| GitHub Copilot CLI | `copilot plugin install data-simulation@plugins` |
+| Codex | `codex plugin add data-simulation@gvillarroel-plugins` |
+| Claude Code | `claude plugin install data-simulation@gvillarroel-plugins` |
+| GitHub Copilot CLI | `copilot plugin install data-simulation@gvillarroel-plugins` |
 | Pi (skills) | `pi install ./plugins/data-simulation` |
 
 **Skills**
@@ -90,9 +90,9 @@ Extract requirements, review assumptions, plan delivery and construct project-sp
 
 | Client | Install command |
 | --- | --- |
-| Codex | `codex plugin add delivery-planning@plugins` |
-| Claude Code | `claude plugin install delivery-planning@plugins` |
-| GitHub Copilot CLI | `copilot plugin install delivery-planning@plugins` |
+| Codex | `codex plugin add delivery-planning@gvillarroel-plugins` |
+| Claude Code | `claude plugin install delivery-planning@gvillarroel-plugins` |
+| GitHub Copilot CLI | `copilot plugin install delivery-planning@gvillarroel-plugins` |
 | Pi (skills) | `pi install ./plugins/delivery-planning` |
 
 **Skills**
@@ -108,9 +108,9 @@ Find licensed visual assets, stock footage, textures, icons and technical logos 
 
 | Client | Install command |
 | --- | --- |
-| Codex | `codex plugin add design-assets@plugins` |
-| Claude Code | `claude plugin install design-assets@plugins` |
-| GitHub Copilot CLI | `copilot plugin install design-assets@plugins` |
+| Codex | `codex plugin add design-assets@gvillarroel-plugins` |
+| Claude Code | `claude plugin install design-assets@gvillarroel-plugins` |
+| GitHub Copilot CLI | `copilot plugin install design-assets@gvillarroel-plugins` |
 | Pi (skills) | `pi install ./plugins/design-assets` |
 
 **Skills**
@@ -129,9 +129,9 @@ Compose and animate diagrams, charts and SVGs with D3, Mermaid, PlantUML, EChart
 
 | Client | Install command |
 | --- | --- |
-| Codex | `codex plugin add diagram-studio@plugins` |
-| Claude Code | `claude plugin install diagram-studio@plugins` |
-| GitHub Copilot CLI | `copilot plugin install diagram-studio@plugins` |
+| Codex | `codex plugin add diagram-studio@gvillarroel-plugins` |
+| Claude Code | `claude plugin install diagram-studio@gvillarroel-plugins` |
+| GitHub Copilot CLI | `copilot plugin install diagram-studio@gvillarroel-plugins` |
 | Pi (skills) | `pi install ./plugins/diagram-studio` |
 
 **Skills**
@@ -154,9 +154,9 @@ Find reaction GIFs and consult the blog workspace's verified expert sources whil
 
 | Client | Install command |
 | --- | --- |
-| Codex | `codex plugin add editorial-research@plugins` |
-| Claude Code | `claude plugin install editorial-research@plugins` |
-| GitHub Copilot CLI | `copilot plugin install editorial-research@plugins` |
+| Codex | `codex plugin add editorial-research@gvillarroel-plugins` |
+| Claude Code | `claude plugin install editorial-research@gvillarroel-plugins` |
+| GitHub Copilot CLI | `copilot plugin install editorial-research@gvillarroel-plugins` |
 | Pi (skills) | `pi install ./plugins/editorial-research` |
 
 **Skills**
@@ -170,9 +170,9 @@ Author evaluation datasets, organize and report native Harbor studies, recover e
 
 | Client | Install command |
 | --- | --- |
-| Codex | `codex plugin add harbor@plugins` |
-| Claude Code | `claude plugin install harbor@plugins` |
-| GitHub Copilot CLI | `copilot plugin install harbor@plugins` |
+| Codex | `codex plugin add harbor@gvillarroel-plugins` |
+| Claude Code | `claude plugin install harbor@gvillarroel-plugins` |
+| GitHub Copilot CLI | `copilot plugin install harbor@gvillarroel-plugins` |
 | Pi (skills) | `pi install ./plugins/harbor` |
 
 **Skills**
@@ -196,9 +196,9 @@ Compose and render HTML video using HyperFrames by HeyGen and the project Colors
 
 | Client | Install command |
 | --- | --- |
-| Codex | `codex plugin add hyperframes@plugins` |
-| Claude Code | `claude plugin install hyperframes@plugins` |
-| GitHub Copilot CLI | `copilot plugin install hyperframes@plugins` |
+| Codex | `codex plugin add hyperframes@gvillarroel-plugins` |
+| Claude Code | `claude plugin install hyperframes@gvillarroel-plugins` |
+| GitHub Copilot CLI | `copilot plugin install hyperframes@gvillarroel-plugins` |
 | Pi (skills) | `pi install ./plugins/hyperframes` |
 
 **Skills**
@@ -215,9 +215,9 @@ Build expert skills and knowledge bundles, extract ontologies and review methodo
 
 | Client | Install command |
 | --- | --- |
-| Codex | `codex plugin add knowledge-authoring@plugins` |
-| Claude Code | `claude plugin install knowledge-authoring@plugins` |
-| GitHub Copilot CLI | `copilot plugin install knowledge-authoring@plugins` |
+| Codex | `codex plugin add knowledge-authoring@gvillarroel-plugins` |
+| Claude Code | `claude plugin install knowledge-authoring@gvillarroel-plugins` |
+| GitHub Copilot CLI | `copilot plugin install knowledge-authoring@gvillarroel-plugins` |
 | Pi (skills) | `pi install ./plugins/knowledge-authoring` |
 
 **Skills**
@@ -237,9 +237,9 @@ Register, index and search knowledge with know, XERJ, OpenWiki, Open Ontologies 
 
 | Client | Install command |
 | --- | --- |
-| Codex | `codex plugin add knowledge-tools@plugins` |
-| Claude Code | `claude plugin install knowledge-tools@plugins` |
-| GitHub Copilot CLI | `copilot plugin install knowledge-tools@plugins` |
+| Codex | `codex plugin add knowledge-tools@gvillarroel-plugins` |
+| Claude Code | `claude plugin install knowledge-tools@gvillarroel-plugins` |
+| GitHub Copilot CLI | `copilot plugin install knowledge-tools@gvillarroel-plugins` |
 | Pi (skills) | `pi install ./plugins/knowledge-tools` |
 
 **Skills**
@@ -256,9 +256,9 @@ Author and audit Harbor evaluation datasets for the Layers workspace.
 
 | Client | Install command |
 | --- | --- |
-| Codex | `codex plugin add layers-evaluation@plugins` |
-| Claude Code | `claude plugin install layers-evaluation@plugins` |
-| GitHub Copilot CLI | `copilot plugin install layers-evaluation@plugins` |
+| Codex | `codex plugin add layers-evaluation@gvillarroel-plugins` |
+| Claude Code | `claude plugin install layers-evaluation@gvillarroel-plugins` |
+| GitHub Copilot CLI | `copilot plugin install layers-evaluation@gvillarroel-plugins` |
 | Pi (skills) | `pi install ./plugins/layers-evaluation` |
 
 **Skills**
@@ -271,9 +271,9 @@ Create and edit narrated explainers with measured attention, source-based charts
 
 | Client | Install command |
 | --- | --- |
-| Codex | `codex plugin add line-world@plugins` |
-| Claude Code | `claude plugin install line-world@plugins` |
-| GitHub Copilot CLI | `copilot plugin install line-world@plugins` |
+| Codex | `codex plugin add line-world@gvillarroel-plugins` |
+| Claude Code | `claude plugin install line-world@gvillarroel-plugins` |
+| GitHub Copilot CLI | `copilot plugin install line-world@gvillarroel-plugins` |
 | Pi (skills) | `pi install ./plugins/line-world` |
 
 **Skills**
@@ -305,9 +305,9 @@ Create, inspect and visually verify PDFs with the workstation PDF workflow.
 
 | Client | Install command |
 | --- | --- |
-| Codex | `codex plugin add local-pdf@plugins` |
-| Claude Code | `claude plugin install local-pdf@plugins` |
-| GitHub Copilot CLI | `copilot plugin install local-pdf@plugins` |
+| Codex | `codex plugin add local-pdf@gvillarroel-plugins` |
+| Claude Code | `claude plugin install local-pdf@gvillarroel-plugins` |
+| GitHub Copilot CLI | `copilot plugin install local-pdf@gvillarroel-plugins` |
 | Pi (skills) | `pi install ./plugins/local-pdf` |
 
 **Skills**
@@ -320,9 +320,9 @@ Verify that installed skills can read the proof files shipped in their own packa
 
 | Client | Install command |
 | --- | --- |
-| Codex | `codex plugin add marketplace-check@plugins` |
-| Claude Code | `claude plugin install marketplace-check@plugins` |
-| GitHub Copilot CLI | `copilot plugin install marketplace-check@plugins` |
+| Codex | `codex plugin add marketplace-check@gvillarroel-plugins` |
+| Claude Code | `claude plugin install marketplace-check@gvillarroel-plugins` |
+| GitHub Copilot CLI | `copilot plugin install marketplace-check@gvillarroel-plugins` |
 | Pi (skills) | `pi install ./plugins/marketplace-check` |
 
 **Skills**
@@ -337,9 +337,9 @@ Build Material UI components and themes.
 
 | Client | Install command |
 | --- | --- |
-| Codex | `codex plugin add material-ui@plugins` |
-| Claude Code | `claude plugin install material-ui@plugins` |
-| GitHub Copilot CLI | `copilot plugin install material-ui@plugins` |
+| Codex | `codex plugin add material-ui@gvillarroel-plugins` |
+| Claude Code | `claude plugin install material-ui@gvillarroel-plugins` |
+| GitHub Copilot CLI | `copilot plugin install material-ui@gvillarroel-plugins` |
 | Pi (skills) | `pi install ./plugins/material-ui` |
 
 **Skills**
@@ -352,9 +352,9 @@ Design agent plugin interfaces and MCP Apps, and author evaluation datasets in t
 
 | Client | Install command |
 | --- | --- |
-| Codex | `codex plugin add plugin-authoring@plugins` |
-| Claude Code | `claude plugin install plugin-authoring@plugins` |
-| GitHub Copilot CLI | `copilot plugin install plugin-authoring@plugins` |
+| Codex | `codex plugin add plugin-authoring@gvillarroel-plugins` |
+| Claude Code | `claude plugin install plugin-authoring@gvillarroel-plugins` |
+| GitHub Copilot CLI | `copilot plugin install plugin-authoring@gvillarroel-plugins` |
 | Pi (skills) | `pi install ./plugins/plugin-authoring` |
 
 **Skills**
@@ -374,9 +374,9 @@ Build and audit Slidev presentations or transfer D3 graphics into editable Googl
 
 | Client | Install command |
 | --- | --- |
-| Codex | `codex plugin add presentation-studio@plugins` |
-| Claude Code | `claude plugin install presentation-studio@plugins` |
-| GitHub Copilot CLI | `copilot plugin install presentation-studio@plugins` |
+| Codex | `codex plugin add presentation-studio@gvillarroel-plugins` |
+| Claude Code | `claude plugin install presentation-studio@gvillarroel-plugins` |
+| GitHub Copilot CLI | `copilot plugin install presentation-studio@gvillarroel-plugins` |
 | Pi (skills) | `pi install ./plugins/presentation-studio` |
 
 **Skills**
@@ -392,9 +392,9 @@ Create interactive Python XY charts with a local MCP renderer and standalone HTM
 
 | Client | Install command |
 | --- | --- |
-| Codex | `codex plugin add reflex-xy@plugins` |
-| Claude Code | `claude plugin install reflex-xy@plugins` |
-| GitHub Copilot CLI | `copilot plugin install reflex-xy@plugins` |
+| Codex | `codex plugin add reflex-xy@gvillarroel-plugins` |
+| Claude Code | `claude plugin install reflex-xy@gvillarroel-plugins` |
+| GitHub Copilot CLI | `copilot plugin install reflex-xy@gvillarroel-plugins` |
 | Pi (skills) | `pi install ./plugins/reflex-xy` |
 
 **Skills**
@@ -407,9 +407,9 @@ Curate semantic models, extract ontologies and map evidence to knowledge catalog
 
 | Client | Install command |
 | --- | --- |
-| Codex | `codex plugin add semantic-curation@plugins` |
-| Claude Code | `claude plugin install semantic-curation@plugins` |
-| GitHub Copilot CLI | `copilot plugin install semantic-curation@plugins` |
+| Codex | `codex plugin add semantic-curation@gvillarroel-plugins` |
+| Claude Code | `claude plugin install semantic-curation@gvillarroel-plugins` |
+| GitHub Copilot CLI | `copilot plugin install semantic-curation@gvillarroel-plugins` |
 | Pi (skills) | `pi install ./plugins/semantic-curation` |
 
 **Skills**
@@ -427,9 +427,9 @@ Build and query graph-based Semantic OKF snapshots, including entity graphs, Gra
 
 | Client | Install command |
 | --- | --- |
-| Codex | `codex plugin add semantic-graphs@plugins` |
-| Claude Code | `claude plugin install semantic-graphs@plugins` |
-| GitHub Copilot CLI | `copilot plugin install semantic-graphs@plugins` |
+| Codex | `codex plugin add semantic-graphs@gvillarroel-plugins` |
+| Claude Code | `claude plugin install semantic-graphs@gvillarroel-plugins` |
+| GitHub Copilot CLI | `copilot plugin install semantic-graphs@gvillarroel-plugins` |
 | Pi (skills) | `pi install ./plugins/semantic-graphs` |
 
 **Skills**
@@ -450,9 +450,9 @@ Build, consult and visualize Semantic OKF snapshots with classical, adaptive, em
 
 | Client | Install command |
 | --- | --- |
-| Codex | `codex plugin add semantic-okf@plugins` |
-| Claude Code | `claude plugin install semantic-okf@plugins` |
-| GitHub Copilot CLI | `copilot plugin install semantic-okf@plugins` |
+| Codex | `codex plugin add semantic-okf@gvillarroel-plugins` |
+| Claude Code | `claude plugin install semantic-okf@gvillarroel-plugins` |
+| GitHub Copilot CLI | `copilot plugin install semantic-okf@gvillarroel-plugins` |
 | Pi (skills) | `pi install ./plugins/semantic-okf` |
 
 **Skills**
@@ -480,9 +480,9 @@ Build and query knowledge snapshots with Tantivy, Turso, Tika and RustMallet sea
 
 | Client | Install command |
 | --- | --- |
-| Codex | `codex plugin add semantic-search@plugins` |
-| Claude Code | `claude plugin install semantic-search@plugins` |
-| GitHub Copilot CLI | `copilot plugin install semantic-search@plugins` |
+| Codex | `codex plugin add semantic-search@gvillarroel-plugins` |
+| Claude Code | `claude plugin install semantic-search@gvillarroel-plugins` |
+| GitHub Copilot CLI | `copilot plugin install semantic-search@gvillarroel-plugins` |
 | Pi (skills) | `pi install ./plugins/semantic-search` |
 
 **Skills**
@@ -506,9 +506,9 @@ Prepare, critique and market print-on-demand products with artwork, photoshoots 
 
 | Client | Install command |
 | --- | --- |
-| Codex | `codex plugin add store-studio@plugins` |
-| Claude Code | `claude plugin install store-studio@plugins` |
-| GitHub Copilot CLI | `copilot plugin install store-studio@plugins` |
+| Codex | `codex plugin add store-studio@gvillarroel-plugins` |
+| Claude Code | `claude plugin install store-studio@gvillarroel-plugins` |
+| GitHub Copilot CLI | `copilot plugin install store-studio@gvillarroel-plugins` |
 | Pi (skills) | `pi install ./plugins/store-studio` |
 
 **Skills**
@@ -529,9 +529,9 @@ Plan and produce mixed-media videos with motion graphics, screen recordings, aud
 
 | Client | Install command |
 | --- | --- |
-| Codex | `codex plugin add video-production@plugins` |
-| Claude Code | `claude plugin install video-production@plugins` |
-| GitHub Copilot CLI | `copilot plugin install video-production@plugins` |
+| Codex | `codex plugin add video-production@gvillarroel-plugins` |
+| Claude Code | `claude plugin install video-production@gvillarroel-plugins` |
+| GitHub Copilot CLI | `copilot plugin install video-production@gvillarroel-plugins` |
 | Pi (skills) | `pi install ./plugins/video-production` |
 
 **Skills**
@@ -553,9 +553,9 @@ Create 3D scenes, pixel art, vector patterns and image effects using Three.js, K
 
 | Client | Install command |
 | --- | --- |
-| Codex | `codex plugin add visual-effects@plugins` |
-| Claude Code | `claude plugin install visual-effects@plugins` |
-| GitHub Copilot CLI | `copilot plugin install visual-effects@plugins` |
+| Codex | `codex plugin add visual-effects@gvillarroel-plugins` |
+| Claude Code | `claude plugin install visual-effects@gvillarroel-plugins` |
+| GitHub Copilot CLI | `copilot plugin install visual-effects@gvillarroel-plugins` |
 | Pi (skills) | `pi install ./plugins/visual-effects` |
 
 **Skills**
@@ -572,9 +572,9 @@ Author ZX and Pi workflows, durable agent applications, repository reviewers and
 
 | Client | Install command |
 | --- | --- |
-| Codex | `codex plugin add workflow-engineering@plugins` |
-| Claude Code | `claude plugin install workflow-engineering@plugins` |
-| GitHub Copilot CLI | `copilot plugin install workflow-engineering@plugins` |
+| Codex | `codex plugin add workflow-engineering@gvillarroel-plugins` |
+| Claude Code | `claude plugin install workflow-engineering@gvillarroel-plugins` |
+| GitHub Copilot CLI | `copilot plugin install workflow-engineering@gvillarroel-plugins` |
 | Pi (skills) | `pi install ./plugins/workflow-engineering` |
 
 **Skills**
@@ -591,9 +591,9 @@ Operate Google Workspace from the command line, automate browsers and produce HT
 
 | Client | Install command |
 | --- | --- |
-| Codex | `codex plugin add workstation-tools@plugins` |
-| Claude Code | `claude plugin install workstation-tools@plugins` |
-| GitHub Copilot CLI | `copilot plugin install workstation-tools@plugins` |
+| Codex | `codex plugin add workstation-tools@gvillarroel-plugins` |
+| Claude Code | `claude plugin install workstation-tools@gvillarroel-plugins` |
+| GitHub Copilot CLI | `copilot plugin install workstation-tools@gvillarroel-plugins` |
 | Pi (skills) | `pi install ./plugins/workstation-tools` |
 
 **Skills**

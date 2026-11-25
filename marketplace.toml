@@ -1,6 +1,6 @@
-name = "plugins"
+name = "gvillarroel-plugins"
 owner = "gvillarroel"
-display_name = "Gerardo Villarroel's Plugins"
+display_name = "gvillarroel-plugins"
 description = "Skills and tools for knowledge engineering, evaluation, media production and project workflows."
 
 [clients]

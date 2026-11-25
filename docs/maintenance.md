@@ -1,5 +1,7 @@
 # Marketplace maintenance
 
+The main marketplace was renamed from `plugins` to `gvillarroel-plugins`. Register it from `gvillarroel/plugins` and use `<plugin>@gvillarroel-plugins` to install a package. See the [installation guide](../README.md#install-from-github) for client commands.
+
 ## Edit or add a plugin
 
 Edit each skill in `plugins/<plugin>/skills/<skill>/`. To use a skill in a different context, copy its entire directory into the destination plugin, adapt the instructions and test its scripts and examples there. Each copy evolves independently.

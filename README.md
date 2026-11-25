@@ -1,4 +1,4 @@
-# Plugins
+# gvillarroel-plugins
 
 Gerardo Villarroel's marketplace for Codex, Claude Code and GitHub Copilot CLI. Each plugin bundles the skills, scripts and resources for a particular workflow. A skill can have a different version in each plugin. The [plugin catalog](docs/catalog.md) lists the skills and installation commands for every plugin.
 
@@ -6,20 +6,20 @@ For personal utilities, `agent-utilities` includes `find-skills` and `delegate-m
 
 ## Install from GitHub
 
-Sign in with an account that can read the private repository `gvillarroel/plugins`. Register the marketplace once in Codex, Claude Code or Copilot CLI. The examples install `diagram-studio` from `main`. To install another plugin, replace `diagram-studio` with its catalog name and keep the `@plugins` suffix.
+Register the marketplace from the private GitHub repository `gvillarroel/plugins` using an account with read access. To install a plugin, use its catalog name followed by `@gvillarroel-plugins`. The examples below install `diagram-studio` from `main`.
 
 ### Codex
 
 ```sh
 codex plugin marketplace add gvillarroel/plugins --ref main
-codex plugin add diagram-studio@plugins
+codex plugin add diagram-studio@gvillarroel-plugins
 ```
 
 ### Claude Code
 
 ```sh
 claude plugin marketplace add gvillarroel/plugins
-claude plugin install diagram-studio@plugins
+claude plugin install diagram-studio@gvillarroel-plugins
 ```
 
 In Claude Code, `/diagram-studio:mermaid` invokes the plugin's Mermaid skill.
@@ -28,7 +28,7 @@ In Claude Code, `/diagram-studio:mermaid` invokes the plugin's Mermaid skill.
 
 ```sh
 copilot plugin marketplace add gvillarroel/plugins
-copilot plugin install diagram-studio@plugins
+copilot plugin install diagram-studio@gvillarroel-plugins
 ```
 
 `agent-foundry` ships a native Copilot extension. Start `copilot --experimental` to use its `/contract` command.

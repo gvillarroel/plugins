@@ -66,7 +66,7 @@ def build():
         "claude": {**common, "description": config["description"], "plugins": []},
     }
     outputs = {}
-    docs = ["# Plugin catalog", "",
+    docs = [f"# {name} plugin catalog", "",
             "Register the marketplace once in your client using the [installation guide](../README.md#install-from-github). "
             "Run Pi commands from the root of a local clone. Each skill link opens the version shipped by that plugin.", ""]
     folders = sorted(p for p in (ROOT / "plugins").iterdir() if p.is_dir())
