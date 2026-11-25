@@ -95,7 +95,7 @@
       "name": "line-world",
       "source": "./plugins/line-world",
       "description": "Create and edit narrated explainers with measured attention, source-based charts, portraits, original illustrations and filmed scenes. Generate voices and effects, edit Google Vids and verify the exported MP4.",
-      "version": "1.14.0"
+      "version": "1.15.0"
     },
     {
       "name": "local-pdf",

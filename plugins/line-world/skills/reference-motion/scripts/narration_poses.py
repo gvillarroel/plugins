@@ -86,6 +86,19 @@ def resolve(kind,props,cue):
     if "pose" in cue:
         require(role not in ("context","emphasis"),"Usa pose para un cambio dibujado, o selecciona el nodo por identidad.")
         return role or "action",cue["pose"],None
+    if kind == "rigid-rearrangement":
+        require(target == "arrangement", "Selecciona arrangement para sincronizar la configuración de las piezas.")
+        role = role or "result"
+        require(role in ("context", "action", "result"), "Selecciona la configuración inicial, el movimiento o la llegada.")
+        return role, {"context": 0, "action": .1, "result": .88}[role], None
+    if kind == "pivot-rotation":
+        if target in ("pivot","radius"):
+            require(role in (None,"context"), "El pivote y el radio están visibles desde el inicio.")
+            return "context", None, None
+        require(target == "rotation", "Selecciona pivot, radius o rotation para sincronizar el giro.")
+        role = role or "result"
+        require(role in ("context","action","result"), "Selecciona la pose inicial, la salida o la llegada del giro.")
+        return role, {"context":0,"action":.1,"result":.88}[role], None
     if kind == "trajectory-trace":
         samples = props["samples"]
         by_id = {f"sample-{i+1}":s for i,s in enumerate(samples)}
@@ -136,6 +149,40 @@ def resolve(kind,props,cue):
         move=n.get("moveFrom")
         require(move is not None,"La figura carece de desplazamiento. Selecciona entrada, énfasis o un enlace.")
         return role,move[2 if role=="action" else 3],n
+    if kind == "object-route":
+        if target == props["objectLabel"] and role in (None, "context"):
+            return "context", None, None
+        visits = props["stops"]
+        matches = [i for i in range(len(visits)) if target == f"visit-{i+1}"]
+        if not matches:
+            matches = [i for i, station in enumerate(visits) if name(station) == name(target)]
+        require(len(matches) == 1, "Selecciona la visita por su nombre único o usa visit-1, visit-2, etc. para una estación repetida.")
+        i = matches[0]
+        if i == 0:
+            require(role in (None, "context", "result"), "La primera visita ya está presente al inicio.")
+            return role or "context", 0, None
+        role = role or "result"
+        require(role in ("action", "result"), "Usa action para salir hacia esta visita o result para llegar.")
+        return role, (i - 1 + (.18 if role == "action" else .78)) / (len(visits) - 1), None
+    if kind == "contact-transfer":
+        # The approach, first touch, lasting result, and release are different instants.
+        parts = ("actuator", "driven", "material", "result")
+        landmarks = {
+            "actuator": {"context": None, "action": .12, "result": .50},
+            "driven": {"context": None, "action": .12, "result": .50},
+            "material": {"context": None, "action": .50, "result": .64},
+            "contact": {"action": .50, "result": .50},
+            "result": {"action": .50, "readable": .64, "result": .64},
+            "release": {"action": .68, "result": .88},
+        }
+        key = name(target)
+        if key not in landmarks:
+            matches = [part for part, label in zip(parts, props["labels"]) if name(label) == key]
+            require(len(matches) == 1, "Identifica la pieza por su nombre o usa actuator, driven, material, contact, result o release.")
+            key = matches[0]
+        role = role or ("context" if "context" in landmarks[key] else "result")
+        require(role in landmarks[key], f"El papel {role} no corresponde a {key}.")
+        return role, landmarks[key][role], None
     if kind=="message-ladder":
         if target in props["labels"] and role in (None,"context"):
             return "context",None,None
@@ -177,7 +224,7 @@ def bind(scene,narration,fps):
             focuses.append((node,t,end_s/duration))
         elif pose is not None or (kind=="trajectory-trace" and role=="context"):
             position = 0 if pose is None else pose
-            if kind in ("interval-refinement","trajectory-trace"):
+            if kind in ("interval-refinement","trajectory-trace","rigid-rearrangement","contact-transfer","pivot-rotation","object-route"):
                 # A measured extremum can be present for just one sample. Land on an exported frame.
                 t = min(1,math.ceil(cue["visual_s"]*fps-1e-9)/(fps*duration))
             points.append([t,position])

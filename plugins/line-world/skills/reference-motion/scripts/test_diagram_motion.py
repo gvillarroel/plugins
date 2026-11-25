@@ -6,6 +6,7 @@
 import base64
 import io
 import json
+import math
 import unittest
 
 from PIL import Image
@@ -72,6 +73,138 @@ class DiagramIntegrationTests(unittest.TestCase):
         self.assertEqual(dispatches(before), [True] * 8)
         self.assertEqual(dispatches(after), [True] * 4 + [False] + [True] * 3)
 
+    def test_stamp_closes_gap_before_inking_and_leaves_its_own_footprint(self):
+        frames = [self.stage("contact-transfer", p) for p in (0, .35, .50, .64, 1, .35)]
+        rest, approach, contact, pressure, release, seek = frames
+        accent = (158, 27, 50)
+        self.assertEqual(seek.tobytes(), approach.tobytes())
+        self.assertEqual(rest.crop((238,62,625,339)).tobytes(), release.crop((238,62,625,339)).tobytes())
+        guide = (446,240,498,260)
+        self.assertTrue(all(f.crop(guide).tobytes() == rest.crop(guide).tobytes() for f in frames))
+        # Both the lever grip and the inked teeth travel continuously toward the sheet.
+        def grip_y(image):
+            return min(y for y in range(55,235) for x in range(555,606) if image.getpixel((x,y)) == accent)
+        self.assertTrue(grip_y(rest) < grip_y(approach) < grip_y(contact))
+        for x in (441, 471, 501):
+            def tooth_bottom(image):
+                return max(y for y in range(280,380) if image.getpixel((x,y)) == accent)
+            self.assertTrue(tooth_bottom(rest) < tooth_bottom(approach) < tooth_bottom(contact))
+            self.assertEqual(tooth_bottom(contact), 379)
+            self.assertNotEqual(contact.getpixel((x,381)), accent)
+            self.assertEqual(pressure.getpixel((x,381)), accent)
+            self.assertEqual(release.getpixel((x,381)), accent)
+        self.assertNotEqual(release.getpixel((459,381)), accent)
+        self.assertNotEqual(release.getpixel((489,381)), accent)
+        label = self.defaults["contact-transfer"]["labels"][-1]
+        self.assertNotIn(label, [r[0] for r in self.drawn_text("contact-transfer", {}, .50)])
+        self.assertIn(label, [r[0] for r in self.drawn_text("contact-transfer", {}, .65)])
+
+    def test_linear_drive_advances_target_only_while_faces_touch(self):
+        kind = "contact-transfer"
+        props = {**self.defaults[kind], "drive": "linear", "effect": "displace"}
+        accent, ink = (158,27,50), (51,62,72)
+        def frame(p):
+            png = self.direct_frame(kind, props, p * props["duration"], (960,540))
+            return Image.open(io.BytesIO(png)).convert("RGB")
+        rest, approach, contact, halfway, pressed, released = [frame(p) for p in (0,.35,.50,.57,.68,1)]
+        def target_y(image):
+            return min(y for y in range(350,423) if image.getpixel((471,y)) == accent)
+        self.assertEqual([target_y(f) for f in (rest,approach,contact,halfway,pressed,released)],
+                         [380,380,380,394,408,408])
+        for f in (contact,halfway,pressed):
+            self.assertEqual(f.getpixel((471,target_y(f)-1)), ink)
+        self.assertNotEqual(released.getpixel((471,407)), ink)
+        self.assertEqual(rest.crop((237,63,600,338)).tobytes(), released.crop((237,63,600,338)).tobytes())
+        for field, invalid in (("drive","rope"),("effect",None),("effect",["mark"])):
+            with self.assertRaisesRegex(ValueError, field):
+                check_props(kind, {**props,field:invalid}, set())
+
+    def test_rigid_rectangles_keep_identity_scale_and_exposed_area_while_swapping(self):
+        kind = "rigid-rearrangement"
+        swap = [
+            {"id":"a","label":"Uno","width":2,"height":1,"from":[-2,0],"to":[2,0]},
+            {"id":"b","label":"Dos","width":1,"height":1,"from":[2,0],"to":[-2,0]},
+            {"id":"c","label":"Base","width":2,"height":2,"from":[0,0],"to":[0,0]},
+        ]
+        for pieces in (self.defaults[kind]["pieces"], swap):
+            props = dict(duration=5, unit="cm", pieces=pieces)
+            check_props(kind, props, set())
+            poses = self.page.evaluate("""props => {
+                const canvas=document.createElement('canvas'); canvas.width=960; canvas.height=540;
+                const g=canvas.getContext('2d'), result=[];
+                let marks, labels;
+                g.fillRect=(x,y,w,h)=>{if(w<960) marks.push([x,y,w,h,g.fillStyle]);};
+                g.fillText=(value,x,y)=>labels.push([value,x,y]);
+                for(let frame=0;frame<=120;frame++){
+                    marks=[]; labels=[];
+                    LineWorldPresets.drawArtifact(g,'rigid-rearrangement',frame/24,props);
+                    result.push([marks,labels]);
+                }
+                return result;
+            }""", props)
+            opening = poses[0][0]
+            self.assertEqual(len(opening), len(pieces))
+            scale = opening[0][2]/pieces[0]["width"]
+            area = sum(v["width"]*v["height"] for v in pieces)
+            expected_total = f"{area} cm²"
+            expected_readout = next(text for text in poses[0][1] if text[0] == expected_total)
+            for marks, labels in poses:
+                self.assertIn(expected_readout, labels)
+                for i, ((x,y,w,h,color), v) in enumerate(zip(marks,pieces)):
+                    self.assertAlmostEqual(w, v["width"]*scale)
+                    self.assertAlmostEqual(h, v["height"]*scale)
+                    self.assertEqual(color, opening[i][-1])
+                    self.assertIn([v["label"],x+w/2,y+h/2], labels)
+                    for a,b,c,d,_ in marks[:i]:
+                        self.assertTrue(min(x+w,a+c)-max(x,a) < 1e-7 or min(y+h,b+d)-max(y,b) < 1e-7)
+            for i,v in enumerate(pieces):
+                x,y = opening[i][:2]
+                a,b = poses[-1][0][i][:2]
+                self.assertAlmostEqual((a-x)/scale,v["to"][0]-v["from"][0])
+                self.assertAlmostEqual((y-b)/scale,v["to"][1]-v["from"][1])
+            self.assertNotEqual(poses[0], poses[60])
+            self.assertNotEqual(poses[60], poses[-1])
+            recipe = {"version":1,"scenes":[{"id":"swap","artifact":kind,"props":props}]}
+            plan = load(self.page,recipe,ROOT,self.defaults,self.transitions)
+            audit = self.page.evaluate("() => MotionRecipe.reading(0)")
+            self.assertIn(expected_total,audit["labels"])
+            self.assertIn(plan["scenes"][0]["reveal"],audit["frames"])
+
+    def test_pivot_marker_follows_the_signed_arc_from_the_declared_zero(self):
+        for orientation,start,sweep in (("compass",30,-135),("cartesian",-45,210),("cartesian",80,720)):
+            props = dict(unit="mm",radius=17.5,startAngle=start,sweepAngle=sweep,duration=6,orientation=orientation)
+            poses = self.page.evaluate("""props => {
+              const canvas=document.createElement('canvas'); canvas.width=960; canvas.height=540;
+              const g=canvas.getContext('2d'), captureArc=g.arc.bind(g);
+              let arcs,texts;
+              g.arc=(...args)=>{arcs.push(args);captureArc(...args);};
+              g.fillText=(value,x,y)=>texts.push([value,x,y]);
+              return [0,.49,1,.49].map(p => {
+                arcs=[]; texts=[];
+                LineWorldPresets.drawArtifact(g,'pivot-rotation',p*props.duration,props);
+                return {orbit:arcs[0],traces:arcs.filter(a=>a[2]===arcs[0][2]),
+                        tip:arcs.find(a=>a[2]===10).slice(0,2),texts};
+              });
+            }""",props)
+            self.assertEqual(poses[1],poses[3])
+            readout = next(t for t in poses[0]["texts"] if t[0]=="17,5 mm")
+            for pose,fraction in zip(poses,[0,.5,1,.5]):
+                self.assertEqual(pose["orbit"], poses[0]["orbit"])
+                cx,cy,r = pose["orbit"][:3]
+                x,y = pose["tip"]
+                degrees = start+sweep*fraction
+                theta = math.radians(degrees-90 if orientation=="compass" else -degrees)
+                self.assertAlmostEqual(x,cx+r*math.cos(theta))
+                self.assertAlmostEqual(y,cy+r*math.sin(theta))
+                self.assertIn(readout,pose["texts"])
+                if fraction:
+                    self.assertEqual(len(pose["traces"]),2)
+                    arc = pose["traces"][-1]
+                    self.assertAlmostEqual(abs(arc[4]-arc[3]), math.radians(min(abs(sweep*fraction),360)))
+                    self.assertEqual(arc[5],(orientation=="cartesian") == (sweep>0))
+                else:
+                    self.assertEqual(len(pose["traces"]),1)
+
     def test_selected_command_shortens_towards_the_fixed_gpu_edge(self):
         poses = [self.stage("command-lanes", p) for p in (.70, .835, .94)]
         selected = []
@@ -132,6 +265,55 @@ class DiagramIntegrationTests(unittest.TestCase):
                 for duration in (0, -1, float("inf"), True):
                     with self.assertRaisesRegex(ValueError, "duration"):
                         check_props(kind, {"labels": valid, "duration": duration}, set())
+
+    def test_named_route_visits_fixed_stations_and_holds_the_returned_object(self):
+        from adapt_motion import adapt
+        from narration_poses import bind, pose_at
+        kind = "object-route"
+        spec = {"objectLabel":"Quartz proof","stops":["Roca","Lince","Arce","Roca"]}
+        recipe, report = adapt({"brief":"Its workshop itinerary","title":"Visit sequence","content":spec})
+        self.assertEqual((report["status"],report["artifact"]), ("recipe",kind))
+        props = recipe["scenes"][0]["props"]
+        self.assertEqual(props["stops"], spec["stops"])
+        self.assertEqual(props["title"], "Visit sequence")
+        def positions(p):
+            runs = self.drawn_text(kind, props, p)
+            self.assertCountEqual([t for t, _, _ in runs], ["Visit sequence","Roca","Lince","Arce","Quartz proof"])
+            return {text:(x,y) for text,x,y in runs}
+        entry = positions(0)
+        early = positions(.16)
+        stops = [entry[k][0] for k in spec["stops"]]
+        marker_y = entry["Quartz proof"][1]
+        # One moving label remains attached to the same painted marker in flight and at the stops.
+        for leg, (a,b) in enumerate(zip(stops,stops[1:])):
+            for local in (.12,.48,.85,.98):
+                p = (leg + local)/3
+                runs = positions(p)
+                self.assertEqual([runs[k] for k in spec["stops"]], [entry[k] for k in spec["stops"]])
+                x,y = runs["Quartz proof"]
+                if local == .48:
+                    self.assertAlmostEqual(x,(a+b)/2)
+                    self.assertLess(y,marker_y)
+                else:
+                    self.assertEqual((x,y),(a if local == .12 else b,marker_y))
+                png = self.direct_frame(kind, props, p * props["duration"], (960,540))
+                frame = Image.open(io.BytesIO(png)).convert("RGB")
+                self.assertEqual(frame.getpixel((round(x+6),round(y+34))), (158,27,50))
+        self.assertEqual(positions(.95)["Quartz proof"], entry["Quartz proof"])
+        self.assertEqual(positions(.16),early)
+        cues = [{"target":"visit-2","mention_s":2.01},{"target":"Arce","mention_s":4.02},
+                {"target":"visit-4","mention_s":6.04,"role":"result","hold_s":.8}]
+        result = bind(recipe["scenes"][0],{"duration_s":8,"cues":cues},24)
+        for i,cue in enumerate(result["cues"]):
+            self.assertAlmostEqual(pose_at(result["pose_clock"],cue["frame"]/192), (i+.78)/3)
+        with self.assertRaisesRegex(ValueError,"visit-1"):
+            bind(recipe["scenes"][0],{"duration_s":8,"cues":[{"target":"Roca","mention_s":1}]},24)
+        for invalid in (["A"],["A","A"],["","B"],["A",3],[str(i) for i in range(9)]):
+            with self.assertRaisesRegex(ValueError,"stops"):
+                check_props(kind, {**props,"stops":invalid}, set())
+        check_props(kind, {**props,"stops":["A","B","B","A"]}, set())
+        with self.assertRaisesRegex(ValueError,"objectLabel"):
+            check_props(kind, {**props,"objectLabel":""}, set())
 
     def drawn_text(self, kind, edits, progress):
         props = {**self.defaults[kind], **edits}

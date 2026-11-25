@@ -59,6 +59,21 @@ class NarrationPoseTests(unittest.TestCase):
         del r["narration"]
         self.assertNotIn("poseClock",adapt(r)[0]["scenes"][0]["props"])
 
+    def test_press_binds_touch_result_and_release_to_separate_frames(self):
+        from narration_poses import bind
+        labels = ["Maneta","Cabezal","Lámina","Huella"]
+        scene = {"artifact":"contact-transfer", "props":{"labels":labels}}
+        cues = [{"target":"Lámina","role":"context","mention_s":.5},
+                {"target":"Maneta","role":"action","mention_s":1.01},
+                {"target":"contact","mention_s":2.53},
+                {"target":"Huella","role":"result","mention_s":3.01,"hold_s":.8},
+                {"target":"release","mention_s":5.02}]
+        score = bind(scene,{"duration_s":7,"cues":cues},24)
+        self.assertEqual([c["pose"] for c in score["cues"]], [None,.12,.50,.64,.88])
+        for c in score["cues"][1:]:
+            self.assertAlmostEqual(pose_at(scene["props"]["poseClock"],c["frame"]/168),c["pose"])
+        self.assertAlmostEqual(pose_at(scene["props"]["poseClock"],3.5/7),.64)
+
     def test_specialist_gets_the_real_voice_marks_as_a_handoff(self):
         r={"brief":"Comparar visitas por región","fields":{"category":"región","value":"visitas"},"unit":"visitas",
            "rows":[{"región":"Sur","visitas":3},{"región":"Norte","visitas":7}],

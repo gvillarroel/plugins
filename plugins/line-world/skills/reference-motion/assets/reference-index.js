@@ -12,6 +12,50 @@ globalThis.LineWorldReferences = {
   },
   "patterns": [
     {
+      "id": "pivot-rotation",
+      "kind": "artifact",
+      "label": "Giro alrededor de un pivote",
+      "duration_s": 6,
+      "mechanism": "Una marca recorre un arco a la distancia indicada del pivote. La dirección de origen, el pivote y la lectura del radio conservan su posición.",
+      "sources": [
+        {
+          "video_id": "bnjKwiUg-kw",
+          "video_title": "The dynamics of e^(πi)",
+          "start_s": 79,
+          "end_s": 93,
+          "url": "https://www.youtube.com/watch?v=bnjKwiUg-kw&t=79s",
+          "observation": "El plano complejo encuadra direcciones perpendiculares, una circunferencia y segmentos orientados. Una anotación visible menciona el giro de 90 grados."
+        }
+      ],
+      "evidence": "Muestras del reproductor a 79, 86 y 93 s. Se adapta la relación entre dirección y trayectoria sobre un marco fijo. Los ángulos, el radio y el reloj pertenecen a la nueva construcción."
+    },
+    {
+      "id": "rigid-rearrangement",
+      "kind": "artifact",
+      "label": "Reordenación de piezas rígidas",
+      "duration_s": 6,
+      "mechanism": "Traslada las piezas entre las dos configuraciones. Cada rectángulo conserva sus lados y su identidad en el mismo plano. La regla y la suma de áreas permanecen fijas.",
+      "sources": [
+        {
+          "video_id": "1lZpowy21Gc",
+          "video_title": "Incomplete open cubes",
+          "start_s": 0,
+          "end_s": 12,
+          "url": "https://www.youtube.com/watch?v=1lZpowy21Gc&t=0s",
+          "observation": "Distintas estructuras abiertas conservan el encuadre y la referencia cúbica. La escala fija del ejemplo permite comparar configuraciones."
+        },
+        {
+          "video_id": "itRV2jEtV8Q",
+          "video_title": "Simulating and understanding phase change | Guest video by Vilas Winstein",
+          "start_s": 1040,
+          "end_s": 1080,
+          "url": "https://www.youtube.com/watch?v=itRV2jEtV8Q&t=1040s",
+          "observation": "El total de energía permanece escrito encima de dos compartimentos cuya distribución se modifica."
+        }
+      ],
+      "evidence": "La escala constante y la medida persistente proceden de los dos pasajes observados. Las traslaciones rectangulares, sus recorridos y las medidas del ejemplo son una construcción original."
+    },
+    {
       "id": "interval-refinement",
       "kind": "artifact",
       "label": "Intervalos anidados",
@@ -46,6 +90,42 @@ globalThis.LineWorldReferences = {
         }
       ],
       "evidence": "Muestras temporizadas del reproductor de 3Blue1Brown. El tiempo de reproducción del componente se adapta a los datos nuevos."
+    },
+    {
+      "id": "object-route",
+      "kind": "artifact",
+      "label": "Un objeto recorre varias estaciones",
+      "duration_s": 8,
+      "mechanism": "Un solo marcador lleva el nombre del objeto por las visitas suministradas. Cada estación conserva su lugar en las llegadas, las pausas y los regresos.",
+      "sources": [
+        {
+          "video_id": "rYyJm1tD3d0",
+          "video_title": "The jumping pegs puzzle",
+          "start_s": 40,
+          "end_s": 44,
+          "url": "https://www.youtube.com/watch?v=rYyJm1tD3d0&t=40s",
+          "observation": "Las muestras de 40, 42 y 44 s conservan la trama de orificios y conectan las posiciones de las clavijas mediante un arco temporal. El trazado de estaciones y el marcador rotulado son la adaptación."
+        }
+      ],
+      "evidence": "Muestras de storyboard en 3blue1brown-corpus.json, entrada rYyJm1tD3d0@40. La disposición, los retornos y las pausas del componente son decisiones esquemáticas."
+    },
+    {
+      "id": "contact-transfer",
+      "kind": "artifact",
+      "label": "Transferencia por contacto",
+      "duration_s": 6,
+      "mechanism": "Un accionamiento mueve la pieza en su guía hasta tocar el material. La huella o el desplazamiento nace en la superficie de contacto y permanece al retirar la pieza.",
+      "sources": [
+        {
+          "video_id": "Nbwv5wHQoj0",
+          "video_title": "The last IMO problem AI could not solve",
+          "start_s": 750,
+          "end_s": 800,
+          "url": "https://www.youtube.com/watch?v=Nbwv5wHQoj0&t=750s",
+          "observation": "Entre 776 y 782 s se aísla la pieza central y dos rectángulos se colocan junto a su borde. El componente toma esa referencia espacial para que se pueda verificar dónde se tocan las piezas."
+        }
+      ],
+      "evidence": "Observación de bordes en 3blue1brown-corpus.json, familia isolate-contact-rule. La prensa, su carrera y el depósito de tinta son una construcción esquemática original."
     },
     {
       "id": "cut",

@@ -9,7 +9,7 @@ Use this skill when choosing explanatory motion, building a reusable diagram, or
 
 ## Choose and precompose a diagram
 
-For mathematical, physical or geometric briefs, consult the [3Blue1Brown study](references/3blue1brown.md). The selector retrieves observed poses from the channel's two-year corpus. Use `interval-refinement` for nested numerical bounds and `trajectory-trace` for timed positions with a linked height graph. Both render from the supplied values and accept narration cues. For geometric proofs, parameter fields or invariants, the direction report supplies the source poses, the element to keep stable and the geometry the specialist must construct.
+Start with [the shot decision guide](references/decidir-el-plano.md). Identify a claim the audience can check in the final pose. Map the original data or physical pieces to geometry, name one stable reference and identify the action that makes the relationship visible. Bind script phrases to editorial poses until you have a recording with measured cues.
 
 When the explanation has a voice track, choose which pose belongs to each important mention. Distinguish arrival on screen, complete label, movement, result and renewed attention to an existing entity. Use the [pose and narration study](references/poses-y-menciones.md) and preserve measured word or phrase timing in the production request.
 
@@ -38,15 +38,13 @@ For a structural explanation, pick a diagram by the relation the viewer needs to
 
 For a percentage, `chart-ring` holds the stated value while the arc and its marker trace the corresponding share. A series of bars grows in groups of up to three, separated by a quarter-second pause. Run `python scripts/test_chart_attention.py` after changing the drawing or timing of either chart.
 
-The [TypeGPU Kit study](references/typegpu-study.md) links ten diagram mechanisms to frames in the source film. Render the [editable ten-scene recipe](assets/diagramas-typegpu.json) to see their geometry and timing together. Each scene also works on its own through `init`.
-
-For a system design brief, use the [ByteByteGo study](references/bytebytego-study.md). Its twenty [editable scenes](assets/diagramas-bytebytego.json) include request routing, membership, message order, state changes and decompositions. Match the viewer's question to the mechanism. Use a staged layout when the entities, positions and order of revelation come from the user's own system. Find the original passage and its observed landmarks in the [source index](references/bytebytego-corpus.json).
+Use the user's entities for system diagrams. Determine whether links represent dependencies, alternatives, membership or recorded transfers before adding arrows or a traveling mark.
 
 For occasional transitions keep ordinary joins as cuts. In longer edits mark a meaningful destination with `handoff` (`section`, `comparison` or `detail`). Read the exported `transition_audit` for the chosen effect, its reason and source-frame interval. One-scene graphics can develop in place. For a comparison, `data-chart.focusHold` keeps the selected value, bar and category fixed as context appears. For an end card, `detailScale` adjusts the size of the final action. [Recipe fields and pacing](references/usage.md)
 
 When critiquing completed examples, apply rea-video to the encoded MP4s. Match the detected boundaries and motion beats to decoded before, during and after frames, the editorial decision list and the reading size. Record specific defects with timestamps. After changing the generator, repeat the analysis on the revised files and compare the same observable features. [Encoded example review](references/analysis.md#review-an-exported-example)
 
-On export, inspect the actual PNG or MP4 and its adjacent QA report. After editing a component, run `audit-library report.json --sheet sheet.jpg` with the same script, inspect the contact sheet and render the affected sequence. The [usage guide](references/usage.md) covers the input contract, browser dependencies, examples and tests. The [study](references/equifax-study.md) and [inventory](references/equifax-corpus.json) document the original source material.
+On export, inspect the actual PNG or MP4 and its adjacent QA report. After editing a component, run `audit-library report.json --sheet sheet.jpg` with the same script, inspect the contact sheet and render the affected sequence. The [usage guide](references/usage.md) covers the input contract, browser dependencies, examples and tests.
 
 ## Analyze a new reference
 

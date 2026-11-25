@@ -42,7 +42,17 @@
     "vertex-remap":{labels:["Vértices","Superficie"],duration:5},
     "command-lanes":{labels:["Sombra","Escena","Brillo","Salida"],duration:5},
     "shared-host":{labels:["Web","Escena","Móvil"],duration:5},
+    "pivot-rotation":{title:"El recorrido de una aguja",unit:"mm",radius:42,startAngle:25,sweepAngle:140,
+      orientation:"compass",pivotLabel:"Eje",pointLabel:"Extremo",duration:6},
+    "rigid-rearrangement":{title:"Una banda, dos filas",unit:"cm",duration:6,pieces:[
+      {id:"base",label:"A",width:3,height:2,from:[0,0],to:[0,0]},
+      {id:"strip",label:"B",width:2,height:1,from:[3,0],to:[3,1]},
+      {id:"cap",label:"C",width:2,height:1,from:[5,0],to:[3,0]}]},
     "split-clock":{labels:["Interfaz","Cálculo"],duration:5},
+    "object-route":{title:"El recorrido de una muestra",objectLabel:"Ágata azul",
+      stops:["Archivo Celeste","Taller Ibis","Sala del Olmo","Archivo Celeste"],duration:8},
+    "contact-transfer":{title:"Imprimir un sello",labels:["Palanca","Sello","Papel","Huella de tinta"],
+      drive:"lever",effect:"mark",duration:6},
     "trajectory-trace":{title:"Recorrido de una boya",unit:"m",timeUnit:"s",duration:7,samples:[
       {t:0,x:0,y:0},{t:1,x:1,y:2},{t:2,x:2,y:1},{t:4,x:1,y:-1},{t:5,x:0,y:0}]},
     "interval-refinement":{title:"Localizar el punto de medida",unit:"m",duration:7,intervals:[

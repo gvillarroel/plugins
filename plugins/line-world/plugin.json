@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "line-world",
-  "version": "1.14.0",
+  "version": "1.15.0",
   "description": "Create and edit narrated explainers with measured attention, source-based charts, portraits, original illustrations and filmed scenes. Generate voices and effects, edit Google Vids and verify the exported MP4.",
   "author": {
     "name": "Gerardo Villarroel"

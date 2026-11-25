@@ -1,0 +1,702 @@
+[
+  {
+    "split": "confirm",
+    "version": "release",
+    "model": "sol",
+    "case": "c19",
+    "direction": true,
+    "film": true,
+    "passed": false,
+    "observations": "The black bead token follows a visible arc from the felt tray to the case between 0 and 4.62 s. The white bead and its retained tray membership never appear."
+  },
+  {
+    "split": "confirm",
+    "version": "release",
+    "model": "sol",
+    "case": "c36",
+    "direction": true,
+    "film": true,
+    "passed": false,
+    "observations": "The table explicitly shows 6 and 12 dry, 10 and 30 inspected, totals 18/40 = 45%. At 0, 1.00, 2.75, 5.25 and 6.92 s the entire table is already present without change in cells, sums, or highlighting."
+  },
+  {
+    "split": "confirm",
+    "version": "release",
+    "model": "sol",
+    "case": "c55",
+    "direction": true,
+    "film": true,
+    "passed": true,
+    "observations": "The complete lookup remains legible at 0.00–6.92 s with triangle–pantry, two lines–linen room and circle–medicine cabinet. The first column shows both symbols and names."
+  },
+  {
+    "split": "confirm",
+    "version": "release",
+    "model": "sol",
+    "case": "c72",
+    "direction": true,
+    "film": true,
+    "passed": true,
+    "observations": "The dot labeled Punto de luz follows the upper semicircle around the center labeled Chincheta, with a 3 cm radius held constant. It goes from right at 0 s through +88.7° at 2.88 s to left at +180°."
+  },
+  {
+    "split": "confirm",
+    "version": "release",
+    "model": "sol",
+    "case": "c84",
+    "direction": true,
+    "film": true,
+    "passed": true,
+    "observations": "Inside the one labeled endpaper, simultaneous labels explicitly identify the oval school seal and square parish seal. Native samples at 1.55, 2.50 and 5.00 s confirm simultaneity and the absence of a directional link."
+  },
+  {
+    "split": "confirm",
+    "version": "release",
+    "model": "terra",
+    "case": "c19",
+    "direction": true,
+    "film": true,
+    "passed": false,
+    "observations": "At 2.80 s the black and white rows both read Bandeja. At 4.40 s the after column adds Estuche beside the black row; by 6.10 s the white row also has a second Bandeja. The rows convey both valid membership states. The clip reveals each result cell the same way and never carries a mark or attention cue from the black bead's source to its destination."
+  },
+  {
+    "split": "confirm",
+    "version": "release",
+    "model": "terra",
+    "case": "c36",
+    "direction": true,
+    "film": false,
+    "passed": false,
+    "observations": "Neither an encoded scene nor frame sheet is present in the sealed entry."
+  },
+  {
+    "split": "confirm",
+    "version": "release",
+    "model": "terra",
+    "case": "c55",
+    "direction": true,
+    "film": false,
+    "passed": false,
+    "observations": "Neither an encoded scene nor frame sheet is present in the sealed entry."
+  },
+  {
+    "split": "confirm",
+    "version": "release",
+    "model": "terra",
+    "case": "c72",
+    "direction": true,
+    "film": true,
+    "passed": true,
+    "observations": "A single dot labeled Marca moves from the right over the top to the left, on the same 3 cm radius around Pivote. The six sampled poses show an arc from 0° to +180°."
+  },
+  {
+    "split": "confirm",
+    "version": "release",
+    "model": "terra",
+    "case": "c84",
+    "direction": true,
+    "film": true,
+    "passed": true,
+    "observations": "Within the enclosure Guarda del libro, two independent labels reveal together at 1.44–2.88 s and are held together. The text assigns an oval seal to the school and a square seal to the parish."
+  },
+  {
+    "split": "dev",
+    "version": "baseline",
+    "model": "sol",
+    "case": "d14",
+    "direction": true,
+    "film": false,
+    "passed": false,
+    "observations": "The final submission hands the geometry to a specialist; no recipe or frames."
+  },
+  {
+    "split": "dev",
+    "version": "baseline",
+    "model": "sol",
+    "case": "d26",
+    "direction": true,
+    "film": false,
+    "passed": false,
+    "observations": "Direction keeps each named person's endpoints and the unchanged weight; specialist referral has no artifact."
+  },
+  {
+    "split": "dev",
+    "version": "baseline",
+    "model": "sol",
+    "case": "d41",
+    "direction": true,
+    "film": true,
+    "passed": false,
+    "observations": "Correct final rates on a common vertical scale; the original returned and sold counts are absent in every pose. The rate reveal cannot be traced to each denominator."
+  },
+  {
+    "split": "dev",
+    "version": "baseline",
+    "model": "sol",
+    "case": "d58",
+    "direction": true,
+    "film": true,
+    "passed": true,
+    "observations": "The card stays fixed while independent arrows reveal the three venues; the final three direct branches visibly preserve the relation."
+  },
+  {
+    "split": "dev",
+    "version": "baseline",
+    "model": "sol",
+    "case": "d73",
+    "direction": true,
+    "film": false,
+    "passed": false,
+    "observations": "Day 17 is correctly left empty in direction. The adapter returned a D3 referral, without a recipe or frames."
+  },
+  {
+    "split": "dev",
+    "version": "baseline",
+    "model": "sol",
+    "case": "d89",
+    "direction": true,
+    "film": true,
+    "passed": false,
+    "observations": "A token and ordered noun boxes preserve lever→platen→paper→relief. No downward stroke, platen contact, or pressure relation is shown or labeled, so the mechanism is incomplete."
+  },
+  {
+    "split": "dev",
+    "version": "baseline",
+    "model": "terra",
+    "case": "d14",
+    "direction": true,
+    "film": true,
+    "passed": false,
+    "observations": "The draft renders dimensions as text in same-sized boxes with arrows; the two rigid pieces, rearrangement, and physical area are absent."
+  },
+  {
+    "split": "dev",
+    "version": "baseline",
+    "model": "terra",
+    "case": "d26",
+    "direction": true,
+    "film": false,
+    "passed": false,
+    "observations": "Direction keeps each named person's endpoints and the unchanged weight; specialist referral has no artifact."
+  },
+  {
+    "split": "dev",
+    "version": "baseline",
+    "model": "terra",
+    "case": "d41",
+    "direction": true,
+    "film": true,
+    "passed": false,
+    "observations": "Correct final rates on a common vertical scale; the original returned and sold counts are absent in every pose. The rate reveal cannot be traced to each denominator."
+  },
+  {
+    "split": "dev",
+    "version": "baseline",
+    "model": "terra",
+    "case": "d58",
+    "direction": true,
+    "film": true,
+    "passed": true,
+    "observations": "The card stays fixed while independent arrows reveal the three venues; the final three direct branches visibly preserve the relation."
+  },
+  {
+    "split": "dev",
+    "version": "baseline",
+    "model": "terra",
+    "case": "d73",
+    "direction": true,
+    "film": false,
+    "passed": false,
+    "observations": "Day 17 is correctly left empty in direction. The adapter returned a D3 referral, without a recipe or frames."
+  },
+  {
+    "split": "dev",
+    "version": "baseline",
+    "model": "terra",
+    "case": "d89",
+    "direction": true,
+    "film": true,
+    "passed": false,
+    "observations": "A token and ordered noun boxes preserve lever→platen→paper→relief. No downward stroke, platen contact, or pressure relation is shown or labeled, so the mechanism is incomplete."
+  },
+  {
+    "split": "dev",
+    "version": "candidate",
+    "model": "sol",
+    "case": "d14",
+    "direction": true,
+    "film": true,
+    "passed": true,
+    "observations": "From 0.0 to 8.43 s the right 3×2 piece lifts then slides atop the fixed one without changing dimensions; area 12 cm², original/final outlines and a fixed 1 cm ruler support 6×2 → 3×4."
+  },
+  {
+    "split": "dev",
+    "version": "candidate",
+    "model": "sol",
+    "case": "d26",
+    "direction": true,
+    "film": true,
+    "passed": true,
+    "observations": "Both exposures of each named person remain legible in kg. Across 0–1.22 s the trace advances right on Berta from 6 toward 7; Ada falls, and Luz has two concentric marks at 4."
+  },
+  {
+    "split": "dev",
+    "version": "candidate",
+    "model": "sol",
+    "case": "d41",
+    "direction": true,
+    "film": true,
+    "passed": true,
+    "observations": "Each fraction stays legible and aligned with its correctly scaled percentage. The moving endpoint follows the common zero-based scale and the final lengths show 30% exceeds 20%."
+  },
+  {
+    "split": "dev",
+    "version": "candidate",
+    "model": "sol",
+    "case": "d58",
+    "direction": true,
+    "film": true,
+    "passed": true,
+    "observations": "A single fixed card opens independent direct edges to all three named venues over 0–4.62 s. None of the three branches is a prerequisite for another."
+  },
+  {
+    "split": "dev",
+    "version": "candidate",
+    "model": "sol",
+    "case": "d73",
+    "direction": true,
+    "film": true,
+    "passed": true,
+    "observations": "Day 3 has 42 cm. Before the explicit day-17 gap the day-10 point appears at 39; at 5.24 s day 24 returns as an isolated 31. The plot shows all four equally spaced weeks."
+  },
+  {
+    "split": "dev",
+    "version": "candidate",
+    "model": "sol",
+    "case": "d89",
+    "direction": true,
+    "film": true,
+    "passed": true,
+    "observations": "From 0 to 3.42 s the lever pushes the platen onto the fixed paper. The mark appears at contact and remains after release by 8.43 s."
+  },
+  {
+    "split": "dev",
+    "version": "candidate",
+    "model": "terra",
+    "case": "d14",
+    "direction": true,
+    "film": true,
+    "passed": true,
+    "observations": "From 0.0 to 8.43 s the right 3×2 piece lifts then slides atop the fixed one without changing dimensions; area 12 cm², original/final outlines and a fixed 1 cm ruler support 6×2 → 3×4."
+  },
+  {
+    "split": "dev",
+    "version": "candidate",
+    "model": "terra",
+    "case": "d26",
+    "direction": true,
+    "film": true,
+    "passed": true,
+    "observations": "Both exposures of each named person remain legible in kg. Across 0–1.22 s the trace advances right on Berta from 6 toward 7; Ada falls, and Luz has two concentric marks at 4."
+  },
+  {
+    "split": "dev",
+    "version": "candidate",
+    "model": "terra",
+    "case": "d41",
+    "direction": true,
+    "film": true,
+    "passed": true,
+    "observations": "Each fraction stays legible and aligned with its correctly scaled percentage. The moving endpoint follows the common zero-based scale and the final lengths show 30% exceeds 20%."
+  },
+  {
+    "split": "dev",
+    "version": "candidate",
+    "model": "terra",
+    "case": "d58",
+    "direction": true,
+    "film": true,
+    "passed": true,
+    "observations": "A single fixed card opens independent direct edges to all three named venues over 0–4.62 s. None of the three branches is a prerequisite for another."
+  },
+  {
+    "split": "dev",
+    "version": "candidate",
+    "model": "terra",
+    "case": "d73",
+    "direction": true,
+    "film": true,
+    "passed": true,
+    "observations": "Day 3 has 42 cm. Before the explicit day-17 gap the day-10 point appears at 39; at 5.24 s day 24 returns as an isolated 31. The plot shows all four equally spaced weeks."
+  },
+  {
+    "split": "dev",
+    "version": "candidate",
+    "model": "terra",
+    "case": "d89",
+    "direction": true,
+    "film": true,
+    "passed": true,
+    "observations": "From 0 to 3.42 s the lever pushes the platen onto the fixed paper. The mark appears at contact and remains after release by 8.43 s."
+  },
+  {
+    "split": "holdout",
+    "version": "baseline",
+    "model": "sol",
+    "case": "h08",
+    "direction": true,
+    "film": false,
+    "passed": false,
+    "observations": "No encoded scene or frame sheet in this sealed entry."
+  },
+  {
+    "split": "holdout",
+    "version": "baseline",
+    "model": "sol",
+    "case": "h32",
+    "direction": true,
+    "film": false,
+    "passed": false,
+    "observations": "No encoded scene or frame sheet in this sealed entry."
+  },
+  {
+    "split": "holdout",
+    "version": "baseline",
+    "model": "sol",
+    "case": "h51",
+    "direction": true,
+    "film": false,
+    "passed": false,
+    "observations": "No encoded scene or frame sheet in this sealed entry."
+  },
+  {
+    "split": "holdout",
+    "version": "baseline",
+    "model": "sol",
+    "case": "h67",
+    "direction": true,
+    "film": false,
+    "passed": false,
+    "observations": "No encoded scene or frame sheet in this sealed entry."
+  },
+  {
+    "split": "holdout",
+    "version": "baseline",
+    "model": "sol",
+    "case": "h76",
+    "direction": true,
+    "film": false,
+    "passed": false,
+    "observations": "No encoded scene or frame sheet in this sealed entry."
+  },
+  {
+    "split": "holdout",
+    "version": "baseline",
+    "model": "sol",
+    "case": "h94",
+    "direction": true,
+    "film": false,
+    "passed": false,
+    "observations": "No encoded scene or frame sheet in this sealed entry."
+  },
+  {
+    "split": "holdout",
+    "version": "baseline",
+    "model": "terra",
+    "case": "h08",
+    "direction": true,
+    "film": true,
+    "passed": false,
+    "observations": "At 0.00, 2.88 and 10.63 s the pivot, star, radius and cardinal change are a succession of identically shaped noun boxes. No pivot or radial rotation is depicted."
+  },
+  {
+    "split": "holdout",
+    "version": "baseline",
+    "model": "terra",
+    "case": "h32",
+    "direction": true,
+    "film": false,
+    "passed": false,
+    "observations": "No encoded scene or frame sheet in this sealed entry."
+  },
+  {
+    "split": "holdout",
+    "version": "baseline",
+    "model": "terra",
+    "case": "h51",
+    "direction": true,
+    "film": false,
+    "passed": false,
+    "observations": "No encoded scene or frame sheet in this sealed entry."
+  },
+  {
+    "split": "holdout",
+    "version": "baseline",
+    "model": "terra",
+    "case": "h67",
+    "direction": true,
+    "film": false,
+    "passed": false,
+    "observations": "No encoded scene or frame sheet in this sealed entry."
+  },
+  {
+    "split": "holdout",
+    "version": "baseline",
+    "model": "terra",
+    "case": "h76",
+    "direction": true,
+    "film": false,
+    "passed": false,
+    "observations": "No encoded scene or frame sheet in this sealed entry."
+  },
+  {
+    "split": "holdout",
+    "version": "baseline",
+    "model": "terra",
+    "case": "h94",
+    "direction": true,
+    "film": false,
+    "passed": false,
+    "observations": "No encoded scene or frame sheet in this sealed entry."
+  },
+  {
+    "split": "holdout",
+    "version": "candidate",
+    "model": "sol",
+    "case": "h08",
+    "direction": true,
+    "film": false,
+    "passed": false,
+    "observations": "No encoded scene or frame sheet in this sealed entry."
+  },
+  {
+    "split": "holdout",
+    "version": "candidate",
+    "model": "sol",
+    "case": "h32",
+    "direction": true,
+    "film": true,
+    "passed": true,
+    "observations": "At 0.00, 1.63, 3.26 and 5.24 s, 0, 2, Sin dato and 9 appear in mm at the proportional 0-, 5-, 15- and 35-min positions. The final point is isolated."
+  },
+  {
+    "split": "holdout",
+    "version": "candidate",
+    "model": "sol",
+    "case": "h51",
+    "direction": true,
+    "film": true,
+    "passed": true,
+    "observations": "At 0 s one enclosure names pond and shared afternoons. At 2.88–4.62 s two equal, unconnected categories become legible in it; no arrow, count or following is implied."
+  },
+  {
+    "split": "holdout",
+    "version": "candidate",
+    "model": "sol",
+    "case": "h67",
+    "direction": true,
+    "film": true,
+    "passed": true,
+    "observations": "At 0–2.45 s the Candil trace moves to 60% alongside 18/30; 24/60 remains at 40%. At 5.92 s Bruma retains its 11 and an explicitly unknown share, with no bar."
+  },
+  {
+    "split": "holdout",
+    "version": "candidate",
+    "model": "sol",
+    "case": "h76",
+    "direction": true,
+    "film": false,
+    "passed": false,
+    "observations": "No encoded scene or frame sheet in this sealed entry."
+  },
+  {
+    "split": "holdout",
+    "version": "candidate",
+    "model": "sol",
+    "case": "h94",
+    "direction": true,
+    "film": true,
+    "passed": true,
+    "observations": "The named paired rows preserve all six dB readings, including the double marker at 44. The active trace moves left on Junco from 52 toward 45 between 0.0 and 1.5 s."
+  },
+  {
+    "split": "holdout",
+    "version": "candidate",
+    "model": "terra",
+    "case": "h08",
+    "direction": true,
+    "film": false,
+    "passed": false,
+    "observations": "No encoded scene or frame sheet in this sealed entry."
+  },
+  {
+    "split": "holdout",
+    "version": "candidate",
+    "model": "terra",
+    "case": "h32",
+    "direction": true,
+    "film": true,
+    "passed": true,
+    "observations": "At 0.00, 1.63, 3.26 and 5.24 s the observed zero and 2 mm are followed by a gap and isolated 9 mm. The minute-15 cross is below the metric axis."
+  },
+  {
+    "split": "holdout",
+    "version": "candidate",
+    "model": "terra",
+    "case": "h51",
+    "direction": true,
+    "film": false,
+    "passed": false,
+    "observations": "No encoded scene or frame sheet in this sealed entry."
+  },
+  {
+    "split": "holdout",
+    "version": "candidate",
+    "model": "terra",
+    "case": "h67",
+    "direction": true,
+    "film": true,
+    "passed": true,
+    "observations": "At 0 s both shares align to zero and show 24/60 and 18/30; by 3.93 s attention moves to 11 / Sin dato without drawing a value. Candil is visibly fuller."
+  },
+  {
+    "split": "holdout",
+    "version": "candidate",
+    "model": "terra",
+    "case": "h76",
+    "direction": true,
+    "film": false,
+    "passed": false,
+    "observations": "No encoded scene or frame sheet in this sealed entry."
+  },
+  {
+    "split": "holdout",
+    "version": "candidate",
+    "model": "terra",
+    "case": "h94",
+    "direction": true,
+    "film": true,
+    "passed": true,
+    "observations": "At 0.0–1.22 s the Junco trace travels left from 52 to 45. The other named pairs stay fixed, showing Olmo's rise and Hiedra's unchanged 44 dB."
+  },
+  {
+    "split": "holdout",
+    "version": "release",
+    "model": "sol",
+    "case": "h08",
+    "direction": true,
+    "film": true,
+    "passed": true,
+    "observations": "A marker moves clockwise around a fixed pivot at a constant labeled 4 cm radius. The six poses span north at 0°, +44.3° at 2.88 s, and east at +90° during the final hold."
+  },
+  {
+    "split": "holdout",
+    "version": "release",
+    "model": "sol",
+    "case": "h32",
+    "direction": true,
+    "film": true,
+    "passed": true,
+    "observations": "0 mm at minute 0, 2 mm at 5, a lost reading at 15, and the isolated 9 mm at 35 appear over 0–5.24 s. The unequal time spacing and absence of a bridge across the gap are visible."
+  },
+  {
+    "split": "holdout",
+    "version": "release",
+    "model": "sol",
+    "case": "h51",
+    "direction": true,
+    "film": true,
+    "passed": true,
+    "observations": "A single enclosure names the pond and the same afternoons. Both labels appear together from 1.44 to 2.88 s; the held labels carry equal weight without arrows or counts."
+  },
+  {
+    "split": "holdout",
+    "version": "release",
+    "model": "sol",
+    "case": "h67",
+    "direction": true,
+    "film": true,
+    "passed": true,
+    "observations": "Two zero-based marks show 24/60 = 40% and 18/30 = 60%; the 11 from Bruma remains visible beside a missing denominator and no bar. At 3.93 s the highlight reaches the explicit missing-share cue."
+  },
+  {
+    "split": "holdout",
+    "version": "release",
+    "model": "sol",
+    "case": "h76",
+    "direction": true,
+    "film": true,
+    "passed": true,
+    "observations": "The same labeled book token reaches the desk, reader's bag and returns box, then returns on a directed arc to the original depot. Station names, direction and endpoint remain readable over the hold."
+  },
+  {
+    "split": "holdout",
+    "version": "release",
+    "model": "sol",
+    "case": "h94",
+    "direction": true,
+    "film": true,
+    "passed": true,
+    "observations": "Every named house retains its two ordered dB readings. At 0–1.22 s a highlight moves left from 52 to 45 on Junco. Hiedra's overlapping markers preserve 44→44 and Olmo's row preserves 38→46."
+  },
+  {
+    "split": "holdout",
+    "version": "release",
+    "model": "terra",
+    "case": "h08",
+    "direction": true,
+    "film": true,
+    "passed": false,
+    "observations": "A marker moves clockwise around a fixed pivot at a constant labeled 4 cm radius. The six poses span north at 0°, +44.3° at 2.88 s, and east at +90° during the final hold. The endpoint is a plain circular dot with the generic legend Marca. Neither a star shape nor the word Estrella identifies the requested star."
+  },
+  {
+    "split": "holdout",
+    "version": "release",
+    "model": "terra",
+    "case": "h32",
+    "direction": true,
+    "film": true,
+    "passed": true,
+    "observations": "0 mm at minute 0, 2 mm at 5, a lost reading at 15, and the isolated 9 mm at 35 appear over 0–5.24 s. The unequal time spacing and absence of a bridge across the gap are visible."
+  },
+  {
+    "split": "holdout",
+    "version": "release",
+    "model": "terra",
+    "case": "h51",
+    "direction": true,
+    "film": true,
+    "passed": true,
+    "observations": "A single enclosure names the pond and the same afternoons. Both labels appear together from 1.44 to 2.88 s; the held labels carry equal weight without arrows or counts."
+  },
+  {
+    "split": "holdout",
+    "version": "release",
+    "model": "terra",
+    "case": "h67",
+    "direction": true,
+    "film": true,
+    "passed": true,
+    "observations": "Two zero-based marks show 24/60 = 40% and 18/30 = 60%; the 11 from Bruma remains visible beside a missing denominator and no bar. At 3.93 s the highlight reaches the explicit missing-share cue."
+  },
+  {
+    "split": "holdout",
+    "version": "release",
+    "model": "terra",
+    "case": "h76",
+    "direction": true,
+    "film": true,
+    "passed": true,
+    "observations": "The same labeled book token reaches the desk, reader's bag and returns box, then returns on a directed arc to the original depot. Station names, direction and endpoint remain readable over the hold."
+  },
+  {
+    "split": "holdout",
+    "version": "release",
+    "model": "terra",
+    "case": "h94",
+    "direction": true,
+    "film": true,
+    "passed": true,
+    "observations": "Every named house retains its two ordered dB readings. At 0–1.22 s a highlight moves left from 52 to 45 on Junco. Hiedra's overlapping markers preserve 44→44 and Olmo's row preserves 38→46."
+  }
+]

@@ -9,6 +9,22 @@ from study_direction import find_direction
 
 
 class MathematicsTests(unittest.TestCase):
+    def test_pivot_rotation_maps_the_supplied_radius_and_signed_sweep(self):
+        content = dict(unit="mm",radius=33.2,startAngle=17.25,sweepAngle=-103.75,orientation="compass")
+        for brief in ("", "Girar la marca del brazo alrededor de su pivote"):
+            recipe, report = adapt(dict(brief=brief,title="Giro de prueba",content=content))
+            self.assertEqual(report["artifact"], "pivot-rotation")
+            self.assertEqual(recipe["scenes"][0]["props"], dict(content,title="Giro de prueba",duration=6))
+            self.assertIn("bnjKwiUg-kw", report["reference"]["url"])
+        for edit in ({"radius":0},{"radius":True},{"startAngle":float("nan")},{"sweepAngle":0},
+                     {"sweepAngle":float("inf")},{"unit":" "},{"orientation":"north"},{"pointLabel":None}):
+            with self.subTest(edit=edit), self.assertRaises(ValueError):
+                check_props("pivot-rotation",dict(content,**edit),set())
+        recipe,report=adapt(dict(intent="pivot-rotation",content={"unit":"mm","radius":3}))
+        self.assertIsNone(recipe)
+        self.assertIn("sweepAngle", report["question"])
+        self.assertEqual(resolve("pivot-rotation",content,{"target":"rotation","role":"result"})[1],.88)
+
     def test_every_published_item_has_visual_evidence(self):
         passages = corpus()
         self.assertEqual(len({p["video_id"] for p in passages}), 60)

@@ -29,6 +29,29 @@ class Choice:
 
 
 CHOICES = {
+    "object-route": Choice("object-route",
+        "El recorrido identifica dónde se encuentra el mismo objeto en cada visita.",
+        "Cada estación conserva su posición y el objeto lleva consigo el nombre de la fuente.",
+        "Acompaña el objeto hasta la siguiente parada. Sostén su llegada y vuelve a la estación original si se repite.",
+        (r"sigue\w*|seguir|rastre\w*|track\w*|follow\w*|viaja\w*|visita\w*|recorr\w*|returns?|regres\w*|travels?|visits?|itinerar\w*",
+         r"estaciones?|stations?|paradas?|stops?|waypoints?|ida y vuelta|round trip|regres\w* al?\b|returns? to|vuelve al?\b")),
+    "pivot-rotation": Choice("pivot-rotation",
+        "Una marca gira a distancia constante de un centro fijo.",
+        "El pivote, la longitud del radio y la referencia angular permanecen fijos.",
+        "Fija el pivote y la referencia de partida. Gira el brazo y traza el arco hasta completar el ángulo indicado.",
+        (r"gir\w*|rot\w*|orbit\w*|barre\w*|barrido|arcos?|arcs?|sweeps?|sweeping|turns?|turning|revolv\w*",
+         r"pivots?|pivotes?|radius|radii|radios?|ejes?|axis|axle|hinges?|bisagras?|compas|compass|"
+         r"brazo|arm|centro fijo|punto fijo|fixed (?:center|centre|point|pin)|clockwise|horario|aguja|needle")),
+    "rigid-rearrangement": Choice("rigid-rearrangement",
+        "Se puede comprobar una superficie siguiendo las mismas piezas al reordenarlas.",
+        "La unidad de longitud, la escala y las dimensiones de cada pieza permanecen fijas.",
+        "Deja reconocible la figura inicial, traslada las piezas y sostén el contorno final junto al área.",
+        (r"rectang\w*|losetas?|tiles?", r"reorden\w*|reacomod\w*|rearrang\w*|corta\w*|cut|cuts|cortar", r"area|superficie|cartulina|area conserved")),
+    "contact-transfer": Choice("contact-transfer",
+        "Un movimiento se transmite por contacto y deja un efecto observable.",
+        "El material y el punto de contacto permanecen identificables.",
+        "Sigue la pieza impulsada. Revela el efecto al hacer contacto y conserva el resultado al soltar.",
+        (r"empuj\w*|presion\w*|press\w*|push\w*", r"marca|relieve|huella|desplaz\w*|imprint\w*|displac\w*")),
     "trajectory-trace": Choice("trajectory-trace",
         "El público debe reconocer cómo la altura de un objeto produce una traza en el tiempo.",
         "La posición y la gráfica comparten la misma altura y el mismo instante.",
@@ -510,6 +533,12 @@ def candidate(intent, evidence, profile, text, scene=None):
                 target = "measured-" + intent
                 producer, kind, fit = "line-world-d3", "specialist", "data-driven-adaptation"
                 next_step += " Construye marcas a escala con las observaciones reales en line-world-d3."
+    elif target == "pivot-rotation":
+        fit = "editable-template"
+        next_step = ("Indica unit, radius, startAngle y sweepAngle en content. Los ángulos se miden en grados. "
+                     "Usa cartesian para partir del este en sentido antihorario o compass para partir del norte en sentido horario.")
+    elif target == "object-route":
+        fit, next_step = "editable-template", "Introduce el nombre en content.objectLabel y la secuencia en content.stops. Repite el nombre de una estación para regresar a ella."
     elif kind == "static":
         fit, next_step = "static", "Alinea cifras y unidades y reserva una pausa para leer."
     elif kind == "artifact":

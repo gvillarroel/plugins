@@ -5,6 +5,8 @@ description: Creates data-driven SVG charts, linked views and seeded geometric l
 
 # Line World D3
 
+For a rate, keep the two counts on the same row as its percentage. For a paired change, share the position scale across both endpoints and preserve identity, signed values and missing observations. Numeric elapsed time uses the source coordinate and its unit. [Input mapping and direction](../reference-motion/references/decidir-el-plano.md)
+
 Create the data geometry for the film. Read the bundled
 [video contract](references/video-contract.md) before choosing marks or styling.
 

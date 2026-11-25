@@ -59,6 +59,10 @@ class MotionSuggestions(unittest.TestCase):
             "split-clock": ("Dos relojes: el worker se retrasa", "Compare two clocks when a thread overruns its slot"),
         }
         mathematics = {
+            "pivot-rotation": ("El brazo gira alrededor del pivote","Rotate a marked point about a fixed pivot"),
+            "object-route": ("Seguir el objeto por las estaciones", "Follow the token as it returns to its first stop"),
+            "rigid-rearrangement": ("Reordenar los rectángulos conservando el área", "Rearrange rectangular tiles of equal area"),
+            "contact-transfer": ("Al presionar queda una huella", "The press leaves an imprint"),
             "interval-refinement": ("Acotar intervalos anidados", "Narrow the nested intervals"),
             "trajectory-trace": ("La trayectoria del móvil y su gráfica", "Plot the trajectory against its trace"),
         }

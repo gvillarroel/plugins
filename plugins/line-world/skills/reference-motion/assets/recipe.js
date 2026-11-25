@@ -8,6 +8,11 @@
   let keyLabels = new Set(), measured = {}, positions = {};
   function criticalLabels(scene) {
     const p=scene.props;
+    if(scene.artifact==="pivot-rotation") return [p.radius.toLocaleString("es-ES",{maximumSignificantDigits:15})+" "+p.unit];
+    if(scene.artifact==="rigid-rearrangement"){
+      const total=p.pieces.reduce((sum,piece)=>sum+piece.width*piece.height,0);
+      return [total.toLocaleString("es-ES",{maximumSignificantDigits:15})+" "+p.unit+"²"];
+    }
     if(scene.artifact==="chart-ring") return [engine.percentageLabel(p.value)];
     if(scene.artifact==="disc-endcard") return String(p.detail||"").split("\n").filter(Boolean);
     if(scene.artifact!=="data-chart" || !Number.isInteger(p.highlightIndex)) return [];
@@ -19,7 +24,7 @@
     if (Array.isArray(value)) value.forEach(addLabels);
     else if (value && typeof value === "object") {
       for (const [key,v] of Object.entries(value)) {
-        if (["title","detail","label","labels","cta","kicker","text","name","items","nodes","cards","guests","value","number","inputs","outputs","edges","keyLabel","focusLabel","inputLabel","exchanges","parts","criteria"].includes(key)) addLabels(v);
+        if (["title","detail","label","labels","cta","kicker","text","name","items","nodes","cards","guests","value","number","inputs","outputs","edges","keyLabel","focusLabel","inputLabel","exchanges","parts","criteria","pieces","pointLabel","pivotLabel"].includes(key)) addLabels(v);
       }
     } else if (typeof value === "string" || typeof value === "number")
       String(value).split("\n").forEach(v=>labels.add(v));
@@ -197,7 +202,7 @@
   async function reading(index) {
     const scene=plan.scenes[index],begin=scene.start+scene.bridge, hold=begin+scene.reveal;
     const frames=[hold];
-    if(scene.artifact==="chart-ring" || (scene.artifact==="data-chart" && scene.props.focusHold>0))
+    if(["chart-ring","rigid-rearrangement","pivot-rotation"].includes(scene.artifact) || (scene.artifact==="data-chart" && scene.props.focusHold>0))
       for(let i=0;i<8;i++)frames.push(begin+Math.floor(i*scene.reveal/8));
     if(scene.video_assets?.length)
       for(let i=1;i<=4;i++)frames.push(hold+Math.floor(i*(scene.end-1-hold)/4));

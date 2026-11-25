@@ -2,7 +2,9 @@
 import json
 import math
 import re
+from decimal import Decimal
 from pathlib import Path
+from sys import float_info
 
 from systems_recipe import validate_system
 from narration_poses import validate_clock
@@ -11,15 +13,16 @@ from narration_poses import validate_clock
 DIAGRAM_LABEL_COUNTS = {
     "field-packing": 4, "layer-preview": 4, "isometric-layers": 5, "module-transfer": 5,
     "vertex-remap": 2, "command-lanes": 4, "shared-host": 3, "split-clock": 2,
-    "pass-strip": 4, "import-footprint": 3,
+    "pass-strip": 4, "import-footprint": 3, "contact-transfer": 4,
     "ring-handoff": 5, "bit-probe": 3, "message-ladder": 2, "detail-callout": 4, "radix-ladder": 3, "token-gate": 4, "resolution-fan": 8, "queue-router": 5,
 }
 
 
-DIAGRAM_KINDS = set(DIAGRAM_LABEL_COUNTS) | {"staged-network", "interval-refinement", "trajectory-trace"}
+DIAGRAM_KINDS = set(DIAGRAM_LABEL_COUNTS) | {"staged-network", "interval-refinement", "trajectory-trace", "rigid-rearrangement", "pivot-rotation", "object-route"}
 
 
 FIELDS = {
+    "object-route": "duration title objectLabel stops",
     **dict.fromkeys(DIAGRAM_LABEL_COUNTS, "labels duration"),
     "ring-handoff": "labels duration keyLabel",
     "bit-probe": "labels duration bits",
@@ -28,9 +31,12 @@ FIELDS = {
     "radix-ladder": "labels duration value base",
     "token-gate": "labels duration tokens requests",
     "queue-router": "labels duration inputLabel criteria",
+    "contact-transfer": "labels title drive effect duration",
     "staged-network": "duration nodes edges",
     "interval-refinement": "duration title unit intervals",
     "trajectory-trace": "duration title unit timeUnit samples",
+    "rigid-rearrangement": "duration title unit pieces",
+    "pivot-rotation": "duration title unit radius startAngle sweepAngle orientation pivotLabel pointLabel",
     "module-transfer": "labels duration highlightIndex inputs outputs",
     "import-footprint": "labels duration footprint",
     "speaker-id": "title detail side background", "question-card": "title background", "caption-overlay": "title media position",
@@ -58,12 +64,47 @@ def number(value, minimum=0):
 def words(value):
     if isinstance(value, dict):
         visible={"title","detail","kicker","value","values","label","labels","cta","unit","items","text","number","name","presenter","nodes","cards","guests","inputs","outputs","edges","keyLabel","inputLabel","focusLabel","exchanges","parts","criteria","intervals"}
-        return sum(words(v) for k,v in value.items() if k in visible)
+        return sum(words(v) for k,v in value.items() if k in visible or k in {"pieces","pivotLabel","pointLabel","objectLabel","stops"})
     if isinstance(value, list):
         return sum(words(v) for v in value)
     if isinstance(value, str):
         return len(value.split())
     return int(type(value) in (float,int))
+
+
+def check_rearrangement(props):
+    require(isinstance(props.get("unit"), str) and props["unit"].strip(), "Indica la unidad de longitud de las piezas.")
+    pieces = props.get("pieces")
+    require(isinstance(pieces, list) and len(pieces) >= 2, "Se necesitan al menos dos piezas rectangulares.")
+    identifiers = set()
+    occupied = {"from": [], "to": []}
+    total = 0.0
+    for piece in pieces:
+        require(isinstance(piece, dict) and set(piece) == {"id", "label", "width", "height", "from", "to"},
+                "Cada pieza necesita id, label, width, height, from y to.")
+        require(all(isinstance(piece[k], str) and piece[k].strip() for k in ("id", "label")), "Indica el id y el rótulo de cada pieza.")
+        require(piece["id"] not in identifiers, "Cada pieza necesita un id único.")
+        identifiers.add(piece["id"])
+        for key in ("from", "to"):
+            require(isinstance(piece[key], list) and len(piece[key]) == 2, f"{key} debe ser una esquina [x, y].")
+        coordinates = [piece["width"], piece["height"], *piece["from"], *piece["to"]]
+        require(all(type(v) in (int, float) and -1e308 <= v <= 1e308 for v in coordinates),
+                "Las dimensiones y posiciones deben ser números finitos representables.")
+        width, height = map(float, coordinates[:2])
+        require(width > 0 and height > 0 and 0 < width*height < math.inf, "Cada rectángulo necesita lados y área positivos y finitos.")
+        total += width*height
+        for key in occupied:
+            x, y = piece[key]
+            require(x < float(x)+width < math.inf and y < float(y)+height < math.inf,
+                    f"{key}: la precisión de las posiciones debe permitir distinguir ambos lados.")
+            # Decimal endpoints let adjacent edges supplied as 0.1 + 0.2 and 0.3 touch exactly.
+            left, bottom, w, h = map(lambda n: Decimal(str(n)), (x, y, piece["width"], piece["height"]))
+            right, top = left+w, bottom+h
+            for l, b, r, t in occupied[key]:
+                require(right <= l or r <= left or top <= b or t <= bottom, f"{key}: los interiores de las piezas se solapan.")
+            occupied[key].append((left, bottom, right, top))
+    require(math.isfinite(total), "El área total debe ser finita.")
+    require(any(piece["from"] != piece["to"] for piece in pieces), "La reordenación requiere algún desplazamiento.")
 
 
 def check_props(kind, p, assets):
@@ -146,7 +187,32 @@ def check_props(kind, p, assets):
                 and all(isinstance(label, str) and label.strip() for label in labels),
                 f"{kind}: se requieren {count} etiquetas de texto en labels")
     validate_system(kind, p)
+    if kind == "object-route":
+        def named(value):
+            return isinstance(value, str) and bool(value.strip()) and value == value.strip()
+        require(named(p.get("objectLabel")), "object-route.objectLabel requiere el nombre del objeto.")
+        visits = p.get("stops")
+        require(isinstance(visits, list) and len(visits) >= 2 and all(named(s) for s in visits),
+                "object-route.stops requiere los nombres de las paradas en orden.")
+        require(2 <= len(set(visits)) <= 8, "object-route.stops admite de dos a ocho estaciones distintas.")
+    if kind == "contact-transfer":
+        require(p.get("drive", "lever") in ("lever", "linear"), "contact-transfer.drive debe ser lever o linear")
+        require(p.get("effect", "mark") in ("mark", "displace"), "contact-transfer.effect debe ser mark o displace")
     validate_clock(p, kind)
+    if kind == "rigid-rearrangement":
+        check_rearrangement(p)
+    if kind == "pivot-rotation":
+        require(isinstance(p.get("unit"), str) and p["unit"].strip(), "Indica la unidad de longitud del radio.")
+        require(type(p.get("radius")) in (int, float) and 0 < p["radius"] <= float_info.max,
+                "El radio necesita una longitud positiva y finita.")
+        for field in ("startAngle","sweepAngle"):
+            require(type(p.get(field)) in (int, float) and abs(p[field]) <= 2**53-1,
+                    f"{field} necesita un ángulo en grados con precisión numérica.")
+        require(p["sweepAngle"] != 0, "El giro necesita un ángulo distinto de cero.")
+        require(p.get("orientation","cartesian") in ("cartesian","compass"),
+                "orientation debe ser cartesian (este, antihorario) o compass (norte, horario).")
+        for field in ("pivotLabel","pointLabel"):
+            require(field not in p or isinstance(p[field],str) and p[field].strip(), f"{field} necesita un nombre visible.")
     if kind == "trajectory-trace":
         samples = p.get("samples")
         require(isinstance(samples, list) and 2 <= len(samples) <= 400,

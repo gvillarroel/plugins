@@ -700,6 +700,204 @@
     }
     label(g, 'vsync', origin - 2, top - 14, 16, c.muted);
   }
+  function objectRoute(g, p, unused, c, props) {
+    const visits = props.stops;
+    const named = s => typeof s === "string" && s.length > 0 && s.trim() === s;
+    if (!named(props.objectLabel) || !Array.isArray(visits) || visits.length < 2 || !visits.every(named)) {
+      throw new RangeError("object-route requires objectLabel and a sequence of named stops");
+    }
+    const stations = [...new Set(visits)];
+    if (stations.length < 2 || stations.length > 8) throw new RangeError("object-route requires two to eight distinct stations");
+    const inset = stations.length === 2 ? 198 : 129;
+    const pitch = (960 - 2 * inset) / (stations.length - 1);
+    const stationX = new Map(stations.map((name, i) => [name, inset + pitch * i]));
+    const baseline = 333;
+    const phase = p * (visits.length - 1);
+    const leg = Math.min(visits.length - 2, Math.floor(phase));
+    const progress = ramp(phase - leg, .18, .78);
+    const start = stationX.get(visits[leg]), end = stationX.get(visits[leg + 1]);
+    const lift = (a, b) => a === b ? 0 : Math.min(128, 40 + Math.abs(b-a) * .13) + (a > b ? 26 : 0);
+
+    function point(a, b, u) {
+      return [mix(a,b,u), baseline - 4 * lift(a,b) * u * (1-u)];
+    }
+    function trail(a, b, u, paint) {
+      if (a === b || u <= 0) return;
+      const [x,y] = point(a,b,u);
+      // Subdivide the quadratic at u so the trail always ends on the object.
+      g.beginPath();
+      g.moveTo(a, baseline);
+      g.quadraticCurveTo(mix(a,b,u/2), baseline - 2 * lift(a,b) * u, x, y);
+      g.strokeStyle = paint; g.lineWidth = 3; g.stroke();
+      if (u >= .56) {
+        const [mx,my] = point(a,b,.5);
+        const dir = Math.sign(b-a);
+        line(g,mx-6*dir,my-5,mx+dir,my,paint,2.5);
+        line(g,mx-6*dir,my+5,mx+dir,my,paint,2.5);
+      }
+    }
+    label(g, props.title, 51, 61, 32, c.ink, "left", 858, 650);
+    const visited = new Set(visits.slice(0, leg + 1));
+    const past = new Set();
+    for (let i = 0; i < leg; i++) {
+      const a = stationX.get(visits[i]), b = stationX.get(visits[i+1]);
+      const edge = a + "/" + b;
+      if (!past.has(edge)) trail(a,b,1,c.line);
+      past.add(edge);
+    }
+    trail(start,end,progress,c.muted);
+    if (progress === 1) visited.add(visits[leg + 1]);
+
+    stations.forEach((name, index) => {
+      const x = stationX.get(name);
+      const stagger = stations.length > 4;
+      const y = baseline + (stagger && index % 2 ? 108 : 55);
+      const width = Math.min(229, pitch * (stagger ? 1.85 : .92));
+      line(g,x,baseline+13,x,y-19,c.line,2);
+      dot(g,x,baseline,15,visited.has(name) ? c.ink : c.neutral);
+      dot(g,x,baseline,11,c.paper);
+      g.font = "600 26px " + fonts.get(g);
+      const words = name.split(/\s+/);
+      if (words.length > 1 && g.measureText(name).width > width) {
+        let cut = 1;
+        while (cut < words.length - 1 && g.measureText(words.slice(0,cut+1).join(" ")).width <= width) cut++;
+        label(g,words.slice(0,cut).join(" "),x,y,26,c.ink,"center",width,600);
+        label(g,words.slice(cut).join(" "),x,y+29,26,c.ink,"center",width,600);
+      } else {
+        label(g,name,x,y,26,c.ink,"center",width,600);
+      }
+    });
+    const [x,y] = point(start,end,progress);
+    poly(g, [[x-11,y-5],[x-5,y-12],[x+6,y-12],[x+12,y-5],
+             [x+12,y+5],[x+6,y+12],[x-5,y+12],[x-11,y+5]], c.accent);
+    dot(g,x,y,3,c.light);
+    g.font = "700 27px " + fonts.get(g);
+    const nameWidth = Math.min(228,g.measureText(props.objectLabel).width);
+    box(g,x-nameWidth/2-4,y-50,nameWidth+8,32,c.paper,3);
+    label(g,props.objectLabel,x,y-34,27,c.accent,"center",228,700);
+  }
+
+  function contactTransfer(g, p, labels, c, props) {
+    const lever = (props.drive ?? "lever") === "lever";
+    const displace = props.effect === "displace";
+    const approach = ramp(p, .12, .50);
+    const pressure = ramp(p, .50, .64);
+    const release = ramp(p, .68, .88);
+    const depth = displace ? 28 * pressure : 0;
+    const axis = 472, rest = 302, surface = 380;
+    const halfWidth = displace ? 44 : 66;
+    const face = mix(mix(rest, surface, approach) + depth, rest, release);
+    const pinY = face - 185;
+    const pivotX = 295, pivotY = 174, radius = axis - pivotX;
+    // The lever pin follows a circle. A short horizontal slot lets the rod
+    // stay on its guide while taking the pin's full vertical displacement.
+    const angle = Math.asin((pinY - pivotY) / radius);
+    const pinX = pivotX + radius * Math.cos(angle);
+    const gripX = pivotX + 300 * Math.cos(angle);
+    const gripY = pivotY + 300 * Math.sin(angle);
+    const capY = pinY - 13;
+    label(g, props.title, 51, 43, 32, c.ink, "left", 862, 650);
+
+    // All callouts end at their physical part. Only the endpoints follow it.
+    function partName(name, y, color) {
+      g.font = "600 25px " + fonts.get(g);
+      const words = name.trim().split(/\s+/);
+      if (words.length > 1 && g.measureText(name).width > 215) {
+        let cut = 1;
+        while (cut < words.length - 1 && g.measureText(words.slice(0, cut + 1).join(" ")).width <= 215) cut++;
+        label(g, words.slice(0, cut).join(" "), 700, y - 14, 25, color, "left", 215, 600);
+        label(g, words.slice(cut).join(" "), 700, y + 14, 25, color, "left", 215, 600);
+      } else {
+        label(g, name, 700, y, 25, color, "left", 215, 600);
+      }
+    }
+    function callout(name, x, y, labelY) {
+      line(g, x, y, 661, labelY, c.neutral, 1.5);
+      line(g, 661, labelY, 685, labelY, c.neutral, 1.5);
+      partName(name, labelY, c.ink);
+    }
+    callout(labels[0], lever ? gripX : axis + 34, lever ? gripY : capY, 109);
+    callout(labels[1], axis + halfWidth - 2, face - 24, 265);
+    callout(labels[2], displace ? axis + 49 : 593, displace ? surface + depth + 10 : 380, 365);
+
+    // Fixed casting, horizontal support and vertical guides.
+    box(g, 242, 423, 375, 17, c.ink, 4);
+    const postTop = lever ? 170 : 242;
+    box(g, 278, postTop, 33, 423 - postTop, c.neutral, 4);
+    box(g, 286, postTop + 9, 9, 410 - postTop, c.quiet);
+    box(g, 291, 242, 203, 15, c.neutral, 3);
+    box(g, 277, 410, 45, 15, c.muted, 2);
+    if (displace) {
+      // A plug descends into the opening between two stationary walls.
+      for (const x of [353, 522]) {
+        box(g, x, surface + 7, 69, 36, c.quiet);
+        box(g, x, surface + 7, 69, 4, c.muted);
+      }
+      box(g, axis - 50, surface + depth, 100, 15, c.ink, 2);
+      box(g, axis - 49, surface + depth, 98, 4, c.accent, 1);
+      if (depth > 0) {
+        line(g, 545, surface, 561, surface, c.muted, 2);
+        line(g, 553, surface, 553, surface + depth, c.accent, 2);
+        line(g, 545, surface + depth, 561, surface + depth, c.accent, 2);
+      }
+    } else {
+      // The sheet sits on the bed. Three raised bars print their own footprint.
+      box(g, 337, 393, 279, 30, c.neutral, 3);
+      poly(g, [[337,393],[362,370],[640,370],[616,393]], c.quiet);
+      poly(g, [[351,391],[382,363],[613,363],[582,391]], c.muted);
+      poly(g, [[351,388],[382,360],[613,360],[582,388]], c.light);
+      line(g, 351, 388, 382, 360, c.neutral, 1);
+      line(g, 382, 360, 613, 360, c.neutral, 1);
+      line(g, 613, 360, 582, 388, c.neutral, 1);
+      if (pressure > 0) {
+        for (const x of [axis - 36, axis - 6, axis + 24]) {
+          const width = 13 * pressure, reach = 12 * pressure;
+          poly(g, [[x,surface+2],[x+width,surface+2],[x+width+reach,surface+2-reach],
+                   [x+reach,surface+2-reach]], c.accent);
+        }
+      }
+    }
+
+    box(g, axis - 8, pinY, 16, face - 24 - pinY, c.muted);
+    box(g, axis - 26, 240, 52, 20, c.ink, 3);
+    box(g, axis - 9, 240, 18, 20, c.neutral);
+    if (lever) {
+      box(g, axis - 25, pinY - 12, 50, 24, c.ink, 7);
+      box(g, axis - 19, pinY - 5, 36, 10, c.paper, 4);
+      g.save();
+      g.lineCap = "round";
+      line(g, pivotX, pivotY, gripX, gripY, c.ink, 12);
+      line(g, gripX - 43 * Math.cos(angle), gripY - 43 * Math.sin(angle),
+           gripX, gripY, c.accent, 18);
+      g.restore();
+      dot(g, pivotX, pivotY, 15, c.ink);
+      dot(g, pivotX, pivotY, 7, c.paper);
+      dot(g, pinX, pinY, 7, c.ink);
+      dot(g, pinX, pinY, 3, c.paper);
+    } else {
+      box(g, axis - 12, capY, 24, 23, c.ink, 3);
+      box(g, axis - 45, capY - 7, 90, 14, c.accent, 6);
+    }
+    const shoe = displace ? 0 : 9;
+    box(g, axis - halfWidth, face - 31, halfWidth * 2, 31 - shoe, c.ink, 3);
+    box(g, axis - halfWidth + 8, face - 28, halfWidth * 2 - 16, 4, c.neutral, 1);
+    if (!displace) {
+      for (const x of [axis - 36, axis - 6, axis + 24]) {
+        box(g, x, face - shoe, 13, shoe, c.accent);
+      }
+    }
+    if (pressure > 0) {
+      // Lead the eye from the actual print / final level around the bed edge.
+      // A straight diagonal to the caption would disappear behind the casting.
+      const tipX = displace ? 561 : axis + 24 + 13 * pressure;
+      const tipY = displace ? surface + depth : surface + 2;
+      line(g, tipX, tipY, 631, tipY + 1, c.accent, 1.5);
+      line(g, 631, tipY + 1, 665, 462, c.accent, 1.5);
+      line(g, 665, 462, 685, 462, c.accent, 1.5);
+      partName(labels[3], 462, c.accent);
+    }
+  }
+
   function intervalRefinement(g, p, unused, c, props) {
     const input = props.intervals;
     const outward = input[1].low < input[0].low || input[1].high > input[0].high;
@@ -786,10 +984,165 @@
     label(g,"t = "+fmt(time)+" "+props.timeUnit,882,476,25,c.ink,"right",380,600);
   }
 
+  // Test the entire translation, including times between exported frames. On each
+  // axis the interiors overlap for one open interval of relative motion.
+  function clearTranslation(start, end, pieces) {
+    for (let i = 0; i < pieces.length; i++) {
+      for (let j = 0; j < i; j++) {
+        let enter = 0, leave = 1;
+        for (const [axis, side] of [[0,"width"],[1,"height"]]) {
+          const a = start[i][axis]-start[j][axis], b = end[i][axis]-end[j][axis];
+          const tolerance = Math.min(pieces[i][side], pieces[j][side])*1e-12;
+          const lo = -pieces[i][side]+tolerance, hi = pieces[j][side]-tolerance;
+          if (a === b) {
+            if (a <= lo || a >= hi) leave = -1;
+          } else {
+            const t0 = (lo-a)/(b-a), t1 = (hi-a)/(b-a);
+            enter = Math.max(enter, Math.min(t0,t1));
+            leave = Math.min(leave, Math.max(t0,t1));
+          }
+        }
+        if (enter < leave) return false;
+      }
+    }
+    return true;
+  }
+
+  function rearrangementRoute(pieces) {
+    const start = pieces.map(s => s.from), end = pieces.map(s => s.to);
+    if (clearTranslation(start,end,pieces)) return [start,end];
+    for (const axis of [1,0]) {
+      const bend = start.map((v,i) => axis === 1 ? [v[0],end[i][1]] : [end[i][0],v[1]]);
+      if (clearTranslation(start,bend,pieces) && clearTranslation(bend,end,pieces)) return [start,bend,end];
+    }
+    // For a swap, first separate the source into columns ordered by its x centers.
+    // These columns allow y to change freely. Disjoint rows in destination y order
+    // then allow x to change freely. Closing those rows cannot cause an overlap.
+    // Align the packing with the largest stationary piece whenever one exists.
+    let anchor = 0;
+    const still = (s,i) => start[i][0] === end[i][0] && start[i][1] === end[i][1] ? s.width*s.height : 0;
+    pieces.forEach((s,i) => { if (still(s,i) > still(pieces[anchor],anchor)) anchor = i; });
+    function lanes(pose, axis, side) {
+      const indices = pieces.map((_,i) => i);
+      const center = i => pose[i][axis]+pieces[i][side]/2;
+      indices.sort((a,b) => center(a)-center(b) || a-b);
+      const gap = .12*Math.max(...pieces.map(s => s[side]));
+      let next = 0;
+      const positions = [];
+      for (const i of indices) { positions[i] = next; next += pieces[i][side]+gap; }
+      return positions.map(v => v-positions[anchor]+pose[anchor][axis]);
+    }
+    const columns = lanes(start,0,"width"), rows = lanes(end,1,"height");
+    return [start, start.map((v,i) => [columns[i],v[1]]), columns.map((x,i) => [x,rows[i]]),
+      end.map((v,i) => [v[0],rows[i]]), end];
+  }
+
+  function rigidRearrangement(g, p, unused, c, props) {
+    const pieces = props.pieces, route = rearrangementRoute(pieces);
+    const lengths = route.slice(1).map((pose,k) => Math.max(...pose.map(([x,y],i) =>
+      Math.hypot(x-route[k][i][0],y-route[k][i][1]))));
+    const elapsed = unit((p-.1)/.78) * lengths.reduce((sum,v) => sum+v,0);
+    let k = 0, prior = 0;
+    while (k < lengths.length-1 && prior+lengths[k] <= elapsed) prior += lengths[k++];
+    const u = lengths[k] ? ease((elapsed-prior)/lengths[k]) : 1;
+    const points = route[k].map((v,i) => v.map((n,axis) => mix(n,route[k+1][i][axis],u)));
+    const bounds = (axis,side) => [
+      Math.min(...route.flatMap(pose => pose.map(v => v[axis]))),
+      Math.max(...route.flatMap(pose => pose.map((v,i) => v[axis]+pieces[i][side])))];
+    const [left,right] = bounds(0,"width"), [bottom,top] = bounds(1,"height");
+    const scale = Math.min(830/(right-left),293/(top-bottom));
+    const x = v => 480+(v-left-(right-left)/2)*scale;
+    const y = v => 283-(v-bottom-(top-bottom)/2)*scale;
+    const fmt = v => v.toLocaleString("es-ES",{maximumSignificantDigits:15});
+    label(g,props.title,54,68,34,c.ink,"left",585,650);
+    label(g,"Área de las piezas",905,41,19,c.muted,"right",235);
+    label(g,fmt(pieces.reduce((s,v) => s+v.width*v.height,0))+" "+props.unit+"²",905,75,33,c.accent,"right",250,650);
+    line(g,54,112,906,112,c.line,1);
+    const outlines = [["from",c.muted,[3,5]],["to",c.accent,[10,5]]];
+    for (const [key,color,dash] of outlines) {
+      g.save(); g.setLineDash(dash); g.lineWidth = 2; g.strokeStyle = color;
+      for (const s of pieces) {
+        g.strokeRect(x(s[key][0]), y(s[key][1]+s.height), s.width*scale, s.height*scale);
+      }
+      g.restore();
+    }
+    const fills = [c.ink,c.accent,c.neutral,c.muted,c.quiet];
+    pieces.forEach((s,i) => {
+      const [a,b] = points[i], w = s.width*scale, h = s.height*scale;
+      const fill = fills[i%fills.length];
+      const l = x(a), t = y(b+s.height);
+      g.fillStyle = fill;
+      g.fillRect(l,t,w,h);
+      // Keep a fine seam where two adjacent pieces share the same paint.
+      g.strokeStyle = c.paper;
+      g.lineWidth = Math.min(1.5,w/4,h/4);
+      g.strokeRect(l+g.lineWidth/2,t+g.lineWidth/2,w-g.lineWidth,h-g.lineWidth);
+      label(g,s.label,l+w/2,t+h/2,Math.min(28,h*.60),
+        fill === c.neutral || fill === c.quiet ? c.ink : c.light,"center",w*.88,650);
+    });
+    for (const [i,[,color,dash]] of outlines.entries()) {
+      const l = 56+i*161;
+      g.save(); g.setLineDash(dash); line(g,l,485,l+34,485,color,2); g.restore();
+      label(g,i ? "Final" : "Inicial",l+44,485,21,c.ink);
+    }
+    const target = 105/scale, power = 10**Math.floor(Math.log10(target));
+    const ruler = ([5,2,1].find(n => n*power <= target) || 1)*power;
+    const end = 904, begin = end-ruler*scale;
+    line(g,begin,480,end,480,c.ink); line(g,begin,475,begin,485,c.ink); line(g,end,475,end,485,c.ink);
+    label(g,fmt(ruler)+" "+props.unit,begin-12,480,19,c.ink,"right",180);
+  }
+
+  function pivotRotation(g, p, unused, c, props) {
+    const compass = props.orientation === "compass";
+    const cx = 308, cy = 295, radius = 147;
+    const progress = ramp(p,.10,.88), turned = props.sweepAngle*progress;
+    // Canvas angles grow clockwise from the right. Compass bearings start above.
+    const start = (compass ? props.startAngle%360-90 : -props.startAngle%360)*Math.PI/180;
+    const sign = compass ? 1 : -1;
+    const theta = start+sign*(turned%360)*Math.PI/180;
+    const x = a => cx+radius*Math.cos(a), y = a => cy+radius*Math.sin(a);
+    const fmt = v => v.toLocaleString("es-ES",{maximumSignificantDigits:15});
+    label(g,props.title,54,58,34,c.ink,"left",850,650);
+    line(g,54,98,906,98,c.line,1);
+    // The circle, the reference direction and the initial ray all remain in place.
+    g.save(); g.setLineDash([3,6]); g.lineWidth = 2; g.strokeStyle = c.neutral;
+    g.beginPath(); g.arc(cx,cy,radius,0,2*Math.PI); g.stroke();
+    line(g,cx,cy,x(start),y(start),c.muted,1.7); g.restore();
+    const zero = compass ? -Math.PI/2 : 0;
+    line(g,x(zero),y(zero),cx+(radius+8)*Math.cos(zero),cy+(radius+8)*Math.sin(zero),c.muted);
+    label(g,compass ? "N · 0°" : "0°",compass ? cx : cx+radius+16,compass ? cy-radius-19 : cy,
+      19,c.muted,compass ? "center" : "left");
+    if (turned !== 0) {
+      const sweep = sign*Math.sign(turned)*Math.min(360,Math.abs(turned))*Math.PI/180;
+      g.strokeStyle = c.accent; g.lineWidth = 3;
+      g.beginPath(); g.arc(cx,cy,radius,start,start+sweep,sweep<0); g.stroke();
+    }
+    dot(g,x(start),y(start),5,c.muted);
+    line(g,cx,cy,x(theta),y(theta),c.ink,4);
+    dot(g,cx,cy,9,c.ink); dot(g,cx,cy,3,c.paper);
+    dot(g,x(theta),y(theta),10,c.accent);
+    const left = 548;
+    label(g,"Radio",left,174,22,c.muted);
+    label(g,fmt(props.radius)+" "+props.unit,left,216,39,c.ink,"left",350,650);
+    line(g,left,255,904,255,c.line,1);
+    label(g,"Giro desde el inicio",left,287,22,c.muted);
+    const shown = progress === 1 ? props.sweepAngle : Number(turned.toPrecision(3));
+    label(g,(shown>0 ? "+" : "")+fmt(shown)+"°",left,330,39,c.accent,"left",350,650);
+    dot(g,left+6,386,6,c.ink); dot(g,left+6,386,2,c.paper);
+    label(g,props.pivotLabel || "Pivote",left+24,386,21,c.ink,"left",306);
+    dot(g,left+6,424,6,c.accent);
+    label(g,props.pointLabel || "Marca",left+24,424,21,c.ink,"left",306);
+    label(g,compass ? "Desde el norte, positivo en sentido horario" : "Desde el este, positivo en sentido antihorario",
+      54,489,21,c.muted,"left",565);
+    label(g,"Inicio  "+fmt(props.startAngle)+"°",905,489,21,c.ink,"right",250);
+  }
+
   const renderers = Object.freeze({
+    "pivot-rotation":pivotRotation,
+    "rigid-rearrangement":rigidRearrangement,
     "trajectory-trace":trajectoryTrace,
     "interval-refinement":intervalRefinement,
-    "pass-strip":passStrip, "import-footprint":importFootprint,
+    "pass-strip":passStrip, "import-footprint":importFootprint, "contact-transfer":contactTransfer, "object-route":objectRoute,
     "field-packing":fieldPacking, "layer-preview":layerPreview, "isometric-layers":isometricLayers,
     "module-transfer":moduleTransfer, "vertex-remap":vertexRemap, "command-lanes":commandLanes,
     "shared-host":sharedHost, "split-clock":splitClock

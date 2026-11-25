@@ -1,6 +1,6 @@
 # Precomponer diagramas de sistemas
 
-En la lista *System Design Interview* de ByteByteGo se decodificaron 220 000 fotogramas de 20 videos a 25 fps. Se revisaron vistas generales de cada video y secuencias de fotogramas alrededor de veinte pasajes. Cada pasaje tiene una reconstrucción editable, sus instantes de origen y una descripción de las adaptaciones. El detector de planos de rea-video sirvió para localizar cambios de imagen. Las decisiones sobre anclas, figuras y recorridos proceden de la inspección de los fotogramas. [Lista original](https://www.youtube.com/playlist?list=PLCRMIe5FDPseVvwzRiCQBmNOVUIZSSkP8) · [Índice por video](bytebytego-corpus.json) · [Receta de las veinte escenas](../assets/diagramas-bytebytego.json)
+En la lista *System Design Interview* de ByteByteGo se decodificaron 220 000 fotogramas de 20 videos a 25 fps. Se revisaron vistas generales de cada video y secuencias de fotogramas alrededor de veinte pasajes. Cada pasaje tiene una reconstrucción editable, sus instantes de origen y una descripción de las adaptaciones. El detector de planos de rea-video sirvió para localizar cambios de imagen. Las decisiones sobre anclas, figuras y recorridos proceden de la inspección de los fotogramas. [Lista original](https://www.youtube.com/playlist?list=PLCRMIe5FDPseVvwzRiCQBmNOVUIZSSkP8) · [Índice por video](../../../plugins/line-world/skills/reference-motion/references/bytebytego-corpus.json) · [Receta de las veinte escenas](../../../plugins/line-world/skills/reference-motion/assets/diagramas-bytebytego.json)
 
 ## Elegir según la pregunta
 
@@ -16,7 +16,7 @@ En la lista *System Design Interview* de ByteByteGo se decodificaron 220 000 fot
 | ¿Qué versiones salen de un mismo original? | `resolution-fan` | Una fuente y siete nombres de salida. Cada conexión termina en su propia versión. Los rectángulos comparten una esquina y sus tamaños ilustran una jerarquía cualitativa. |
 | ¿Quién clasifica y quién elige lo que sale? | `queue-router` | Un clasificador, tres colas y un selector. `inputLabel` nombra la entrada y `criteria` admite hasta tres criterios. Los bloques dibujados ilustran la clasificación. Para longitudes reales de cola, representa las cantidades a escala. |
 
-Una misma tabla admite varias lecturas. Un registro de mensajes con emisor, receptor y orden permite reconstruir un intercambio. Si la pregunta es cuánto tardó cada llamada, hacen falta marcas de tiempo, una unidad y una escala común. Conserva esa diferencia al usar el [selector](elegir-animacion.md).
+Una misma tabla admite varias lecturas. Un registro de mensajes con emisor, receptor y orden permite reconstruir un intercambio. Si la pregunta es cuánto tardó cada llamada, hacen falta marcas de tiempo, una unidad y una escala común. Conserva esa diferencia al usar el [selector](../../../plugins/line-world/skills/reference-motion/references/elegir-animacion.md).
 
 ## Construir una escena
 

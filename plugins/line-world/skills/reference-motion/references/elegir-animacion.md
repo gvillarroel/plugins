@@ -16,7 +16,7 @@ Para conceptos expresados con el vocabulario de un oficio, traduce la relación 
 
 ## De la pregunta a la composición
 
-Para una pregunta sobre **qué ruta sigue una solicitud**, distingue entre un intercambio en el tiempo, el consumo de capacidad y el orden de atención. El intercambio conserva los participantes, el consumo conserva la decisión y el orden de atención conserva las colas. La tabla de [diagramas de sistemas](bytebytego-study.md) incluye estos casos, los datos que admite cada plantilla y escenas editables.
+Para una pregunta sobre **qué ruta sigue una solicitud**, distingue entre un intercambio en el tiempo, el consumo de capacidad y el orden de atención. El intercambio conserva los participantes, el consumo conserva la decisión y el orden de atención conserva las colas. [Decidir el plano](decidir-el-plano.md)
 
 Por ejemplo, «¿Cómo se ramifica un árbol de prefijos al agregar varias palabras?» selecciona la red de la escena 11. La respuesta incluye `scene_id`, `recipe` y el enlace al pasaje. Con `generate_motion.py init video-11-staged-network prefijos.json` puedes partir de ese árbol. Cuando solo se especifica una red que debe revelarse por etapas, se puede iniciar la plantilla general con `init staged-network red.json`.
 
@@ -44,6 +44,6 @@ uv run --script scripts/generate_motion.py init module-transfer detalle.json
 uv run --script scripts/generate_motion.py check detalle.json
 ```
 
-Reemplaza los nombres, la fila elegida y sus entradas y salidas por el contenido de la pieza. Para un productor especializado, sigue la ruta de la recomendación. La [guía de precomposición](precomponer-diagramas.md) muestra cómo convertir ese movimiento en una unidad con inicio, llegada y tiempo de lectura. El [estudio de TypeGPU](typegpu-study.md) permite contrastar diez relaciones con fotogramas de su referencia.
+Reemplaza los nombres, la fila elegida y sus entradas y salidas por el contenido de la pieza. Para un productor especializado, sigue la ruta de la recomendación. La [guía de precomposición](precomponer-diagramas.md) muestra cómo convertir ese movimiento en una unidad con inicio, llegada y tiempo de lectura.
 
 Comprueba qué propiedades recibe cada plantilla antes de asignarle datos reales. Por ejemplo, `split-clock` ya dibuja ocho pulsos y el alargamiento de la cuarta tarea. Cambiar `duration` ajusta la velocidad del ejemplo entero. Para representar los milisegundos de una traza real, usa sus marcas de inicio y fin en los dos carriles del productor D3, conservando el reloj común. Del mismo modo, al aplicar una mecánica de GPU a otro dominio, sustituye las leyendas técnicas y la ilustración de ejemplo cuando formen parte del dibujo interno. [Parámetros admitidos por los diagramas](usage.md#diagramas-de-estructura-y-ejecución)

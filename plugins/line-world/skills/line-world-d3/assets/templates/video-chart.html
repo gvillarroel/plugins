@@ -20,10 +20,12 @@ const fmt = value => value == null ? missing : (Math.abs(value)>0 && Math.abs(va
   value.toExponential() : num.format(value)).replace(/^-/, "−");
 const utc = s => new Date(s+"T00:00:00Z");
 const lineMode = data.kind === "time-series";
+const numericTime = lineMode && data.timeUnit !== undefined;
 document.documentElement.lang = locale;
 document.title = data.title || data.unit;
 stage.select("title").text(data.title || data.unit);
-stage.select("desc").text(lineMode ? (spanish ? "Observaciones por fecha, con huecos donde faltan medidas." : "Observations on a calendar scale. Missing measures leave gaps.") :
+stage.select("desc").text(numericTime ? (spanish ? "Observaciones en una escala de " : "Observations on a scale of ") + data.timeUnit :
+  lineMode ? (spanish ? "Observaciones por fecha, con huecos donde faltan medidas." : "Observations on a calendar scale. Missing measures leave gaps.") :
   (spanish ? "Comparación de valores con un cero común." : "Values compared on a common zero baseline."));
 function text(g,x,y,content,size,opts={}) {
   return g.append("text").attr("x",x).attr("y",y).attr("font-size",size).attr("fill",opts.color || palette.ink)
@@ -83,9 +85,16 @@ function draw() {
 
 function drawComparison(g,{h,pad,right,top,mobile,scale,tiny,body}) {
   const rows=data.records, width=right-pad;
+  const paired=data.encoding==="paired-change", rates=data.encoding==="rate-comparison";
+  if(paired || rates){
+    const key=paired?(spanish?"○ Antes   ● Después":"○ Before   ● After"):
+      (spanish?"Casos / total observado":"Cases / observed total");
+    text(g,pad,top,key,tiny,{color:palette.muted});
+    top+=tiny*1.7;
+  }
   const labels=g.append("g").attr("id","source-table");
   const marks=g.append("g").attr("id","comparison");
-  const vals=rows.map(d=>d.value).filter(v=>v!=null);
+  const vals=rows.flatMap(d=>paired?[d.before,d.after]:[d.value]).filter(v=>v!=null);
   let min=Math.min(0,...vals), max=Math.max(0,...vals);
   if(min===max) max=1;
   const chartLeft=mobile?pad:pad+width*.47, chartRight=right;
@@ -115,18 +124,31 @@ function drawComparison(g,{h,pad,right,top,mobile,scale,tiny,body}) {
   const valueEdge=mobile?right:chartLeft-36*scale;
   table.each(function(d,i){
     const row=d3.select(this), y=rowY(i);
-    const displayed=(data.signed && d.value>0?"+":"")+fmt(d.value);
+    const displayed=paired?fmt(d.before)+" → "+fmt(d.after):
+      (data.signed && d.value>0?"+":"")+fmt(d.value)+(rates && d.value!=null?" %":"");
     const value=text(row,valueEdge,y,displayed,body,{anchor:"end",weight:600}).attr("class","source-value")
       .attr("data-value",d.value==null?"null":d.value);
-    const name=text(row,pad,y,d.label,body,{weight:500});
+    const source=rates?" · "+fmt(d.numerator)+" / "+fmt(d.denominator):"";
+    const name=text(row,pad,y,d.label+source,body,{weight:500}).attr("class","source-label");
     const remaining=valueEdge-pad-value.node().getComputedTextLength()-16*scale;
     fitTitle(name,remaining,body,tiny);
     wrapLabel(name,remaining,true);
     if(i && mobile) rule(row,pad,y-gap*.60,right,y-gap*.60,palette.rule);
   });
   bars.each(function(d,i){
-    if(d.value==null) return;
     const mark=d3.select(this), y=barY(i);
+    if(paired){
+      if(d.before!=null && d.after!=null)
+        rule(mark,x(d.before),y,x(d.after),y,palette.muted,2*scale).attr("class","pair-link");
+      for(const role of ["before","after"]){
+        if(d[role]==null) continue;
+        mark.append("circle").attr("class","endpoint "+role).attr("cx",x(d[role])).attr("cy",y)
+          .attr("r",(role==="before"?7:3.8)*scale).attr("stroke",palette.ink)
+          .attr("stroke-width",1.6*scale).attr("fill",role==="before"?palette.paper:palette.ink);
+      }
+      return;
+    }
+    if(d.value==null) return;
     rule(mark,x(0),y,x(d.value),y,palette.ink,mobile?7:9*scale).attr("class","value-mark").attr("data-value",d.value);
     if(d.value===0) mark.append("circle").attr("class","zero-dot").attr("cx",x(0)).attr("cy",y).attr("r",3.5*scale).attr("fill",palette.ink);
   });
@@ -138,16 +160,31 @@ function drawComparison(g,{h,pad,right,top,mobile,scale,tiny,body}) {
   const marker=g.append("circle").attr("r",mobile?5:6*scale).attr("fill",palette.red)
     .attr("data-motion-track","end-marker");
   paint=t=>{
-    const hold=data.duration/focus.length, index=Math.min(focus.length-1,Math.floor(t/hold));
-    const active=focus[index], row=rows.indexOf(active);
-    const elapsed=t-index*hold, reveal=Math.min(1.5,hold*.4), u=Math.min(1,elapsed/reveal);
+    const cue=data.focusCues?.find(c=>c.start<=t && (t<c.end || t===data.duration && c.end===t));
+    if(data.focusCues && !cue){
+      table.selectAll("text").attr("fill",palette.ink);
+      accent.attr("visibility","hidden").attr("x1",0).attr("x2",0).attr("y1",0).attr("y2",0)
+        .attr("stroke-width",mobile?7:9*scale);
+      marker.attr("visibility","hidden").attr("cx",0).attr("cy",0);
+      return {selectedId:null,value:null,focusPoint:null,guideRadius:0,phase:"reading",tracks:[
+        {id:"bar-emphasis",target:null,active:false,progress:0},
+        {id:"end-marker",target:null,active:false,progress:0}]};
+    }
+    accent.attr("visibility",null);
+    marker.attr("visibility",null);
+    const hold=cue ? cue.end-cue.start : data.duration/focus.length;
+    const index=cue ? 0 : Math.min(focus.length-1,Math.floor(t/hold));
+    const active=cue ? rows.find(r=>r.id===cue.target) : focus[index], row=rows.indexOf(active);
+    const elapsed=t-(cue ? cue.start : index*hold), reveal=Math.min(1.5,hold*.4), u=Math.min(1,elapsed/reveal);
     const progress=u*u*(3-2*u), moving=elapsed<reveal;
     table.each(function(d){d3.select(this).selectAll("text").attr("fill",d.id===active.id?palette.red:palette.ink)});
     // Highlight the already complete value. For zero or null the reading cue
     // underlines the value text, leaving the quantitative baseline untouched.
-    const underline=active.value===0||active.value===null;
+    const underline=paired?(active.before==null||active.after==null||active.before===active.after):
+      active.value===0||active.value===null;
     const rightEdge=underline?valueEdge:x(active.value);
-    const leftEdge=underline?valueEdge-table.nodes()[row].querySelector(".source-value").getComputedTextLength():x(0);
+    const leftEdge=underline?valueEdge-table.nodes()[row].querySelector(".source-value").getComputedTextLength():
+      x(paired?active.before:0);
     const y=underline?rowY(row)+5:barY(row), tip=leftEdge+(rightEdge-leftEdge)*progress;
     accent.attr("x1",leftEdge).attr("x2",tip).attr("y1",y).attr("y2",y)
       .attr("stroke-width",underline?2*scale:mobile?7:9*scale);
@@ -159,7 +196,9 @@ function drawComparison(g,{h,pad,right,top,mobile,scale,tiny,body}) {
   };
 }
 function drawTimeline(g,{h,pad,right,top,mobile,scale,tiny,body}) {
-  const obs=data.observations.map(d=>({...d,utc:utc(d.date)})), values=obs.filter(d=>d.value!=null);
+  const obs=data.observations.map(d=>({...d,time:numericTime ? d.t : utc(d.date)})), values=obs.filter(d=>d.value!=null);
+  const timeLabel=d=>numericTime ? data.timeUnit+" · "+fmt(d.t) : fullDate.format(d.time);
+  const timeKey=numericTime?"t":"date";
   const first=obs[0],last=obs[obs.length-1], lastValue=values[values.length-1];
   const min=d3.min(values,d=>d.value), max=d3.max(values,d=>d.value);
   const delta=min===max?Math.max(1,Math.abs(min)*.1):0;
@@ -168,11 +207,12 @@ function drawTimeline(g,{h,pad,right,top,mobile,scale,tiny,body}) {
   const measure=text(g,0,0,"",tiny);
   const labelWidth=d3.max(yTicks,n=>{measure.text(fmt(n));return measure.node().getComputedTextLength()});measure.remove();
   const left=pad+labelWidth+12*scale;
-  const x=d3.scaleUtc().domain([first.utc,last.utc]).range([left,right]);
+  const x=(numericTime ? d3.scaleLinear() : d3.scaleUtc()).domain([first.time,last.time]).range([left,right]);
   const valueSize=mobile?48:60*scale;
   const value=text(g,pad,top+valueSize,fmt(last.value),valueSize,{weight:650}).attr("class","last-value");
   fitTitle(value,right-pad,valueSize,body);
-  const date=text(g,pad,top+valueSize+body*1.45,fullDate.format(last.utc),body,{color:palette.muted}).attr("class","last-date");
+  const date=text(g,pad,top+valueSize+body*1.45,timeLabel(last),body,{color:palette.muted}).attr("class","last-date");
+  fitTitle(date,right-pad,body,tiny);
   const valueBox=value.node().getBBox(), dateBox=date.node().getBBox(), gap=Math.max(6,body*.35);
   // Font ascent and descent differ across renderers. Position the two actual glyph boxes.
   const shift=Math.max(0,valueBox.y+valueBox.height+gap-dateBox.y);
@@ -184,15 +224,17 @@ function drawTimeline(g,{h,pad,right,top,mobile,scale,tiny,body}) {
     rule(g,left,y(n),right,y(n),n===0?palette.muted:palette.rule,n===0?1.6:1);
     text(g,left-9*scale,y(n)+tiny*.32,fmt(n),tiny,{color:palette.muted,anchor:"end"});
   });
-  const acrossYears=first.utc.getUTCFullYear()!==last.utc.getUTCFullYear();
-  const formatter=acrossYears?fullDate:monthDay;
-  const dateCandidates=[first, ...(obs.length>3 && !acrossYears ? [obs[Math.floor(obs.length/2)]]:[]), last];
+  const acrossYears=!numericTime && first.time.getUTCFullYear()!==last.time.getUTCFullYear();
+  const tickLabel=d=>numericTime ? fmt(d.t) : (acrossYears?fullDate:monthDay).format(d.time);
+  const dateCandidates=numericTime && obs.length<=8 ? obs : [first, ...(obs.length>3 && !acrossYears ? [obs[Math.floor(obs.length/2)]]:[]), last];
+  const lastTick=text(g,right,chartBottom+28*scale,tickLabel(last),tiny,{color:palette.muted,anchor:"end"});
+  const lastTickLeft=lastTick.node().getBBox().x;
   let prevEnd=-Infinity;
-  dateCandidates.forEach((point,i)=>{
-    const anchor=i===0?"start":i===dateCandidates.length-1?"end":"middle";
-    const el=text(g,x(point.utc),chartBottom+28*scale,formatter.format(point.utc),tiny,{color:palette.muted,anchor});
-    const box=el.node().getBBox(), reserved=mobile?74:105*scale;
-    if(i>0 && i<dateCandidates.length-1 && (box.x<=prevEnd+6 || box.x+box.width>right-reserved)) el.remove();
+  dateCandidates.slice(0,-1).forEach((point,i)=>{
+    const anchor=i===0?"start":"middle";
+    const el=text(g,x(point.time),chartBottom+28*scale,tickLabel(point),tiny,{color:palette.muted,anchor});
+    const box=el.node().getBBox();
+    if(i>0 && (box.x<=prevEnd+6 || box.x+box.width>lastTickLeft-6)) el.remove();
     else prevEnd=box.x+box.width;
   });
   const defined=d=>d.value!=null;
@@ -201,19 +243,19 @@ function drawTimeline(g,{h,pad,right,top,mobile,scale,tiny,body}) {
     .append("rect").attr("x",left-6*scale).attr("y",chartTop-10*scale).attr("height",chartBottom-chartTop+20*scale)
     .attr("data-motion-track","series-trace");
   const marks=plot.append("g").attr("clip-path","url(#time-reveal)");
-  const path=d3.line().defined(defined).x(d=>x(d.utc)).y(d=>y(d.value));
+  const path=d3.line().defined(defined).x(d=>x(d.time)).y(d=>y(d.value));
   marks.append("path").datum(obs).attr("class","trend").attr("d",path).attr("fill","none").attr("stroke",palette.red)
     .attr("stroke-width",mobile?3.5:4.5*scale).attr("stroke-linejoin","round").attr("stroke-linecap","round");
-  plot.selectAll("circle").data(values).join("circle").attr("class","observation").attr("data-date",d=>d.date)
-    .attr("data-value",d=>d.value).attr("cx",d=>x(d.utc)).attr("cy",d=>y(d.value)).attr("r",mobile?3.7:4.5*scale).attr("fill",palette.red)
-    .append("title").text(d=>fullDate.format(d.utc)+" · "+fmt(d.value)+" "+data.unit);
+  plot.selectAll("circle").data(values).join("circle").attr("class","observation").attr("data-"+timeKey,d=>d[timeKey])
+    .attr("data-value",d=>d.value).attr("cx",d=>x(d.time)).attr("cy",d=>y(d.value)).attr("r",mobile?3.7:4.5*scale).attr("fill",palette.red)
+    .append("title").text(d=>timeLabel(d)+" · "+fmt(d.value)+" "+data.unit);
   const absent=obs.filter(d=>d.value==null);
   if(absent.length) {
     absent.forEach(d=>{
-      const pos=x(d.utc), cy=chartBottom+43*scale, s=3.5*scale;
-      plot.append("path").attr("class","missing").attr("data-date",d.date).attr("data-x",pos)
+      const pos=x(d.time), cy=chartBottom+43*scale, s=3.5*scale;
+      plot.append("path").datum(d).attr("class","missing").attr("data-"+timeKey,d[timeKey]).attr("data-x",pos)
         .attr("d",`M${pos-s},${cy-s}l${2*s},${2*s}m0,${-2*s}l${-2*s},${2*s}`)
-        .attr("stroke",palette.ink).attr("stroke-width",1.5*scale).attr("fill","none").append("title").text(fullDate.format(d.utc)+" · "+missing);
+        .attr("stroke",palette.ink).attr("stroke-width",1.5*scale).attr("fill","none").append("title").text(timeLabel(d)+" · "+missing);
     });
     text(g,pad,chartBottom+70*scale,"×  "+missing,tiny,{color:palette.muted});
   }
@@ -227,23 +269,24 @@ function drawTimeline(g,{h,pad,right,top,mobile,scale,tiny,body}) {
     .attr("d",`M${-5*scale},0H${5*scale}L0,${-7*scale}Z`);
   paint=t=>{
     const u=Math.min(1,t/reveal), eased=u*u*(3-2*u), pos=left+(right-left)*eased;
-    const current=x.invert(pos), i=Math.max(0,d3.bisector(d=>d.utc).right(obs,current)-1);
+    const current=u===1 ? last.time : x.invert(pos), i=Math.max(0,d3.bisector(d=>d.time).right(obs,current)-1);
     if(progressive && i!==presented){
       const record=obs[i];
-      datedMarks.attr("visibility",function(){return this.dataset.date<=record.date ? null : "hidden";});
+      datedMarks.attr("visibility",d=>d.time<=record.time ? null : "hidden");
       value.attr("font-size",valueSize).text(fmt(record.value));
       fitTitle(value,right-pad,valueSize,body);
-      date.text(fullDate.format(record.utc));
+      date.attr("font-size",body).text(timeLabel(record));
+      fitTitle(date,right-pad,body,tiny);
       presented=i;
     }
     const drawing=obs[i].value!==null && obs[i+1]?.value!=null;
-    const previous=values[d3.bisector(d=>d.utc).right(values,current)-1];
-    const traceX=drawing||u===1?pos:previous?x(previous.utc):left;
+    const previous=values[d3.bisector(d=>d.time).right(values,current)-1];
+    const traceX=drawing||u===1?pos:previous?x(previous.time):left;
     clip.attr("width",6*scale+(traceX-left)+(u===1?6*scale:0));
     dateRail.attr("x2",pos);
     cursor.attr("transform",`translate(${pos} ${chartBottom+9*scale})`);
     return {selectedId:data.id||"series",value:progressive?obs[i].value:last.value,holdSeconds:data.duration-reveal,
-      guideRadius:0,reveal:eased,lastObservedDate:progressive ? (previous?.date??null) : lastValue.date,focusPoint:[pos,chartBottom],
+      guideRadius:0,reveal:eased,[numericTime?"lastObservedTime":"lastObservedDate"]:progressive ? (previous?.[timeKey]??null) : lastValue[timeKey],focusPoint:[pos,chartBottom],
       phase:t<reveal?"emphasis":"reading", tracks:[
         {id:"series-trace",target:data.id||"series",active:t<reveal&&drawing,progress:(traceX-left)/(right-left)},
         {id:"date-progress",target:data.id||"series",active:t<reveal,progress:eased},

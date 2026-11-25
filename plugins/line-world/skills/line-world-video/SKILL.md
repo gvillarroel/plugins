@@ -5,7 +5,7 @@ description: Creates balanced explanatory videos with sourced photographs, a gui
 
 # Line World Video
 
-For mathematical or physical explanations, use the [3Blue1Brown composition study](../reference-motion/references/3blue1brown.md). The normal `from-brief` entry point renders nested ranges and synchronized trajectory/height views directly from measurements. It can also direct a specialist with source-linked poses for geometric proofs, invariants, parameter changes or probability.
+Read the script and decide what the viewer should be able to verify in the last frame. Map each entity, datum and unit to the mark that proves the claim. For new data, geometric rearrangements and physical mechanisms, follow [the shot decision guide](../reference-motion/references/decidir-el-plano.md) and use the normal `from-brief` command.
 
 For narrated diagrams, use the [pose and narration study](../reference-motion/references/poses-y-menciones.md). On the new recording, mark which object should already be visible, which label should become readable and which action or emphasis belongs to a spoken word. The `from-brief` command can bind these cues and include a local recording in the checked movie.
 
@@ -14,7 +14,7 @@ timing and final review. Use the companion skills for the particular diagrams,
 sound, footage or delivery format the film needs.
 When a film needs to explain data or a conceptual relationship, start with the viewer's question and the actual records. Use the [composition transfer guide](../reference-motion/references/transferir-composicion.md) even for an original film in a new domain. Preserve the requested visual form or treatment when one is specified. Choose an anchor the viewer can still recognize during the move, identify each moving entity from the source, and state which event changes its position, state or connection.
 
-From this skill directory, run `python scripts/line_world.py from-brief solicitud.json --project plano` with the question, records and field mapping described in that guide. A supported diagram produces an editable `scene.json`, a verified `scene.mp4`, and `direction.json` with the layout and movement decisions. A dated series with a supported D3 binding produces its own editable `data.json`, offline `scene.html`, SVG, PNG and MP4. For other specialist handoffs, use the direction and the supplied records with the named producer to finish the shot. For a static reading task, compose the indicated still. Resolve an incomplete brief from the available context before assigning motion.
+From this skill directory, run `python scripts/line_world.py from-brief solicitud.json --project plano` with the question, records and field mapping described in that guide. A supported diagram produces an editable `scene.json`, a verified `scene.mp4`, and `direction.json` with the layout and movement decisions. A rate, paired comparison or time series with a supported D3 binding produces its own editable `data.json`, offline `scene.html`, SVG, PNG and MP4. For other specialist handoffs, use the direction and the supplied records with the named producer to finish the shot. For an exact lookup, supply the source table. The director can export a still and a held movie for a compact table. Check `delivery` and the movie path before treating a specialist direction as a finished shot. Resolve an incomplete brief from the available context before assigning motion.
 For a narrated comparison, give the subject, two measures and their source
 to the [brief-to-video command](../line-world-motion-direction/references/brief-to-video.md).
 It builds the graphic and its reading hold from the measured voice clock.
@@ -49,10 +49,7 @@ line, a picture-timed effect or an image that needs a deliberate shot and crop.
 When a brief asks to reuse transitions or visual elements from an existing
 video or channel, use the `reference-motion` skill. Bring its source-linked
 components and timing evidence into this film's scene plan.
-For a diagram about ownership, packing, execution order or shared clocks, use the
-[TypeGPU composition study](../reference-motion/references/typegpu-study.md) to choose a seekable component.
-The [editable sequence](../reference-motion/assets/diagramas-typegpu.json) shows all ten in use.
-For message exchange, queues, branching, membership or capacity, consult the [System Design study](../reference-motion/references/bytebytego-study.md). Its [twenty-scene recipe](../reference-motion/assets/diagramas-bytebytego.json) preserves the sequence of decisions, the positions that stay anchored and the groups that move together. Use the animation selector with the viewer's question to choose among these and the data-driven representations.
+For a system explanation, identify the dependency, group, capacity or handoff. Choose a layout that preserves that relationship as the data change. Use the supplied endpoints to draw the links.
 For graphic assets from that library, give its `generate_motion.py` script an editable JSON recipe. Use its checked output in the film and preserve the recipe with the project. Keep the reference video's measured timings as evidence. Set the production timing from the reading task and retain the destination after each handoff.
 Use straight cuts for routine scene changes. Reserve an animated handoff for a change of section, comparison or move into detail that helps the viewer keep their bearings. Keep a highlighted value in place when introducing its peers. In review, distinguish the camera or scene change from movement inside a scene.
 

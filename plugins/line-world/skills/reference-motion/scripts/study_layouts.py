@@ -77,6 +77,44 @@ def _node(role, identity, label, x, y, w, h, **options):
     return dict(id=_id(role, *identity), label=label, x=x, y=y, w=w, h=h, **options)
 
 
+def peer_nodes(names, duration):
+    """Keep equivalent entities equally weighted and available in the opening pose."""
+    if len(names) > 6:
+        raise ValueError("Distribuye más de seis entidades equivalentes entre planos.")
+    columns = min(3, len(names))
+    row_count = math.ceil(len(names) / columns)
+    nodes = []
+    for i, name in enumerate(names):
+        row, col = divmod(i, columns)
+        count = min(columns, len(names) - row * columns)
+        width = min(.36, .88 / columns)
+        nodes.append(_node("peer", [name], _caption(name,width), .5+(col-(count-1)/2)*.90/columns,
+                           .5+(row-(row_count-1)/2)*.28, width,.16))
+    return dict(nodes=nodes, edges=[], duration=duration)
+
+
+def lookup_table(rows, unit, duration):
+    """Compose a small source table with a fixed place for each literal observation."""
+    columns = list(dict.fromkeys(key for row in rows for key in row))
+    if not 1 <= len(columns) <= 5 or len(rows)>8:
+        raise ValueError("Separa la tabla en planos con hasta cinco columnas y ocho filas legibles.")
+    headings = [str(column) for column in columns]
+    matrix = [headings] + [["Sin dato" if row.get(c) is None or row.get(c)=="" else str(row[c])
+                            for c in columns] for row in rows]
+    width = .92 / len(columns)
+    height = min(.135, .78 / len(matrix))
+    nodes = []
+    for i, values in enumerate(matrix):
+        for j, value in enumerate(values):
+            size = 18 if i==0 else 20
+            nodes.append(_node("cell", [str(i),str(j)], _caption(value,width,size),
+                               .04+(j+.5)*width,.5+(i-(len(matrix)-1)/2)*height,
+                               width-.01,height-.012,shape="box" if i==0 else "text",fontSize=size))
+    if unit:
+        nodes.append(_node("unit", [unit], _caption(unit,.86,17,1),.5,.955,.86,.07,shape="text",fontSize=17))
+    return dict(nodes=nodes, edges=[], duration=duration)
+
+
 def grouped_rows(rows, fields, duration):
     """Reserve one band per observed group; reveal its recorded members after the frame."""
     values = _read_rows(rows, fields, ("group", "item"), duration)

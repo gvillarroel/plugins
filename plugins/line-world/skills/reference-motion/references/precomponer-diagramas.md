@@ -26,7 +26,7 @@ En una receta, cada entrada de `scenes` es una instancia con su propio contenido
 
 En un compositor Canvas, carga `motion.js` y `diagram-motion.js` desde `assets`. La función siguiente usa las dimensiones locales de la caja de destino y el reloj de la película. Se puede llamar después de dibujar el fondo de cada fotograma.
 
-Para los nueve diagramas del [estudio de sistemas](bytebytego-study.md), carga también `assets/systems-motion.js`. La galería y el generador ya incluyen los tres archivos.
+Para los nueve diagramas de sistemas, carga también `assets/systems-motion.js`. La galería y el generador ya incluyen los tres archivos.
 
 ```js
 function dibujarBloque(ctx, segundoPelicula, inicio, escena, caja) {
@@ -63,4 +63,4 @@ uv run --script scripts/generate_motion.py render assets/precomposicion-ejemplo.
 uv run --script scripts/generate_motion.py verify assets/precomposicion-ejemplo.json proyecto/edicion.mp4 --report proyecto/edicion.verificada.json
 ```
 
-La receta produce 240 fotogramas a 24 fps en 1280 × 720. Revisa los fotogramas 0, 48 y 239. El primero presenta el inventario, el segundo permite reconocer la fila y su hueco durante el viaje, y el último permite leer qué recibe y qué entrega. Para otro diagrama conserva esas tres preguntas de revisión y sitúa los controles en sus propios instantes. [Catálogo de relaciones y parámetros](usage.md#diagramas-de-estructura-y-ejecución) · [Diez ejemplos con instantes de referencia](typegpu-study.md)
+La receta produce 240 fotogramas a 24 fps en 1280 × 720. Revisa los fotogramas 0, 48 y 239. El primero presenta el inventario, el segundo permite reconocer la fila y su hueco durante el viaje, y el último permite leer qué recibe y qué entrega. Para otro diagrama conserva esas tres preguntas de revisión y sitúa los controles en sus propios instantes. [Catálogo de relaciones y parámetros](usage.md#diagramas-de-estructura-y-ejecución)

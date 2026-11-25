@@ -257,16 +257,18 @@ def from_brief(request, project):
             raise ValueError(f"Unknown adaptation status: {status}")
         outputs = [direction]
         cue_status=report.get("narration",{}).get("status")
-        if status == "recipe" and cue_status!="handoff":
+        if status == "static" and report.get("static_scene"):
+            outputs.extend([recipe,"scene.png",movie,qa])
+            check_destinations(outputs)
+            write_json(stage / recipe, report["static_scene"])
+            renderer = ["uv","run","--script",str(producer / "generate_motion.py"),"render",recipe]
+            run([*renderer,"scene.png"])
+            run([*renderer,movie,"--report",qa])
+        elif status == "recipe" and cue_status!="handoff":
             outputs.extend([recipe, movie, qa])
             check_destinations(outputs)
             run(["uv", "run", "--script", str(producer / "generate_motion.py"),
                  "render", recipe, movie, "--report", qa])
-            if cue_status=="bound":
-                voice=json.loads(request.read_text(encoding="utf-8-sig"))["narration"]
-                if voice.get("audio"):
-                    from narration_track import attach
-                    attach(stage/movie,stage/qa,voice,request.parent)
         elif status == "specialist" and cue_status!="handoff" and report.get("producer") == "line-world-d3" and report.get("d3_chart"):
             outputs.extend(["data.json", "scene.html", "d3.min.js", "D3-LICENSE.txt",
                             "scene.svg", "scene.png", movie, qa])
@@ -279,6 +281,11 @@ def from_brief(request, project):
             run([*chart, "build", "--data", "chart-input.json", "--project", "."])
             run([*chart, "export", "--project", ".", "--width", "1280", "--height", "720",
                  "--svg", "scene.svg", "--screenshot", "scene.png", "--mp4", movie, "--receipt", qa])
+        if movie in outputs and cue_status=="bound":
+            voice=json.loads(request.read_text(encoding="utf-8-sig"))["narration"]
+            if voice.get("audio"):
+                from narration_track import attach
+                attach(stage/movie,stage/qa,voice,request.parent)
         published = []
         try:
             for name in outputs:
@@ -290,7 +297,8 @@ def from_brief(request, project):
             for target in published:
                 target.unlink()
             raise
-    return {"status": status, "producer": report.get("producer"), "direction": str(project / direction),
+    delivery = "rendered" if movie in outputs else "handoff" if status in {"static","specialist"} else status
+    return {"status": status, "delivery":delivery, "producer": report.get("producer"), "direction": str(project / direction),
             "movie": str(project / movie) if movie in outputs else None,
             "outputs": [str(path) for path in published]}
 

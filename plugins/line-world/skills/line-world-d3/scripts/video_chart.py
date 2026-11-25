@@ -7,6 +7,7 @@
 import argparse
 import base64
 from datetime import date
+import hashlib
 from html import escape
 import importlib.util
 import json
@@ -56,6 +57,9 @@ def check_data(raw):
         raise ValueError("Duration must be finite and at least two seconds.")
     kind = raw.get("kind", "comparison")
     if kind == "comparison":
+        encoding = raw.get("encoding")
+        if encoding not in (None, "rate-comparison", "paired-change"):
+            raise ValueError("Unknown comparison encoding.")
         rows = raw.get("records")
         if not isinstance(rows, list) or not 2 <= len(rows) <= 8:
             raise ValueError("Provide 2–8 comparison records.")
@@ -69,8 +73,42 @@ def check_data(raw):
             ids.add(key)
             label("label", 48, row)
             observation(row)
+            if encoding == "paired-change":
+                for endpoint in ("before", "after"):
+                    if endpoint not in row:
+                        raise ValueError("Include both endpoints or an explicit null.")
+                    observation({"value":row[endpoint]})
+                if row["after"] != row["value"]:
+                    raise ValueError("The displayed endpoint must equal the final observation.")
+            if encoding == "rate-comparison":
+                for field in ("numerator", "denominator"):
+                    if field not in row:
+                        raise ValueError("Include the two source counts or explicit nulls.")
+                    n = row[field]
+                    observation({"value":n})
+                    if n is not None and (n < 0 or int(n) != n):
+                        raise ValueError("Counts must be nonnegative integers.")
+                part, total = row["numerator"], row["denominator"]
+                if part is not None and total is not None and part > total:
+                    raise ValueError("The numerator must be part of its denominator.")
+                expected = round(100 * part / total, 2) if part is not None and total else None
+                if raw["unit"] != "%" or row["value"] != expected:
+                    raise ValueError("The displayed percentage must match the two counts.")
         if "focus" in raw and raw["focus"] not in ids:
             raise ValueError("The focus must be a known entity ID.")
+        if "focusCues" in raw:
+            cues = raw["focusCues"]
+            if encoding not in ("rate-comparison", "paired-change") or not isinstance(cues, list) or not cues:
+                raise ValueError("Provide one or more focus cues for a measured comparison.")
+            previous_end = 0
+            for cue in cues:
+                if not isinstance(cue, dict) or set(cue) != {"target", "start", "end"} or cue["target"] not in ids:
+                    raise ValueError("Each focus cue needs a known row, start and end.")
+                start, end = cue["start"], cue["end"]
+                if (any(type(t) not in (int, float) or not math.isfinite(t) for t in (start, end))
+                        or not previous_end <= start < end <= duration):
+                    raise ValueError("Focus intervals must be ordered, disjoint and within the scene.")
+                previous_end = end
     elif kind == "time-series":
         if "revealObservations" in raw and not isinstance(raw["revealObservations"], bool):
             raise ValueError("revealObservations must be true or false.")
@@ -78,15 +116,28 @@ def check_data(raw):
             identifier(raw["id"])
         rows = raw.get("observations")
         if not isinstance(rows, list) or not 2 <= len(rows) <= 2000:
-            raise ValueError("Provide 2–2000 dated observations.")
-        dates = []
+            raise ValueError("Provide 2–2000 observations.")
+        numeric_time = "timeUnit" in raw
+        if numeric_time:
+            label("timeUnit", 48)
+        coordinates = []
         for row in rows:
-            if not isinstance(row, dict) or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(row.get("date"))):
-                raise ValueError("Provide a date in YYYY-MM-DD on every observation.")
-            dates.append(date.fromisoformat(row["date"]))
+            if not isinstance(row, dict):
+                raise ValueError("Observations must be objects.")
+            if numeric_time:
+                t = row.get("t")
+                if "date" in row or isinstance(t, bool) or not isinstance(t, (int, float)) or not -sys.float_info.max <= t <= sys.float_info.max:
+                    raise ValueError("A numeric time axis requires a finite t on every observation.")
+                coordinates.append(float(t))
+            else:
+                if "t" in row or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(row.get("date"))):
+                    raise ValueError("Provide ISO dates, or numeric t coordinates with a timeUnit.")
+                coordinates.append(date.fromisoformat(row["date"]))
             observation(row)
-        if dates != sorted(set(dates)):
-            raise ValueError("Observation dates must be unique and increasing.")
+        if coordinates != sorted(set(coordinates)):
+            raise ValueError("Observation times must be unique and increasing.")
+        if numeric_time and not math.isfinite(coordinates[-1] - coordinates[0]):
+            raise ValueError("The time span must fit a finite numeric axis.")
         if all(row["value"] is None for row in rows):
             raise ValueError("A trend needs at least one observed value.")
     else:
@@ -187,7 +238,11 @@ def export(a, project, data):
                   "repeatSeek":repeat,"noBrowserErrors":not errors,"realD3":page.evaluate("d3.version")=="7.9.0"}
         checks["sharedValueScale" if comparisons is None else "sameZeroBasedScale"] = details["scale"]
         if comparisons is None:
-            checks["calendarSpacing"] = details["calendarSpacing"]
+            if "timeUnit" in data:
+                checks["numericTimeSpacing"] = details["numericTimeSpacing"]
+                checks["timeUnitVisible"] = details["timeUnitVisible"]
+            else:
+                checks["calendarSpacing"] = details["calendarSpacing"]
         if motion["supported"]:
             checks["focusAndMotion"] = motion["ok"]
         report = {"ok":all(checks.values()),"checks":checks,"sourceValues":rows,"unit":data["unit"],
@@ -202,6 +257,8 @@ def export(a, project, data):
         a.svg.write_text(svg,encoding="utf-8")
         if report["ok"] and a.mp4:
             report["movie"] = export_movie(page, a.mp4, data["duration"], a.fps)
+            with a.mp4.open("rb") as stream:
+                report["output_sha256"] = hashlib.file_digest(stream, "sha256").hexdigest()
         a.receipt.write_text(json.dumps(report,indent=2)+"\n",encoding="utf-8")
         browser.close()
     print(json.dumps({"ok":report["ok"],"checks":checks}))

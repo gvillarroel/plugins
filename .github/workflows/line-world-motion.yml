@@ -41,6 +41,16 @@ jobs:
       - run: python scripts/test_motion_render.py
       - run: python scripts/test_chart_attention.py
       - run: python scripts/test_guest_budget.py
+      - name: Check decisions and rendered poses for original briefs
+        run: |
+          python scripts/test_measured_comparison.py
+          python scripts/test_adapt_motion.py
+          python scripts/test_recommend_motion.py
+          python scripts/test_diagram_motion.py
+          python scripts/test_narration_poses.py
+          python ../line-world-d3/scripts/test_numeric_timeline.py
+          python ../line-world-d3/scripts/test_measured_focus_cues.py
+          python ../line-world-video/scripts/test_from_brief.py
       - run: python scripts/generate_motion.py audit-library "$RUNNER_TEMP/motion/qa.json" --sheet "$RUNNER_TEMP/motion/atlas.jpg"
       - run: python scripts/generate_motion.py render assets/ejemplo.json "$RUNNER_TEMP/motion/ejemplo.mp4"
       - run: python scripts/generate_motion.py verify assets/ejemplo.json "$RUNNER_TEMP/motion/ejemplo.mp4"

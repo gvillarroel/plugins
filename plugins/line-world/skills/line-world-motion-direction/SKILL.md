@@ -5,7 +5,7 @@ description: Direct an explanatory Line World sequence around one persistent sub
 
 # Dirección de movimiento
 
-Para una demostración matemática identifica qué relación debe reconocer el espectador en la pose final. El [estudio de 3Blue1Brown](../reference-motion/references/3blue1brown.md) vincula ejemplos observados con composiciones para magnitudes, construcciones e invariantes. En un plano con voz, elige si la frase presenta el problema, nombra la operación o interpreta el resultado.
+Identifica la afirmación del guion que se podrá comprobar en la imagen final. Especifica una pose de contexto, la acción que demuestra el cambio y el resultado legible. [Decidir el plano con los datos del encargo](../reference-motion/references/decidir-el-plano.md)
 
 En planos con voz, contrasta la pose anterior a una mención, el gesto que la acompaña y el resultado legible. Usa marcas de la voz de destino y consulta los [40 pasajes con poses y menciones medidas](../reference-motion/references/poses-y-menciones.md) para elegir entre anticipar una figura, seguir un verbo o volver a destacar un elemento existente.
 

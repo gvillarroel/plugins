@@ -1,0 +1,379 @@
+{
+  "guiones": {
+    "dev": [
+      {
+        "id": "d41",
+        "brief": "La cooperativa revisó las devoluciones de sus dos puntos de venta. En el puesto de la feria se devolvieron 9 de las 30 cajas vendidas. En la tienda volvieron 16 de las 80 que salieron. La encargada quiere explicar en cuál era más frecuente que regresara una caja.",
+        "rows": [
+          {
+            "puesto": "Feria",
+            "devueltas": 9,
+            "vendidas": 30
+          },
+          {
+            "puesto": "Tienda",
+            "devueltas": 16,
+            "vendidas": 80
+          }
+        ]
+      },
+      {
+        "id": "d73",
+        "brief": "Cada lunes se apuntaba la profundidad de una charca en el mismo punto. El día 3 eran 42 centímetros y el 10 eran 39. El día 17 nadie pudo acercarse a la orilla. El 24 quedaron anotados 31 centímetros. Así quedó la hoja de ese mes.",
+        "rows": [
+          {
+            "dia": 3,
+            "profundidad_cm": 42
+          },
+          {
+            "dia": 10,
+            "profundidad_cm": 39
+          },
+          {
+            "dia": 17,
+            "profundidad_cm": null
+          },
+          {
+            "dia": 24,
+            "profundidad_cm": 31
+          }
+        ]
+      },
+      {
+        "id": "d26",
+        "brief": "En el taller se volvió a pesar cada mochila al terminar la caminata. La de Ada pasó de 8 a 5 kilos, la de Berta de 6 a 7 y la de Luz siguió en 4. ¿A quién le pesaba más la mochila al volver que al salir?",
+        "rows": [
+          {
+            "persona": "Ada",
+            "salida_kg": 8,
+            "regreso_kg": 5
+          },
+          {
+            "persona": "Berta",
+            "salida_kg": 6,
+            "regreso_kg": 7
+          },
+          {
+            "persona": "Luz",
+            "salida_kg": 4,
+            "regreso_kg": 4
+          }
+        ]
+      },
+      {
+        "id": "d58",
+        "brief": "El carnet del centro cultural da acceso a la sala de ensayo, al laboratorio fotográfico y a la hemeroteca. Una socia puede ir a cualquiera de los tres con el mismo carnet, incluso si es su primera visita.",
+        "concepts": [
+          "Carnet del centro cultural",
+          "Sala de ensayo",
+          "Laboratorio fotográfico",
+          "Hemeroteca"
+        ]
+      },
+      {
+        "id": "d14",
+        "brief": "La diseñadora tiene un rectángulo de 6 centímetros de ancho y 2 de alto. Lo corta justo por la mitad del ancho y pone una pieza encima de la otra. El contorno mide ahora 3 por 4. La cantidad de cartulina que ocupa en la mesa sigue siendo la misma.",
+        "concepts": [
+          "Rectángulo de 6 × 2 cm",
+          "Dos piezas de 3 × 2 cm",
+          "Rectángulo de 3 × 4 cm",
+          "Superficie de cartulina"
+        ]
+      },
+      {
+        "id": "d89",
+        "brief": "En esta imprenta manual la operaria baja la palanca. La palanca empuja la platina contra el papel y la presión deja la marca en relieve. Seguimos una sola pulsación desde la mano hasta la hoja.",
+        "concepts": [
+          "Palanca",
+          "Platina",
+          "Papel",
+          "Marca en relieve"
+        ]
+      }
+    ],
+    "holdout": [
+      {
+        "id": "h67",
+        "brief": "El teatro Mirador acaba de repartir 24 de sus 60 entradas para la sesión del viernes. El Candil lleva 18 repartidas de las 30 disponibles para la suya. En el parte interesa cuánto se ha llenado cada sala. La asociación solo ha comunicado las 11 entradas del tercer teatro, La Bruma. Falta el aforo que puso a la venta.",
+        "rows": [
+          {
+            "sala": "Mirador",
+            "repartidas": 24,
+            "disponibles": 60
+          },
+          {
+            "sala": "Candil",
+            "repartidas": 18,
+            "disponibles": 30
+          },
+          {
+            "sala": "La Bruma",
+            "repartidas": 11,
+            "disponibles": null
+          }
+        ]
+      },
+      {
+        "id": "h32",
+        "brief": "Al preparar pan se anotó cuánto había subido la masa desde el borde de partida. Al empezar, cero milímetros. A los cinco minutos, dos. Se manchó la casilla del minuto quince y el dato se perdió. La siguiente lectura se hizo a los treinta y cinco minutos. Entonces la masa había subido nueve milímetros.",
+        "rows": [
+          {
+            "minuto": 0,
+            "subida_mm": 0
+          },
+          {
+            "minuto": 5,
+            "subida_mm": 2
+          },
+          {
+            "minuto": 15,
+            "subida_mm": null
+          },
+          {
+            "minuto": 35,
+            "subida_mm": 9
+          }
+        ]
+      },
+      {
+        "id": "h94",
+        "brief": "Las tres casas de ensayo registraron el ruido de fondo con la ventana cerrada y luego abierta. La casa Olmo registró 38 y 46 decibelios. Junco, 52 y 45. Hiedra, 44 en ambas pruebas. Encontramos una casa en la que al abrir se oyó menos ruido.",
+        "rows": [
+          {
+            "casa": "Olmo",
+            "cerrada_dB": 38,
+            "abierta_dB": 46
+          },
+          {
+            "casa": "Junco",
+            "cerrada_dB": 52,
+            "abierta_dB": 45
+          },
+          {
+            "casa": "Hiedra",
+            "cerrada_dB": 44,
+            "abierta_dB": 44
+          }
+        ]
+      },
+      {
+        "id": "h51",
+        "brief": "En las notas de campo del parque, los avistamientos de mirlos y las visitas de paseantes coincidieron varias tardes en el estanque. No se anotó cuántos hubo ni se hizo seguimiento de si unos seguían a los otros. El cuaderno solo deja constancia de esa coincidencia.",
+        "concepts": [
+          "Estanque",
+          "Mirlos",
+          "Paseantes",
+          "Coincidencia en las mismas tardes"
+        ]
+      },
+      {
+        "id": "h08",
+        "brief": "Una veleta lleva una estrella dibujada en un extremo. En nuestra maqueta, ese extremo apunta al norte y la estrella queda a 4 centímetros del eje. Cambiamos el viento y la veleta gira un cuarto de vuelta hasta apuntar al este. La estrella permanece a la misma distancia del eje durante el giro.",
+        "concepts": [
+          "Eje fijo",
+          "Estrella en el extremo",
+          "Radio de 4 cm",
+          "Del norte al este"
+        ]
+      },
+      {
+        "id": "h76",
+        "brief": "Para que el visitante entienda el recorrido de un libro, seguimos el ejemplar del depósito. Lo llevan al mostrador, donde registran el préstamo. De allí sale en la bolsa del lector. Al regresar al buzón de devoluciones, ese mismo ejemplar vuelve al depósito.",
+        "concepts": [
+          "El ejemplar",
+          "Depósito",
+          "Mostrador de préstamo",
+          "Bolsa del lector",
+          "Buzón de devoluciones",
+          "Regreso al depósito"
+        ]
+      }
+    ],
+    "confirm": [
+      {
+        "id": "c72",
+        "brief": "En el teatrillo de sombras, una rueda de cartón gira sobre una chincheta clavada en su centro. Tiene un solo agujero a tres centímetros de la chincheta. El punto de luz empieza a la derecha, pasa por arriba y termina a la izquierda cuando la rueda completa media vuelta.",
+        "concepts": [
+          "Rueda de cartón",
+          "Chincheta central",
+          "Agujero y punto de luz",
+          "Media vuelta"
+        ]
+      },
+      {
+        "id": "c19",
+        "brief": "La restauradora abre el estuche junto a la bandeja de fieltro. En la bandeja hay una cuenta negra y una blanca. Con las pinzas pasa la negra al estuche. Al cerrar el inventario, la blanca sigue en la bandeja.",
+        "concepts": [
+          "Bandeja de fieltro",
+          "Estuche",
+          "Cuenta negra",
+          "Cuenta blanca",
+          "Pinzas"
+        ]
+      },
+      {
+        "id": "c84",
+        "brief": "Los libros de una caja del archivo local llevan dos sellos en la misma guarda. Uno, ovalado, es de la escuela. El otro, cuadrado, es de la parroquia. Verlos juntos permite reconocer esa parte del fondo. Los inventarios no dicen cuál se estampó primero.",
+        "concepts": [
+          "Guarda del libro",
+          "Sello ovalado de la escuela",
+          "Sello cuadrado de la parroquia"
+        ]
+      },
+      {
+        "id": "c36",
+        "brief": "Después de diez minutos de secado, la alfarera revisó las tazas. Bajo el cobertizo ya estaban secas seis de las diez. En el patio estaban secas doce de las treinta. En el cuaderno de producción quiere anotar qué porcentaje de todas las tazas revisadas estaba seco.",
+        "rows": [
+          {
+            "lugar": "Cobertizo",
+            "secas": 6,
+            "revisadas": 10
+          },
+          {
+            "lugar": "Patio",
+            "secas": 12,
+            "revisadas": 30
+          }
+        ]
+      },
+      {
+        "id": "c55",
+        "brief": "En el refugio, los llaveros llevan un relieve para reconocer la puerta al tacto. Un triángulo identifica la despensa, dos rayas el cuarto de ropa y un círculo el botiquín. A quien llega por primera vez le damos una guía para escoger la llave correcta.",
+        "concepts": [
+          "Triángulo — despensa",
+          "Dos rayas — cuarto de ropa",
+          "Círculo — botiquín"
+        ]
+      }
+    ]
+  },
+  "criterios_iniciales": {
+    "version": "1.0",
+    "frozen_at": "2026-11-25 before generation",
+    "unit": "One script × one model × one director condition. Score blind to model, condition, ordering and batch identity. All 12 scripts are original synthetic educational examples. Do not award a score based solely on format or scene names.",
+    "axes": {
+      "D": "Direction, 0–3. One point each for prescribing R (an appropriate representation), E (case-specific facts and relations) and M (meaning-bearing motion, or explicitly purposeful restraint as specified for this case). Judge the authored direction before consulting the adapted artifact. A family name or generic adjective earns no point unless the choices are unambiguous.",
+      "A": "Adapted delivery, 0–3. Use the same three criteria independently on the actual executable artifact. R requires observable marks/objects or a readable semantic arrangement, E requires the case-specific evidence visibly encoded or labeled, M requires an observable change across times consistent with the specified relation, or purposeful restraint where an animation could imply something false. Merely repeating the script as a caption does not make the corresponding marks or motion present.",
+      "X": "Execution, binary. 1 if the deliverable identified by the adapter actually renders or plays without a fatal error and at least two sampled states are visible. 0 if missing, blank or broken. Score A=0 for missing or unrenderable artifacts. A standalone source spec, a prose recipe, a checker exit code, or an isolated still without independent evidence of execution is insufficient.",
+      "F": "Fatal semantic distortion, recorded separately for D and A. Record the explicit contradiction listed for the case; omissions alone are scored under E or M. A critical distortion disqualifies the corresponding strict pass, even if the artifact is attractive."
+    },
+    "counts": {
+      "direction_pass": "D_R=D_E=D_M=1 and no D_F.",
+      "artifact_pass": "X=1, A_R=A_E=A_M=1 and no A_F.",
+      "end_to_end_pass": "direction_pass and artifact_pass.",
+      "honest_partial": "A represented subset with explicit disclosure of missing information may earn points individually. If the rubric says unknowns are part of the intended conclusion, disclosure or an unmistakable visual absence is required for E. Missing adapter support honestly acknowledged earns no unjustified artifact points.",
+      "report": "For each model × condition report direction, renderable, artifact and end-to-end passes with integer counts and fixed denominator. List per-case R/E/M bits, fatal flag with reason, and one specific observation. Do not pool baseline and holdout into one percentage; report paired gains, losses and ties on same holdout/model. A logged departure from the rubric must be explicit. No comparisons to an unavailable baseline."
+    },
+    "inspection": "Keep model-facing prompts limited to the supplied brief and source facts. Keep direction and executable-adapter channels separately identifiable. Randomize aliases per case across arms; do not include model or arm names in review inputs. Check early/reveal/end frames in at least two distinct states, increasing temporal sampling or checking executable animation logic where interpolation, identity, timing or brief cueing matters. Where delivery is ambiguous inspect a frame at native resolution, compare exact tick positions or values and inspect marks in the source. Visible marks and labels control the score. Text evidence may strengthen a rendered explanation; unseen source metadata cannot replace it. Record timing/evidence paths for audit and note any missing media or visual verification.",
+    "cases": {
+      "d41": {
+        "R": "Common-scale rates for Feria and Tienda; aligned percentages, 100% parts, or equivalent ratios. Comparing counts alone is insufficient.",
+        "E": "Feria 9/30 = 30%; Tienda 16/80 = 20%; visible denominator grounding and feria identified or readily perceived as more frequent. Exact fractions and visually scaled shares are equivalent to explicit percentages.",
+        "M": "Expose the relationship of each returned subset to its own base, or reveal the two common-scale shares while names and bases remain paired. Keep final comparison legible.",
+        "F": "Calls 16/80 more frequent than 9/30; compares raw count heights as frequency; implies both totals equal."
+      },
+      "d73": {
+        "R": "Chronological positions and explicitly unobserved day; connected lines within observed spans, gapped lines, disconnected points, or aligned chronological readings eligible.",
+        "E": "3→42; 10→39; 17 missing; 24→31, with day ordering and centimeters legible.",
+        "M": "Progress by observation date; visually preserve or call attention to the interruption before revealing/resuming day 24. No carried or estimated observation.",
+        "F": "Shows a value (even zero) on day 17, or an unqualified continuous measured line across that day."
+      },
+      "d26": {
+        "R": "An identity-preserving before/after comparison for each named person on a commensurate scale. Paired bars, dumbbells, per-person arithmetic, or legible equivalent.",
+        "E": "Ada 8→5, Berta 6→7, Luz 4→4 kg. Increase is unambiguously Berta's; flat identity discernible.",
+        "M": "Track/reveal each person's paired endpoints/linked difference; preserve identity across the two conditions and make Berta's increase easy to follow.",
+        "F": "Pairs by rank or by a different identity; attributes increase to someone else; depicts Luz changing."
+      },
+      "d58": {
+        "R": "Equal independent entitlements connected to one card; hub/spokes, grouped items, or simultaneous alternatives with a common context.",
+        "E": "One card affords access to all three named destinations; no order, prerequisites or ranking.",
+        "M": "Card may be revealed first and independent options revealed together or separately; temporal order of presentation must not read as a route or gate.",
+        "F": "Arrows or ordinal cues send the user from one venue to the next, depict options as prerequisites, or add a hierarchy among siblings."
+      },
+      "d14": {
+        "R": "Spatial model of a 6×2 rectangle cut into two congruent 3×2 pieces, forming 3×4 by stacking. A before/after text comparison alone is insufficient.",
+        "E": "Both constituent pieces, their fit, start/end dimensions and unchanged area 12 cm² explicit or inferable. Consistent geometric scale.",
+        "M": "Track repositioning of the same pieces, or a stepwise cut/match/stack with stable identifying geometry. A camera move alone does not prove conservation.",
+        "F": "Gains/loses material, scales pieces during rearrangement as if sizes changed, or depicts the wrong resulting dimensions."
+      },
+      "d89": {
+        "R": "Mechanism or compact directed sequence with three distinct intelligible causal stages; sufficiently concrete diagram also valid.",
+        "E": "Lowering lever drives platen against paper, pressure leaves relief. The embossing is the endpoint; no ink or invented intermediate apparatus required.",
+        "M": "Time the lever, press/contact and resultant mark in dependency order; a moving causal cue traversing a faithful sequential diagram is eligible.",
+        "F": "Reverses the causal relation, places mark before press, or introduces incompatible printing mechanism."
+      },
+      "h67": {
+        "R": "Compare known filled shares on a common basis; third venue is partial information, distinguished from comparable rates.",
+        "E": "Mirador 24/60=40%, Candil 18/30=60%. Third known count 11 and missing base explicitly grounded, without a manufactured comparable share. Exact equivalent fractions qualify.",
+        "M": "Connect the known numerators to their respective bases or shares; visually mark where the third comparison stops before a rate can be shown.",
+        "F": "Promotes Mirador as fuller from raw totals, puts raw count 11 onto a shared percentage scale, or invents/zeroes Bruma's denominator or rate."
+      },
+      "h32": {
+        "R": "Time-indexed record with unequal spacing when using a metric x-axis; an explicitly labeled chronological table or calendar is also valid. Absence and observed zero distinguished.",
+        "E": "0 min→0 mm, 5→2, 15 unknown, 35→9. Correct minutes, heights and source of interruption via visual evidence or contemporaneous label.",
+        "M": "Temporal reading advances through the observed beginning and the missing reading to the resumed one; no made-up growth through the gap; timeline positions reflect intervals if spatial time is claimed.",
+        "F": "Depicts missing reading as measured 0/interpolated value, silently draws continuous observed growth across the missing interval, or treats the initial measured zero as missing."
+      },
+      "h94": {
+        "R": "Shows the closed/open readings paired within each house, using a consistent mapping/scale; group comparisons or sorted lists without pairing are insufficient.",
+        "E": "Olmo 38→46 dB, Junco 52→45 dB, Hiedra 44→44 dB. The decrease is Junco's, with other directions ascertainable.",
+        "M": "Opening/reveal condition preserves each house identity, shows rise/fall/unchanged and draws attention to the decrease. Linked before/after endpoints are eligible.",
+        "F": "Cross-pairs houses by rank; claims a fall for Olmo or Hiedra; uses a blanket causal claim that opening lowers noise across the houses."
+      },
+      "h51": {
+        "R": "Co-occurrence within a common context; parallel observations, common enclosure or undirected relation appropriate. Avoid fake numeric charts.",
+        "E": "Both groups appear at the pond on some same afternoons; no frequency, direction, or causation purported. Ground overlap in place and time.",
+        "M": "Reveal shared context or temporal overlap while preserving independence; static/aligned groups with a shared occasion highlighted qualify.",
+        "F": "Directional attraction, following, cause, ordered steps from one group to the other, or invented frequencies/times/counts presented as observations. Decorative icons are fine unless their quantity is used quantitatively."
+      },
+      "h08": {
+        "R": "Represent a pivoted segment/arrow with an identifiable star at fixed radial distance, cardinal orientation and a 90-degree path.",
+        "E": "Fixed pivot; initial north and final east; star sits at 4 cm in both orientations. The image makes its constant radius intelligible.",
+        "M": "Visible isometric quarter rotation around the same pivot; a short series of equidistant star positions on a quarter-circle with directional cue also qualifies.",
+        "F": "Star takes a straight chord through the interior, radius visibly changes during apparent physical movement, pivot translates, or rotation direction/endpoints wrong."
+      },
+      "h76": {
+        "R": "A directed route/loop or staged set of locations retaining the same identifiable book.",
+        "E": "Depósito→mostrador (loan recorded)→lector's bag→return box→same depósito. Source/destination and return leg are legible.",
+        "M": "Follow one book or advancing token/trace in order including return; location nodes may be abstract if labeled.",
+        "F": "Shows independent books where one is tracked, breaks/reverses a transfer, or presents the closed route as an unordered list."
+      }
+    }
+  },
+  "criterios_confirmacion": {
+    "version": "1.0 confirmation, frozen before release iteration",
+    "unit": "One script × model × release. Use fixed original axes and counts in rubric-private.json, SHA256 6f1c2bfd2aa6f8297fac080135df3fbcbada05590ce637794a09d2a5c3184aee. Five per model. Review plan first; review rendered frames with early/mid/final state and choose further sampled times from encoded film when ambiguous. End-to-end pass requires D=111, A=111, X=1, no fatal contradiction in either channel. Incomplete handoffs may earn authored points only. Action can be abstract or static where specified; a generic progressive reveal never suffices by itself.",
+    "cases": {
+      "c72": {
+        "R": "A real or schematic central wheel, pivot, and identifiable mark with a clearly determined semicircular locus from right to left above the pivot. Absolute pixel dimensions and a photographic asset are unnecessary.",
+        "E": "The one mark starts right 3 cm from the fixed center, reaches the upper side, and finishes the same distance left on completing half a turn. Distance, half-turn and relative placements may be conveyed by labels plus measured geometry.",
+        "M": "Track the mark in a counterclockwise upper half-turn at constant radius about that pivot, or explicitly show linked intermediate points on that upper semicircle. At least one observable top-side intermediate state; a straight crossfade or horizontal slide is insufficient.",
+        "F": "Motion crosses the pivot or follows the lower half, pivots about a different point, changes radius as physical motion, or introduces a second hole."
+      },
+      "c19": {
+        "R": "Depict two distinct storage locations and two identifiable beads, or a compact nested membership display in which the same bead can transfer. Labels alone without membership states are insufficient.",
+        "E": "Both beads start in the felt tray. Only the black bead ends in the case; the white bead stays in the tray. A stylized labeled bead is acceptable. Tweezers need not be drawn if the manual transfer is clear.",
+        "M": "Follow the black bead or an equivalent persistent identity token from source to target. Keep the white bead visibly anchored as a reference; permit discrete source/destination views if persistent coding and a transfer cue establish identity.",
+        "F": "Transfers both beads, moves the white one instead, implies copying a bead into the case while it remains in the tray, or moves the storage locations as if they were the transferred object."
+      },
+      "c84": {
+        "R": "One common endpaper containing two independent marks, or an undirected grouped composition with explicit shared endpaper. Shape or literal shape labels may distinguish the marks.",
+        "E": "Oval belongs to the school, square to the parish, both on the same endpaper. Makes the coexistence intelligible; order is unspecified. Exact dates, frequency, and book count are unnecessary.",
+        "M": "Allow purposeful stillness, a shared highlight, or independent reveals without sequential stamping action. Do not imply a historical order by animating one stamp being physically applied and then the other.",
+        "F": "Suggests the school caused the parish mark, asserts stamping order, puts them on different endpapers, or exchanges the identities of the seals."
+      },
+      "c36": {
+        "R": "Pool counts across the two lots and then divide by all reviewed cups. A count-based visual sum, a clearly laid-out equation with group inputs, or size-proportional groups can all work.",
+        "E": "6 of 10 and 12 of 30 ground the calculation: 18 dry out of 40 reviewed, i.e. 45%. All quantities should be legible or unambiguously derivable from marks; an isolated 45% does not show the pooling.",
+        "M": "Transformation, reveal or highlighting leads from each lot's counts to the summed numerator/denominator and then the pooled percentage. Parallel bars of group rates alone do not answer the production question.",
+        "F": "Gives the unweighted average 50%, treats either group rate as the pooled rate, adds group percentages, or invents extra cups."
+      },
+      "c55": {
+        "R": "A readable lookup with a row, labeled pair or side-by-side tile per cue and door. The text labels themselves may serve as marks for this lookup.",
+        "E": "Triangle→pantry; two lines→linen room; circle→medicine cabinet. The three exact associations must be visible. A diagram may draw each relief, name it accurately, or do both.",
+        "M": "An immediately readable, deliberately still key is acceptable. If there is motion it must keep each cue paired with its correct door; a rowwise reveal or shared focus qualifies. No physical transfer, temporal sequence or quantitative scale is appropriate.",
+        "F": "Reassigns a cue to the wrong door, implies a route or prerequisite sequence through the rooms, or interprets the two lines as a door quantity."
+      }
+    }
+  }
+}

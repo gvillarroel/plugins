@@ -22,9 +22,12 @@ ALIASES = {
     "before": ("before","antes"), "after": ("after","despues"),
     "step": ("step","paso","etapa","stage"), "category": ("category","categoria"),
     "value": ("value","valor"), "unit": ("unit","unidad"),
+    "numerator": ("numerator","numerador"), "denominator": ("denominator","denominador"),
     "date": ("date","fecha"),
     "low": ("low","lower","min","minimo","inferior"), "high": ("high","upper","max","maximo","superior"),
-    "x": ("x",), "y": ("y","altura","height"), "t": ("t","tiempo","time"),
+    "x": ("x",), "y": ("y","altura","height"),
+    "t": ("t","tiempo","time","elapsed","elapsed time","elapsed minutes","minutes","minutos",
+          "day","dia","day of month","day-of-month","day_of_month","dia del mes"),
     "timeUnit": ("timeunit","unidad temporal","unidad_tiempo","time_unit"),
 }
 # These anchors are also useful to a specialist when the native scene would be too crowded.
@@ -37,8 +40,14 @@ DIRECTIONS = {
     "group-members": (12,"Cada grupo conserva un espacio identificable.","Dibuja los contenedores y deja que entren los miembros en su grupo."),
     "parallel-states": (13,"La identidad de cada fila permanece alineada en ambas columnas.","Abre las dos lecturas con encabezados constantes para cotejar sus diferencias."),
     "comparison": (None,"El cero, la unidad y la posición de cada categoría permanecen fijos.","Revela las categorías sobre la misma escala y conserva los valores finales."),
+    "peers": (None,"Las entidades ocupan posiciones equivalentes.","Mantén visibles las alternativas para que se puedan leer juntas."),
+    "co-occurrence": (None,"El lugar o intervalo observado permanece visible.","Introduce las observaciones en el mismo instante dentro del contexto compartido."),
 }
 CONTENT_FIELDS = {
+    "object-route": {"objectLabel","stops"},
+    "pivot-rotation": {"radius","unit","startAngle","sweepAngle"},
+    "rigid-rearrangement": {"unit","pieces"},
+    "contact-transfer": {"labels"},
     "interval-refinement": {"unit", "intervals"},
     "trajectory-trace": {"unit", "timeUnit", "samples"},
     "bit-probe": {"labels","bits"}, "token-gate":{"labels","tokens","requests"},
@@ -110,9 +119,23 @@ def compare(rows, fields, req):
 
 def dated_chart(rows, fields, req):
     profile=profile_rows(rows)
-    for role,key in (("date","dates"),("value","measures"),("unit","units")):
-        if role not in fields and len(profile[key])==1: fields[role]=profile[key][0]
-    require({"date","value"}<=fields.keys(), "Indica una fecha y la medida que debe trazarse.")
+    fields=dict(fields)
+    numeric_time="t" in fields and ("date" not in fields or "timeUnit" in req or "timeUnit" in fields)
+    coordinate="t" if numeric_time else "date"
+    if not numeric_time and "date" not in fields and len(profile["dates"])==1:
+        fields["date"]=profile["dates"][0]
+    for role,key,exclude in (("value","measures",fields.get(coordinate)),("unit","units",fields.get("timeUnit"))):
+        candidates=[name for name in profile[key] if name!=exclude]
+        if role not in fields and len(candidates)==1: fields[role]=candidates[0]
+    require({coordinate,"value"}<=fields.keys(), "Indica una fecha o un tiempo numérico y la medida que debe trazarse.")
+    require(fields[coordinate]!=fields["value"], "El tiempo y la medida deben ser columnas distintas.")
+    axis={}
+    if numeric_time:
+        time_units={label(r.get(fields["timeUnit"])) for r in rows} if "timeUnit" in fields else set()
+        if "timeUnit" in req: time_units.add(label(req["timeUnit"]))
+        require(len(time_units)==1, "La escala de tiempo numérica necesita una unidad temporal común (timeUnit).")
+        axis["timeUnit"]=time_units.pop()
+        require(len(axis["timeUnit"])<=48, "La unidad temporal supera 48 caracteres.")
     units={label(r.get(fields["unit"])) for r in rows} if "unit" in fields else set()
     if "unit" in req: units.add(label(req["unit"]))
     require(len(units)==1, "La serie necesita una unidad común.")
@@ -124,24 +147,33 @@ def dated_chart(rows, fields, req):
     require(duration>=2,"La serie necesita al menos dos segundos.")
     points=[]
     for r in rows:
-        day=r.get(fields["date"])
-        require(isinstance(day,str) and len(day)==10 and date.fromisoformat(day).isoformat()==day,
-                "Para el eje diario se necesitan fechas ISO completas.")
+        position=r.get(fields[coordinate])
+        if numeric_time:
+            position=number_value(position)
+            require(position is not None, "Cada observación necesita un tiempo numérico finito.")
+        else:
+            require(isinstance(position,str) and len(position)==10 and date.fromisoformat(position).isoformat()==position,
+                    "Para el eje diario se necesitan fechas ISO completas.")
         require(fields["value"] in r, "Falta la columna de medida en una observación.")
         raw=r[fields["value"]]
         missing=raw is None or isinstance(raw,str) and raw.strip().casefold() in MISSING
         v=None if missing else number_value(raw)
         require(missing or (v is not None and abs(v)<=1e9), "La medida requiere un valor numérico del rango del productor, o un dato ausente.")
-        points.append(dict(date=day,value=v))
-    require(len({r["date"] for r in points})==len(points),"Hay varias medidas en la misma fecha. Identifica primero la serie.")
+        points.append({coordinate:position,"value":v})
+    require(any(r["value"] is not None for r in points),"La serie necesita al menos una medida observada.")
+    duplicate="el mismo instante" if numeric_time else "la misma fecha"
+    require(len({r[coordinate] for r in points})==len(points),f"Hay varias medidas en {duplicate}. Identifica primero la serie.")
+    points.sort(key=lambda r:r[coordinate])
+    if numeric_time:
+        require(math.isfinite(points[-1]["t"]-points[0]["t"]),"El intervalo temporal debe ser finito.")
     return dict(kind="time-series",id="serie",title=title,unit=unit,locale="es-ES",duration=duration,revealObservations=True,
-                observations=sorted(points,key=lambda r:r["date"]))
+                observations=points,**axis)
 
 
 def adapt(req):
     from study_direction import find_direction
     from study_layouts import grouped_rows, parallel_rows
-    require(isinstance(req,dict) and set(req)<={"brief","rows","fields","data","content","intent","concepts","unit","focus","title","duration","narration"},
+    require(isinstance(req,dict) and set(req)<={"brief","rows","fields","data","content","intent","concepts","unit","timeUnit","focus","title","duration","narration","conceptRelation","context","staging"},
             "La solicitud contiene campos desconocidos.")
     brief=req.get("brief","")
     require(isinstance(brief,str),"brief debe ser texto.")
@@ -154,10 +186,22 @@ def adapt(req):
     require(inputs<=1,"Usa una sola fuente entre rows, data, concepts y content.")
     duration=req.get("duration",6)
     require(type(duration) in (int,float) and math.isfinite(duration) and duration>0,"duration debe ser un tiempo positivo.")
-    for k in ("title","unit","focus"):
+    for k in ("title","unit","timeUnit","focus"):
         if k in req: label(req[k])
+    concept_relation = req.get("conceptRelation")
+    if "conceptRelation" in req:
+        require("concepts" in req and concept_relation in ("sequence","fan-in","fan-out","peers","co-occurrence","spatial-action"),
+                "conceptRelation requiere conceptos y una relación reconocida.")
+    if "context" in req:
+        require(concept_relation=="co-occurrence","context identifica el lugar o intervalo compartido de una coincidencia.")
+        label(req["context"])
     fields=columns_for(rows,req.get("fields",{}))
-    choices=recommend(brief, rows or None, req.get("intent"))
+    intent=req.get("intent")
+    if not intent and isinstance(req.get("content"), dict) and CONTENT_FIELDS["object-route"] <= req["content"].keys():
+        intent="object-route"
+    if not intent and not brief.strip() and isinstance(req.get("content"),dict) and CONTENT_FIELDS["pivot-rotation"] <= req["content"].keys():
+        intent="pivot-rotation"
+    choices=recommend(brief, rows or None, intent)
     choice=choices["recommendation"] or {}
     question=choices["question"]
     kind=choice.get("id")
@@ -165,6 +209,7 @@ def adapt(req):
     producer=choice.get("producer","reference-motion")
     status="needs-input"
     props=artifact=None
+    chart=None
     if choice.get("kind")=="static":
         status="static"
     elif "content" in req:
@@ -172,29 +217,69 @@ def adapt(req):
         require(isinstance(content,dict),"content debe ser un objeto.")
         if kind in CONTENT_FIELDS and CONTENT_FIELDS[kind]<=content.keys():
             props={**content,"duration":duration}
-            if kind in ("interval-refinement","trajectory-trace") and req.get("title"):
+            if kind in ("interval-refinement","trajectory-trace","contact-transfer","rigid-rearrangement","pivot-rotation","object-route") and req.get("title"):
                 props.setdefault("title",req["title"])
             check_props(kind,props,set())
             artifact=kind
+        elif kind == "pivot-rotation":
+            question="Aporta unit, radius, startAngle y sweepAngle en content. Usa grados y elige orientación cartesian o compass."
+        elif kind == "object-route":
+            question="Aporta el nombre del objeto en content.objectLabel y sus visitas ordenadas en content.stops."
         else:
             question=choice.get("next_step") or question or "Indica la relación y los parámetros del mecanismo."
     elif "concepts" in req:
-        # The writer supplies a real, explicitly ordered list extracted from the brief.
         concepts=req["concepts"]
-        require(isinstance(concepts,list) and len(concepts)>=2,"concepts requiere al menos dos etapas en orden.")
+        require(isinstance(concepts,list) and len(concepts)>=2,"concepts requiere al menos dos entidades.")
         names=[label(c) for c in concepts]
         require(len(set(names))==len(names),"Para ciclos o etapas repetidas usa conexiones con identidad explícita.")
-        if choice.get("fit") == "study-direction":
+        if kind == "pivot-rotation":
+            question="Aporta el radio, su unidad, el ángulo de partida y los grados de giro en content."
+        elif concept_relation == "spatial-action":
+            relation,status,producer = "spatial-action","specialist","line-world-hyperframes"
+            question = "Dibuja las piezas en sus poses de partida y llegada sobre una escala fija. Anima únicamente el movimiento físico respaldado por el guion."
+        elif choice.get("fit") == "study-direction" and not concept_relation:
             status, question = "specialist", choice["next_step"]
+        elif kind in ("rigid-rearrangement","contact-transfer"):
+            question = ("Introduce las dimensiones y poses de cada pieza en content.pieces." if kind=="rigid-rearrangement"
+                        else "Asigna accionador, pieza impulsada, material y efecto a content.labels.")
         elif kind in ("trajectory-trace","interval-refinement"):
             question = "La escena necesita observaciones numéricas con sus unidades."
-        else:
-            relation="sequence"
+        elif concept_relation == "co-occurrence":
+            relation = concept_relation
+            if req.get("context"):
+                try:
+                    props = grouped_rows([{"item":n,"context":req["context"]} for n in names],
+                                         {"item":"item","group":"context"},duration)
+                    for node in props["nodes"][1:]:
+                        node["enter"] = [.18,.42]
+                    artifact = "staged-network"
+                except ValueError as e:
+                    status,producer,question="specialist","line-world-mermaid",str(e)
+            else:
+                question = "Identifica en context el lugar, ocasión o intervalo observado en común."
+        elif concept_relation == "peers":
+            from study_layouts import peer_nodes
+            relation = "peers"
             try:
-                props=network(list(zip(names,names[1:])),relation,duration)
+                props=peer_nodes(names,duration)
                 artifact="staged-network"
             except ValueError as e:
                 status,producer,question="specialist","line-world-mermaid",str(e)
+        elif concept_relation or match(r"etapas?|pasos?|secuencia|en orden|stages?|steps?|in order|sequence",normalize(brief)) or not brief.strip():
+            relation=concept_relation or "sequence"
+            if relation == "fan-in":
+                pairs=[(name,names[-1]) for name in names[:-1]]
+            elif relation == "fan-out":
+                pairs=[(names[0],name) for name in names[1:]]
+            else:
+                pairs=list(zip(names,names[1:]))
+            try:
+                props=network(pairs,relation,duration)
+                artifact="staged-network"
+            except ValueError as e:
+                status,producer,question="specialist","line-world-mermaid",str(e)
+        else:
+            question = "Identifica qué conecta estas entidades en el guion y asigna conceptRelation o una acción física con sus piezas."
     elif rows:
         # The question takes precedence over a coincidental numerical or graph structure.
         qualitative_pair={"before","after","item"}<=fields.keys() and all(
@@ -202,7 +287,20 @@ def adapt(req):
             for r in rows for role in ("before","after"))
         learned=choices.get("study_directions",[])
         specific=learned[0].get("relation") if learned else None
-        if kind == "trajectory-trace":
+        rate = {"category","numerator","denominator"} <= fields.keys()
+        paired = {"item","before","after"} <= fields.keys() and not qualitative_pair
+        if (rate or paired) and req.get("intent") in (None, "compare-categories", "paired-change"):
+            from measured_comparison import measured_chart
+            relation = "rate-comparison" if rate else "paired-change"
+            status,producer = "specialist","line-world-d3"
+            try:
+                chart = measured_chart(rows, fields, req, relation)
+                question = None
+            except ValueError as exc:
+                question = str(exc)
+        elif kind == "pivot-rotation":
+            question = choice["next_step"]
+        elif kind == "trajectory-trace":
             if {"x","y","t","timeUnit"} <= fields.keys():
                 time_units = {label(r.get(fields["timeUnit"])) for r in rows}
                 units = {label(r.get(fields["unit"])) for r in rows} if "unit" in fields else set()
@@ -230,6 +328,8 @@ def adapt(req):
                 artifact = kind
             else:
                 question = "Indica el orden, la etapa, el límite inferior, el superior y su unidad común."
+        elif {"t","value"}<=fields.keys() and req.get("intent") in (None,"trend") and ("timeUnit" in req or "timeUnit" in fields):
+            status,producer,relation="specialist","line-world-d3","time-series-reveal"
         elif not kind and {"date","value"}<=fields.keys() and choices["decision"]!="ambiguous":
             status,producer,relation="specialist","line-world-d3","time-series-reveal"
         elif specific in {"stacked-category-comparison","time-series-reveal","count-threshold","progressive-table"} and not req.get("intent"):
@@ -281,7 +381,7 @@ def adapt(req):
             elif "step" in fields and "order" in fields:
                 ordered_names=[label(r.get(fields["step"])) for r in ordered(rows,fields)]
                 return adapt({**{k:v for k,v in req.items() if k not in {"rows","data","fields"}},
-                              "concepts":ordered_names})
+                              "concepts":ordered_names,"conceptRelation":"sequence"})
             elif kind=="data-chart" or ({"category","value"}<=roles and not kind and choices["decision"]!="ambiguous"):
                 profile=profile_rows(rows)
                 for role,key in (("value","measures"),("category","categories"),("unit","units")):
@@ -295,6 +395,8 @@ def adapt(req):
                         status,producer,question="specialist","line-world-d3",str(e)
                 else:
                     question="Indica las columnas que contienen la categoría y su medida."
+    elif kind == "pivot-rotation":
+        question=choice["next_step"]
     elif choice.get("kind")=="specialist":
         status="specialist"
     if artifact:
@@ -335,6 +437,24 @@ def adapt(req):
                 reference=references[0] if references else None, references=references,
                 direction={"anchor":anchor,"motion":motion,"hold":recipe["scenes"][0]["hold"] if recipe else None},
                 fields=fields,question=question,alternatives=choices["alternatives"])
+    if chart:
+        report["d3_chart"] = chart
+        report["direction"]["anchor"] = ("Cada grupo conserva su fila y su base visible." if rate else
+            "Cada entidad conserva su fila y ambos extremos comparten una escala.")
+        report["direction"]["motion"] = ("Destaca la frecuencia sobre el mismo cero mientras se leen los recuentos." if rate else
+            "Deja el primer extremo marcado y recorre el segmento hasta el segundo. Mantén visibles ambos valores.")
+    if "staging" in req:
+        from staging_notes import read_staging
+        report["direction"]["staging"] = read_staging(brief,req["staging"])
+    if status=="static" and rows and "narration" not in req:
+        from study_layouts import lookup_table
+        try:
+            table = lookup_table(rows,req.get("unit"),1)
+            check_props("staged-network",table,set())
+            report["static_scene"] = {"version":1,"scenes":[dict(id="tabla",artifact="staged-network",props=table,
+                hold=max(duration,math.ceil(words(table)/3)))]}
+        except ValueError as exc:
+            report["question"] = str(exc)
     from analyze_pose_mentions import timing_reference
     measured=timing_reference(report["reference"])
     if measured: report["direction"]["voice_pose_reference"]=measured
@@ -346,7 +466,7 @@ def adapt(req):
         except ValueError as exc:
             report["question"]=str(exc)
     if "narration" in req:
-        from narration_poses import bind, cue_list
+        from narration_poses import bind, cue_list, name
         from motion_recipe import DIAGRAM_KINDS
         narration=req["narration"]
         if recipe and artifact in DIAGRAM_KINDS:
@@ -355,6 +475,28 @@ def adapt(req):
             duration,cues=cue_list(narration)
             report["narration"]={"status":"handoff","duration_s":duration,"cues":cues,
                                  "note":"El productor de esta representación recibe marcas para dirigir sus propias poses."}
+            if chart and chart["encoding"] in ("rate-comparison","paired-change") and duration>=2:
+                windows=[]
+                audit=[]
+                for cue in cues:
+                    target=cue["target"]
+                    matches=[r for r in chart["records"] if r["id"]==target] or [
+                        r for r in chart["records"] if name(r["label"])==name(target)]
+                    start=cue["visual_s"]
+                    end=start+cue.get("hold_s",min(.8,duration-start))
+                    if (cue.get("role")!="emphasis" or "pose" in cue or len(matches)!=1
+                            or end>duration+1e-9 or end-start<1/24-1e-9):
+                        break
+                    identity=matches[0]["id"]
+                    windows.append({"target":identity,"start":start,"end":min(end,duration)})
+                    audit.append({**cue,"target_id":identity,"end_s":min(end,duration),
+                                  "frame":math.ceil(start*24-1e-9),"check":"row-emphasis"})
+                else:
+                    windows.sort(key=lambda w:w["start"])
+                    if all(a["end"]<=b["start"] for a,b in zip(windows,windows[1:])):
+                        chart.update(duration=duration,focusCues=windows)
+                        report["narration"]={"status":"bound","fps":24,"duration_s":duration,"cues":audit,
+                            "timing_source":narration.get("timing_source","Marcas suministradas por el autor")}
             if recipe:
                 report.update(status="specialist",producer="line-world-d3" if artifact=="data-chart" else "line-world-hyperframes",
                               input=req)

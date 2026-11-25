@@ -74,7 +74,7 @@ En `module-transfer`, `highlightIndex` elige la fila del inventario contando des
 
 El generador y la galería cargan el dibujo automáticamente. Para invocarlo directamente desde Canvas, incluye [motion.js](../assets/motion.js) y [diagram-motion.js](../assets/diagram-motion.js) antes de llamar a `LineWorldMotion.artifact(ctx, id, seconds, props, options)`. Mover el reloj hacia atrás recupera la pose de ese instante.
 
-Para las nueve composiciones de sistemas, carga también [systems-motion.js](../assets/systems-motion.js). Puedes editar los centros de una red, el sentido de los mensajes, los índices consultados o la cantidad de fichas según la pregunta. El [estudio de ByteByteGo](bytebytego-study.md) describe los parámetros y enlaza las veinte precomposiciones.
+Para las nueve composiciones de sistemas, carga también [systems-motion.js](../assets/systems-motion.js). Puedes editar los centros de una red, el sentido de los mensajes, los índices consultados o la cantidad de fichas según la pregunta. [Receta de diagramas editables](../assets/diagramas-bytebytego.json)
 
 ### Fotografías y tomas en movimiento
 

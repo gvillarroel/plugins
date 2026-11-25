@@ -4,7 +4,8 @@ from copy import deepcopy
 import sys
 
 sys.dont_write_bytecode=True
-from motion_recipe import asset_descriptor, compile_recipe
+from motion_recipe import asset_descriptor, check_props, compile_recipe
+from narration_poses import bind, pose_at
 
 
 class AssetTests(unittest.TestCase):
@@ -30,6 +31,30 @@ class RecipeTests(unittest.TestCase):
 
     def compile(self):
         return compile_recipe(self.spec,self.defaults,{"cut","push-left","push-down","iris-fill"})
+
+    def test_rigid_rearrangement_contract_and_decimal_edge_contact(self):
+        valid = dict(unit="mm",pieces=[
+            {"id":"a","label":"A","width":.2,"height":.25,"from":[.1,0],"to":[.1,0]},
+            {"id":"b","label":"B","width":.2,"height":.25,"from":[.3,0],"to":[.1,.25]}])
+        check = lambda p: check_props("rigid-rearrangement",p,set())
+        check(valid)
+        for field,value in [
+            ("id","a"),("label",""),("from",[.29,.1]),("to",[.1,.24]),("to",[.3,0]),
+            ("height",0),("width",-1),("height",True),("height",float("inf")),("width",1e-320),
+            ("from",[0]),("from",[0,float("nan")]),("to","0,2"),("rotation",90)]:
+            props = deepcopy(valid)
+            props["pieces"][1][field] = value
+            with self.subTest(field=field,value=value), self.assertRaises(ValueError):
+                check(props)
+        for edit in ({"unit":" "},{"pieces":[]},{"pieces":valid["pieces"][:1]}):
+            with self.assertRaises(ValueError):
+                check({**valid,**edit})
+        scene = {"artifact":"rigid-rearrangement","props":deepcopy(valid)}
+        cues = [{"target":"arrangement","role":r,"mention_s":t} for r,t in
+                [("context",.2),("action",1),("result",4.01)]]
+        audit = bind(scene, {"duration_s":6,"cues":cues}, 24)
+        for cue,position in zip(audit["cues"],[0,.1,.88]):
+            self.assertAlmostEqual(pose_at(scene["props"]["poseClock"],cue["frame"]/144),position)
 
     def metric_scenes(self, count):
         self.spec["scenes"] = [{"id":f"dato-{i}", "artifact":"metric-callout",
