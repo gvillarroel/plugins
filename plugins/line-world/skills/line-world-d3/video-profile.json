@@ -2,7 +2,7 @@
   "name": "line-world-d3",
   "sourceSkill": "d3",
   "sourceInstructionSha256": "97c91ded1a13617c5a3afe7fc8371108fc65a4ba36c34158faa113dedde7eef8",
-  "profileSha256": "5804635379479d614ccabade493945898934cb73a3db8ee1aa9433e107ad217a",
+  "profileSha256": "f5bab8d1972e14b90e6b5535c02a5ecda8ec1c4252bb4ceb8770f923a0ff6ac8",
   "sharedContractSha256": "73b40cf2c1be91e0e85e2fc3c796ce6fe1f38a0bab62a20f79ec1fe7f25b2d38",
   "attentionRuntimeSha256": "0b610c5454faa4d2365f2e9901390781c1c4d658f4c9c666deaff0106b918f46",
   "focusRuntimeSha256": "d21fb40c114547121d2135c06f0faf9f6d66f005e17c2b3fe060d2c3f9f47b32",
@@ -30,9 +30,9 @@
     "Add the bounded video table/comparison builder and browser exporter."
   ],
   "chartFiles": {
-    "scripts/video_chart.py": "a181b2fe9ebab244075fba953a604e5b6df7d48924c7e27b64a04fe33a499e38",
-    "assets/templates/video-chart.html": "f2f90e880822e57d6fb901ff1739206e6b4227834304eaad7bf44ff1c3483787",
-    "scripts/video_chart_audit.js": "102e099a96c2efe28272c294980e506a99ca377169782f7f383b97585726361f",
-    "scripts/video_chart_motion_audit.js": "f1d2ba4cc8397faaf0811fb721d5baf23bd707f03e7fd6cd742158f9cb74f664"
+    "scripts/video_chart.py": "8c881f71d59a539e3d53d6c73b21d3af86bda8b78acd61219493055b869773e6",
+    "assets/templates/video-chart.html": "ada00c47c610097a9751fe47aca87001b9dea2897abb58265bc0180f26278e8f",
+    "scripts/video_chart_audit.js": "843693a766e242d3b8288eb8b9768b6471397608b899bab2d354b71095cf5e50",
+    "scripts/video_chart_motion_audit.js": "87f8ecb06f77113f161d3702f84d9de43f088e23c61b7e3755b6c23f4948b792"
   }
 }
